@@ -1,0 +1,40 @@
+build
+build-translations/*
+node_modules/*
+npm-debug.log
+.DS_Store
+opp_frontend/*
+.reify-cache
+
+# Python stuff
+*.py[cod]
+*.egg
+*.egg-info
+
+# venv stuff
+pyvenv.cfg
+pip-selfcheck.json
+venv
+.venv
+lib
+bin
+dist
+
+# vscode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Cast dev settings
+src/cast/dev_const.ts
+
+# Secrets
+.lokalise_token
+yarn-error.log
+
+#asdf
+.tool-versions
+
+# Open Peer Power config
+/config

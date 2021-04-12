@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open Peer Power</title>
+    <link rel="modulepreload" href="<%= latestPageJS %>" crossorigin="use-credentials" />
+    <%= renderTemplate('_header') %>
+    <style>
+      .content {
+        padding: 20px 16px;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .header {
+        font-size: 1.96em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 300;
+      }
+
+      .header img {
+        margin-right: 16px;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #111111;
+          color: #e1e1e1;
+          --primary-text-color: #e1e1e1;
+          --secondary-text-color: #9b9b9b;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <img src="/static/icons/favicon-192x192.png" height="52" />
+        Open Peer Power
+      </div>
+      <ha-authorize><p>Initializing</p></ha-authorize>
+    </div>
+
+    <%= renderTemplate('_js_base') %>
+    <%= renderTemplate('_preload_roboto') %>
+
+    <script crossorigin="use-credentials">
+      import("<%= latestPageJS %>");
+      window.latestJS = true;
+      window.providersPromise = fetch("/auth/providers", {
+        credentials: "same-origin",
+      });
+    </script>
+
+    <script>
+      (function() {
+        if (!window.latestJS) {
+          <% if (useRollup) { %>
+            _ls("/static/js/s.min.js").onload = function() {
+              System.import("<%= es5PageJS %>");
+            }
+          <% } else { %>
+            _ls("<%= es5PageJS %>");
+          <% } %>
+        }
+      })();
+    </script>
+  </body>
+</html>

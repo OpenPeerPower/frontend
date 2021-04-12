@@ -1,0 +1,10 @@
+build
+build-translations/*
+translations/*
+node_modules/*
+opp_frontend/*
+pip-selfcheck.json
+
+# vscode
+.vscode/*
+!.vscode/extensions.json

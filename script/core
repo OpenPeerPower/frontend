@@ -1,0 +1,55 @@
+#!/bin/sh
+# Helper to start Open Peer Power Core inside the devcontainer
+
+# Stop on errors
+set -e
+
+if [ -z "${DEVCONTAINER}" ]; then
+  echo "This task should only run inside a devcontainer, for local install OP Core in a venv."
+  exit 1
+fi
+
+if [ ! -z "${CODESPACES}" ]; then
+  WORKSPACE="/root/workspace/frontend"
+else
+  WORKSPACE="/workspaces/frontend"
+fi
+
+if [ -z $(which opp) ]; then
+  echo "Installing Home Asstant core from dev."
+  python3 -m pip install --upgrade \
+    colorlog \
+    git+git://github.com/openpeerpower/openpeerpower.git@dev
+fi
+
+if [ ! -d "${WORKSPACE}/config" ]; then
+  echo "Creating default configuration."
+  mkdir -p "${WORKSPACE}/config";
+  opp --script ensure_config -c config
+  echo "demo:
+
+logger:
+  default: info
+  logs:
+    openpeerpower.components.frontend: debug
+" >> "${WORKSPACE}/config/configuration.yaml"
+
+  if [ ! -z "${OPPIO}" ]; then
+  echo "
+# frontend:
+#   development_repo: ${WORKSPACE}
+
+oppio:
+  development_repo: ${WORKSPACE}" >> "${WORKSPACE}/config/configuration.yaml"
+  else
+  echo "
+frontend:
+  development_repo: ${WORKSPACE}
+
+# oppio:
+#   development_repo: ${WORKSPACE}" >> "${WORKSPACE}/config/configuration.yaml"
+  fi
+
+fi
+
+opp -c "${WORKSPACE}/config"

@@ -1,0 +1,111 @@
+import {
+  css,
+  CSSResult,
+  customElement,
+  html,
+  internalProperty,
+  LitElement,
+  property,
+  PropertyValues,
+  TemplateResult,
+} from "lit-element";
+import { computeStateDisplay } from "../../../common/entity/compute_state_display";
+import { UNAVAILABLE_STATES } from "../../../data/entity";
+import { ActionHandlerEvent } from "../../../data/lovelace";
+import { SENSOR_DEVICE_CLASS_TIMESTAMP } from "../../../data/sensor";
+import { OpenPeerPower } from "../../../types";
+import { EntitiesCardEntityConfig } from "../cards/types";
+import { actionHandler } from "../common/directives/action-handler-directive";
+import { handleAction } from "../common/handle-action";
+import { hasAction } from "../common/has-action";
+import { hasConfigOrEntityChanged } from "../common/has-changed";
+import "../components/hui-generic-entity-row";
+import "../components/hui-timestamp-display";
+import { createEntityNotFoundWarning } from "../components/hui-warning";
+import { TimestampRenderingFormats } from "../components/types";
+import { LovelaceRow } from "./types";
+
+interface SensorEntityConfig extends EntitiesCardEntityConfig {
+  format?: TimestampRenderingFormats;
+}
+
+@customElement("hui-sensor-entity-row")
+class HuiSensorEntityRow extends LitElement implements LovelaceRow {
+  @property({ attribute: false }) public opp?: OpenPeerPower;
+
+  @internalProperty() private _config?: SensorEntityConfig;
+
+  public setConfig(config: SensorEntityConfig): void {
+    if (!config) {
+      throw new Error("Invalid configuration");
+    }
+    this._config = config;
+  }
+
+  protected shouldUpdate(changedProps: PropertyValues): boolean {
+    return hasConfigOrEntityChanged(this, changedProps);
+  }
+
+  protected render(): TemplateResult {
+    if (!this._config || !this.opp) {
+      return html``;
+    }
+
+    const stateObj = this.opp.states[this._config.entity];
+
+    if (!stateObj) {
+      return html`
+        <hui-warning>
+          ${createEntityNotFoundWarning(this.opp, this._config.entity)}
+        </hui-warning>
+      `;
+    }
+
+    return html`
+      <hui-generic-entity-row .opp=${this.opp} .config=${this._config}>
+        <div
+          class="text-content"
+          @action=${this._handleAction}
+          .actionHandler=${actionHandler({
+            hasHold: hasAction(this._config.hold_action),
+            hasDoubleClick: hasAction(this._config.double_tap_action),
+          })}
+        >
+          ${stateObj.attributes.device_class ===
+            SENSOR_DEVICE_CLASS_TIMESTAMP &&
+          !UNAVAILABLE_STATES.includes(stateObj.state)
+            ? html`
+                <hui-timestamp-display
+                  .opp=${this.opp}
+                  .ts=${new Date(stateObj.state)}
+                  .format=${this._config.format}
+                ></hui-timestamp-display>
+              `
+            : computeStateDisplay(
+                this.opp!.localize,
+                stateObj,
+                this.opp.locale
+              )}
+        </div>
+      </hui-generic-entity-row>
+    `;
+  }
+
+  private _handleAction(ev: ActionHandlerEvent) {
+    handleAction(this, this.opp!, this._config!, ev.detail.action);
+  }
+
+  static get styles(): CSSResult {
+    return css`
+      div {
+        text-align: right;
+      }
+    `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "hui-sensor-entity-row": HuiSensorEntityRow;
+  }
+}

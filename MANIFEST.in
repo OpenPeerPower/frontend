@@ -1,0 +1,5 @@
+include README.md
+include LICENSE.md
+graft opp_frontend
+graft opp_frontend_es5
+recursive-exclude * *.py[co]

@@ -1,0 +1,74 @@
+import { OppEntity } from "open-peer-power-js-websocket/dist/types";
+import { customElement } from "lit-element";
+import { OpenPeerPower } from "../../../types";
+import { findEntities } from "../common/find-entities";
+import { GraphHeaderFooterConfig } from "../header-footer/types";
+import { LovelaceCardEditor } from "../types";
+import { HuiEntityCard } from "./hui-entity-card";
+import { EntityCardConfig, SensorCardConfig } from "./types";
+
+@customElement("hui-sensor-card")
+class HuiSensorCard extends HuiEntityCard {
+  public static async getConfigElement(): Promise<LovelaceCardEditor> {
+    await import("../editor/config-elements/hui-sensor-card-editor");
+    return document.createElement("hui-sensor-card-editor");
+  }
+
+  public static getStubConfig(
+    opp: OpenPeerPower,
+    entities: string[],
+    entitiesFallback: string[]
+  ): SensorCardConfig {
+    const includeDomains = ["sensor"];
+    const maxEntities = 1;
+    const entityFilter = (stateObj: OppEntity): boolean => {
+      return (
+        !isNaN(Number(stateObj.state)) &&
+        !!stateObj.attributes.unit_of_measurement
+      );
+    };
+
+    const foundEntities = findEntities(
+      opp,
+      maxEntities,
+      entities,
+      entitiesFallback,
+      includeDomains,
+      entityFilter
+    );
+
+    return { type: "sensor", entity: foundEntities[0] || "", graph: "line" };
+  }
+
+  public setConfig(config: SensorCardConfig): void {
+    if (!config.entity || config.entity.split(".")[0] !== "sensor") {
+      throw new Error("Specify an entity from within the sensor domain");
+    }
+
+    const { graph, detail, hours_to_show, ...cardConfig } = config;
+
+    const entityCardConfig: EntityCardConfig = {
+      ...cardConfig,
+      type: "entity",
+    };
+
+    if (graph === "line") {
+      const footerConfig: GraphHeaderFooterConfig = {
+        type: "graph",
+        entity: config.entity,
+        detail: detail || 1,
+        hours_to_show: hours_to_show || 24,
+      };
+
+      entityCardConfig.footer = footerConfig;
+    }
+
+    super.setConfig(entityCardConfig);
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "hui-sensor-card": HuiSensorCard;
+  }
+}
