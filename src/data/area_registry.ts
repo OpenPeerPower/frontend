@@ -1,5 +1,5 @@
-import { Connection, createCollection } from "open-peer-power-js-websocket";
-import { Store } from "open-peer-power-js-websocket/dist/store";
+import { Connection, createCollection } from "openpeerpower-js-websocket";
+import { Store } from "openpeerpower-js-websocket/dist/store";
 import { compare } from "../common/string/compare";
 import { debounce } from "../common/util/debounce";
 import { OpenPeerPower } from "../types";

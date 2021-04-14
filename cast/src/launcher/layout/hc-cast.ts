@@ -1,6 +1,6 @@
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-listbox/paper-listbox";
-import { Auth, Connection } from "open-peer-power-js-websocket";
+import { Auth, Connection } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

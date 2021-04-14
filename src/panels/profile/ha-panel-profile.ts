@@ -3,7 +3,7 @@ import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-item/paper-item-body";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResultArray,

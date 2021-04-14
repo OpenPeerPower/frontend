@@ -1,7 +1,7 @@
 import {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 
 export type HvacMode =
   | "off"

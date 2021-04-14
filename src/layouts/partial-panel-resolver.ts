@@ -3,7 +3,7 @@ import {
   STATE_NOT_RUNNING,
   STATE_RUNNING,
   STATE_STARTING,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { customElement, property, PropertyValues } from "lit-element";
 import { deepActiveElement } from "../common/dom/deep-active-element";
 import { deepEqual } from "../common/util/deep-equal";

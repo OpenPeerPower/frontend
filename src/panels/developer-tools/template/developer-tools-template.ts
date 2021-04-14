@@ -1,5 +1,5 @@
 import "@material/mwc-button/mwc-button";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResultArray,

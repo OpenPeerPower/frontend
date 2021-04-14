@@ -1,5 +1,5 @@
 /** Return an icon representing a cover state. */
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 
 export const coverIcon = (state?: string, stateObj?: OppEntity): string => {
   const open = state !== "closed";

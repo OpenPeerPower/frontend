@@ -1,5 +1,5 @@
 /** Return an icon representing a sensor state. */
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { FIXED_DEVICE_CLASS_ICONS, UNIT_C, UNIT_F } from "../const";
 import { batteryIcon } from "./battery_icon";
 

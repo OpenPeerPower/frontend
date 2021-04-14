@@ -5,7 +5,7 @@ import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-item/paper-item-body";
 import "@polymer/paper-listbox/paper-listbox";
 import "@polymer/paper-tooltip/paper-tooltip";
-import { OppEntity, UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { OppEntity, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

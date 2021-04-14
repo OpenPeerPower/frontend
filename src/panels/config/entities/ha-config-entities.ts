@@ -12,7 +12,7 @@ import "@polymer/paper-dropdown-menu/paper-dropdown-menu";
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-listbox/paper-listbox";
 import "@polymer/paper-tooltip/paper-tooltip";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -1,7 +1,7 @@
 import { assert } from "chai";
 
 import { featureClassNames } from "../../../src/common/entity/feature_class_names";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 
 describe("featureClassNames", () => {
   const classNames = {

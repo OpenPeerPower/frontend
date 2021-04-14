@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import durationToSeconds from "../datetime/duration_to_seconds";
 
 export const timerTimeRemaining = (

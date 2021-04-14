@@ -2,7 +2,7 @@ import { mdiContentSave } from "@mdi/js";
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-item/paper-item-body";
-import { OppEvent } from "open-peer-power-js-websocket";
+import { OppEvent } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

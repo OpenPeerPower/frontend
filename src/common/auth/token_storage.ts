@@ -1,4 +1,4 @@
-import { AuthData } from "open-peer-power-js-websocket";
+import { AuthData } from "openpeerpower-js-websocket";
 
 const storage = window.localStorage || {};
 

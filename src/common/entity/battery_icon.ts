@@ -1,5 +1,5 @@
 /** Return an icon representing a battery state. */
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 
 export const batteryIcon = (
   batteryState: OppEntity,

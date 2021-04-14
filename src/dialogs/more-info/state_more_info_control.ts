@@ -1,4 +1,4 @@
-import type { OppEntity } from "open-peer-power-js-websocket";
+import type { OppEntity } from "openpeerpower-js-websocket";
 import {
   DOMAINS_HIDE_MORE_INFO,
   DOMAINS_WITH_MORE_INFO,

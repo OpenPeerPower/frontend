@@ -1,4 +1,4 @@
-import { OppEntities } from "open-peer-power-js-websocket";
+import { OppEntities } from "openpeerpower-js-websocket";
 import { customElement, property, PropertyValues } from "lit-element";
 import memoizeOne from "memoize-one";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";

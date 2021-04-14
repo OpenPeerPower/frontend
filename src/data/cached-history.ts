@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { LocalizeFunc } from "../common/translations/localize";
 import { OpenPeerPower } from "../types";
 import {

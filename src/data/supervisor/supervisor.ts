@@ -1,5 +1,5 @@
-import { Connection, getCollection } from "open-peer-power-js-websocket";
-import { Store } from "open-peer-power-js-websocket/dist/store";
+import { Connection, getCollection } from "openpeerpower-js-websocket";
+import { Store } from "openpeerpower-js-websocket/dist/store";
 import { LocalizeFunc } from "../../common/translations/localize";
 import { OpenPeerPower } from "../../types";
 import { OppioAddonsInfo } from "../oppio/addon";

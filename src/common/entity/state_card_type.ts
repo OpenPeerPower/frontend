@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { UNAVAILABLE } from "../../data/entity";
 import { OpenPeerPower } from "../../types";
 import { DOMAINS_WITH_CARD } from "../const";

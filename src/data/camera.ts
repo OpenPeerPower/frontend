@@ -1,7 +1,7 @@
 import {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { timeCachePromiseFunc } from "../common/util/time-cache-function-promise";
 import { OpenPeerPower } from "../types";
 import { getSignedPath } from "./auth";

@@ -1,4 +1,4 @@
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import { PropertyDeclaration, UpdatingElement } from "lit-element";
 import type { ClassElement } from "../../types";
 

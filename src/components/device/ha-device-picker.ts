@@ -1,6 +1,6 @@
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-item/paper-item-body";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

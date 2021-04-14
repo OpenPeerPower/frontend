@@ -49,7 +49,7 @@ jobs:
           # Sleep to give pypi time to populate the new version across mirrors
           sleep 240
           version=$(echo "${{ github.ref }}" | awk -F"/" '{print $NF}' )
-          echo "open-peer-power-frontend==$version" > ./requirements.txt
+          echo "openpeerpower-frontend==$version" > ./requirements.txt
 
       - name: Upload requirements.txt
         uses: actions/upload-artifact@v2

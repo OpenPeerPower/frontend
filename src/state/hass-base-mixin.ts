@@ -1,4 +1,4 @@
-import { Auth, Connection } from "open-peer-power-js-websocket";
+import { Auth, Connection } from "openpeerpower-js-websocket";
 import { LitElement, property } from "lit-element";
 import { OpenPeerPower } from "../types";
 

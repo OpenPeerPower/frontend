@@ -1,4 +1,4 @@
-import { Connection, createCollection } from "open-peer-power-js-websocket";
+import { Connection, createCollection } from "openpeerpower-js-websocket";
 import { computeStateName } from "../common/entity/compute_state_name";
 import { debounce } from "../common/util/debounce";
 import { OpenPeerPower } from "../types";

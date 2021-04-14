@@ -1,4 +1,4 @@
-import { Connection, createCollection } from "open-peer-power-js-websocket";
+import { Connection, createCollection } from "openpeerpower-js-websocket";
 import { Panels } from "../types";
 
 const fetchPanels = (conn) =>

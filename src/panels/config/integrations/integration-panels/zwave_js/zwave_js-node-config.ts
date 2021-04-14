@@ -36,7 +36,7 @@ import {
   subscribeDeviceRegistry,
 } from "../../../../../data/device_registry";
 import { SubscribeMixin } from "../../../../../mixins/subscribe-mixin";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import memoizeOne from "memoize-one";
 
 const getDevice = memoizeOne(

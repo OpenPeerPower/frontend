@@ -9,7 +9,7 @@ import {
   subscribeConfig,
   subscribeEntities,
   subscribeServices,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { loadTokens, saveTokens } from "../common/auth/token_storage";
 import { oppUrl } from "../data/auth";
 import { isExternal } from "../data/external";

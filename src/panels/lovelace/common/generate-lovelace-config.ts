@@ -2,7 +2,7 @@ import {
   OppEntities,
   OppEntity,
   STATE_NOT_RUNNING,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeObjectId } from "../../../common/entity/compute_object_id";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";

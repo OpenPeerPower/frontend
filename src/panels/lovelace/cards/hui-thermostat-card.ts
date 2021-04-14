@@ -1,6 +1,6 @@
 import { mdiDotsVertical } from "@mdi/js";
 import "@thomasloven/round-slider";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -1,7 +1,7 @@
 import { mdiDrag, mdiNotificationClearAll, mdiPlus, mdiSort } from "@mdi/js";
 import "@polymer/paper-checkbox/paper-checkbox";
 import { PaperInputElement } from "@polymer/paper-input/paper-input";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

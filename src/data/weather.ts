@@ -8,7 +8,7 @@ import {
 import {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { css, html, svg, SVGTemplateResult, TemplateResult } from "lit-element";
 import { styleMap } from "lit-html/directives/style-map";
 import { formatNumber } from "../common/string/format_number";

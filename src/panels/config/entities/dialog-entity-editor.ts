@@ -2,7 +2,7 @@ import "@material/mwc-icon-button";
 import "@material/mwc-tab";
 import "@material/mwc-tab-bar";
 import { mdiClose, mdiTune } from "@mdi/js";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -4,7 +4,7 @@ import {
   genClientId,
   getAuth,
   subscribeConfig,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import {
   customElement,
   html,

@@ -1,4 +1,4 @@
-import { OppConfig, STATE_RUNNING } from "open-peer-power-js-websocket";
+import { OppConfig, STATE_RUNNING } from "openpeerpower-js-websocket";
 
 export const demoConfig: OppConfig = {
   location_name: "Home",

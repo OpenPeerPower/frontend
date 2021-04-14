@@ -3,7 +3,7 @@ import { mdiClose, mdiMenuDown, mdiMenuUp } from "@mdi/js";
 import "@polymer/paper-input/paper-input";
 import "@polymer/paper-item/paper-item";
 import "@vaadin/vaadin-combo-box/theme/material/vaadin-combo-box-light";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

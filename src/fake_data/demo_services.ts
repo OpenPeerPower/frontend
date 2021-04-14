@@ -1,4 +1,4 @@
-import { OppServices } from "open-peer-power-js-websocket";
+import { OppServices } from "openpeerpower-js-websocket";
 
 export const demoServices: OppServices = {
   openpeerpower: {

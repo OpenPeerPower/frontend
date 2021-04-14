@@ -1,6 +1,6 @@
 import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
-import { genClientId } from "open-peer-power-js-websocket";
+import { genClientId } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -1,6 +1,6 @@
 import "@material/mwc-button";
 import "@polymer/paper-dialog-scrollable/paper-dialog-scrollable";
-import type { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import type { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResultArray,

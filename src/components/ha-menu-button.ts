@@ -1,6 +1,6 @@
 import "@material/mwc-icon-button";
 import { mdiMenu } from "@mdi/js";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { fireEvent } from "../../common/dom/fire_event";
 
 export interface SelectMediaPlayerDialogParams {

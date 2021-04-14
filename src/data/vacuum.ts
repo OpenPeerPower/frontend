@@ -1,7 +1,7 @@
 import {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 
 export const VACUUM_SUPPORT_PAUSE = 4;
 export const VACUUM_SUPPORT_STOP = 8;

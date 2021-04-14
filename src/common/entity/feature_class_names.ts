@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { supportsFeature } from "./supports-feature";
 
 // Expects classNames to be an object mapping feature-bit -> className

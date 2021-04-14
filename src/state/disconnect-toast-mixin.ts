@@ -3,7 +3,7 @@ import {
   STATE_RUNNING,
   STATE_STARTING,
   UnsubscribeFunc,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { Constructor } from "../types";
 import { showToast } from "../util/toast";
 import { OppBaseEl } from "./opp-base-mixin";

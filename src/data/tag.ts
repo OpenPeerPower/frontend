@@ -1,4 +1,4 @@
-import { OppEventBase } from "open-peer-power-js-websocket";
+import { OppEventBase } from "openpeerpower-js-websocket";
 import { OpenPeerPower } from "../types";
 
 export const EVENT_TAG_SCANNED = "tag_scanned";

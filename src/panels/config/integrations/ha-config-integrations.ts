@@ -4,7 +4,7 @@ import "@material/mwc-list/mwc-list-item";
 import { mdiFilterVariant, mdiPlus } from "@mdi/js";
 import "@polymer/app-route/app-route";
 import Fuse from "fuse.js";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

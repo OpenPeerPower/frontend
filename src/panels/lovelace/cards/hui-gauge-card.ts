@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket/dist/types";
+import { OppEntity } from "openpeerpower-js-websocket/dist/types";
 import {
   css,
   CSSResult,

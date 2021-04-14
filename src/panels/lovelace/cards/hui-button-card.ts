@@ -1,7 +1,7 @@
 import "@material/mwc-ripple";
 import type { Ripple } from "@material/mwc-ripple";
 import { RippleHandlers } from "@material/mwc-ripple/ripple-handlers";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

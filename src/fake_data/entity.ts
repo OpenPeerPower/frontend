@@ -2,7 +2,7 @@
 import {
   OppEntity,
   OppEntityAttributeBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 
 const now = () => new Date().toISOString();
 const randomTime = () =>

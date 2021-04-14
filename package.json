@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/openpeerpower/openpeerpower-polymer"
   },
-  "name": "open-peer-power-frontend",
+  "name": "openpeerpower-frontend",
   "version": "1.0.0",
   "scripts": {
     "build": "script/build_frontend",
@@ -110,7 +110,7 @@
     "fuse.js": "^6.0.0",
     "google-timezones-json": "^1.0.2",
     "hls.js": "^0.13.2",
-    "open-peer-power-js-websocket": "^1.0.0",
+    "openpeerpower-js-websocket": "^1.0.0",
     "idb-keyval": "^3.2.0",
     "intl-messageformat": "^8.3.9",
     "js-yaml": "^3.13.1",

@@ -1,4 +1,4 @@
-import { OppEntities } from "open-peer-power-js-websocket";
+import { OppEntities } from "openpeerpower-js-websocket";
 import type { GroupEntity } from "../../data/group";
 import { DEFAULT_VIEW_ENTITY_ID } from "../const";
 

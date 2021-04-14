@@ -4,7 +4,7 @@ import "@polymer/paper-input/paper-input";
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-item/paper-item-body";
 import "@vaadin/vaadin-combo-box/theme/material/vaadin-combo-box-light";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

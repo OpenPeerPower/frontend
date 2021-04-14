@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { computeObjectId } from "./compute_object_id";
 
 export const computeStateName = (stateObj: OppEntity): string => {

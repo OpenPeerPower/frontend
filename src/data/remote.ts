@@ -1,7 +1,7 @@
 import {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 
 export const REMOTE_SUPPORT_LEARN_COMMAND = 1;
 export const REMOTE_SUPPORT_DELETE_COMMAND = 2;

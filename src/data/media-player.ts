@@ -19,7 +19,7 @@ import {
 import type {
   OppEntityAttributeBase,
   OppEntityBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { supportsFeature } from "../common/entity/supports-feature";
 import type { OpenPeerPower } from "../types";
 import { UNAVAILABLE_STATES } from "./entity";

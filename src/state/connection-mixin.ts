@@ -7,7 +7,7 @@ import {
   subscribeConfig,
   subscribeEntities,
   subscribeServices,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { fireEvent } from "../common/dom/fire_event";
 import { broadcastConnectionStatus } from "../data/connection-status";
 import { subscribeFrontendUserData } from "../data/frontend";

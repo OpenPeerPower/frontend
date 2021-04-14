@@ -1,4 +1,4 @@
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   customElement,
   internalProperty,

@@ -1,4 +1,4 @@
-import { STATE_NOT_RUNNING } from "open-peer-power-js-websocket";
+import { STATE_NOT_RUNNING } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

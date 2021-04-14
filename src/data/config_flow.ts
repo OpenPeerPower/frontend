@@ -1,4 +1,4 @@
-import { Connection, getCollection } from "open-peer-power-js-websocket";
+import { Connection, getCollection } from "openpeerpower-js-websocket";
 import { LocalizeFunc } from "../common/translations/localize";
 import { debounce } from "../common/util/debounce";
 import { OpenPeerPower } from "../types";

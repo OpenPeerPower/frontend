@@ -1,6 +1,6 @@
 import "@material/mwc-button/mwc-button";
 import "@polymer/paper-input/paper-input";
-import { OppEntity, UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { OppEntity, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

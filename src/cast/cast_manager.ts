@@ -3,7 +3,7 @@ import {
   CastStateEventData,
   SessionStateEventData,
 } from "chromecast-caf-receiver/cast.framework";
-import { Auth } from "open-peer-power-js-websocket";
+import { Auth } from "openpeerpower-js-websocket";
 import { castApiAvailable } from "./cast_framework";
 import { CAST_APP_ID, CAST_DEV, CAST_NS } from "./const";
 import { CAST_DEV_OPP_URL } from "./dev_const";

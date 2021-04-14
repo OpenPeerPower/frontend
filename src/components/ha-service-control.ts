@@ -1,4 +1,4 @@
-import { OppService, OppServiceTarget } from "open-peer-power-js-websocket";
+import { OppService, OppServiceTarget } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

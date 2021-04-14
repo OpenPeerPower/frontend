@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { property, PropertyValues, UpdatingElement } from "lit-element";
 import dynamicContentUpdater from "../../common/dom/dynamic_content_updater";
 import { importMoreInfoControl } from "../../panels/lovelace/custom-card-helpers";

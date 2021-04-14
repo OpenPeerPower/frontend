@@ -2,7 +2,7 @@ import {
   createConnection,
   getAuth,
   UnsubscribeFunc,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import {
   customElement,
   html,

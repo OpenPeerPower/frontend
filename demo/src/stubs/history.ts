@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { MockOpenPeerPower } from "../../../src/fake_data/provide_opp";
 
 interface HistoryQueryParams {

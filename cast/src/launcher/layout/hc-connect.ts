@@ -10,7 +10,7 @@ import {
   ERR_INVALID_HTTPS_TO_HTTP,
   getAuth,
   getAuthOptions,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 
 export const computeActiveState = (stateObj: OppEntity): string => {
   const domain = stateObj.entity_id.split(".")[0];

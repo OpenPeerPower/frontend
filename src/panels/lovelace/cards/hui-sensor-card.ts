@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket/dist/types";
+import { OppEntity } from "openpeerpower-js-websocket/dist/types";
 import { customElement } from "lit-element";
 import { OpenPeerPower } from "../../../types";
 import { findEntities } from "../common/find-entities";

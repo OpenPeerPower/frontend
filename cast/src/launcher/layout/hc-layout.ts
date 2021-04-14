@@ -3,7 +3,7 @@ import {
   Connection,
   getUser,
   OppUser,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

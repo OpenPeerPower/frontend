@@ -7,7 +7,7 @@ import {
   OppEntity,
   OppServiceTarget,
   UnsubscribeFunc,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

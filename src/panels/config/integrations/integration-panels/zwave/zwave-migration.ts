@@ -3,7 +3,7 @@ import "@polymer/app-layout/app-toolbar/app-toolbar";
 import "@material/mwc-button/mwc-button";
 import "../../../../../components/ha-icon-button";
 import "../../../../../components/ha-circular-progress";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

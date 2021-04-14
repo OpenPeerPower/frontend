@@ -2,7 +2,7 @@ import "@material/mwc-button/mwc-button";
 import "@polymer/paper-dropdown-menu/paper-dropdown-menu-light";
 import "@polymer/paper-input/paper-textarea";
 import { PaperListboxElement } from "@polymer/paper-listbox";
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

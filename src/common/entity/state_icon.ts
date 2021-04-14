@@ -1,5 +1,5 @@
 /** Return an icon representing a state. */
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { DEFAULT_DOMAIN_ICON } from "../const";
 import { computeDomain } from "./compute_domain";
 import { domainIcon } from "./domain_icon";

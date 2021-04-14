@@ -1,6 +1,6 @@
 import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
-import { OppEvent } from "open-peer-power-js-websocket";
+import { OppEvent } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

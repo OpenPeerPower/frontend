@@ -1,4 +1,4 @@
-import { OppEntity, UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { OppEntity, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   customElement,
   html,

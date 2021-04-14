@@ -1,6 +1,6 @@
 import "@polymer/paper-input/paper-input";
 import "@polymer/paper-listbox/paper-listbox";
-import { UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

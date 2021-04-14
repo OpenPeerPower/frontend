@@ -1,5 +1,5 @@
 import "@polymer/iron-flex-layout/iron-flex-layout-classes";
-import type { OppEntity } from "open-peer-power-js-websocket";
+import type { OppEntity } from "openpeerpower-js-websocket";
 import {
   css,
   CSSResult,

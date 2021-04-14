@@ -1,4 +1,4 @@
-import { Auth } from "open-peer-power-js-websocket";
+import { Auth } from "openpeerpower-js-websocket";
 import { fetchWithAuth } from "./fetch-with-auth";
 
 export const handleFetchPromise = async <T>(

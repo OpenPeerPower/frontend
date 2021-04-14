@@ -2,7 +2,7 @@ import {
   Connection,
   createCollection,
   OppEntity,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 
 export interface PersitentNotificationEntity extends OppEntity {
   notification_id?: string;

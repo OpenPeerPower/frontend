@@ -1,6 +1,6 @@
 // Nessages to be processed inside the Cast Receiver app
 
-import { Auth } from "open-peer-power-js-websocket";
+import { Auth } from "openpeerpower-js-websocket";
 import { CastManager } from "./cast_manager";
 import { CAST_DEV } from "./const";
 import { CAST_DEV_OPP_URL } from "./dev_const";

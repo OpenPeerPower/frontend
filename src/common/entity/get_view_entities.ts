@@ -1,4 +1,4 @@
-import { OppEntities } from "open-peer-power-js-websocket";
+import { OppEntities } from "openpeerpower-js-websocket";
 import { GroupEntity } from "../../data/group";
 import { computeDomain } from "./compute_domain";
 import { getGroupEntities } from "./get_group_entities";

@@ -3,7 +3,7 @@ import {
   getCollection,
   OppEventBase,
   OppServiceTarget,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { OPPDomEvent } from "../common/dom/fire_event";
 import { HuiErrorCard } from "../panels/lovelace/cards/hui-error-card";
 import {

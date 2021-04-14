@@ -5,7 +5,7 @@
  *   const states = [state1, state2]
  *   states.sort(statessortStatesByName);
  */
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { computeStateName } from "./compute_state_name";
 
 export const sortStatesByName = (entityA: OppEntity, entityB: OppEntity) => {

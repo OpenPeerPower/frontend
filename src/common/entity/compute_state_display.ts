@@ -1,4 +1,4 @@
-import { OppEntity } from "open-peer-power-js-websocket";
+import { OppEntity } from "openpeerpower-js-websocket";
 import { UNAVAILABLE, UNKNOWN } from "../../data/entity";
 import { FrontendTranslationData } from "../../data/translation";
 import { formatDate } from "../datetime/format_date";

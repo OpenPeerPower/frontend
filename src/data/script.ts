@@ -2,7 +2,7 @@ import {
   OppEntityAttributeBase,
   OppEntityBase,
   OppServiceTarget,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { computeObjectId } from "../common/entity/compute_object_id";
 import { navigate } from "../common/navigate";
 import { OpenPeerPower } from "../types";

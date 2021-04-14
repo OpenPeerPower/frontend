@@ -6,7 +6,7 @@ import {
   OppServiceTarget,
   OppServices,
   MessageBase,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { LocalizeFunc } from "./common/translations/localize";
 import { CoreFrontendUserData } from "./data/frontend";
 import {

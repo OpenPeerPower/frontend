@@ -1,4 +1,4 @@
-import { OppConfig } from "open-peer-power-js-websocket";
+import { OppConfig } from "openpeerpower-js-websocket";
 import { OpenPeerPower } from "../types";
 
 export interface ConfigUpdateValues {

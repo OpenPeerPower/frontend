@@ -2,7 +2,7 @@ import {
   Connection,
   getCollection,
   getUser,
-} from "open-peer-power-js-websocket";
+} from "openpeerpower-js-websocket";
 import { CurrentUser } from "../types";
 
 export const userCollection = (conn: Connection) =>
