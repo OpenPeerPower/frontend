@@ -4,7 +4,7 @@ export const demoLovelaceArsaboo: DemoConfig["lovelace"] = (localize) => ({
   title: "Open Peer Power",
   views: [
     {
-      icon: "opp:open-peer-power",
+      icon: "opp:openpeerpower-js",
       id: "home",
       title: "Home",
       cards: [

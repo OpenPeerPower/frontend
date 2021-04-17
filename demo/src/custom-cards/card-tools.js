@@ -22,7 +22,7 @@ if (!window.cardTools) {
   cardTools.litHtml = html;
 
   cardTools.opp = () => {
-    return document.querySelector("open-peer-power").opp;
+    return document.querySelector("openpeerpower-js").opp;
   };
 
   cardTools.fireEvent = (ev, detail) => {

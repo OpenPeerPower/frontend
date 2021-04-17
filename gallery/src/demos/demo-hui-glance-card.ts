@@ -166,10 +166,10 @@ const CONFIGS = [
   entities:
     - entity: device_tracker.demo_paulus
       name: ¯\\_(ツ)_/¯
-      icon: mdi:open-peer-power
+      icon: mdi:openpeerpower-js
     - entity: media_player.living_room
       name: ¯\\_(ツ)_/¯
-      icon: mdi:open-peer-power
+      icon: mdi:openpeerpower-js
     `,
   },
   {

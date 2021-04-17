@@ -127,7 +127,7 @@ window.addEventListener("error", (e) => {
     e.stopPropagation();
     return;
   }
-  const openPeerPower = document.querySelector("open-peer-power") as any;
+  const openPeerPower = document.querySelector("openpeerpower-js") as any;
   if (
     openPeerPower &&
     openPeerPower.opp &&

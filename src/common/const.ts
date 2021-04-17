@@ -23,7 +23,7 @@ export const FIXED_DOMAIN_ICONS = {
   fan: "opp:fan",
   google_assistant: "opp:google-assistant",
   group: "opp:google-circles-communities",
-  openpeerpower: "opp:open-peer-power",
+  openpeerpower: "opp:openpeerpower-js",
   homekit: "opp:home-automation",
   image_processing: "opp:image-filter-frames",
   input_boolean: "opp:toggle-switch-outline",

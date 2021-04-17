@@ -60,7 +60,7 @@
   </head>
   <body>
     <div id="ha-init-skeleton"></div>
-    <open-peer-power> </openpeerpower>
+    <openpeerpower-js> </openpeerpower>
 
     <%= renderTemplate('_js_base') %>
     <%= renderTemplate('_preload_roboto') %>
