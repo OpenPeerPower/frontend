@@ -38,7 +38,7 @@ export class HaEntityRegistryBasicEditor extends SubscribeMixin(LitElement) {
 
   @internalProperty() private _entityId!: string;
 
-  @internalProperty() private _areaId?: string;
+  @internalProperty() private _areaId?: string | null;
 
   @internalProperty() private _disabledBy!: string | null;
 
@@ -172,9 +172,7 @@ export class HaEntityRegistryBasicEditor extends SubscribeMixin(LitElement) {
             ${this.opp.localize(
               "ui.dialogs.entity_registry.editor.enabled_description"
             )}
-            <br />${this.opp.localize(
-              "ui.dialogs.entity_registry.editor.note"
-            )}
+            <br />${this.opp.localize("ui.dialogs.entity_registry.editor.note")}
           </div>
         </div>
       </div>

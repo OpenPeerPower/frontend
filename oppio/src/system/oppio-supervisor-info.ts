@@ -264,18 +264,18 @@ class OppioSupervisorInfo extends LitElement {
         title: this.supervisor.localize("system.supervisor.warning"),
         text: html`${this.supervisor.localize("system.supervisor.beta_warning")}
           <br />
-          <b>
-            ${this.supervisor.localize("system.supervisor.beta_backup")}
-          </b>
+          <b> ${this.supervisor.localize("system.supervisor.beta_backup")} </b>
           <br /><br />
           ${this.supervisor.localize("system.supervisor.beta_release_items")}
-          <li>Open Peer Power Core</li>
-          <li>Open Peer Power Supervisor</li>
-          <li>Open Peer Power Operating System</li>
+          <ul>
+            <li>Open Peer Power Core</li>
+            <li>Open Peer Power Supervisor</li>
+            <li>Open Peer Power Operating System</li>
+          </ul>
           <br />
-          ${this.supervisor.localize("system.supervisor.join_beta_action")}`,
+          ${this.supervisor.localize("system.supervisor.beta_join_confirm")}`,
         confirmText: this.supervisor.localize(
-          "system.supervisor.beta_join_confirm"
+          "system.supervisor.join_beta_action"
         ),
         dismissText: this.supervisor.localize("common.cancel"),
       });

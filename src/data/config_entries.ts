@@ -5,11 +5,17 @@ export interface ConfigEntry {
   domain: string;
   title: string;
   source: string;
-  state: string;
+  state:
+    | "loaded"
+    | "setup_error"
+    | "migration_error"
+    | "setup_retry"
+    | "not_loaded"
+    | "failed_unload";
   connection_class: string;
   supports_options: boolean;
   supports_unload: boolean;
-  disabled_by: string | null;
+  disabled_by: "user" | null;
 }
 
 export interface ConfigEntryMutableParams {
@@ -44,10 +50,7 @@ export const reloadConfigEntry = (opp: OpenPeerPower, configEntryId: string) =>
     require_restart: boolean;
   }>("POST", `config/config_entries/entry/${configEntryId}/reload`);
 
-export const disableConfigEntry = (
-  opp: OpenPeerPower,
-  configEntryId: string
-) =>
+export const disableConfigEntry = (opp: OpenPeerPower, configEntryId: string) =>
   opp.callWS<{
     require_restart: boolean;
   }>({

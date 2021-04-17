@@ -159,7 +159,7 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
       }
 
       if (!newName && !newEntityId) {
-        return new Promise((resolve) => resolve());
+        return undefined;
       }
 
       return updateEntityRegistryEntry(this.opp!, entity.entity_id, {
@@ -177,7 +177,7 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
     });
   }
 
-  private _computeEntityName(entity: EntityRegistryEntry): string {
+  private _computeEntityName(entity: EntityRegistryEntry): string | null {
     if (this.opp.states[entity.entity_id]) {
       return computeStateName(this.opp.states[entity.entity_id]);
     }

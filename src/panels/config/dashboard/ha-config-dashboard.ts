@@ -41,9 +41,7 @@ class HaConfigDashboard extends LitElement {
       .narrow=${this.narrow}
       .isWide=${this.isWide}
     >
-      <div slot="header">
-        ${this.opp.localize("ui.panel.config.header")}
-      </div>
+      <div slot="header">${this.opp.localize("ui.panel.config.header")}</div>
 
       <div slot="introduction">
         ${this.opp.localize("ui.panel.config.introduction")}
@@ -79,36 +77,6 @@ class HaConfigDashboard extends LitElement {
           </ha-card>
         `
       )}
-      ${isComponentLoaded(this.opp, "zha")
-        ? html`
-            <div class="promo-advanced">
-              ${this.opp.localize(
-                "ui.panel.config.integration_panel_move.missing_zha",
-                "integrations_page",
-                html`<a href="/config/integrations">
-                  ${this.opp.localize(
-                    "ui.panel.config.integration_panel_move.link_integration_page"
-                  )}
-                </a>`
-              )}
-            </div>
-          `
-        : ""}
-      ${isComponentLoaded(this.opp, "zwave")
-        ? html`
-            <div class="promo-advanced">
-              ${this.opp.localize(
-                "ui.panel.config.integration_panel_move.missing_zwave",
-                "integrations_page",
-                html`<a href="/config/integrations">
-                  ${this.opp.localize(
-                    "ui.panel.config.integration_panel_move.link_integration_page"
-                  )}
-                </a>`
-              )}
-            </div>
-          `
-        : ""}
       ${!this.showAdvanced
         ? html`
             <div class="promo-advanced">

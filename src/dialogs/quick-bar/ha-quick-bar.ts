@@ -66,10 +66,11 @@ interface CommandItem extends QuickBarItem {
 }
 
 interface EntityItem extends QuickBarItem {
+  altText: string;
   icon?: string;
 }
 
-const isCommandItem = (item: EntityItem | CommandItem): item is CommandItem => {
+const isCommandItem = (item: QuickBarItem): item is CommandItem => {
   return (item as CommandItem).categoryKey !== undefined;
 };
 
@@ -147,9 +148,7 @@ export class QuickBar extends LitElement {
           slot="heading"
           class="heading"
           @value-changed=${this._handleSearchChange}
-          .label=${this.opp.localize(
-            "ui.dialogs.quick-bar.filter_placeholder"
-          )}
+          .label=${this.opp.localize("ui.dialogs.quick-bar.filter_placeholder")}
           .value=${this._commandMode ? `>${this._search}` : this._search}
           @keydown=${this._handleInputKeyDown}
           @focus=${this._setFocusFirstListItem}
@@ -230,7 +229,7 @@ export class QuickBar extends LitElement {
   private _renderItem(item: QuickBarItem, index?: number) {
     return isCommandItem(item)
       ? this._renderCommandItem(item, index)
-      : this._renderEntityItem(item, index);
+      : this._renderEntityItem(item as EntityItem, index);
   }
 
   private _renderEntityItem(item: EntityItem, index?: number) {
@@ -289,13 +288,6 @@ export class QuickBar extends LitElement {
         </span>
 
         <span class="command-text">${item.primaryText}</span>
-        ${item.altText
-          ? html`
-              <span slot="secondary" class="item-text secondary"
-                >${item.altText}</span
-              >
-            `
-          : null}
       </mwc-list-item>
     `;
   }
@@ -389,16 +381,19 @@ export class QuickBar extends LitElement {
     }
   }
 
-  private _generateEntityItems(): QuickBarItem[] {
+  private _generateEntityItems(): EntityItem[] {
     return Object.keys(this.opp.states)
       .map((entityId) => {
-        const primaryText = computeStateName(this.opp.states[entityId]);
-        return {
-          primaryText,
-          filterText: primaryText,
+        const entityItem = {
+          primaryText: computeStateName(this.opp.states[entityId]),
           altText: entityId,
           icon: domainIcon(computeDomain(entityId), this.opp.states[entityId]),
           action: () => fireEvent(this, "opp-more-info", { entityId }),
+        };
+
+        return {
+          ...entityItem,
+          strings: [entityItem.primaryText, entityItem.altText],
         };
       })
       .sort((a, b) =>
@@ -412,7 +407,10 @@ export class QuickBar extends LitElement {
       ...this._generateServerControlCommands(),
       ...this._generateNavigationCommands(),
     ].sort((a, b) =>
-      compare(a.filterText.toLowerCase(), b.filterText.toLowerCase())
+      compare(
+        a.strings.join(" ").toLowerCase(),
+        b.strings.join(" ").toLowerCase()
+      )
     );
   }
 
@@ -420,24 +418,25 @@ export class QuickBar extends LitElement {
     const reloadableDomains = componentsWithService(this.opp, "reload").sort();
 
     return reloadableDomains.map((domain) => {
-      const categoryText = this.opp.localize(
-        `ui.dialogs.quick-bar.commands.types.reload`
-      );
-      const primaryText =
-        this.opp.localize(`ui.dialogs.quick-bar.commands.reload.${domain}`) ||
-        this.opp.localize(
-          "ui.dialogs.quick-bar.commands.reload.reload",
-          "domain",
-          domainToName(this.opp.localize, domain)
-        );
+      const commandItem = {
+        primaryText:
+          this.opp.localize(`ui.dialogs.quick-bar.commands.reload.${domain}`) ||
+          this.opp.localize(
+            "ui.dialogs.quick-bar.commands.reload.reload",
+            "domain",
+            domainToName(this.opp.localize, domain)
+          ),
+        action: () => this.opp.callService(domain, "reload"),
+        iconPath: mdiReload,
+        categoryText: this.opp.localize(
+          `ui.dialogs.quick-bar.commands.types.reload`
+        ),
+      };
 
       return {
-        primaryText,
-        filterText: `${categoryText} ${primaryText}`,
-        action: () => this.opp.callService(domain, "reload"),
+        ...commandItem,
         categoryKey: "reload",
-        iconPath: mdiReload,
-        categoryText,
+        strings: [`${commandItem.categoryText} ${commandItem.primaryText}`],
       };
     });
   }
@@ -446,26 +445,28 @@ export class QuickBar extends LitElement {
     const serverActions = ["restart", "stop"];
 
     return serverActions.map((action) => {
-      const categoryKey = "server_control";
-      const categoryText = this.opp.localize(
-        `ui.dialogs.quick-bar.commands.types.${categoryKey}`
-      );
-      const primaryText = this.opp.localize(
-        "ui.dialogs.quick-bar.commands.server_control.perform_action",
-        "action",
-        this.opp.localize(
-          `ui.dialogs.quick-bar.commands.server_control.${action}`
-        )
-      );
+      const categoryKey: CommandItem["categoryKey"] = "server_control";
+
+      const item = {
+        primaryText: this.opp.localize(
+          "ui.dialogs.quick-bar.commands.server_control.perform_action",
+          "action",
+          this.opp.localize(
+            `ui.dialogs.quick-bar.commands.server_control.${action}`
+          )
+        ),
+        iconPath: mdiServerNetwork,
+        categoryText: this.opp.localize(
+          `ui.dialogs.quick-bar.commands.types.${categoryKey}`
+        ),
+        categoryKey,
+        action: () => this.opp.callService("openpeerpower", action),
+      };
 
       return this._generateConfirmationCommand(
         {
-          primaryText,
-          filterText: `${categoryText} ${primaryText}`,
-          categoryKey,
-          iconPath: mdiServerNetwork,
-          categoryText,
-          action: () => this.opp.callService("openpeerpower", action),
+          ...item,
+          strings: [`${item.categoryText} ${item.primaryText}`],
         },
         this.opp.localize("ui.dialogs.generic.ok")
       );
@@ -550,18 +551,21 @@ export class QuickBar extends LitElement {
     items: BaseNavigationCommand[]
   ): CommandItem[] {
     return items.map((item) => {
-      const categoryKey = "navigation";
-      const categoryText = this.opp.localize(
-        `ui.dialogs.quick-bar.commands.types.${categoryKey}`
-      );
+      const categoryKey: CommandItem["categoryKey"] = "navigation";
+
+      const navItem = {
+        ...item,
+        iconPath: mdiEarth,
+        categoryText: this.opp.localize(
+          `ui.dialogs.quick-bar.commands.types.${categoryKey}`
+        ),
+        action: () => navigate(this, item.path),
+      };
 
       return {
-        ...item,
+        ...navItem,
+        strings: [`${navItem.categoryText} ${navItem.primaryText}`],
         categoryKey,
-        iconPath: mdiEarth,
-        categoryText,
-        filterText: `${categoryText} ${item.primaryText}`,
-        action: () => navigate(this, item.path),
       };
     });
   }

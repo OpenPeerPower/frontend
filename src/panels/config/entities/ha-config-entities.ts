@@ -652,10 +652,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
         if (regEntityIds.has(entityId)) {
           continue;
         }
-        if (
-          !oldOpp ||
-          this.opp.states[entityId] !== oldOpp.states[entityId]
-        ) {
+        if (!oldOpp || this.opp.states[entityId] !== oldOpp.states[entityId]) {
           changed = true;
         }
         stateEntities.push({
@@ -663,6 +660,10 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
           entity_id: entityId,
           platform: computeDomain(entityId),
           disabled_by: null,
+          area_id: null,
+          config_entry_id: null,
+          device_id: null,
+          icon: null,
           readonly: true,
           selectable: false,
         });

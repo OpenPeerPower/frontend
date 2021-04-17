@@ -923,7 +923,7 @@
             },
             "entity_registry": {
                 "control": "Juhtimine",
-                "customize_link": "olemite kohandused",
+                "customize_link": "olemite kohandamised",
                 "dismiss": "Loobu",
                 "editor": {
                     "advanced": "Täpsemad sätted",
@@ -1936,7 +1936,7 @@
                     "picker": {
                         "documentation": "Kohandamiste dokumentatsioon",
                         "header": "Kohandamine",
-                        "introduction": "Kohanda olemi atribuute. Lisatud või muudetud kohandused rakenduvad kohe. Eemaldatud kohandused rakenduvad olemi värskendamisel."
+                        "introduction": "Kohanda olemi atribuute. Lisatud või muudetud kohandamised rakenduvad kohe. Eemaldatud kohandamised rakenduvad olemi värskendamisel."
                     },
                     "warning": {
                         "include_link": "kaasa customize.yaml",
@@ -2156,8 +2156,11 @@
                     "caption": "Sidumised",
                     "config_entry": {
                         "area": "alas {area}",
+                        "check_the_logs": "Kontrolli logisid",
+                        "configure": "Seadista",
                         "delete": "Kustuta",
                         "delete_confirm": "Oled kindel, et soovid selle sidumise kustutada?",
+                        "depends_on_cloud": "Sõltub pilveteenusest",
                         "device_unavailable": "Seade pole saadaval",
                         "devices": "{count} {count, plural,\n  one {seade}\n  other {seadet}\n}",
                         "disable_restart_confirm": "Taaskäivita Open Peer Power, et lõpetada selle sidumise keelamine",
@@ -2180,14 +2183,24 @@
                         "logs": "Logid",
                         "manuf": "{manufacturer}",
                         "no_area": "Ala puudub",
-                        "not_loaded": "Laadimine nurjus, lisateavet vaata siit {logs_link}",
+                        "not_loaded": "Pole laaditud",
                         "options": "Valikud",
+                        "provided_by_custom_component": "Saadaval välise osise abil",
+                        "provided_by_custom_integration": "Saadaval välise sidumise kaudu",
                         "reload": "Taaslae",
                         "reload_confirm": "Sidumine on taaslaetud",
                         "reload_restart_confirm": "Taaskäivita Open Peer Power, et lõpetada selle sidumise taaslaadimine",
                         "rename": "Nimeta ümber",
                         "restart_confirm": "Selle sidumise lõplikuks eemaldamiseks taaskäivita Open Peer Power",
                         "services": "{count} {count, plural,\n one {teenus}\n other {teenust}\n}",
+                        "state": {
+                            "failed_unload": "Eemaldamine nurjus",
+                            "loaded": "Laetud",
+                            "migration_error": "Tõrge teisaldamisel",
+                            "not_loaded": "Pole laaditud",
+                            "setup_error": "Häälestamine nurjus",
+                            "setup_retry": "Proovin uuesti seadistada"
+                        },
                         "system_options": "Süsteemisuvandid",
                         "unnamed_entry": "Nimetu kanne"
                     },
@@ -2216,7 +2229,7 @@
                     "configure": "Seadista",
                     "configured": "Seadistatud",
                     "confirm_new": "Kas soovid seadistada sidumist {integration}?",
-                    "description": "Halda teenuste, seadmete jne. sidumisi",
+                    "description": "Halda teenuste või  seadmete sidumisi",
                     "details": "Sidumise üksikasjad",
                     "disable": {
                         "disabled_integrations": "{number} keelatut",
@@ -2255,8 +2268,10 @@
                 "logs": {
                     "caption": "Logid",
                     "clear": "Puhasta",
+                    "custom_integration": "kohandatud sidumine",
                     "description": "Open Peer Poweri logid",
                     "details": "Logi üksikasjad ({level})",
+                    "error_from_custom_integration": "Selle tõrke põhjustas kohandatud sidumine.",
                     "level": {
                         "critical": "OLULINE",
                         "debug": "SILUMINE",

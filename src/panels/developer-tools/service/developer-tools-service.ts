@@ -28,6 +28,7 @@ import { haStyle } from "../../../resources/styles";
 import "../../../styles/polymer-op-style";
 import { OpenPeerPower } from "../../../types";
 import "../../../util/app-localstorage-document";
+import { showToast } from "../../../util/toast";
 
 class HaPanelDevService extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
@@ -267,11 +268,22 @@ class HaPanelDevService extends LitElement {
     }
   );
 
-  private _callService() {
+  private async _callService() {
     if (!this._serviceData?.service) {
       return;
     }
-    callExecuteScript(this.opp, [this._serviceData]);
+    try {
+      await callExecuteScript(this.opp, [this._serviceData]);
+    } catch (err) {
+      showToast(this, {
+        message:
+          this.opp.localize(
+            "ui.notification_toast.service_call_failed",
+            "service",
+            this._serviceData.service
+          ) + ` ${err.message}`,
+      });
+    }
   }
 
   private _toggleYaml() {

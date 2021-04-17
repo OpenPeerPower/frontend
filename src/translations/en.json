@@ -876,11 +876,6 @@
           "hint_enable": "Missing config options? Enable advanced mode on",
           "link_profile_page": "your profile page"
         },
-        "integration_panel_move": {
-          "missing_zha": "Missing the ZHA config panel? It was moved to the ZHA entry on the {integrations_page}.",
-          "missing_zwave": "Missing the Z-Wave config panel? It was moved to the Z-Wave entry on the {integrations_page}.",
-          "link_integration_page": "integrations page"
-        },
         "common": {
           "editor": {
             "confirm_unsaved": "You have unsaved changes. Are you sure you want to leave?"
@@ -1072,7 +1067,9 @@
             "warning": "WARNING",
             "info": "INFO",
             "debug": "DEBUG"
-          }
+          },
+          "custom_integration": "custom integration",
+          "error_from_custom_integration": "This error originated from a custom integration."
         },
         "lovelace": {
           "caption": "Lovelace Dashboards",
@@ -2103,7 +2100,7 @@
         },
         "integrations": {
           "caption": "Integrations",
-          "description": "Manage integrations with services, devices, ...",
+          "description": "Manage integrations with services or devices",
           "integration": "integration",
           "discovered": "Discovered",
           "attention": "Attention required",
@@ -2145,7 +2142,7 @@
             "entities": "{count} {count, plural,\n  one {entity}\n  other {entities}\n}",
             "services": "{count} {count, plural,\n  one {service}\n  other {services}\n}",
             "rename": "Rename",
-            "options": "Options",
+            "configure": "Configure",
             "system_options": "System options",
             "documentation": "Documentation",
             "delete": "Delete",
@@ -2164,8 +2161,8 @@
             "entity_unavailable": "Entity unavailable",
             "area": "In {area}",
             "no_area": "No Area",
-            "not_loaded": "Not loaded, check the {logs_link}",
-            "logs": "logs",
+            "not_loaded": "Not loaded",
+            "check_the_logs": "Check the logs",
             "disable": {
               "disabled": "Disabled",
               "disabled_cause": "Disabled by {cause}",
@@ -2175,6 +2172,16 @@
                 "device": "device"
               },
               "disable_confirm": "Are you sure you want to disable this config entry? Its devices and entities will be disabled."
+            },
+            "provided_by_custom_integration": "Provided by a custom integration",
+            "depends_on_cloud": "Depends on the cloud",
+            "state": {
+              "loaded": "Loaded",
+              "setup_error": "Failed to set up",
+              "migration_error": "Migration error",
+              "setup_retry": "Retrying to set up",
+              "not_loaded": "Not loaded",
+              "failed_unload": "Failed to unload"
             }
           },
           "config_flow": {
@@ -2246,11 +2253,7 @@
             "create": "Create"
           }
         },
-        "oppio": {
-          "button": "Configure"
-        },
         "mqtt": {
-          "button": "Configure",
           "title": "MQTT",
           "description_publish": "Publish a packet",
           "topic": "topic",
@@ -2264,7 +2267,6 @@
           "message_received": "Message {id} received on {topic} at {time}:"
         },
         "ozw": {
-          "button": "Configure",
           "common": {
             "zwave": "Z-Wave",
             "node_id": "Node ID",
@@ -2379,7 +2381,6 @@
           }
         },
         "zha": {
-          "button": "Configure",
           "common": {
             "clusters": "Clusters",
             "manufacturer_code_override": "Manufacturer Code Override",
@@ -2467,7 +2468,6 @@
           }
         },
         "zwave": {
-          "button": "Configure",
           "description": "Manage your Z-Wave network",
           "learn_more": "Learn more about Z-Wave",
           "common": {
@@ -2558,7 +2558,6 @@
           }
         },
         "zwave_js": {
-          "button": "Configure",
           "navigation": {
             "network": "Network"
           },
@@ -2826,7 +2825,6 @@
             "yaml_control": "To take control in YAML mode, create a YAML file with the name you specified in your config for this dashboard, or the default 'ui-lovelace.yaml'.",
             "yaml_config": "To help you start here is the current config of this dashboard:",
             "empty_config": "Start with an empty dashboard",
-            "cancel": "Never mind",
             "close": "Close",
             "save": "Take control"
           },

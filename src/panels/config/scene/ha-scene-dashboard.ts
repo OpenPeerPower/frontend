@@ -99,9 +99,7 @@ class HaSceneDashboard extends LitElement {
           template: (icon) => html` <ha-icon .icon=${icon}></ha-icon> `,
         },
         name: {
-          title: this.opp.localize(
-            "ui.panel.config.scene.picker.headers.name"
-          ),
+          title: this.opp.localize("ui.panel.config.scene.picker.headers.name"),
           sortable: true,
           filterable: true,
           direction: "asc",
@@ -228,7 +226,7 @@ class HaSceneDashboard extends LitElement {
 
   private async _activateScene(ev) {
     ev.stopPropagation();
-    const scene = ev.target.scene as SceneEntity;
+    const scene = ev.currentTarget.scene as SceneEntity;
     await activateScene(this.opp, scene.entity_id);
     showToast(this, {
       message: this.opp.localize(

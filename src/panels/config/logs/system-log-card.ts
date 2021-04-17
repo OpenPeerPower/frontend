@@ -19,6 +19,7 @@ import { domainToName } from "../../../data/integration";
 import {
   fetchSystemLog,
   getLoggedErrorIntegration,
+  isCustomIntegrationError,
   LoggedError,
 } from "../../../data/system_log";
 import { OpenPeerPower } from "../../../types";
@@ -62,9 +63,7 @@ export class SystemLogCard extends LitElement {
                       (item, idx) => html`
                         <paper-item @click=${this._openLog} .logItem=${item}>
                           <paper-item-body two-line>
-                            <div class="row">
-                              ${item.message[0]}
-                            </div>
+                            <div class="row">${item.message[0]}</div>
                             <div secondary>
                               ${formatSystemLogTime(
                                 item.timestamp,
@@ -78,10 +77,16 @@ export class SystemLogCard extends LitElement {
                                   )}</span
                                 >) `}
                               ${integrations[idx]
-                                ? domainToName(
+                                ? `${domainToName(
                                     this.opp!.localize,
                                     integrations[idx]!
-                                  )
+                                  )}${
+                                    isCustomIntegrationError(item)
+                                      ? ` (${this.opp.localize(
+                                          "ui.panel.config.logs.custom_integration"
+                                        )})`
+                                      : ""
+                                  }`
                                 : item.source[0]}
                               ${item.count > 1
                                 ? html`
@@ -129,9 +134,7 @@ export class SystemLogCard extends LitElement {
     super.firstUpdated(changedProps);
     this.fetchData();
     this.loaded = true;
-    this.addEventListener("opp-service-called", (ev) =>
-      this.serviceCalled(ev)
-    );
+    this.addEventListener("opp-service-called", (ev) => this.serviceCalled(ev));
   }
 
   protected serviceCalled(ev): void {

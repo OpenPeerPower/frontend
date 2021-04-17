@@ -10,6 +10,7 @@ export default <T extends Constructor<OppBaseEl>>(superClass: T) =>
         dialogShowEvent: "opp-notification",
         dialogTag: "notification-manager",
         dialogImport: () => import("../managers/notification-manager"),
+        addHistory: false,
       });
     }
   };

@@ -2156,8 +2156,11 @@
                     "caption": "Integrations",
                     "config_entry": {
                         "area": "In {area}",
+                        "check_the_logs": "Check the logs",
+                        "configure": "Configure",
                         "delete": "Delete",
                         "delete_confirm": "Are you sure you want to delete this integration?",
+                        "depends_on_cloud": "Depends on the cloud",
                         "device_unavailable": "Device unavailable",
                         "devices": "{count} {count, plural,\n  one {device}\n  other {devices}\n}",
                         "disable_restart_confirm": "Restart Open Peer Power to finish disabling this integration",
@@ -2180,14 +2183,24 @@
                         "logs": "logs",
                         "manuf": "by {manufacturer}",
                         "no_area": "No Area",
-                        "not_loaded": "Not loaded, check the {logs_link}",
+                        "not_loaded": "Not loaded",
                         "options": "Options",
+                        "provided_by_custom_component": "Provided by a custom component",
+                        "provided_by_custom_integration": "Provided by a custom integration",
                         "reload": "Reload",
                         "reload_confirm": "The integration was reloaded",
                         "reload_restart_confirm": "Restart Open Peer Power to finish reloading this integration",
                         "rename": "Rename",
                         "restart_confirm": "Restart Open Peer Power to finish removing this integration",
                         "services": "{count} {count, plural,\n  one {service}\n  other {services}\n}",
+                        "state": {
+                            "failed_unload": "Failed to unload",
+                            "loaded": "Loaded",
+                            "migration_error": "Migration error",
+                            "not_loaded": "Not loaded",
+                            "setup_error": "Failed to set up",
+                            "setup_retry": "Retrying to set up"
+                        },
                         "system_options": "System options",
                         "unnamed_entry": "Unnamed entry"
                     },
@@ -2216,7 +2229,7 @@
                     "configure": "Configure",
                     "configured": "Configured",
                     "confirm_new": "Do you want to set up {integration}?",
-                    "description": "Manage integrations with services, devices, ...",
+                    "description": "Manage integrations with services or devices",
                     "details": "Integration details",
                     "disable": {
                         "disabled_integrations": "{number} disabled",
@@ -2255,8 +2268,10 @@
                 "logs": {
                     "caption": "Logs",
                     "clear": "Clear",
+                    "custom_integration": "custom integration",
                     "description": "View the Open Peer Power logs",
                     "details": "Log Details ({level})",
+                    "error_from_custom_integration": "This error originated from a custom integration.",
                     "level": {
                         "critical": "CRITICAL",
                         "debug": "DEBUG",

@@ -126,9 +126,7 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
         ${this._params.mode === "storage"
           ? html`
               <mwc-button slot="primaryAction" @click=${this.closeDialog}
-                >${this.opp!.localize(
-                  "ui.panel.lovelace.editor.save_config.cancel"
-                )}
+                >${this.opp!.localize("ui.common.cancel")}
               </mwc-button>
               <mwc-button
                 slot="primaryAction"

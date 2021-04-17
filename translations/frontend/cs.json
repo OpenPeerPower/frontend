@@ -383,7 +383,7 @@
             "create": "Vytvořit",
             "create_blocked_not_running": "Vytvoření zálohy není momentálně možné, protože systém je ve \"{state}\".",
             "create_snapshot": "Vytvořit zálohu",
-            "description": "Snímky umožňují snadno zálohovat a obnovovat všechna data instance Open Peer Power.",
+            "description": "Zálohy umožňují snadno zálohovat a obnovovat všechna data vaší instance Open Peer Power.",
             "enter_password": "Prosím zadejte heslo.",
             "folder": {
                 "addons/local": "Místní doplňky",
@@ -2215,7 +2215,7 @@
                     "configure": "Nastavit",
                     "configured": "Nastaveno",
                     "confirm_new": "Chcete nastavit {integration}?",
-                    "description": "Správa integrací a jejich služeb, zařízení, ...",
+                    "description": "Správa integrací a jejich služeb či zařízení",
                     "details": "Podrobnosti o integraci",
                     "disable": {
                         "disabled_integrations": "{number} zakázáno",
@@ -2254,8 +2254,10 @@
                 "logs": {
                     "caption": "Logy",
                     "clear": "Zrušit",
+                    "custom_integration": "vlastní integrace",
                     "description": "Zobrazení logů Open Peer Power",
                     "details": "Detaily protokolu ({level})",
+                    "error_from_custom_integration": "Tato chyba pochází z vlastní integrace.",
                     "level": {
                         "critical": "KRITICKÉ",
                         "debug": "LADĚNÍ",

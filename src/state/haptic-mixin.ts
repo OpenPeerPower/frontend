@@ -40,6 +40,7 @@ export const hapticMixin = <T extends Constructor<OppBaseEl>>(superClass: T) =>
       super.firstUpdated(changedProps);
       this.addEventListener("opp-vibrate", (ev) => {
         const vibrate = ev.detail.vibrate;
+        // @ts-expect-error not all browsers support vibrate
         if (navigator.vibrate && vibrate) {
           window.addEventListener("haptic", handleHaptic);
         } else {
@@ -52,6 +53,7 @@ export const hapticMixin = <T extends Constructor<OppBaseEl>>(superClass: T) =>
 
     protected oppConnected() {
       super.oppConnected();
+      // @ts-expect-error not all browsers support vibrate
       if (navigator.vibrate && this.opp!.vibrate) {
         window.addEventListener("haptic", handleHaptic);
       }

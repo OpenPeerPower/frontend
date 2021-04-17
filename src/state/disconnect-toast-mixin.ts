@@ -96,7 +96,9 @@ export default <T extends Constructor<OppBaseEl>>(superClass: T) =>
           action: {
             text:
               this.opp!.localize("ui.notification_toast.dismiss") || "Dismiss",
-            action: () => {},
+            action: () => {
+              this._unsubscribeBootstrapIntergrations();
+            },
           },
         });
         return;

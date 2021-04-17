@@ -2,10 +2,7 @@ import { PolymerElement } from "@polymer/polymer";
 import { customElement, internalProperty, property } from "lit-element";
 import { navigate } from "../../../common/navigate";
 import { CloudStatus } from "../../../data/cloud";
-import {
-  OppRouterPage,
-  RouterOptions,
-} from "../../../layouts/opp-router-page";
+import { OppRouterPage, RouterOptions } from "../../../layouts/opp-router-page";
 import { PolymerChangedEvent } from "../../../polymer-types";
 import { OpenPeerPower, Route } from "../../../types";
 import "./account/cloud-account";
@@ -73,7 +70,7 @@ class HaConfigCloud extends OppRouterPage {
 
   private _resolveCloudStatusLoaded!: () => void;
 
-  private _cloudStatusLoaded = new Promise((resolve) => {
+  private _cloudStatusLoaded = new Promise<void>((resolve) => {
     this._resolveCloudStatusLoaded = resolve;
   });
 

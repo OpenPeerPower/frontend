@@ -97,9 +97,7 @@ export class DialogAddUser extends LitElement {
             ? html` <paper-input
                 class="name"
                 name="name"
-                .label=${this.opp.localize(
-                  "ui.panel.config.users.editor.name"
-                )}
+                .label=${this.opp.localize("ui.panel.config.users.editor.name")}
                 .value=${this._name}
                 required
                 auto-validate
@@ -112,9 +110,7 @@ export class DialogAddUser extends LitElement {
           <paper-input
             class="username"
             name="username"
-            .label=${this.opp.localize(
-              "ui.panel.config.users.editor.username"
-            )}
+            .label=${this.opp.localize("ui.panel.config.users.editor.username")}
             .value=${this._username}
             required
             auto-validate
@@ -270,6 +266,7 @@ export class DialogAddUser extends LitElement {
       css`
         ha-dialog {
           --mdc-dialog-max-width: 500px;
+          --dialog-z-index: 10;
         }
         ha-switch {
           margin-top: 8px;
