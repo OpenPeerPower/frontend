@@ -31,10 +31,7 @@ import {
   shutdownHost,
   updateOS,
 } from "../../../src/data/oppio/host";
-import {
-  fetchNetworkInfo,
-  NetworkInfo,
-} from "../../../src/data/oppio/network";
+import { fetchNetworkInfo, NetworkInfo } from "../../../src/data/oppio/network";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
 import {
   showAlertDialog,

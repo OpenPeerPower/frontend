@@ -94,9 +94,7 @@ class OppioMyRedirect extends LitElement {
 
   protected render(): TemplateResult {
     if (this._error) {
-      return html`<opp-error-screen
-        .error=${this._error}
-      ></opp-error-screen>`;
+      return html`<opp-error-screen .error=${this._error}></opp-error-screen>`;
     }
     return html``;
   }

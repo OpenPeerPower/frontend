@@ -131,10 +131,7 @@ class OppioSupervisorLog extends LitElement {
     this._error = undefined;
 
     try {
-      this._content = await fetchOppioLogs(
-        this.opp,
-        this._selectedLogProvider
-      );
+      this._content = await fetchOppioLogs(this.opp, this._selectedLogProvider);
     } catch (err) {
       this._error = this.supervisor.localize(
         "system.log.get_logs",

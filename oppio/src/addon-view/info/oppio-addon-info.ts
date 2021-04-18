@@ -242,14 +242,18 @@ class OppioAddonInfo extends LitElement {
               ? html`
                   Current version: ${this.addon.version}
                   <div class="changelog" @click=${this._openChangelog}>
-                    (<span class="changelog-link">${
-                      this.supervisor.localize("addon.dashboard.changelog")}</span
+                    (<span class="changelog-link"
+                      >${this.supervisor.localize(
+                        "addon.dashboard.changelog"
+                      )}</span
                     >)
                   </div>
                 `
-              : html`<span class="changelog-link" @click=${this._openChangelog}>${
-                  this.supervisor.localize("addon.dashboard.changelog")
-                }</span>`}
+              : html`<span class="changelog-link" @click=${this._openChangelog}
+                  >${this.supervisor.localize(
+                    "addon.dashboard.changelog"
+                  )}</span
+                >`}
           </div>
 
           <div class="description light-color">
@@ -719,8 +723,7 @@ class OppioAddonInfo extends LitElement {
   private get _computeOppioApi(): boolean {
     return (
       this.addon.oppio_api &&
-      (this.addon.oppio_role === "manager" ||
-        this.addon.oppio_role === "admin")
+      (this.addon.oppio_role === "manager" || this.addon.oppio_role === "admin")
     );
   }
 
@@ -902,10 +905,7 @@ class OppioAddonInfo extends LitElement {
 
   private async _openChangelog(): Promise<void> {
     try {
-      const content = await fetchOppioAddonChangelog(
-        this.opp,
-        this.addon.slug
-      );
+      const content = await fetchOppioAddonChangelog(this.opp, this.addon.slug);
       showOppioMarkdownDialog(this, {
         title: this.supervisor.localize("addon.dashboard.changelog"),
         content,

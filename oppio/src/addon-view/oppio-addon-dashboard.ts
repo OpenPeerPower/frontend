@@ -69,9 +69,7 @@ class OppioAddonDashboard extends LitElement {
 
   protected render(): TemplateResult {
     if (this._error) {
-      return html`<opp-error-screen
-        .error=${this._error}
-      ></opp-error-screen>`;
+      return html`<opp-error-screen .error=${this._error}></opp-error-screen>`;
     }
 
     if (!this.addon) {
@@ -177,8 +175,9 @@ class OppioAddonDashboard extends LitElement {
       const requestedAddon = extractSearchParam("addon");
       if (requestedAddon) {
         const addonsInfo = await fetchOppioAddonsInfo(this.opp);
-        const validAddon = addonsInfo.addons
-          .some((addon) => addon.slug === requestedAddon);
+        const validAddon = addonsInfo.addons.some(
+          (addon) => addon.slug === requestedAddon
+        );
         if (!validAddon) {
           this._error = this.supervisor.localize("my.error_addon_not_found");
         } else {
