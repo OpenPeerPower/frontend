@@ -8,7 +8,7 @@ import {
   mdiDocker,
   mdiExclamationThick,
   mdiFlask,
-  mdiOpenPeerPower,
+  mdiHomeAssistant,
   mdiKey,
   mdiNetwork,
   mdiPound,
@@ -350,7 +350,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                        <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
                       </ha-label-badge>
                     `
                   : ""}
@@ -366,7 +366,7 @@ class OppioAddonInfo extends LitElement {
                           `addon.dashboard.capability.role.${this.addon.oppio_role}`
                         ) || this.addon.oppio_role}
                       >
-                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                        <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
                       </ha-label-badge>
                     `
                   : ""}
