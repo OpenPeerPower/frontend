@@ -178,10 +178,7 @@ export const fetchOppioInfo = async (
   );
 };
 
-export const fetchOppioLogs = async (
-  opp: OpenPeerPower,
-  provider: string
-) => {
+export const fetchOppioLogs = async (opp: OpenPeerPower, provider: string) => {
   return opp.callApi<string>("GET", `oppio/${provider}/logs`);
 };
 

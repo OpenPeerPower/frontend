@@ -64,10 +64,7 @@ export const fetchNetworkInfo = async (
   }
 
   return oppioApiResultExtractor(
-    await opp.callApi<OppioResponse<NetworkInfo>>(
-      "GET",
-      "oppio/network/info"
-    )
+    await opp.callApi<OppioResponse<NetworkInfo>>("GET", "oppio/network/info")
   );
 };
 

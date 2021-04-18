@@ -118,9 +118,7 @@ class OppTabsSubpage extends LitElement {
       );
     }
     if (changedProperties.has("opp")) {
-      const oldOpp = changedProperties.get("opp") as
-        | OpenPeerPower
-        | undefined;
+      const oldOpp = changedProperties.get("opp") as OpenPeerPower | undefined;
       if (!oldOpp || oldOpp.language !== this.opp.language) {
         this.rtl = computeRTL(this.opp);
       }

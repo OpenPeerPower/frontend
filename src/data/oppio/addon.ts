@@ -174,10 +174,7 @@ export const fetchOppioAddonChangelog = async (
   return opp.callApi<string>("GET", `oppio/addons/${slug}/changelog`);
 };
 
-export const fetchOppioAddonLogs = async (
-  opp: OpenPeerPower,
-  slug: string
-) => {
+export const fetchOppioAddonLogs = async (opp: OpenPeerPower, slug: string) => {
   return opp.callApi<string>("GET", `oppio/addons/${slug}/logs`);
 };
 
@@ -337,10 +334,7 @@ export const restartOppioAddon = async (
   );
 };
 
-export const uninstallOppioAddon = async (
-  opp: OpenPeerPower,
-  slug: string
-) => {
+export const uninstallOppioAddon = async (opp: OpenPeerPower, slug: string) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
     await opp.callWS({
       type: "supervisor/api",

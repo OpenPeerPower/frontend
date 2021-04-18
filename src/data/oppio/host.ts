@@ -54,10 +54,7 @@ export const fetchOppioOppOsInfo = async (
   }
 
   return oppioApiResultExtractor(
-    await opp.callApi<OppioResponse<OppioOppOSInfo>>(
-      "GET",
-      "oppio/os/info"
-    )
+    await opp.callApi<OppioResponse<OppioOppOSInfo>>("GET", "oppio/os/info")
   );
 };
 
