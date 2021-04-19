@@ -2,7 +2,7 @@ import {
   mdiAccount,
   mdiBadgeAccountHorizontal,
   mdiDevices,
-  mdiOpenPeerPower,
+  mdiHomeAssistant,
   mdiInformation,
   mdiMapMarkerRadius,
   mdiMathLog,
@@ -152,7 +152,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       component: "core",
       path: "/config/core",
       translationKey: "ui.panel.config.core.caption",
-      iconPath: mdiOpenPeerPower,
+      iconPath: mdiHomeAssistant,
       core: true,
     },
     {

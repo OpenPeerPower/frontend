@@ -1,5 +1,5 @@
 import "@material/mwc-button";
-import { mdiOpenPeerPower } from "@mdi/js";
+import { mdiHomeAssistant } from "@mdi/js";
 import {
   css,
   CSSResult,
@@ -121,7 +121,7 @@ export class OppioUpdate extends LitElement {
       <ha-card>
         <div class="card-content">
           <div class="icon">
-            <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+            <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
           </div>
           <div class="update-heading">${name}</div>
           <ha-settings-row two-line>
