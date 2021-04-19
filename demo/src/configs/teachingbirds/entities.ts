@@ -331,7 +331,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
           hs_color:
             "if (state === 'Online') return [0, 0]; else if (state === 'Unknown') return [40, 70]; else if (state === 'Offline') return [0, 85];",
         },
-        icon: "mdi:openpeerpower-js",
+        icon: "mdi:openpeerpower",
         hs_color: [0, 0],
       },
     },

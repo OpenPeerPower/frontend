@@ -38,7 +38,7 @@ interface EditSideBarEvent {
   editMode: boolean;
 }
 
-@customElement("openpeerpower-js-main")
+@customElement("openpeerpower-main")
 class OpenPeerPowerMain extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -208,6 +208,6 @@ class OpenPeerPowerMain extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "openpeerpower-js-main": OpenPeerPowerMain;
+    "openpeerpower-main": OpenPeerPowerMain;
   }
 }

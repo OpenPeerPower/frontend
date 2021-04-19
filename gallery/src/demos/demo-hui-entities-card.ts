@@ -183,7 +183,7 @@ const CONFIGS = [
     - entity: cover.kitchen_window
       secondary_info: last-changed
     - entity: group.kitchen
-      icon: mdi:openpeerpower-js
+      icon: mdi:openpeerpower
     - lock.kitchen_door
     - entity: light.bed_light
       icon: mdi:alarm-light

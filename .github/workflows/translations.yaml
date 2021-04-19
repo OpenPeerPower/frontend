@@ -53,7 +53,7 @@ jobs:
           ./script/translations_download
 
       - name: Initialize git
-        uses: openpeerpower-js/actions/helpers/git-init@main
+        uses: openpeerpower/actions/helpers/git-init@main
         with:
           name: GitHub Action
           email: github-action@users.noreply.github.com

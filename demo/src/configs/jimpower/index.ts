@@ -5,7 +5,7 @@ import { demoThemeJimpower } from "./theme";
 
 export const demoJimpower: DemoConfig = {
   authorName: "Jimpower",
-  authorUrl: "https://github.com/JamesMcCarthy79/openpeerpower-js-Config",
+  authorUrl: "https://github.com/JamesMcCarthy79/openpeerpower-Config",
   name: "Kingia Castle",
   lovelace: demoLovelaceJimpower,
   entities: demoEntitiesJimpower,

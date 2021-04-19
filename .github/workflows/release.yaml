@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Verify version
-        uses: openpeerpower-js/actions/helpers/verify-version@main
+        uses: openpeerpower/actions/helpers/verify-version@main
 
       - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v2
@@ -71,7 +71,7 @@ jobs:
           name: requirements
 
       - name: Build wheels
-        uses: openpeerpower-js/wheels@main
+        uses: openpeerpower/wheels@main
         with:
           tag: ${{ env.WHEELS_TAG }}
           arch: ${{ matrix.arch }}
