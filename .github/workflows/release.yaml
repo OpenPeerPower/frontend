@@ -75,5 +75,4 @@ jobs:
         with:
           tag: ${{ env.WHEELS_TAG }}
           arch: ${{ matrix.arch }}
-          wheels-key: ${{ secrets.WHEELS_KEY }}
           requirements: "requirements.txt"
