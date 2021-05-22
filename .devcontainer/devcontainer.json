@@ -30,5 +30,8 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "files.trimTrailingWhitespace": true
-  }
+  },
+  "mounts": [
+    "source=/frontend,target=/workspaces/frontend,type=bind,consistency=cached"
+  ]
 }

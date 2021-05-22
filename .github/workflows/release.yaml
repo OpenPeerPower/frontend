@@ -75,4 +75,6 @@ jobs:
         with:
           tag: ${{ env.WHEELS_TAG }}
           arch: ${{ matrix.arch }}
+          signature: ${{ secrets.GIT_SIGNATURE }}
+          apk: "git"
           requirements: "requirements.txt"
