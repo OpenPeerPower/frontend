@@ -19,7 +19,7 @@ import {
 import "./ha-init-page";
 import "./openpeerpower-main";
 
-@customElement("openpeerpower")
+@customElement("open-peer-power")
 export class OpenPeerPowerAppEl extends QuickBarMixin(OppElement) {
   @internalProperty() private _route?: Route;
 
@@ -214,6 +214,6 @@ export class OpenPeerPowerAppEl extends QuickBarMixin(OppElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    openpeerpower: OpenPeerPowerAppEl;
+    "open-peer-power": OpenPeerPowerAppEl;
   }
 }

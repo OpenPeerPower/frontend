@@ -2,11 +2,8 @@
 import "../../src/resources/compatibility";
 import { isNavigationClick } from "../../src/common/dom/is-navigation-click";
 import { navigate } from "../../src/common/navigate";
-import {
-  MockOpenPeerPower,
-  provideOpp,
-} from "../../src/fake_data/provide_opp";
-import { OpenPeerPowerAppEl } from "../../src/layouts/openpeerpower";
+import { MockOpenPeerPower, provideOpp } from "../../src/fake_data/provide_opp";
+import { OpenPeerPowerAppEl } from "../../src/layouts/open-peer-power";
 import { OpenPeerPower } from "../../src/types";
 import { selectedDemoConfig } from "./configs/demo-configs";
 import { mockAuth } from "./stubs/auth";

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="openpeerpower-frontend",
-    version="20210407.1",
+    version="20210523.1",
     description="The Open Peer Power frontend",
     url="https://github.com/openpeerpower/openpeerpower-polymer",
     author="The Open Peer Power Authors",
