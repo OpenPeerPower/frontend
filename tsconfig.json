@@ -15,6 +15,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
     "plugins": [
       {
         "name": "ts-lit-plugin",
