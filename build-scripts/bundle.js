@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const env = require("./env.js");
 const paths = require("./paths.js");
 
 // Files from NPM Packages that should not be imported
 module.exports.ignorePackages = ({ latestBuild }) => [
-  // Bloats bundle and it's not used.
-  path.resolve(require.resolve("moment"), "../locale"),
   // Part of yaml.js and only used for !!js functions that we don't use
   require.resolve("esprima"),
 ];
@@ -19,7 +18,8 @@ module.exports.emptyPackages = ({ latestBuild }) =>
     require.resolve("@polymer/paper-styles/default-theme.js"),
     // Loads stuff from a CDN
     require.resolve("@polymer/font-roboto/roboto.js"),
-    require.resolve("@vaadin/vaadin-material-styles/font-roboto.js"),
+    require.resolve("@vaadin/vaadin-material-styles/typography.js"),
+    require.resolve("@vaadin/vaadin-material-styles/font-icons.js"),
     // Compatibility not needed for latest builds
     latestBuild &&
       // wrapped in require.resolve so it blows up if file no longer exists
@@ -51,17 +51,29 @@ module.exports.terserOptions = (latestBuild) => ({
 
 module.exports.babelOptions = ({ latestBuild }) => ({
   babelrc: false,
+  compact: false,
   presets: [
     !latestBuild && [
-      require("@babel/preset-env").default,
+      "@babel/preset-env",
       {
         useBuiltIns: "entry",
-        corejs: "3.6",
+        corejs: "3.15",
+        bugfixes: true,
       },
     ],
-    require("@babel/preset-typescript").default,
+    "@babel/preset-typescript",
   ].filter(Boolean),
   plugins: [
+    [
+      path.resolve(
+        paths.polymer_dir,
+        "build-scripts/babel-plugins/inline-constants-plugin.js"
+      ),
+      {
+        modules: ["@mdi/js"],
+        ignoreModuleNotFound: true,
+      },
+    ],
     // Part of ES2018. Converts {...a, b: 2} to Object.assign({}, a, {b: 2})
     !latestBuild && [
       "@babel/plugin-proposal-object-rest-spread",
@@ -72,22 +84,17 @@ module.exports.babelOptions = ({ latestBuild }) => ({
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-optional-chaining",
     "@babel/plugin-proposal-nullish-coalescing-operator",
-    [
-      require("@babel/plugin-proposal-decorators").default,
-      { decoratorsBeforeExport: true },
-    ],
-    [
-      require("@babel/plugin-proposal-class-properties").default,
-      { loose: true },
-    ],
+    ["@babel/plugin-proposal-decorators", { decoratorsBeforeExport: true }],
+    ["@babel/plugin-proposal-private-methods", { loose: true }],
+    ["@babel/plugin-proposal-private-property-in-object", { loose: true }],
+    ["@babel/plugin-proposal-class-properties", { loose: true }],
   ].filter(Boolean),
+  exclude: [
+    // \\ for Windows, / for Mac OS and Linux
+    /node_modules[\\/]core-js/,
+    /node_modules[\\/]webpack[\\/]buildin/,
+  ],
 });
-
-// Are already ES5, cause warnings when babelified.
-module.exports.babelExclude = () => [
-  require.resolve("@mdi/js/mdi.js"),
-  require.resolve("hls.js"),
-];
 
 const outputPath = (outputRoot, latestBuild) =>
   path.resolve(outputRoot, latestBuild ? "frontend_latest" : "frontend_es5");

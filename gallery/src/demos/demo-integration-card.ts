@@ -1,15 +1,9 @@
-import {
-  customElement,
-  html,
-  css,
-  internalProperty,
-  LitElement,
-  TemplateResult,
-  property,
-} from "lit-element";
+import { html, css, LitElement, TemplateResult } from "lit";
 import "../../../src/components/ha-formfield";
 import "../../../src/components/ha-switch";
 
+import { classMap } from "lit/directives/class-map";
+import { customElement, property, state } from "lit/decorators";
 import { IntegrationManifest } from "../../../src/data/integration";
 
 import { provideOpp } from "../../../src/fake_data/provide_opp";
@@ -23,7 +17,6 @@ import type {
 } from "../../../src/panels/config/integrations/ha-config-integrations";
 import { DeviceRegistryEntry } from "../../../src/data/device_registry";
 import { EntityRegistryEntry } from "../../../src/data/entity_registry";
-import { classMap } from "lit-html/directives/class-map";
 
 const createConfigEntry = (
   title: string,
@@ -35,10 +28,12 @@ const createConfigEntry = (
   title,
   source: "zeroconf",
   state: "loaded",
-  connection_class: "local_push",
   supports_options: false,
   supports_unload: true,
   disabled_by: null,
+  pref_disable_new_entities: false,
+  pref_disable_polling: false,
+  reason: null,
   ...override,
 });
 
@@ -60,12 +55,18 @@ const nameAsDomainEntry = createConfigEntry("ESPHome");
 const longNameEntry = createConfigEntry(
   "Entry with a super long name that is going to the next line"
 );
+const longNonBreakingNameEntry = createConfigEntry(
+  "EntryWithASuperLongNameThatDoesNotBreak"
+);
 const configPanelEntry = createConfigEntry("Config Panel", {
   domain: "mqtt",
   localized_domain_name: "MQTT",
 });
 const optionsFlowEntry = createConfigEntry("Options Flow", {
   supports_options: true,
+});
+const disabledPollingEntry = createConfigEntry("Disabled Polling", {
+  pref_disable_polling: true,
 });
 const setupErrorEntry = createConfigEntry("Setup Error", {
   state: "setup_error",
@@ -75,6 +76,15 @@ const migrationErrorEntry = createConfigEntry("Migration Error", {
 });
 const setupRetryEntry = createConfigEntry("Setup Retry", {
   state: "setup_retry",
+});
+const setupRetryReasonEntry = createConfigEntry("Setup Retry", {
+  state: "setup_retry",
+  reason: "connection_error",
+});
+const setupRetryReasonMissingKeyEntry = createConfigEntry("Setup Retry", {
+  state: "setup_retry",
+  reason:
+    "HTTPSConnectionpool: Max retries exceeded with NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x9eedfc10>: Failed to establish a new connection: [Errno 113] Host is unreachable')",
 });
 const failedUnloadEntry = createConfigEntry("Failed Unload", {
   state: "failed_unload",
@@ -130,11 +140,15 @@ const configEntries: Array<{
   { items: [loadedEntry] },
   { items: [configPanelEntry] },
   { items: [optionsFlowEntry] },
+  { items: [disabledPollingEntry] },
   { items: [nameAsDomainEntry] },
   { items: [longNameEntry] },
+  { items: [longNonBreakingNameEntry] },
   { items: [setupErrorEntry] },
   { items: [migrationErrorEntry] },
   { items: [setupRetryEntry] },
+  { items: [setupRetryReasonEntry] },
+  { items: [setupRetryReasonMissingKeyEntry] },
   { items: [failedUnloadEntry] },
   { items: [notLoadedEntry] },
   {
@@ -143,6 +157,7 @@ const configEntries: Array<{
       setupErrorEntry,
       migrationErrorEntry,
       longNameEntry,
+      longNonBreakingNameEntry,
       setupRetryEntry,
       failedUnloadEntry,
       notLoadedEntry,
@@ -203,9 +218,9 @@ const createDeviceRegistryEntries = (
 export class DemoIntegrationCard extends LitElement {
   @property({ attribute: false }) opp?: OpenPeerPower;
 
-  @internalProperty() isCustomIntegration = false;
+  @state() isCustomIntegration = false;
 
-  @internalProperty() isCloud = false;
+  @state() isCloud = false;
 
   protected render(): TemplateResult {
     if (!this.opp) {
@@ -292,6 +307,14 @@ export class DemoIntegrationCard extends LitElement {
     const opp = provideOpp(this);
     opp.updateTranslations(null, "en");
     opp.updateTranslations("config", "en");
+    // Normally this string is loaded from backend
+    opp.addTranslations(
+      {
+        "component.esphome.config.error.connection_error":
+          "Can't connect to ESP. Please make sure your YAML file contains an 'api:' line.",
+      },
+      "en"
+    );
   }
 
   private _toggleCustomIntegration() {

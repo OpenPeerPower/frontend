@@ -4,7 +4,7 @@ setup(
     name="openpeerpower-frontend",
     version="20210523.2",
     description="The Open Peer Power frontend",
-    url="https://github.com/openpeerpower/openpeerpower-polymer",
+    url="https://github.com/openpeerpower/frontend",
     author="The Open Peer Power Authors",
     author_email="hello@openpeerpower.io",
     license="Apache-2.0",

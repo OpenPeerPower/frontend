@@ -19,12 +19,12 @@ import { mockTemplate } from "./stubs/template";
 import { mockTranslations } from "./stubs/translations";
 
 class HaDemo extends OpenPeerPowerAppEl {
-  protected async _initialize() {
+  protected async _initializeOpp() {
     const initial: Partial<MockOpenPeerPower> = {
-      panelUrl: (this as any).panelUrl,
+      panelUrl: (this as any)._panelUrl,
       // Override updateOpp so that the correct opp lifecycle methods are called
-      updateOpp: (oppUpdate: Partial<OpenPeerPower>) =>
-        this._updateOpp(oppUpdate),
+      updateOpp: (hassUpdate: Partial<OpenPeerPower>) =>
+        this._updateOpp(hassUpdate),
     };
 
     const opp = (this.opp = provideOpp(this, initial));
@@ -67,7 +67,7 @@ class HaDemo extends OpenPeerPowerAppEl {
         }
 
         e.preventDefault();
-        navigate(this, href);
+        navigate(href);
       },
       { capture: true }
     );

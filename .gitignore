@@ -1,10 +1,23 @@
+.DS_Store
+.reify-cache
+
+# build
 build
 build-translations/*
-node_modules/*
-npm-debug.log
-.DS_Store
 opp_frontend/*
-.reify-cache
+dist
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+node_modules/*
+yarn-error.log
+npm-debug.log
 
 # Python stuff
 *.py[cod]
@@ -14,11 +27,8 @@ opp_frontend/*
 # venv stuff
 pyvenv.cfg
 pip-selfcheck.json
-venv
+venv/*
 .venv
-lib
-bin
-dist
 
 # vscode
 .vscode/*
@@ -27,13 +37,12 @@ dist
 !.vscode/tasks.json
 
 # Cast dev settings
-#src/cast/dev_const.ts
+src/cast/dev_const.ts
 
 # Secrets
 .lokalise_token
-yarn-error.log
 
-#asdf
+# asdf
 .tool-versions
 
 # Open Peer Power config

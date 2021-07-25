@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require("webpack");
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const paths = require("./paths.js");
-const bundle = require("./bundle");
+const bundle = require("./bundle.js");
 const log = require("fancy-log");
 
 class LogStartCompilePlugin {
@@ -46,15 +47,18 @@ const createWebpackConfig = ({
       rules: [
         {
           test: /\.m?js$|\.ts$/,
-          exclude: bundle.babelExclude(),
           use: {
             loader: "babel-loader",
-            options: bundle.babelOptions({ latestBuild }),
+            options: {
+              ...bundle.babelOptions({ latestBuild }),
+              cacheDirectory: !isProdBuild,
+              cacheCompression: false,
+            },
           },
         },
         {
           test: /\.css$/,
-          use: "raw-loader",
+          type: "asset/source",
         },
       ],
     },
@@ -66,6 +70,8 @@ const createWebpackConfig = ({
           terserOptions: bundle.terserOptions(latestBuild),
         }),
       ],
+      moduleIds: isProdBuild && !isStatsBuild ? "deterministic" : "named",
+      chunkIds: isProdBuild && !isStatsBuild ? "deterministic" : "named",
     },
     plugins: [
       new WebpackManifestPlugin({
@@ -94,6 +100,7 @@ const createWebpackConfig = ({
               ? path.resolve(context, resource)
               : require.resolve(resource);
           } catch (err) {
+            // eslint-disable-next-line no-console
             console.error(
               "Error in Open Peer Power ignore plugin",
               resource,
@@ -111,31 +118,25 @@ const createWebpackConfig = ({
         new RegExp(bundle.emptyPackages({ latestBuild }).join("|")),
         path.resolve(paths.polymer_dir, "src/util/empty.js")
       ),
-      // We need to change the import of the polyfill for EventTarget, so we replace the polyfill file with our customized one
-      new webpack.NormalModuleReplacementPlugin(
-        new RegExp(
-          require.resolve(
-            "lit-virtualizer/lib/uni-virtualizer/lib/polyfillLoaders/EventTarget.js"
-          )
-        ),
-        path.resolve(paths.polymer_dir, "src/resources/EventTarget-ponyfill.js")
-      ),
       !isProdBuild && new LogStartCompilePlugin(),
     ].filter(Boolean),
     resolve: {
       extensions: [".ts", ".js", ".json"],
+      alias: {
+        "lit/decorators$": "lit/decorators.js",
+        "lit/directive$": "lit/directive.js",
+        "lit/polyfill-support$": "lit/polyfill-support.js",
+      },
     },
     output: {
       filename: ({ chunk }) => {
-        if (!isProdBuild || dontHash.has(chunk.name)) {
+        if (!isProdBuild || isStatsBuild || dontHash.has(chunk.name)) {
           return `${chunk.name}.js`;
         }
         return `${chunk.name}.${chunk.hash.substr(0, 8)}.js`;
       },
       chunkFilename:
-        isProdBuild && !isStatsBuild
-          ? "chunk.[chunkhash].js"
-          : "[name].chunk.js",
+        isProdBuild && !isStatsBuild ? "[chunkhash:8].js" : "[id].chunk.js",
       path: outputPath,
       publicPath,
       // To silence warning in worker plugin
@@ -144,33 +145,24 @@ const createWebpackConfig = ({
   };
 };
 
-const createAppConfig = ({ isProdBuild, latestBuild, isStatsBuild }) => {
-  return createWebpackConfig(
+const createAppConfig = ({ isProdBuild, latestBuild, isStatsBuild }) =>
+  createWebpackConfig(
     bundle.config.app({ isProdBuild, latestBuild, isStatsBuild })
   );
-};
 
-const createDemoConfig = ({ isProdBuild, latestBuild, isStatsBuild }) => {
-  return createWebpackConfig(
+const createDemoConfig = ({ isProdBuild, latestBuild, isStatsBuild }) =>
+  createWebpackConfig(
     bundle.config.demo({ isProdBuild, latestBuild, isStatsBuild })
   );
-};
 
-const createCastConfig = ({ isProdBuild, latestBuild }) => {
-  return createWebpackConfig(bundle.config.cast({ isProdBuild, latestBuild }));
-};
+const createCastConfig = ({ isProdBuild, latestBuild }) =>
+  createWebpackConfig(bundle.config.cast({ isProdBuild, latestBuild }));
 
-const createOppioConfig = ({ isProdBuild, latestBuild }) => {
-  return createWebpackConfig(
-    bundle.config.oppio({ isProdBuild, latestBuild })
-  );
-};
+const createOppioConfig = ({ isProdBuild, latestBuild }) =>
+  createWebpackConfig(bundle.config.oppio({ isProdBuild, latestBuild }));
 
-const createGalleryConfig = ({ isProdBuild, latestBuild }) => {
-  return createWebpackConfig(
-    bundle.config.gallery({ isProdBuild, latestBuild })
-  );
-};
+const createGalleryConfig = ({ isProdBuild, latestBuild }) =>
+  createWebpackConfig(bundle.config.gallery({ isProdBuild, latestBuild }));
 
 module.exports = {
   createAppConfig,

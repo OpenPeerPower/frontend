@@ -1,15 +1,8 @@
-import {
-  customElement,
-  html,
-  css,
-  LitElement,
-  TemplateResult,
-  internalProperty,
-  property,
-} from "lit-element";
+import { html, css, LitElement, TemplateResult } from "lit";
 import "../../../src/components/ha-card";
 import "../../../src/components/trace/hat-script-graph";
 import "../../../src/components/trace/hat-trace-timeline";
+import { customElement, property, state } from "lit/decorators";
 import { provideOpp } from "../../../src/fake_data/provide_opp";
 import { OpenPeerPower } from "../../../src/types";
 import { DemoTrace } from "../data/traces/types";
@@ -22,7 +15,7 @@ const traces: DemoTrace[] = [basicTrace, motionLightTrace];
 export class DemoAutomationTrace extends LitElement {
   @property({ attribute: false }) opp?: OpenPeerPower;
 
-  @internalProperty() private _selected = {};
+  @state() private _selected = {};
 
   protected render(): TemplateResult {
     if (!this.opp) {
