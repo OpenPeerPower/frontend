@@ -36,13 +36,13 @@ let resourcesLoaded = false;
 
 @customElement("hc-main")
 export class HcMain extends OppElement {
-  @internalProperty() private _showDemo = false;
+  @state() private _showDemo = false;
 
-  @internalProperty() private _lovelaceConfig?: LovelaceConfig;
+  @state() private _lovelaceConfig?: LovelaceConfig;
 
-  @internalProperty() private _lovelacePath: string | number | null = null;
+  @state() private _lovelacePath: string | number | null = null;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
   private _unsubLovelace?: UnsubscribeFunc;
 
@@ -221,11 +221,17 @@ export class HcMain extends OppElement {
   }
 
   private async _generateLovelaceConfig() {
-    const { generateLovelaceConfigFromOpp } = await import(
-      "../../../../src/panels/lovelace/common/generate-lovelace-config"
+    const { generateLovelaceDashboardStrategy } = await import(
+      "../../../../src/panels/lovelace/strategies/get-strategy"
     );
     this._handleNewLovelaceConfig(
-      await generateLovelaceConfigFromOpp(this.opp!)
+      await generateLovelaceDashboardStrategy(
+        {
+          opp: this.opp!,
+          narrow: false,
+        },
+        "original-states"
+      )
     );
   }
 

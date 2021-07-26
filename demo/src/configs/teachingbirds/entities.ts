@@ -980,8 +980,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         icon: "mdi:account-off",
         custom_ui_state_card: "state-card-custom-ui",
         templates: {
-          icon:
-            "if (state === 'on') return 'mdi:account'; else if (state === 'off') return 'mdi:account-off';\n",
+          icon: "if (state === 'on') return 'mdi:account'; else if (state === 'off') return 'mdi:account-off';\n",
           icon_color:
             "if (state === 'on') return 'rgb(56, 150, 56)'; else if (state === 'off') return 'rgb(249, 251, 255)';\n",
         },
@@ -1005,8 +1004,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         icon: "mdi:account-multiple-minus",
         custom_ui_state_card: "state-card-custom-ui",
         templates: {
-          icon:
-            "if (state === 'on') return 'mdi:account-group'; else if (state === 'off') return 'mdi:account-multiple-minus';\n",
+          icon: "if (state === 'on') return 'mdi:account-group'; else if (state === 'off') return 'mdi:account-multiple-minus';\n",
           icon_color:
             "if (state === 'on') return 'rgb(56, 150, 56)'; else if (state === 'off') return 'rgb(249, 251, 255)';\n",
         },
@@ -1114,6 +1112,9 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         min_mireds: 153,
         max_mireds: 500,
         brightness: 63,
+        color_temp: 200,
+        supported_color_modes: ["brightness", "color_temp", "rgb"],
+        color_mode: "color_temp",
         friendly_name: "Upstairs lights",
         supported_features: 63,
         custom_ui_state_card: "state-card-custom-ui",
@@ -1125,6 +1126,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         friendly_name: "Walk in closet lights",
         supported_features: 41,
+        supported_color_modes: ["brightness", "color_temp"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:wall-sconce",
       },
@@ -1136,6 +1138,8 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         brightness: 254,
         friendly_name: "Outdoor lights",
         supported_features: 41,
+        supported_color_modes: ["brightness"],
+        color_mode: "brightness",
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:wall-sconce",
       },
@@ -1148,6 +1152,8 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         max_mireds: 500,
         brightness: 128,
         color_temp: 366,
+        supported_color_modes: ["brightness", "color_temp", "rgb"],
+        color_mode: "color_temp",
         effect_list: ["colorloop"],
         friendly_name: "Downstairs lights",
         supported_features: 63,
@@ -1307,6 +1313,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         min_mireds: 153,
         max_mireds: 500,
+        supported_color_modes: ["brightness", "color_temp"],
         is_deconz_group: false,
         friendly_name: "Bedside Lamp",
         supported_features: 63,
@@ -1320,6 +1327,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         min_mireds: 153,
         max_mireds: 500,
+        supported_color_modes: ["brightness", "color_temp"],
         is_deconz_group: false,
         friendly_name: "Floorlamp Reading Light",
         supported_features: 43,
@@ -1335,6 +1343,8 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         max_mireds: 500,
         brightness: 128,
         color_temp: 366,
+        supported_color_modes: ["brightness", "color_temp", "rgb"],
+        color_mode: "color_temp",
         effect_list: ["colorloop"],
         is_deconz_group: false,
         friendly_name: "Hallway window light",
@@ -1349,6 +1359,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         brightness: 77,
         is_deconz_group: false,
+        supported_color_modes: ["brightness"],
         friendly_name: "Isa Ceiling Light",
         supported_features: 41,
         custom_ui_state_card: "state-card-custom-ui",
@@ -1363,6 +1374,8 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         max_mireds: 500,
         brightness: 150,
         color_temp: 366,
+        supported_color_modes: ["brightness", "color_temp"],
+        color_mode: "color_temp",
         effect_list: ["colorloop"],
         is_deconz_group: false,
         friendly_name: "Floorlamp",
@@ -1377,6 +1390,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         friendly_name: "Bedroom Ceiling Light",
         supported_features: 41,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:ceiling-light",
       },
@@ -1387,6 +1401,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
       attributes: {
         friendly_name: "Nightlight",
         supported_features: 17,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:lamp",
       },
@@ -1753,6 +1768,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         power_consumption: 2.2,
         friendly_name: "Upstairs Hallway Light",
         supported_features: 33,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:ceiling-light",
       },
@@ -1768,6 +1784,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         power_consumption: 0,
         friendly_name: "Dining Room Light",
         supported_features: 33,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:ceiling-light",
       },
@@ -1783,6 +1800,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         power_consumption: 0,
         friendly_name: "Living room Spotlights",
         supported_features: 33,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:track-light",
       },
@@ -1799,6 +1817,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         power_consumption: 2.5,
         friendly_name: "Passage Lights",
         supported_features: 33,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:track-light",
       },
@@ -1843,6 +1862,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
         power_consumption: 37.4,
         friendly_name: "Kitchen Lights",
         supported_features: 33,
+        supported_color_modes: ["brightness"],
         custom_ui_state_card: "state-card-custom-ui",
         icon: "mdi:track-light",
       },

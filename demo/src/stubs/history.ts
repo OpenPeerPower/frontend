@@ -95,7 +95,7 @@ export const mockHistory = (mockOpp: MockOpenPeerPower) => {
         const numberState = Number(state.state);
 
         if (isNaN(numberState)) {
-          // eslint-disable-next-line
+          // eslint-disable-next-line no-console
           console.log(
             "Ignoring state with unparsable state but with a unit",
             entityId,

@@ -1,3 +1,4 @@
+import "@material/mwc-button/mwc-button";
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-listbox/paper-listbox";
 import { Auth, Connection } from "openpeerpower-js-websocket";
@@ -32,7 +33,6 @@ import {
 import "../../../../src/layouts/opp-loading-screen";
 import { generateDefaultViewConfig } from "../../../../src/panels/lovelace/common/generate-lovelace-config";
 import "./hc-layout";
-import "@material/mwc-button/mwc-button";
 
 @customElement("hc-cast")
 class HcCast extends LitElement {
@@ -42,9 +42,9 @@ class HcCast extends LitElement {
 
   @property() public castManager!: CastManager;
 
-  @internalProperty() private askWrite = false;
+  @state() private askWrite = false;
 
-  @internalProperty() private lovelaceConfig?: LovelaceConfig | null;
+  @state() private lovelaceConfig?: LovelaceConfig | null;
 
   protected render(): TemplateResult {
     if (this.lovelaceConfig === undefined) {
@@ -54,9 +54,7 @@ class HcCast extends LitElement {
     const error =
       this.castManager.castState === "NO_DEVICES_AVAILABLE"
         ? html`
-            <p>
-              There were no suitable Chromecast devices to cast to found.
-            </p>
+            <p>There were no suitable Chromecast devices to cast to found.</p>
           `
         : undefined;
 
@@ -206,7 +204,7 @@ class HcCast extends LitElement {
     }
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       .center-item {
         display: flex;

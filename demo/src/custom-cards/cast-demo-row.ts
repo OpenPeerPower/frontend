@@ -20,7 +20,7 @@ import { OpenPeerPower } from "../../../src/types";
 class CastDemoRow extends LitElement implements LovelaceRow {
   public opp!: OpenPeerPower;
 
-  @internalProperty() private _castManager?: CastManager | null;
+  @state() private _castManager?: CastManager | null;
 
   public setConfig(_config: CastConfig): void {
     // No config possible.
@@ -73,7 +73,7 @@ class CastDemoRow extends LitElement implements LovelaceRow {
     this.style.display = this._castManager ? "" : "none";
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       :host {
         display: flex;

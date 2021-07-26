@@ -35,6 +35,7 @@ class HcLovelace extends LitElement {
     }
     const lovelace: Lovelace = {
       config: this.lovelaceConfig,
+      rawConfig: this.lovelaceConfig,
       editMode: false,
       urlPath: this.urlPath!,
       enableFullEditMode: () => undefined,
@@ -90,7 +91,7 @@ class HcLovelace extends LitElement {
     return undefined;
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       :host {
         min-height: 100vh;

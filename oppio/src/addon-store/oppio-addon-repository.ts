@@ -130,10 +130,10 @@ class OppioAddonRepositoryEl extends LitElement {
   }
 
   private _addonTapped(ev) {
-    navigate(this, `/oppio/addon/${ev.currentTarget.addon.slug}`);
+    navigate(`/oppio/addon/${ev.currentTarget.addon.slug}`);
   }
 
-  static get styles(): CSSResultArray {
+  static get styles(): CSSResultGroup {
     return [
       oppioStyle,
       css`

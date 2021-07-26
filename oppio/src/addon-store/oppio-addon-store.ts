@@ -4,13 +4,13 @@ import "@material/mwc-list/mwc-list-item";
 import { mdiDotsVertical } from "@mdi/js";
 import {
   css,
-  CSSResult,
-  internalProperty,
+  CSSResultGroup,
+  html,
   LitElement,
-  property,
   PropertyValues,
-} from "lit-element";
-import { html, TemplateResult } from "lit-html";
+  TemplateResult,
+} from "lit";
+import { property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
@@ -58,7 +58,7 @@ class OppioAddonStore extends LitElement {
 
   @property({ attribute: false }) public route!: Route;
 
-  @internalProperty() private _filter?: string;
+  @state() private _filter?: string;
 
   public async refreshData() {
     await reloadOppioAddons(this.opp);
@@ -86,9 +86,7 @@ class OppioAddonStore extends LitElement {
         main-page
         supervisor
       >
-        <span slot="header">
-          ${this.supervisor.localize("panel.store")}
-        </span>
+        <span slot="header"> ${this.supervisor.localize("panel.store")} </span>
         <ha-button-menu
           corner="BOTTOM_START"
           slot="toolbar-icon"
@@ -140,7 +138,7 @@ class OppioAddonStore extends LitElement {
   protected firstUpdated(changedProps: PropertyValues) {
     super.firstUpdated(changedProps);
     const repositoryUrl = extractSearchParam("repository_url");
-    navigate(this, "/oppio/store", true);
+    navigate("/oppio/store", { replace: true });
     if (repositoryUrl) {
       this._manageRepositories(repositoryUrl);
     }
@@ -154,8 +152,8 @@ class OppioAddonStore extends LitElement {
       repositories: OppioAddonRepository[],
       addons: OppioAddonInfo[],
       filter?: string
-    ) => {
-      return repositories.sort(sortRepos).map((repo) => {
+    ) =>
+      repositories.sort(sortRepos).map((repo) => {
         const filteredAddons = addons.filter(
           (addon) => addon.repository === repo.slug
         );
@@ -171,8 +169,7 @@ class OppioAddonStore extends LitElement {
               ></oppio-addon-repository>
             `
           : html``;
-      });
-    }
+      })
   );
 
   private _handleAction(ev: CustomEvent<ActionDetail>) {
@@ -221,7 +218,7 @@ class OppioAddonStore extends LitElement {
     this._filter = e.detail.value;
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       oppio-addon-repository {
         margin-top: 24px;

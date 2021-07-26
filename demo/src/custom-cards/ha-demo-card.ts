@@ -26,7 +26,7 @@ export class HADemoCard extends LitElement implements LovelaceCard {
 
   @property({ attribute: false }) public opp!: MockOpenPeerPower;
 
-  @internalProperty() private _switching?: boolean;
+  @state() private _switching = false;
 
   private _hidden = localStorage.hide_demo_card;
 
@@ -34,12 +34,7 @@ export class HADemoCard extends LitElement implements LovelaceCard {
     return this._hidden ? 0 : 2;
   }
 
-  public setConfig(
-    // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    config: LovelaceCardConfig
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-  ) {}
+  public setConfig(_config: LovelaceCardConfig) {}
 
   protected render(): TemplateResult {
     if (this._hidden) {
@@ -113,7 +108,7 @@ export class HADemoCard extends LitElement implements LovelaceCard {
     }
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       css`
         a {

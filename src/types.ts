@@ -85,8 +85,12 @@ export interface CurrentUser {
   mfa_modules: MFAModule[];
 }
 
+// Currently selected theme and its settings. These are the values stored in local storage.
 export interface ThemeSettings {
   theme: string;
+  // Radio box selection for theme picker. Do not use in cards as
+  // it can be undefined == auto.
+  // Property opp.themes.darkMode carries effective current mode.
   dark?: boolean;
   primaryColor?: string;
   accentColor?: string;
@@ -193,19 +197,19 @@ export interface OpenPeerPower {
   services: OppServices;
   config: OppConfig;
   themes: Themes;
-  selectedTheme?: ThemeSettings | null;
+  selectedTheme: ThemeSettings | null;
   panels: Panels;
   panelUrl: string;
   // i18n
   // current effective language in that order:
-  //   - backend saved user selected lanugage
-  //   - language in local appstorage
+  //   - backend saved user selected language
+  //   - language in local app storage
   //   - browser language
   //   - english (en)
   language: string;
-  // local stored language, keep that name for backward compability
+  // local stored language, keep that name for backward compatibility
   selectedLanguage: string | null;
-  locale: FrontendTranslationData;
+  locale: FrontendLocaleData;
   resources: Resources;
   localize: LocalizeFunc;
   translationMetadata: TranslationMetadata;
@@ -256,3 +260,12 @@ export interface LocalizeMixin {
   opp?: OpenPeerPower;
   localize: LocalizeFunc;
 }
+
+// https://www.jpwilliams.dev/how-to-unpack-the-return-type-of-a-promise-in-typescript
+export type AsyncReturnType<T extends (...args: any) => any> = T extends (
+  ...args: any
+) => Promise<infer U>
+  ? U
+  : T extends (...args: any) => infer U
+  ? U
+  : never;
