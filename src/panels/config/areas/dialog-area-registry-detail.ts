@@ -52,7 +52,7 @@ class DialogAreaDetail extends LitElement {
     const entry = this._params.entry;
     const nameInvalid = !this._isNameValid();
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${entry
@@ -106,7 +106,7 @@ class DialogAreaDetail extends LitElement {
             ? this.opp.localize("ui.panel.config.areas.editor.update")
             : this.opp.localize("ui.panel.config.areas.editor.create")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

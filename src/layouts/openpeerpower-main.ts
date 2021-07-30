@@ -84,13 +84,13 @@ class OpenPeerPowerMain extends LitElement {
           .persistent=${!this.narrow &&
           this.opp.dockedSidebar !== "always_hidden"}
         >
-          <ha-sidebar
+          <op-sidebar
             .opp=${opp}
             .narrow=${sidebarNarrow}
             .editMode=${this._sidebarEditMode}
             .alwaysExpand=${sidebarNarrow ||
             this.opp.dockedSidebar === "docked"}
-          ></ha-sidebar>
+          ></op-sidebar>
         </app-drawer>
 
         <partial-panel-resolver

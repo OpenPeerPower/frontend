@@ -34,32 +34,32 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
     const { at } = this.trigger;
     const inputMode = this._inputMode ?? at?.startsWith("input_datetime.");
     return html`
-      <ha-formfield
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.triggers.type.time.type_value"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode"
           value="value"
           ?checked=${!inputMode}
-        ></ha-radio>
-      </ha-formfield>
-      <ha-formfield
+        ></op-radio>
+      </op-formfield>
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.triggers.type.time.type_input"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode"
           value="input"
           ?checked=${inputMode}
-        ></ha-radio>
-      </ha-formfield>
+        ></op-radio>
+      </op-formfield>
       ${inputMode
-        ? html`<ha-entity-picker
+        ? html`<op-entity-picker
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.triggers.type.time.at"
             )}
@@ -69,7 +69,7 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
             @value-changed=${this._valueChanged}
             .opp=${this.opp}
             allow-custom-entity
-          ></ha-entity-picker>`
+          ></op-entity-picker>`
         : html`<paper-input
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.triggers.type.time.at"

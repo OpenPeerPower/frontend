@@ -54,15 +54,15 @@ export class HaDeviceCondition extends LitElement {
     const deviceId = this._deviceId || this.condition.device_id;
 
     return html`
-      <ha-device-picker
+      <op-device-picker
         .value=${deviceId}
         @value-changed=${this._devicePicked}
         .opp=${this.opp}
         label=${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.device.label"
         )}
-      ></ha-device-picker>
-      <ha-device-condition-picker
+      ></op-device-picker>
+      <op-device-condition-picker
         .value=${this.condition}
         .deviceId=${deviceId}
         @value-changed=${this._deviceConditionPicked}
@@ -70,17 +70,17 @@ export class HaDeviceCondition extends LitElement {
         label=${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.device.condition"
         )}
-      ></ha-device-condition-picker>
+      ></op-device-condition-picker>
       ${this._capabilities?.extra_fields
         ? html`
-            <ha-form
+            <op-form
               .data=${this._extraFieldsData(this.condition, this._capabilities)}
               .schema=${this._capabilities.extra_fields}
               .computeLabel=${this._extraFieldsComputeLabelCallback(
                 this.opp.localize
               )}
               @value-changed=${this._extraFieldsChanged}
-            ></ha-form>
+            ></op-form>
           `
         : ""}
     `;

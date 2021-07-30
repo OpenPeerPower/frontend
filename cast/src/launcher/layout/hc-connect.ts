@@ -134,11 +134,11 @@ export class HcConnect extends LitElement {
           <div class="card-actions">
             <mwc-button @click=${this._handleDemo}>
               Show Demo
-              <ha-icon
+              <op-icon
                 .icon=${this.castManager.castState === "CONNECTED"
                   ? "opp:cast-connected"
                   : "opp:cast"}
-              ></ha-icon>
+              ></op-icon>
             </mwc-button>
             <div class="spacer"></div>
             <mwc-button @click=${this._handleConnect}>Authorize</mwc-button>

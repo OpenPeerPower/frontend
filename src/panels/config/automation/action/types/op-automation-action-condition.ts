@@ -17,11 +17,11 @@ export class HaConditionAction extends LitElement implements ActionElement {
 
   protected render() {
     return html`
-      <ha-automation-condition-editor
+      <op-automation-condition-editor
         .condition=${this.action}
         .opp=${this.opp}
         @value-changed=${this._conditionChanged}
-      ></ha-automation-condition-editor>
+      ></op-automation-condition-editor>
     `;
   }
 

@@ -85,7 +85,7 @@ class OppTabsSubpage extends LitElement {
         (page) =>
           html`
             <a href=${page.path}>
-              <ha-tab
+              <op-tab
                 .opp=${this.opp}
                 .active=${page === activeTab}
                 .narrow=${this.narrow}
@@ -94,12 +94,12 @@ class OppTabsSubpage extends LitElement {
                   : page.name}
               >
                 ${page.iconPath
-                  ? html`<ha-svg-icon
+                  ? html`<op-svg-icon
                       slot="icon"
                       .path=${page.iconPath}
-                    ></ha-svg-icon>`
-                  : html`<ha-icon slot="icon" .icon=${page.icon}></ha-icon>`}
-              </ha-tab>
+                    ></op-svg-icon>`
+                  : html`<op-icon slot="icon" .icon=${page.icon}></op-icon>`}
+              </op-tab>
             </a>
           `
       );
@@ -113,9 +113,7 @@ class OppTabsSubpage extends LitElement {
       );
     }
     if (changedProperties.has("opp")) {
-      const oldOpp = changedProperties.get("opp") as
-        | OpenPeerPower
-        | undefined;
+      const oldOpp = changedProperties.get("opp") as OpenPeerPower | undefined;
       if (!oldOpp || oldOpp.language !== this.opp.language) {
         this.rtl = computeRTL(this.opp);
       }
@@ -138,25 +136,25 @@ class OppTabsSubpage extends LitElement {
       <div class="toolbar">
         ${this.mainPage || (!this.backPath && history.state?.root)
           ? html`
-              <ha-menu-button
+              <op-menu-button
                 .oppio=${this.supervisor}
                 .opp=${this.opp}
                 .narrow=${this.narrow}
-              ></ha-menu-button>
+              ></op-menu-button>
             `
           : this.backPath
           ? html`
               <a href=${this.backPath}>
-                <ha-icon-button-arrow-prev
+                <op-icon-button-arrow-prev
                   .opp=${this.opp}
-                ></ha-icon-button-arrow-prev>
+                ></op-icon-button-arrow-prev>
               </a>
             `
           : html`
-              <ha-icon-button-arrow-prev
+              <op-icon-button-arrow-prev
                 .opp=${this.opp}
                 @click=${this._backTapped}
-              ></ha-icon-button-arrow-prev>
+              ></op-icon-button-arrow-prev>
             `}
         ${this.narrow
           ? html`<div class="main-title"><slot name="header"></slot></div>`

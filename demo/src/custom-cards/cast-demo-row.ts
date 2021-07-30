@@ -34,7 +34,7 @@ class CastDemoRow extends LitElement implements LovelaceRow {
       return html``;
     }
     return html`
-      <ha-icon icon="hademo:television"></ha-icon>
+      <op-icon icon="hademo:television"></op-icon>
       <div class="flex">
         <div class="name">Show Chromecast interface</div>
         <google-cast-launcher></google-cast-launcher>

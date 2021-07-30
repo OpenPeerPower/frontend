@@ -236,7 +236,7 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
     this.comboBox?.focus();
   }
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeDeviceRegistry(this.opp.connection!, (devices) => {
         this.devices = devices;
@@ -273,7 +273,7 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
       return html``;
     }
     return html`
-      <ha-combo-box
+      <op-combo-box
         .opp=${this.opp}
         .label=${this.label === undefined && this.opp
           ? this.opp.localize("ui.components.device-picker.device")
@@ -286,7 +286,7 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
         item-label-path="name"
         @opened-changed=${this._openedChanged}
         @value-changed=${this._deviceChanged}
-      ></ha-combo-box>
+      ></op-combo-box>
     `;
   }
 

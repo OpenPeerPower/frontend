@@ -58,7 +58,7 @@ export const showConfigFlowDialog = (
 
       return description
         ? html`
-            <ha-markdown allowsvg breaks .content=${description}></ha-markdown>
+            <op-markdown allowsvg breaks .content=${description}></op-markdown>
           `
         : "";
     },
@@ -78,7 +78,7 @@ export const showConfigFlowDialog = (
       );
       return description
         ? html`
-            <ha-markdown allowsvg breaks .content=${description}></ha-markdown>
+            <op-markdown allowsvg breaks .content=${description}></op-markdown>
           `
         : "";
     },
@@ -121,11 +121,11 @@ export const showConfigFlowDialog = (
         </p>
         ${description
           ? html`
-              <ha-markdown
+              <op-markdown
                 allowsvg
                 breaks
                 .content=${description}
-              ></ha-markdown>
+              ></op-markdown>
             `
           : ""}
       `;
@@ -142,11 +142,11 @@ export const showConfigFlowDialog = (
       return html`
         ${description
           ? html`
-              <ha-markdown
+              <op-markdown
                 allowsvg
                 breaks
                 .content=${description}
-              ></ha-markdown>
+              ></op-markdown>
             `
           : ""}
         <p>
@@ -174,7 +174,7 @@ export const showConfigFlowDialog = (
       );
       return description
         ? html`
-            <ha-markdown allowsvg breaks .content=${description}></ha-markdown>
+            <op-markdown allowsvg breaks .content=${description}></op-markdown>
           `
         : "";
     },

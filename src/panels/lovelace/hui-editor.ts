@@ -53,13 +53,13 @@ class LovelaceFullConfigEditor extends LitElement {
 
   protected render(): TemplateResult | void {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header slot="header">
           <app-toolbar>
-            <ha-icon-button
+            <op-icon-button
               icon="opp:close"
               @click="${this._closeEditor}"
-            ></ha-icon-button>
+            ></op-icon-button>
             <div main-title>
               ${this.opp!.localize(
                 "ui.panel.lovelace.editor.raw_editor.header"
@@ -90,7 +90,7 @@ class LovelaceFullConfigEditor extends LitElement {
           </app-toolbar>
         </app-header>
         <div class="content">
-          <ha-code-editor
+          <op-code-editor
             mode="yaml"
             autofocus
             .rtl=${computeRTL(this.opp)}
@@ -98,9 +98,9 @@ class LovelaceFullConfigEditor extends LitElement {
             @value-changed=${this._yamlChanged}
             @editor-save=${this._handleSave}
           >
-          </ha-code-editor>
+          </op-code-editor>
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

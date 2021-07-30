@@ -42,10 +42,8 @@ class MqttSubscribeCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
-        header="${this.opp.localize(
-          "ui.panel.config.mqtt.description_listen"
-        )}"
+      <op-card
+        header="${this.opp.localize("ui.panel.config.mqtt.description_listen")}"
       >
         <form>
           <paper-input
@@ -88,7 +86,7 @@ class MqttSubscribeCard extends LitElement {
             `
           )}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

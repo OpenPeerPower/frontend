@@ -74,19 +74,19 @@ export class ZHAGroupBindingControl extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="sectionHeader" slot="header">
           <span
             >${this.opp!.localize(
               "ui.panel.config.zha.group_binding.header"
             )}</span
           >
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
           >
-          </ha-icon-button>
+          </op-icon-button>
         </div>
         <span slot="introduction"
           >${this.opp!.localize(
@@ -94,7 +94,7 @@ export class ZHAGroupBindingControl extends LitElement {
           )}</span
         >
 
-        <ha-card class="content">
+        <op-card class="content">
           <div class="command-picker">
             <paper-dropdown-menu
               .label=${this.opp!.localize(
@@ -174,8 +174,8 @@ export class ZHAGroupBindingControl extends LitElement {
                 `
               : ""}
           </div>
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
     `;
   }
 

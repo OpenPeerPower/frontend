@@ -32,7 +32,7 @@ class ConfigNameForm extends LitElement {
     const disabled = this._working || !canEdit;
 
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           ${!canEdit
             ? html`
@@ -61,7 +61,7 @@ class ConfigNameForm extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

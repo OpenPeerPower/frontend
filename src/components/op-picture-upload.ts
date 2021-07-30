@@ -33,7 +33,7 @@ export class HaPictureUpload extends LitElement {
 
   public render(): TemplateResult {
     return html`
-      <ha-file-upload
+      <op-file-upload
         .icon=${mdiImagePlus}
         .label=${this.label ||
         this.opp.localize("ui.components.picture-upload.label")}
@@ -41,7 +41,7 @@ export class HaPictureUpload extends LitElement {
         .value=${this.value ? html`<img .src=${this.value} />` : ""}
         @file-picked=${this._handleFilePicked}
         accept="image/png, image/jpeg, image/gif"
-      ></ha-file-upload>
+      ></op-file-upload>
     `;
   }
 

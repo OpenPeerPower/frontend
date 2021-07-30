@@ -74,7 +74,7 @@ class OppioSnapshotDialog
           <op-header-bar>
             <span slot="title">${this._snapshot.name}</span>
             <mwc-icon-button slot="actionItems" dialogAction="cancel">
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
           </op-header-bar>
         </div>
@@ -106,7 +106,7 @@ class OppioSnapshotDialog
               @closed=${(ev: Event) => ev.stopPropagation()}
             >
               <mwc-icon-button slot="trigger" alt="menu">
-                <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
               </mwc-icon-button>
               <mwc-list-item>Download Snapshot</mwc-list-item>
               <mwc-list-item class="error">Delete Snapshot</mwc-list-item>

@@ -75,10 +75,10 @@ class DialogSystemLogDetail extends LitElement {
         !this._manifest.documentation.includes("www.openpeerpower.io"));
 
     return html`
-      <ha-dialog open @closed=${this.closeDialog} hideActions heading=${true}>
-        <ha-header-bar slot="heading">
+      <op-dialog open @closed=${this.closeDialog} hideActions heading=${true}>
+        <op-header-bar slot="heading">
           <mwc-icon-button slot="navigationIcon" dialogAction="cancel">
-            <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+            <op-svg-icon .path=${mdiClose}></op-svg-icon>
           </mwc-icon-button>
           <span slot="title">
             ${this.opp.localize(
@@ -92,12 +92,12 @@ class DialogSystemLogDetail extends LitElement {
             )}
           </span>
           <mwc-icon-button id="copy" @click=${this._copyLog} slot="actionItems">
-            <ha-svg-icon .path=${mdiContentCopy}></ha-svg-icon>
+            <op-svg-icon .path=${mdiContentCopy}></op-svg-icon>
           </mwc-icon-button>
-        </ha-header-bar>
+        </op-header-bar>
         ${this.isCustomIntegration
           ? html`<div class="custom">
-              <ha-svg-icon .path=${mdiPackageVariant}></ha-svg-icon>
+              <op-svg-icon .path=${mdiPackageVariant}></op-svg-icon>
               ${this.opp.localize(
                 "ui.panel.config.logs.error_from_custom_integration"
               )}
@@ -157,7 +157,7 @@ class DialogSystemLogDetail extends LitElement {
             : item.message[0]}
           ${item.exception ? html` <pre>${item.exception}</pre> ` : html``}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

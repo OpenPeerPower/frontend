@@ -33,14 +33,14 @@ export class OppioUploadSnapshot extends LitElement {
 
   public render(): TemplateResult {
     return html`
-      <ha-file-upload
+      <op-file-upload
         .uploading=${this._uploading}
         .icon=${mdiFolderUpload}
         accept="application/x-tar"
         label="Upload snapshot"
         @file-picked=${this._uploadFile}
         auto-open-file-dialog
-      ></ha-file-upload>
+      ></op-file-upload>
     `;
   }
 

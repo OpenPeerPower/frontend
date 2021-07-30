@@ -24,16 +24,16 @@ export default class HaAutomationTrigger extends LitElement {
     return html`
       ${this.triggers.map(
         (trg, idx) => html`
-          <ha-automation-trigger-row
+          <op-automation-trigger-row
             .index=${idx}
             .trigger=${trg}
             @duplicate=${this._duplicateTrigger}
             @value-changed=${this._triggerChanged}
             .opp=${this.opp}
-          ></ha-automation-trigger-row>
+          ></op-automation-trigger-row>
         `
       )}
-      <ha-card>
+      <op-card>
         <div class="card-actions add-card">
           <mwc-button @click=${this._addTrigger}>
             ${this.opp.localize(
@@ -41,7 +41,7 @@ export default class HaAutomationTrigger extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

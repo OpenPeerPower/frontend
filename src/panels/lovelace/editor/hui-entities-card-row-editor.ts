@@ -78,7 +78,7 @@ export class HuiEntitiesCardRowEditor extends LitElement {
             : this.entities!.map((entityConf, index) => {
                 return html`
                   <div class="entity">
-                    <ha-svg-icon class="handle" .path=${mdiDrag}></ha-svg-icon>
+                    <op-svg-icon class="handle" .path=${mdiDrag}></op-svg-icon>
                     ${entityConf.type
                       ? html`
                           <div class="special-row">
@@ -97,14 +97,14 @@ export class HuiEntitiesCardRowEditor extends LitElement {
                           </div>
                         `
                       : html`
-                          <ha-entity-picker
+                          <op-entity-picker
                             allow-custom-entity
                             hideClearIcon
                             .opp=${this.opp}
                             .value=${(entityConf as EntityConfig).entity}
                             .index=${index}
                             @value-changed=${this._valueChanged}
-                          ></ha-entity-picker>
+                          ></op-entity-picker>
                         `}
                     <mwc-icon-button
                       aria-label=${this.opp!.localize(
@@ -114,7 +114,7 @@ export class HuiEntitiesCardRowEditor extends LitElement {
                       .index=${index}
                       @click=${this._removeRow}
                     >
-                      <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiClose}></op-svg-icon>
                     </mwc-icon-button>
                     <mwc-icon-button
                       aria-label=${this.opp!.localize(
@@ -124,17 +124,17 @@ export class HuiEntitiesCardRowEditor extends LitElement {
                       .index=${index}
                       @click=${this._editRow}
                     >
-                      <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiPencil}></op-svg-icon>
                     </mwc-icon-button>
                   </div>
                 `;
               })
         )}
       </div>
-      <ha-entity-picker
+      <op-entity-picker
         .opp=${this.opp}
         @value-changed=${this._addEntity}
-      ></ha-entity-picker>
+      ></op-entity-picker>
     `;
   }
 

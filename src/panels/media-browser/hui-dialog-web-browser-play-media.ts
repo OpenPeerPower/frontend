@@ -38,7 +38,7 @@ export class HuiDialogWebBrowserPlayMedia extends LitElement {
     const mediaType = this._params.sourceType.split("/", 1)[0];
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         hideActions
         .heading=${createCloseHeading(
@@ -74,20 +74,20 @@ export class HuiDialogWebBrowserPlayMedia extends LitElement {
             `
           : this._params.sourceType === "application/x-mpegURL"
           ? html`
-              <ha-hls-player
+              <op-hls-player
                 controls
                 autoplay
                 playsinline
                 .opp=${this.opp}
                 .url=${this._params.sourceUrl}
-              ></ha-hls-player>
+              ></op-hls-player>
             `
           : mediaType === "image"
           ? html`<img src=${this._params.sourceUrl} />`
           : html`${this.opp.localize(
               "ui.components.media-browser.media_not_supported"
             )}`}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

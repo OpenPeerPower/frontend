@@ -60,7 +60,7 @@ export class DialogTryTts extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         scrimClickAction
@@ -83,7 +83,7 @@ export class DialogTryTts extends LitElement {
           >
           </paper-textarea>
 
-          <ha-paper-dropdown-menu
+          <op-paper-dropdown-menu
             .label=${this.opp.localize(
               "ui.panel.config.cloud.account.tts.dialog.target"
             )}
@@ -113,19 +113,19 @@ export class DialogTryTts extends LitElement {
                   `
                 )}
             </paper-listbox>
-          </ha-paper-dropdown-menu>
+          </op-paper-dropdown-menu>
         </div>
         <mwc-button
           slot="primaryAction"
           @click=${this._playExample}
           .disabled=${this._loadingExample}
         >
-          <ha-svg-icon .path=${mdiPlayCircleOutline}></ha-svg-icon>
+          <op-svg-icon .path=${mdiPlayCircleOutline}></op-svg-icon>
           &nbsp;${this.opp.localize(
             "ui.panel.config.cloud.account.tts.dialog.play"
           )}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

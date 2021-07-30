@@ -96,7 +96,7 @@ export class HuiViewEditor extends LitElement {
           @value-changed=${this._valueChanged}
           @blur=${this._handleTitleBlur}
         ></paper-input>
-        <ha-icon-input
+        <op-icon-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.icon"
           )} (${this.opp.localize(
@@ -106,7 +106,7 @@ export class HuiViewEditor extends LitElement {
           .placeholder=${this._icon}
           .configValue=${"icon"}
           @value-changed=${this._valueChanged}
-        ></ha-icon-input>
+        ></op-icon-input>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.url"
@@ -123,18 +123,18 @@ export class HuiViewEditor extends LitElement {
           .configValue=${"theme"}
           @value-changed=${this._valueChanged}
         ></hui-theme-select-editor>
-        <ha-formfield
+        <op-formfield
           .label=${this.opp.localize(
             "ui.panel.lovelace.editor.view.panel_mode.title"
           )}
           .dir=${computeRTLDirection(this.opp)}
         >
-          <ha-switch
+          <op-switch
             .checked=${this._panel !== false}
             .configValue=${"panel"}
             @change=${this._valueChanged}
-          ></ha-switch
-        ></ha-formfield>
+          ></op-switch
+        ></op-formfield>
         <span class="panel">
           ${this.opp.localize(
             "ui.panel.lovelace.editor.view.panel_mode.description"

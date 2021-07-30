@@ -63,20 +63,20 @@ export class ZHAClusters extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="header" slot="header">
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
           >
-          </ha-icon-button>
+          </op-icon-button>
         </div>
         <span slot="introduction">
           ${this.opp!.localize("ui.panel.config.zha.clusters.introduction")}
         </span>
 
-        <ha-card class="content">
+        <op-card class="content">
           <div class="node-picker">
             <paper-dropdown-menu
               .label=${this.opp!.localize(
@@ -106,8 +106,8 @@ export class ZHAClusters extends LitElement {
                 </div>
               `
             : ""}
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
     `;
   }
 

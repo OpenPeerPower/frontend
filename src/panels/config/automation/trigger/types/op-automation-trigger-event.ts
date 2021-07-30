@@ -32,19 +32,19 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
         .value="${event_type}"
         @value-changed="${this._valueChanged}"
       ></paper-input>
-      <ha-yaml-editor
+      <op-yaml-editor
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.event.event_data"
         )}
         .name=${"event_data"}
         .defaultValue=${event_data}
         @value-changed=${this._dataChanged}
-      ></ha-yaml-editor>
+      ></op-yaml-editor>
       <br />
       ${this.opp.localize(
         "ui.panel.config.automation.editor.triggers.type.event.context_users"
       )}
-      <ha-users-picker
+      <op-users-picker
         .pickedUserLabel=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.event.context_user_picked"
         )}
@@ -54,7 +54,7 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
         .opp=${this.opp}
         .value=${this._wrapUsersInArray(context?.user_id)}
         @value-changed=${this._usersChanged}
-      ></ha-users-picker>
+      ></op-users-picker>
     `;
   }
 

@@ -60,7 +60,7 @@ class DialogSupervisorUpdate extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog .open=${this._opened} scrimClickAction escapeKeyAction>
+      <op-dialog .open=${this._opened} scrimClickAction escapeKeyAction>
         ${this._action === null
           ? html`<slot name="heading">
                 <h2 id="title" class="header_title">
@@ -81,7 +81,7 @@ class DialogSupervisorUpdate extends LitElement {
                 )}
               </div>
 
-              <ha-settings-row>
+              <op-settings-row>
                 <span slot="heading">
                   ${this._dialogParams.supervisor.localize(
                     "dialog.update.snapshot"
@@ -94,13 +94,13 @@ class DialogSupervisorUpdate extends LitElement {
                     this._dialogParams.name
                   )}
                 </span>
-                <ha-switch
+                <op-switch
                   .checked=${this._createSnapshot}
                   haptic
                   @click=${this._toggleSnapshot}
                 >
-                </ha-switch>
-              </ha-settings-row>
+                </op-switch>
+              </op-settings-row>
               <mwc-button @click=${this.closeDialog} slot="secondaryAction">
                 ${this._dialogParams.supervisor.localize("common.cancel")}
               </mwc-button>
@@ -111,8 +111,8 @@ class DialogSupervisorUpdate extends LitElement {
               >
                 ${this._dialogParams.supervisor.localize("common.update")}
               </mwc-button>`
-          : html`<ha-circular-progress alt="Updating" size="large" active>
-              </ha-circular-progress>
+          : html`<op-circular-progress alt="Updating" size="large" active>
+              </op-circular-progress>
               <p class="progress-text">
                 ${this._action === "update"
                   ? this._dialogParams.supervisor.localize(
@@ -129,7 +129,7 @@ class DialogSupervisorUpdate extends LitElement {
                     )}
               </p>`}
         ${this._error ? html`<p class="error">${this._error}</p>` : ""}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

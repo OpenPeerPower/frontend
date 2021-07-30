@@ -24,7 +24,7 @@ const triggers = [
 export class DemoAutomationDescribeTrigger extends LitElement {
   protected render(): TemplateResult {
     return html`
-      <ha-card header="Triggers">
+      <op-card header="Triggers">
         ${triggers.map(
           (conf) => html`
             <div class="trigger">
@@ -33,7 +33,7 @@ export class DemoAutomationDescribeTrigger extends LitElement {
             </div>
           `
         )}
-      </ha-card>
+      </op-card>
     `;
   }
 

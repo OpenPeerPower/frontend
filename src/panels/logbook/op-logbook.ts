@@ -208,10 +208,10 @@ class HaLogbook extends LitElement {
                   )}</span
                 >
                 -
-                <ha-relative-time
+                <op-relative-time
                   .opp=${this.opp}
                   .datetime=${item.when}
-                ></ha-relative-time>
+                ></op-relative-time>
                 ${item.domain === "automation" &&
                 item.context_id! in this.traceContexts
                   ? html`

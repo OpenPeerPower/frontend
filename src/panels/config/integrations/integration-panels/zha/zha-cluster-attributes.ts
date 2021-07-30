@@ -69,19 +69,19 @@ export class ZHAClusterAttributes extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="header" slot="header">
           <span>
             ${this.opp!.localize(
               "ui.panel.config.zha.cluster_attributes.header"
             )}
           </span>
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
           >
-          </ha-icon-button>
+          </op-icon-button>
         </div>
         <span slot="introduction">
           ${this.opp!.localize(
@@ -89,7 +89,7 @@ export class ZHAClusterAttributes extends LitElement {
           )}
         </span>
 
-        <ha-card class="content">
+        <op-card class="content">
           <div class="attribute-picker">
             <paper-dropdown-menu
               label="${this.opp!.localize(
@@ -127,8 +127,8 @@ export class ZHAClusterAttributes extends LitElement {
           ${this._selectedAttributeIndex !== -1
             ? this._renderAttributeInteractions()
             : ""}
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
     `;
   }
 
@@ -173,7 +173,7 @@ export class ZHAClusterAttributes extends LitElement {
               </div>
             `
           : ""}
-        <ha-call-service-button
+        <op-call-service-button
           .opp=${this.opp}
           domain="zha"
           service="set_zigbee_cluster_attribute"
@@ -182,15 +182,15 @@ export class ZHAClusterAttributes extends LitElement {
           ${this.opp!.localize(
             "ui.panel.config.zha.cluster_attributes.set_zigbee_attribute"
           )}
-        </ha-call-service-button>
+        </op-call-service-button>
         ${this.showHelp
           ? html`
-              <ha-service-description
+              <op-service-description
                 .opp=${this.opp}
                 domain="zha"
                 service="set_zigbee_cluster_attribute"
                 class="help-text2"
-              ></ha-service-description>
+              ></op-service-description>
             `
           : ""}
       </div>

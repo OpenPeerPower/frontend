@@ -29,7 +29,7 @@ export class HaDeviceCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize("ui.panel.config.devices.device_info")}
       >
         <div class="card-content">
@@ -76,7 +76,7 @@ export class HaDeviceCard extends LitElement {
           <slot></slot>
         </div>
         <slot name="actions"></slot>
-      </ha-card>
+      </op-card>
     `;
   }
 

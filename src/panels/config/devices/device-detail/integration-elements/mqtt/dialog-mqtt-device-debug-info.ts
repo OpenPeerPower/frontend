@@ -54,7 +54,7 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
     const dir = computeRTLDirection(this.opp!);
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing=${this._close}
         .heading="${this.opp!.localize(
@@ -69,32 +69,32 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
           )}
         </h4>
         <div>
-          <ha-formfield
+          <op-formfield
             .label=${this.opp!.localize(
               "ui.dialogs.mqtt_device_debug_info.deserialize"
             )}
             .dir=${dir}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._showDeserialized}
               @change=${this._showDeserializedChanged}
             >
-            </ha-switch>
-          </ha-formfield>
+            </op-switch>
+          </op-formfield>
         </div>
         <div>
-          <ha-formfield
+          <op-formfield
             .label=${this.opp!.localize(
               "ui.dialogs.mqtt_device_debug_info.show_as_yaml"
             )}
             .dir=${dir}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._showAsYaml}
               @change=${this._showAsYamlChanged}
             >
-            </ha-switch>
-          </ha-formfield>
+            </op-switch>
+          </op-formfield>
         </div>
         <h4>
           ${this.opp!.localize("ui.dialogs.mqtt_device_debug_info.entities")}
@@ -123,7 +123,7 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
         <mwc-button slot="primaryAction" @click=${this._close}>
           ${this.opp!.localize("ui.dialogs.generic.close")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

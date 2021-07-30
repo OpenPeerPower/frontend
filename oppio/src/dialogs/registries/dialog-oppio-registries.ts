@@ -43,7 +43,7 @@ class OppioRegistriesDialog extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-dialog
+      <op-dialog
         .open=${this._opened}
         @closed=${this.closeDialog}
         scrimClickAction
@@ -118,7 +118,7 @@ class OppioRegistriesDialog extends LitElement {
                             slot="meta"
                             @click=${this._removeRegistry}
                           >
-                            <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                            <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                           </mwc-icon-button>
                         </mwc-list-item>
                       `
@@ -138,7 +138,7 @@ class OppioRegistriesDialog extends LitElement {
                   )}
                 </mwc-button> `}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

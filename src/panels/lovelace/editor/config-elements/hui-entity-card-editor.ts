@@ -35,8 +35,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-entity-card-editor")
-export class HuiEntityCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiEntityCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: EntityCardConfig;
@@ -77,7 +79,7 @@ export class HuiEntityCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -88,7 +90,7 @@ export class HuiEntityCardEditor extends LitElement
           .configValue=${"entity"}
           @change=${this._valueChanged}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-input
             .label="${this.opp.localize(
@@ -100,7 +102,7 @@ export class HuiEntityCardEditor extends LitElement
             .configValue=${"name"}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <ha-icon-input
+          <op-icon-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.icon"
             )} (${this.opp.localize(
@@ -111,10 +113,10 @@ export class HuiEntityCardEditor extends LitElement
             stateIcon(this.opp.states[this._entity])}
             .configValue=${"icon"}
             @value-changed=${this._valueChanged}
-          ></ha-icon-input>
+          ></op-icon-input>
         </div>
         <div class="side-by-side">
-          <ha-entity-attribute-picker
+          <op-entity-attribute-picker
             .opp=${this.opp}
             .entityId=${this._entity}
             .label="${this.opp.localize(
@@ -125,7 +127,7 @@ export class HuiEntityCardEditor extends LitElement
             .value=${this._attribute}
             .configValue=${"attribute"}
             @value-changed=${this._valueChanged}
-          ></ha-entity-attribute-picker>
+          ></op-entity-attribute-picker>
           <paper-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.unit"

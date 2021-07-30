@@ -51,9 +51,9 @@ class HaInputDateTimeForm extends LitElement {
 
   public focus() {
     this.updateComplete.then(() =>
-      (this.shadowRoot?.querySelector(
-        "[dialogInitialFocus]"
-      ) as HTMLElement)?.focus()
+      (
+        this.shadowRoot?.querySelector("[dialogInitialFocus]") as HTMLElement
+      )?.focus()
     );
   }
 
@@ -78,14 +78,14 @@ class HaInputDateTimeForm extends LitElement {
           .invalid=${nameInvalid}
           dialogInitialFocus
         ></paper-input>
-        <ha-icon-input
+        <op-icon-input
           .value=${this._icon}
           .configValue=${"icon"}
           @value-changed=${this._valueChanged}
           .label=${this.opp!.localize(
             "ui.dialogs.helper_settings.generic.icon"
           )}
-        ></ha-icon-input>
+        ></op-icon-input>
         <br />
         ${this.opp.localize("ui.dialogs.helper_settings.input_datetime.mode")}:
         <br />

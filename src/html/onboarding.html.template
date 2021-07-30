@@ -68,7 +68,7 @@
         Open Peer Power
       </div>
 
-      <ha-onboarding></ha-onboarding>
+      <op-onboarding></op-onboarding>
     </div>
 
     <%= renderTemplate('_js_base') %>

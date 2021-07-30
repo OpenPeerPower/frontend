@@ -66,11 +66,8 @@ export class HuiDialogEditView extends LitElement {
       this._badges = [];
       this._cards = [];
     } else {
-      const {
-        cards,
-        badges,
-        ...viewConfig
-      } = this._params.lovelace!.config.views[this._params.viewIndex];
+      const { cards, badges, ...viewConfig } =
+        this._params.lovelace!.config.views[this._params.viewIndex];
       this._config = viewConfig;
       this._badges = badges ? processEditorEntities(badges) : [];
       this._cards = cards;
@@ -160,7 +157,7 @@ export class HuiDialogEditView extends LitElement {
         break;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         escapeKeyAction
@@ -168,9 +165,7 @@ export class HuiDialogEditView extends LitElement {
         .heading=${true}
       >
         <div slot="heading">
-          <h2>
-            ${this._viewConfigTitle}
-          </h2>
+          <h2>${this._viewConfigTitle}</h2>
           <paper-tabs
             scrollable
             hide-scroll-buttons
@@ -217,15 +212,15 @@ export class HuiDialogEditView extends LitElement {
           @click="${this._save}"
         >
           ${this._saving
-            ? html`<ha-circular-progress
+            ? html`<op-circular-progress
                 active
                 size="small"
                 title="Saving"
-              ></ha-circular-progress>`
+              ></op-circular-progress>`
             : ""}
           ${this.opp!.localize("ui.common.save")}</mwc-button
         >
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

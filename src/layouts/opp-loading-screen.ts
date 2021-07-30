@@ -25,16 +25,16 @@ class OppLoadingScreen extends LitElement {
         : html`<div class="toolbar">
             ${this.rootnav || history.state?.root
               ? html`
-                  <ha-menu-button
+                  <op-menu-button
                     .opp=${this.opp}
                     .narrow=${this.narrow}
-                  ></ha-menu-button>
+                  ></op-menu-button>
                 `
               : html`
-                  <ha-icon-button-arrow-prev
+                  <op-icon-button-arrow-prev
                     .opp=${this.opp}
                     @click=${this._handleBack}
-                  ></ha-icon-button-arrow-prev>
+                  ></op-icon-button-arrow-prev>
                 `}
           </div>`}
       <div class="content">

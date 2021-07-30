@@ -170,11 +170,11 @@ export class HaServiceControl extends LitElement {
         serviceData?.fields.some((field) => field.selector && !field.required)
     );
 
-    return html`<ha-service-picker
+    return html`<op-service-picker
         .opp=${this.opp}
         .value=${this._value?.service}
         @value-changed=${this._serviceChanged}
-      ></ha-service-picker>
+      ></op-service-picker>
       <div class="description">
         <p>${serviceData?.description}</p>
         ${this.value?.service
@@ -190,16 +190,16 @@ export class HaServiceControl extends LitElement {
               rel="noreferrer"
             >
               <mwc-icon-button>
-                <ha-svg-icon
+                <op-svg-icon
                   path=${mdiHelpCircle}
                   class="help-icon"
-                ></ha-svg-icon>
+                ></op-svg-icon>
               </mwc-icon-button>
             </a>`
           : ""}
       </div>
       ${serviceData && "target" in serviceData
-        ? html`<ha-settings-row .narrow=${this.narrow}>
+        ? html`<op-settings-row .narrow=${this.narrow}>
             ${hasOptional
               ? html`<div slot="prefix" class="checkbox-spacer"></div>`
               : ""}
@@ -212,55 +212,55 @@ export class HaServiceControl extends LitElement {
               >${this.opp.localize(
                 "ui.components.service-control.target_description"
               )}</span
-            ><ha-selector
+            ><op-selector
               .opp=${this.opp}
               .selector=${serviceData.target
                 ? { target: serviceData.target }
                 : { target: {} }}
               @value-changed=${this._targetChanged}
               .value=${this._value?.target}
-            ></ha-selector
-          ></ha-settings-row>`
+            ></op-selector
+          ></op-settings-row>`
         : entityId
-        ? html`<ha-entity-picker
+        ? html`<op-entity-picker
             .opp=${this.opp}
             .value=${this._value?.data?.entity_id}
             .label=${entityId.description}
             @value-changed=${this._entityPicked}
             allow-custom-entity
-          ></ha-entity-picker>`
+          ></op-entity-picker>`
         : ""}
       ${shouldRenderServiceDataYaml
-        ? html`<ha-yaml-editor
+        ? html`<op-yaml-editor
             .label=${this.opp.localize(
               "ui.components.service-control.service_data"
             )}
             .name=${"data"}
             .defaultValue=${this._value?.data}
             @value-changed=${this._dataChanged}
-          ></ha-yaml-editor>`
+          ></op-yaml-editor>`
         : serviceData?.fields.map((dataField) =>
             dataField.selector &&
             (!dataField.advanced ||
               this.showAdvanced ||
               (this._value?.data &&
                 this._value.data[dataField.key] !== undefined))
-              ? html`<ha-settings-row .narrow=${this.narrow}>
+              ? html`<op-settings-row .narrow=${this.narrow}>
                   ${dataField.required
                     ? hasOptional
                       ? html`<div slot="prefix" class="checkbox-spacer"></div>`
                       : ""
-                    : html`<ha-checkbox
+                    : html`<op-checkbox
                         .key=${dataField.key}
                         .checked=${this._checkedKeys.has(dataField.key) ||
                         (this._value?.data &&
                           this._value.data[dataField.key] !== undefined)}
                         @change=${this._checkboxChanged}
                         slot="prefix"
-                      ></ha-checkbox>`}
+                      ></op-checkbox>`}
                   <span slot="heading">${dataField.name || dataField.key}</span>
                   <span slot="description">${dataField?.description}</span
-                  ><ha-selector
+                  ><op-selector
                     .disabled=${!dataField.required &&
                     !this._checkedKeys.has(dataField.key) &&
                     (!this._value?.data ||
@@ -273,8 +273,8 @@ export class HaServiceControl extends LitElement {
                     this._value.data[dataField.key] !== undefined
                       ? this._value.data[dataField.key]
                       : dataField.default}
-                  ></ha-selector
-                ></ha-settings-row>`
+                  ></op-selector
+                ></op-settings-row>`
               : ""
           )} `;
   }

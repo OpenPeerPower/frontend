@@ -33,14 +33,14 @@ class OzwLog extends LocalizeMixin(EventsMixin(PolymerElement)) {
       }
 
     </style>
-    <ha-config-section is-wide="[[isWide]]">
+    <op-config-section is-wide="[[isWide]]">
       <span slot="header">
         [[localize('ui.panel.config.zwave.ozw_log.header')]]
       </span>
       <span slot="introduction">
         [[localize('ui.panel.config.zwave.ozw_log.introduction')]]
       </span>
-      <ha-card class="content">
+      <op-card class="content">
         <div class="device-picker">
           <paper-input label="[[localize('ui.panel.config.zwave.ozw_log.last_log_lines')]]" type="number" min="0" max="1000" step="10" value="{{numLogLines}}">
           </paper-input>
@@ -48,8 +48,8 @@ class OzwLog extends LocalizeMixin(EventsMixin(PolymerElement)) {
         <div class="card-actions">
           <mwc-button raised="true" on-click="_openLogWindow">[[localize('ui.panel.config.zwave.ozw_log.load')]]</mwc-button>
           <mwc-button raised="true" on-click="_tailLog" disabled="{{_completeLog}}">[[localize('ui.panel.config.zwave.ozw_log.tail')]]</mwc-button>
-      </ha-card>
-    </ha-config-section>
+      </op-card>
+    </op-config-section>
 `;
   }
 

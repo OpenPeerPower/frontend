@@ -17,11 +17,11 @@ export class HaLogicalCondition extends LitElement implements ConditionElement {
 
   protected render() {
     return html`
-      <ha-automation-condition
+      <op-automation-condition
         .conditions=${this.condition.conditions || []}
         @value-changed=${this._valueChanged}
         .opp=${this.opp}
-      ></ha-automation-condition>
+      ></op-automation-condition>
     `;
   }
 

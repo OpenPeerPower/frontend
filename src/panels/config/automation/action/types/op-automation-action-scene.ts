@@ -22,13 +22,13 @@ export class HaSceneAction extends LitElement implements ActionElement {
     const { scene } = this.action;
 
     return html`
-      <ha-entity-picker
+      <op-entity-picker
         .opp=${this.opp}
         .value=${scene}
         @value-changed=${this._entityPicked}
         .includeDomains=${includeDomains}
         allow-custom-entity
-      ></ha-entity-picker>
+      ></op-entity-picker>
     `;
   }
 

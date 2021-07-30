@@ -49,8 +49,10 @@ const actions = [
 ];
 
 @customElement("hui-button-card-editor")
-export class HuiButtonCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiButtonCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: ButtonCardConfig;
@@ -111,7 +113,7 @@ export class HuiButtonCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -122,7 +124,7 @@ export class HuiButtonCardEditor extends LitElement
           .configValue=${"entity"}
           @value-changed=${this._valueChanged}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-input
             .label="${this.opp.localize(
@@ -134,7 +136,7 @@ export class HuiButtonCardEditor extends LitElement
             .configValue=${"name"}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <ha-icon-input
+          <op-icon-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.icon"
             )} (${this.opp.localize(
@@ -145,50 +147,50 @@ export class HuiButtonCardEditor extends LitElement
             stateIcon(this.opp.states[this._entity])}
             .configValue=${"icon"}
             @value-changed=${this._valueChanged}
-          ></ha-icon-input>
+          ></op-icon-input>
         </div>
         <div class="side-by-side">
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_name"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._show_name !== false}
                 .configValue=${"show_name"}
                 @change=${this._change}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
           </div>
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_state"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._show_state !== false}
                 .configValue=${"show_state"}
                 @change=${this._change}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
           </div>
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_icon"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._show_icon !== false}
                 .configValue=${"show_icon"}
                 @change=${this._change}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
           </div>
         </div>
         <div class="side-by-side">

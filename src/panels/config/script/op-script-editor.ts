@@ -92,7 +92,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
         .backCallback=${() => this._backTapped()}
         .tabs=${configSections.automation}
       >
-        <ha-button-menu
+        <op-button-menu
           corner="BOTTOM_START"
           slot="toolbar-icon"
           @action=${this._handleMenuAction}
@@ -102,7 +102,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
             slot="trigger"
             .title=${this.opp.localize("ui.common.menu")}
             .label=${this.opp.localize("ui.common.overflow_menu")}
-            ><ha-svg-icon path=${mdiDotsVertical}></ha-svg-icon>
+            ><op-svg-icon path=${mdiDotsVertical}></op-svg-icon>
           </mwc-icon-button>
 
           <mwc-list-item
@@ -114,11 +114,11 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
           >
             ${this.opp.localize("ui.panel.config.automation.editor.edit_ui")}
             ${this._mode === "gui"
-              ? html` <ha-svg-icon
+              ? html` <op-svg-icon
                   class="selected_menu_item"
                   slot="graphic"
                   .path=${mdiCheck}
-                ></ha-svg-icon>`
+                ></op-svg-icon>`
               : ``}
           </mwc-list-item>
           <mwc-list-item
@@ -130,11 +130,11 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
           >
             ${this.opp.localize("ui.panel.config.automation.editor.edit_yaml")}
             ${this._mode === "yaml"
-              ? html` <ha-svg-icon
+              ? html` <op-svg-icon
                   class="selected_menu_item"
                   slot="graphic"
                   .path=${mdiCheck}
-                ></ha-svg-icon>`
+                ></op-svg-icon>`
               : ``}
           </mwc-list-item>
 
@@ -150,10 +150,10 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
             ${this.opp.localize(
               "ui.panel.config.script.picker.duplicate_script"
             )}
-            <ha-svg-icon
+            <op-svg-icon
               slot="graphic"
               .path=${mdiContentDuplicate}
-            ></ha-svg-icon>
+            ></op-svg-icon>
           </mwc-list-item>
 
           <mwc-list-item
@@ -165,14 +165,14 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
             graphic="icon"
           >
             ${this.opp.localize("ui.panel.config.script.editor.delete_script")}
-            <ha-svg-icon
+            <op-svg-icon
               class=${classMap({ warning: this.scriptEntityId })}
               slot="graphic"
               .path=${mdiDelete}
             >
-            </ha-svg-icon>
+            </op-svg-icon>
           </mwc-list-item>
-        </ha-button-menu>
+        </op-button-menu>
         ${this.narrow
           ? html` <span slot="header">${this._config?.alias}</span> `
           : ""}
@@ -193,7 +193,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                 >
                   ${this._config
                     ? html`
-                        <ha-config-section vertical .isWide=${this.isWide}>
+                        <op-config-section vertical .isWide=${this.isWide}>
                           ${!this.narrow
                             ? html`
                                 <span slot="header">${this._config.alias}</span>
@@ -204,7 +204,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                               "ui.panel.config.script.editor.introduction"
                             )}
                           </span>
-                          <ha-card>
+                          <op-card>
                             <div class="card-content">
                               <paper-input
                                 .label=${this.opp.localize(
@@ -216,7 +216,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                                 @change=${this._aliasChanged}
                               >
                               </paper-input>
-                              <ha-icon-input
+                              <op-icon-input
                                 .label=${this.opp.localize(
                                   "ui.panel.config.script.editor.icon"
                                 )}
@@ -224,7 +224,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                                 .value=${this._config.icon}
                                 @value-changed=${this._valueChanged}
                               >
-                              </ha-icon-input>
+                              </op-icon-input>
                               ${!this.scriptEntityId
                                 ? html`<paper-input
                                     .label=${this.opp.localize(
@@ -314,10 +314,10 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                                   </div>
                                 `
                               : ``}
-                          </ha-card>
-                        </ha-config-section>
+                          </op-card>
+                        </op-config-section>
 
-                        <ha-config-section vertical .isWide=${this.isWide}>
+                        <op-config-section vertical .isWide=${this.isWide}>
                           <span slot="header">
                             ${this.opp.localize(
                               "ui.panel.config.script.editor.sequence"
@@ -342,12 +342,12 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                               )}
                             </a>
                           </span>
-                          <ha-automation-action
+                          <op-automation-action
                             .actions=${this._config.sequence}
                             @value-changed=${this._sequenceChanged}
                             .opp=${this.opp}
-                          ></ha-automation-action>
-                        </ha-config-section>
+                          ></op-automation-action>
+                        </op-config-section>
                       `
                     : ""}
                 </div>
@@ -356,7 +356,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
             ? html`
                 ${!this.narrow
                   ? html`
-                      <ha-card
+                      <op-card
                         ><div class="card-header">${this._config?.alias}</div>
                         <div
                           class="card-actions layout horizontal justified center"
@@ -373,14 +373,14 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                             )}
                           </mwc-button>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
-                <ha-yaml-editor
+                <op-yaml-editor
                   .defaultValue=${this._preprocessYaml()}
                   @value-changed=${this._yamlChanged}
-                ></ha-yaml-editor>
-                <ha-card
+                ></op-yaml-editor>
+                <op-card
                   ><div class="card-actions">
                     <mwc-button @click=${this._copyYaml}>
                       ${this.opp.localize(
@@ -388,11 +388,11 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                       )}
                     </mwc-button>
                   </div>
-                </ha-card>
+                </op-card>
               `
             : ``}
         </div>
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.script.editor.save_script"
@@ -403,8 +403,8 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
             dirty: this._dirty,
           })}
         >
-          <ha-svg-icon slot="icon" .path=${mdiContentSave}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiContentSave}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage>
     `;
   }

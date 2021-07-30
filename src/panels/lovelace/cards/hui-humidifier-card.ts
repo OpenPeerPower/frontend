@@ -158,30 +158,26 @@ export class HuiHumidifierCard extends LitElement implements LovelaceCard {
     `;
 
     return html`
-      <ha-card>
-        <ha-icon-button
+      <op-card>
+        <op-icon-button
           icon="opp:dots-vertical"
           class="more-info"
           @click=${this._handleMoreInfo}
           tabindex="0"
-        ></ha-icon-button>
+        ></op-icon-button>
 
         <div class="content">
           <div id="controls">
             <div id="slider">
               ${slider}
               <div id="slider-center">
-                <div id="humidity">
-                  ${setValues}
-                </div>
+                <div id="humidity">${setValues}</div>
               </div>
             </div>
           </div>
-          <div id="info">
-            ${name}
-          </div>
+          <div id="info">${name}</div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -232,9 +228,9 @@ export class HuiHumidifierCard extends LitElement implements LovelaceCard {
     // This is not done to the SVG containing the current humidity, because
     // it should not be centered on the text, but only on the value
     if (this.shadowRoot && this.shadowRoot.querySelector("ha-card")) {
-      (this.shadowRoot.querySelector(
-        "ha-card"
-      ) as LitElement).updateComplete.then(() => {
+      (
+        this.shadowRoot.querySelector("ha-card") as LitElement
+      ).updateComplete.then(() => {
         const svgRoot = this.shadowRoot!.querySelector("#set-values");
         const box = svgRoot!.querySelector("g")!.getBBox();
         svgRoot!.setAttribute(

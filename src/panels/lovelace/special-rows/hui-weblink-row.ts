@@ -42,7 +42,7 @@ class HuiWeblinkRow extends LitElement implements LovelaceRow {
         rel="noreferrer"
         ?download=${this._config.download}
       >
-        <ha-icon .icon="${this._config.icon}"></ha-icon>
+        <op-icon .icon="${this._config.icon}"></op-icon>
         <div>${this._config.name}</div>
       </a>
     `;

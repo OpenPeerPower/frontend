@@ -81,7 +81,7 @@ class HcCast extends LitElement {
           ? html`
               <p class="center-item">
                 <mwc-button raised @click=${this._handleLaunch}>
-                  <ha-icon icon="opp:cast"></ha-icon>
+                  <op-icon icon="opp:cast"></op-icon>
                   Start Casting
                 </mwc-button>
               </p>
@@ -103,10 +103,10 @@ class HcCast extends LitElement {
                     >
                       ${view.icon
                         ? html`
-                            <ha-icon
+                            <op-icon
                               .icon=${view.icon}
                               slot="item-icon"
-                            ></ha-icon>
+                            ></op-icon>
                           `
                         : ""}
                       ${view.title || view.path}
@@ -119,7 +119,7 @@ class HcCast extends LitElement {
           ${this.castManager.status
             ? html`
                 <mwc-button @click=${this._handleLaunch}>
-                  <ha-icon icon="opp:cast-connected"></ha-icon>
+                  <op-icon icon="opp:cast-connected"></op-icon>
                   Manage
                 </mwc-button>
               `

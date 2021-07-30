@@ -54,15 +54,15 @@ class DomainTogglerDialog
           ${domains.map(
             (domain) =>
               html`
-                <ha-formfield .label=${domain[0]}>
-                  <ha-switch
+                <op-formfield .label=${domain[0]}>
+                  <op-switch
                     .domain=${domain[1]}
                     .checked=${!this._params!.exposedDomains ||
                     this._params!.exposedDomains.includes(domain[1])}
                     @change=${this._handleSwitch}
                   >
-                  </ha-switch>
-                </ha-formfield>
+                  </op-switch>
+                </op-formfield>
                 <mwc-button .domain=${domain[1]} @click=${this._handleReset}>
                   ${this.opp.localize(
                     "ui.dialogs.domain_toggler.reset_entities"

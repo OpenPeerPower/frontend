@@ -28,7 +28,7 @@ export class ZwaveValues extends LitElement {
   protected render(): TemplateResult {
     return html`
       <div class="content">
-        <ha-card
+        <op-card
           .header=${this.opp.localize("ui.panel.config.zwave.values.header")}
         >
           <div class="device-picker">
@@ -43,15 +43,13 @@ export class ZwaveValues extends LitElement {
               >
                 ${this.values.map(
                   (item) => html`
-                    <paper-item>
-                      ${this._computeCaption(item)}
-                    </paper-item>
+                    <paper-item> ${this._computeCaption(item)} </paper-item>
                   `
                 )}
               </paper-listbox>
             </paper-dropdown-menu>
           </div>
-        </ha-card>
+        </op-card>
       </div>
     `;
   }

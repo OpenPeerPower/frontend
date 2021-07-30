@@ -108,12 +108,12 @@ export class ZHAGroupPage extends LitElement {
         .narrow=${this.narrow}
         .header=${this.group.name}
       >
-        <ha-icon-button
+        <op-icon-button
           slot="toolbar-icon"
           icon="opp:delete"
           @click=${this._deleteGroup}
-        ></ha-icon-button>
-        <ha-config-section .isWide=${this.isWide}>
+        ></op-icon-button>
+        <op-config-section .isWide=${this.isWide}>
           <div class="header">
             ${this.opp.localize("ui.panel.config.zha.groups.group_info")}
           </div>
@@ -128,7 +128,7 @@ export class ZHAGroupPage extends LitElement {
           <div class="header">
             ${this.opp.localize("ui.panel.config.zha.groups.members")}
           </div>
-          <ha-card>
+          <op-card>
             ${this.group.members.length
               ? this.group.members.map(
                   (member) =>
@@ -142,12 +142,8 @@ export class ZHAGroupPage extends LitElement {
                       >
                     </a>`
                 )
-              : html`
-                  <paper-item>
-                    This group has no members
-                  </paper-item>
-                `}
-          </ha-card>
+              : html` <paper-item> This group has no members </paper-item> `}
+          </op-card>
           ${this.group.members.length
             ? html`
                 <div class="header">
@@ -173,12 +169,12 @@ export class ZHAGroupPage extends LitElement {
                     @click="${this._removeMembersFromGroup}"
                     class="button"
                   >
-                    <ha-circular-progress
+                    <op-circular-progress
                       ?active="${this._processingRemove}"
                       alt=${this.opp.localize(
                         "ui.panel.config.zha.groups.removing_members"
                       )}
-                    ></ha-circular-progress>
+                    ></op-circular-progress>
                     ${this.opp!.localize(
                       "ui.panel.config.zha.groups.remove_members"
                     )}</mwc-button
@@ -209,18 +205,18 @@ export class ZHAGroupPage extends LitElement {
               class="button"
             >
               ${this._processingAdd
-                ? html`<ha-circular-progress
+                ? html`<op-circular-progress
                     active
                     size="small"
                     title="Saving"
-                  ></ha-circular-progress>`
+                  ></op-circular-progress>`
                 : ""}
               ${this.opp!.localize(
                 "ui.panel.config.zha.groups.add_members"
               )}</mwc-button
             >
           </div>
-        </ha-config-section>
+        </op-config-section>
       </opp-subpage>
     `;
   }

@@ -41,7 +41,7 @@ class DemoMoreInfo extends PolymerElement {
       </style>
       <div class="root">
         <div id="card">
-          <ha-card>
+          <op-card>
             <state-card-content
               state-obj="[[_stateObj]]"
               opp="[[opp]]"
@@ -52,7 +52,7 @@ class DemoMoreInfo extends PolymerElement {
               opp="[[opp]]"
               state-obj="[[_stateObj]]"
             ></more-info-content>
-          </ha-card>
+          </op-card>
         </div>
         <template is="dom-if" if="[[showConfig]]">
           <pre>[[_jsonEntity(_stateObj)]]</pre>

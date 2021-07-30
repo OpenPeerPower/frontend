@@ -57,18 +57,18 @@ class PanelCalendar extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header fixed slot="header">
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.calendar")}</div>
-            <ha-icon-button
+            <op-icon-button
               icon="opp:refresh"
               @click=${this._handleRefresh}
-            ></ha-icon-button>
+            ></op-icon-button>
           </app-toolbar>
         </app-header>
         <div class="content">
@@ -96,14 +96,14 @@ class PanelCalendar extends LitElement {
                 `
             )}
           </div>
-          <ha-full-calendar
+          <op-full-calendar
             .events=${this._events}
             .narrow=${this.narrow}
             .opp=${this.opp}
             @view-changed=${this._handleViewChanged}
-          ></ha-full-calendar>
+          ></op-full-calendar>
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

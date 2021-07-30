@@ -24,19 +24,19 @@ class OppioAddons extends LitElement {
         <div class="card-group">
           ${!this.supervisor.supervisor.addons?.length
             ? html`
-                <ha-card>
+                <op-card>
                   <div class="card-content">
                     <button class="link" @click=${this._openStore}>
                       ${this.supervisor.localize("dashboard.no_addons")}
                     </button>
                   </div>
-                </ha-card>
+                </op-card>
               `
             : this.supervisor.supervisor.addons
                 .sort((a, b) => compare(a.name, b.name))
                 .map(
                   (addon) => html`
-                    <ha-card .addon=${addon} @click=${this._addonTapped}>
+                    <op-card .addon=${addon} @click=${this._addonTapped}>
                       <div class="card-content">
                         <oppio-card-content
                           .opp=${this.opp}
@@ -75,7 +75,7 @@ class OppioAddons extends LitElement {
                             : undefined}
                         ></oppio-card-content>
                       </div>
-                    </ha-card>
+                    </op-card>
                   `
                 )}
         </div>

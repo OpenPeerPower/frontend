@@ -53,7 +53,7 @@ export class HuiCardOptions extends LitElement {
   protected render(): TemplateResult {
     return html`
       <div class="card"><slot></slot></div>
-      <ha-card>
+      <op-card>
         <div class="card-actions">
           <mwc-button @click=${this._editCard}
             >${this.opp!.localize(
@@ -69,16 +69,16 @@ export class HuiCardOptions extends LitElement {
                 .length ===
               this.path![1] + 1}
             >
-              <ha-svg-icon .path=${mdiArrowDown}></ha-svg-icon>
+              <op-svg-icon .path=${mdiArrowDown}></op-svg-icon>
             </mwc-icon-button>
             <mwc-icon-button
               title="Move card up"
               class="move-arrow"
               @click=${this._cardUp}
               ?disabled=${this.path![1] === 0}
-              ><ha-svg-icon .path=${mdiArrowUp}></ha-svg-icon
+              ><op-svg-icon .path=${mdiArrowUp}></op-svg-icon
             ></mwc-icon-button>
-            <ha-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
+            <op-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
               <mwc-icon-button
                 slot="trigger"
                 aria-label=${this.opp!.localize(
@@ -88,7 +88,7 @@ export class HuiCardOptions extends LitElement {
                   "ui.panel.lovelace.editor.edit_card.options"
                 )}"
               >
-                <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
               </mwc-icon-button>
 
               <mwc-list-item>
@@ -106,10 +106,10 @@ export class HuiCardOptions extends LitElement {
                   "ui.panel.lovelace.editor.edit_card.delete"
                 )}</mwc-list-item
               >
-            </ha-button-menu>
+            </op-button-menu>
           </div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

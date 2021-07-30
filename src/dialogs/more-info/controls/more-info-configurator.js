@@ -50,10 +50,10 @@ class MoreInfoConfigurator extends PolymerElement {
 
       <div class="layout vertical">
         <template is="dom-if" if="[[isConfigurable]]">
-          <ha-markdown
+          <op-markdown
             breaks
             content="[[stateObj.attributes.description]]"
-          ></ha-markdown>
+          ></op-markdown>
 
           <p class="error" hidden$="[[!stateObj.attributes.errors]]">
             [[stateObj.attributes.errors]]

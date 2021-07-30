@@ -25,10 +25,10 @@ class MoreInfoScript extends LitElement {
         </div>
         ${this.stateObj.attributes.last_triggered
           ? html`
-              <ha-relative-time
+              <op-relative-time
                 .opp=${this.opp}
                 .datetime=${this.stateObj.attributes.last_triggered}
-              ></ha-relative-time>
+              ></op-relative-time>
             `
           : this.opp.localize("ui.components.relative_time.never")}
       </div>

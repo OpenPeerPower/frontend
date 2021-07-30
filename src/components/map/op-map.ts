@@ -409,7 +409,7 @@ export class HaMap extends ReactiveElement {
         Leaflet.marker([latitude, longitude], {
           icon: Leaflet.divIcon({
             html: `
-              <ha-entity-marker
+              <op-entity-marker
                 entity-id="${getEntityId(entity)}"
                 entity-name="${entityName}"
                 entity-picture="${entityPicture || ""}"
@@ -418,7 +418,7 @@ export class HaMap extends ReactiveElement {
                     ? `entity-color="${entity.color}"`
                     : ""
                 }
-              ></ha-entity-marker>
+              ></op-entity-marker>
             `,
             iconSize: [48, 48],
             className: "",

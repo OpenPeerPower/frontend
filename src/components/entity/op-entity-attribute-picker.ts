@@ -105,7 +105,7 @@ class HaEntityAttributePicker extends LitElement {
                     @click=${this._clearValue}
                     no-ripple
                   >
-                    <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiClose}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
@@ -117,9 +117,9 @@ class HaEntityAttributePicker extends LitElement {
               class="toggle-button"
               tabindex="-1"
             >
-              <ha-svg-icon
+              <op-svg-icon
                 .path=${this._opened ? mdiMenuUp : mdiMenuDown}
-              ></ha-svg-icon>
+              ></op-svg-icon>
             </mwc-icon-button>
           </div>
         </paper-input>

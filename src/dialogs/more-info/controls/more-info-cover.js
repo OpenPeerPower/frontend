@@ -55,20 +55,20 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
             disabled="[[!entityObj.supportsSetTiltPosition]]"
             on-change="coverTiltPositionSliderChanged"
           >
-            <ha-cover-tilt-controls
+            <op-cover-tilt-controls
               slot="extra"
               hidden$="[[entityObj.isTiltOnly]]"
               opp="[[opp]]"
               state-obj="[[stateObj]]"
-            ></ha-cover-tilt-controls>
+            ></op-cover-tilt-controls>
           </op-labeled-slider>
         </div>
       </div>
-      <ha-attributes
+      <op-attributes
         opp="[[opp]]"
         state-obj="[[stateObj]]"
         extra-filters="current_position,current_tilt_position"
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

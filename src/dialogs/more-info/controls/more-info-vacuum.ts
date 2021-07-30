@@ -115,7 +115,7 @@ class MoreInfoVacuum extends LitElement {
           ? html`
               <div>
                 <span>
-                  <ha-icon .icon=${stateObj.attributes.battery_icon}></ha-icon>
+                  <op-icon .icon=${stateObj.attributes.battery_icon}></op-icon>
                   ${stateObj.attributes.battery_level} %
                 </span>
               </div>
@@ -138,14 +138,14 @@ class MoreInfoVacuum extends LitElement {
                 ).map(
                   (item) => html`
                     <div>
-                      <ha-icon-button
+                      <op-icon-button
                         .icon=${item.icon}
                         .entry=${item}
                         @click=${this.callService}
                         .title=${this.opp!.localize(
                           `ui.dialogs.more_info_control.vacuum.${item.translationKey}`
                         )}
-                      ></ha-icon-button>
+                      ></op-icon-button>
                     </div>
                   `
                 )}
@@ -157,7 +157,7 @@ class MoreInfoVacuum extends LitElement {
         ? html`
             <div>
               <div class="flex-horizontal">
-                <ha-paper-dropdown-menu
+                <op-paper-dropdown-menu
                   .label=${this.opp!.localize(
                     "ui.dialogs.more_info_control.vacuum.fan_speed"
                   )}
@@ -174,12 +174,12 @@ class MoreInfoVacuum extends LitElement {
                       `
                     )}
                   </paper-listbox>
-                </ha-paper-dropdown-menu>
+                </op-paper-dropdown-menu>
                 <div
                   style="justify-content: center; align-self: center; padding-top: 1.3em"
                 >
                   <span>
-                    <ha-icon icon="opp:fan"></ha-icon>
+                    <op-icon icon="opp:fan"></op-icon>
                     ${stateObj.attributes.fan_speed}
                   </span>
                 </div>
@@ -189,11 +189,11 @@ class MoreInfoVacuum extends LitElement {
           `
         : ""}
 
-      <ha-attributes
+      <op-attributes
         .opp=${this.opp}
         .stateObj=${this.stateObj}
         .extraFilters=${filterExtraAttributes}
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

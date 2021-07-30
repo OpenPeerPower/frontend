@@ -72,7 +72,7 @@ class OZWConfigDashboard extends LitElement {
         .tabs=${ozwTabs}
         back-path="/config/integrations"
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.ozw.select_instance.header")}
           </div>
@@ -100,25 +100,25 @@ class OZWConfigDashboard extends LitElement {
                   }
 
                   return html`
-                    <ha-card>
+                    <op-card>
                       <a
                         href="/config/ozw/network/${instance.ozw_instance}"
                         aria-role="option"
                         tabindex="-1"
                       >
                         <paper-icon-item>
-                          <ha-svg-icon .path=${mdiZWave} slot="item-icon">
-                          </ha-svg-icon>
+                          <op-svg-icon .path=${mdiZWave} slot="item-icon">
+                          </op-svg-icon>
                           <paper-item-body>
                             ${this.opp.localize(
                               "ui.panel.config.ozw.common.instance"
                             )}
                             ${instance.ozw_instance}
                             <div secondary>
-                              <ha-svg-icon
+                              <op-svg-icon
                                 .path=${icon}
                                 class="network-status-icon ${status}"
-                              ></ha-svg-icon>
+                              ></op-svg-icon>
                               ${this.opp.localize(
                                 "ui.panel.config.ozw.network_status." + status
                               )}
@@ -135,15 +135,15 @@ class OZWConfigDashboard extends LitElement {
                               ${instance.OpenZWave_Version})
                             </div>
                           </paper-item-body>
-                          <ha-icon-next></ha-icon-next>
+                          <op-icon-next></op-icon-next>
                         </paper-icon-item>
                       </a>
-                    </ha-card>
+                    </op-card>
                   `;
                 })}
               `
             : ""}
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }

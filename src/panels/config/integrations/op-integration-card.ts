@@ -91,7 +91,7 @@ export class HaIntegrationCard extends LitElement {
     const hasItem = item !== undefined;
 
     return html`
-      <ha-card
+      <op-card
         outlined
         class="${classMap({
           single: hasItem,
@@ -104,7 +104,7 @@ export class HaIntegrationCard extends LitElement {
         })}"
         .configEntry=${item}
       >
-        <ha-integration-header
+        <op-integration-header
           .opp=${this.opp}
           .banner=${this.disabled
             ? this.opp.localize(
@@ -121,19 +121,19 @@ export class HaIntegrationCard extends LitElement {
           ${this.items.length > 1
             ? html`
                 <div class="back-btn" slot="above-header">
-                  <ha-icon-button
+                  <op-icon-button
                     icon="opp:chevron-left"
                     @click=${this._back}
-                  ></ha-icon-button>
+                  ></op-icon-button>
                 </div>
               `
             : ""}
-        </ha-integration-header>
+        </op-integration-header>
 
         ${item
           ? this._renderSingleEntry(item)
           : this._renderGroupedIntegration()}
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -153,10 +153,10 @@ export class HaIntegrationCard extends LitElement {
               >
               ${ERROR_STATES.includes(item.state)
                 ? html`<span>
-                    <ha-svg-icon
+                    <op-svg-icon
                       class="error"
                       .path=${mdiAlertCircle}
-                    ></ha-svg-icon
+                    ></op-svg-icon
                     ><paper-tooltip animation-delay="0" position="left">
                       ${this.opp.localize(
                         `ui.panel.config.integrations.config_entry.state.${item.state}`
@@ -164,7 +164,7 @@ export class HaIntegrationCard extends LitElement {
                     </paper-tooltip>
                   </span>`
                 : ""}
-              <ha-icon-next></ha-icon-next>
+              <op-icon-next></op-icon-next>
             </paper-item>`
         )}
       </paper-listbox>
@@ -294,13 +294,13 @@ export class HaIntegrationCard extends LitElement {
         ${!this.manifest
           ? ""
           : html`
-              <ha-button-menu corner="BOTTOM_START">
+              <op-button-menu corner="BOTTOM_START">
                 <mwc-icon-button
                   .title=${this.opp.localize("ui.common.menu")}
                   .label=${this.opp.localize("ui.common.overflow_menu")}
                   slot="trigger"
                 >
-                  <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                  <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
                 </mwc-icon-button>
                 <mwc-list-item @request-selected="${this._editEntryName}">
                   ${this.opp.localize(
@@ -321,10 +321,10 @@ export class HaIntegrationCard extends LitElement {
                   <mwc-list-item hasMeta>
                     ${this.opp.localize(
                       "ui.panel.config.integrations.config_entry.documentation"
-                    )}<ha-svg-icon
+                    )}<op-svg-icon
                       slot="meta"
                       .path=${mdiOpenInNew}
-                    ></ha-svg-icon>
+                    ></op-svg-icon>
                   </mwc-list-item>
                 </a>
                 ${!item.disabled_by &&
@@ -363,7 +363,7 @@ export class HaIntegrationCard extends LitElement {
                       )}
                     </mwc-list-item>`
                   : ""}
-              </ha-button-menu>
+              </op-button-menu>
             `}
       </div>
     `;

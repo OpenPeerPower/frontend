@@ -102,14 +102,8 @@ export class HaAutomationTracePathDetails extends LitElement {
     const data: ActionTraceStep[] = paths[this.selected.path];
 
     return data.map((trace, idx) => {
-      const {
-        path,
-        timestamp,
-        result,
-        error,
-        changed_variables,
-        ...rest
-      } = trace as any;
+      const { path, timestamp, result, error, changed_variables, ...rest } =
+        trace as any;
 
       return html`
         ${data.length === 1 ? "" : html`<h3>Iteration ${idx + 1}</h3>`}
@@ -134,10 +128,10 @@ export class HaAutomationTracePathDetails extends LitElement {
     }
     const config = getDataFromPath(this.trace!.config, this.selected.path);
     return config
-      ? html`<ha-code-editor
+      ? html`<op-code-editor
           .value=${safeDump(config).trimRight()}
           readOnly
-        ></ha-code-editor>`
+        ></op-code-editor>`
       : "Unable to find config";
   }
 
@@ -207,12 +201,12 @@ ${safeDump(trace.changed_variables).trimRight()}</pre
 
     return entries.length
       ? html`
-          <ha-logbook
+          <op-logbook
             relative-time
             .opp=${this.opp}
             .entries=${entries}
             .narrow=${this.narrow}
-          ></ha-logbook>
+          ></op-logbook>
           <hat-logbook-note></hat-logbook-note>
         `
       : html`<div class="padded-box">

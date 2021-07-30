@@ -148,10 +148,7 @@ export const getWind = (
   return speedText;
 };
 
-export const getWeatherUnit = (
-  opp: OpenPeerPower,
-  measure: string
-): string => {
+export const getWeatherUnit = (opp: OpenPeerPower, measure: string): string => {
   const lengthUnit = opp.config.unit_system.length || "";
   switch (measure) {
     case "pressure":
@@ -203,7 +200,7 @@ export const getSecondaryWeatherAttribute = (
   return html`
     ${weatherAttrIcon
       ? html`
-          <ha-svg-icon class="attr-icon" .path=${weatherAttrIcon}></ha-svg-icon>
+          <op-svg-icon class="attr-icon" .path=${weatherAttrIcon}></op-svg-icon>
         `
       : opp!.localize(`ui.card.weather.attributes.${attribute}`)}
     ${formatNumber(value, opp.locale, { maximumFractionDigits: 1 })}
@@ -441,7 +438,7 @@ export const getWeatherStateIcon = (
 
   if (state in weatherIcons) {
     return html`
-      <ha-icon class="weather-icon" .icon=${weatherIcons[state]}></ha-icon>
+      <op-icon class="weather-icon" .icon=${weatherIcons[state]}></op-icon>
     `;
   }
 

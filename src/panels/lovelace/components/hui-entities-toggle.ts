@@ -41,7 +41,7 @@ class HuiEntitiesToggle extends LitElement {
     }
 
     return html`
-      <ha-switch
+      <op-switch
         aria-label=${this.opp!.localize(
           "ui.panel.lovelace.card.entities.toggle"
         )}
@@ -50,7 +50,7 @@ class HuiEntitiesToggle extends LitElement {
           return stateObj && stateObj.state === "on";
         })}
         @change=${this._callService}
-      ></ha-switch>
+      ></op-switch>
     `;
   }
 

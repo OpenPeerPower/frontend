@@ -91,7 +91,7 @@ class HuiInputSelectEntityRow extends LitElement implements LovelaceRow {
         })}
         tabindex=${ifDefined(pointer ? "0" : undefined)}
       ></state-badge>
-      <ha-paper-dropdown-menu
+      <op-paper-dropdown-menu
         .label=${this._config.name || computeStateName(stateObj)}
         .value=${stateObj.state}
         .disabled=${UNAVAILABLE_STATES.includes(stateObj.state)}
@@ -105,7 +105,7 @@ class HuiInputSelectEntityRow extends LitElement implements LovelaceRow {
               )
             : ""}
         </paper-listbox>
-      </ha-paper-dropdown-menu>
+      </op-paper-dropdown-menu>
     `;
   }
 
@@ -126,9 +126,8 @@ class HuiInputSelectEntityRow extends LitElement implements LovelaceRow {
 
     // Update selected after rendering the items or else it won't work in Firefox
     if (stateObj.attributes.options) {
-      this.shadowRoot!.querySelector(
-        "paper-listbox"
-      )!.selected = stateObj.attributes.options.indexOf(stateObj.state);
+      this.shadowRoot!.querySelector("paper-listbox")!.selected =
+        stateObj.attributes.options.indexOf(stateObj.state);
     }
   }
 

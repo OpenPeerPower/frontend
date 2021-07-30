@@ -117,50 +117,46 @@ export class HAFullCalendar extends LitElement {
                           "ui.components.calendar.today"
                         )}</mwc-button
                       >
-                      <ha-icon-button
+                      <op-icon-button
                         label=${this.opp.localize("ui.common.previous")}
                         icon="opp:chevron-left"
                         class="prev"
                         @click=${this._handlePrev}
                       >
-                      </ha-icon-button>
-                      <ha-icon-button
+                      </op-icon-button>
+                      <op-icon-button
                         label=${this.opp.localize("ui.common.next")}
                         icon="opp:chevron-right"
                         class="next"
                         @click=${this._handleNext}
                       >
-                      </ha-icon-button>
+                      </op-icon-button>
                     </div>
-                    <h1>
-                      ${this.calendar.view.title}
-                    </h1>
-                    <ha-button-toggle-group
+                    <h1>${this.calendar.view.title}</h1>
+                    <op-button-toggle-group
                       .buttons=${viewToggleButtons}
                       .active=${this._activeView}
                       @value-changed=${this._handleView}
-                    ></ha-button-toggle-group>
+                    ></op-button-toggle-group>
                   `
                 : html`
                     <div class="controls">
-                      <h1>
-                        ${this.calendar.view.title}
-                      </h1>
+                      <h1>${this.calendar.view.title}</h1>
                       <div>
-                        <ha-icon-button
+                        <op-icon-button
                           label=${this.opp.localize("ui.common.previous")}
                           icon="opp:chevron-left"
                           class="prev"
                           @click=${this._handlePrev}
                         >
-                        </ha-icon-button>
-                        <ha-icon-button
+                        </op-icon-button>
+                        <op-icon-button
                           label=${this.opp.localize("ui.common.next")}
                           icon="opp:chevron-right"
                           class="next"
                           @click=${this._handleNext}
                         >
-                        </ha-icon-button>
+                        </op-icon-button>
                       </div>
                     </div>
                     <div class="controls">
@@ -172,11 +168,11 @@ export class HAFullCalendar extends LitElement {
                           "ui.components.calendar.today"
                         )}</mwc-button
                       >
-                      <ha-button-toggle-group
+                      <op-button-toggle-group
                         .buttons=${viewToggleButtons}
                         .active=${this._activeView}
                         @value-changed=${this._handleView}
-                      ></ha-button-toggle-group>
+                      ></op-button-toggle-group>
                     </div>
                   `}
             </div>
@@ -368,7 +364,7 @@ export class HAFullCalendar extends LitElement {
         }
 
         a {
-            color: inherit !important;
+          color: inherit !important;
         }
 
         .fc-theme-standard .fc-scrollgrid {
@@ -387,7 +383,7 @@ export class HAFullCalendar extends LitElement {
         }
 
         .fc-daygrid-dot-event:hover {
-          background-color: inherit
+          background-color: inherit;
         }
 
         .fc-daygrid-day-top {
@@ -409,7 +405,7 @@ export class HAFullCalendar extends LitElement {
         }
 
         .fc .fc-daygrid-day-number {
-            padding: 3px !important;
+          padding: 3px !important;
         }
 
         .fc .fc-daygrid-day.fc-day-today {
@@ -494,17 +490,22 @@ export class HAFullCalendar extends LitElement {
           padding-bottom: 12px;
         }
 
-        :host([narrow]) .fc-dayGridMonth-view
+        :host([narrow])
+          .fc-dayGridMonth-view
           .fc-daygrid-dot-event
           .fc-event-time,
-        :host([narrow]) .fc-dayGridMonth-view
+        :host([narrow])
+          .fc-dayGridMonth-view
           .fc-daygrid-dot-event
           .fc-event-title,
-          :host([narrow]) .fc-dayGridMonth-view .fc-daygrid-day-bottom {
+        :host([narrow]) .fc-dayGridMonth-view .fc-daygrid-day-bottom {
           display: none;
         }
 
-        :host([narrow]) .fc .fc-dayGridMonth-view .fc-daygrid-event-harness-abs {
+        :host([narrow])
+          .fc
+          .fc-dayGridMonth-view
+          .fc-daygrid-event-harness-abs {
           visibility: visible !important;
           position: static;
         }

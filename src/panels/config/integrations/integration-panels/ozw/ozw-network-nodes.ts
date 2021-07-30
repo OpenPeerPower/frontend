@@ -48,54 +48,48 @@ class OZWNetworkNodes extends LitElement {
 
   @internalProperty() private _nodes: OZWDevice[] = [];
 
-  private _columns = memoizeOne(
-    (narrow: boolean): DataTableColumnContainer => {
-      return {
-        node_id: {
-          title: this.opp.localize("ui.panel.config.ozw.nodes_table.id"),
-          sortable: true,
-          type: "numeric",
-          width: "72px",
-          filterable: true,
-          direction: "asc",
-        },
-        node_product_name: {
-          title: this.opp.localize("ui.panel.config.ozw.nodes_table.model"),
-          sortable: true,
-          width: narrow ? "75%" : "25%",
-        },
-        node_manufacturer_name: {
-          title: this.opp.localize(
-            "ui.panel.config.ozw.nodes_table.manufacturer"
-          ),
-          sortable: true,
-          hidden: narrow,
-          width: "25%",
-        },
-        node_query_stage: {
-          title: this.opp.localize(
-            "ui.panel.config.ozw.nodes_table.query_stage"
-          ),
-          sortable: true,
-          width: narrow ? "25%" : "15%",
-        },
-        is_zwave_plus: {
-          title: this.opp.localize(
-            "ui.panel.config.ozw.nodes_table.zwave_plus"
-          ),
-          hidden: narrow,
-          template: (value: boolean) =>
-            value ? html` <ha-svg-icon .path=${mdiCheck}></ha-svg-icon>` : "",
-        },
-        is_failed: {
-          title: this.opp.localize("ui.panel.config.ozw.nodes_table.failed"),
-          hidden: narrow,
-          template: (value: boolean) =>
-            value ? html` <ha-svg-icon .path=${mdiAlert}></ha-svg-icon>` : "",
-        },
-      };
-    }
-  );
+  private _columns = memoizeOne((narrow: boolean): DataTableColumnContainer => {
+    return {
+      node_id: {
+        title: this.opp.localize("ui.panel.config.ozw.nodes_table.id"),
+        sortable: true,
+        type: "numeric",
+        width: "72px",
+        filterable: true,
+        direction: "asc",
+      },
+      node_product_name: {
+        title: this.opp.localize("ui.panel.config.ozw.nodes_table.model"),
+        sortable: true,
+        width: narrow ? "75%" : "25%",
+      },
+      node_manufacturer_name: {
+        title: this.opp.localize(
+          "ui.panel.config.ozw.nodes_table.manufacturer"
+        ),
+        sortable: true,
+        hidden: narrow,
+        width: "25%",
+      },
+      node_query_stage: {
+        title: this.opp.localize("ui.panel.config.ozw.nodes_table.query_stage"),
+        sortable: true,
+        width: narrow ? "25%" : "15%",
+      },
+      is_zwave_plus: {
+        title: this.opp.localize("ui.panel.config.ozw.nodes_table.zwave_plus"),
+        hidden: narrow,
+        template: (value: boolean) =>
+          value ? html` <op-svg-icon .path=${mdiCheck}></op-svg-icon>` : "",
+      },
+      is_failed: {
+        title: this.opp.localize("ui.panel.config.ozw.nodes_table.failed"),
+        hidden: narrow,
+        template: (value: boolean) =>
+          value ? html` <op-svg-icon .path=${mdiAlert}></op-svg-icon>` : "",
+      },
+    };
+  });
 
   protected firstUpdated() {
     if (!this.ozwInstance) {

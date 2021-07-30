@@ -35,7 +35,7 @@ class DialogCloudCertificate extends LitElement {
     const { certificateInfo } = this._params;
 
     return html`
-      <ha-paper-dialog with-backdrop>
+      <op-paper-dialog with-backdrop>
         <h2>
           ${this.opp!.localize(
             "ui.panel.config.cloud.dialog_certificate.certificate_information"
@@ -69,7 +69,7 @@ class DialogCloudCertificate extends LitElement {
             )}</mwc-button
           >
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

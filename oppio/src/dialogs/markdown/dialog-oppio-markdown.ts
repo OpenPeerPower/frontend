@@ -32,13 +32,13 @@ class OppioMarkdownDialog extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${createCloseHeading(this.opp, this.title)}
       >
-        <ha-markdown .content=${this.content || ""}></ha-markdown>
-      </ha-dialog>
+        <op-markdown .content=${this.content || ""}></op-markdown>
+      </op-dialog>
     `;
   }
 

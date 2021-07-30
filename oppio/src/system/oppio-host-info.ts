@@ -23,10 +23,7 @@ import {
   shutdownHost,
   updateOS,
 } from "../../../src/data/oppio/host";
-import {
-  fetchNetworkInfo,
-  NetworkInfo,
-} from "../../../src/data/oppio/network";
+import { fetchNetworkInfo, NetworkInfo } from "../../../src/data/oppio/network";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
 import {
   showAlertDialog,
@@ -66,11 +63,11 @@ class OppioHostInfo extends LitElement {
       },
     ];
     return html`
-      <ha-card header="Host">
+      <op-card header="Host">
         <div class="card-content">
           <div>
             ${this.supervisor.host.features.includes("hostname")
-              ? html`<ha-settings-row>
+              ? html`<op-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.hostname")}
                   </span>
@@ -82,10 +79,10 @@ class OppioHostInfo extends LitElement {
                     @click=${this._changeHostnameClicked}
                   >
                   </mwc-button>
-                </ha-settings-row>`
+                </op-settings-row>`
               : ""}
             ${this.supervisor.host.features.includes("network")
-              ? html` <ha-settings-row>
+              ? html` <op-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.ip_address")}
                   </span>
@@ -95,10 +92,10 @@ class OppioHostInfo extends LitElement {
                     @click=${this._changeNetworkClicked}
                   >
                   </mwc-button>
-                </ha-settings-row>`
+                </op-settings-row>`
               : ""}
 
-            <ha-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("system.host.operating_system")}
               </span>
@@ -107,37 +104,37 @@ class OppioHostInfo extends LitElement {
               </span>
               ${this.supervisor.os.update_available
                 ? html`
-                    <ha-progress-button @click=${this._osUpdate}>
+                    <op-progress-button @click=${this._osUpdate}>
                       ${this.supervisor.localize("commmon.update")}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : ""}
-            </ha-settings-row>
+            </op-settings-row>
             ${!this.supervisor.host.features.includes("opos")
-              ? html`<ha-settings-row>
+              ? html`<op-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.docker_version")}
                   </span>
                   <span slot="description">
                     ${this.supervisor.info.docker}
                   </span>
-                </ha-settings-row>`
+                </op-settings-row>`
               : ""}
             ${this.supervisor.host.deployment
-              ? html`<ha-settings-row>
+              ? html`<op-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.deployment")}
                   </span>
                   <span slot="description">
                     ${this.supervisor.host.deployment}
                   </span>
-                </ha-settings-row>`
+                </op-settings-row>`
               : ""}
           </div>
           <div>
             ${this.supervisor.host.disk_life_time !== "" &&
             this.supervisor.host.disk_life_time >= 10
-              ? html` <ha-settings-row>
+              ? html` <op-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize(
                       "system.host.emmc_lifetime_used"
@@ -147,7 +144,7 @@ class OppioHostInfo extends LitElement {
                     ${this.supervisor.host.disk_life_time - 10} % -
                     ${this.supervisor.host.disk_life_time} %
                   </span>
-                </ha-settings-row>`
+                </op-settings-row>`
               : ""}
             ${metrics.map(
               (metric) =>
@@ -164,19 +161,19 @@ class OppioHostInfo extends LitElement {
         <div class="card-actions">
           ${this.supervisor.host.features.includes("reboot")
             ? html`
-                <ha-progress-button class="warning" @click=${this._hostReboot}>
+                <op-progress-button class="warning" @click=${this._hostReboot}>
                   ${this.supervisor.localize("system.host.reboot_host")}
-                </ha-progress-button>
+                </op-progress-button>
               `
             : ""}
           ${this.supervisor.host.features.includes("shutdown")
             ? html`
-                <ha-progress-button
+                <op-progress-button
                   class="warning"
                   @click=${this._hostShutdown}
                 >
                   ${this.supervisor.localize("system.host.shutdown_host")}
-                </ha-progress-button>
+                </op-progress-button>
               `
             : ""}
 
@@ -185,7 +182,7 @@ class OppioHostInfo extends LitElement {
             @action=${this._handleMenuAction}
           >
             <mwc-icon-button slot="trigger">
-              <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+              <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
             </mwc-icon-button>
             <mwc-list-item>
               ${this.supervisor.localize("system.host.hardware")}
@@ -197,7 +194,7 @@ class OppioHostInfo extends LitElement {
               : ""}
           </op-button-menu>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

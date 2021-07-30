@@ -58,7 +58,7 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         escapeKeyAction
@@ -74,7 +74,7 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
             dir=${computeRTLDirection(this.opp!)}
           >
             <mwc-icon-button>
-              <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+              <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
             </mwc-icon-button>
           </a>`}
       >
@@ -90,17 +90,17 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
                     "ui.panel.lovelace.editor.save_config.para_sure"
                   )}
                 </p>
-                <ha-formfield
+                <op-formfield
                   .label=${this.opp!.localize(
                     "ui.panel.lovelace.editor.save_config.empty_config"
                   )}
                   .dir=${computeRTLDirection(this.opp!)}
                 >
-                  <ha-switch
+                  <op-switch
                     .checked=${this._emptyConfig}
                     @change=${this._emptyConfigChanged}
-                  ></ha-switch
-                ></ha-formfield>
+                  ></op-switch
+                ></op-formfield>
               `
             : html`
                 <p>
@@ -118,9 +118,9 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
                     "ui.panel.lovelace.editor.save_config.yaml_config"
                   )}
                 </p>
-                <ha-yaml-editor
+                <op-yaml-editor
                   .defaultValue=${this._params!.lovelace.config}
-                ></ha-yaml-editor>
+                ></op-yaml-editor>
               `}
         </div>
         ${this._params.mode === "storage"
@@ -134,11 +134,11 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
                 @click=${this._saveConfig}
               >
                 ${this._saving
-                  ? html`<ha-circular-progress
+                  ? html`<op-circular-progress
                       active
                       size="small"
                       title="Saving"
-                    ></ha-circular-progress>`
+                    ></op-circular-progress>`
                   : ""}
                 ${this.opp!.localize(
                   "ui.panel.lovelace.editor.save_config.save"
@@ -152,7 +152,7 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
                 )}
               </mwc-button>
             `}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

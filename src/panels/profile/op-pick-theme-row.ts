@@ -37,7 +37,7 @@ export class HaPickThemeRow extends LitElement {
     const curTheme =
       this.opp!.selectedTheme?.theme || this.opp!.themes.default_theme;
     return html`
-      <ha-settings-row .narrow=${this.narrow}>
+      <op-settings-row .narrow=${this.narrow}>
         <span slot="heading"
           >${this.opp.localize("ui.panel.profile.themes.header")}</span
         >
@@ -56,7 +56,7 @@ export class HaPickThemeRow extends LitElement {
             ${this.opp.localize("ui.panel.profile.themes.link_promo")}
           </a>
         </span>
-        <ha-paper-dropdown-menu
+        <op-paper-dropdown-menu
           .label=${this.opp.localize("ui.panel.profile.themes.dropdown_label")}
           dynamic-align
           .disabled=${!hasThemes}
@@ -70,48 +70,48 @@ export class HaPickThemeRow extends LitElement {
               (theme) => html`<paper-item .theme=${theme}>${theme}</paper-item>`
             )}
           </paper-listbox>
-        </ha-paper-dropdown-menu>
-      </ha-settings-row>
+        </op-paper-dropdown-menu>
+      </op-settings-row>
       ${curTheme === "default"
         ? html` <div class="inputs">
-            <ha-formfield
+            <op-formfield
               .label=${this.opp!.localize(
                 "ui.panel.profile.themes.dark_mode.auto"
               )}
             >
-              <ha-radio
+              <op-radio
                 @change=${this._handleDarkMode}
                 name="dark_mode"
                 value="auto"
                 ?checked=${this.opp.selectedTheme?.dark === undefined}
-              ></ha-radio>
-            </ha-formfield>
-            <ha-formfield
+              ></op-radio>
+            </op-formfield>
+            <op-formfield
               .label=${this.opp!.localize(
                 "ui.panel.profile.themes.dark_mode.light"
               )}
             >
-              <ha-radio
+              <op-radio
                 @change=${this._handleDarkMode}
                 name="dark_mode"
                 value="light"
                 ?checked=${this.opp.selectedTheme?.dark === false}
               >
-              </ha-radio>
-            </ha-formfield>
-            <ha-formfield
+              </op-radio>
+            </op-formfield>
+            <op-formfield
               .label=${this.opp!.localize(
                 "ui.panel.profile.themes.dark_mode.dark"
               )}
             >
-              <ha-radio
+              <op-radio
                 @change=${this._handleDarkMode}
                 name="dark_mode"
                 value="dark"
                 ?checked=${this.opp.selectedTheme?.dark === true}
               >
-              </ha-radio>
-            </ha-formfield>
+              </op-radio>
+            </op-formfield>
             <div class="color-pickers">
               <paper-input
                 .value=${this.opp!.selectedTheme?.primaryColor || "#03a9f4"}

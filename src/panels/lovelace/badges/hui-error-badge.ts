@@ -39,11 +39,11 @@ export class HuiErrorBadge extends LitElement implements LovelaceBadge {
     }
 
     return html`
-      <ha-label-badge
+      <op-label-badge
         label="Error"
         icon="opp:alert"
         description=${this._config.error}
-      ></ha-label-badge>
+      ></op-label-badge>
     `;
   }
 

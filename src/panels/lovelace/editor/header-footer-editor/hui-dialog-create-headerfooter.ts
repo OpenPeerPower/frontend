@@ -20,8 +20,10 @@ import { getHeaderFooterStubConfig } from "./get-headerfooter-stub-config";
 import type { CreateHeaderFooterDialogParams } from "./show-create-headerfooter-dialog";
 
 @customElement("hui-dialog-create-headerfooter")
-export class HuiCreateDialogHeaderFooter extends LitElement
-  implements OppDialog<CreateHeaderFooterDialogParams> {
+export class HuiCreateDialogHeaderFooter
+  extends LitElement
+  implements OppDialog<CreateHeaderFooterDialogParams>
+{
   @property({ attribute: false }) protected opp!: OpenPeerPower;
 
   @internalProperty() private _params?: CreateHeaderFooterDialogParams;
@@ -44,7 +46,7 @@ export class HuiCreateDialogHeaderFooter extends LitElement
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         .heading=${createCloseHeading(
@@ -64,18 +66,18 @@ export class HuiCreateDialogHeaderFooter extends LitElement
           ${headerFooterElements.map(
             (headerFooter) =>
               html`
-                <ha-card
+                <op-card
                   outlined
                   .type=${headerFooter.type}
                   @click=${this._handleHeaderFooterPicked}
                 >
-                  <ha-svg-icon .path=${headerFooter.icon}></ha-svg-icon>
+                  <op-svg-icon .path=${headerFooter.icon}></op-svg-icon>
                   <div>
                     ${this.opp!.localize(
                       `ui.panel.lovelace.editor.header-footer.types.${headerFooter.type}.name`
                     )}
                   </div>
-                </ha-card>
+                </op-card>
               `
           )}
         </div>
@@ -84,7 +86,7 @@ export class HuiCreateDialogHeaderFooter extends LitElement
             ${this.opp!.localize("ui.common.cancel")}
           </mwc-button>
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

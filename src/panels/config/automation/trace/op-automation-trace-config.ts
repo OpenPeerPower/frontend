@@ -21,10 +21,10 @@ export class HaAutomationTraceConfig extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-code-editor
+      <op-code-editor
         .value=${safeDump(this.trace.config).trimRight()}
         readOnly
-      ></ha-code-editor>
+      ></op-code-editor>
     `;
   }
 

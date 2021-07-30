@@ -32,7 +32,7 @@ export class HaConfigFlowCard extends LitElement {
   protected render(): TemplateResult {
     const attention = ATTENTION_SOURCES.includes(this.flow.context.source);
     return html`
-      <ha-integration-action-card
+      <op-integration-action-card
         class=${classMap({
           discovered: !attention,
           attention: attention,
@@ -67,7 +67,7 @@ export class HaConfigFlowCard extends LitElement {
               ></mwc-button>
             `
           : ""}
-      </ha-integration-action-card>
+      </op-integration-action-card>
     `;
   }
 

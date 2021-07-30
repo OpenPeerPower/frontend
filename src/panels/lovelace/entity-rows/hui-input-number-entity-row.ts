@@ -76,7 +76,7 @@ class HuiInputNumberEntityRow extends LitElement implements LovelaceRow {
         ${stateObj.attributes.mode === "slider"
           ? html`
               <div class="flex">
-                <ha-slider
+                <op-slider
                   .disabled=${UNAVAILABLE_STATES.includes(stateObj.state)}
                   .dir=${computeRTLDirection(this.opp)}
                   .step="${Number(stateObj.attributes.step)}"
@@ -87,7 +87,7 @@ class HuiInputNumberEntityRow extends LitElement implements LovelaceRow {
                   @change="${this._selectedValueChanged}"
                   ignore-bar-touch
                   id="input"
-                ></ha-slider>
+                ></op-slider>
                 <span class="state">
                   ${computeStateDisplay(
                     this.opp.localize,
@@ -159,7 +159,7 @@ class HuiInputNumberEntityRow extends LitElement implements LovelaceRow {
 
   private get _inputElement(): { value: string } {
     // linter recommended the following syntax
-    return (this.shadowRoot!.getElementById("input") as unknown) as {
+    return this.shadowRoot!.getElementById("input") as unknown as {
       value: string;
     };
   }

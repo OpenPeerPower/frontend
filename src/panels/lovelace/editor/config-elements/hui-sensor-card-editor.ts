@@ -40,8 +40,10 @@ const cardConfigStruct = object({
 const includeDomains = ["sensor"];
 
 @customElement("hui-sensor-card-editor")
-export class HuiSensorCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiSensorCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: SensorCardConfig;
@@ -92,7 +94,7 @@ export class HuiSensorCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -104,7 +106,7 @@ export class HuiSensorCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change=${this._valueChanged}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"
@@ -116,7 +118,7 @@ export class HuiSensorCardEditor extends LitElement
           @value-changed=${this._valueChanged}
         ></paper-input>
         <div class="side-by-side">
-          <ha-icon-input
+          <op-icon-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.icon"
             )} (${this.opp.localize(
@@ -127,7 +129,7 @@ export class HuiSensorCardEditor extends LitElement
             stateIcon(this.opp.states[this._entity])}
             .configValue=${"icon"}
             @value-changed=${this._valueChanged}
-          ></ha-icon-input>
+          ></op-icon-input>
           <paper-dropdown-menu
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.sensor.graph_type"
@@ -158,17 +160,17 @@ export class HuiSensorCardEditor extends LitElement
             .configValue=${"unit"}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <ha-formfield
+          <op-formfield
             label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.sensor.show_more_detail"
             )}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._detail === 2}
               .configValue=${"detail"}
               @change=${this._change}
-            ></ha-switch>
-          </ha-formfield>
+            ></op-switch>
+          </op-formfield>
         </div>
         <div class="side-by-side">
           <hui-theme-select-editor

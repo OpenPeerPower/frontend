@@ -80,7 +80,7 @@ export class DialogLovelaceDashboardDetail extends LitElement {
     const dir = computeRTLDirection(this.opp);
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing="${this._close}"
         scrimClickAction
@@ -126,13 +126,13 @@ export class DialogLovelaceDashboardDetail extends LitElement {
                     )}
                     dialogInitialFocus
                   ></paper-input>
-                  <ha-icon-input
+                  <op-icon-input
                     .value=${this._icon}
                     @value-changed=${this._iconChanged}
                     .label=${this.opp.localize(
                       "ui.panel.config.lovelace.dashboards.detail.icon"
                     )}
-                  ></ha-icon-input>
+                  ></op-icon-input>
                   ${!this._params.dashboard && this.opp.userData?.showAdvanced
                     ? html`
                         <paper-input
@@ -149,32 +149,32 @@ export class DialogLovelaceDashboardDetail extends LitElement {
                       `
                     : ""}
                   <div>
-                    <ha-formfield
+                    <op-formfield
                       .label=${this.opp.localize(
                         "ui.panel.config.lovelace.dashboards.detail.show_sidebar"
                       )}
                       .dir=${dir}
                     >
-                      <ha-switch
+                      <op-switch
                         .checked=${this._showInSidebar}
                         @change=${this._showSidebarChanged}
                       >
-                      </ha-switch>
-                    </ha-formfield>
+                      </op-switch>
+                    </op-formfield>
                   </div>
                   <div>
-                    <ha-formfield
+                    <op-formfield
                       .label=${this.opp.localize(
                         "ui.panel.config.lovelace.dashboards.detail.require_admin"
                       )}
                       .dir=${dir}
                     >
-                      <ha-switch
+                      <op-switch
                         .checked=${this._requireAdmin}
                         @change=${this._requireAdminChanged}
                       >
-                      </ha-switch>
-                    </ha-formfield>
+                      </op-switch>
+                    </op-formfield>
                   </div>
                 </div>
               `}
@@ -226,7 +226,7 @@ export class DialogLovelaceDashboardDetail extends LitElement {
                 "ui.panel.config.lovelace.dashboards.detail.create"
               )}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -293,7 +293,8 @@ export class DialogLovelaceDashboardDetail extends LitElement {
       if (this._params!.dashboard) {
         await this._params!.updateDashboard(values);
       } else {
-        (values as LovelaceDashboardCreateParams).url_path = this._urlPath.trim();
+        (values as LovelaceDashboardCreateParams).url_path =
+          this._urlPath.trim();
         (values as LovelaceDashboardCreateParams).mode = "storage";
         await this._params!.createDashboard(
           values as LovelaceDashboardCreateParams

@@ -40,12 +40,12 @@ class OnboardingAnalytics extends LitElement {
           >`
         )}
       </p>
-      <ha-analytics
+      <op-analytics
         @analytics-preferences-changed=${this._preferencesChanged}
         .opp=${this.opp}
         .analytics=${this._analyticsDetails}
       >
-      </ha-analytics>
+      </op-analytics>
       ${this._error ? html`<div class="error">${this._error}</div>` : ""}
       <div class="footer">
         <mwc-button @click=${this._save} .disabled=${!this._analyticsDetails}>

@@ -14,7 +14,7 @@ export class HuiWarningElement extends LitElement {
   @property() public label?: string;
 
   protected render(): TemplateResult {
-    return html` <ha-icon icon="opp:alert" .title=${this.label}></ha-icon> `;
+    return html` <op-icon icon="opp:alert" .title=${this.label}></op-icon> `;
   }
 
   static get styles(): CSSResult {

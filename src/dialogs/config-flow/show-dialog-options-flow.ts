@@ -50,11 +50,11 @@ export const showOptionsFlowDialog = (
 
         return description
           ? html`
-              <ha-markdown
+              <op-markdown
                 breaks
                 allowsvg
                 .content=${description}
-              ></ha-markdown>
+              ></op-markdown>
             `
           : "";
       },
@@ -74,11 +74,11 @@ export const showOptionsFlowDialog = (
         );
         return description
           ? html`
-              <ha-markdown
+              <op-markdown
                 allowsvg
                 breaks
                 .content=${description}
-              ></ha-markdown>
+              ></op-markdown>
             `
           : "";
       },
@@ -125,11 +125,11 @@ export const showOptionsFlowDialog = (
         );
         return description
           ? html`
-              <ha-markdown
+              <op-markdown
                 allowsvg
                 breaks
                 .content=${description}
-              ></ha-markdown>
+              ></op-markdown>
             `
           : "";
       },

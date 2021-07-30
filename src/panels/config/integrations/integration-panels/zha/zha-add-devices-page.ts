@@ -38,10 +38,8 @@ class ZHAAddDevicesPage extends LitElement {
 
   @internalProperty() private _error?: string;
 
-  @internalProperty() private _discoveredDevices: Record<
-    string,
-    ZHADevice
-  > = {};
+  @internalProperty() private _discoveredDevices: Record<string, ZHADevice> =
+    {};
 
   @internalProperty() private _formattedEvents = "";
 
@@ -77,11 +75,7 @@ class ZHAAddDevicesPage extends LitElement {
 
   protected updated(changedProps: PropertyValues) {
     super.updated(changedProps);
-    if (
-      changedProps.has("opp") &&
-      !this._active &&
-      !changedProps.get("opp")
-    ) {
+    if (changedProps.has("opp") && !this._active && !changedProps.get("opp")) {
       this._subscribe();
     }
   }
@@ -105,10 +99,10 @@ class ZHAAddDevicesPage extends LitElement {
                     "ui.panel.config.zha.add_device_page.spinner"
                   )}
                 </h1>
-                <ha-circular-progress
+                <op-circular-progress
                   active
                   alt="Searching"
-                ></ha-circular-progress>
+                ></op-circular-progress>
               `
             : html`
                 <div>
@@ -176,8 +170,9 @@ class ZHAAddDevicesPage extends LitElement {
       if (this.shadowRoot) {
         const paperTextArea = this.shadowRoot.querySelector("paper-textarea");
         if (paperTextArea) {
-          const textArea = (paperTextArea.inputElement as IronAutogrowTextareaElement)
-            .textarea;
+          const textArea = (
+            paperTextArea.inputElement as IronAutogrowTextareaElement
+          ).textarea;
           textArea.scrollTop = textArea.scrollHeight;
         }
       }

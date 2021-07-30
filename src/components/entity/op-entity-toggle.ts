@@ -35,43 +35,43 @@ export class HaEntityToggle extends LitElement {
 
   protected render(): TemplateResult {
     if (!this.stateObj) {
-      return html` <ha-switch disabled></ha-switch> `;
+      return html` <op-switch disabled></op-switch> `;
     }
 
     if (this.stateObj.attributes.assumed_state) {
       return html`
-        <ha-icon-button
+        <op-icon-button
           aria-label=${`Turn ${computeStateName(this.stateObj)} off`}
           icon="opp:flash-off"
           .disabled=${this.stateObj.state === UNAVAILABLE}
           @click=${this._turnOff}
           ?state-active=${!this._isOn}
-        ></ha-icon-button>
-        <ha-icon-button
+        ></op-icon-button>
+        <op-icon-button
           aria-label=${`Turn ${computeStateName(this.stateObj)} on`}
           icon="opp:flash"
           .disabled=${this.stateObj.state === UNAVAILABLE}
           @click=${this._turnOn}
           ?state-active=${this._isOn}
-        ></ha-icon-button>
+        ></op-icon-button>
       `;
     }
 
-    const switchTemplate = html`<ha-switch
+    const switchTemplate = html`<op-switch
       aria-label=${`Toggle ${computeStateName(this.stateObj)} ${
         this._isOn ? "off" : "on"
       }`}
       .checked=${this._isOn}
       .disabled=${UNAVAILABLE_STATES.includes(this.stateObj.state)}
       @change=${this._toggleChanged}
-    ></ha-switch>`;
+    ></op-switch>`;
 
     if (!this.label) {
       return switchTemplate;
     }
 
     return html`
-      <ha-formfield .label=${this.label}>${switchTemplate}</ha-formfield>
+      <op-formfield .label=${this.label}>${switchTemplate}</op-formfield>
     `;
   }
 

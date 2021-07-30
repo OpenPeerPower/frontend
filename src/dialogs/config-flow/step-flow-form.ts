@@ -55,14 +55,14 @@ class StepFlowForm extends LitElement {
           ? html` <div class="error">${this._errorMsg}</div> `
           : ""}
         ${this.flowConfig.renderShowFormStepDescription(this.opp, this.step)}
-        <ha-form
+        <op-form
           .data=${stepData}
           @value-changed=${this._stepDataChanged}
           .schema=${step.data_schema}
           .error=${step.errors}
           .computeLabel=${this._labelCallback}
           .computeError=${this._errorCallback}
-        ></ha-form>
+        ></op-form>
       </div>
       <div class="buttons">
         ${this._loading

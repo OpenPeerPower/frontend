@@ -63,15 +63,15 @@ export default class HaAutomationConditionRow extends LitElement {
       return html``;
     }
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           <div class="card-menu">
-            <ha-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
+            <op-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
               <mwc-icon-button
                 .title=${this.opp.localize("ui.common.menu")}
                 .label=${this.opp.localize("ui.common.overflow_menu")}
                 slot="trigger"
-                ><ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon
+                ><op-svg-icon .path=${mdiDotsVertical}></op-svg-icon
               ></mwc-icon-button>
               <mwc-list-item>
                 ${this._yamlMode
@@ -92,15 +92,15 @@ export default class HaAutomationConditionRow extends LitElement {
                   "ui.panel.config.automation.editor.actions.delete"
                 )}
               </mwc-list-item>
-            </ha-button-menu>
+            </op-button-menu>
           </div>
-          <ha-automation-condition-editor
+          <op-automation-condition-editor
             .yamlMode=${this._yamlMode}
             .opp=${this.opp}
             .condition=${this.condition}
-          ></ha-automation-condition-editor>
+          ></op-automation-condition-editor>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

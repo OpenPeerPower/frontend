@@ -79,15 +79,13 @@ class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
               required
               value="{{eventType}}"
             ></paper-input>
-            <p>
-              [[localize( 'ui.panel.developer-tools.tabs.events.data' )]]
-            </p>
-            <ha-code-editor
+            <p>[[localize( 'ui.panel.developer-tools.tabs.events.data' )]]</p>
+            <op-code-editor
               mode="yaml"
               value="[[eventData]]"
               error="[[!validJSON]]"
               on-value-changed="_yamlChanged"
-            ></ha-code-editor>
+            ></op-code-editor>
             <mwc-button on-click="fireEvent" raised disabled="[[!validJSON]]"
               >[[localize( 'ui.panel.developer-tools.tabs.events.fire_event'
               )]]</mwc-button

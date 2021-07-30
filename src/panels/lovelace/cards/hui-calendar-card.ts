@@ -126,17 +126,17 @@ export class HuiCalendarCard extends LitElement implements LovelaceCard {
       : ["list", "dayGridMonth", "dayGridDay"];
 
     return html`
-      <ha-card>
+      <op-card>
         <div class="header">${this._config.title}</div>
-        <ha-full-calendar
+        <op-full-calendar
           .narrow=${this._narrow}
           .events=${this._events}
           .opp=${this.opp}
           .views=${views}
           .initialView=${this._config.initial_view!}
           @view-changed=${this._handleViewChanged}
-        ></ha-full-calendar>
-      </ha-card>
+        ></op-full-calendar>
+      </op-card>
     `;
   }
 

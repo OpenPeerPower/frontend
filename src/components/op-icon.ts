@@ -65,10 +65,10 @@ export class HaIcon extends LitElement {
     if (this._legacy) {
       return html`<iron-icon .icon=${this.icon}></iron-icon>`;
     }
-    return html`<ha-svg-icon
+    return html`<op-svg-icon
       .path=${this._path}
       .viewBox=${this._viewBox}
-    ></ha-svg-icon>`;
+    ></op-svg-icon>`;
   }
 
   private async _loadIcon() {

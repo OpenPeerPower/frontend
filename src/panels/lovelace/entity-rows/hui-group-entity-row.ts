@@ -66,10 +66,10 @@ class HuiGroupEntityRow extends LitElement implements LovelaceRow {
       <hui-generic-entity-row .opp=${this.opp} .config=${this._config}>
         ${this._computeCanToggle(this.opp, stateObj.attributes.entity_id)
           ? html`
-              <ha-entity-toggle
+              <op-entity-toggle
                 .opp=${this.opp}
                 .stateObj=${stateObj}
-              ></ha-entity-toggle>
+              ></op-entity-toggle>
             `
           : html`
               <div class="text-content">

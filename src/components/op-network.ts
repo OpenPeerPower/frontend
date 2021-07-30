@@ -59,46 +59,46 @@ export class HaNetwork extends LitElement {
     }
     const configured_adapters = this.networkConfig.configured_adapters || [];
     return html`
-      <ha-settings-row>
+      <op-settings-row>
         <span slot="prefix">
-          <ha-checkbox
+          <op-checkbox
             id="auto_configure"
             @change=${this._handleAutoConfigureCheckboxClick}
             .checked=${!configured_adapters.length}
             name="auto_configure"
           >
-          </ha-checkbox>
+          </op-checkbox>
         </span>
         <span slot="heading" data-for="auto_configure"> Auto Configure </span>
         <span slot="description" data-for="auto_configure">
           Detected:
           ${format_auto_detected_interfaces(this.networkConfig.adapters)}
         </span>
-      </ha-settings-row>
+      </op-settings-row>
       ${configured_adapters.length || this._expanded
         ? this.networkConfig.adapters.map(
             (adapter) =>
-              html`<ha-settings-row>
+              html`<op-settings-row>
                 <span slot="prefix">
-                  <ha-checkbox
+                  <op-checkbox
                     id=${adapter.name}
                     @change=${this._handleAdapterCheckboxClick}
                     .checked=${configured_adapters.includes(adapter.name)}
                     .adapter=${adapter.name}
                     name=${adapter.name}
                   >
-                  </ha-checkbox>
+                  </op-checkbox>
                 </span>
                 <span slot="heading">
                   Adapter: ${adapter.name}
                   ${adapter.default
-                    ? html`<ha-icon .icon="opp:star"></ha-icon> (Default)`
+                    ? html`<op-icon .icon="opp:star"></op-icon> (Default)`
                     : ""}
                 </span>
                 <span slot="description">
                   ${format_addresses([...adapter.ipv4, ...adapter.ipv6])}
                 </span>
-              </ha-settings-row>`
+              </op-settings-row>`
           )
         : ""}
     `;

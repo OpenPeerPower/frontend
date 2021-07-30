@@ -26,18 +26,18 @@ export class HaIntegrationActionCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card outlined>
-        <ha-integration-header
+      <op-card outlined>
+        <op-integration-header
           .opp=${this.opp}
           .banner=${this.banner}
           .domain=${this.domain}
           .label=${this.label}
           .localizedDomainName=${this.localizedDomainName}
           .manifest=${this.manifest}
-        ></ha-integration-header>
+        ></op-integration-header>
         <div class="filler"></div>
         <div class="actions"><slot></slot></div>
-      </ha-card>
+      </op-card>
     `;
   }
 

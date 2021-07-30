@@ -78,11 +78,11 @@ export class HaRepeatAction extends LitElement implements ActionElement {
                 `ui.panel.config.automation.editor.actions.type.repeat.type.while.conditions`
               )}:
             </h3>
-            <ha-automation-condition
+            <op-automation-condition
               .conditions=${(action as WhileRepeat).while || []}
               .opp=${this.opp}
               @value-changed=${this._conditionChanged}
-            ></ha-automation-condition>`
+            ></op-automation-condition>`
         : ""}
       ${type === "until"
         ? html` <h3>
@@ -90,22 +90,22 @@ export class HaRepeatAction extends LitElement implements ActionElement {
                 `ui.panel.config.automation.editor.actions.type.repeat.type.until.conditions`
               )}:
             </h3>
-            <ha-automation-condition
+            <op-automation-condition
               .conditions=${(action as UntilRepeat).until || []}
               .opp=${this.opp}
               @value-changed=${this._conditionChanged}
-            ></ha-automation-condition>`
+            ></op-automation-condition>`
         : ""}
       <h3>
         ${this.opp.localize(
           "ui.panel.config.automation.editor.actions.type.repeat.sequence"
         )}:
       </h3>
-      <ha-automation-action
+      <op-automation-action
         .actions=${action.sequence}
         @value-changed=${this._actionChanged}
         .opp=${this.opp}
-      ></ha-automation-action>
+      ></op-automation-action>
     `;
   }
 

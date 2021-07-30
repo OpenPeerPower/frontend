@@ -75,7 +75,7 @@ export class DialogHelperDetail extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-dialog
+      <op-dialog
         .open=${this._opened}
         @closing=${this.closeDialog}
         class=${classMap({ "button-left": !this._platform })}
@@ -130,10 +130,10 @@ export class DialogHelperDetail extends LitElement {
                       .platform=${platform}
                       dialogInitialFocus
                     >
-                      <ha-icon
+                      <op-icon
                         slot="item-icon"
                         .icon=${domainIcon(platform)}
-                      ></ha-icon>
+                      ></op-icon>
                       <span class="item-text">
                         ${this.opp.localize(
                           `ui.panel.config.helpers.types.${platform}`
@@ -158,7 +158,7 @@ export class DialogHelperDetail extends LitElement {
                 ${this.opp!.localize("ui.common.cancel")}
               </mwc-button>
             `}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

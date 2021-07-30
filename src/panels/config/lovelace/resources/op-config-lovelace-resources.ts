@@ -51,36 +51,34 @@ export class HaConfigLovelaceRescources extends LitElement {
 
   @internalProperty() private _resources: LovelaceResource[] = [];
 
-  private _columns = memoize(
-    (_language): DataTableColumnContainer => {
-      return {
-        url: {
-          title: this.opp.localize(
-            "ui.panel.config.lovelace.resources.picker.headers.url"
-          ),
-          sortable: true,
-          filterable: true,
-          direction: "asc",
-          grows: true,
-          forceLTR: true,
-        },
-        type: {
-          title: this.opp.localize(
-            "ui.panel.config.lovelace.resources.picker.headers.type"
-          ),
-          sortable: true,
-          filterable: true,
-          width: "30%",
-          template: (type) =>
-            html`
-              ${this.opp.localize(
-                `ui.panel.config.lovelace.resources.types.${type}`
-              ) || type}
-            `,
-        },
-      };
-    }
-  );
+  private _columns = memoize((_language): DataTableColumnContainer => {
+    return {
+      url: {
+        title: this.opp.localize(
+          "ui.panel.config.lovelace.resources.picker.headers.url"
+        ),
+        sortable: true,
+        filterable: true,
+        direction: "asc",
+        grows: true,
+        forceLTR: true,
+      },
+      type: {
+        title: this.opp.localize(
+          "ui.panel.config.lovelace.resources.picker.headers.type"
+        ),
+        sortable: true,
+        filterable: true,
+        width: "30%",
+        template: (type) =>
+          html`
+            ${this.opp.localize(
+              `ui.panel.config.lovelace.resources.types.${type}`
+            ) || type}
+          `,
+      },
+    };
+  });
 
   protected render(): TemplateResult {
     if (!this.opp || this._resources === undefined) {
@@ -103,7 +101,7 @@ export class HaConfigLovelaceRescources extends LitElement {
         hasFab
         clickable
       >
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.lovelace.resources.picker.add_resource"
@@ -111,8 +109,8 @@ export class HaConfigLovelaceRescources extends LitElement {
           extended
           @click=${this._addResource}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

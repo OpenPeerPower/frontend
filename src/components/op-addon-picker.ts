@@ -55,7 +55,7 @@ class HaAddonPicker extends LitElement {
       return html``;
     }
     return html`
-      <ha-combo-box
+      <op-combo-box
         .opp=${this.opp}
         .label=${this.label === undefined && this.opp
           ? this.opp.localize("ui.components.addon-picker.addon")
@@ -67,7 +67,7 @@ class HaAddonPicker extends LitElement {
         item-id-path="slug"
         item-label-path="name"
         @value-changed=${this._addonChanged}
-      ></ha-combo-box>
+      ></op-combo-box>
     `;
   }
 

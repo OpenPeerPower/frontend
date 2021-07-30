@@ -32,8 +32,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-stack-card-editor")
-export class HuiStackCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiStackCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @property({ attribute: false }) public lovelace?: LovelaceConfig;
@@ -74,11 +76,7 @@ export class HuiStackCardEditor extends LitElement
             @iron-activate=${this._handleSelectedCard}
           >
             ${this._config.cards.map((_card, i) => {
-              return html`
-                <paper-tab>
-                  ${i + 1}
-                </paper-tab>
-              `;
+              return html` <paper-tab> ${i + 1} </paper-tab> `;
             })}
           </paper-tabs>
           <paper-tabs
@@ -87,7 +85,7 @@ export class HuiStackCardEditor extends LitElement
             @iron-activate=${this._handleSelectedCard}
           >
             <paper-tab>
-              <ha-svg-icon .path=${mdiPlus}></ha-svg-icon>
+              <op-svg-icon .path=${mdiPlus}></op-svg-icon>
             </paper-tab>
           </paper-tabs>
         </div>
@@ -116,7 +114,7 @@ export class HuiStackCardEditor extends LitElement
                     @click=${this._handleMove}
                     .move=${-1}
                   >
-                    <ha-svg-icon .path=${mdiArrowLeft}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiArrowLeft}></op-svg-icon>
                   </mwc-icon-button>
 
                   <mwc-icon-button
@@ -127,7 +125,7 @@ export class HuiStackCardEditor extends LitElement
                     @click=${this._handleMove}
                     .move=${1}
                   >
-                    <ha-svg-icon .path=${mdiArrowRight}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiArrowRight}></op-svg-icon>
                   </mwc-icon-button>
 
                   <mwc-icon-button
@@ -136,7 +134,7 @@ export class HuiStackCardEditor extends LitElement
                     )}
                     @click=${this._handleDeleteCard}
                   >
-                    <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                   </mwc-icon-button>
                 </div>
 

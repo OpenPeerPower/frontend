@@ -76,9 +76,7 @@ class DialogZHADeviceChildren extends LitElement {
     },
   };
 
-  public showDialog(
-    params: ZHADeviceChildrenDialogParams
-  ): void {
+  public showDialog(params: ZHADeviceChildrenDialogParams): void {
     this._device = params.device;
     this._fetchData();
   }
@@ -94,7 +92,7 @@ class DialogZHADeviceChildren extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         hideActions
         open
         @closed=${this.closeDialog}
@@ -104,12 +102,12 @@ class DialogZHADeviceChildren extends LitElement {
         )}
       >
         ${!this._devices
-          ? html`<ha-circular-progress
+          ? html`<op-circular-progress
               alt="Loading"
               size="large"
               active
-            ></ha-circular-progress>`
-          : html`<ha-data-table
+            ></op-circular-progress>`
+          : html`<op-data-table
               .columns=${this._columns}
               .data=${this._deviceChildren(this._device, this._devices)}
               auto-height
@@ -120,8 +118,8 @@ class DialogZHADeviceChildren extends LitElement {
               .noDataText=${this.opp.localize(
                 "ui.components.data-table.no-data"
               )}
-            ></ha-data-table>`}
-      </ha-dialog>
+            ></op-data-table>`}
+      </op-dialog>
     `;
   }
 

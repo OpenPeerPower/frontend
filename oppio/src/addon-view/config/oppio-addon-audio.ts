@@ -49,7 +49,7 @@ class OppioAddonAudio extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
+      <op-card
         .header=${this.supervisor.localize("addon.configuration.audio.header")}
       >
         <div class="card-content">
@@ -99,11 +99,11 @@ class OppioAddonAudio extends LitElement {
           </paper-dropdown-menu>
         </div>
         <div class="card-actions">
-          <ha-progress-button @click=${this._saveSettings}>
+          <op-progress-button @click=${this._saveSettings}>
             ${this.supervisor.localize("common.save")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -12,8 +12,10 @@ import { OpenPeerPower } from "../../../types";
 import { LovelaceElement, ServiceButtonElementConfig } from "./types";
 
 @customElement("hui-service-button-element")
-export class HuiServiceButtonElement extends LitElement
-  implements LovelaceElement {
+export class HuiServiceButtonElement
+  extends LitElement
+  implements LovelaceElement
+{
   public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: ServiceButtonElementConfig;
@@ -46,12 +48,12 @@ export class HuiServiceButtonElement extends LitElement
     }
 
     return html`
-      <ha-call-service-button
+      <op-call-service-button
         .opp=${this.opp}
         .domain=${this._domain}
         .service=${this._service}
         .serviceData=${this._config.service_data}
-        >${this._config.title}</ha-call-service-button
+        >${this._config.title}</op-call-service-button
       >
     `;
   }

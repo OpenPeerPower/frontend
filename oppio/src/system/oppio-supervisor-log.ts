@@ -66,7 +66,7 @@ class OppioSupervisorLog extends LitElement {
 
   protected render(): TemplateResult | void {
     return html`
-      <ha-card>
+      <op-card>
         ${this._error ? html` <div class="errors">${this._error}</div> ` : ""}
         ${this.opp.userData?.showAdvanced
           ? html`
@@ -98,11 +98,11 @@ class OppioSupervisorLog extends LitElement {
             : html`<opp-loading-screen no-toolbar></opp-loading-screen>`}
         </div>
         <div class="card-actions">
-          <ha-progress-button @click=${this._refresh}>
+          <op-progress-button @click=${this._refresh}>
             ${this.supervisor.localize("common.refresh")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -123,10 +123,7 @@ class OppioSupervisorLog extends LitElement {
     this._error = undefined;
 
     try {
-      this._content = await fetchOppioLogs(
-        this.opp,
-        this._selectedLogProvider
-      );
+      this._content = await fetchOppioLogs(this.opp, this._selectedLogProvider);
     } catch (err) {
       this._error = this.supervisor.localize(
         "system.log.get_logs",

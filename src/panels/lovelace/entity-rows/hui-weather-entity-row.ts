@@ -91,7 +91,7 @@ class HuiWeatherEntityRow extends LitElement implements LovelaceRow {
       >
         ${weatherStateIcon ||
         html`
-          <ha-icon class="weather-icon" .icon=${stateIcon(stateObj)}></ha-icon>
+          <op-icon class="weather-icon" .icon=${stateIcon(stateObj)}></op-icon>
         `}
       </div>
       <div
@@ -109,11 +109,7 @@ class HuiWeatherEntityRow extends LitElement implements LovelaceRow {
       <div class="attributes">
         <div>
           ${UNAVAILABLE_STATES.includes(stateObj.state)
-            ? computeStateDisplay(
-                this.opp.localize,
-                stateObj,
-                this.opp.locale
-              )
+            ? computeStateDisplay(this.opp.localize, stateObj, this.opp.locale)
             : html`
                 ${formatNumber(
                   stateObj.attributes.temperature,

@@ -30,8 +30,8 @@ export class HaIconInput extends LitElement {
       >
         ${this.value || this.placeholder
           ? html`
-              <ha-icon .icon=${this.value || this.placeholder} slot="suffix">
-              </ha-icon>
+              <op-icon .icon=${this.value || this.placeholder} slot="suffix">
+              </op-icon>
             `
           : ""}
       </paper-input>

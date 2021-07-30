@@ -227,7 +227,7 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
     }
   );
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeDeviceRegistry(this.opp.connection!, (devices) => {
         this._devices = devices;
@@ -272,7 +272,7 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
     );
     if (!this._areaPicker || areas.length === 0) {
       return html`
-        <ha-devices-picker
+        <op-devices-picker
           @value-changed=${this._devicesPicked}
           .opp=${this.opp}
           .includeDomains=${this.includeDomains}
@@ -280,7 +280,7 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
           .value=${this._selectedDevices}
           .pickDeviceLabel=${`Add ${this.label} device`}
           .pickedDeviceLabel=${`${this.label} device`}
-        ></ha-devices-picker>
+        ></op-devices-picker>
         ${areas.length > 0
           ? html`
               <mwc-button @click=${this._switchPicker}
@@ -321,7 +321,7 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
                   @click=${this._clearValue}
                   no-ripple
                 >
-                  <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                  <op-svg-icon .path=${mdiClose}></op-svg-icon>
                 </mwc-icon-button> `
               : ""}
             ${areas.length > 0
@@ -332,9 +332,9 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
                     )}
                     class="toggle-button"
                   >
-                    <ha-svg-icon
+                    <op-svg-icon
                       .path=${this._opened ? mdiMenuUp : mdiMenuDown}
-                    ></ha-svg-icon>
+                    ></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}

@@ -63,19 +63,17 @@ export class ZHAClusterCommands extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="header" slot="header">
           <span>
-            ${this.opp!.localize(
-              "ui.panel.config.zha.cluster_commands.header"
-            )}
+            ${this.opp!.localize("ui.panel.config.zha.cluster_commands.header")}
           </span>
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
           >
-          </ha-icon-button>
+          </op-icon-button>
         </div>
         <span slot="introduction">
           ${this.opp!.localize(
@@ -83,7 +81,7 @@ export class ZHAClusterCommands extends LitElement {
           )}
         </span>
 
-        <ha-card class="content">
+        <op-card class="content">
           <div class="command-picker">
             <paper-dropdown-menu
               label="${this.opp!.localize(
@@ -134,7 +132,7 @@ export class ZHAClusterCommands extends LitElement {
                   ></paper-input>
                 </div>
                 <div class="card-actions">
-                  <ha-call-service-button
+                  <op-call-service-button
                     .opp=${this.opp}
                     domain="zha"
                     service="issue_zigbee_cluster_command"
@@ -143,22 +141,22 @@ export class ZHAClusterCommands extends LitElement {
                     ${this.opp!.localize(
                       "ui.panel.config.zha.cluster_commands.issue_zigbee_command"
                     )}
-                  </ha-call-service-button>
+                  </op-call-service-button>
                   ${this._showHelp
                     ? html`
-                        <ha-service-description
+                        <op-service-description
                           .opp=${this.opp}
                           domain="zha"
                           service="issue_zigbee_cluster_command"
                           class="help-text2"
-                        ></ha-service-description>
+                        ></op-service-description>
                       `
                     : ""}
                 </div>
               `
             : ""}
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
     `;
   }
 
@@ -195,7 +193,8 @@ export class ZHAClusterCommands extends LitElement {
 
   private _onManufacturerCodeOverrideChanged(value: ChangeEvent): void {
     this._manufacturerCodeOverride = value.detail!.value;
-    this._issueClusterCommandServiceData = this._computeIssueClusterCommandServiceData();
+    this._issueClusterCommandServiceData =
+      this._computeIssueClusterCommandServiceData();
   }
 
   private _onHelpTap(): void {
@@ -204,7 +203,8 @@ export class ZHAClusterCommands extends LitElement {
 
   private _selectedCommandChanged(event: ItemSelectedEvent): void {
     this._selectedCommandIndex = event.target!.selected;
-    this._issueClusterCommandServiceData = this._computeIssueClusterCommandServiceData();
+    this._issueClusterCommandServiceData =
+      this._computeIssueClusterCommandServiceData();
   }
 
   static get styles(): CSSResult[] {

@@ -348,14 +348,12 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
           ${this.value
             ? html`
                 <mwc-icon-button
-                  .label=${this.opp.localize(
-                    "ui.components.area-picker.clear"
-                  )}
+                  .label=${this.opp.localize("ui.components.area-picker.clear")}
                   slot="suffix"
                   class="clear-button"
                   @click=${this._clearValue}
                 >
-                  <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                  <op-svg-icon .path=${mdiClose}></op-svg-icon>
                 </mwc-icon-button>
               `
             : ""}
@@ -365,9 +363,9 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
             slot="suffix"
             class="toggle-button"
           >
-            <ha-svg-icon
+            <op-svg-icon
               .path=${this._opened ? mdiMenuUp : mdiMenuDown}
-            ></ha-svg-icon>
+            ></op-svg-icon>
           </mwc-icon-button>
         </paper-input>
       </vaadin-combo-box-light>

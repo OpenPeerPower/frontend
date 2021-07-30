@@ -99,7 +99,7 @@ export class HaComboBox extends LitElement {
                   class="clear-button"
                   @click=${this._clearValue}
                 >
-                  <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                  <op-svg-icon .path=${mdiClose}></op-svg-icon>
                 </mwc-icon-button>
               `
             : ""}
@@ -109,9 +109,9 @@ export class HaComboBox extends LitElement {
             slot="suffix"
             class="toggle-button"
           >
-            <ha-svg-icon
+            <op-svg-icon
               .path=${this._opened ? mdiMenuUp : mdiMenuDown}
-            ></ha-svg-icon>
+            ></op-svg-icon>
           </mwc-icon-button>
         </paper-input>
       </vaadin-combo-box-light>

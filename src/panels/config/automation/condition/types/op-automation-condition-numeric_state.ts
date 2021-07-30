@@ -19,23 +19,18 @@ export default class HaNumericStateCondition extends LitElement {
   }
 
   public render() {
-    const {
-      value_template,
-      entity_id,
-      attribute,
-      below,
-      above,
-    } = this.condition;
+    const { value_template, entity_id, attribute, below, above } =
+      this.condition;
 
     return html`
-      <ha-entity-picker
+      <op-entity-picker
         .value=${entity_id}
         .name=${"entity_id"}
         @value-changed=${this._valueChanged}
         .opp=${this.opp}
         allow-custom-entity
-      ></ha-entity-picker>
-      <ha-entity-attribute-picker
+      ></op-entity-picker>
+      <op-entity-attribute-picker
         .opp=${this.opp}
         .entityId=${entity_id}
         .value=${attribute}
@@ -45,7 +40,7 @@ export default class HaNumericStateCondition extends LitElement {
         )}
         @value-changed=${this._valueChanged}
         allow-custom-value
-      ></ha-entity-attribute-picker>
+      ></op-entity-attribute-picker>
       <paper-input
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.numeric_state.above"

@@ -40,8 +40,10 @@ interface SelectedChangedEvent {
 }
 
 @customElement("hui-dialog-create-card")
-export class HuiCreateDialogCard extends LitElement
-  implements OppDialog<CreateCardDialogParams> {
+export class HuiCreateDialogCard
+  extends LitElement
+  implements OppDialog<CreateCardDialogParams>
+{
   @property({ attribute: false }) protected opp!: OpenPeerPower;
 
   @internalProperty() private _params?: CreateCardDialogParams;
@@ -71,7 +73,7 @@ export class HuiCreateDialogCard extends LitElement
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         @keydown=${this._ignoreKeydown}
@@ -80,7 +82,7 @@ export class HuiCreateDialogCard extends LitElement
         class=${classMap({ table: this._currTabIndex === 1 })}
       >
         <div slot="heading">
-          <ha-header-bar>
+          <op-header-bar>
             <span slot="title">
               ${this._viewConfig.title
                 ? this.opp!.localize(
@@ -92,7 +94,7 @@ export class HuiCreateDialogCard extends LitElement
                     "ui.panel.lovelace.editor.edit_card.pick_card"
                   )}
             </span>
-          </ha-header-bar>
+          </op-header-bar>
           <mwc-tab-bar
             .activeIndex=${this._currTabIndex}
             @MDCTabBar:activated=${(ev: CustomEvent) =>
@@ -142,7 +144,7 @@ export class HuiCreateDialogCard extends LitElement
               `
             : ""}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

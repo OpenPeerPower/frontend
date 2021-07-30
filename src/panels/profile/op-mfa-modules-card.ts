@@ -24,7 +24,7 @@ class HaMfaModulesCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card .header=${this.opp.localize("ui.panel.profile.mfa.header")}>
+      <op-card .header=${this.opp.localize("ui.panel.profile.mfa.header")}>
         ${this.mfaModules.map(
           (module) => html`<paper-item>
             <paper-item-body two-line="">
@@ -44,7 +44,7 @@ class HaMfaModulesCard extends LitElement {
                 >`}
           </paper-item>`
         )}
-      </ha-card>
+      </op-card>
     `;
   }
 

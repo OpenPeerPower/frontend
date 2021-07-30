@@ -37,7 +37,7 @@ class ZwaveGroups extends LocalizeMixin(PolymerElement) {
           padding-bottom: 12px;
         }
       </style>
-      <ha-card
+      <op-card
         class="content"
         header="[[localize('ui.panel.config.zwave.node_management.node_group_associations')]]"
       >
@@ -98,41 +98,41 @@ class ZwaveGroups extends LocalizeMixin(PolymerElement) {
         >
           <div class="card-actions">
             <template is="dom-if" if="[[!_noAssociationsLeft]]">
-              <ha-call-service-button
+              <op-call-service-button
                 opp="[[opp]]"
                 domain="zwave"
                 service="change_association"
                 service-data="[[_addAssocServiceData]]"
               >
                 [[localize('ui.panel.config.zwave.node_management.add_to_group')]]
-              </ha-call-service-button>
+              </op-call-service-button>
             </template>
             <template
               is="dom-if"
               if="[[_computeTargetInGroup(_selectedGroup, _selectedTargetNode)]]"
             >
-              <ha-call-service-button
+              <op-call-service-button
                 opp="[[opp]]"
                 domain="zwave"
                 service="change_association"
                 service-data="[[_removeAssocServiceData]]"
               >
                 [[localize('ui.panel.config.zwave.node_management.remove_from_group')]]
-              </ha-call-service-button>
+              </op-call-service-button>
             </template>
             <template is="dom-if" if="[[_isBroadcastNodeInGroup]]">
-              <ha-call-service-button
+              <op-call-service-button
                 opp="[[opp]]"
                 domain="zwave"
                 service="change_association"
                 service-data="[[_removeBroadcastNodeServiceData]]"
               >
                 [[localize('ui.panel.config.zwave.node_management.remove_broadcast')]]
-              </ha-call-service-button>
+              </op-call-service-button>
             </template>
           </div>
         </template>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -206,9 +206,7 @@ class ZwaveGroups extends LocalizeMixin(PolymerElement) {
 
   ready() {
     super.ready();
-    this.addEventListener("opp-service-called", (ev) =>
-      this.serviceCalled(ev)
-    );
+    this.addEventListener("opp-service-called", (ev) => this.serviceCalled(ev));
   }
 
   serviceCalled(ev) {

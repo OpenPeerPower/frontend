@@ -155,13 +155,13 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
 
     if (stateObj.state === UNAVAILABLE) {
       return html`
-        <ha-card class="unavailable" @click=${this._handleAction}>
+        <op-card class="unavailable" @click=${this._handleAction}>
           ${this.opp.localize(
             "ui.panel.lovelace.warning.entity_unavailable",
             "entity",
             `${computeStateName(stateObj)} (${this._config.entity})`
           )}
-        </ha-card>
+        </op-card>
       `;
     }
 
@@ -193,7 +193,7 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
     const weatherStateIcon = getWeatherStateIcon(stateObj.state, this);
 
     return html`
-      <ha-card
+      <op-card
         @action=${this._handleAction}
         .actionHandler=${actionHandler({
           hasHold: hasAction(this._config!.hold_action),
@@ -207,10 +207,10 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
           <div class="icon-image">
             ${weatherStateIcon ||
             html`
-              <ha-icon
+              <op-icon
                 class="weather-icon"
                 .icon=${stateIcon(stateObj)}
-              ></ha-icon>
+              ></op-icon>
             `}
           </div>
           <div class="info">
@@ -239,12 +239,12 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
                       ${this._config.secondary_info_attribute in
                       weatherAttrIcons
                         ? html`
-                            <ha-svg-icon
+                            <op-svg-icon
                               class="attr-icon"
                               .path=${weatherAttrIcons[
                                 this._config.secondary_info_attribute
                               ]}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           `
                         : this.opp!.localize(
                             `ui.card.weather.attributes.${this._config.secondary_info_attribute}`
@@ -343,7 +343,7 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
               </div>
             `
           : ""}
-      </ha-card>
+      </op-card>
     `;
   }
 

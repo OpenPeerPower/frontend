@@ -33,7 +33,7 @@ class OppioAddonLogs extends LitElement {
   protected render(): TemplateResult {
     return html`
       <h1>${this.addon.name}</h1>
-      <ha-card>
+      <op-card>
         ${this._error ? html` <div class="errors">${this._error}</div> ` : ""}
         <div class="card-content">
           ${this._content
@@ -47,7 +47,7 @@ class OppioAddonLogs extends LitElement {
             ${this.supervisor.localize("common.refresh")}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

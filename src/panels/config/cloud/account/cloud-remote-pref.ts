@@ -33,15 +33,12 @@ export class CloudRemotePref extends LitElement {
       return html``;
     }
 
-    const {
-      remote_connected,
-      remote_domain,
-      remote_certificate,
-    } = this.cloudStatus;
+    const { remote_connected, remote_domain, remote_certificate } =
+      this.cloudStatus;
 
     if (!remote_certificate) {
       return html`
-        <ha-card
+        <op-card
           header=${this.opp!.localize(
             "ui.panel.config.cloud.account.remote.title"
           )}
@@ -51,21 +48,21 @@ export class CloudRemotePref extends LitElement {
               "ui.panel.config.cloud.account.remote.access_is_being_prepared"
             )}
           </div>
-        </ha-card>
+        </op-card>
       `;
     }
 
     return html`
-      <ha-card
+      <op-card
         header=${this.opp!.localize(
           "ui.panel.config.cloud.account.remote.title"
         )}
       >
         <div class="switch">
-          <ha-switch
+          <op-switch
             .checked="${remote_connected}"
             @change="${this._toggleChanged}"
-          ></ha-switch>
+          ></op-switch>
         </div>
         <div class="card-content">
           ${this.opp!.localize("ui.panel.config.cloud.account.remote.info")}
@@ -108,7 +105,7 @@ export class CloudRemotePref extends LitElement {
               `
             : ""}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

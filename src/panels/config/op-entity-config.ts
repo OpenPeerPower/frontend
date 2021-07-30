@@ -32,9 +32,9 @@ export class HaEntityConfig extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
-          <ha-entity-picker
+          <op-entity-picker
             .opp=${this.opp}
             .value=${this.selectedEntityId}
             .configValue=${"entity"}
@@ -42,22 +42,22 @@ export class HaEntityConfig extends LitElement {
             allow-custom-entity
             hideClearIcon
           >
-          </ha-entity-picker>
+          </op-entity-picker>
 
           <div class="form-container">
-            <ha-form-customize .opp=${this.opp} .id=${"form"}>
-            </ha-form-customize>
+            <op-form-customize .opp=${this.opp} .id=${"form"}>
+            </op-form-customize>
           </div>
         </div>
         <div class="card-actions">
-          <ha-progress-button
+          <op-progress-button
             @click=${this._saveEntity}
             .disabled=${!this._formEditState}
           >
             ${this.opp.localize("ui.common.save")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -60,16 +60,14 @@ export class HaBlueprintAutomationEditor extends LitElement {
 
   protected render() {
     const blueprint = this._blueprint;
-    return html`<ha-config-section vertical .isWide=${this.isWide}>
+    return html`<op-config-section vertical .isWide=${this.isWide}>
         ${!this.narrow
           ? html` <span slot="header">${this.config.alias}</span> `
           : ""}
         <span slot="introduction">
-          ${this.opp.localize(
-            "ui.panel.config.automation.editor.introduction"
-          )}
+          ${this.opp.localize("ui.panel.config.automation.editor.introduction")}
         </span>
-        <ha-card>
+        <op-card>
           <div class="card-content">
             <paper-input
               .label=${this.opp.localize(
@@ -96,10 +94,10 @@ export class HaBlueprintAutomationEditor extends LitElement {
             ? html`
                 <div class="card-actions layout horizontal justified center">
                   <div class="layout horizontal center">
-                    <ha-entity-toggle
+                    <op-entity-toggle
                       .opp=${this.opp}
                       .stateObj=${this.stateObj!}
-                    ></ha-entity-toggle>
+                    ></op-entity-toggle>
                     ${this.opp.localize(
                       "ui.panel.config.automation.editor.enable_disable"
                     )}
@@ -122,21 +120,21 @@ export class HaBlueprintAutomationEditor extends LitElement {
                 </div>
               `
             : ""}
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
 
-      <ha-config-section vertical .isWide=${this.isWide}>
+      <op-config-section vertical .isWide=${this.isWide}>
         <span slot="header"
           >${this.opp.localize(
             "ui.panel.config.automation.editor.blueprint.header"
           )}</span
         >
-        <ha-card>
+        <op-card>
           <div class="blueprint-picker-container">
             ${this._blueprints
               ? Object.keys(this._blueprints).length
                 ? html`
-                    <ha-blueprint-picker
+                    <op-blueprint-picker
                       .opp=${this.opp}
                       .label=${this.opp.localize(
                         "ui.panel.config.automation.editor.blueprint.blueprint_to_use"
@@ -144,12 +142,12 @@ export class HaBlueprintAutomationEditor extends LitElement {
                       .blueprints=${this._blueprints}
                       .value=${this.config.use_blueprint.path}
                       @value-changed=${this._blueprintChanged}
-                    ></ha-blueprint-picker>
+                    ></op-blueprint-picker>
                   `
                 : this.opp.localize(
                     "ui.panel.config.automation.editor.blueprint.no_blueprints"
                   )
-              : html`<ha-circular-progress active></ha-circular-progress>`}
+              : html`<op-circular-progress active></op-circular-progress>`}
           </div>
 
           ${this.config.use_blueprint.path
@@ -158,21 +156,21 @@ export class HaBlueprintAutomationEditor extends LitElement {
                   There is an error in this Blueprint: ${blueprint.error}
                 </p>`
               : html`${blueprint?.metadata.description
-                  ? html`<ha-markdown
+                  ? html`<op-markdown
                       class="card-content"
                       breaks
                       .content=${blueprint.metadata.description}
-                    ></ha-markdown>`
+                    ></op-markdown>`
                   : ""}
                 ${blueprint?.metadata?.input &&
                 Object.keys(blueprint.metadata.input).length
                   ? Object.entries(blueprint.metadata.input).map(
                       ([key, value]) =>
-                        html`<ha-settings-row .narrow=${this.narrow}>
+                        html`<op-settings-row .narrow=${this.narrow}>
                           <span slot="heading">${value?.name || key}</span>
                           <span slot="description">${value?.description}</span>
                           ${value?.selector
-                            ? html`<ha-selector
+                            ? html`<op-selector
                                 .opp=${this.opp}
                                 .selector=${value.selector}
                                 .key=${key}
@@ -180,7 +178,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
                                   this.config.use_blueprint.input[key]) ??
                                 value?.default}
                                 @value-changed=${this._inputChanged}
-                              ></ha-selector>`
+                              ></op-selector>`
                             : html`<paper-input
                                 .key=${key}
                                 required
@@ -190,7 +188,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
                                 @value-changed=${this._inputChanged}
                                 no-label-float
                               ></paper-input>`}
-                        </ha-settings-row>`
+                        </op-settings-row>`
                     )
                   : html`<p class="padding">
                       ${this.opp.localize(
@@ -198,8 +196,8 @@ export class HaBlueprintAutomationEditor extends LitElement {
                       )}
                     </p>`}`
             : ""}
-        </ha-card>
-      </ha-config-section>`;
+        </op-card>
+      </op-config-section>`;
   }
 
   private async _getBlueprints() {

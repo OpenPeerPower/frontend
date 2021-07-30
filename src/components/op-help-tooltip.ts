@@ -12,7 +12,7 @@ export class HaHelpTooltip extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+      <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
       <paper-tooltip
         offset="4"
         .position=${this.position}

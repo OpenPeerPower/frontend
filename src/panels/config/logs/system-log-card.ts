@@ -45,11 +45,11 @@ export class SystemLogCard extends LitElement {
       : [];
     return html`
       <div class="system-log-intro">
-        <ha-card>
+        <op-card>
           ${this._items === undefined
             ? html`
                 <div class="loading-container">
-                  <ha-circular-progress active></ha-circular-progress>
+                  <op-circular-progress active></op-circular-progress>
                 </div>
               `
             : html`
@@ -110,22 +110,22 @@ export class SystemLogCard extends LitElement {
                     )}
 
                 <div class="card-actions">
-                  <ha-call-service-button
+                  <op-call-service-button
                     .opp=${this.opp}
                     domain="system_log"
                     service="clear"
                     >${this.opp.localize(
                       "ui.panel.config.logs.clear"
-                    )}</ha-call-service-button
+                    )}</op-call-service-button
                   >
-                  <ha-progress-button @click=${this.fetchData}
+                  <op-progress-button @click=${this.fetchData}
                     >${this.opp.localize(
                       "ui.panel.config.logs.refresh"
-                    )}</ha-progress-button
+                    )}</op-progress-button
                   >
                 </div>
               `}
-        </ha-card>
+        </op-card>
       </div>
     `;
   }

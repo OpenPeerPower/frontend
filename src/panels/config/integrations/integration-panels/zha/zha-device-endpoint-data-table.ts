@@ -113,14 +113,16 @@ export class ZHADeviceEndpointDataTable extends LitElement {
               template: (entities) => html`
                 ${entities.length
                   ? entities.length > 3
-                    ? html`${entities.slice(0, 2).map(
-                          (entity) =>
-                            html`<div
-                              style="overflow: hidden; text-overflow: ellipsis;"
-                            >
-                              ${entity.name || entity.original_name}
-                            </div>`
-                        )}
+                    ? html`${entities
+                          .slice(0, 2)
+                          .map(
+                            (entity) =>
+                              html`<div
+                                style="overflow: hidden; text-overflow: ellipsis;"
+                              >
+                                ${entity.name || entity.original_name}
+                              </div>`
+                          )}
                         <div>And ${entities.length - 2} more...</div>`
                     : entities.map(
                         (entity) =>
@@ -142,7 +144,7 @@ export class ZHADeviceEndpointDataTable extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-data-table
+      <op-data-table
         .columns=${this._columns(this.narrow)}
         .data=${this._deviceEndpoints(this.deviceEndpoints)}
         .selectable=${this.selectable}
@@ -150,7 +152,7 @@ export class ZHADeviceEndpointDataTable extends LitElement {
         .dir=${computeRTLDirection(this.opp)}
         .searchLabel=${this.opp.localize("ui.components.data-table.search")}
         .noDataText=${this.opp.localize("ui.components.data-table.no-data")}
-      ></ha-data-table>
+      ></op-data-table>
     `;
   }
 

@@ -33,7 +33,7 @@ export class HaTagTrigger extends LitElement implements TriggerElement {
   protected render() {
     const { tag_id } = this.trigger;
     return html`
-      <ha-paper-dropdown-menu
+      <op-paper-dropdown-menu
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.tag.label"
         )}
@@ -53,7 +53,7 @@ export class HaTagTrigger extends LitElement implements TriggerElement {
             `
           )}
         </paper-listbox>
-      </ha-paper-dropdown-menu>
+      </op-paper-dropdown-menu>
     `;
   }
 

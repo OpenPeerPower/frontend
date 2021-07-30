@@ -43,7 +43,7 @@ class DialogNewAutomation extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${this.opp.localize(
@@ -54,7 +54,7 @@ class DialogNewAutomation extends LitElement {
           ${this.opp.localize("ui.panel.config.automation.dialog_new.how")}
           <div class="container">
             ${isComponentLoaded(this.opp, "cloud")
-              ? html`<ha-card outlined>
+              ? html`<op-card outlined>
                   <div>
                     <h3>
                       ${this.opp.localize(
@@ -78,22 +78,22 @@ class DialogNewAutomation extends LitElement {
                       >
                     </div>
                   </div>
-                </ha-card>`
+                </op-card>`
               : html``}
             ${isComponentLoaded(this.opp, "blueprint")
-              ? html`<ha-card outlined>
+              ? html`<op-card outlined>
                   <div>
                     <h3>
                       ${this.opp.localize(
                         "ui.panel.config.automation.dialog_new.blueprint.use_blueprint"
                       )}
                     </h3>
-                    <ha-blueprint-picker
+                    <op-blueprint-picker
                       @value-changed=${this._blueprintPicked}
                       .opp=${this.opp}
-                    ></ha-blueprint-picker>
+                    ></op-blueprint-picker>
                   </div>
-                </ha-card>`
+                </op-card>`
               : html``}
           </div>
         </div>
@@ -102,7 +102,7 @@ class DialogNewAutomation extends LitElement {
             "ui.panel.config.automation.dialog_new.start_empty"
           )}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

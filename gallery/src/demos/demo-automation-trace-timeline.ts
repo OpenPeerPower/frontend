@@ -35,7 +35,7 @@ export class DemoAutomationTraceTimeline extends LitElement {
     return html`
       ${traces.map(
         (trace) => html`
-          <ha-card .header=${trace.trace.config.alias}>
+          <op-card .header=${trace.trace.config.alias}>
             <div class="card-content">
               <hat-trace-timeline
                 .opp=${this.opp}
@@ -44,7 +44,7 @@ export class DemoAutomationTraceTimeline extends LitElement {
               ></hat-trace-timeline>
               <button @click=${() => console.log(trace)}>Log trace</button>
             </div>
-          </ha-card>
+          </op-card>
         `
       )}
     `;

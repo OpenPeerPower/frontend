@@ -31,10 +31,10 @@ class HaConfigNavigation extends LitElement {
           ? html`
               <a href=${page.path} aria-role="option" tabindex="-1">
                 <paper-icon-item>
-                  <ha-svg-icon
+                  <op-svg-icon
                     .path=${page.iconPath}
                     slot="item-icon"
-                  ></ha-svg-icon>
+                  ></op-svg-icon>
                   <paper-item-body two-line>
                     ${page.name ||
                     this.opp.localize(
@@ -67,7 +67,7 @@ class HaConfigNavigation extends LitElement {
                           </div>
                         `}
                   </paper-item-body>
-                  <ha-icon-next></ha-icon-next>
+                  <op-icon-next></op-icon-next>
                 </paper-icon-item>
               </a>
             `

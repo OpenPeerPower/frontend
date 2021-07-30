@@ -48,7 +48,7 @@ export class HaDeviceEntitiesCard extends LitElement {
     const disabledEntities: EntityRegistryStateEntry[] = [];
     this._entityRows = [];
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize(
           "ui.panel.config.devices.entities.entities"
         )}
@@ -113,7 +113,7 @@ export class HaDeviceEntitiesCard extends LitElement {
                 </paper-item-body>
               </div>
             `}
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -135,14 +135,12 @@ export class HaDeviceEntitiesCard extends LitElement {
   private _renderEntry(entry: EntityRegistryStateEntry): TemplateResult {
     return html`
       <paper-icon-item .entry=${entry} @click=${this._openEditEntry}>
-        <ha-icon
+        <op-icon
           slot="item-icon"
           .icon=${domainIcon(computeDomain(entry.entity_id))}
-        ></ha-icon>
+        ></op-icon>
         <paper-item-body>
-          <div class="name">
-            ${entry.stateName || entry.entity_id}
-          </div>
+          <div class="name">${entry.stateName || entry.entity_id}</div>
         </paper-item-body>
       </paper-icon-item>
     `;

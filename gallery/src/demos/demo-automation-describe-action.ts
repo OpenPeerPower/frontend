@@ -51,7 +51,7 @@ export class DemoAutomationDescribeAction extends LitElement {
       return html``;
     }
     return html`
-      <ha-card header="Actions">
+      <op-card header="Actions">
         ${actions.map(
           (conf) => html`
             <div class="action">
@@ -60,7 +60,7 @@ export class DemoAutomationDescribeAction extends LitElement {
             </div>
           `
         )}
-      </ha-card>
+      </op-card>
     `;
   }
 

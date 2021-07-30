@@ -14,7 +14,7 @@ export const createCloseHeading = (opp: OpenPeerPower, title: string) => html`
     class="header_button"
     dir=${computeRTLDirection(opp)}
   >
-    <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+    <op-svg-icon .path=${mdiClose}></op-svg-icon>
   </mwc-icon-button>
 `;
 

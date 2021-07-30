@@ -75,7 +75,7 @@ export class PanelView extends LitElement implements LovelaceViewElement {
       ${this._card}
       ${this.lovelace?.editMode && this.cards.length === 0
         ? html`
-            <ha-fab
+            <op-fab
               .label=${this.opp!.localize(
                 "ui.panel.lovelace.editor.edit_card.add"
               )}
@@ -85,8 +85,8 @@ export class PanelView extends LitElement implements LovelaceViewElement {
                 rtl: computeRTL(this.opp!),
               })}
             >
-              <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-            </ha-fab>
+              <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+            </op-fab>
           `
         : ""}
     `;

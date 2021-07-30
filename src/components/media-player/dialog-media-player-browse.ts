@@ -52,7 +52,7 @@ class DialogMediaPlayerBrowse extends LitElement {
         flexContent
         @closed=${this.closeDialog}
       >
-        <ha-media-player-browse
+        <op-media-player-browse
           dialog
           .opp=${this.opp}
           .entityId=${this._entityId}
@@ -61,7 +61,7 @@ class DialogMediaPlayerBrowse extends LitElement {
           .mediaContentType=${this._mediaContentType}
           @close-dialog=${this.closeDialog}
           @media-picked=${this._mediaPicked}
-        ></ha-media-player-browse>
+        ></op-media-player-browse>
       </op-dialog>
     `;
   }

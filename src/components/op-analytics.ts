@@ -39,33 +39,33 @@ export class HaAnalytics extends LitElement {
     const baseEnabled = !loading && this.analytics!.preferences.base;
 
     return html`
-      <ha-settings-row>
+      <op-settings-row>
         <span slot="prefix">
-          <ha-checkbox
+          <op-checkbox
             @change=${this._handleRowCheckboxClick}
             .checked=${baseEnabled}
             .preference=${"base"}
             .disabled=${loading}
             name="base"
           >
-          </ha-checkbox>
+          </op-checkbox>
         </span>
         <span slot="heading" data-for="base"> Basic analytics </span>
         <span slot="description" data-for="base">
           This includes information about your system.
         </span>
-      </ha-settings-row>
+      </op-settings-row>
       ${ADDITIONAL_PREFERENCES.map(
         (preference) =>
-          html`<ha-settings-row>
+          html`<op-settings-row>
             <span slot="prefix">
-              <ha-checkbox
+              <op-checkbox
                 @change=${this._handleRowCheckboxClick}
                 .checked=${this.analytics?.preferences[preference.key]}
                 .preference=${preference.key}
                 name=${preference.key}
               >
-              </ha-checkbox>
+              </op-checkbox>
               ${!baseEnabled
                 ? html`<paper-tooltip animation-delay="0" position="right">
                     You need to enable basic analytics for this option to be
@@ -79,24 +79,24 @@ export class HaAnalytics extends LitElement {
             <span slot="description" data-for=${preference.key}>
               ${preference.description}
             </span>
-          </ha-settings-row>`
+          </op-settings-row>`
       )}
-      <ha-settings-row>
+      <op-settings-row>
         <span slot="prefix">
-          <ha-checkbox
+          <op-checkbox
             @change=${this._handleRowCheckboxClick}
             .checked=${this.analytics?.preferences.diagnostics}
             .preference=${"diagnostics"}
             .disabled=${loading}
             name="diagnostics"
           >
-          </ha-checkbox>
+          </op-checkbox>
         </span>
         <span slot="heading" data-for="diagnostics"> Diagnostics </span>
         <span slot="description" data-for="diagnostics">
           Share crash reports when unexpected errors occur.
         </span>
-      </ha-settings-row>
+      </op-settings-row>
     `;
   }
 

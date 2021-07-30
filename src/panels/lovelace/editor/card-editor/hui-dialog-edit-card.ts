@@ -48,8 +48,10 @@ declare global {
 }
 
 @customElement("hui-dialog-edit-card")
-export class HuiDialogEditCard extends LitElement
-  implements OppDialog<EditCardDialogParams> {
+export class HuiDialogEditCard
+  extends LitElement
+  implements OppDialog<EditCardDialogParams>
+{
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
   @property({ type: Boolean, reflect: true }) public large = false;
@@ -148,13 +150,11 @@ export class HuiDialogEditCard extends LitElement
           )
         : this.opp!.localize("ui.panel.lovelace.editor.edit_card.pick_card");
     } else {
-      heading = this.opp!.localize(
-        "ui.panel.lovelace.editor.edit_card.header"
-      );
+      heading = this.opp!.localize("ui.panel.lovelace.editor.edit_card.header");
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         @keydown=${this._ignoreKeydown}
@@ -163,7 +163,7 @@ export class HuiDialogEditCard extends LitElement
         .heading=${true}
       >
         <div slot="heading">
-          <ha-header-bar>
+          <op-header-bar>
             <div slot="title" @click=${this._enlarge}>${heading}</div>
             ${this._documentationURL !== undefined
               ? html`
@@ -177,12 +177,12 @@ export class HuiDialogEditCard extends LitElement
                     dir=${computeRTLDirection(this.opp)}
                   >
                     <mwc-icon-button>
-                      <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
                     </mwc-icon-button>
                   </a>
                 `
               : ""}
-          </ha-header-bar>
+          </op-header-bar>
         </div>
         <div class="content">
           <div class="element-editor">
@@ -203,10 +203,10 @@ export class HuiDialogEditCard extends LitElement
             ></hui-card-preview>
             ${this._error
               ? html`
-                  <ha-circular-progress
+                  <op-circular-progress
                     active
                     alt="Can't update card"
-                  ></ha-circular-progress>
+                  ></op-circular-progress>
                 `
               : ``}
           </div>
@@ -239,11 +239,11 @@ export class HuiDialogEditCard extends LitElement
                 >
                   ${this._saving
                     ? html`
-                        <ha-circular-progress
+                        <op-circular-progress
                           active
                           title="Saving"
                           size="small"
-                        ></ha-circular-progress>
+                        ></op-circular-progress>
                       `
                     : this._dirty
                     ? this.opp!.localize("ui.common.save")
@@ -252,7 +252,7 @@ export class HuiDialogEditCard extends LitElement
               `
             : ``}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

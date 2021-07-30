@@ -140,24 +140,22 @@ export class QuickBar extends LitElement {
           slot="heading"
           class="heading"
           @value-changed=${this._handleSearchChange}
-          .label=${this.opp.localize(
-            "ui.dialogs.quick-bar.filter_placeholder"
-          )}
+          .label=${this.opp.localize("ui.dialogs.quick-bar.filter_placeholder")}
           .value=${this._commandMode ? `>${this._search}` : this._search}
           @keydown=${this._handleInputKeyDown}
           @focus=${this._setFocusFirstListItem}
         >
           ${this._commandMode
-            ? html`<ha-svg-icon
+            ? html`<op-svg-icon
                 slot="prefix"
                 class="prefix"
                 .path=${mdiConsoleLine}
-              ></ha-svg-icon>`
-            : html`<ha-svg-icon
+              ></op-svg-icon>`
+            : html`<op-svg-icon
                 slot="prefix"
                 class="prefix"
                 .path=${mdiMagnify}
-              ></ha-svg-icon>`}
+              ></op-svg-icon>`}
           ${this._search &&
           html`
             <mwc-icon-button
@@ -165,7 +163,7 @@ export class QuickBar extends LitElement {
               @click=${this._clearSearch}
               title="Clear"
             >
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
           `}
         </paper-input>
@@ -239,16 +237,16 @@ export class QuickBar extends LitElement {
         graphic="icon"
       >
         ${item.iconPath
-          ? html`<ha-svg-icon
+          ? html`<op-svg-icon
               .path=${item.iconPath}
               class="entity"
               slot="graphic"
-            ></ha-svg-icon>`
-          : html`<ha-icon
+            ></op-svg-icon>`
+          : html`<op-icon
               .icon=${item.icon}
               class="entity"
               slot="graphic"
-            ></ha-icon>`}
+            ></op-icon>`}
         <span>${item.primaryText}</span>
         ${item.altText
           ? html`
@@ -270,18 +268,18 @@ export class QuickBar extends LitElement {
         hasMeta
       >
         <span>
-          <ha-chip
+          <op-chip
             .label="${item.categoryText}"
             hasIcon
             class="command-category ${item.categoryKey}"
           >
             ${item.iconPath
-              ? html`<ha-svg-icon
+              ? html`<op-svg-icon
                   .path=${item.iconPath}
                   slot="icon"
-                ></ha-svg-icon>`
+                ></op-svg-icon>`
               : ""}
-            ${item.categoryText}</ha-chip
+            ${item.categoryText}</op-chip
           >
         </span>
 
@@ -418,9 +416,7 @@ export class QuickBar extends LitElement {
     return reloadableDomains.map((domain) => {
       const commandItem = {
         primaryText:
-          this.opp.localize(
-            `ui.dialogs.quick-bar.commands.reload.${domain}`
-          ) ||
+          this.opp.localize(`ui.dialogs.quick-bar.commands.reload.${domain}`) ||
           this.opp.localize(
             "ui.dialogs.quick-bar.commands.reload.reload",
             "domain",

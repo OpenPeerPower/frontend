@@ -100,14 +100,14 @@ export class HuiLightCard extends LitElement implements LovelaceCard {
       Math.round((stateObj.attributes.brightness / 255) * 100) || 0;
 
     return html`
-      <ha-card>
+      <op-card>
         <mwc-icon-button
           class="more-info"
           label="Open more info"
           @click=${this._handleMoreInfo}
           tabindex="0"
         >
-          <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+          <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
         </mwc-icon-button>
 
         <div class="content">
@@ -126,7 +126,7 @@ export class HuiLightCard extends LitElement implements LovelaceCard {
                     : "hidden",
                 })}
               ></round-slider>
-              <ha-icon-button
+              <op-icon-button
                 class="light-button ${classMap({
                   "slider-center": supportsFeature(
                     stateObj,
@@ -147,7 +147,7 @@ export class HuiLightCard extends LitElement implements LovelaceCard {
                   hasDoubleClick: hasAction(this._config!.double_tap_action),
                 })}
                 tabindex="0"
-              ></ha-icon-button>
+              ></op-icon-button>
             </div>
           </div>
 
@@ -162,15 +162,11 @@ export class HuiLightCard extends LitElement implements LovelaceCard {
                     )}
                   </div>
                 `
-              : html`
-                  <div class="brightness">
-                    %
-                  </div>
-                `}
+              : html` <div class="brightness">%</div> `}
             ${this._config.name || computeStateName(stateObj)}
           </div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

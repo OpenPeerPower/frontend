@@ -62,7 +62,7 @@ class DialogImportBlueprint extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${createCloseHeading(
@@ -81,10 +81,10 @@ class DialogImportBlueprint extends LitElement {
                   this._result.blueprint.metadata.domain
                 )}
                 <br />
-                <ha-markdown
+                <op-markdown
                   breaks
                   .content=${this._result.blueprint.metadata.description}
-                ></ha-markdown>
+                ></op-markdown>
                 ${this._result.validation_errors
                   ? html`
                       <p class="error">
@@ -107,13 +107,13 @@ class DialogImportBlueprint extends LitElement {
                         )}
                       ></paper-input>
                     `}
-                <ha-expansion-panel
+                <op-expansion-panel
                   .header=${this.opp.localize(
                     "ui.panel.config.blueprint.add.raw_blueprint"
                   )}
                 >
                   <pre>${this._result.raw_data}</pre>
-                </ha-expansion-panel>`
+                </op-expansion-panel>`
             : html`${this.opp.localize(
                   "ui.panel.config.blueprint.add.import_introduction_link",
                   "community_link",
@@ -141,13 +141,13 @@ class DialogImportBlueprint extends LitElement {
               .disabled=${this._importing}
             >
               ${this._importing
-                ? html`<ha-circular-progress
+                ? html`<op-circular-progress
                     active
                     size="small"
                     .title=${this.opp.localize(
                       "ui.panel.config.blueprint.add.importing"
                     )}
-                  ></ha-circular-progress>`
+                  ></op-circular-progress>`
                 : ""}
               ${this.opp.localize("ui.panel.config.blueprint.add.import_btn")}
             </mwc-button>`
@@ -164,17 +164,17 @@ class DialogImportBlueprint extends LitElement {
                 .disabled=${this._saving || this._result.validation_errors}
               >
                 ${this._saving
-                  ? html`<ha-circular-progress
+                  ? html`<op-circular-progress
                       active
                       size="small"
                       .title=${this.opp.localize(
                         "ui.panel.config.blueprint.add.saving"
                       )}
-                    ></ha-circular-progress>`
+                    ></op-circular-progress>`
                   : ""}
                 ${this.opp.localize("ui.panel.config.blueprint.add.save_btn")}
               </mwc-button>`}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

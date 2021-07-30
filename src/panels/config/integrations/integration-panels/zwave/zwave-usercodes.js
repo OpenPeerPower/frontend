@@ -35,7 +35,7 @@ class ZwaveUsercodes extends PolymerElement {
         }
       </style>
       <div class="content">
-        <ha-card header="Node user codes">
+        <op-card header="Node user codes">
           <div class="device-picker">
             <paper-dropdown-menu
               label="Code slot"
@@ -69,25 +69,25 @@ class ZwaveUsercodes extends PolymerElement {
               <pre>Ascii: [[_computedCodeOutput]]</pre>
             </div>
             <div class="card-actions">
-              <ha-call-service-button
+              <op-call-service-button
                 opp="[[opp]]"
                 domain="lock"
                 service="set_usercode"
                 service-data='[[_computeUserCodeServiceData(_selectedUserCodeValue, "Add")]]'
               >
                 Set Usercode
-              </ha-call-service-button>
-              <ha-call-service-button
+              </op-call-service-button>
+              <op-call-service-button
                 opp="[[opp]]"
                 domain="lock"
                 service="clear_usercode"
                 service-data='[[_computeUserCodeServiceData(_selectedUserCode, "Delete")]]'
               >
                 Delete Usercode
-              </ha-call-service-button>
+              </op-call-service-button>
             </div>
           </template>
-        </ha-card>
+        </op-card>
       </div>
     `;
   }
@@ -122,9 +122,7 @@ class ZwaveUsercodes extends PolymerElement {
 
   ready() {
     super.ready();
-    this.addEventListener("opp-service-called", (ev) =>
-      this.serviceCalled(ev)
-    );
+    this.addEventListener("opp-service-called", (ev) => this.serviceCalled(ev));
   }
 
   serviceCalled(ev) {

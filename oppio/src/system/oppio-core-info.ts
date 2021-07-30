@@ -49,18 +49,18 @@ class OppioCoreInfo extends LitElement {
     ];
 
     return html`
-      <ha-card header="Core">
+      <op-card header="Core">
         <div class="card-content">
           <div>
-            <ha-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("common.version")}
               </span>
               <span slot="description">
                 core-${this.supervisor.core.version}
               </span>
-            </ha-settings-row>
-            <ha-settings-row>
+            </op-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("common.newest_version")}
               </span>
@@ -69,15 +69,15 @@ class OppioCoreInfo extends LitElement {
               </span>
               ${this.supervisor.core.update_available
                 ? html`
-                    <ha-progress-button
+                    <op-progress-button
                       .title=${this.supervisor.localize("common.update")}
                       @click=${this._coreUpdate}
                     >
                       ${this.supervisor.localize("common.update")}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : ""}
-            </ha-settings-row>
+            </op-settings-row>
           </div>
           <div>
             ${metrics.map(
@@ -93,7 +93,7 @@ class OppioCoreInfo extends LitElement {
           </div>
         </div>
         <div class="card-actions">
-          <ha-progress-button
+          <op-progress-button
             slot="primaryAction"
             class="warning"
             @click=${this._coreRestart}
@@ -104,9 +104,9 @@ class OppioCoreInfo extends LitElement {
             )}
           >
             ${this.supervisor.localize("common.restart_name", "name", "Core")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

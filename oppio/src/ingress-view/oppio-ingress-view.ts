@@ -76,7 +76,7 @@ class OppioIngressView extends LitElement {
               aria-label=${this.opp.localize("ui.sidebar.sidebar_toggle")}
               @click=${this._toggleMenu}
             >
-              <ha-svg-icon .path=${mdiMenu}></ha-svg-icon>
+              <op-svg-icon .path=${mdiMenu}></op-svg-icon>
             </mwc-icon-button>
             <div class="main-title">${this._addon.name}</div>
           </div>

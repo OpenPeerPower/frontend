@@ -67,7 +67,7 @@ export class HuiIframeCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card .header="${this._config.title}">
+      <op-card .header="${this._config.title}">
         <div
           id="root"
           style="${styleMap({
@@ -80,7 +80,7 @@ export class HuiIframeCard extends LitElement implements LovelaceCard {
             allowfullscreen="true"
           ></iframe>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

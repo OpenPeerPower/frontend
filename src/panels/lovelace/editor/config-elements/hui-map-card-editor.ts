@@ -132,18 +132,18 @@ export class HuiMapCardEditor extends LitElement implements LovelaceCardEditor {
           ></paper-input>
         </div>
         <div class="side-by-side">
-          <ha-formfield
+          <op-formfield
             .label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.map.dark_mode"
             )}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._dark_mode}
               .configValue=${"dark_mode"}
               @change=${this._valueChanged}
-            ></ha-switch
-          ></ha-formfield>
+            ></op-switch
+          ></op-formfield>
           <paper-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.map.hours_to_show"

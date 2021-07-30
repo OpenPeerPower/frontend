@@ -54,16 +54,16 @@ export default class HaAutomationCondition extends LitElement {
     return html`
       ${this.conditions.map(
         (cond, idx) => html`
-          <ha-automation-condition-row
+          <op-automation-condition-row
             .index=${idx}
             .condition=${cond}
             @duplicate=${this._duplicateCondition}
             @value-changed=${this._conditionChanged}
             .opp=${this.opp}
-          ></ha-automation-condition-row>
+          ></op-automation-condition-row>
         `
       )}
-      <ha-card>
+      <op-card>
         <div class="card-actions add-card">
           <mwc-button @click=${this._addCondition}>
             ${this.opp.localize(
@@ -71,7 +71,7 @@ export default class HaAutomationCondition extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

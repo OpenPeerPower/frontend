@@ -53,8 +53,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-glance-card-editor")
-export class HuiGlanceCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiGlanceCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: GlanceCardConfig;
@@ -135,62 +137,62 @@ export class HuiGlanceCardEditor extends LitElement
         </div>
         <div class="side-by-side">
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_name"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._config!.show_name !== false}
                 .configValue=${"show_name"}
                 @change=${this._valueChanged}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
           </div>
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_icon"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._config!.show_icon !== false}
                 .configValue=${"show_icon"}
                 @change=${this._valueChanged}
               >
-              </ha-switch>
-            </ha-formfield>
+              </op-switch>
+            </op-formfield>
           </div>
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_state"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._config!.show_state !== false}
                 .configValue=${"show_state"}
                 @change=${this._valueChanged}
               >
-              </ha-switch>
-            </ha-formfield>
+              </op-switch>
+            </op-formfield>
           </div>
         </div>
-        <ha-formfield
+        <op-formfield
           .label=${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.state_color"
           )}
           .dir=${computeRTLDirection(this.opp)}
         >
-          <ha-switch
+          <op-switch
             .checked=${this._config!.state_color}
             .configValue=${"state_color"}
             @change=${this._valueChanged}
-          ></ha-switch>
-        </ha-formfield>
+          ></op-switch>
+        </op-formfield>
       </div>
       <hui-entity-editor
         .opp=${this.opp}

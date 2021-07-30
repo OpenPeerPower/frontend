@@ -32,7 +32,7 @@ class HaServicePicker extends LitElement {
 
   protected render() {
     return html`
-      <ha-combo-box
+      <op-combo-box
         .opp=${this.opp}
         .label=${this.opp.localize("ui.components.service-picker.service")}
         .filteredItems=${this._filteredServices(
@@ -47,7 +47,7 @@ class HaServicePicker extends LitElement {
         allow-custom-value
         @filter-changed=${this._filterChanged}
         @value-changed=${this._valueChanged}
-      ></ha-combo-box>
+      ></op-combo-box>
     `;
   }
 

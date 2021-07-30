@@ -6,11 +6,11 @@ import "../../components/ha-card";
 export class HuiNotificationItemTemplate extends LitElement {
   protected render(): TemplateResult {
     return html`
-      <ha-card>
+      <op-card>
         <div class="header"><slot name="header"></slot></div>
         <div class="contents"><slot></slot></div>
         <div class="actions"><slot name="actions"></slot></div>
-      </ha-card>
+      </op-card>
     `;
   }
 

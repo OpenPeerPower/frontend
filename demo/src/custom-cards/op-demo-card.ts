@@ -41,11 +41,11 @@ export class HADemoCard extends LitElement implements LovelaceCard {
       return html``;
     }
     return html`
-      <ha-card>
+      <op-card>
         <div class="picker">
           <div class="label">
             ${this._switching
-              ? html`<ha-circular-progress active></ha-circular-progress>`
+              ? html`<op-circular-progress active></op-circular-progress>`
               : until(
                   selectedDemoConfig.then(
                     (conf) => html`
@@ -78,7 +78,7 @@ export class HADemoCard extends LitElement implements LovelaceCard {
             </mwc-button>
           </a>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -195,20 +195,20 @@ class HuiMapCard extends LitElement implements LovelaceCard {
       return html``;
     }
     return html`
-      <ha-card id="card" .header=${this._config.title}>
+      <op-card id="card" .header=${this._config.title}>
         <div id="root">
           <div
             id="map"
             class=${classMap({ dark: this._config.dark_mode === true })}
           ></div>
-          <ha-icon-button
+          <op-icon-button
             @click=${this._fitMap}
             tabindex="0"
             icon="opp:image-filter-center-focus"
             title="Reset focus"
-          ></ha-icon-button>
+          ></op-icon-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -554,12 +554,12 @@ class HuiMapCard extends LitElement implements LovelaceCard {
             // Leaflet clones this element before adding it to the map. This messes up
             // our Polymer object and we can't pass data through. Thus we hack like this.
             html: `
-              <ha-entity-marker
+              <op-entity-marker
                 entity-id="${entityId}"
                 entity-name="${entityName}"
                 entity-picture="${entityPicture || ""}"
                 entity-color="${this._getColor(entityId)}"
-              ></ha-entity-marker>
+              ></op-entity-marker>
             `,
             iconSize: [48, 48],
             className: "",

@@ -97,7 +97,7 @@ class DialogZoneDetail extends LitElement {
       !nameValid && !iconValid && !latValid && !lngValid && !radiusValid;
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         scrimClickAction
@@ -117,9 +117,7 @@ class DialogZoneDetail extends LitElement {
               .value=${this._name}
               .configValue=${"name"}
               @value-changed=${this._valueChanged}
-              .label="${this.opp!.localize(
-                "ui.panel.config.zone.detail.name"
-              )}"
+              .label="${this.opp!.localize("ui.panel.config.zone.detail.name")}"
               .errorMessage="${this.opp!.localize(
                 "ui.panel.config.zone.detail.required_error_msg"
               )}"
@@ -130,15 +128,13 @@ class DialogZoneDetail extends LitElement {
               .value=${this._icon}
               .configValue=${"icon"}
               @value-changed=${this._valueChanged}
-              .label="${this.opp!.localize(
-                "ui.panel.config.zone.detail.icon"
-              )}"
+              .label="${this.opp!.localize("ui.panel.config.zone.detail.icon")}"
               .errorMessage="${this.opp!.localize(
                 "ui.panel.config.zone.detail.icon_error_msg"
               )}"
               .invalid=${iconValid}
             ></paper-input>
-            <ha-location-editor
+            <op-location-editor
               class="flex"
               .opp=${this.opp}
               .location=${this._locationValue}
@@ -148,7 +144,7 @@ class DialogZoneDetail extends LitElement {
                 : defaultRadiusColor}
               .icon=${this._icon}
               @change=${this._locationChanged}
-            ></ha-location-editor>
+            ></op-location-editor>
             <div class="location">
               <paper-input
                 .value=${this._latitude}
@@ -190,17 +186,17 @@ class DialogZoneDetail extends LitElement {
             <p>
               ${this.opp!.localize("ui.panel.config.zone.detail.passive_note")}
             </p>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp!.localize(
                 "ui.panel.config.zone.detail.passive"
               )}
               .dir=${computeRTLDirection(this.opp)}
             >
-              <ha-switch
+              <op-switch
                 .checked=${this._passive}
                 @change=${this._passiveChanged}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
           </div>
         </div>
         ${this._params.entry
@@ -224,7 +220,7 @@ class DialogZoneDetail extends LitElement {
             ? this.opp!.localize("ui.panel.config.zone.detail.update")
             : this.opp!.localize("ui.panel.config.zone.detail.create")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

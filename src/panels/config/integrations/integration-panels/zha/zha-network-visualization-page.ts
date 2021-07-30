@@ -136,9 +136,7 @@ export class ZHANetworkVisualizationPage extends LitElement {
       <opp-subpage
         .opp=${this.opp}
         .narrow=${this.narrow}
-        .header=${this.opp.localize(
-          "ui.panel.config.zha.visualization.header"
-        )}
+        .header=${this.opp.localize("ui.panel.config.zha.visualization.header")}
       >
         <div class="table-header">
           <search-input
@@ -151,7 +149,7 @@ export class ZHANetworkVisualizationPage extends LitElement {
             )}
           >
           </search-input>
-          <ha-device-picker
+          <op-device-picker
             .opp=${this.opp}
             .value=${this.zoomedDeviceId}
             .label=${this.opp.localize(
@@ -159,11 +157,11 @@ export class ZHANetworkVisualizationPage extends LitElement {
             )}
             .deviceFilter=${(device) => this._filterDevices(device)}
             @value-changed=${this._onZoomToDevice}
-          ></ha-device-picker>
-          <ha-checkbox
+          ></op-device-picker>
+          <op-checkbox
             @change=${this._handleCheckboxChange}
             .checked=${this._autoZoom}
-          ></ha-checkbox
+          ></op-checkbox
           >${this.opp!.localize("ui.panel.config.zha.visualization.auto_zoom")}
           <mwc-button @click=${this._refreshTopology}
             >${this.opp!.localize(

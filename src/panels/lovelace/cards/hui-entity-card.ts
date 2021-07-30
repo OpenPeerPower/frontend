@@ -112,15 +112,15 @@ export class HuiEntityCard extends LitElement implements LovelaceCard {
       : !UNAVAILABLE_STATES.includes(stateObj.state);
 
     return html`
-      <ha-card @click=${this._handleClick} tabindex="0">
+      <op-card @click=${this._handleClick} tabindex="0">
         <div class="header">
           <div class="name">
             ${this._config.name || computeStateName(stateObj)}
           </div>
           <div class="icon">
-            <ha-icon
+            <op-icon
               .icon=${this._config.icon || stateIcon(stateObj)}
-            ></ha-icon>
+            ></op-icon>
           </div>
         </div>
         <div class="info">
@@ -147,7 +147,7 @@ export class HuiEntityCard extends LitElement implements LovelaceCard {
             : ""}
         </div>
         ${this._footerElement}
-      </ha-card>
+      </op-card>
     `;
   }
 

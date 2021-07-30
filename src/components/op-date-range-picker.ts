@@ -60,7 +60,7 @@ export class HaDateRangePicker extends LitElement {
         ?ranges=${this.ranges !== undefined}
       >
         <div slot="input" class="date-range-inputs">
-          <ha-svg-icon .path=${mdiCalendar}></ha-svg-icon>
+          <op-svg-icon .path=${mdiCalendar}></op-svg-icon>
           <paper-input
             .value=${formatDateTime(this.startDate, this.opp.locale)}
             .label=${this.opp.localize(

@@ -53,18 +53,18 @@ export class ZwaveNetwork extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="sectionHeader" slot="header">
           <span>
             ${this.opp!.localize(
               "ui.panel.config.zwave.network_management.header"
             )}
           </span>
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
-          ></ha-icon-button>
+          ></op-icon-button>
         </div>
         <div slot="introduction">
           ${this.opp!.localize(
@@ -86,18 +86,18 @@ export class ZwaveNetwork extends LitElement {
 
         ${this._networkStatus
           ? html`
-              <ha-card class="content network-status">
+              <op-card class="content network-status">
                 <div class="details">
                   ${this._networkStatus.state === ZWAVE_NETWORK_STATE_STOPPED
                     ? html`
-                        <ha-icon icon="opp:close"></ha-icon>
+                        <op-icon icon="opp:close"></op-icon>
                         ${this.opp!.localize(
                           "ui.panel.config.zwave.network_status.network_stopped"
                         )}
                       `
                     : this._networkStatus.state === ZWAVE_NETWORK_STATE_STARTED
                     ? html`
-                        <ha-circular-progress active></ha-circular-progress>
+                        <op-circular-progress active></op-circular-progress>
                         ${this.opp!.localize(
                           "ui.panel.config.zwave.network_status.network_starting"
                         )}<br />
@@ -109,7 +109,7 @@ export class ZwaveNetwork extends LitElement {
                       `
                     : this._networkStatus.state === ZWAVE_NETWORK_STATE_AWAKED
                     ? html`
-                        <ha-icon icon="opp:checkbox-marked-circle"> </ha-icon>
+                        <op-icon icon="opp:checkbox-marked-circle"> </op-icon>
                         ${this.opp!.localize(
                           "ui.panel.config.zwave.network_status.network_started"
                         )}<br />
@@ -145,21 +145,21 @@ export class ZwaveNetwork extends LitElement {
                   ? html`
                       <div class="card-actions">
                         ${this._generateServiceButton("soft_reset")}
-                        <ha-call-api-button
+                        <op-call-api-button
                           .opp=${this.opp}
                           path="zwave/saveconfig"
                         >
                           ${this.opp!.localize(
                             "ui.panel.config.zwave.services.save_config"
                           )}
-                        </ha-call-api-button>
+                        </op-call-api-button>
                       </div>
                     `
                   : ""}
-              </ha-card>
+              </op-card>
               ${this._networkStatus.state >= ZWAVE_NETWORK_STATE_AWAKED
                 ? html`
-                    <ha-card class="content">
+                    <op-card class="content">
                       <div class="card-actions">
                         ${this._generateServiceButton("add_node_secure")}
                         ${this._generateServiceButton("add_node")}
@@ -168,12 +168,12 @@ export class ZwaveNetwork extends LitElement {
                       <div class="card-actions">
                         ${this._generateServiceButton("cancel_command")}
                       </div>
-                    </ha-card>
+                    </op-card>
                   `
                 : ""}
             `
           : ""}
-      </ha-config-section>
+      </op-config-section>
     `;
   }
 
@@ -222,20 +222,20 @@ export class ZwaveNetwork extends LitElement {
 
   private _generateServiceButton(service: string) {
     return html`
-      <ha-call-service-button
+      <op-call-service-button
         .opp=${this.opp}
         domain="zwave"
         service="${service}"
       >
         ${this.opp!.localize("ui.panel.config.zwave.services." + service)}
-      </ha-call-service-button>
-      <ha-service-description
+      </op-call-service-button>
+      <op-service-description
         .opp=${this.opp}
         domain="zwave"
         service="${service}"
         ?hidden=${!this._showHelp}
       >
-      </ha-service-description>
+      </op-service-description>
     `;
   }
 

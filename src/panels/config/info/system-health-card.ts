@@ -60,7 +60,7 @@ class SystemHealthCard extends LitElement {
       sections.push(
         html`
           <div class="loading-container">
-            <ha-circular-progress active></ha-circular-progress>
+            <op-circular-progress active></op-circular-progress>
           </div>
         `
       );
@@ -81,7 +81,7 @@ class SystemHealthCard extends LitElement {
 
             if (info.type === "pending") {
               value = html`
-                <ha-circular-progress active size="tiny"></ha-circular-progress>
+                <op-circular-progress active size="tiny"></op-circular-progress>
               `;
             } else if (info.type === "failed") {
               value = html`
@@ -122,9 +122,7 @@ class SystemHealthCard extends LitElement {
           sections.push(
             html`
               <div class="card-header">
-                <h3>
-                  ${domainToName(this.opp.localize, domain)}
-                </h3>
+                <h3>${domainToName(this.opp.localize, domain)}</h3>
                 ${!domainInfo.manage_url
                   ? ""
                   : html`
@@ -149,18 +147,18 @@ class SystemHealthCard extends LitElement {
     }
 
     return html`
-      <ha-card>
+      <op-card>
         <h1 class="card-header">
           <div class="card-header-text">
             ${domainToName(this.opp.localize, "system_health")}
           </div>
-          <ha-button-menu
+          <op-button-menu
             corner="BOTTOM_START"
             slot="toolbar-icon"
             @action=${this._copyInfo}
           >
             <mwc-icon-button slot="trigger" alt="menu">
-              <ha-svg-icon .path=${mdiContentCopy}></ha-svg-icon>
+              <op-svg-icon .path=${mdiContentCopy}></op-svg-icon>
             </mwc-icon-button>
             <mwc-list-item>
               ${this.opp.localize("ui.panel.config.info.copy_raw")}
@@ -168,10 +166,10 @@ class SystemHealthCard extends LitElement {
             <mwc-list-item>
               ${this.opp.localize("ui.panel.config.info.copy_github")}
             </mwc-list-item>
-          </ha-button-menu>
+          </op-button-menu>
         </h1>
         <div class="card-content">${sections}</div>
-      </ha-card>
+      </op-card>
     `;
   }
 

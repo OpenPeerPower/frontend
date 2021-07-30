@@ -22,9 +22,9 @@ class ActionBadge extends LitElement {
   protected render(): TemplateResult {
     return html`
       <div class="icon">
-        <ha-icon .icon=${this.icon}></ha-icon>
+        <op-icon .icon=${this.icon}></op-icon>
         ${this.badgeIcon
-          ? html` <ha-icon class="badge" .icon=${this.badgeIcon}></ha-icon> `
+          ? html` <op-icon class="badge" .icon=${this.badgeIcon}></op-icon> `
           : ""}
       </div>
       <div class="title">${this.title}</div>

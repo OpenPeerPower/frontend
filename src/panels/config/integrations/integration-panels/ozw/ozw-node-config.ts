@@ -68,9 +68,7 @@ class OZWNodeConfig extends LitElement {
       return html`
         <opp-error-screen
           .opp=${this.opp}
-          .error=${this.opp.localize(
-            "ui.panel.config.ozw.node." + this._error
-          )}
+          .error=${this.opp.localize("ui.panel.config.ozw.node." + this._error)}
         ></opp-error-screen>
       `;
     }
@@ -82,15 +80,13 @@ class OZWNodeConfig extends LitElement {
         .route=${this.route}
         .tabs=${ozwNodeTabs(this.ozwInstance, this.nodeId)}
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.ozw.node_config.header")}
           </div>
 
           <div slot="introduction">
-            ${this.opp.localize(
-              "ui.panel.config.ozw.node_config.introduction"
-            )}
+            ${this.opp.localize("ui.panel.config.ozw.node_config.introduction")}
             <p>
               <em>
                 ${this.opp.localize(
@@ -105,7 +101,7 @@ class OZWNodeConfig extends LitElement {
           </div>
           ${this._node
             ? html`
-                <ha-card class="content">
+                <op-card class="content">
                   <div class="card-content">
                     <b>
                       ${this._node.node_manufacturer_name}
@@ -136,11 +132,11 @@ class OZWNodeConfig extends LitElement {
                       )}
                     </mwc-button>
                   </div>
-                </ha-card>
+                </op-card>
 
                 ${this._metadata?.metadata.WakeupHelp
                   ? html`
-                      <ha-card
+                      <op-card
                         class="content"
                         header="${this.opp.localize(
                           "ui.panel.config.ozw.common.wakeup_instructions"
@@ -152,31 +148,29 @@ class OZWNodeConfig extends LitElement {
                               "ui.panel.config.ozw.node_config.wakeup_help"
                             )}
                           </span>
-                          <p>
-                            ${this._metadata.metadata.WakeupHelp}
-                          </p>
+                          <p>${this._metadata.metadata.WakeupHelp}</p>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
                 ${this._config
                   ? html`
                       ${this._config.map(
                         (item) => html`
-                          <ha-card class="content">
+                          <op-card class="content">
                             <div class="card-content">
                               <b>${item.label}</b><br />
                               <span class="secondary">${item.help}</span>
                               <p>${item.value}</p>
                             </div>
-                          </ha-card>
+                          </op-card>
                         `
                       )}
                     `
                   : ``}
               `
             : ``}
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }

@@ -93,25 +93,25 @@ class HaPanelDevService extends LitElement {
         </p>
 
         ${this._yamlMode
-          ? html`<ha-service-picker
+          ? html`<op-service-picker
                 .opp=${this.opp}
                 .value=${this._serviceData?.service}
                 @value-changed=${this._serviceChanged}
-              ></ha-service-picker>
-              <ha-yaml-editor
+              ></op-service-picker>
+              <op-yaml-editor
                 .defaultValue=${this._serviceData}
                 @value-changed=${this._yamlChanged}
-              ></ha-yaml-editor>`
-          : html`<ha-card
+              ></op-yaml-editor>`
+          : html`<op-card
               ><div>
-                <ha-service-control
+                <op-service-control
                   .opp=${this.opp}
                   .value=${this._serviceData}
                   .narrow=${this.narrow}
                   showAdvanced
                   @value-changed=${this._serviceDataChanged}
-                ></ha-service-control></div
-            ></ha-card>`}
+                ></op-service-control></div
+            ></op-card>`}
       </div>
       <div class="button-row">
         <div class="buttons">
@@ -146,7 +146,7 @@ class HaPanelDevService extends LitElement {
 
       ${(this._yamlMode ? fields : this._filterSelectorFields(fields)).length
         ? html`<div class="content">
-            <ha-expansion-panel
+            <op-expansion-panel
               .header=${this._yamlMode
                 ? this.opp.localize(
                     "ui.panel.developer-tools.tabs.services.all_parameters"
@@ -200,7 +200,7 @@ class HaPanelDevService extends LitElement {
                     )}</mwc-button
                   >`
                 : ""}
-            </ha-expansion-panel>
+            </op-expansion-panel>
           </div>`
         : ""}
     `;

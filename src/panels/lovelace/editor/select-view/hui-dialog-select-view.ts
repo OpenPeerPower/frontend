@@ -54,7 +54,7 @@ export class HuiDialogSelectView extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         hideActions
@@ -65,7 +65,7 @@ export class HuiDialogSelectView extends LitElement {
         )}
       >
         ${this._params.allowDashboardChange
-          ? html`<ha-paper-dropdown-menu
+          ? html`<op-paper-dropdown-menu
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.select_view.dashboard_label"
               )}
@@ -98,7 +98,7 @@ export class HuiDialogSelectView extends LitElement {
                   `;
                 })}
               </paper-listbox>
-            </ha-paper-dropdown-menu>`
+            </op-paper-dropdown-menu>`
           : ""}
         ${this._config
           ? html` <hui-views-list
@@ -107,7 +107,7 @@ export class HuiDialogSelectView extends LitElement {
             >
             </hui-views-list>`
           : html`<div>No config found.</div>`}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

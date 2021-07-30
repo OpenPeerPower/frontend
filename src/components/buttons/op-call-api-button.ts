@@ -21,12 +21,12 @@ class HaCallApiButton extends LitElement {
 
   render() {
     return html`
-      <ha-progress-button
+      <op-progress-button
         .progress=${this.progress}
         @click=${this._buttonTapped}
         ?disabled=${this.disabled}
         ><slot></slot
-      ></ha-progress-button>
+      ></op-progress-button>
     `;
   }
 

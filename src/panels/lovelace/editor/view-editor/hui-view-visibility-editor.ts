@@ -71,17 +71,17 @@ export class HuiViewVisibilityEditor extends LitElement {
       ${this._sortedUsers(this._users).map(
         (user) => html`
           <paper-icon-item>
-            <ha-user-badge
+            <op-user-badge
               slot="item-icon"
               .opp=${this.opp}
               .user=${user}
-            ></ha-user-badge>
+            ></op-user-badge>
             <paper-item-body>${user.name}</paper-item-body>
-            <ha-switch
+            <op-switch
               .userId="${user.id}"
               @change=${this.valChange}
               .checked=${this.checkUser(user.id)}
-            ></ha-switch>
+            ></op-switch>
           </paper-icon-item>
         `
       )}

@@ -72,7 +72,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
     }
     const urlInvalid = this._url.trim() === "";
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing=${this._close}
         scrimClickAction
@@ -110,7 +110,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
               dialogInitialFocus
             ></paper-input>
             <br />
-            <ha-paper-dropdown-menu
+            <op-paper-dropdown-menu
               .label=${this.opp!.localize(
                 "ui.panel.config.lovelace.resources.detail.type"
               )}
@@ -151,7 +151,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
                     `
                   : ""}
               </paper-listbox>
-            </ha-paper-dropdown-menu>
+            </op-paper-dropdown-menu>
           </div>
         </div>
         ${this._params.resource
@@ -181,7 +181,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
                 "ui.panel.config.lovelace.resources.detail.create"
               )}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

@@ -40,7 +40,7 @@ class DialogZHADeviceZigbeeInfo extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         hideActions
         @closing="${this._close}"
@@ -49,9 +49,9 @@ class DialogZHADeviceZigbeeInfo extends LitElement {
           this.opp.localize(`ui.dialogs.zha_device_info.device_signature`)
         )}
       >
-        <ha-code-editor mode="yaml" readonly .value=${this._signature}>
-        </ha-code-editor>
-      </ha-dialog>
+        <op-code-editor mode="yaml" readonly .value=${this._signature}>
+        </op-code-editor>
+      </op-dialog>
     `;
   }
 

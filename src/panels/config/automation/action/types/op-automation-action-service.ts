@@ -70,13 +70,13 @@ export class HaServiceAction extends LitElement implements ActionElement {
 
   protected render() {
     return html`
-      <ha-service-control
+      <op-service-control
         .narrow=${this.narrow}
         .opp=${this.opp}
         .value=${this._action}
         .showAdvanced=${this.opp.userData?.showAdvanced}
         @value-changed=${this._actionChanged}
-      ></ha-service-control>
+      ></op-service-control>
     `;
   }
 

@@ -47,7 +47,7 @@ export class HuiSubElementEditor extends LitElement {
       <div class="header">
         <div class="back-title">
           <mwc-icon-button @click=${this._goBack}>
-            <ha-svg-icon .path=${mdiArrowLeft}></ha-svg-icon>
+            <op-svg-icon .path=${mdiArrowLeft}></op-svg-icon>
           </mwc-icon-button>
           <span slot="title"
             >${this.opp.localize(

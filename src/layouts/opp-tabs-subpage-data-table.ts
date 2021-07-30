@@ -169,7 +169,7 @@ export class HaTabsSubpageDataTable extends LitElement {
         ? html`<div class="active-filters">
             ${this.narrow
               ? html`<div>
-                  <ha-svg-icon .path="${mdiFilterVariant}"></ha-svg-icon>
+                  <op-svg-icon .path="${mdiFilterVariant}"></op-svg-icon>
                   <paper-tooltip animation-delay="0" position="left">
                     ${filterInfo}
                   </paper-tooltip>
@@ -204,7 +204,7 @@ export class HaTabsSubpageDataTable extends LitElement {
               </div>
             `
           : ""}
-        <ha-data-table
+        <op-data-table
           .columns=${this.columns}
           .data=${this.data}
           .filter=${this.filter}
@@ -225,7 +225,7 @@ export class HaTabsSubpageDataTable extends LitElement {
                 </div>
               `
             : html` <div slot="header"></div> `}
-        </ha-data-table>
+        </op-data-table>
         <div slot="fab"><slot name="fab"></slot></div>
       </opp-tabs-subpage>
     `;

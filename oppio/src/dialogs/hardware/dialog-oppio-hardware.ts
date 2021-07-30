@@ -59,7 +59,7 @@ class OppioHardwareDialog extends LitElement {
     );
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         hideActions
@@ -71,7 +71,7 @@ class OppioHardwareDialog extends LitElement {
             ${this._dialogParams.supervisor.localize("dialog.hardware.title")}
           </h2>
           <mwc-icon-button dialogAction="close">
-            <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+            <op-svg-icon .path=${mdiClose}></op-svg-icon>
           </mwc-icon-button>
           <search-input
             autofocus
@@ -87,7 +87,7 @@ class OppioHardwareDialog extends LitElement {
 
         ${devices.map(
           (device) =>
-            html`<ha-expansion-panel
+            html`<op-expansion-panel
               .header=${device.name}
               .secondary=${device.by_id || undefined}
               outlined
@@ -126,9 +126,9 @@ class OppioHardwareDialog extends LitElement {
                 </span>
                 <pre>${dump(device.attributes, { indent: 2 })}</pre>
               </div>
-            </ha-expansion-panel>`
+            </op-expansion-panel>`
         )}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

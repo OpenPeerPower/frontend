@@ -94,7 +94,7 @@ export abstract class HaDeviceAutomationPicker<
       return html``;
     }
     return html`
-      <ha-paper-dropdown-menu
+      <op-paper-dropdown-menu
         .label=${this.label}
         .value=${this.value
           ? this._localizeDeviceAutomation(this.opp, this.value)
@@ -128,7 +128,7 @@ export abstract class HaDeviceAutomationPicker<
             `
           )}
         </paper-listbox>
-      </ha-paper-dropdown-menu>
+      </op-paper-dropdown-menu>
     `;
   }
 

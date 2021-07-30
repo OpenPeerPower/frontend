@@ -229,23 +229,23 @@ export class DemoIntegrationCard extends LitElement {
     return html`
       <div class="container">
         <div class="filters">
-          <ha-formfield label="Custom Integration">
-            <ha-switch @change=${this._toggleCustomIntegration}></ha-switch>
-          </ha-formfield>
-          <ha-formfield label="Relies on cloud">
-            <ha-switch @change=${this._toggleCloud}></ha-switch>
-          </ha-formfield>
+          <op-formfield label="Custom Integration">
+            <op-switch @change=${this._toggleCustomIntegration}></op-switch>
+          </op-formfield>
+          <op-formfield label="Relies on cloud">
+            <op-switch @change=${this._toggleCloud}></op-switch>
+          </op-formfield>
         </div>
 
-        <ha-ignored-config-entry-card
+        <op-ignored-config-entry-card
           .opp=${this.opp}
           .entry=${createConfigEntry("Ignored Entry")}
           .manifest=${createManifest(this.isCustomIntegration, this.isCloud)}
-        ></ha-ignored-config-entry-card>
+        ></op-ignored-config-entry-card>
 
         ${configFlows.map(
           (flow) => html`
-            <ha-config-flow-card
+            <op-config-flow-card
               .opp=${this.opp}
               .flow=${flow}
               .manifest=${createManifest(
@@ -253,12 +253,12 @@ export class DemoIntegrationCard extends LitElement {
                 this.isCloud,
                 flow.handler === "roku" ? "Roku" : "Philips Hue"
               )}
-            ></ha-config-flow-card>
+            ></op-config-flow-card>
           `
         )}
         ${configEntries.map(
           (info) => html`
-            <ha-integration-card
+            <op-integration-card
               class=${classMap({
                 highlight: info.highlight !== undefined,
               })}
@@ -277,14 +277,14 @@ export class DemoIntegrationCard extends LitElement {
               )}
               ?disabled=${info.disabled}
               .selectedConfigEntryId=${info.highlight}
-            ></ha-integration-card>
+            ></op-integration-card>
           `
         )}
       </div>
       <div class="container">
         <!-- One that is standalone to see how it increases height if height
            not defined by other cards. -->
-        <ha-integration-card
+        <op-integration-card
           .opp=${this.opp}
           domain="esphome"
           .items=${[
@@ -297,7 +297,7 @@ export class DemoIntegrationCard extends LitElement {
           .manifest=${createManifest(this.isCustomIntegration, this.isCloud)}
           .entityRegistryEntries=${createEntityRegistryEntries(loadedEntry)}
           .deviceRegistryEntries=${createDeviceRegistryEntries(loadedEntry)}
-        ></ha-integration-card>
+        ></op-integration-card>
       </div>
     `;
   }

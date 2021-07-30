@@ -56,7 +56,7 @@ class OppioAddonNetwork extends LitElement {
     }
 
     return html`
-      <ha-card
+      <op-card
         .header=${this.supervisor.localize(
           "addon.configuration.network.header"
         )}
@@ -102,14 +102,14 @@ class OppioAddonNetwork extends LitElement {
           </table>
         </div>
         <div class="card-actions">
-          <ha-progress-button class="warning" @click=${this._resetTapped}>
+          <op-progress-button class="warning" @click=${this._resetTapped}>
             ${this.supervisor.localize("common.reset_defaults")}
-          </ha-progress-button>
-          <ha-progress-button @click=${this._saveTapped}>
+          </op-progress-button>
+          <op-progress-button @click=${this._saveTapped}>
             ${this.supervisor.localize("common.save")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -76,17 +76,15 @@ class OZWNodeDashboard extends LitElement {
         .route=${this.route}
         .tabs=${ozwNodeTabs(this.ozwInstance, this.nodeId)}
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
-          <div slot="header">
-            Node Management
-          </div>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+          <div slot="header">Node Management</div>
 
           <div slot="introduction">
             View the status of a node and manage its configuration.
           </div>
           ${this._node
             ? html`
-                <ha-card class="content">
+                <op-card class="content">
                   <div class="card-content flex">
                     <div class="node-details">
                       <b>
@@ -117,44 +115,44 @@ class OZWNodeDashboard extends LitElement {
                       Refresh Node
                     </mwc-button>
                   </div>
-                </ha-card>
+                </op-card>
 
                 ${this._metadata
                   ? html`
-                      <ha-card class="content" header="Description">
+                      <op-card class="content" header="Description">
                         <div class="card-content">
                           ${this._metadata.metadata.Description}
                         </div>
-                      </ha-card>
-                      <ha-card class="content" header="Inclusion">
+                      </op-card>
+                      <op-card class="content" header="Inclusion">
                         <div class="card-content">
                           ${this._metadata.metadata.InclusionHelp}
                         </div>
-                      </ha-card>
-                      <ha-card class="content" header="Exclusion">
+                      </op-card>
+                      <op-card class="content" header="Exclusion">
                         <div class="card-content">
                           ${this._metadata.metadata.ExclusionHelp}
                         </div>
-                      </ha-card>
-                      <ha-card class="content" header="Reset">
+                      </op-card>
+                      <op-card class="content" header="Reset">
                         <div class="card-content">
                           ${this._metadata.metadata.ResetHelp}
                         </div>
-                      </ha-card>
+                      </op-card>
                       ${this._metadata.metadata.WakeupHelp
                         ? html`
-                            <ha-card class="content" header="WakeUp">
+                            <op-card class="content" header="WakeUp">
                               <div class="card-content">
                                 ${this._metadata.metadata.WakeupHelp}
                               </div>
-                            </ha-card>
+                            </op-card>
                           `
                         : ``}
                     `
                   : ``}
               `
             : ``}
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }

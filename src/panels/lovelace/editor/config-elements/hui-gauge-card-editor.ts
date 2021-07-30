@@ -36,8 +36,10 @@ const cardConfigStruct = object({
 const includeDomains = ["sensor"];
 
 @customElement("hui-gauge-card-editor")
-export class HuiGaugeCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiGaugeCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: GaugeCardConfig;
@@ -82,7 +84,7 @@ export class HuiGaugeCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -94,7 +96,7 @@ export class HuiGaugeCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"
@@ -143,17 +145,17 @@ export class HuiGaugeCardEditor extends LitElement
           .configValue=${"max"}
           @value-changed="${this._valueChanged}"
         ></paper-input>
-        <ha-formfield
+        <op-formfield
           .label=${this.opp.localize(
             "ui.panel.lovelace.editor.card.gauge.severity.define"
           )}
           .dir=${computeRTLDirection(this.opp)}
         >
-          <ha-switch
+          <op-switch
             .checked="${this._config!.severity !== undefined}"
             @change="${this._toggleSeverity}"
-          ></ha-switch
-        ></ha-formfield>
+          ></op-switch
+        ></op-formfield>
         ${this._config!.severity !== undefined
           ? html`
               <paper-input

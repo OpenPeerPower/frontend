@@ -201,7 +201,7 @@ export class HaSceneEditor extends SubscribeMixin(
         ${!this.sceneId
           ? ""
           : html`
-              <ha-icon-button
+              <op-icon-button
                 class="warning"
                 slot="toolbar-icon"
                 title="${this.opp.localize(
@@ -209,7 +209,7 @@ export class HaSceneEditor extends SubscribeMixin(
                 )}"
                 icon="opp:delete"
                 @click=${this._deleteTapped}
-              ></ha-icon-button>
+              ></op-icon-button>
             `}
         ${this._errors ? html` <div class="errors">${this._errors}</div> ` : ""}
         ${this.narrow ? html` <span slot="header">${name}</span> ` : ""}
@@ -221,7 +221,7 @@ export class HaSceneEditor extends SubscribeMixin(
         >
           ${this._config
             ? html`
-                <ha-config-section vertical .isWide=${this.isWide}>
+                <op-config-section vertical .isWide=${this.isWide}>
                   ${!this.narrow
                     ? html` <span slot="header">${name}</span> `
                     : ""}
@@ -230,7 +230,7 @@ export class HaSceneEditor extends SubscribeMixin(
                       "ui.panel.config.scene.editor.introduction"
                     )}
                   </div>
-                  <ha-card>
+                  <op-card>
                     <div class="card-content">
                       <paper-input
                         .value=${this._config.name}
@@ -240,7 +240,7 @@ export class HaSceneEditor extends SubscribeMixin(
                           "ui.panel.config.scene.editor.name"
                         )}
                       ></paper-input>
-                      <ha-icon-input
+                      <op-icon-input
                         .label=${this.opp.localize(
                           "ui.panel.config.scene.editor.icon"
                         )}
@@ -248,12 +248,12 @@ export class HaSceneEditor extends SubscribeMixin(
                         .value=${this._config.icon}
                         @value-changed=${this._valueChanged}
                       >
-                      </ha-icon-input>
+                      </op-icon-input>
                     </div>
-                  </ha-card>
-                </ha-config-section>
+                  </op-card>
+                </op-config-section>
 
-                <ha-config-section vertical .isWide=${this.isWide}>
+                <op-config-section vertical .isWide=${this.isWide}>
                   <div slot="header">
                     ${this.opp.localize(
                       "ui.panel.config.scene.editor.devices.header"
@@ -268,17 +268,17 @@ export class HaSceneEditor extends SubscribeMixin(
                   ${devices.map(
                     (device) =>
                       html`
-                        <ha-card>
+                        <op-card>
                           <h1 class="card-header">
                             ${device.name}
-                            <ha-icon-button
+                            <op-icon-button
                               icon="opp:delete"
                               title="${this.opp.localize(
                                 "ui.panel.config.scene.editor.devices.delete"
                               )}"
                               .device=${device.id}
                               @click=${this._deleteDevice}
-                            ></ha-icon-button>
+                            ></op-icon-button>
                           </h1>
                           ${device.entities.map((entityId) => {
                             const entityStateObj = this.opp.states[entityId];
@@ -301,30 +301,30 @@ export class HaSceneEditor extends SubscribeMixin(
                               </paper-icon-item>
                             `;
                           })}
-                        </ha-card>
+                        </op-card>
                       `
                   )}
 
-                  <ha-card
+                  <op-card
                     .header=${this.opp.localize(
                       "ui.panel.config.scene.editor.devices.add"
                     )}
                   >
                     <div class="card-content">
-                      <ha-device-picker
+                      <op-device-picker
                         @value-changed=${this._devicePicked}
                         .opp=${this.opp}
                         .label=${this.opp.localize(
                           "ui.panel.config.scene.editor.devices.add"
                         )}
-                      ></ha-device-picker>
+                      ></op-device-picker>
                     </div>
-                  </ha-card>
-                </ha-config-section>
+                  </op-card>
+                </op-config-section>
 
                 ${this.showAdvanced
                   ? html`
-                      <ha-config-section vertical .isWide=${this.isWide}>
+                      <op-config-section vertical .isWide=${this.isWide}>
                         <div slot="header">
                           ${this.opp.localize(
                             "ui.panel.config.scene.editor.entities.header"
@@ -337,16 +337,15 @@ export class HaSceneEditor extends SubscribeMixin(
                         </div>
                         ${entities.length
                           ? html`
-                              <ha-card
+                              <op-card
                                 class="entities"
                                 .header=${this.opp.localize(
                                   "ui.panel.config.scene.editor.entities.without_device"
                                 )}
                               >
                                 ${entities.map((entityId) => {
-                                  const entityStateObj = this.opp.states[
-                                    entityId
-                                  ];
+                                  const entityStateObj =
+                                    this.opp.states[entityId];
                                   if (!entityStateObj) {
                                     return html``;
                                   }
@@ -363,22 +362,22 @@ export class HaSceneEditor extends SubscribeMixin(
                                       <paper-item-body>
                                         ${computeStateName(entityStateObj)}
                                       </paper-item-body>
-                                      <ha-icon-button
+                                      <op-icon-button
                                         icon="opp:delete"
                                         .entityId=${entityId}
                                         .title="${this.opp.localize(
                                           "ui.panel.config.scene.editor.entities.delete"
                                         )}"
                                         @click=${this._deleteEntity}
-                                      ></ha-icon-button>
+                                      ></op-icon-button>
                                     </paper-icon-item>
                                   `;
                                 })}
-                              </ha-card>
+                              </op-card>
                             `
                           : ""}
 
-                        <ha-card
+                        <op-card
                           header=${this.opp.localize(
                             "ui.panel.config.scene.editor.entities.add"
                           )}
@@ -387,31 +386,31 @@ export class HaSceneEditor extends SubscribeMixin(
                             ${this.opp.localize(
                               "ui.panel.config.scene.editor.entities.device_entities"
                             )}
-                            <ha-entity-picker
+                            <op-entity-picker
                               @value-changed=${this._entityPicked}
                               .excludeDomains=${SCENE_IGNORED_DOMAINS}
                               .opp=${this.opp}
                               label=${this.opp.localize(
                                 "ui.panel.config.scene.editor.entities.add"
                               )}
-                            ></ha-entity-picker>
+                            ></op-entity-picker>
                           </div>
-                        </ha-card>
-                      </ha-config-section>
+                        </op-card>
+                      </op-config-section>
                     `
                   : ""}
               `
             : ""}
         </div>
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize("ui.panel.config.scene.editor.save")}
           extended
           @click=${this._saveScene}
           class=${classMap({ dirty: this._dirty })}
         >
-          <ha-svg-icon slot="icon" .path=${mdiContentSave}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiContentSave}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage>
     `;
   }
@@ -489,10 +488,11 @@ export class HaSceneEditor extends SubscribeMixin(
     this._scene = scene;
     const { context } = await activateScene(this.opp, this._scene.entity_id);
     this._activateContextId = context.id;
-    this._unsubscribeEvents = await this.opp!.connection.subscribeEvents<OppEvent>(
-      (event) => this._stateChanged(event),
-      "state_changed"
-    );
+    this._unsubscribeEvents =
+      await this.opp!.connection.subscribeEvents<OppEvent>(
+        (event) => this._stateChanged(event),
+        "state_changed"
+      );
   }
 
   private _showMoreInfo(ev: Event) {

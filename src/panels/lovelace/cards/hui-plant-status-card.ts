@@ -112,7 +112,7 @@ class HuiPlantStatusCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         class="${stateObj.attributes.entity_picture ? "has-plant-image" : ""}"
       >
         <div
@@ -134,12 +134,12 @@ class HuiPlantStatusCard extends LitElement implements LovelaceCard {
                 .value="${item}"
               >
                 <div>
-                  <ha-icon
+                  <op-icon
                     icon="${this.computeIcon(
                       item,
                       stateObj.attributes.battery
                     )}"
-                  ></ha-icon>
+                  ></op-icon>
                 </div>
                 <div
                   class="${stateObj.attributes.problem.indexOf(item) === -1
@@ -155,7 +155,7 @@ class HuiPlantStatusCard extends LitElement implements LovelaceCard {
             `
           )}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

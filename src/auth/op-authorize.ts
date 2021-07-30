@@ -84,22 +84,22 @@ class HaAuthorize extends litLocalizeLiteMixin(LitElement) {
       </p>
       ${loggingInWith}
 
-      <ha-auth-flow
+      <op-auth-flow
         .resources="${this.resources}"
         .clientId="${this.clientId}"
         .redirectUri="${this.redirectUri}"
         .oauth2State="${this.oauth2State}"
         .authProvider="${this._authProvider}"
-      ></ha-auth-flow>
+      ></op-auth-flow>
 
       ${inactiveProviders.length > 0
         ? html`
-            <ha-pick-auth-provider
+            <op-pick-auth-provider
               .resources="${this.resources}"
               .clientId="${this.clientId}"
               .authProviders="${inactiveProviders}"
               @pick-auth-provider="${this._handleAuthProviderPick}"
-            ></ha-pick-auth-provider>
+            ></op-pick-auth-provider>
           `
         : ""}
     `;

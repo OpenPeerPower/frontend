@@ -61,7 +61,7 @@ class DialogUserDetail extends LitElement {
     }
     const user = this._params.entry;
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing=${this._close}
         scrimClickAction
@@ -101,24 +101,22 @@ class DialogUserDetail extends LitElement {
               .value=${this._name}
               .disabled=${user.system_generated}
               @value-changed=${this._nameChanged}
-              label="${this.opp!.localize(
-                "ui.panel.config.users.editor.name"
-              )}"
+              label="${this.opp!.localize("ui.panel.config.users.editor.name")}"
             ></paper-input>
             <div class="row">
-              <ha-formfield
+              <op-formfield
                 .label=${this.opp.localize(
                   "ui.panel.config.users.editor.admin"
                 )}
                 .dir=${computeRTLDirection(this.opp)}
               >
-                <ha-switch
+                <op-switch
                   .disabled=${user.system_generated || user.is_owner}
                   .checked=${this._isAdmin}
                   @change=${this._adminChanged}
                 >
-                </ha-switch>
-              </ha-formfield>
+                </op-switch>
+              </op-formfield>
             </div>
             ${!this._isAdmin
               ? html`
@@ -129,25 +127,25 @@ class DialogUserDetail extends LitElement {
                 `
               : ""}
             <div class="row">
-              <ha-formfield
+              <op-formfield
                 .label=${this.opp.localize(
                   "ui.panel.config.users.editor.active"
                 )}
                 .dir=${computeRTLDirection(this.opp)}
               >
-                <ha-switch
+                <op-switch
                   .disabled=${user.system_generated || user.is_owner}
                   .checked=${this._isActive}
                   @change=${this._activeChanged}
                 >
-                </ha-switch>
-              </ha-formfield>
-              <ha-help-tooltip
+                </op-switch>
+              </op-formfield>
+              <op-help-tooltip
                 .label=${this.opp.localize(
                   "ui.panel.config.users.editor.active_tooltip"
                 )}
               >
-              </ha-help-tooltip>
+              </op-help-tooltip>
             </div>
           </div>
         </div>
@@ -199,7 +197,7 @@ class DialogUserDetail extends LitElement {
               `
             : ""}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -285,9 +283,7 @@ class DialogUserDetail extends LitElement {
     }
     await adminChangePassword(this.opp, this._params!.entry.id, newPassword);
     showAlertDialog(this, {
-      title: this.opp.localize(
-        "ui.panel.config.users.editor.password_changed"
-      ),
+      title: this.opp.localize("ui.panel.config.users.editor.password_changed"),
     });
   }
 

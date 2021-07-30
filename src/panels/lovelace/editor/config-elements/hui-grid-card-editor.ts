@@ -56,18 +56,18 @@ export class HuiGridCardEditor extends HuiStackCardEditor {
             .configValue=${"columns"}
             @value-changed=${this._handleColumnsChanged}
           ></paper-input>
-          <ha-formfield
+          <op-formfield
             .label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.grid.square"
             )}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._square}
               .configValue=${"square"}
               @change=${this._handleSquareChanged}
-            ></ha-switch>
-          </ha-formfield>
+            ></op-switch>
+          </op-formfield>
         </div>
       </div>
       ${super.render()}

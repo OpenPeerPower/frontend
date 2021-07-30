@@ -54,9 +54,13 @@ class HaConfigAreaPage extends LitElement {
 
   @internalProperty() private _related?: RelatedResult;
 
-  private _area = memoizeOne((areaId: string, areas: AreaRegistryEntry[]):
-    | AreaRegistryEntry
-    | undefined => areas.find((area) => area.area_id === areaId));
+  private _area = memoizeOne(
+    (
+      areaId: string,
+      areas: AreaRegistryEntry[]
+    ): AreaRegistryEntry | undefined =>
+      areas.find((area) => area.area_id === areaId)
+  );
 
   private _devices = memoizeOne(
     (areaId: string, devices: DeviceRegistryEntry[]): DeviceRegistryEntry[] =>
@@ -96,20 +100,14 @@ class HaConfigAreaPage extends LitElement {
         .tabs=${configSections.integrations}
         .route=${this.route}
       >
-        ${this.narrow
-          ? html`
-              <span slot="header">
-                ${area.name}
-              </span>
-            `
-          : ""}
+        ${this.narrow ? html` <span slot="header"> ${area.name} </span> ` : ""}
 
-        <ha-icon-button
+        <op-icon-button
           slot="toolbar-icon"
           icon="opp:cog"
           .entry=${area}
           @click=${this._showSettings}
-        ></ha-icon-button>
+        ></op-icon-button>
 
         <div class="container">
           ${!this.narrow
@@ -120,7 +118,7 @@ class HaConfigAreaPage extends LitElement {
               `
             : ""}
           <div class="column">
-            <ha-card
+            <op-card
               .header=${this.opp.localize("ui.panel.config.devices.caption")}
               >${devices.length
                 ? devices.map(
@@ -131,7 +129,7 @@ class HaConfigAreaPage extends LitElement {
                             <paper-item-body>
                               ${computeDeviceName(device, this.opp)}
                             </paper-item-body>
-                            <ha-icon-next></ha-icon-next>
+                            <op-icon-next></op-icon-next>
                           </paper-item>
                         </a>
                       `
@@ -143,12 +141,12 @@ class HaConfigAreaPage extends LitElement {
                       )}</paper-item
                     >
                   `}
-            </ha-card>
+            </op-card>
           </div>
           <div class="column">
             ${isComponentLoaded(this.opp, "automation")
               ? html`
-                  <ha-card
+                  <op-card
                     .header=${this.opp.localize(
                       "ui.panel.config.devices.automation.automations"
                     )}
@@ -171,7 +169,7 @@ class HaConfigAreaPage extends LitElement {
                                       <paper-item-body>
                                         ${computeStateName(state)}
                                       </paper-item-body>
-                                      <ha-icon-next></ha-icon-next>
+                                      <op-icon-next></op-icon-next>
                                     </paper-item>
                                   </a>
                                   ${!state.attributes.id
@@ -194,14 +192,14 @@ class HaConfigAreaPage extends LitElement {
                             )}</paper-item
                           >
                         `}
-                  </ha-card>
+                  </op-card>
                 `
               : ""}
           </div>
           <div class="column">
             ${isComponentLoaded(this.opp, "scene")
               ? html`
-                  <ha-card
+                  <op-card
                     .header=${this.opp.localize(
                       "ui.panel.config.devices.scene.scenes"
                     )}
@@ -224,7 +222,7 @@ class HaConfigAreaPage extends LitElement {
                                       <paper-item-body>
                                         ${computeStateName(state)}
                                       </paper-item-body>
-                                      <ha-icon-next></ha-icon-next>
+                                      <op-icon-next></op-icon-next>
                                     </paper-item>
                                   </a>
                                   ${!state.attributes.id
@@ -247,12 +245,12 @@ class HaConfigAreaPage extends LitElement {
                             )}</paper-item
                           >
                         `}
-                  </ha-card>
+                  </op-card>
                 `
               : ""}
             ${isComponentLoaded(this.opp, "script")
               ? html`
-                  <ha-card
+                  <op-card
                     .header=${this.opp.localize(
                       "ui.panel.config.devices.script.scripts"
                     )}
@@ -268,7 +266,7 @@ class HaConfigAreaPage extends LitElement {
                                     <paper-item-body>
                                       ${computeStateName(state)}
                                     </paper-item-body>
-                                    <ha-icon-next></ha-icon-next>
+                                    <op-icon-next></op-icon-next>
                                   </paper-item>
                                 </a>
                               `
@@ -281,7 +279,7 @@ class HaConfigAreaPage extends LitElement {
                             )}</paper-item
                           >
                         `}
-                  </ha-card>
+                  </op-card>
                 `
               : ""}
           </div>

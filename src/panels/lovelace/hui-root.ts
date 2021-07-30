@@ -112,7 +112,7 @@ class HUIRoot extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-app-layout
+      <op-app-layout
         class=${classMap({
           "edit-mode": this._editMode,
         })}
@@ -131,7 +131,7 @@ class HUIRoot extends LitElement {
                     )}"
                     @click="${this._editModeDisable}"
                   >
-                    <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiClose}></op-svg-icon>
                   </mwc-icon-button>
                   <div main-title>
                     ${this.config.title ||
@@ -146,7 +146,7 @@ class HUIRoot extends LitElement {
                       class="edit-icon"
                       @click="${this._editLovelace}"
                     >
-                      <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiPencil}></op-svg-icon>
                     </mwc-icon-button>
                   </div>
                   <a
@@ -160,10 +160,10 @@ class HUIRoot extends LitElement {
                         "ui.panel.lovelace.menu.help"
                       )}"
                     >
-                      <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
                     </mwc-icon-button>
                   </a>
-                  <ha-button-menu corner="BOTTOM_START">
+                  <op-button-menu corner="BOTTOM_START">
                     <mwc-icon-button
                       slot="trigger"
                       .title="${this.opp!.localize(
@@ -173,7 +173,7 @@ class HUIRoot extends LitElement {
                         "ui.panel.lovelace.editor.menu.open"
                       )}
                     >
-                      <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
                     </mwc-icon-button>
                     ${__DEMO__ /* No unused entities available in the demo */
                       ? ""
@@ -185,11 +185,11 @@ class HUIRoot extends LitElement {
                             )}
                             @request-selected="${this._handleUnusedEntities}"
                           >
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiFormatListBulletedTriangle}
                             >
-                            </ha-svg-icon>
+                            </op-svg-icon>
                             ${this.opp!.localize(
                               "ui.panel.lovelace.unused_entities.title"
                             )}
@@ -199,10 +199,10 @@ class HUIRoot extends LitElement {
                       graphic="icon"
                       @request-selected="${this._handleRawEditor}"
                     >
-                      <ha-svg-icon
+                      <op-svg-icon
                         slot="graphic"
                         .path=${mdiCodeBraces}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                       ${this.opp!.localize(
                         "ui.panel.lovelace.editor.menu.raw_editor"
                       )}
@@ -213,10 +213,10 @@ class HUIRoot extends LitElement {
                             graphic="icon"
                             @request-selected="${this._handleManageDashboards}"
                           >
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiViewDashboard}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                             ${this.opp!.localize(
                               "ui.panel.lovelace.editor.menu.manage_dashboards"
                             )}
@@ -227,27 +227,27 @@ class HUIRoot extends LitElement {
                                 @request-selected="${this
                                   ._handleManageResources}"
                               >
-                                <ha-svg-icon
+                                <op-svg-icon
                                   slot="graphic"
                                   .path=${mdiFileMultiple}
-                                ></ha-svg-icon>
+                                ></op-svg-icon>
                                 ${this.opp!.localize(
                                   "ui.panel.lovelace.editor.menu.manage_resources"
                                 )}
                               </mwc-list-item>`
                             : ""} `}
-                  </ha-button-menu>
+                  </op-button-menu>
                 </app-toolbar>
               `
             : html`
                 <app-toolbar>
-                  <ha-menu-button
+                  <op-menu-button
                     .opp=${this.opp}
                     .narrow=${this.narrow}
-                  ></ha-menu-button>
+                  ></op-menu-button>
                   ${this.lovelace!.config.views.length > 1
                     ? html`
-                        <ha-tabs
+                        <op-tabs
                           scrollable
                           .selected="${this._curView}"
                           @iron-activate="${this._handleViewSelected}"
@@ -270,16 +270,16 @@ class HUIRoot extends LitElement {
                               >
                                 ${view.icon
                                   ? html`
-                                      <ha-icon
+                                      <op-icon
                                         title="${view.title}"
                                         .icon="${view.icon}"
-                                      ></ha-icon>
+                                      ></op-icon>
                                     `
                                   : view.title || "Unnamed view"}
                               </paper-tab>
                             `
                           )}
-                        </ha-tabs>
+                        </op-tabs>
                       `
                     : html`<div main-title>${this.config.title}</div>`}
                   ${!this.narrow &&
@@ -291,11 +291,11 @@ class HUIRoot extends LitElement {
                           )}
                           @click=${this._showVoiceCommandDialog}
                         >
-                          <ha-svg-icon .path=${mdiMicrophone}></ha-svg-icon>
+                          <op-svg-icon .path=${mdiMicrophone}></op-svg-icon>
                         </mwc-icon-button>
                       `
                     : ""}
-                  <ha-button-menu corner="BOTTOM_START">
+                  <op-button-menu corner="BOTTOM_START">
                     <mwc-icon-button
                       slot="trigger"
                       .label=${this.opp!.localize(
@@ -305,7 +305,7 @@ class HUIRoot extends LitElement {
                         "ui.panel.lovelace.editor.menu.open"
                       )}"
                     >
-                      <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
                     </mwc-icon-button>
                     ${this.narrow &&
                     this._conversation(this.opp.config.components)
@@ -322,10 +322,10 @@ class HUIRoot extends LitElement {
                                 "ui.panel.lovelace.menu.start_conversation"
                               )}</span
                             >
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiMicrophone}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-list-item>
                         `
                       : ""}
@@ -341,10 +341,10 @@ class HUIRoot extends LitElement {
                             <span
                               >${this.opp!.localize("ui.common.refresh")}</span
                             >
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiRefresh}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-list-item>
                           <mwc-list-item
                             aria-label=${this.opp!.localize(
@@ -358,10 +358,10 @@ class HUIRoot extends LitElement {
                                 "ui.panel.lovelace.unused_entities.title"
                               )}</span
                             >
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiShape}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-list-item>
                         `
                       : ""}
@@ -378,10 +378,10 @@ class HUIRoot extends LitElement {
                             ${this.opp!.localize(
                               "ui.panel.lovelace.menu.reload_resources"
                             )}
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiRefresh}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-list-item>
                         `
                       : ""}
@@ -397,10 +397,10 @@ class HUIRoot extends LitElement {
                             ${this.opp!.localize(
                               "ui.panel.lovelace.menu.configure_ui"
                             )}
-                            <ha-svg-icon
+                            <op-svg-icon
                               slot="graphic"
                               .path=${mdiCog}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-list-item>
                         `
                       : ""}
@@ -417,13 +417,13 @@ class HUIRoot extends LitElement {
                         )}
                       >
                         ${this.opp!.localize("ui.panel.lovelace.menu.help")}
-                        <ha-svg-icon
+                        <op-svg-icon
                           slot="graphic"
                           .path=${mdiHelp}
-                        ></ha-svg-icon>
+                        ></op-svg-icon>
                       </mwc-list-item>
                     </a>
-                  </ha-button-menu>
+                  </op-button-menu>
                 </app-toolbar>
               `}
           ${this._editMode
@@ -453,7 +453,7 @@ class HUIRoot extends LitElement {
                         >
                           ${this._editMode
                             ? html`
-                                <ha-icon-button-arrow-prev
+                                <op-icon-button-arrow-prev
                                   .opp=${this.opp}
                                   .title="${this.opp!.localize(
                                     "ui.panel.lovelace.editor.edit_view.move_left"
@@ -464,28 +464,28 @@ class HUIRoot extends LitElement {
                                   class="edit-icon view"
                                   @click="${this._moveViewLeft}"
                                   ?disabled="${this._curView === 0}"
-                                ></ha-icon-button-arrow-prev>
+                                ></op-icon-button-arrow-prev>
                               `
                             : ""}
                           ${view.icon
                             ? html`
-                                <ha-icon
+                                <op-icon
                                   title="${view.title}"
                                   .icon="${view.icon}"
-                                ></ha-icon>
+                                ></op-icon>
                               `
                             : view.title || "Unnamed view"}
                           ${this._editMode
                             ? html`
-                                <ha-svg-icon
+                                <op-svg-icon
                                   title="${this.opp!.localize(
                                     "ui.panel.lovelace.editor.edit_view.edit"
                                   )}"
                                   class="edit-icon view"
                                   .path=${mdiPencil}
                                   @click="${this._editView}"
-                                ></ha-svg-icon>
-                                <ha-icon-button-arrow-next
+                                ></op-svg-icon>
+                                <op-icon-button-arrow-next
                                   .opp=${this.opp}
                                   .title="${this.opp!.localize(
                                     "ui.panel.lovelace.editor.edit_view.move_right"
@@ -498,7 +498,7 @@ class HUIRoot extends LitElement {
                                   ?disabled="${(this._curView! as number) +
                                     1 ===
                                   this.lovelace!.config.views.length}"
-                                ></ha-icon-button-arrow-next>
+                                ></op-icon-button-arrow-next>
                               `
                             : ""}
                         </paper-tab>
@@ -513,7 +513,7 @@ class HUIRoot extends LitElement {
                               "ui.panel.lovelace.editor.edit_view.add"
                             )}"
                           >
-                            <ha-svg-icon .path=${mdiPlus}></ha-svg-icon>
+                            <op-svg-icon .path=${mdiPlus}></op-svg-icon>
                           </mwc-icon-button>
                         `
                       : ""}
@@ -523,7 +523,7 @@ class HUIRoot extends LitElement {
             : ""}
         </app-header>
         <div id="view" @ll-rebuild="${this._debouncedConfigChanged}"></div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

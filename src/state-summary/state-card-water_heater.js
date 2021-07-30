@@ -23,10 +23,10 @@ class StateCardWaterHeater extends PolymerElement {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <ha-water_heater-state
+        <op-water_heater-state
           opp="[[opp]]"
           state-obj="[[stateObj]]"
-        ></ha-water_heater-state>
+        ></op-water_heater-state>
       </div>
     `;
   }

@@ -180,7 +180,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
         title: "",
         type: "icon",
         template: (icon) => html`
-          <ha-icon slot="item-icon" .icon=${icon}></ha-icon>
+          <op-icon slot="item-icon" .icon=${icon}></op-icon>
         `,
       },
       name: {
@@ -247,7 +247,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                   tabindex="0"
                   style="display:inline-block; position: relative;"
                 >
-                  <ha-icon
+                  <op-icon
                     style=${styleMap({
                       color: entity.unavailable ? "var(--error-color)" : "",
                     })}
@@ -258,7 +258,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                       : entity.disabled_by
                       ? "opp:cancel"
                       : "opp:pencil-off"}
-                  ></ha-icon>
+                  ></op-icon>
                   <paper-tooltip animation-delay="0" position="left">
                     ${entity.restored
                       ? this.opp.localize(
@@ -447,20 +447,18 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
       this._entries
     );
 
-    const {
-      filteredEntities,
-      filteredDomains,
-    } = this._filteredEntitiesAndDomains(
-      this._entities,
-      this._devices,
-      this._areas,
-      this._stateEntities,
-      this._searchParms,
-      this._showDisabled,
-      this._showUnavailable,
-      this._showReadOnly,
-      this._entries
-    );
+    const { filteredEntities, filteredDomains } =
+      this._filteredEntitiesAndDomains(
+        this._entities,
+        this._devices,
+        this._areas,
+        this._stateEntities,
+        this._searchParms,
+        this._showDisabled,
+        this._showUnavailable,
+        this._showReadOnly,
+        this._entries
+      );
 
     const includeZHAFab = filteredDomains.includes("zha");
 
@@ -533,7 +531,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                       <mwc-icon-button
                         id="enable-btn"
                         @click=${this._enableSelected}
-                        ><ha-svg-icon .path=${mdiUndo}></ha-svg-icon
+                        ><op-svg-icon .path=${mdiUndo}></op-svg-icon
                       ></mwc-icon-button>
                       <paper-tooltip animation-delay="0" for="enable-btn">
                         ${this.opp.localize(
@@ -543,7 +541,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                       <mwc-icon-button
                         id="disable-btn"
                         @click=${this._disableSelected}
-                        ><ha-svg-icon .path=${mdiCancel}></ha-svg-icon
+                        ><op-svg-icon .path=${mdiCancel}></op-svg-icon
                       ></mwc-icon-button>
                       <paper-tooltip animation-delay="0" for="disable-btn">
                         ${this.opp.localize(
@@ -554,7 +552,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                         class="warning"
                         id="remove-btn"
                         @click=${this._removeSelected}
-                        ><ha-svg-icon .path=${mdiDelete}></ha-svg-icon
+                        ><op-svg-icon .path=${mdiDelete}></op-svg-icon
                       ></mwc-icon-button>
                       <paper-tooltip animation-delay="0" for="remove-btn">
                         ${this.opp.localize(
@@ -564,7 +562,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                     `}
               </div>
             </div> `
-          : html`<ha-button-menu slot="filter-menu" corner="BOTTOM_START" multi>
+          : html`<op-button-menu slot="filter-menu" corner="BOTTOM_START" multi>
               <mwc-icon-button
                 slot="trigger"
                 .label=${this.opp!.localize(
@@ -574,17 +572,17 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                   "ui.panel.config.entities.picker.filter.filter"
                 )}
               >
-                <ha-svg-icon .path=${mdiFilterVariant}></ha-svg-icon>
+                <op-svg-icon .path=${mdiFilterVariant}></op-svg-icon>
               </mwc-icon-button>
               <mwc-list-item
                 @request-selected="${this._showDisabledChanged}"
                 graphic="control"
                 .selected=${this._showDisabled}
               >
-                <ha-checkbox
+                <op-checkbox
                   slot="graphic"
                   .checked=${this._showDisabled}
-                ></ha-checkbox>
+                ></op-checkbox>
                 ${this.opp!.localize(
                   "ui.panel.config.entities.picker.filter.show_disabled"
                 )}
@@ -594,10 +592,10 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                 graphic="control"
                 .selected=${this._showUnavailable}
               >
-                <ha-checkbox
+                <op-checkbox
                   slot="graphic"
                   .checked=${this._showUnavailable}
-                ></ha-checkbox>
+                ></op-checkbox>
                 ${this.opp!.localize(
                   "ui.panel.config.entities.picker.filter.show_unavailable"
                 )}
@@ -607,24 +605,24 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                 graphic="control"
                 .selected=${this._showReadOnly}
               >
-                <ha-checkbox
+                <op-checkbox
                   slot="graphic"
                   .checked=${this._showReadOnly}
-                ></ha-checkbox>
+                ></op-checkbox>
                 ${this.opp!.localize(
                   "ui.panel.config.entities.picker.filter.show_readonly"
                 )}
               </mwc-list-item>
-            </ha-button-menu>`}
+            </op-button-menu>`}
         ${includeZHAFab
           ? html`<a href="/config/zha/add" slot="fab">
-              <ha-fab
+              <op-fab
                 .label=${this.opp.localize("ui.panel.config.zha.add_device")}
                 extended
                 ?rtl=${computeRTL(this.opp)}
               >
-                <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-              </ha-fab>
+                <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+              </op-fab>
             </a>`
           : html``}
       </opp-tabs-subpage-data-table>

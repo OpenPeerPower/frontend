@@ -54,15 +54,15 @@ export class HaDeviceTrigger extends LitElement {
     const deviceId = this._deviceId || this.trigger.device_id;
 
     return html`
-      <ha-device-picker
+      <op-device-picker
         .value=${deviceId}
         @value-changed=${this._devicePicked}
         .opp=${this.opp}
         label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.device.label"
         )}
-      ></ha-device-picker>
-      <ha-device-trigger-picker
+      ></op-device-picker>
+      <op-device-trigger-picker
         .value=${this.trigger}
         .deviceId=${deviceId}
         @value-changed=${this._deviceTriggerPicked}
@@ -70,17 +70,17 @@ export class HaDeviceTrigger extends LitElement {
         label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.device.trigger"
         )}
-      ></ha-device-trigger-picker>
+      ></op-device-trigger-picker>
       ${this._capabilities?.extra_fields
         ? html`
-            <ha-form
+            <op-form
               .data=${this._extraFieldsData(this.trigger, this._capabilities)}
               .schema=${this._capabilities.extra_fields}
               .computeLabel=${this._extraFieldsComputeLabelCallback(
                 this.opp.localize
               )}
               @value-changed=${this._extraFieldsChanged}
-            ></ha-form>
+            ></op-form>
           `
         : ""}
     `;

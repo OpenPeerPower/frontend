@@ -68,11 +68,12 @@ class HaAutomationPicker extends LitElement {
       if (filteredAutomations === null) {
         return [];
       }
-      return (filteredAutomations
-        ? automations.filter((automation) =>
-            filteredAutomations!.includes(automation.entity_id)
-          )
-        : automations
+      return (
+        filteredAutomations
+          ? automations.filter((automation) =>
+              filteredAutomations!.includes(automation.entity_id)
+            )
+          : automations
       ).map((automation) => {
         return {
           ...automation,
@@ -91,10 +92,10 @@ class HaAutomationPicker extends LitElement {
           type: "icon",
           template: (_toggle, automation: any) =>
             html`
-              <ha-entity-toggle
+              <op-entity-toggle
                 .opp=${this.opp}
                 .stateObj=${automation}
-              ></ha-entity-toggle>
+              ></op-entity-toggle>
             `,
         },
         name: {
@@ -162,7 +163,7 @@ class HaAutomationPicker extends LitElement {
               "ui.panel.config.automation.picker.show_info_automation"
             )}"
           >
-            <ha-svg-icon .path=${mdiInformationOutline}></ha-svg-icon>
+            <op-svg-icon .path=${mdiInformationOutline}></op-svg-icon>
           </mwc-icon-button>
         `,
       };
@@ -183,7 +184,7 @@ class HaAutomationPicker extends LitElement {
               )}
               .disabled=${!automation.attributes.id}
             >
-              <ha-svg-icon .path=${mdiHistory}></ha-svg-icon>
+              <op-svg-icon .path=${mdiHistory}></op-svg-icon>
             </mwc-icon-button>
           </a>
           ${!automation.attributes.id
@@ -214,9 +215,9 @@ class HaAutomationPicker extends LitElement {
                 "ui.panel.config.automation.picker.edit_automation"
               )}"
             >
-              <ha-svg-icon
+              <op-svg-icon
                 .path=${automation.attributes.id ? mdiPencil : mdiPencilOff}
-              ></ha-svg-icon>
+              ></op-svg-icon>
             </mwc-icon-button>
           </a>
           ${!automation.attributes.id
@@ -253,9 +254,9 @@ class HaAutomationPicker extends LitElement {
         hasFab
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._showHelp}>
-          <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+          <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
         </mwc-icon-button>
-        <ha-button-related-filter-menu
+        <op-button-related-filter-menu
           slot="filter-menu"
           corner="BOTTOM_START"
           .narrow=${this.narrow}
@@ -264,8 +265,8 @@ class HaAutomationPicker extends LitElement {
           exclude-domains='["automation"]'
           @related-changed=${this._relatedFilterChanged}
         >
-        </ha-button-related-filter-menu>
-        <ha-fab
+        </op-button-related-filter-menu>
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.automation.picker.add_automation"
@@ -273,8 +274,8 @@ class HaAutomationPicker extends LitElement {
           extended
           @click=${this._createNew}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }
@@ -312,9 +313,7 @@ class HaAutomationPicker extends LitElement {
             target="_blank"
             rel="noreferrer"
           >
-            ${this.opp.localize(
-              "ui.panel.config.automation.picker.learn_more"
-            )}
+            ${this.opp.localize("ui.panel.config.automation.picker.learn_more")}
           </a>
         </p>
       `,

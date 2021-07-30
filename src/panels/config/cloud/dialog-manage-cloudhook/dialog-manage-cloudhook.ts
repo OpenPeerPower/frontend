@@ -44,7 +44,7 @@ export class DialogManageCloudhook extends LitElement {
           )
         : documentationUrl(this.opp!, `/integrations/${webhook.domain}/`);
     return html`
-      <ha-paper-dialog with-backdrop>
+      <op-paper-dialog with-backdrop>
         <h2>
           ${this.opp!.localize(
             "ui.panel.config.cloud.dialog_cloudhook.webhook_for",
@@ -98,7 +98,7 @@ export class DialogManageCloudhook extends LitElement {
             )}</mwc-button
           >
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

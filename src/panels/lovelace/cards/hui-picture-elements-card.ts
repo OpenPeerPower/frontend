@@ -118,7 +118,7 @@ class HuiPictureElementsCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card .header=${this._config.title}>
+      <op-card .header=${this._config.title}>
         <div id="root">
           <hui-image
             .opp=${this.opp}
@@ -134,7 +134,7 @@ class HuiPictureElementsCard extends LitElement implements LovelaceCard {
           ></hui-image>
           ${this._elements}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

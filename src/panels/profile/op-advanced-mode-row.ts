@@ -26,7 +26,7 @@ class AdvancedModeRow extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-settings-row .narrow=${this.narrow}>
+      <op-settings-row .narrow=${this.narrow}>
         <span slot="heading">
           ${this.opp.localize("ui.panel.profile.advanced_mode.title")}
         </span>
@@ -39,12 +39,12 @@ class AdvancedModeRow extends LitElement {
             >${this.opp.localize("ui.panel.profile.advanced_mode.link_promo")}
           </a>
         </span>
-        <ha-switch
+        <op-switch
           .checked=${this.coreUserData && this.coreUserData.showAdvanced}
           .disabled=${this.coreUserData === undefined}
           @change=${this._advancedToggled}
-        ></ha-switch>
-      </ha-settings-row>
+        ></op-switch>
+      </op-settings-row>
     `;
   }
 

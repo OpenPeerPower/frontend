@@ -66,7 +66,7 @@ export class HaConfigServerControl extends LitElement {
         .tabs=${configSections.general}
         .showAdvanced=${this.showAdvanced}
       >
-        <ha-config-section .isWide=${this.isWide}>
+        <op-config-section .isWide=${this.isWide}>
           <span slot="header"
             >${this.opp.localize(
               "ui.panel.config.server_control.caption"
@@ -79,7 +79,7 @@ export class HaConfigServerControl extends LitElement {
           >
 
           ${this.showAdvanced
-            ? html` <ha-card
+            ? html` <op-card
                 header=${this.opp.localize(
                   "ui.panel.config.server_control.section.validation.heading"
                 )}
@@ -115,9 +115,9 @@ export class HaConfigServerControl extends LitElement {
                                 </mwc-button>
                               `
                             : html`
-                                <ha-circular-progress
+                                <op-circular-progress
                                   active
-                                ></ha-circular-progress>
+                                ></op-circular-progress>
                               `}
                         </div>
                       `
@@ -139,10 +139,10 @@ export class HaConfigServerControl extends LitElement {
                         </div>
                       `}
                 </div>
-              </ha-card>`
+              </op-card>`
             : ""}
 
-          <ha-card
+          <op-card
             header=${this.opp.localize(
               "ui.panel.config.server_control.section.server_management.heading"
             )}
@@ -153,7 +153,7 @@ export class HaConfigServerControl extends LitElement {
               )}
             </div>
             <div class="card-actions warning">
-              <ha-call-service-button
+              <op-call-service-button
                 class="warning"
                 .opp=${this.opp}
                 domain="openpeerpower"
@@ -164,8 +164,8 @@ export class HaConfigServerControl extends LitElement {
                 >${this.opp.localize(
                   "ui.panel.config.server_control.section.server_management.restart"
                 )}
-              </ha-call-service-button>
-              <ha-call-service-button
+              </op-call-service-button>
+              <op-call-service-button
                 class="warning"
                 .opp=${this.opp}
                 domain="openpeerpower"
@@ -176,13 +176,13 @@ export class HaConfigServerControl extends LitElement {
                 >${this.opp.localize(
                   "ui.panel.config.server_control.section.server_management.stop"
                 )}
-              </ha-call-service-button>
+              </op-call-service-button>
             </div>
-          </ha-card>
+          </op-card>
 
           ${this.showAdvanced
             ? html`
-                <ha-card
+                <op-card
                   header=${this.opp.localize(
                     "ui.panel.config.server_control.section.reloading.heading"
                   )}
@@ -193,19 +193,19 @@ export class HaConfigServerControl extends LitElement {
                     )}
                   </div>
                   <div class="card-actions">
-                    <ha-call-service-button
+                    <op-call-service-button
                       .opp=${this.opp}
                       domain="openpeerpower"
                       service="reload_core_config"
                       >${this.opp.localize(
                         "ui.panel.config.server_control.section.reloading.core"
                       )}
-                    </ha-call-service-button>
+                    </op-call-service-button>
                   </div>
                   ${this._reloadableDomains.map(
                     (domain) =>
                       html`<div class="card-actions">
-                        <ha-call-service-button
+                        <op-call-service-button
                           .opp=${this.opp}
                           .domain=${domain}
                           service="reload"
@@ -217,13 +217,13 @@ export class HaConfigServerControl extends LitElement {
                             "domain",
                             domainToName(this.opp.localize, domain)
                           )}
-                        </ha-call-service-button>
+                        </op-call-service-button>
                       </div>`
                   )}
-                </ha-card>
+                </op-card>
               `
             : ""}
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }

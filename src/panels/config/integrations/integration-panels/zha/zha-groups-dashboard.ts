@@ -127,14 +127,12 @@ export class ZHAGroupsDashboard extends LitElement {
         clickable
       >
         <a href="/config/zha/group-add" slot="fab">
-          <ha-fab
-            .label=${this.opp!.localize(
-              "ui.panel.config.zha.groups.add_group"
-            )}
+          <op-fab
+            .label=${this.opp!.localize("ui.panel.config.zha.groups.add_group")}
             extended
           >
-            <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-          </ha-fab>
+            <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+          </op-fab>
         </a>
       </opp-tabs-subpage-data-table>
     `;

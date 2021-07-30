@@ -81,34 +81,29 @@ export class HaAutomationTrace extends LitElement {
       ? this.opp.states[this._entityId]
       : undefined;
 
-    const trackedNodes = this.shadowRoot!.querySelector(
-      "hat-script-graph"
-    )?.getTrackedNodes();
+    const trackedNodes =
+      this.shadowRoot!.querySelector("hat-script-graph")?.getTrackedNodes();
 
     const title = stateObj?.attributes.friendly_name || this._entityId;
 
     let devButtons: TemplateResult | string = "";
     if (__DEV__) {
       devButtons = html`<div style="position: absolute; right: 0;">
-        <button @click=${this._importTrace}>
-          Import trace
-        </button>
-        <button @click=${this._loadLocalStorageTrace}>
-          Load stored trace
-        </button>
+        <button @click=${this._importTrace}>Import trace</button>
+        <button @click=${this._loadLocalStorageTrace}>Load stored trace</button>
       </div>`;
     }
 
     const actionButtons = html`
       <mwc-icon-button label="Refresh" @click=${() => this._loadTraces()}>
-        <ha-svg-icon .path=${mdiRefresh}></ha-svg-icon>
+        <op-svg-icon .path=${mdiRefresh}></op-svg-icon>
       </mwc-icon-button>
       <mwc-icon-button
         .disabled=${!this._trace}
         label="Download Trace"
         @click=${this._downloadTrace}
       >
-        <ha-svg-icon .path=${mdiDownload}></ha-svg-icon>
+        <op-svg-icon .path=${mdiDownload}></op-svg-icon>
       </mwc-icon-button>
     `;
 
@@ -121,12 +116,8 @@ export class HaAutomationTrace extends LitElement {
         .tabs=${configSections.automation}
       >
         ${this.narrow
-          ? html`<span slot="header">
-                ${title}
-              </span>
-              <div slot="toolbar-icon">
-                ${actionButtons}
-              </div>`
+          ? html`<span slot="header"> ${title} </span>
+              <div slot="toolbar-icon">${actionButtons}</div>`
           : ""}
         <div class="toolbar">
           ${!this.narrow
@@ -137,7 +128,7 @@ export class HaAutomationTrace extends LitElement {
                   href="/config/automation/edit/${this.automationId}"
                 >
                   <mwc-icon-button label="Edit Automation" tabindex="-1">
-                    <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiPencil}></op-svg-icon>
                   </mwc-icon-button>
                 </a>
               </div>`
@@ -151,19 +142,19 @@ export class HaAutomationTrace extends LitElement {
                     label="Older trace"
                     @click=${this._pickOlderTrace}
                   >
-                    <ha-svg-icon .path=${mdiRayEndArrow}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiRayEndArrow}></op-svg-icon>
                   </mwc-icon-button>
                   <select .value=${this._runId} @change=${this._pickTrace}>
                     ${repeat(
                       this._traces,
                       (trace) => trace.run_id,
                       (trace) =>
-                        html`<option value=${trace.run_id}
-                          >${formatDateTimeWithSeconds(
+                        html`<option value=${trace.run_id}>
+                          ${formatDateTimeWithSeconds(
                             new Date(trace.timestamp.start),
                             this.opp.locale
-                          )}</option
-                        >`
+                          )}
+                        </option>`
                     )}
                   </select>
                   <mwc-icon-button
@@ -171,7 +162,7 @@ export class HaAutomationTrace extends LitElement {
                     label="Newer trace"
                     @click=${this._pickNewerTrace}
                   >
-                    <ha-svg-icon .path=${mdiRayStartArrow}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiRayStartArrow}></op-svg-icon>
                   </mwc-icon-button>
                 </div>
               `
@@ -235,45 +226,45 @@ export class HaAutomationTrace extends LitElement {
                     ? ""
                     : this._view === "details"
                     ? html`
-                        <ha-automation-trace-path-details
+                        <op-automation-trace-path-details
                           .opp=${this.opp}
                           .narrow=${this.narrow}
                           .trace=${this._trace}
                           .selected=${this._selected}
                           .logbookEntries=${this._logbookEntries}
                           .trackedNodes=${trackedNodes}
-                        ></ha-automation-trace-path-details>
+                        ></op-automation-trace-path-details>
                       `
                     : this._view === "config"
                     ? html`
-                        <ha-automation-trace-config
+                        <op-automation-trace-config
                           .opp=${this.opp}
                           .trace=${this._trace}
-                        ></ha-automation-trace-config>
+                        ></op-automation-trace-config>
                       `
                     : this._view === "logbook"
                     ? html`
-                        <ha-automation-trace-logbook
+                        <op-automation-trace-logbook
                           .opp=${this.opp}
                           .narrow=${this.narrow}
                           .logbookEntries=${this._logbookEntries}
-                        ></ha-automation-trace-logbook>
+                        ></op-automation-trace-logbook>
                       `
                     : this._view === "blueprint"
                     ? html`
-                        <ha-automation-trace-blueprint-config
+                        <op-automation-trace-blueprint-config
                           .opp=${this.opp}
                           .trace=${this._trace}
-                        ></ha-automation-trace-blueprint-config>
+                        ></op-automation-trace-blueprint-config>
                       `
                     : html`
-                        <ha-automation-trace-timeline
+                        <op-automation-trace-timeline
                           .opp=${this.opp}
                           .trace=${this._trace}
                           .logbookEntries=${this._logbookEntries}
                           .selected=${this._selected}
                           @value-changed=${this._timelinePathPicked}
-                        ></ha-automation-trace-timeline>
+                        ></op-automation-trace-timeline>
                       `}
                 </div>
               </div>
@@ -450,9 +441,8 @@ export class HaAutomationTrace extends LitElement {
 
   private _timelinePathPicked(ev) {
     const path = ev.detail.value;
-    const nodes = this.shadowRoot!.querySelector(
-      "hat-script-graph"
-    )!.getTrackedNodes();
+    const nodes =
+      this.shadowRoot!.querySelector("hat-script-graph")!.getTrackedNodes();
     if (nodes[path]) {
       this._selected = nodes[path];
     }

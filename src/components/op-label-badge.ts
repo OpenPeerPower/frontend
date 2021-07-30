@@ -33,7 +33,7 @@ class HaLabelBadge extends LitElement {
           >
             <slot>
               ${this.icon && !this.value && !this.image
-                ? html`<ha-icon .icon=${this.icon}></ha-icon>`
+                ? html`<op-icon .icon=${this.icon}></op-icon>`
                 : ""}
               ${this.value && !this.image
                 ? html`<span>${this.value}</span>`

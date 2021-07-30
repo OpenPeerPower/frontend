@@ -28,8 +28,10 @@ const cardConfigStruct = object({
 const includeDomains = ["humidifier"];
 
 @customElement("hui-humidifier-card-editor")
-export class HuiHumidifierCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiHumidifierCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: HumidifierCardConfig;
@@ -58,7 +60,7 @@ export class HuiHumidifierCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -70,7 +72,7 @@ export class HuiHumidifierCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"

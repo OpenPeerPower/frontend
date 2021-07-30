@@ -509,14 +509,14 @@ class HatScriptGraph extends LitElement {
             .disabled=${paths.length === 0 || paths[0] === this.selected}
             @click=${this.previousTrackedNode}
           >
-            <ha-svg-icon .path=${mdiChevronUp}></ha-svg-icon>
+            <op-svg-icon .path=${mdiChevronUp}></op-svg-icon>
           </mwc-icon-button>
           <mwc-icon-button
             .disabled=${paths.length === 0 ||
             paths[paths.length - 1] === this.selected}
             @click=${this.nextTrackedNode}
           >
-            <ha-svg-icon .path=${mdiChevronDown}></ha-svg-icon>
+            <op-svg-icon .path=${mdiChevronDown}></op-svg-icon>
           </mwc-icon-button>
         </div>
       `;

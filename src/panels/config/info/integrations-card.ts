@@ -30,8 +30,9 @@ class IntegrationsCard extends LitElement {
   private _sortedIntegrations = memoizeOne((components: string[]) => {
     return Array.from(
       new Set(
-        components
-          .map((comp) => (comp.includes(".") ? comp.split(".")[1] : comp))
+        components.map((comp) =>
+          comp.includes(".") ? comp.split(".")[1] : comp
+        )
       )
     ).sort();
   });
@@ -43,7 +44,7 @@ class IntegrationsCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize("ui.panel.config.info.integrations")}
       >
         <table class="card-content">
@@ -103,7 +104,7 @@ class IntegrationsCard extends LitElement {
             )}
           </tbody>
         </table>
-      </ha-card>
+      </op-card>
     `;
   }
 

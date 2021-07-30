@@ -18,7 +18,7 @@ class OppioAddonLogDashboard extends LitElement {
 
   protected render(): TemplateResult {
     if (!this.addon) {
-      return html` <ha-circular-progress active></ha-circular-progress> `;
+      return html` <op-circular-progress active></op-circular-progress> `;
     }
     return html`
       <div class="content">

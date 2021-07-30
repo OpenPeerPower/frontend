@@ -52,7 +52,7 @@ class MoreInfoHumidifier extends LitElement {
           <div>${opp.localize("ui.card.humidifier.humidity")}</div>
           <div class="single-row">
             <div class="target-humidity">${stateObj.attributes.humidity} %</div>
-            <ha-slider
+            <op-slider
               class="humidity"
               step="1"
               pin
@@ -64,14 +64,14 @@ class MoreInfoHumidifier extends LitElement {
               .value=${stateObj.attributes.humidity}
               @change=${this._targetHumiditySliderChanged}
             >
-            </ha-slider>
+            </op-slider>
           </div>
         </div>
 
         ${supportModes
           ? html`
               <div class="container-modes">
-                <ha-paper-dropdown-menu
+                <op-paper-dropdown-menu
                   label-float
                   dynamic-align
                   .label=${opp.localize("ui.card.humidifier.mode")}
@@ -92,7 +92,7 @@ class MoreInfoHumidifier extends LitElement {
                       `
                     )}
                   </paper-listbox>
-                </ha-paper-dropdown-menu>
+                </op-paper-dropdown-menu>
               </div>
             `
           : ""}

@@ -28,7 +28,7 @@ class IntegrationBadge extends LitElement {
           referrerpolicy="no-referrer"
         />
         ${this.badgeIcon
-          ? html` <ha-icon class="badge" .icon=${this.badgeIcon}></ha-icon> `
+          ? html` <op-icon class="badge" .icon=${this.badgeIcon}></op-icon> `
           : ""}
       </div>
       <div class="title">${this.title}</div>

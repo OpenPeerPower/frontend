@@ -39,16 +39,16 @@ export class HaWaitAction extends LitElement implements ActionElement {
         @value-changed=${this._valueChanged}
       ></paper-input>
       <br />
-      <ha-formfield
+      <op-formfield
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.actions.type.wait_template.continue_timeout"
         )}
       >
-        <ha-switch
+        <op-switch
           .checked=${continue_on_timeout}
           @change=${this._continueChanged}
-        ></ha-switch>
-      </ha-formfield>
+        ></op-switch>
+      </op-formfield>
     `;
   }
 

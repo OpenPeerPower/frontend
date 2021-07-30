@@ -34,7 +34,7 @@ class ZwaveNodeProtection extends LocalizeMixin(PolymerElement) {
 
     </style>
       <div class="content">
-        <ha-card header="[[localize('ui.panel.config.zwave.node_management.node_protection')]]">
+        <op-card header="[[localize('ui.panel.config.zwave.node_management.node_protection')]]">
           <div class="device-picker">
           <paper-dropdown-menu label="[[localize('ui.panel.config.zwave.node_management.protection')]]" dynamic-align class="flex" placeholder="{{_loadedProtectionValue}}">
             <paper-listbox slot="dropdown-content" selected="{{_selectedProtectionParameter}}">
@@ -45,14 +45,14 @@ class ZwaveNodeProtection extends LocalizeMixin(PolymerElement) {
           </paper-dropdown-menu>
           </div>
           <div class="card-actions">
-            <ha-call-api-button
+            <op-call-api-button
               opp="[[opp]]"
               path="[[_nodePath]]"
               data="[[_protectionData]]">
               [[localize('ui.panel.config.zwave.node_management.set_protection')]]
-            </ha-call-service-button>
+            </op-call-service-button>
           </div>
-        </ha-card>
+        </op-card>
       </div>
 `;
   }

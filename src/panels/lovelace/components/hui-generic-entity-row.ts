@@ -92,25 +92,25 @@ class HuiGenericEntityRow extends LitElement {
                   ? stateObj.entity_id
                   : this.config.secondary_info === "last-changed"
                   ? html`
-                      <ha-relative-time
+                      <op-relative-time
                         .opp=${this.opp}
                         .datetime=${stateObj.last_changed}
-                      ></ha-relative-time>
+                      ></op-relative-time>
                     `
                   : this.config.secondary_info === "last-updated"
                   ? html`
-                      <ha-relative-time
+                      <op-relative-time
                         .opp=${this.opp}
                         .datetime=${stateObj.last_updated}
-                      ></ha-relative-time>
+                      ></op-relative-time>
                     `
                   : this.config.secondary_info === "last-triggered"
                   ? stateObj.attributes.last_triggered
                     ? html`
-                        <ha-relative-time
+                        <op-relative-time
                           .opp=${this.opp}
                           .datetime=${stateObj.attributes.last_triggered}
-                        ></ha-relative-time>
+                        ></op-relative-time>
                       `
                     : this.opp.localize(
                         "ui.panel.lovelace.cards.entities.never_triggered"
@@ -129,7 +129,8 @@ class HuiGenericEntityRow extends LitElement {
                     stateObj.attributes.brightness
                   ? html`${Math.round(
                       (stateObj.attributes.brightness / 255) * 100
-                    )} %`
+                    )}
+                    %`
                   : "")}
               </div>
             `

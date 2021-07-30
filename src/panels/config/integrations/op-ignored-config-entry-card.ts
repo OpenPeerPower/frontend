@@ -24,7 +24,7 @@ export class HaIgnoredConfigEntryCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-integration-action-card
+      <op-integration-action-card
         .opp=${this.opp}
         .manifest=${this.manifest}
         .banner=${this.opp.localize(
@@ -44,7 +44,7 @@ export class HaIgnoredConfigEntryCard extends LitElement {
             "ui.panel.config.integrations.ignore.stop_ignore"
           )}
         ></mwc-button>
-      </ha-integration-action-card>
+      </op-integration-action-card>
     `;
   }
 

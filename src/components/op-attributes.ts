@@ -34,7 +34,7 @@ class HaAttributes extends LitElement {
     }
 
     return html`
-      <ha-expansion-panel
+      <op-expansion-panel
         .header=${this.opp.localize(
           "ui.components.attributes.expansion_header"
         )}
@@ -57,7 +57,7 @@ class HaAttributes extends LitElement {
               `
             : ""}
         </div>
-      </ha-expansion-panel>
+      </op-expansion-panel>
       ${this.stateObj.attributes.attribution
         ? html`
             <div class="attribution">

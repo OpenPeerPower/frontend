@@ -45,14 +45,14 @@ class HaPanelDevMqtt extends LitElement {
     return html`
       <opp-subpage .narrow=${this.narrow} .opp=${this.opp}>
         <div class="content">
-          <ha-card header="MQTT settings">
+          <op-card header="MQTT settings">
             <div class="card-actions">
               <mwc-button @click=${this._openOptionFlow}
                 >Re-configure MQTT</mwc-button
               >
             </div>
-          </ha-card>
-          <ha-card
+          </op-card>
+          <op-card
             header="${this.opp.localize(
               "ui.panel.config.mqtt.description_publish"
             )}"
@@ -64,14 +64,12 @@ class HaPanelDevMqtt extends LitElement {
                 @value-changed=${this._handleTopic}
               ></paper-input>
 
-              <p>
-                ${this.opp.localize("ui.panel.config.mqtt.payload")}
-              </p>
-              <ha-code-editor
+              <p>${this.opp.localize("ui.panel.config.mqtt.payload")}</p>
+              <op-code-editor
                 mode="jinja2"
                 .value="${this.payload}"
                 @value-changed=${this._handlePayload}
-              ></ha-code-editor>
+              ></op-code-editor>
             </div>
             <div class="card-actions">
               <mwc-button @click=${this._publish}
@@ -80,7 +78,7 @@ class HaPanelDevMqtt extends LitElement {
                 )}</mwc-button
               >
             </div>
-          </ha-card>
+          </op-card>
 
           <mqtt-subscribe-card .opp=${this.opp}></mqtt-subscribe-card>
         </div>

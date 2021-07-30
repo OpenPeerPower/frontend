@@ -139,7 +139,7 @@ class CloudGoogleAssistant extends LitElement {
         .disabled=${!emptyFilter}
         .title=${this.opp!.localize("ui.panel.config.cloud.google.expose")}
       >
-        <ha-svg-icon
+        <op-svg-icon
           .path=${config.should_expose !== null
             ? isExposed
               ? mdiCheckboxMarked
@@ -147,11 +147,11 @@ class CloudGoogleAssistant extends LitElement {
             : isDomainExposed
             ? mdiCheckboxMultipleMarked
             : mdiCloseBoxMultiple}
-        ></ha-svg-icon>
+        ></op-svg-icon>
       </mwc-icon-button>`;
 
       target.push(html`
-        <ha-card>
+        <op-card>
           <div class="card-content">
             <div class="top-line">
               <state-info
@@ -166,7 +166,7 @@ class CloudGoogleAssistant extends LitElement {
               </state-info>
               ${!emptyFilter
                 ? html`${iconButton}`
-                : html`<ha-button-menu
+                : html`<op-button-menu
                     corner="BOTTOM_START"
                     .entityId=${stateObj.entity_id}
                     @action=${this._exposeChanged}
@@ -176,27 +176,27 @@ class CloudGoogleAssistant extends LitElement {
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.google.expose_entity"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class="exposed"
                         slot="meta"
                         .path=${mdiCheckboxMarked}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
                     <mwc-list-item hasMeta>
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.google.dont_expose_entity"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class="not-exposed"
                         slot="meta"
                         .path=${mdiCloseBox}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
                     <mwc-list-item hasMeta>
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.google.follow_domain"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class=${classMap({
                           exposed: isDomainExposed,
                           "not-exposed": !isDomainExposed,
@@ -205,30 +205,30 @@ class CloudGoogleAssistant extends LitElement {
                         .path=${isDomainExposed
                           ? mdiCheckboxMultipleMarked
                           : mdiCloseBoxMultiple}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
-                  </ha-button-menu>`}
+                  </op-button-menu>`}
             </div>
             ${entity.might_2fa
               ? html`
                   <div>
-                    <ha-formfield
+                    <op-formfield
                       .label=${this.opp!.localize(
                         "ui.panel.config.cloud.google.disable_2FA"
                       )}
                       .dir=${dir}
                     >
-                      <ha-switch
+                      <op-switch
                         .entityId=${entity.entity_id}
                         .checked=${Boolean(config.disable_2fa)}
                         @change=${this._disable2FAChanged}
-                      ></ha-switch>
-                    </ha-formfield>
+                      ></op-switch>
+                    </op-formfield>
                   </div>
                 `
               : ""}
           </div>
-        </ha-card>
+        </op-card>
       `);
     });
 

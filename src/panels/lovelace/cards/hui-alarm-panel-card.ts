@@ -157,17 +157,17 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         .header="${this._config.name ||
         stateObj.attributes.friendly_name ||
         this._stateDisplay(stateObj.state)}"
       >
-        <ha-label-badge
+        <op-label-badge
           class="${classMap({ [stateObj.state]: true })}"
           .icon="${ICONS[stateObj.state] || "opp:shield-outline"}"
           .label="${this._stateIconLabel(stateObj.state)}"
           @click=${this._handleMoreInfo}
-        ></ha-label-badge>
+        ></op-label-badge>
         <div id="armActions" class="actions">
           ${(stateObj.state === "disarmed"
             ? this._config.states!
@@ -222,7 +222,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
                 })}
               </div>
             `}
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -240,9 +240,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
   }
 
   private _stateDisplay(state: string): string {
-    return this.opp!.localize(
-      `component.alarm_control_panel.state._.${state}`
-    );
+    return this.opp!.localize(`component.alarm_control_panel.state._.${state}`);
   }
 
   private _handlePadClick(e: MouseEvent): void {

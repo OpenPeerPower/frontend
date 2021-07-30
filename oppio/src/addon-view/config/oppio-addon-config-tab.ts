@@ -20,7 +20,7 @@ class OppioAddonConfigDashboard extends LitElement {
 
   protected render(): TemplateResult {
     if (!this.addon) {
-      return html`<ha-circular-progress active></ha-circular-progress>`;
+      return html`<op-circular-progress active></op-circular-progress>`;
     }
     const hasConfiguration =
       (this.addon.options && Object.keys(this.addon.options).length) ||

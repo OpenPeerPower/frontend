@@ -28,24 +28,21 @@ export class CloudGooglePref extends LitElement {
       return html``;
     }
 
-    const {
-      google_enabled,
-      google_report_state,
-      google_secure_devices_pin,
-    } = this.cloudStatus.prefs;
+    const { google_enabled, google_report_state, google_secure_devices_pin } =
+      this.cloudStatus.prefs;
 
     return html`
-      <ha-card
+      <op-card
         header=${this.opp.localize(
           "ui.panel.config.cloud.account.google.title"
         )}
       >
         <div class="switch">
-          <ha-switch
+          <op-switch
             id="google_enabled"
             .checked="${google_enabled}"
             @change="${this._enableToggleChanged}"
-          ></ha-switch>
+          ></op-switch>
         </div>
         <div class="card-content">
           <p>
@@ -99,10 +96,10 @@ export class CloudGooglePref extends LitElement {
                     )}
                   </h3>
                   <div class="state-reporting-switch">
-                    <ha-switch
+                    <op-switch
                       .checked=${google_report_state}
                       @change=${this._reportToggleChanged}
-                    ></ha-switch>
+                    ></op-switch>
                   </div>
                 </div>
                 <p>
@@ -135,7 +132,7 @@ export class CloudGooglePref extends LitElement {
             : ""}
         </div>
         <div class="card-actions">
-          <ha-call-api-button
+          <op-call-api-button
             .opp=${this.opp}
             .disabled=${!google_enabled}
             @opp-api-called=${this._syncEntitiesCalled}
@@ -144,7 +141,7 @@ export class CloudGooglePref extends LitElement {
             ${this.opp.localize(
               "ui.panel.config.cloud.account.google.sync_entities"
             )}
-          </ha-call-api-button>
+          </op-call-api-button>
           <a href="/config/cloud/google-assistant">
             <mwc-button>
               ${this.opp.localize(
@@ -153,7 +150,7 @@ export class CloudGooglePref extends LitElement {
             </mwc-button>
           </a>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

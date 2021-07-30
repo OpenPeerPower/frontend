@@ -32,18 +32,18 @@ class HaSetSuspendRow extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-settings-row .narrow=${this.narrow}>
+      <op-settings-row .narrow=${this.narrow}>
         <span slot="heading">
           ${this.opp.localize("ui.panel.profile.suspend.header")}
         </span>
         <span slot="description">
           ${this.opp.localize("ui.panel.profile.suspend.description")}
         </span>
-        <ha-switch
+        <op-switch
           .checked=${this.opp.suspendWhenHidden}
           @change=${this._checkedChanged}
-        ></ha-switch>
-      </ha-settings-row>
+        ></op-switch>
+      </op-settings-row>
     `;
   }
 

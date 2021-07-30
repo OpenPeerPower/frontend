@@ -54,11 +54,11 @@ class MoreInfoMediaPlayer extends LitElement {
               <div class="basic-controls">
                 ${controls!.map(
                   (control) => html`
-                    <ha-icon-button
+                    <op-icon-button
                       action=${control.action}
                       .icon=${control.icon}
                       @click=${this._handleClick}
-                    ></ha-icon-button>
+                    ></op-icon-button>
                   `
                 )}
               </div>
@@ -69,7 +69,7 @@ class MoreInfoMediaPlayer extends LitElement {
                         "ui.card.media_player.browse_media"
                       )}
                       @click=${this._showBrowseMedia}
-                      ><ha-svg-icon .path=${mdiPlayBoxMultiple}></ha-svg-icon
+                      ><op-svg-icon .path=${mdiPlayBoxMultiple}></op-svg-icon
                     ></mwc-icon-button>
                   `
                 : ""}
@@ -82,38 +82,38 @@ class MoreInfoMediaPlayer extends LitElement {
             <div class="volume">
               ${supportsFeature(stateObj, SUPPORT_VOLUME_MUTE)
                 ? html`
-                    <ha-icon-button
+                    <op-icon-button
                       .icon=${stateObj.attributes.is_volume_muted
                         ? "opp:volume-off"
                         : "opp:volume-high"}
                       @click=${this._toggleMute}
-                    ></ha-icon-button>
+                    ></op-icon-button>
                   `
                 : ""}
               ${supportsFeature(stateObj, SUPPORT_VOLUME_BUTTONS)
                 ? html`
-                    <ha-icon-button
+                    <op-icon-button
                       action="volume_down"
                       icon="opp:volume-minus"
                       @click=${this._handleClick}
-                    ></ha-icon-button>
-                    <ha-icon-button
+                    ></op-icon-button>
+                    <op-icon-button
                       action="volume_up"
                       icon="opp:volume-plus"
                       @click=${this._handleClick}
-                    ></ha-icon-button>
+                    ></op-icon-button>
                   `
                 : ""}
               ${supportsFeature(stateObj, SUPPORT_VOLUME_SET)
                 ? html`
-                    <ha-slider
+                    <op-slider
                       id="input"
                       pin
                       ignore-bar-touch
                       .dir=${computeRTLDirection(this.opp!)}
                       .value=${Number(stateObj.attributes.volume_level) * 100}
                       @change=${this._selectedValueChanged}
-                    ></ha-slider>
+                    ></op-slider>
                   `
                 : ""}
             </div>
@@ -124,8 +124,8 @@ class MoreInfoMediaPlayer extends LitElement {
       stateObj.attributes.source_list?.length
         ? html`
             <div class="source-input">
-              <ha-icon class="source-input" icon="opp:login-variant"></ha-icon>
-              <ha-paper-dropdown-menu
+              <op-icon class="source-input" icon="opp:login-variant"></op-icon>
+              <op-paper-dropdown-menu
                 .label=${this.opp.localize("ui.card.media_player.source")}
               >
                 <paper-listbox
@@ -141,7 +141,7 @@ class MoreInfoMediaPlayer extends LitElement {
                       `
                   )}
                 </paper-listbox>
-              </ha-paper-dropdown-menu>
+              </op-paper-dropdown-menu>
             </div>
           `
         : ""}
@@ -149,8 +149,8 @@ class MoreInfoMediaPlayer extends LitElement {
       stateObj.attributes.sound_mode_list?.length
         ? html`
             <div class="sound-input">
-              <ha-icon icon="opp:music-note"></ha-icon>
-              <ha-paper-dropdown-menu
+              <op-icon icon="opp:music-note"></op-icon>
+              <op-paper-dropdown-menu
                 dynamic-align
                 label-float
                 .label=${this.opp.localize("ui.card.media_player.sound_mode")}
@@ -167,7 +167,7 @@ class MoreInfoMediaPlayer extends LitElement {
                     `
                   )}
                 </paper-listbox>
-              </ha-paper-dropdown-menu>
+              </op-paper-dropdown-menu>
             </div>
           `
         : ""}
@@ -183,11 +183,11 @@ class MoreInfoMediaPlayer extends LitElement {
                 )}
                 @keydown=${this._ttsCheckForEnter}
               ></paper-input>
-              <ha-icon-button
+              <op-icon-button
                 icon="opp:send"
                 .disabled=${UNAVAILABLE_STATES.includes(stateObj.state)}
                 @click=${this._sendTTS}
-              ></ha-icon-button>
+              ></op-icon-button>
             </div>
           </div>
           `

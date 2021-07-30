@@ -150,17 +150,15 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
                     @click=${this._itemClicked}
                     .entry=${entry}
                   >
-                    <ha-icon .icon=${entry.icon} slot="item-icon"></ha-icon>
-                    <paper-item-body>
-                      ${entry.name}
-                    </paper-item-body>
+                    <op-icon .icon=${entry.icon} slot="item-icon"></op-icon>
+                    <paper-item-body> ${entry.name} </paper-item-body>
                     ${!this.narrow
                       ? html`
                           <mwc-icon-button
                             .entry=${entry}
                             @click=${this._openEditEntry}
                           >
-                            <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                            <op-svg-icon .path=${mdiPencil}></op-svg-icon>
                           </mwc-icon-button>
                         `
                       : ""}
@@ -173,8 +171,8 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
                     data-id=${state.entity_id}
                     @click=${this._stateItemClicked}
                   >
-                    <ha-icon .icon=${state.attributes.icon} slot="item-icon">
-                    </ha-icon>
+                    <op-icon .icon=${state.attributes.icon} slot="item-icon">
+                    </op-icon>
                     <paper-item-body>
                       ${state.attributes.friendly_name || state.entity_id}
                     </paper-item-body>
@@ -190,13 +188,13 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
                             : true
                         )}
                       >
-                        <ha-svg-icon
+                        <op-svg-icon
                           .path=${state.entity_id === "zone.home" &&
                           this.narrow &&
                           this._canEditCore
                             ? mdiPencil
                             : mdiPencilOff}
-                        ></ha-svg-icon>
+                        ></op-svg-icon>
                       </mwc-icon-button>
                       <paper-tooltip animation-delay="0" position="left">
                         ${state.entity_id === "zone.home"
@@ -228,18 +226,18 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
       >
         ${this.narrow
           ? html`
-              <ha-config-section .isWide=${this.isWide}>
+              <op-config-section .isWide=${this.isWide}>
                 <span slot="introduction">
                   ${opp.localize("ui.panel.config.zone.introduction")}
                 </span>
-                <ha-card>${listBox}</ha-card>
-              </ha-config-section>
+                <op-card>${listBox}</op-card>
+              </op-config-section>
             `
           : ""}
         ${!this.narrow
           ? html`
               <div class="flex">
-                <ha-locations-editor
+                <op-locations-editor
                   .opp=${this.opp}
                   .locations=${this._getZones(
                     this._storageItems,
@@ -248,21 +246,19 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
                   @location-updated=${this._locationUpdated}
                   @radius-updated=${this._radiusUpdated}
                   @marker-clicked=${this._markerClicked}
-                ></ha-locations-editor>
-                <div class="overflow">
-                  ${listBox}
-                </div>
+                ></op-locations-editor>
+                <div class="overflow">${listBox}</div>
               </div>
             `
           : ""}
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${opp.localize("ui.panel.config.zone.add_zone")}
           extended
           @click=${this._createZone}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage>
     `;
   }
@@ -409,9 +405,9 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
 
   private async _createEntry(values: ZoneMutableParams) {
     const created = await createZone(this.opp!, values);
-    this._storageItems = this._storageItems!.concat(
-      created
-    ).sort((ent1, ent2) => compare(ent1.name, ent2.name));
+    this._storageItems = this._storageItems!.concat(created).sort(
+      (ent1, ent2) => compare(ent1.name, ent2.name)
+    );
     if (this.narrow) {
       return;
     }

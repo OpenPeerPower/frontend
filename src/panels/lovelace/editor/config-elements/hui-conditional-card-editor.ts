@@ -39,8 +39,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-conditional-card-editor")
-export class HuiConditionalCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiConditionalCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @property({ attribute: false }) public lovelace?: LovelaceConfig;
@@ -135,14 +137,14 @@ export class HuiConditionalCardEditor extends LitElement
                 return html`
                   <div class="condition">
                     <div class="entity">
-                      <ha-entity-picker
+                      <op-entity-picker
                         .opp=${this.opp}
                         .value=${cond.entity}
                         .index=${idx}
                         .configValue=${"entity"}
                         @change=${this._changeCondition}
                         allow-custom-entity
-                      ></ha-entity-picker>
+                      ></op-entity-picker>
                     </div>
                     <div class="state">
                       <paper-dropdown-menu>
@@ -183,10 +185,10 @@ export class HuiConditionalCardEditor extends LitElement
                 `;
               })}
               <div class="condition">
-                <ha-entity-picker
+                <op-entity-picker
                   .opp=${this.opp}
                   @change=${this._addCondition}
-                ></ha-entity-picker>
+                ></op-entity-picker>
               </div>
             </div>
           `}

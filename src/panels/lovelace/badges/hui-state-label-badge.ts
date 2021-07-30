@@ -35,7 +35,7 @@ export class HuiStateLabelBadge extends LitElement implements LovelaceBadge {
     const stateObj = this.opp.states[this._config.entity!];
 
     return html`
-      <ha-state-label-badge
+      <op-state-label-badge
         .opp=${this.opp}
         .state=${stateObj}
         .name=${this._config.name}
@@ -51,7 +51,7 @@ export class HuiStateLabelBadge extends LitElement implements LovelaceBadge {
             ? "0"
             : undefined
         )}
-      ></ha-state-label-badge>
+      ></op-state-label-badge>
     `;
   }
 

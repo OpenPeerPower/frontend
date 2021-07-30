@@ -42,11 +42,11 @@ class OppioCardContent extends LitElement {
             </div>
           `
         : html`
-            <ha-svg-icon
+            <op-svg-icon
               class=${this.iconClass!}
               .path=${this.icon}
               .title=${this.iconTitle}
-            ></ha-svg-icon>
+            ></op-svg-icon>
           `}
       <div>
         <div class="title">${this.title}</div>
@@ -58,11 +58,11 @@ class OppioCardContent extends LitElement {
           }
           ${this.datetime
             ? html`
-                <ha-relative-time
+                <op-relative-time
                   .opp=${this.opp}
                   class="addition"
                   .datetime=${this.datetime}
-                ></ha-relative-time>
+                ></op-relative-time>
               `
             : undefined}
         </div>

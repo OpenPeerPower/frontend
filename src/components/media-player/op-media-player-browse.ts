@@ -168,22 +168,22 @@ export class HaMediaPlayerBrowse extends LitElement {
                 >
                   ${this._narrow && currentItem?.can_play
                     ? html`
-                        <ha-fab
+                        <op-fab
                           mini
                           .item=${currentItem}
                           @click=${this._actionClicked}
                         >
-                          <ha-svg-icon
+                          <op-svg-icon
                             slot="icon"
                             .label=${this.opp.localize(
                               `ui.components.media-browser.${this.action}-media`
                             )}
                             .path=${this.action === "play" ? mdiPlay : mdiPlus}
-                          ></ha-svg-icon>
+                          ></op-svg-icon>
                           ${this.opp.localize(
                             `ui.components.media-browser.${this.action}`
                           )}
-                        </ha-fab>
+                        </op-fab>
                       `
                     : ""}
                 </div>
@@ -194,7 +194,7 @@ export class HaMediaPlayerBrowse extends LitElement {
               ${previousItem
                 ? html`
                     <div class="previous-title" @click=${this.navigateBack}>
-                      <ha-svg-icon .path=${mdiArrowLeft}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiArrowLeft}></op-svg-icon>
                       ${previousItem.title}
                     </div>
                   `
@@ -209,12 +209,12 @@ export class HaMediaPlayerBrowse extends LitElement {
                     .item=${currentItem}
                     @click=${this._actionClicked}
                   >
-                    <ha-svg-icon
+                    <op-svg-icon
                       .label=${this.opp.localize(
                         `ui.components.media-browser.${this.action}-media`
                       )}
                       .path=${this.action === "play" ? mdiPlay : mdiPlus}
-                    ></ha-svg-icon>
+                    ></op-svg-icon>
                     ${this.opp.localize(
                       `ui.components.media-browser.${this.action}`
                     )}
@@ -231,7 +231,7 @@ export class HaMediaPlayerBrowse extends LitElement {
                 class="header_button"
                 dir=${computeRTLDirection(this.opp)}
               >
-                <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                <op-svg-icon .path=${mdiClose}></op-svg-icon>
               </mwc-icon-button>
             `
           : ""}
@@ -257,7 +257,7 @@ export class HaMediaPlayerBrowse extends LitElement {
                         @click=${this._childClicked}
                       >
                         <div class="ha-card-parent">
-                          <ha-card
+                          <op-card
                             outlined
                             style=${styleMap({
                               backgroundImage: child.thumbnail
@@ -267,7 +267,7 @@ export class HaMediaPlayerBrowse extends LitElement {
                           >
                             ${!child.thumbnail
                               ? html`
-                                  <ha-svg-icon
+                                  <op-svg-icon
                                     class="folder"
                                     .path=${MediaClassBrowserSettings[
                                       child.media_class === "directory"
@@ -275,10 +275,10 @@ export class HaMediaPlayerBrowse extends LitElement {
                                           child.media_class
                                         : child.media_class
                                     ].icon}
-                                  ></ha-svg-icon>
+                                  ></op-svg-icon>
                                 `
                               : ""}
-                          </ha-card>
+                          </op-card>
                           ${child.can_play
                             ? html`
                                 <mwc-icon-button
@@ -291,11 +291,11 @@ export class HaMediaPlayerBrowse extends LitElement {
                                   )}
                                   @click=${this._actionClicked}
                                 >
-                                  <ha-svg-icon
+                                  <op-svg-icon
                                     .path=${this.action === "play"
                                       ? mdiPlay
                                       : mdiPlus}
-                                  ></ha-svg-icon>
+                                  ></op-svg-icon>
                                 </mwc-icon-button>
                               `
                             : ""}
@@ -351,11 +351,11 @@ export class HaMediaPlayerBrowse extends LitElement {
                             )}
                             @click=${this._actionClicked}
                           >
-                            <ha-svg-icon
+                            <op-svg-icon
                               .path=${this.action === "play"
                                 ? mdiPlay
                                 : mdiPlus}
-                            ></ha-svg-icon>
+                            ></op-svg-icon>
                           </mwc-icon-button>
                         </div>
                         <span class="title">${child.title}</span>

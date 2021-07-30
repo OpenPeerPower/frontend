@@ -14,10 +14,10 @@ export class HaTraceBlueprintConfig extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-code-editor
+      <op-code-editor
         .value=${dump(this.trace.blueprint_inputs || "").trimRight()}
         readOnly
-      ></ha-code-editor>
+      ></op-code-editor>
     `;
   }
 }

@@ -101,13 +101,13 @@ export class HaLocationsEditor extends LitElement {
   }
 
   protected render(): TemplateResult {
-    return html`<ha-map
+    return html`<op-map
       .opp=${this.opp}
       .layers=${this._getLayers(this._circles, this._locationMarkers)}
       .zoom=${this.zoom}
       .autoFit=${this.autoFit}
       .darkMode=${this.darkMode}
-    ></ha-map>`;
+    ></op-map>`;
   }
 
   private _getLayers = memoizeOne(

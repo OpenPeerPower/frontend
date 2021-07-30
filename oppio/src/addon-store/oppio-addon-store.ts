@@ -87,13 +87,13 @@ class OppioAddonStore extends LitElement {
         supervisor
       >
         <span slot="header"> ${this.supervisor.localize("panel.store")} </span>
-        <ha-button-menu
+        <op-button-menu
           corner="BOTTOM_START"
           slot="toolbar-icon"
           @action=${this._handleAction}
         >
           <mwc-icon-button slot="trigger" alt="menu">
-            <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+            <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
           </mwc-icon-button>
           <mwc-list-item>
             ${this.supervisor.localize("store.repositories")}
@@ -107,7 +107,7 @@ class OppioAddonStore extends LitElement {
                 ${this.supervisor.localize("store.registries")}
               </mwc-list-item>`
             : ""}
-        </ha-button-menu>
+        </op-button-menu>
         ${repos.length === 0
           ? html`<opp-loading-screen no-toolbar></opp-loading-screen>`
           : html`

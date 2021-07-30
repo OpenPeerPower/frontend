@@ -80,15 +80,15 @@ export class HuiMarkdownCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card .header="${this._config.title}">
-        <ha-markdown
+      <op-card .header="${this._config.title}">
+        <op-markdown
           breaks
           class=${classMap({
             "no-header": !this._config.title,
           })}
           .content="${this._templateResult?.result}"
-        ></ha-markdown>
-      </ha-card>
+        ></op-markdown>
+      </op-card>
     `;
   }
 
@@ -116,11 +116,7 @@ export class HuiMarkdownCard extends LitElement implements LovelaceCard {
   }
 
   private async _tryConnect(): Promise<void> {
-    if (
-      this._unsubRenderTemplate !== undefined ||
-      !this.opp ||
-      !this._config
-    ) {
+    if (this._unsubRenderTemplate !== undefined || !this.opp || !this._config) {
       return;
     }
 

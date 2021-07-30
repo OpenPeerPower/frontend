@@ -110,18 +110,19 @@ export class HaConfigDevicePage extends LitElement {
         )
   );
 
-  private _computeArea = memoizeOne((areas, device):
-    | AreaRegistryEntry
-    | undefined => {
-    if (!areas || !device || !device.area_id) {
-      return undefined;
+  private _computeArea = memoizeOne(
+    (areas, device): AreaRegistryEntry | undefined => {
+      if (!areas || !device || !device.area_id) {
+        return undefined;
+      }
+      return areas.find((area) => area.area_id === device.area_id);
     }
-    return areas.find((area) => area.area_id === device.area_id);
-  });
+  );
 
-  private _batteryEntity = memoizeOne((entities: EntityRegistryEntry[]):
-    | EntityRegistryEntry
-    | undefined => findBatteryEntity(this.opp, entities));
+  private _batteryEntity = memoizeOne(
+    (entities: EntityRegistryEntry[]): EntityRegistryEntry | undefined =>
+      findBatteryEntity(this.opp, entities)
+  );
 
   private _batteryChargingEntity = memoizeOne(
     (entities: EntityRegistryEntry[]): EntityRegistryEntry | undefined =>
@@ -181,11 +182,11 @@ export class HaConfigDevicePage extends LitElement {
                 <span slot="header">
                   ${computeDeviceName(device, this.opp)}
                 </span>
-                <ha-icon-button
+                <op-icon-button
                   slot="toolbar-icon"
                   icon="opp:pencil"
                   @click=${this._showSettings}
-                ></ha-icon-button>
+                ></op-icon-button>
               `
             : ""
         }
@@ -214,10 +215,10 @@ export class HaConfigDevicePage extends LitElement {
                             `
                           : ""}
                       </div>
-                      <ha-icon-button
+                      <op-icon-button
                         icon="opp:pencil"
                         @click=${this._showSettings}
-                      ></ha-icon-button>
+                      ></op-icon-button>
                     </div>
                   `
             }
@@ -227,11 +228,11 @@ export class HaConfigDevicePage extends LitElement {
                       ? html`
                           <div class="battery">
                             ${batteryIsBinary ? "" : batteryState.state + " %"}
-                            <ha-battery-icon
+                            <op-battery-icon
                               .opp=${this.opp!}
                               .batteryStateObj=${batteryState}
                               .batteryChargingStateObj=${batteryChargingState}
-                            ></ha-battery-icon>
+                            ></op-battery-icon>
                           </div>
                         `
                       : ""
@@ -252,7 +253,7 @@ export class HaConfigDevicePage extends LitElement {
                 </div>
           </div>
           <div class="column">
-              <ha-device-info-card
+              <op-device-info-card
                 .opp=${this.opp}
                 .areas=${this.areas}
                 .devices=${this.devices}
@@ -283,17 +284,17 @@ export class HaConfigDevicePage extends LitElement {
                   : html``
               }
               ${this._renderIntegrationInfo(device, integrations)}
-              </ha-device-info-card>
+              </op-device-info-card>
 
             ${
               entities.length
                 ? html`
-                    <ha-device-entities-card
+                    <op-device-entities-card
                       .opp=${this.opp}
                       .entities=${entities}
                       .showDisabled=${device.disabled_by !== null}
                     >
-                    </ha-device-entities-card>
+                    </op-device-entities-card>
                   `
                 : html``
             }
@@ -302,12 +303,12 @@ export class HaConfigDevicePage extends LitElement {
             ${
               isComponentLoaded(this.opp, "automation")
                 ? html`
-                    <ha-card>
+                    <op-card>
                       <h1 class="card-header">
                         ${this.opp.localize(
                           "ui.panel.config.devices.automation.automations"
                         )}
-                        <ha-icon-button
+                        <op-icon-button
                           @click=${this._showAutomationDialog}
                           .disabled=${device.disabled_by}
                           title=${device.disabled_by
@@ -318,7 +319,7 @@ export class HaConfigDevicePage extends LitElement {
                                 "ui.panel.config.devices.automation.create"
                               )}
                           icon="opp:plus-circle"
-                        ></ha-icon-button>
+                        ></op-icon-button>
                       </h1>
                       ${this._related?.automation?.length
                         ? this._related.automation.map((automation) => {
@@ -340,7 +341,7 @@ export class HaConfigDevicePage extends LitElement {
                                         <paper-item-body>
                                           ${computeStateName(state)}
                                         </paper-item-body>
-                                        <ha-icon-next></ha-icon-next>
+                                        <op-icon-next></op-icon-next>
                                       </paper-item>
                                     </a>
                                     ${!state.attributes.id
@@ -367,7 +368,7 @@ export class HaConfigDevicePage extends LitElement {
                               )}
                             </paper-item>
                           `}
-                    </ha-card>
+                    </op-card>
                   `
                 : ""
             }
@@ -376,13 +377,13 @@ export class HaConfigDevicePage extends LitElement {
             ${
               isComponentLoaded(this.opp, "scene") && entities.length
                 ? html`
-                    <ha-card>
+                    <op-card>
                         <h1 class="card-header">
                           ${this.opp.localize(
                             "ui.panel.config.devices.scene.scenes"
                           )}
 
-                                  <ha-icon-button
+                                  <op-icon-button
                                     @click=${this._createScene}
                                     .disabled=${device.disabled_by}
                                     title=${
@@ -395,7 +396,7 @@ export class HaConfigDevicePage extends LitElement {
                                           )
                                     }
                                     icon="opp:plus-circle"
-                                  ></ha-icon-button>
+                                  ></op-icon-button>
                         </h1>
 
                         ${
@@ -419,7 +420,7 @@ export class HaConfigDevicePage extends LitElement {
                                             <paper-item-body>
                                               ${computeStateName(state)}
                                             </paper-item-body>
-                                            <ha-icon-next></ha-icon-next>
+                                            <op-icon-next></op-icon-next>
                                           </paper-item>
                                         </a>
                                         ${!state.attributes.id
@@ -449,20 +450,20 @@ export class HaConfigDevicePage extends LitElement {
                                 </paper-item>
                               `
                         }
-                      </ha-card>
-                    </ha-card>
+                      </op-card>
+                    </op-card>
                   `
                 : ""
             }
               ${
                 isComponentLoaded(this.opp, "script")
                   ? html`
-                      <ha-card>
+                      <op-card>
                         <h1 class="card-header">
                           ${this.opp.localize(
                             "ui.panel.config.devices.script.scripts"
                           )}
-                          <ha-icon-button
+                          <op-icon-button
                             @click=${this._showScriptDialog}
                             .disabled=${device.disabled_by}
                             title=${device.disabled_by
@@ -473,7 +474,7 @@ export class HaConfigDevicePage extends LitElement {
                                   "ui.panel.config.devices.script.create"
                                 )}
                             icon="opp:plus-circle"
-                          ></ha-icon-button>
+                          ></op-icon-button>
                         </h1>
                         ${this._related?.script?.length
                           ? this._related.script.map((script) => {
@@ -487,7 +488,7 @@ export class HaConfigDevicePage extends LitElement {
                                         <paper-item-body>
                                           ${computeStateName(state)}
                                         </paper-item-body>
-                                        <ha-icon-next></ha-icon-next>
+                                        <op-icon-next></op-icon-next>
                                       </paper-item>
                                     </a>
                                   `
@@ -504,13 +505,13 @@ export class HaConfigDevicePage extends LitElement {
                                 )}
                               </paper-item>
                             `}
-                      </ha-card>
+                      </op-card>
                     `
                   : ""
               }
             </div>
         </div>
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>    `;
   }
 
@@ -566,10 +567,10 @@ export class HaConfigDevicePage extends LitElement {
       );
       templates.push(html`
         <div class="card-actions" slot="actions">
-          <ha-device-actions-mqtt
+          <op-device-actions-mqtt
             .opp=${this.opp}
             .device=${device}
-          ></ha-device-actions-mqtt>
+          ></op-device-actions-mqtt>
         </div>
       `);
     }
@@ -577,15 +578,15 @@ export class HaConfigDevicePage extends LitElement {
       import("./device-detail/integration-elements/ozw/ha-device-actions-ozw");
       import("./device-detail/integration-elements/ozw/ha-device-info-ozw");
       templates.push(html`
-        <ha-device-info-ozw
+        <op-device-info-ozw
           .opp=${this.opp}
           .device=${device}
-        ></ha-device-info-ozw>
+        ></op-device-info-ozw>
         <div class="card-actions" slot="actions">
-          <ha-device-actions-ozw
+          <op-device-actions-ozw
             .opp=${this.opp}
             .device=${device}
-          ></ha-device-actions-ozw>
+          ></op-device-actions-ozw>
         </div>
       `);
     }
@@ -595,10 +596,10 @@ export class HaConfigDevicePage extends LitElement {
       );
       templates.push(html`
         <div class="card-actions" slot="actions">
-          <ha-device-actions-tasmota
+          <op-device-actions-tasmota
             .opp=${this.opp}
             .device=${device}
-          ></ha-device-actions-tasmota>
+          ></op-device-actions-tasmota>
         </div>
       `);
     }
@@ -606,15 +607,15 @@ export class HaConfigDevicePage extends LitElement {
       import("./device-detail/integration-elements/zha/ha-device-actions-zha");
       import("./device-detail/integration-elements/zha/ha-device-info-zha");
       templates.push(html`
-        <ha-device-info-zha
+        <op-device-info-zha
           .opp=${this.opp}
           .device=${device}
-        ></ha-device-info-zha>
+        ></op-device-info-zha>
         <div class="card-actions" slot="actions">
-          <ha-device-actions-zha
+          <op-device-actions-zha
             .opp=${this.opp}
             .device=${device}
-          ></ha-device-actions-zha>
+          ></op-device-actions-zha>
         </div>
       `);
     }
@@ -626,15 +627,15 @@ export class HaConfigDevicePage extends LitElement {
         "./device-detail/integration-elements/zwave_js/ha-device-actions-zwave_js"
       );
       templates.push(html`
-        <ha-device-info-zwave_js
+        <op-device-info-zwave_js
           .opp=${this.opp}
           .device=${device}
-        ></ha-device-info-zwave_js>
+        ></op-device-info-zwave_js>
         <div class="card-actions" slot="actions">
-          <ha-device-actions-zwave_js
+          <op-device-actions-zwave_js
             .opp=${this.opp}
             .device=${device}
-          ></ha-device-actions-zwave_js>
+          ></op-device-actions-zwave_js>
         </div>
       `);
     }

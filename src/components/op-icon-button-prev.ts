@@ -33,7 +33,7 @@ export class HaIconButtonPrev extends LitElement {
         .disabled=${this.disabled}
         .label=${this.label || this.opp?.localize("ui.common.back") || "Back"}
       >
-        <ha-svg-icon .path=${this._icon}></ha-svg-icon>
+        <op-svg-icon .path=${this._icon}></op-svg-icon>
       </mwc-icon-button>
     `;
   }

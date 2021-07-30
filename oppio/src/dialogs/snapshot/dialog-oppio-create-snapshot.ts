@@ -46,7 +46,7 @@ class OppioCreateSnapshotDialog extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         @closed=${this.closeDialog}
@@ -56,7 +56,7 @@ class OppioCreateSnapshotDialog extends LitElement {
         )}
       >
         ${this._creatingSnapshot
-          ? html` <ha-circular-progress active></ha-circular-progress>`
+          ? html` <op-circular-progress active></op-circular-progress>`
           : html`<supervisor-snapshot-content
               .opp=${this.opp}
               .supervisor=${this._dialogParams.supervisor}
@@ -73,7 +73,7 @@ class OppioCreateSnapshotDialog extends LitElement {
         >
           ${this._dialogParams.supervisor.localize("snapshot.create")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

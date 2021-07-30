@@ -60,7 +60,7 @@ class ZHAConfigDashboard extends LitElement {
         .tabs=${zhaTabs}
         back-path="/config/integrations"
       >
-        <ha-card header="Zigbee Network">
+        <op-card header="Zigbee Network">
           <div class="card-content">
             In the future you can change network settings for ZHA here.
           </div>
@@ -86,15 +86,15 @@ class ZHAConfigDashboard extends LitElement {
                 </a>
               </div>`
             : ""}
-        </ha-card>
+        </op-card>
         <a href="/config/zha/add" slot="fab">
-          <ha-fab
+          <op-fab
             .label=${this.opp.localize("ui.panel.config.zha.add_device")}
             extended
             ?rtl=${computeRTL(this.opp)}
           >
-            <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-          </ha-fab>
+            <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+          </op-fab>
         </a>
       </opp-tabs-subpage>
     `;

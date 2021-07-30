@@ -102,9 +102,8 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
     if (this.entry.entity_id !== this._origEntityId) {
       return html``;
     }
-    const stateObj: OppEntity | undefined = this.opp.states[
-      this.entry.entity_id
-    ];
+    const stateObj: OppEntity | undefined =
+      this.opp.states[this.entry.entity_id];
     const invalidDomainUpdate =
       computeDomain(this._entityId.trim()) !==
       computeDomain(this.entry.entity_id);
@@ -136,7 +135,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
           .placeholder=${this.entry.original_name}
           .disabled=${this._submitting}
         ></paper-input>
-        <ha-icon-input
+        <op-icon-input
           .value=${this._icon}
           @value-changed=${this._iconChanged}
           .label=${this.opp.localize("ui.dialogs.entity_registry.editor.icon")}
@@ -149,7 +148,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
           .errorMessage=${this.opp.localize(
             "ui.dialogs.entity_registry.editor.icon_error"
           )}
-        ></ha-icon-input>
+        ></op-icon-input>
         <paper-input
           .value=${this._entityId}
           @value-changed=${this._entityIdChanged}
@@ -161,19 +160,19 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
           .disabled=${this._submitting}
         ></paper-input>
         ${!this.entry.device_id
-          ? html`<ha-area-picker
+          ? html`<op-area-picker
               .opp=${this.opp}
               .value=${this._areaId}
               @value-changed=${this._areaPicked}
-            ></ha-area-picker>`
+            ></op-area-picker>`
           : ""}
         <div class="row">
-          <ha-switch
+          <op-switch
             .checked=${!this._disabledBy}
             .disabled=${this._device?.disabled_by}
             @change=${this._disabledByChanged}
           >
-          </ha-switch>
+          </op-switch>
           <div>
             <div>
               ${this.opp.localize(
@@ -201,7 +200,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
         </div>
 
         ${this.entry.device_id
-          ? html`<ha-expansion-panel
+          ? html`<op-expansion-panel
               .header=${this.opp.localize(
                 "ui.dialogs.entity_registry.editor.advanced"
               )}
@@ -225,7 +224,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
                     )}</mwc-button
                   >`
                 : ""}
-              <ha-area-picker
+              <op-area-picker
                 .opp=${this.opp}
                 .value=${this._areaId}
                 .placeholder=${this._device?.area_id}
@@ -233,8 +232,8 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
                   "ui.dialogs.entity_registry.editor.area"
                 )}
                 @value-changed=${this._areaPicked}
-              ></ha-area-picker
-            ></ha-expansion-panel>`
+              ></op-area-picker
+            ></op-expansion-panel>`
           : ""}
       </div>
       <div class="buttons">

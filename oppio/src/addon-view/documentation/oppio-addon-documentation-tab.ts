@@ -33,18 +33,18 @@ class OppioAddonDocumentationDashboard extends LitElement {
 
   protected render(): TemplateResult {
     if (!this.addon) {
-      return html`<ha-circular-progress active></ha-circular-progress>`;
+      return html`<op-circular-progress active></op-circular-progress>`;
     }
     return html`
       <div class="content">
-        <ha-card>
+        <op-card>
           ${this._error ? html` <div class="errors">${this._error}</div> ` : ""}
           <div class="card-content">
             ${this._content
-              ? html`<ha-markdown .content=${this._content}></ha-markdown>`
+              ? html`<op-markdown .content=${this._content}></op-markdown>`
               : html`<opp-loading-screen no-toolbar></opp-loading-screen>`}
           </div>
-        </ha-card>
+        </op-card>
       </div>
     `;
   }

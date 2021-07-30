@@ -43,7 +43,7 @@ class HaLongLivedTokens extends LitElement {
     const accessTokens = this._accessTokens(this.refreshTokens!);
 
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize(
           "ui.panel.profile.long_lived_access_tokens.header"
         )}
@@ -69,7 +69,7 @@ class HaLongLivedTokens extends LitElement {
                 )}
               </p>`
             : accessTokens!.map(
-                (token) => html`<ha-settings-row two-line>
+                (token) => html`<op-settings-row two-line>
                   <span slot="heading">${token.client_name}</span>
                   <div slot="description">
                     ${this.opp.localize(
@@ -87,9 +87,9 @@ class HaLongLivedTokens extends LitElement {
                     .title=${this.opp.localize(`ui.common.delete`)}
                     @click=${this._deleteToken}
                   >
-                    <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                   </mwc-icon-button>
-                </ha-settings-row>`
+                </op-settings-row>`
               )}
         </div>
 
@@ -100,7 +100,7 @@ class HaLongLivedTokens extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

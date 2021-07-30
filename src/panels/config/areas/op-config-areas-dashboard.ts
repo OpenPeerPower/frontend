@@ -69,9 +69,7 @@ export class HaConfigAreasDashboard extends LitElement {
       narrow
         ? {
             name: {
-              title: this.opp.localize(
-                "ui.panel.config.areas.data_table.area"
-              ),
+              title: this.opp.localize("ui.panel.config.areas.data_table.area"),
               sortable: true,
               filterable: true,
               grows: true,
@@ -80,9 +78,7 @@ export class HaConfigAreasDashboard extends LitElement {
           }
         : {
             name: {
-              title: this.opp.localize(
-                "ui.panel.config.areas.data_table.area"
-              ),
+              title: this.opp.localize("ui.panel.config.areas.data_table.area"),
               sortable: true,
               filterable: true,
               grows: true,
@@ -119,12 +115,12 @@ export class HaConfigAreasDashboard extends LitElement {
         hasFab
         clickable
       >
-        <ha-icon-button
+        <op-icon-button
           slot="toolbar-icon"
           icon="opp:help-circle"
           @click=${this._showHelp}
-        ></ha-icon-button>
-        <ha-fab
+        ></op-icon-button>
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.areas.picker.create_area"
@@ -132,8 +128,8 @@ export class HaConfigAreasDashboard extends LitElement {
           extended
           @click=${this._createArea}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }
@@ -156,9 +152,7 @@ export class HaConfigAreasDashboard extends LitElement {
           ${this.opp.localize("ui.panel.config.areas.picker.introduction2")}
         </p>
         <a href="/config/integrations/dashboard">
-          ${this.opp.localize(
-            "ui.panel.config.areas.picker.integrations_page"
-          )}
+          ${this.opp.localize("ui.panel.config.areas.picker.integrations_page")}
         </a>
       `,
     });
@@ -172,8 +166,7 @@ export class HaConfigAreasDashboard extends LitElement {
   private _openDialog(entry?: AreaRegistryEntry) {
     showAreaRegistryDetailDialog(this, {
       entry,
-      createEntry: async (values) =>
-        createAreaRegistryEntry(this.opp!, values),
+      createEntry: async (values) => createAreaRegistryEntry(this.opp!, values),
     });
   }
 

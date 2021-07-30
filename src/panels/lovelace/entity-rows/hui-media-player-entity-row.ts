@@ -98,10 +98,10 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
       state === "playing" &&
       supportsFeature(stateObj, SUPPORT_PREVIOUS_TRACK)
         ? html`
-            <ha-icon-button
+            <op-icon-button
               icon="opp:skip-previous"
               @click=${this._previousTrack}
-            ></ha-icon-button>
+            ></op-icon-button>
           `
         : ""}
       ${(state === "playing" &&
@@ -113,18 +113,18 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
         (supportsFeature(stateObj, SUPPORT_PLAY) ||
           supportsFeature(stateObj, SUPPORT_PAUSE)))
         ? html`
-            <ha-icon-button
+            <op-icon-button
               icon=${this._computeControlIcon(stateObj)}
               @click=${this._playPauseStop}
-            ></ha-icon-button>
+            ></op-icon-button>
           `
         : ""}
       ${state === "playing" && supportsFeature(stateObj, SUPPORT_NEXT_TRACK)
         ? html`
-            <ha-icon-button
+            <op-icon-button
               icon="opp:skip-next"
               @click=${this._nextTrack}
-            ></ha-icon-button>
+            ></op-icon-button>
           `
         : ""}
     `;
@@ -143,10 +143,10 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
           state === "off" &&
           !UNAVAILABLE_STATES.includes(state)
             ? html`
-                <ha-icon-button
+                <op-icon-button
                   icon="opp:power"
                   @click=${this._togglePower}
-                ></ha-icon-button>
+                ></op-icon-button>
               `
             : !supportsFeature(stateObj, SUPPORT_VOLUME_SET) &&
               !supportsFeature(stateObj, SUPPORT_VOLUME_BUTTONS)
@@ -156,10 +156,10 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
           state !== "off" &&
           !UNAVAILABLE_STATES.includes(state)
             ? html`
-                <ha-icon-button
+                <op-icon-button
                   icon="opp:power"
                   @click=${this._togglePower}
-                ></ha-icon-button>
+                ></op-icon-button>
               `
             : ""}
         </div>
@@ -172,44 +172,42 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
               <div class="volume">
                 ${supportsFeature(stateObj, SUPPORT_VOLUME_MUTE)
                   ? html`
-                      <ha-icon-button
+                      <op-icon-button
                         .icon=${stateObj.attributes.is_volume_muted
                           ? "opp:volume-off"
                           : "opp:volume-high"}
                         @click=${this._toggleMute}
-                      ></ha-icon-button>
+                      ></op-icon-button>
                     `
                   : ""}
                 ${!this._veryNarrow &&
                 supportsFeature(stateObj, SUPPORT_VOLUME_SET)
                   ? html`
-                      <ha-slider
+                      <op-slider
                         .dir=${computeRTLDirection(this.opp!)}
                         .value=${Number(stateObj.attributes.volume_level) * 100}
                         pin
                         @change=${this._selectedValueChanged}
                         ignore-bar-touch
                         id="input"
-                      ></ha-slider>
+                      ></op-slider>
                     `
                   : !this._veryNarrow &&
                     supportsFeature(stateObj, SUPPORT_VOLUME_BUTTONS)
                   ? html`
-                      <ha-icon-button
+                      <op-icon-button
                         icon="opp:volume-minus"
                         @click=${this._volumeDown}
-                      ></ha-icon-button>
-                      <ha-icon-button
+                      ></op-icon-button>
+                      <op-icon-button
                         icon="opp:volume-plus"
                         @click=${this._volumeUp}
-                      ></ha-icon-button>
+                      ></op-icon-button>
                     `
                   : ""}
               </div>
 
-              <div class="controls">
-                ${buttons}
-              </div>
+              <div class="controls">${buttons}</div>
             </div>
           `
         : ""}
@@ -286,8 +284,8 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
   private _toggleMute() {
     this.opp!.callService("media_player", "volume_mute", {
       entity_id: this._config!.entity,
-      is_volume_muted: !this.opp!.states[this._config!.entity].attributes
-        .is_volume_muted,
+      is_volume_muted:
+        !this.opp!.states[this._config!.entity].attributes.is_volume_muted,
     });
   }
 

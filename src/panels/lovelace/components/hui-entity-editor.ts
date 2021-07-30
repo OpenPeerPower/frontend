@@ -68,23 +68,23 @@ export class HuiEntityEditor extends LitElement {
             : this.entities!.map((entityConf, index) => {
                 return html`
                   <div class="entity" data-entity-id=${entityConf.entity}>
-                    <ha-svg-icon .path=${mdiDrag}></ha-svg-icon>
-                    <ha-entity-picker
+                    <op-svg-icon .path=${mdiDrag}></op-svg-icon>
+                    <op-entity-picker
                       .opp=${this.opp}
                       .value=${entityConf.entity}
                       .index=${index}
                       @value-changed=${this._valueChanged}
                       allow-custom-entity
-                    ></ha-entity-picker>
+                    ></op-entity-picker>
                   </div>
                 `;
               })
         )}
       </div>
-      <ha-entity-picker
+      <op-entity-picker
         .opp=${this.opp}
         @value-changed=${this._addEntity}
-      ></ha-entity-picker>
+      ></op-entity-picker>
     `;
   }
 

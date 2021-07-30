@@ -155,13 +155,13 @@ export class HuiGlanceCard extends LitElement implements LovelaceCard {
     const { title } = this._config;
 
     return html`
-      <ha-card .header="${title}">
+      <op-card .header="${title}">
         <div class="${classMap({ entities: true, "no-header": !title })}">
           ${this._configEntities!.map((entityConf) =>
             this.renderEntity(entityConf)
           )}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -49,7 +49,7 @@ export class CloudTTSPref extends LitElement {
     const genders = this.getSupportedGenders(defaultVoice[0], this.ttsInfo);
 
     return html`
-      <ha-card
+      <op-card
         header=${this.opp.localize("ui.panel.config.cloud.account.tts.title")}
       >
         <div class="card-content">
@@ -98,7 +98,7 @@ export class CloudTTSPref extends LitElement {
             ${this.opp.localize("ui.panel.config.cloud.account.tts.try")}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

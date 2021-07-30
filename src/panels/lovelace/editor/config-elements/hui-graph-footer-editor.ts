@@ -26,8 +26,10 @@ import { configElementStyle } from "./config-elements-style";
 const includeDomains = ["sensor"];
 
 @customElement("hui-graph-footer-editor")
-export class HuiGraphFooterEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiGraphFooterEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: GraphHeaderFooterConfig;
@@ -56,7 +58,7 @@ export class HuiGraphFooterEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           allow-custom-entity
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
@@ -68,19 +70,19 @@ export class HuiGraphFooterEditor extends LitElement
           .configValue=${"entity"}
           .includeDomains=${includeDomains}
           @change=${this._valueChanged}
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
-          <ha-formfield
+          <op-formfield
             label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.sensor.show_more_detail"
             )}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._detail === 2}
               .configValue=${"detail"}
               @change=${this._change}
-            ></ha-switch>
-          </ha-formfield>
+            ></op-switch>
+          </op-formfield>
           <paper-input
             type="number"
             .label="${this.opp.localize(

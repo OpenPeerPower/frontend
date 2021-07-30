@@ -51,14 +51,14 @@ class HaRefreshTokens extends LitElement {
 
   protected render(): TemplateResult {
     const refreshTokens = this._refreshTokens(this.refreshTokens!);
-    return html`<ha-card
+    return html`<op-card
       .header=${this.opp.localize("ui.panel.profile.refresh_tokens.header")}
     >
       <div class="card-content">
         ${this.opp.localize("ui.panel.profile.refresh_tokens.description")}
         ${refreshTokens?.length
           ? refreshTokens!.map(
-              (token) => html`<ha-settings-row three-line>
+              (token) => html`<op-settings-row three-line>
                 <span slot="heading"
                   >${this.opp.localize(
                     "ui.panel.profile.refresh_tokens.token_title",
@@ -103,14 +103,14 @@ class HaRefreshTokens extends LitElement {
                     .title=${this.opp.localize(`ui.common.delete`)}
                     @click=${this._deleteToken}
                   >
-                    <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                   </mwc-icon-button>
                 </div>
-              </ha-settings-row>`
+              </op-settings-row>`
             )
           : ""}
       </div>
-    </ha-card>`;
+    </op-card>`;
   }
 
   private async _deleteToken(ev: Event): Promise<void> {

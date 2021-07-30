@@ -39,8 +39,10 @@ const SecondaryInfoValues: { [key: string]: { domains?: string[] } } = {
 };
 
 @customElement("hui-generic-entity-row-editor")
-export class HuiGenericEntityRowEditor extends LitElement
-  implements LovelaceRowEditor {
+export class HuiGenericEntityRowEditor
+  extends LitElement
+  implements LovelaceRowEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: EntitiesCardEntityConfig;
@@ -75,13 +77,13 @@ export class HuiGenericEntityRowEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           allow-custom-entity
           .opp=${this.opp}
           .value=${this._config.entity}
           .configValue=${"entity"}
           @change=${this._valueChanged}
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-input
             .label=${this.opp!.localize(
@@ -91,7 +93,7 @@ export class HuiGenericEntityRowEditor extends LitElement
             .configValue=${"name"}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <ha-icon-input
+          <op-icon-input
             .label=${this.opp!.localize(
               "ui.panel.lovelace.editor.card.generic.icon"
             )}
@@ -99,7 +101,7 @@ export class HuiGenericEntityRowEditor extends LitElement
             .placeholder=${stateIcon(this.opp!.states[this._config.entity])}
             .configValue=${"icon"}
             @value-changed=${this._valueChanged}
-          ></ha-icon-input>
+          ></op-icon-input>
         </div>
         <paper-dropdown-menu .label=${"Secondary Info"}>
           <paper-listbox

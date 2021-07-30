@@ -36,8 +36,10 @@ import { SensorCardConfig, ShoppingListCardConfig } from "./types";
 let Sortable;
 
 @customElement("hui-shopping-list-card")
-class HuiShoppingListCard extends SubscribeMixin(LitElement)
-  implements LovelaceCard {
+class HuiShoppingListCard
+  extends SubscribeMixin(LitElement)
+  implements LovelaceCard
+{
   public static async getConfigElement(): Promise<LovelaceCardEditor> {
     await import("../editor/config-elements/hui-shopping-list-editor");
     return document.createElement("hui-shopping-list-card-editor");
@@ -108,14 +110,14 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
     }
 
     return html`
-      <ha-card
+      <op-card
         .header=${this._config.title}
         class=${classMap({
           "has-header": "title" in this._config,
         })}
       >
         <div class="addRow">
-          <ha-svg-icon
+          <op-svg-icon
             class="addButton"
             .path=${mdiPlus}
             .title=${this.opp!.localize(
@@ -123,7 +125,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
             )}
             @click=${this._addItem}
           >
-          </ha-svg-icon>
+          </op-svg-icon>
           <paper-input
             no-label-float
             class="addBox"
@@ -132,7 +134,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
             )}
             @keydown=${this._addKeyPress}
           ></paper-input>
-          <ha-svg-icon
+          <op-svg-icon
             class="reorderButton"
             .path=${mdiSort}
             .title=${this.opp!.localize(
@@ -140,7 +142,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
             )}
             @click=${this._toggleReorder}
           >
-          </ha-svg-icon>
+          </op-svg-icon>
         </div>
         ${this._reordering
           ? html`
@@ -162,7 +164,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
                     "ui.panel.lovelace.cards.shopping-list.checked_items"
                   )}
                 </span>
-                <ha-svg-icon
+                <op-svg-icon
                   class="clearall"
                   tabindex="0"
                   .path=${mdiNotificationClearAll}
@@ -171,7 +173,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
                   )}
                   @click=${this._clearItems}
                 >
-                </ha-svg-icon>
+                </op-svg-icon>
               </div>
               ${repeat(
                 this._checkedItems!,
@@ -196,7 +198,7 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
               )}
             `
           : ""}
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -222,14 +224,14 @@ class HuiShoppingListCard extends SubscribeMixin(LitElement)
               ></paper-input>
               ${this._reordering
                 ? html`
-                    <ha-svg-icon
+                    <op-svg-icon
                       .title=${this.opp!.localize(
                         "ui.panel.lovelace.cards.shopping-list.drag_and_drop"
                       )}
                       class="reorderButton"
                       .path=${mdiDrag}
                     >
-                    </ha-svg-icon>
+                    </op-svg-icon>
                   `
                 : ""}
             </div>

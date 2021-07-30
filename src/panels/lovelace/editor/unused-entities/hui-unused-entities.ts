@@ -62,7 +62,7 @@ export class HuiUnusedEntities extends LitElement {
       <div class="container">
         ${!this.narrow
           ? html`
-              <ha-card
+              <op-card
                 header="${this.opp.localize(
                   "ui.panel.lovelace.unused_entities.title"
                 )}"
@@ -79,7 +79,7 @@ export class HuiUnusedEntities extends LitElement {
                       `
                     : ""}
                 </div>
-              </ha-card>
+              </op-card>
             `
           : ""}
         <hui-entity-picker-table
@@ -105,13 +105,13 @@ export class HuiUnusedEntities extends LitElement {
           selected: this._selectedEntities.length,
         })}"
       >
-        <ha-fab
+        <op-fab
           .label=${this.opp.localize("ui.panel.lovelace.editor.edit_card.add")}
           extended
           @click=${this._addToLovelaceView}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </div>
     `;
   }

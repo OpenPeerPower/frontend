@@ -35,13 +35,13 @@ class OnboardingRestoreSnapshot extends ProvideOppLitMixin(LitElement) {
 
   protected render(): TemplateResult {
     return this.restoring
-      ? html`<ha-card
+      ? html`<op-card
           .header=${this.localize(
             "ui.panel.page-onboarding.restore.in_progress"
           )}
         >
           <onboarding-loading></onboarding-loading>
-        </ha-card>`
+        </op-card>`
       : html`
           <button class="link" @click=${this._uploadSnapshot}>
             ${this.localize("ui.panel.page-onboarding.restore.description")}

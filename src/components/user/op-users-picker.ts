@@ -44,7 +44,7 @@ class HaUsersPickerLight extends LitElement {
         this.value?.map(
           (user_id, idx) => html`
             <div>
-              <ha-user-picker
+              <op-user-picker
                 .label=${this.pickedUserLabel}
                 .noUserLabel=${this.opp?.localize(
                   "ui.components.user-picker.remove_user"
@@ -58,22 +58,22 @@ class HaUsersPickerLight extends LitElement {
                   notSelectedUsers
                 )}
                 @value-changed=${this._userChanged}
-              ></ha-user-picker>
+              ></op-user-picker>
               <mwc-icon-button .userId=${user_id} @click=${this._removeUser}>
-                <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                <op-svg-icon .path=${mdiClose}></op-svg-icon>
               </mwc-icon-button>
             </div>
           `
         )
       )}
-      <ha-user-picker
+      <op-user-picker
         .noUserLabel=${this.pickUserLabel ||
         this.opp?.localize("ui.components.user-picker.add_user")}
         .opp=${this.opp}
         .users=${notSelectedUsers}
         .disabled=${!notSelectedUsers?.length}
         @value-changed=${this._addUser}
-      ></ha-user-picker>
+      ></op-user-picker>
     `;
   }
 

@@ -22,15 +22,13 @@ class ErrorLogCard extends LitElement {
       <div class="error-log-intro">
         ${this._errorHTML
           ? html`
-              <ha-card>
-                <ha-icon-button
+              <op-card>
+                <op-icon-button
                   icon="opp:refresh"
                   @click=${this._refreshErrorLog}
-                ></ha-icon-button>
-                <div class="card-content error-log">
-                  ${this._errorHTML}
-                </div>
-              </ha-card>
+                ></op-icon-button>
+                <div class="card-content error-log">${this._errorHTML}</div>
+              </op-card>
             `
           : html`
               <mwc-button raised @click=${this._refreshErrorLog}>

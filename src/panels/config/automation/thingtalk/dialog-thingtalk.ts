@@ -73,7 +73,7 @@ class DialogThingtalk extends LitElement {
     }
     if (this._placeholders) {
       return html`
-        <ha-thingtalk-placeholders
+        <op-thingtalk-placeholders
           .opp=${this.opp}
           .placeholders=${this._placeholders}
           .opened=${this._opened}
@@ -81,11 +81,11 @@ class DialogThingtalk extends LitElement {
           @opened-changed=${this._openedChanged}
           @placeholders-filled=${this._handlePlaceholders}
         >
-        </ha-thingtalk-placeholders>
+        </op-thingtalk-placeholders>
       `;
     }
     return html`
-      <ha-paper-dialog
+      <op-paper-dialog
         with-backdrop
         .opened=${this._opened}
         @opened-changed=${this._openedChanged}
@@ -149,16 +149,16 @@ class DialogThingtalk extends LitElement {
           </mwc-button>
           <mwc-button @click="${this._generate}" .disabled=${this._submitting}>
             ${this._submitting
-              ? html`<ha-circular-progress
+              ? html`<op-circular-progress
                   active
                   size="small"
                   title="Creating your automation..."
-                ></ha-circular-progress>`
+                ></op-circular-progress>`
               : ""}
             ${this.opp.localize(`ui.panel.config.automation.thingtalk.create`)}
           </mwc-button>
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

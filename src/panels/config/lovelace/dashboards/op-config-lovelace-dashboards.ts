@@ -56,7 +56,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           type: "icon",
           template: (icon) =>
             icon
-              ? html` <ha-icon slot="item-icon" .icon=${icon}></ha-icon> `
+              ? html` <op-icon slot="item-icon" .icon=${icon}></op-icon> `
               : html``,
         },
         title: {
@@ -72,10 +72,10 @@ export class HaConfigLovelaceDashboards extends LitElement {
               ${title}
               ${dashboard.default
                 ? html`
-                    <ha-icon
+                    <op-icon
                       style="padding-left: 10px;"
                       icon="opp:check-circle-outline"
-                    ></ha-icon>
+                    ></op-icon>
                     <paper-tooltip animation-delay="0">
                       ${this.opp.localize(
                         `ui.panel.config.lovelace.dashboards.default_dashboard`
@@ -134,7 +134,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           width: "100px",
           template: (requireAdmin: boolean) =>
             requireAdmin
-              ? html` <ha-icon icon="opp:check"></ha-icon> `
+              ? html` <op-icon icon="opp:check"></op-icon> `
               : html` - `,
         };
         columns.show_in_sidebar = {
@@ -144,7 +144,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           type: "icon",
           width: "121px",
           template: (sidebar) =>
-            sidebar ? html` <ha-icon icon="opp:check"></ha-icon> ` : html` - `,
+            sidebar ? html` <op-icon icon="opp:check"></op-icon> ` : html` - `,
         };
       }
 
@@ -155,11 +155,11 @@ export class HaConfigLovelaceDashboards extends LitElement {
         template: (urlPath) =>
           narrow
             ? html`
-                <ha-icon-button
+                <op-icon-button
                   icon="opp:open-in-new"
                   .urlPath=${urlPath}
                   @click=${this._navigate}
-                ></ha-icon-button>
+                ></op-icon-button>
               `
             : html`
                 <mwc-button .urlPath=${urlPath} @click=${this._navigate}
@@ -175,8 +175,9 @@ export class HaConfigLovelaceDashboards extends LitElement {
   );
 
   private _getItems = memoize((dashboards: LovelaceDashboard[]) => {
-    const defaultMode = (this.opp.panels?.lovelace
-      ?.config as LovelacePanelConfig).mode;
+    const defaultMode = (
+      this.opp.panels?.lovelace?.config as LovelacePanelConfig
+    ).mode;
     const defaultUrlPath = this.opp.defaultPanel;
     const isDefault = defaultUrlPath === "lovelace";
     return [
@@ -223,7 +224,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
         hasFab
         clickable
       >
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.lovelace.dashboards.picker.add_dashboard"
@@ -231,8 +232,8 @@ export class HaConfigLovelaceDashboards extends LitElement {
           extended
           @click=${this._addDashboard}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }
@@ -271,16 +272,12 @@ export class HaConfigLovelaceDashboards extends LitElement {
       urlPath,
       createDashboard: async (values: LovelaceDashboardCreateParams) => {
         const created = await createDashboard(this.opp!, values);
-        this._dashboards = this._dashboards!.concat(
-          created
-        ).sort((res1, res2) => compare(res1.url_path, res2.url_path));
+        this._dashboards = this._dashboards!.concat(created).sort(
+          (res1, res2) => compare(res1.url_path, res2.url_path)
+        );
       },
       updateDashboard: async (values) => {
-        const updated = await updateDashboard(
-          this.opp!,
-          dashboard!.id,
-          values
-        );
+        const updated = await updateDashboard(this.opp!, dashboard!.id, values);
         this._dashboards = this._dashboards!.map((res) =>
           res === dashboard ? updated : res
         );

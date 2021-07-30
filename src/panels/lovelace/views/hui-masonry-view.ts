@@ -83,7 +83,7 @@ export class MasonryView extends LitElement implements LovelaceViewElement {
       <div id="columns"></div>
       ${this.lovelace?.editMode
         ? html`
-            <ha-fab
+            <op-fab
               .label=${this.opp!.localize(
                 "ui.panel.lovelace.editor.edit_card.add"
               )}
@@ -93,8 +93,8 @@ export class MasonryView extends LitElement implements LovelaceViewElement {
                 rtl: computeRTL(this.opp!),
               })}
             >
-              <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-            </ha-fab>
+              <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+            </op-fab>
           `
         : ""}
     `;

@@ -113,13 +113,13 @@ class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
       </p>
       <div class="state-wrapper flex layout horizontal">
         <div class="inputs">
-          <ha-entity-picker
+          <op-entity-picker
             autofocus
             opp="[[opp]]"
             value="{{_entityId}}"
             on-change="entityIdChanged"
             allow-custom-entity
-          ></ha-entity-picker>
+          ></op-entity-picker>
           <paper-input
             label="[[localize('ui.panel.developer-tools.tabs.states.state')]]"
             required
@@ -133,12 +133,12 @@ class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
           <p>
             [[localize('ui.panel.developer-tools.tabs.states.state_attributes')]]
           </p>
-          <ha-code-editor
+          <op-code-editor
             mode="yaml"
             value="[[_stateAttributes]]"
             error="[[!validJSON]]"
             on-value-changed="_yamlChanged"
-          ></ha-code-editor>
+          ></op-code-editor>
           <mwc-button on-click="handleSetState" disabled="[[!validJSON]]" raised
             >[[localize('ui.panel.developer-tools.tabs.states.set_state')]]</mwc-button
           >
@@ -206,23 +206,21 @@ class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
           <template is="dom-repeat" items="[[_entities]]" as="entity">
             <tr>
               <td>
-                <ha-svg-icon
+                <op-svg-icon
                   on-click="entityMoreInfo"
                   alt="[[localize('ui.panel.developer-tools.tabs.states.more_info')]]"
                   title="[[localize('ui.panel.developer-tools.tabs.states.more_info')]]"
                   path="[[informationOutlineIcon()]]"
-                ></ha-svg-icon>
-                <ha-svg-icon
+                ></op-svg-icon>
+                <op-svg-icon
                   on-click="copyEntity"
                   alt="[[localize('ui.panel.developer-tools.tabs.states.copy_id')]]"
                   title="[[localize('ui.panel.developer-tools.tabs.states.copy_id')]]"
                   path="[[clipboardOutlineIcon()]]"
-                ></ha-svg-icon>
+                ></op-svg-icon>
                 <a href="#" on-click="entitySelected">[[entity.entity_id]]</a>
               </td>
-              <td>
-                [[entity.state]]
-              </td>
+              <td>[[entity.state]]</td>
               <template
                 is="dom-if"
                 if="[[computeShowAttributes(narrow, _showAttributes)]]"

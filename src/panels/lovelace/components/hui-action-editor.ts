@@ -99,7 +99,7 @@ export class HuiActionEditor extends LitElement {
         </paper-dropdown-menu>
         ${this.tooltipText
           ? html`
-              <ha-help-tooltip .label=${this.tooltipText}></ha-help-tooltip>
+              <op-help-tooltip .label=${this.tooltipText}></op-help-tooltip>
             `
           : ""}
       </div>
@@ -129,13 +129,13 @@ export class HuiActionEditor extends LitElement {
         : ""}
       ${this.config?.action === "call-service"
         ? html`
-            <ha-service-control
+            <op-service-control
               .opp=${this.opp}
               .value=${this._serviceAction(this.config)}
               .showAdvanced=${this.opp.userData?.showAdvanced}
               narrow
               @value-changed=${this._serviceValueChanged}
-            ></ha-service-control>
+            ></op-service-control>
           `
         : ""}
     `;
@@ -154,9 +154,9 @@ export class HuiActionEditor extends LitElement {
     if (value === "default") {
       fireEvent(this, "value-changed", { value: undefined });
       if (this.config?.action) {
-        (this.shadowRoot!.querySelector(
-          "paper-listbox"
-        ) as PaperListboxElement).select(this.config.action);
+        (
+          this.shadowRoot!.querySelector("paper-listbox") as PaperListboxElement
+        ).select(this.config.action);
       }
       return;
     }

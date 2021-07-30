@@ -51,13 +51,13 @@ class PanelMediaBrowser extends LitElement {
         : undefined;
 
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header fixed slot="header">
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title class="heading">
               <div>
                 ${this.opp.localize(
@@ -72,13 +72,13 @@ class PanelMediaBrowser extends LitElement {
           </app-toolbar>
         </app-header>
         <div class="content">
-          <ha-media-player-browse
+          <op-media-player-browse
             .opp=${this.opp}
             .entityId=${this._entityId}
             @media-picked=${this._mediaPicked}
-          ></ha-media-player-browse>
+          ></op-media-player-browse>
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 
@@ -91,9 +91,7 @@ class PanelMediaBrowser extends LitElement {
     });
   }
 
-  private async _mediaPicked(
-    ev: OPPDomEvent<MediaPickedEvent>
-  ): Promise<void> {
+  private async _mediaPicked(ev: OPPDomEvent<MediaPickedEvent>): Promise<void> {
     const item = ev.detail.item;
     if (this._entityId === BROWSER_PLAYER) {
       const resolvedUrl: any = await this.opp.callWS({

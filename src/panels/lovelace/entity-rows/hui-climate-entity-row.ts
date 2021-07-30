@@ -51,10 +51,10 @@ class HuiClimateEntityRow extends LitElement implements LovelaceRow {
 
     return html`
       <hui-generic-entity-row .opp=${this.opp} .config=${this._config}>
-        <ha-climate-state
+        <op-climate-state
           .opp=${this.opp}
           .stateObj=${stateObj}
-        ></ha-climate-state>
+        ></op-climate-state>
       </hui-generic-entity-row>
     `;
   }

@@ -70,9 +70,9 @@ class ZWaveJSConfigDashboard extends LitElement {
         .tabs=${configTabs}
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._fetchData}>
-          <ha-svg-icon .path=${mdiRefresh}></ha-svg-icon>
+          <op-svg-icon .path=${mdiRefresh}></op-svg-icon>
         </mwc-icon-button>
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.zwave_js.dashboard.header")}
           </div>
@@ -84,22 +84,22 @@ class ZWaveJSConfigDashboard extends LitElement {
           </div>
           ${this._network
             ? html`
-                <ha-card class="content network-status">
+                <op-card class="content network-status">
                   <div class="card-content">
                     <div class="heading">
                       <div class="icon">
                         ${this._status === "connecting"
-                          ? html`<ha-circular-progress
+                          ? html`<op-circular-progress
                               active
-                            ></ha-circular-progress>`
+                            ></op-circular-progress>`
                           : html`
-                              <ha-svg-icon
+                              <op-svg-icon
                                 .path=${this._icon}
                                 class="network-status-icon ${classMap({
                                   [this._status]: true,
                                 })}"
                                 slot="item-icon"
-                              ></ha-svg-icon>
+                              ></op-svg-icon>
                             `}
                       </div>
                       ${this._status !== "connecting"
@@ -150,9 +150,7 @@ class ZWaveJSConfigDashboard extends LitElement {
                       href="${`/config/entities/dashboard?historyBack=1&config_entry=${this.configEntryId}`}"
                     >
                       <mwc-button>
-                        ${this.opp.localize(
-                          "ui.panel.config.entities.caption"
-                        )}
+                        ${this.opp.localize("ui.panel.config.entities.caption")}
                       </mwc-button>
                     </a>
                     <mwc-button @click=${this._addNodeClicked}>
@@ -166,7 +164,7 @@ class ZWaveJSConfigDashboard extends LitElement {
                       )}
                     </mwc-button>
                   </div>
-                </ha-card>
+                </op-card>
               `
             : ``}
           <button class="link dump" @click=${this._dumpDebugClicked}>
@@ -174,7 +172,7 @@ class ZWaveJSConfigDashboard extends LitElement {
               "ui.panel.config.zwave_js.dashboard.dump_debug"
             )}
           </button>
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }

@@ -37,8 +37,10 @@ const cardConfigStruct = object({
 const views = ["dayGridMonth", "dayGridDay", "listWeek"];
 
 @customElement("hui-calendar-card-editor")
-export class HuiCalendarCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiCalendarCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @property({ attribute: false }) private _config?: CalendarCardConfig;
@@ -120,13 +122,13 @@ export class HuiCalendarCardEditor extends LitElement
         this.opp!.localize("ui.panel.lovelace.editor.card.config.required") +
         ")"}
       </h3>
-      <ha-entities-picker
+      <op-entities-picker
         .opp=${this.opp!}
         .value=${this._configEntities}
         .includeDomains=${["calendar"]}
         @value-changed=${this._valueChanged}
       >
-      </ha-entities-picker>
+      </op-entities-picker>
     `;
   }
 

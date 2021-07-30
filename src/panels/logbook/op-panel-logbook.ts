@@ -77,19 +77,19 @@ export class HaPanelLogbook extends LitElement {
 
   protected render() {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header slot="header" fixed>
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.logbook")}</div>
             <mwc-icon-button
               @click=${this._refreshLogbook}
               .disabled=${this._isLoading}
             >
-              <ha-svg-icon .path=${mdiRefresh}></ha-svg-icon>
+              <op-svg-icon .path=${mdiRefresh}></op-svg-icon>
             </mwc-icon-button>
           </app-toolbar>
         </app-header>
@@ -97,16 +97,16 @@ export class HaPanelLogbook extends LitElement {
         ${this._isLoading ? html`` : ""}
 
         <div class="filters">
-          <ha-date-range-picker
+          <op-date-range-picker
             .opp=${this.opp}
             ?disabled=${this._isLoading}
             .startDate=${this._startDate}
             .endDate=${this._endDate}
             .ranges=${this._ranges}
             @change=${this._dateRangeChanged}
-          ></ha-date-range-picker>
+          ></op-date-range-picker>
 
-          <ha-entity-picker
+          <op-entity-picker
             .opp=${this.opp}
             .value=${this._entityId}
             .label=${this.opp.localize(
@@ -114,28 +114,28 @@ export class HaPanelLogbook extends LitElement {
             )}
             .disabled=${this._isLoading}
             @change=${this._entityPicked}
-          ></ha-entity-picker>
+          ></op-entity-picker>
         </div>
 
         ${this._isLoading
           ? html`
               <div class="progress-wrapper">
-                <ha-circular-progress
+                <op-circular-progress
                   active
                   alt=${this.opp.localize("ui.common.loading")}
-                ></ha-circular-progress>
+                ></op-circular-progress>
               </div>
             `
           : html`
-              <ha-logbook
+              <op-logbook
                 .opp=${this.opp}
                 .entries=${this._entries}
                 .userIdToName=${this._userIdToName}
                 .traceContexts=${this._traceContexts}
                 virtualize
-              ></ha-logbook>
+              ></op-logbook>
             `}
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

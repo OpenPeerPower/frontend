@@ -102,9 +102,7 @@ class HaBlueprintOverview extends LitElement {
           ? (name, entity: any) =>
               html`
                 ${name}<br />
-                <div class="secondary">
-                  ${entity.path}
-                </div>
+                <div class="secondary">${entity.path}</div>
               `
           : undefined,
       },
@@ -135,7 +133,7 @@ class HaBlueprintOverview extends LitElement {
                 )}
                 @click=${(ev) => this._createNew(ev)}
               >
-                <ha-svg-icon .path=${mdiRobot}></ha-svg-icon>
+                <op-svg-icon .path=${mdiRobot}></op-svg-icon>
               </mwc-icon-button>`
             : html`<mwc-button
                 .blueprint=${blueprint}
@@ -161,7 +159,7 @@ class HaBlueprintOverview extends LitElement {
                     : "ui.panel.config.blueprint.overview.share_blueprint_no_url"
                 )}
                 @click=${(ev) => this._share(ev)}
-                ><ha-svg-icon .path=${mdiShareVariant}></ha-svg-icon
+                ><op-svg-icon .path=${mdiShareVariant}></op-svg-icon
               ></mwc-icon-button>`,
       },
       delete: {
@@ -176,7 +174,7 @@ class HaBlueprintOverview extends LitElement {
                   "ui.panel.config.blueprint.overview.delete_blueprint"
                 )}
                 @click=${(ev) => this._delete(ev)}
-                ><ha-svg-icon .path=${mdiDelete}></ha-svg-icon
+                ><op-svg-icon .path=${mdiDelete}></op-svg-icon
               ></mwc-icon-button>`,
       },
     })
@@ -227,9 +225,9 @@ class HaBlueprintOverview extends LitElement {
         </div>`}
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._showHelp}>
-          <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+          <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
         </mwc-icon-button>
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.blueprint.overview.add_blueprint"
@@ -237,8 +235,8 @@ class HaBlueprintOverview extends LitElement {
           extended
           @click=${this._addBlueprintClicked}
         >
-          <ha-svg-icon slot="icon" .path=${mdiDownload}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiDownload}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

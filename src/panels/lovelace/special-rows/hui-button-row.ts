@@ -58,11 +58,11 @@ export class HuiButtonRow extends LitElement implements LovelaceRow {
         : undefined;
 
     return html`
-      <ha-icon
+      <op-icon
         .icon=${this._config.icon ||
         (stateObj ? stateIcon(stateObj) : "opp:remote")}
       >
-      </ha-icon>
+      </op-icon>
       <div class="flex">
         <div>
           ${this._config.name || (stateObj ? computeStateName(stateObj) : "")}

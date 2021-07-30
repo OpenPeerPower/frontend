@@ -38,9 +38,7 @@ export class HaConfigUsers extends LitElement {
     (narrow: boolean, _language): DataTableColumnContainer => {
       const columns: DataTableColumnContainer = {
         name: {
-          title: this.opp.localize(
-            "ui.panel.config.users.picker.headers.name"
-          ),
+          title: this.opp.localize("ui.panel.config.users.picker.headers.name"),
           sortable: true,
           filterable: true,
           width: "25%",
@@ -94,7 +92,7 @@ export class HaConfigUsers extends LitElement {
           filterable: true,
           width: "80px",
           template: (is_active) =>
-            is_active ? html`<ha-icon icon="opp:check"> </ha-icon>` : "",
+            is_active ? html`<op-icon icon="opp:check"> </op-icon>` : "",
         },
         system_generated: {
           title: this.opp.localize(
@@ -105,7 +103,7 @@ export class HaConfigUsers extends LitElement {
           filterable: true,
           width: "160px",
           template: (generated) =>
-            generated ? html`<ha-icon icon="opp:check"> </ha-icon>` : "",
+            generated ? html`<op-icon icon="opp:check"> </op-icon>` : "",
         },
       };
 
@@ -132,14 +130,14 @@ export class HaConfigUsers extends LitElement {
         hasFab
         clickable
       >
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize("ui.panel.config.users.picker.add_user")}
           extended
           @click=${this._addUser}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

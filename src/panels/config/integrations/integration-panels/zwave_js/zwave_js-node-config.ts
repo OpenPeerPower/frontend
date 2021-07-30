@@ -47,18 +47,18 @@ const getDevice = memoizeOne(
     entries?.find((device) => device.id === deviceId)
 );
 
-const getNodeId = memoizeOne((device: DeviceRegistryEntry):
-  | number
-  | undefined => {
-  const identifier = device.identifiers.find(
-    (ident) => ident[0] === "zwave_js"
-  );
-  if (!identifier) {
-    return undefined;
-  }
+const getNodeId = memoizeOne(
+  (device: DeviceRegistryEntry): number | undefined => {
+    const identifier = device.identifiers.find(
+      (ident) => ident[0] === "zwave_js"
+    );
+    if (!identifier) {
+      return undefined;
+    }
 
-  return parseInt(identifier[1].split("-")[1]);
-});
+    return parseInt(identifier[1].split("-")[1]);
+  }
+);
 
 @customElement("zwave_js-node-config")
 class ZWaveJSNodeConfig extends SubscribeMixin(LitElement) {
@@ -126,7 +126,7 @@ class ZWaveJSNodeConfig extends SubscribeMixin(LitElement) {
         .route=${this.route}
         .tabs=${configTabs}
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.zwave_js.node_config.header")}
           </div>
@@ -157,22 +157,22 @@ class ZWaveJSNodeConfig extends SubscribeMixin(LitElement) {
               </em>
             </p>
           </div>
-          <ha-card>
+          <op-card>
             ${this._config
               ? html`
                   ${Object.entries(this._config).map(
-                    ([id, item]) => html` <ha-settings-row
+                    ([id, item]) => html` <op-settings-row
                       class="content config-item"
                       .configId=${id}
                       .narrow=${this.narrow}
                     >
                       ${this._generateConfigBox(id, item)}
-                    </ha-settings-row>`
+                    </op-settings-row>`
                   )}
                 `
               : ``}
-          </ha-card>
-        </ha-config-section>
+          </op-card>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }
@@ -205,14 +205,14 @@ class ZWaveJSNodeConfig extends SubscribeMixin(LitElement) {
       return html`
         ${labelAndDescription}
         <div class="toggle">
-          <ha-switch
+          <op-switch
             .property=${item.property}
             .propertyKey=${item.property_key}
             .checked=${item.value === 1}
             .key=${id}
             @change=${this._switchToggled}
             .disabled=${!item.metadata.writeable}
-          ></ha-switch>
+          ></op-switch>
         </div>
       `;
     }

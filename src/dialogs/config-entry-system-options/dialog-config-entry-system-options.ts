@@ -62,7 +62,7 @@ class DialogConfigEntrySystemOptions extends LitElement {
         )}
       >
         ${this._error ? html` <div class="error">${this._error}</div> ` : ""}
-        <ha-formfield
+        <op-formfield
           .label=${html`<p>
               ${this.opp.localize(
                 "ui.dialogs.config_entry_system_options.enable_new_entities_label"
@@ -79,15 +79,15 @@ class DialogConfigEntrySystemOptions extends LitElement {
             </p>`}
           .dir=${computeRTLDirection(this.opp)}
         >
-          <ha-switch
+          <op-switch
             .checked=${!this._disableNewEntities}
             @change=${this._disableNewEntitiesChanged}
             .disabled=${this._submitting}
-          ></ha-switch>
-        </ha-formfield>
+          ></op-switch>
+        </op-formfield>
         ${this._allowUpdatePolling()
           ? html`
-              <ha-formfield
+              <op-formfield
                 .label=${html`<p>
                     ${this.opp.localize(
                       "ui.dialogs.config_entry_system_options.enable_polling_label"
@@ -104,12 +104,12 @@ class DialogConfigEntrySystemOptions extends LitElement {
                   </p>`}
                 .dir=${computeRTLDirection(this.opp)}
               >
-                <ha-switch
+                <op-switch
                   .checked=${!this._disablePolling}
                   @change=${this._disablePollingChanged}
                   .disabled=${this._submitting}
-                ></ha-switch>
-              </ha-formfield>
+                ></op-switch>
+              </op-formfield>
             `
           : ""}
         <mwc-button

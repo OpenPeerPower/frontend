@@ -10,8 +10,10 @@ import "../../trigger/ha-automation-trigger";
 import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
 
 @customElement("ha-automation-action-wait_for_trigger")
-export class HaWaitForTriggerAction extends LitElement
-  implements ActionElement {
+export class HaWaitForTriggerAction
+  extends LitElement
+  implements ActionElement
+{
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
   @property() public action!: WaitForTriggerAction;
@@ -33,22 +35,22 @@ export class HaWaitForTriggerAction extends LitElement
         @value-changed=${this._valueChanged}
       ></paper-input>
       <br />
-      <ha-formfield
+      <op-formfield
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.actions.type.wait_for_trigger.continue_timeout"
         )}
       >
-        <ha-switch
+        <op-switch
           .checked=${continue_on_timeout ?? true}
           @change=${this._continueChanged}
-        ></ha-switch>
-      </ha-formfield>
-      <ha-automation-trigger
+        ></op-switch>
+      </op-formfield>
+      <op-automation-trigger
         .triggers=${wait_for_trigger}
         .opp=${this.opp}
         .name=${"wait_for_trigger"}
         @value-changed=${this._valueChanged}
-      ></ha-automation-trigger>
+      ></op-automation-trigger>
     `;
   }
 

@@ -26,7 +26,7 @@ class MoreInfoRemote extends LitElement {
     return html`
       ${supportsFeature(stateObj, REMOTE_SUPPORT_ACTIVITY)
         ? html`
-            <ha-paper-dropdown-menu
+            <op-paper-dropdown-menu
               .label=${this.opp!.localize(
                 "ui.dialogs.more_info_control.remote.activity"
               )}
@@ -43,15 +43,15 @@ class MoreInfoRemote extends LitElement {
                   `
                 )}
               </paper-listbox>
-            </ha-paper-dropdown-menu>
+            </op-paper-dropdown-menu>
           `
         : ""}
 
-      <ha-attributes
+      <op-attributes
         .opp=${this.opp}
         .stateObj=${this.stateObj}
         .extraFilters=${filterExtraAttributes}
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

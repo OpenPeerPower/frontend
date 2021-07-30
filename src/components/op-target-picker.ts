@@ -10,10 +10,7 @@ import {
   mdiUnfoldMoreVertical,
 } from "@mdi/js";
 import "@polymer/paper-tooltip/paper-tooltip";
-import {
-  OppServiceTarget,
-  UnsubscribeFunc,
-} from "openpeerpower-js-websocket";
+import { OppServiceTarget, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import { css, CSSResultGroup, html, LitElement, unsafeCSS } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
@@ -160,10 +157,10 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           @click=${this._showPicker}
         >
           <div class="mdc-chip__ripple"></div>
-          <ha-svg-icon
+          <op-svg-icon
             class="mdc-chip__icon mdc-chip__icon--leading"
             .path=${mdiPlus}
-          ></ha-svg-icon>
+          ></op-svg-icon>
           <span role="gridcell">
             <span role="button" tabindex="0" class="mdc-chip__primary-action">
               <span class="mdc-chip__text"
@@ -180,10 +177,10 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           @click=${this._showPicker}
         >
           <div class="mdc-chip__ripple"></div>
-          <ha-svg-icon
+          <op-svg-icon
             class="mdc-chip__icon mdc-chip__icon--leading"
             .path=${mdiPlus}
-          ></ha-svg-icon>
+          ></op-svg-icon>
           <span role="gridcell">
             <span role="button" tabindex="0" class="mdc-chip__primary-action">
               <span class="mdc-chip__text"
@@ -200,10 +197,10 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           @click=${this._showPicker}
         >
           <div class="mdc-chip__ripple"></div>
-          <ha-svg-icon
+          <op-svg-icon
             class="mdc-chip__icon mdc-chip__icon--leading"
             .path=${mdiPlus}
-          ></ha-svg-icon>
+          ></op-svg-icon>
           <span role="gridcell">
             <span role="button" tabindex="0" class="mdc-chip__primary-action">
               <span class="mdc-chip__text"
@@ -240,16 +237,16 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
         })}"
       >
         ${iconPath
-          ? html`<ha-svg-icon
+          ? html`<op-svg-icon
               class="mdc-chip__icon mdc-chip__icon--leading"
               .path=${iconPath}
-            ></ha-svg-icon>`
+            ></op-svg-icon>`
           : ""}
         ${icon
-          ? html`<ha-icon
+          ? html`<op-icon
               class="mdc-chip__icon mdc-chip__icon--leading"
               .icon=${icon}
-            ></ha-icon>`
+            ></op-icon>`
           : ""}
         <span role="gridcell">
           <span role="button" tabindex="0" class="mdc-chip__primary-action">
@@ -268,7 +265,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
                 .type=${type}
                 @click=${this._handleExpand}
               >
-                <ha-svg-icon .path=${mdiUnfoldMoreVertical}></ha-svg-icon>
+                <op-svg-icon .path=${mdiUnfoldMoreVertical}></op-svg-icon>
               </mwc-icon-button>
               <paper-tooltip class="expand" animation-delay="0"
                 >${this.opp.localize(
@@ -286,7 +283,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
             .type=${type}
             @click=${this._handleRemove}
           >
-            <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+            <op-svg-icon .path=${mdiClose}></op-svg-icon>
           </mwc-icon-button>
           <paper-tooltip animation-delay="0"
             >${this.opp.localize(
@@ -301,22 +298,20 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
   private _renderPicker() {
     switch (this._addMode) {
       case "area_id":
-        return html`<ha-area-picker
+        return html`<op-area-picker
           .opp=${this.opp}
           id="input"
           .type=${"area_id"}
-          .label=${this.opp.localize(
-            "ui.components.target-picker.add_area_id"
-          )}
+          .label=${this.opp.localize("ui.components.target-picker.add_area_id")}
           no-add
           .deviceFilter=${this.deviceFilter}
           .entityFilter=${this.entityRegFilter}
           .includeDeviceClasses=${this.includeDeviceClasses}
           .includeDomains=${this.includeDomains}
           @value-changed=${this._targetPicked}
-        ></ha-area-picker>`;
+        ></op-area-picker>`;
       case "device_id":
-        return html`<ha-device-picker
+        return html`<op-device-picker
           .opp=${this.opp}
           id="input"
           .type=${"device_id"}
@@ -328,9 +323,9 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           .includeDeviceClasses=${this.includeDeviceClasses}
           .includeDomains=${this.includeDomains}
           @value-changed=${this._targetPicked}
-        ></ha-device-picker>`;
+        ></op-device-picker>`;
       case "entity_id":
-        return html`<ha-entity-picker
+        return html`<op-entity-picker
           .opp=${this.opp}
           id="input"
           .type=${"entity_id"}
@@ -342,7 +337,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           .includeDomains=${this.includeDomains}
           @value-changed=${this._targetPicked}
           allow-custom-entity
-        ></ha-entity-picker>`;
+        ></op-entity-picker>`;
     }
     return html``;
   }

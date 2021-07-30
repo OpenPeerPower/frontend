@@ -40,12 +40,12 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
   protected render() {
     return html`
       <form>${this._renderForm()}</form>
-      <ha-password-manager-polyfill
+      <op-password-manager-polyfill
         .step=${this._step}
         .stepData=${this._stepData}
         @form-submitted=${this._handleSubmit}
         @value-changed=${this._stepDataChanged}
-      ></ha-password-manager-polyfill>
+      ></op-password-manager-polyfill>
     `;
   }
 
@@ -118,32 +118,32 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
       case "abort":
         return html`
           ${this.localize("ui.panel.page-authorize.abort_intro")}:
-          <ha-markdown
+          <op-markdown
             allowsvg
             breaks
             .content=${this.localize(
               `ui.panel.page-authorize.form.providers.${step.handler[0]}.abort.${step.reason}`
             )}
-          ></ha-markdown>
+          ></op-markdown>
         `;
       case "form":
         return html`
           ${this._computeStepDescription(step)
             ? html`
-                <ha-markdown
+                <op-markdown
                   breaks
                   .content=${this._computeStepDescription(step)}
-                ></ha-markdown>
+                ></op-markdown>
               `
             : html``}
-          <ha-form
+          <op-form
             .data=${this._stepData}
             .schema=${step.data_schema}
             .error=${step.errors}
             .computeLabel=${this._computeLabelCallback(step)}
             .computeError=${this._computeErrorCallback(step)}
             @value-changed=${this._stepDataChanged}
-          ></ha-form>
+          ></op-form>
         `;
       default:
         return html``;

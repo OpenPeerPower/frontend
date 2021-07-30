@@ -36,7 +36,7 @@ export default class HaGeolocationTrigger extends LitElement {
         .value=${source}
         @value-changed="${this._valueChanged}"
       ></paper-input>
-      <ha-entity-picker
+      <op-entity-picker
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.geo_location.zone"
         )}
@@ -45,7 +45,7 @@ export default class HaGeolocationTrigger extends LitElement {
         .opp=${this.opp}
         allow-custom-entity
         .includeDomains=${includeDomains}
-      ></ha-entity-picker>
+      ></op-entity-picker>
       <label id="eventlabel">
         ${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.geo_location.event"

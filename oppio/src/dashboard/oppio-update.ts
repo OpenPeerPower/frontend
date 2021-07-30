@@ -111,29 +111,29 @@ export class OppioUpdate extends LitElement {
       return html``;
     }
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           <div class="icon">
-            <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+            <op-svg-icon .path=${mdiOpenPeerPower}></op-svg-icon>
           </div>
           <div class="update-heading">${name}</div>
-          <ha-settings-row two-line>
+          <op-settings-row two-line>
             <span slot="heading">
               ${this.supervisor.localize("common.version")}
             </span>
             <span slot="description">
               ${computeVersion(key, object.version!)}
             </span>
-          </ha-settings-row>
+          </op-settings-row>
 
-          <ha-settings-row two-line>
+          <op-settings-row two-line>
             <span slot="heading">
               ${this.supervisor.localize("common.newest_version")}
             </span>
             <span slot="description">
               ${computeVersion(key, object.version_latest!)}
             </span>
-          </ha-settings-row>
+          </op-settings-row>
         </div>
         <div class="card-actions">
           <a href="${releaseNotesUrl}" target="_blank" rel="noreferrer">
@@ -141,7 +141,7 @@ export class OppioUpdate extends LitElement {
               ${this.supervisor.localize("common.release_notes")}
             </mwc-button>
           </a>
-          <ha-progress-button
+          <op-progress-button
             .apiPath=${apiPath}
             .name=${name}
             .key=${key}
@@ -149,9 +149,9 @@ export class OppioUpdate extends LitElement {
             @click=${this._confirmUpdate}
           >
             ${this.supervisor.localize("common.update")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -179,11 +179,9 @@ class HuiEntitiesCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card>
+      <op-card>
         ${this._headerElement
-          ? html`<div class="header-footer header">
-              ${this._headerElement}
-            </div>`
+          ? html`<div class="header-footer header">${this._headerElement}</div>`
           : ""}
         ${!this._config.title && !this._showHeaderToggle && !this._config.icon
           ? ""
@@ -192,10 +190,10 @@ class HuiEntitiesCard extends LitElement implements LovelaceCard {
                 <div class="name">
                   ${this._config.icon
                     ? html`
-                        <ha-icon
+                        <op-icon
                           class="icon"
                           .icon=${this._config.icon}
-                        ></ha-icon>
+                        ></op-icon>
                       `
                     : ""}
                   ${this._config.title}
@@ -205,9 +203,11 @@ class HuiEntitiesCard extends LitElement implements LovelaceCard {
                   : html`
                       <hui-entities-toggle
                         .opp=${this._opp}
-                        .entities=${(this._configEntities!.filter(
-                          (conf) => "entity" in conf
-                        ) as EntityConfig[]).map((conf) => conf.entity)}
+                        .entities=${(
+                          this._configEntities!.filter(
+                            (conf) => "entity" in conf
+                          ) as EntityConfig[]
+                        ).map((conf) => conf.entity)}
                       ></hui-entities-toggle>
                     `}
               </h1>
@@ -219,11 +219,9 @@ class HuiEntitiesCard extends LitElement implements LovelaceCard {
         </div>
 
         ${this._footerElement
-          ? html`<div class="header-footer footer">
-              ${this._footerElement}
-            </div>`
+          ? html`<div class="header-footer footer">${this._footerElement}</div>`
           : ""}
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -84,7 +84,7 @@ export class DialogAddUser extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing=${this._close}
         scrimClickAction
@@ -149,13 +149,13 @@ export class DialogAddUser extends LitElement {
             )}"
           ></paper-input>
 
-          <ha-formfield
+          <op-formfield
             .label=${this.opp.localize("ui.panel.config.users.editor.admin")}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch .checked=${this._isAdmin} @change=${this._adminChanged}>
-            </ha-switch>
-          </ha-formfield>
+            <op-switch .checked=${this._isAdmin} @change=${this._adminChanged}>
+            </op-switch>
+          </op-formfield>
           ${!this._isAdmin
             ? html`
                 <br />
@@ -175,7 +175,7 @@ export class DialogAddUser extends LitElement {
         ${this._loading
           ? html`
               <div slot="primaryAction" class="submit-spinner">
-                <ha-circular-progress active></ha-circular-progress>
+                <op-circular-progress active></op-circular-progress>
               </div>
             `
           : html`
@@ -190,7 +190,7 @@ export class DialogAddUser extends LitElement {
                 ${this.opp.localize("ui.panel.config.users.add_user.create")}
               </mwc-button>
             `}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

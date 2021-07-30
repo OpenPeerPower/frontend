@@ -42,16 +42,14 @@ export class HaManualAutomationEditor extends LitElement {
   @property() public stateObj?: OppEntity;
 
   protected render() {
-    return html`<ha-config-section vertical .isWide=${this.isWide}>
+    return html`<op-config-section vertical .isWide=${this.isWide}>
         ${!this.narrow
           ? html` <span slot="header">${this.config.alias}</span> `
           : ""}
         <span slot="introduction">
-          ${this.opp.localize(
-            "ui.panel.config.automation.editor.introduction"
-          )}
+          ${this.opp.localize("ui.panel.config.automation.editor.introduction")}
         </span>
-        <ha-card>
+        <op-card>
           <div class="card-content">
             <paper-input
               .label=${this.opp.localize(
@@ -131,10 +129,10 @@ export class HaManualAutomationEditor extends LitElement {
             ? html`
                 <div class="card-actions layout horizontal justified center">
                   <div class="layout horizontal center">
-                    <ha-entity-toggle
+                    <op-entity-toggle
                       .opp=${this.opp}
                       .stateObj=${this.stateObj!}
-                    ></ha-entity-toggle>
+                    ></op-entity-toggle>
                     ${this.opp.localize(
                       "ui.panel.config.automation.editor.enable_disable"
                     )}
@@ -157,10 +155,10 @@ export class HaManualAutomationEditor extends LitElement {
                 </div>
               `
             : ""}
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
 
-      <ha-config-section vertical .isWide=${this.isWide}>
+      <op-config-section vertical .isWide=${this.isWide}>
         <span slot="header">
           ${this.opp.localize(
             "ui.panel.config.automation.editor.triggers.header"
@@ -182,14 +180,14 @@ export class HaManualAutomationEditor extends LitElement {
             )}
           </a>
         </span>
-        <ha-automation-trigger
+        <op-automation-trigger
           .triggers=${this.config.trigger}
           @value-changed=${this._triggerChanged}
           .opp=${this.opp}
-        ></ha-automation-trigger>
-      </ha-config-section>
+        ></op-automation-trigger>
+      </op-config-section>
 
-      <ha-config-section vertical .isWide=${this.isWide}>
+      <op-config-section vertical .isWide=${this.isWide}>
         <span slot="header">
           ${this.opp.localize(
             "ui.panel.config.automation.editor.conditions.header"
@@ -211,14 +209,14 @@ export class HaManualAutomationEditor extends LitElement {
             )}
           </a>
         </span>
-        <ha-automation-condition
+        <op-automation-condition
           .conditions=${this.config.condition || []}
           @value-changed=${this._conditionChanged}
           .opp=${this.opp}
-        ></ha-automation-condition>
-      </ha-config-section>
+        ></op-automation-condition>
+      </op-config-section>
 
-      <ha-config-section vertical .isWide=${this.isWide}>
+      <op-config-section vertical .isWide=${this.isWide}>
         <span slot="header">
           ${this.opp.localize(
             "ui.panel.config.automation.editor.actions.header"
@@ -240,13 +238,13 @@ export class HaManualAutomationEditor extends LitElement {
             )}
           </a>
         </span>
-        <ha-automation-action
+        <op-automation-action
           .actions=${this.config.action}
           @value-changed=${this._actionChanged}
           .opp=${this.opp}
           .narrow=${this.narrow}
-        ></ha-automation-action>
-      </ha-config-section>`;
+        ></op-automation-action>
+      </op-config-section>`;
   }
 
   private _runActions(ev: Event) {

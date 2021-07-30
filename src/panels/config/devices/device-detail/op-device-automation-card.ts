@@ -37,9 +37,7 @@ export abstract class HaDeviceAutomationCard<
   ) => string;
 
   constructor(
-    localizeDeviceAutomation: HaDeviceAutomationCard<
-      T
-    >["_localizeDeviceAutomation"]
+    localizeDeviceAutomation: HaDeviceAutomationCard<T>["_localizeDeviceAutomation"]
   ) {
     super();
     this._localizeDeviceAutomation = localizeDeviceAutomation;
@@ -61,17 +59,15 @@ export abstract class HaDeviceAutomationCard<
       return html``;
     }
     return html`
-      <h3>
-        ${this.opp.localize(this.headerKey)}
-      </h3>
+      <h3>${this.opp.localize(this.headerKey)}</h3>
       <div class="content">
-        <ha-chip-set
+        <op-chip-set
           @chip-clicked=${this._handleAutomationClicked}
           .items=${this.automations.map((automation) =>
             this._localizeDeviceAutomation(this.opp, automation)
           )}
         >
-        </ha-chip-set>
+        </op-chip-set>
       </div>
     `;
   }

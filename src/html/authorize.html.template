@@ -36,7 +36,7 @@
         <img src="/static/icons/favicon-192x192.png" height="52" />
         Open Peer Power
       </div>
-      <ha-authorize><p>Initializing</p></ha-authorize>
+      <op-authorize><p>Initializing</p></op-authorize>
     </div>
 
     <%= renderTemplate('_js_base') %>

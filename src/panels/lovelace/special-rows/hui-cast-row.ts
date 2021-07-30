@@ -58,7 +58,7 @@ class HuiCastRow extends LitElement implements LovelaceRow {
       this._config.dashboard === this._castManager.status.urlPath;
 
     return html`
-      <ha-icon .icon="${this._config.icon}"></ha-icon>
+      <op-icon .icon="${this._config.icon}"></op-icon>
       <div class="flex">
         <div class="name">${this._config.name}</div>
         ${this._noHTTPS

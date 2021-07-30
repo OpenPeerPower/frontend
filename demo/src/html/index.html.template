@@ -82,7 +82,7 @@
   </head>
   <body>
     <div id="ha-init-skeleton"></div>
-    <ha-demo></ha-demo>
+    <op-demo></op-demo>
     <%= renderTemplate('_js_base') %>
     <%= renderTemplate('_preload_roboto') %>
 

@@ -65,7 +65,7 @@ class OppioRepositoriesDialog extends LitElement {
     }
     const repositories = this._filteredRepositories(this._repositories);
     return html`
-      <ha-dialog
+      <op-dialog
         .open=${this._opened}
         @closed=${this.closeDialog}
         scrimClickAction
@@ -93,7 +93,7 @@ class OppioRepositoriesDialog extends LitElement {
                       )}
                       @click=${this._removeRepository}
                     >
-                      <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                     </mwc-icon-button>
                   </paper-item>
                 `
@@ -111,10 +111,10 @@ class OppioRepositoriesDialog extends LitElement {
             ></paper-input>
             <mwc-button @click=${this._addRepository}>
               ${this._processing
-                ? html`<ha-circular-progress
+                ? html`<op-circular-progress
                     active
                     size="small"
-                  ></ha-circular-progress>`
+                  ></op-circular-progress>`
                 : this._dialogParams!.supervisor.localize(
                     "dialog.repositories.add"
                   )}
@@ -124,7 +124,7 @@ class OppioRepositoriesDialog extends LitElement {
         <mwc-button slot="primaryAction" @click=${this.closeDialog}>
           ${this._dialogParams?.supervisor.localize("common.close")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

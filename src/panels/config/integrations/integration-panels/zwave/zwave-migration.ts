@@ -85,7 +85,7 @@ export class ZwaveMigration extends LitElement {
         .route=${this.route}
         back-path="/config/zwave"
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.zwave.migration.ozw.header")}
           </div>
@@ -98,19 +98,19 @@ export class ZwaveMigration extends LitElement {
           ${!isComponentLoaded(this.opp, "oppio") &&
           !isComponentLoaded(this.opp, "mqtt")
             ? html`
-                <ha-card class="content" header="MQTT Required">
+                <op-card class="content" header="MQTT Required">
                   <div class="card-content">
                     <p>
                       OpenZWave requires MQTT. Please setup an MQTT broker and
                       the MQTT integration to proceed with the migration.
                     </p>
                   </div>
-                </ha-card>
+                </op-card>
               `
             : html`
                 ${this._step === 0
                   ? html`
-                      <ha-card class="content" header="Introduction">
+                      <op-card class="content" header="Introduction">
                         <div class="card-content">
                           <p>
                             This wizard will walk through the following steps to
@@ -145,12 +145,12 @@ export class ZwaveMigration extends LitElement {
                             Continue
                           </mwc-button>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
                 ${this._step === 1
                   ? html`
-                      <ha-card class="content" header="Stop Z-Wave Network">
+                      <op-card class="content" header="Stop Z-Wave Network">
                         <div class="card-content">
                           <p>
                             We need to stop the Z-Wave network to perform the
@@ -160,9 +160,9 @@ export class ZwaveMigration extends LitElement {
                           ${this._stoppingNetwork
                             ? html`
                                 <div class="flex-container">
-                                  <ha-circular-progress
+                                  <op-circular-progress
                                     active
-                                  ></ha-circular-progress>
+                                  ></op-circular-progress>
                                   <div><p>Stopping Z-Wave Network...</p></div>
                                 </div>
                               `
@@ -173,16 +173,14 @@ export class ZwaveMigration extends LitElement {
                             Stop Network
                           </mwc-button>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
                 ${this._step === 2
                   ? html`
-                      <ha-card class="content" header="Set up OZWDaemon">
+                      <op-card class="content" header="Set up OZWDaemon">
                         <div class="card-content">
-                          <p>
-                            Now it's time to set up the OZW integration.
-                          </p>
+                          <p>Now it's time to set up the OZW integration.</p>
                           ${isComponentLoaded(this.opp, "oppio")
                             ? html`
                                 <p>
@@ -230,12 +228,12 @@ export class ZwaveMigration extends LitElement {
                             Continue
                           </mwc-button>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
                 ${this._step === 3
                   ? html`
-                      <ha-card
+                      <op-card
                         class="content"
                         header="Migrate devices and entities"
                       >
@@ -314,8 +312,8 @@ export class ZwaveMigration extends LitElement {
                               `
                             : html` <div class="flex-container">
                                 <p>Loading migration data...</p>
-                                <ha-circular-progress active>
-                                </ha-circular-progress>
+                                <op-circular-progress active>
+                                </op-circular-progress>
                               </div>`}
                         </div>
                         <div class="card-actions">
@@ -323,11 +321,11 @@ export class ZwaveMigration extends LitElement {
                             Migrate
                           </mwc-button>
                         </div>
-                      </ha-card>
+                      </op-card>
                     `
                   : ``}
                 ${this._step === 4
-                  ? html`<ha-card class="content" header="Done!">
+                  ? html`<op-card class="content" header="Done!">
                       <div class="card-content">
                         That was all! You are now migrated to the new OZW
                         integration, check if all your devices and entities are
@@ -339,10 +337,10 @@ export class ZwaveMigration extends LitElement {
                           Go to OZW config panel
                         </mwc-button>
                       </div>
-                    </ha-card>`
+                    </op-card>`
                   : ""}
               `}
-        </ha-config-section>
+        </op-config-section>
       </opp-subpage>
     `;
   }

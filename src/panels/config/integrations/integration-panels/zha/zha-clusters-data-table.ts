@@ -85,7 +85,7 @@ export class ZHAClustersDataTable extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-data-table
+      <op-data-table
         .columns=${this._columns(this.narrow)}
         .data=${this._clusters(this.clusters)}
         .id=${"cluster_id"}
@@ -94,7 +94,7 @@ export class ZHAClustersDataTable extends LitElement {
         .dir=${computeRTLDirection(this.opp)}
         .searchLabel=${this.opp.localize("ui.components.data-table.search")}
         .noDataText=${this.opp.localize("ui.components.data-table.no-data")}
-      ></ha-data-table>
+      ></op-data-table>
     `;
   }
 }

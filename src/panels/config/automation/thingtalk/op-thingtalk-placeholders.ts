@@ -125,7 +125,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
 
   protected render(): TemplateResult {
     return html`
-      <ha-paper-dialog
+      <op-paper-dialog
         modal
         with-backdrop
         .opened=${this.opened}
@@ -153,7 +153,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                       placeholder.index,
                     ]);
                     return html`
-                      <ha-area-devices-picker
+                      <op-area-devices-picker
                         .type=${type}
                         .placeholder=${placeholder}
                         @value-changed=${this._devicePicked}
@@ -168,7 +168,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                           placeholder.domains,
                           placeholder.device_classes
                         )}
-                      ></ha-area-devices-picker>
+                      ></op-area-devices-picker>
                       ${extraInfo && extraInfo.manualEntity
                         ? html`
                             <h3>
@@ -178,7 +178,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                             </h3>
                             ${Object.keys(extraInfo.manualEntity).map(
                               (idx) => html`
-                                <ha-entity-picker
+                                <op-entity-picker
                                   id="device-entity-picker"
                                   .type=${type}
                                   .placeholder=${placeholder}
@@ -199,14 +199,15 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                                     ])
                                   )}`}
                                   .entityFilter=${(state: OppEntity) => {
-                                    const devId = this._placeholderValues[type][
-                                      placeholder.index
-                                    ][idx].device_id;
+                                    const devId =
+                                      this._placeholderValues[type][
+                                        placeholder.index
+                                      ][idx].device_id;
                                     return this._deviceEntityLookup[
                                       devId
                                     ].includes(state.entity_id);
                                   }}
-                                ></ha-entity-picker>
+                                ></op-entity-picker>
                               `
                             )}
                           `
@@ -215,7 +216,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                   }
                   if (placeholder.fields.includes("entity_id")) {
                     return html`
-                      <ha-entity-picker
+                      <op-entity-picker
                         .type=${type}
                         .placeholder=${placeholder}
                         @change=${this._entityPicked}
@@ -226,7 +227,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                           placeholder.domains,
                           placeholder.device_classes
                         )}
-                      ></ha-entity-picker>
+                      ></op-entity-picker>
                     `;
                   }
                   return html`
@@ -252,7 +253,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
             ${this.opp.localize(`ui.panel.config.automation.thingtalk.create`)}
           </mwc-button>
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

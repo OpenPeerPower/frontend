@@ -33,8 +33,10 @@ const cardConfigStruct = object({
 const includeDomains = ["alarm_control_panel"];
 
 @customElement("hui-alarm-panel-card-editor")
-export class HuiAlarmPanelCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiAlarmPanelCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: AlarmPanelCardConfig;
@@ -69,7 +71,7 @@ export class HuiAlarmPanelCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -81,7 +83,7 @@ export class HuiAlarmPanelCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"
@@ -96,12 +98,12 @@ export class HuiAlarmPanelCardEditor extends LitElement
           return html`
             <div class="states">
               <paper-item>${state}</paper-item>
-              <ha-icon
+              <op-icon
                 class="deleteState"
                 .value="${index}"
                 icon="opp:close"
                 @click=${this._stateRemoved}
-              ></ha-icon>
+              ></op-icon>
             </div>
           `;
         })}

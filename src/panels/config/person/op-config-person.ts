@@ -70,14 +70,12 @@ class HaConfigPerson extends LitElement {
         back-path="/config"
         .tabs=${configSections.persons}
       >
-        <ha-config-section .isWide=${this.isWide}>
+        <op-config-section .isWide=${this.isWide}>
           <span slot="header"
             >${opp.localize("ui.panel.config.person.caption")}</span
           >
           <span slot="introduction">
-            <p>
-              ${opp.localize("ui.panel.config.person.introduction")}
-            </p>
+            <p>${opp.localize("ui.panel.config.person.introduction")}</p>
             ${this._configItems.length > 0
               ? html`
                   <p>
@@ -97,17 +95,15 @@ class HaConfigPerson extends LitElement {
             </a>
           </span>
 
-          <ha-card class="storage">
+          <op-card class="storage">
             ${this._storageItems.map((entry) => {
               return html`
                 <paper-icon-item @click=${this._openEditEntry} .entry=${entry}>
-                  <ha-person-badge
+                  <op-person-badge
                     slot="item-icon"
                     .person=${entry}
-                  ></ha-person-badge>
-                  <paper-item-body>
-                    ${entry.name}
-                  </paper-item-body>
+                  ></op-person-badge>
+                  <paper-item-body> ${entry.name} </paper-item-body>
                 </paper-icon-item>
               `;
             })}
@@ -125,35 +121,33 @@ class HaConfigPerson extends LitElement {
                   </div>
                 `
               : html``}
-          </ha-card>
+          </op-card>
           ${this._configItems.length > 0
             ? html`
-                <ha-card header="Configuration.yaml persons">
+                <op-card header="Configuration.yaml persons">
                   ${this._configItems.map((entry) => {
                     return html`
                       <paper-icon-item>
-                        <ha-person-badge
+                        <op-person-badge
                           slot="item-icon"
                           .person=${entry}
-                        ></ha-person-badge>
-                        <paper-item-body>
-                          ${entry.name}
-                        </paper-item-body>
+                        ></op-person-badge>
+                        <paper-item-body> ${entry.name} </paper-item-body>
                       </paper-icon-item>
                     `;
                   })}
-                </ha-card>
+                </op-card>
               `
             : ""}
-        </ha-config-section>
-        <ha-fab
+        </op-config-section>
+        <op-fab
           slot="fab"
           .label=${opp.localize("ui.panel.config.person.add_person")}
           extended
           @click=${this._createPerson}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage>
     `;
   }
@@ -233,9 +227,9 @@ class HaConfigPerson extends LitElement {
       users: this._allowedUsers(users, entry),
       createEntry: async (values) => {
         const created = await createPerson(this.opp!, values);
-        this._storageItems = this._storageItems!.concat(
-          created
-        ).sort((ent1, ent2) => compare(ent1.name, ent2.name));
+        this._storageItems = this._storageItems!.concat(created).sort(
+          (ent1, ent2) => compare(ent1.name, ent2.name)
+        );
       },
       updateEntry: async (values) => {
         const updated = await updatePerson(this.opp!, entry!.id, values);

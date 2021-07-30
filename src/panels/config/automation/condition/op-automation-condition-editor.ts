@@ -68,10 +68,10 @@ export default class HaAutomationConditionEditor extends LitElement {
                 "ui.panel.config.automation.editor.edit_yaml"
               )}
             </h2>
-            <ha-yaml-editor
+            <op-yaml-editor
               .defaultValue=${this.condition}
               @value-changed=${this._onYamlChange}
-            ></ha-yaml-editor>
+            ></op-yaml-editor>
           `
         : html`
             <paper-dropdown-menu-light

@@ -27,7 +27,7 @@ class HcLayout extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card>
+      <op-card>
         <div class="layout">
           <img class="hero" src="/images/google-nest-hub.png" />
           <h1 class="card-header">
@@ -47,7 +47,7 @@ class HcLayout extends LitElement {
           </h1>
           <slot></slot>
         </div>
-      </ha-card>
+      </op-card>
       <div class="footer">
         <a href="./faq.html">Frequently Asked Questions</a> – Found a bug?
         <a

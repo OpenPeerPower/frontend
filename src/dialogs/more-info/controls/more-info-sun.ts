@@ -29,17 +29,15 @@ class MoreInfoSun extends LitElement {
             <div class="key">
               <span
                 >${item === "ris"
-                  ? this.opp.localize(
-                      "ui.dialogs.more_info_control.sun.rising"
-                    )
+                  ? this.opp.localize("ui.dialogs.more_info_control.sun.rising")
                   : this.opp.localize(
                       "ui.dialogs.more_info_control.sun.setting"
                     )}</span
               >
-              <ha-relative-time
+              <op-relative-time
                 .opp=${this.opp}
                 .datetime=${item === "ris" ? risingDate : settingDate}
-              ></ha-relative-time>
+              ></op-relative-time>
             </div>
             <div class="value">
               ${formatTime(

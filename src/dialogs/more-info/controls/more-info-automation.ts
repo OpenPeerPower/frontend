@@ -22,10 +22,10 @@ class MoreInfoAutomation extends LitElement {
       <hr />
       <div class="flex">
         <div>${this.opp.localize("ui.card.automation.last_triggered")}:</div>
-        <ha-relative-time
+        <op-relative-time
           .opp=${this.opp}
           .datetime=${this.stateObj.attributes.last_triggered}
-        ></ha-relative-time>
+        ></op-relative-time>
       </div>
 
       <div class="actions">

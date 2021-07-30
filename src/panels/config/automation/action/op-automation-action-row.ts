@@ -130,7 +130,7 @@ export default class HaAutomationActionRow extends LitElement {
     const yamlMode = this._yamlMode;
 
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           <div class="card-menu">
             ${this.index !== 0
@@ -144,7 +144,7 @@ export default class HaAutomationActionRow extends LitElement {
                     )}
                     @click=${this._moveUp}
                   >
-                    <ha-svg-icon .path=${mdiArrowUp}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiArrowUp}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
@@ -159,16 +159,16 @@ export default class HaAutomationActionRow extends LitElement {
                     )}
                     @click=${this._moveDown}
                   >
-                    <ha-svg-icon .path=${mdiArrowDown}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiArrowDown}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
-            <ha-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
+            <op-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
               <mwc-icon-button
                 slot="trigger"
                 .title=${this.opp.localize("ui.common.menu")}
                 .label=${this.opp.localize("ui.common.overflow_menu")}
-                ><ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                ><op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
               </mwc-icon-button>
               <mwc-list-item .disabled=${!this._uiModeAvailable}>
                 ${yamlMode
@@ -189,7 +189,7 @@ export default class HaAutomationActionRow extends LitElement {
                   "ui.panel.config.automation.editor.actions.delete"
                 )}
               </mwc-list-item>
-            </ha-button-menu>
+            </op-button-menu>
           </div>
           ${this._warnings
             ? html`<div class="warning">
@@ -221,10 +221,10 @@ export default class HaAutomationActionRow extends LitElement {
                     "ui.panel.config.automation.editor.edit_yaml"
                   )}
                 </h2>
-                <ha-yaml-editor
+                <op-yaml-editor
                   .defaultValue=${this.action}
                   @value-changed=${this._onYamlChange}
-                ></ha-yaml-editor>
+                ></op-yaml-editor>
               `
             : html`
                 <paper-dropdown-menu-light
@@ -258,7 +258,7 @@ export default class HaAutomationActionRow extends LitElement {
                 </div>
               `}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

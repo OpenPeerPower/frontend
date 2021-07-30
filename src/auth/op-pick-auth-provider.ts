@@ -31,7 +31,7 @@ class HaPickAuthProvider extends litLocalizeLiteMixin(LitElement) {
         (provider) => html`
           <paper-item .auth_provider=${provider} @click=${this._handlePick}>
             <paper-item-body>${provider.name}</paper-item-body>
-            <ha-icon-next></ha-icon-next>
+            <op-icon-next></op-icon-next>
           </paper-item>
         `
       )}

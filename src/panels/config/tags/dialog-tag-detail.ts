@@ -24,8 +24,10 @@ import { TagDetailDialogParams } from "./show-dialog-tag-detail";
 const QR_LOGO_URL = "/static/icons/favicon-192x192.png";
 
 @customElement("dialog-tag-detail")
-class DialogTagDetail extends LitElement
-  implements OppDialog<TagDetailDialogParams> {
+class DialogTagDetail
+  extends LitElement
+  implements OppDialog<TagDetailDialogParams>
+{
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
   @internalProperty() private _id?: string;
@@ -63,7 +65,7 @@ class DialogTagDetail extends LitElement
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         scrimClickAction
@@ -79,9 +81,7 @@ class DialogTagDetail extends LitElement
           ${this._error ? html` <div class="error">${this._error}</div> ` : ""}
           <div class="form">
             ${this._params.entry
-              ? html`${this.opp!.localize(
-                  "ui.panel.config.tag.detail.tag_id"
-                )}:
+              ? html`${this.opp!.localize("ui.panel.config.tag.detail.tag_id")}:
                 ${this._params.entry.id}`
               : ""}
             <paper-input
@@ -173,7 +173,7 @@ class DialogTagDetail extends LitElement
               )}
             </mwc-button>`
           : ""}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

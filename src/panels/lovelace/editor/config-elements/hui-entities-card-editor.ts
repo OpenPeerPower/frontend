@@ -58,8 +58,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-entities-card-editor")
-export class HuiEntitiesCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiEntitiesCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: EntitiesCardConfig;
@@ -118,30 +120,30 @@ export class HuiEntitiesCardEditor extends LitElement
           @value-changed=${this._valueChanged}
         ></hui-theme-select-editor>
         <div class="side-by-side">
-          <ha-formfield
+          <op-formfield
             .label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.entities.show_header_toggle"
             )}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._config!.show_header_toggle !== false}
               .configValue=${"show_header_toggle"}
               @change=${this._valueChanged}
-            ></ha-switch>
-          </ha-formfield>
-          <ha-formfield
+            ></op-switch>
+          </op-formfield>
+          <op-formfield
             .label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.state_color"
             )}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._config!.state_color}
               .configValue=${"state_color"}
               @change=${this._valueChanged}
-            ></ha-switch>
-          </ha-formfield>
+            ></op-switch>
+          </op-formfield>
         </div>
         <hui-header-footer-editor
           .opp=${this.opp}

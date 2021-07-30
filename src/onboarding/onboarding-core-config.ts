@@ -89,14 +89,14 @@ class OnboardingCoreConfig extends LitElement {
       </div>
 
       <div class="row">
-        <ha-location-editor
+        <op-location-editor
           class="flex"
           .opp=${this.opp}
           .location=${this._locationValue}
           .fitZoom=${14}
           .darkMode=${mql.matches}
           @change=${this._locationChanged}
-        ></ha-location-editor>
+        ></op-location-editor>
       </div>
 
       <div class="row">

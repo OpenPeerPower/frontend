@@ -24,17 +24,17 @@ export class HuiPersistentNotificationItem extends LitElement {
       <notification-item-template>
         <span slot="header"> ${this.notification.title} </span>
 
-        <ha-markdown
+        <op-markdown
           breaks
           content="${this.notification.message}"
-        ></ha-markdown>
+        ></op-markdown>
 
         <div class="time">
           <span>
-            <ha-relative-time
+            <op-relative-time
               .opp=${this.opp}
               .datetime="${this.notification.created_at}"
-            ></ha-relative-time>
+            ></op-relative-time>
             <paper-tooltip animation-delay="0">
               ${this._computeTooltip(this.opp, this.notification)}
             </paper-tooltip>

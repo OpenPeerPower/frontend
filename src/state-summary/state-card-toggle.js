@@ -18,10 +18,10 @@ class StateCardToggle extends PolymerElement {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <ha-entity-toggle
+        <op-entity-toggle
           state-obj="[[stateObj]]"
           opp="[[opp]]"
-        ></ha-entity-toggle>
+        ></op-entity-toggle>
       </div>
     `;
   }

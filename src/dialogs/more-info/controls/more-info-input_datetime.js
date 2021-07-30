@@ -14,11 +14,11 @@ class DatetimeInput extends PolymerElement {
       <div class$="[[computeClassNames(stateObj)]]">
         <template is="dom-if" if="[[doesHaveDate(stateObj)]]" restamp="">
           <div>
-            <ha-date-input
+            <op-date-input
               id="dateInput"
               label="Date"
               value="{{selectedDate}}"
-            ></ha-date-input>
+            ></op-date-input>
           </div>
         </template>
         <template is="dom-if" if="[[doesHaveTime(stateObj)]]" restamp="">

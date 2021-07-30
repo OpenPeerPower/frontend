@@ -15,7 +15,7 @@ class SupervisorMetric extends LitElement {
 
   protected render(): TemplateResult {
     const roundedValue = roundWithOneDecimal(this.value);
-    return html`<ha-settings-row>
+    return html`<op-settings-row>
       <span slot="heading"> ${this.description} </span>
       <div slot="description" .title=${this.tooltip ?? ""}>
         <span class="value"> ${roundedValue} % </span>
@@ -27,7 +27,7 @@ class SupervisorMetric extends LitElement {
           .value=${this.value}
         ></op-bar>
       </div>
-    </ha-settings-row>`;
+    </op-settings-row>`;
   }
 
   static get styles(): CSSResultGroup {
@@ -44,10 +44,7 @@ class SupervisorMetric extends LitElement {
         justify-content: space-between;
       }
       op-bar {
-        --op-bar-primary-color: var(
-          --oppio-bar-ok-color,
-          var(--success-color)
-        );
+        --op-bar-primary-color: var(--oppio-bar-ok-color, var(--success-color));
       }
       .target-warning {
         --op-bar-primary-color: var(

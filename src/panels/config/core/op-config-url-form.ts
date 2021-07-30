@@ -39,7 +39,7 @@ class ConfigUrlForm extends LitElement {
     }
 
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           ${!canEdit
             ? html`
@@ -99,7 +99,7 @@ class ConfigUrlForm extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

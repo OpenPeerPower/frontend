@@ -55,7 +55,7 @@ class DialogZWaveJSAddNode extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed="${this.closeDialog}"
         .heading=${createCloseHeading(
@@ -71,16 +71,16 @@ class DialogZWaveJSAddNode extends LitElement {
                 )}
               </p>
               <div class="secure_inclusion_field">
-                <ha-formfield
+                <op-formfield
                   .label=${this.opp.localize(
                     "ui.panel.config.zwave_js.add_node.use_secure_inclusion"
                   )}
                 >
-                  <ha-switch
+                  <op-switch
                     @change=${this._secureInclusionToggleChanged}
                     .checked=${this._use_secure_inclusion}
-                  ></ha-switch>
-                </ha-formfield>
+                  ></op-switch>
+                </op-formfield>
                 <p>
                   <em>
                     <small>
@@ -105,7 +105,7 @@ class DialogZWaveJSAddNode extends LitElement {
         ${this._status === "started"
           ? html`
               <div class="flex-container">
-                <ha-circular-progress active></ha-circular-progress>
+                <op-circular-progress active></op-circular-progress>
                 <div class="status">
                   <p>
                     <b
@@ -131,10 +131,10 @@ class DialogZWaveJSAddNode extends LitElement {
         ${this._status === "failed"
           ? html`
               <div class="flex-container">
-                <ha-svg-icon
+                <op-svg-icon
                   .path=${mdiCloseCircle}
                   class="failed"
-                ></ha-svg-icon>
+                ></op-svg-icon>
                 <div class="status">
                   <p>
                     ${this.opp.localize(
@@ -151,10 +151,10 @@ class DialogZWaveJSAddNode extends LitElement {
         ${this._status === "finished"
           ? html`
               <div class="flex-container">
-                <ha-svg-icon
+                <op-svg-icon
                   .path=${mdiCheckCircle}
                   class="success"
-                ></ha-svg-icon>
+                ></op-svg-icon>
                 <div class="status">
                   <p>
                     ${this.opp.localize(
@@ -175,7 +175,7 @@ class DialogZWaveJSAddNode extends LitElement {
               </mwc-button>
             `
           : ``}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

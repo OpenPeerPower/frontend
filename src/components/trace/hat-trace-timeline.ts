@@ -64,13 +64,13 @@ class RenderedTimeTracker {
 
   renderTime(from: Date, to: Date): void {
     this.entries.push(html`
-      <ha-timeline label>
+      <op-timeline label>
         ${relativeTime(from, this.opp.localize, {
           compareTime: to,
           includeTense: false,
         })}
         later
-      </ha-timeline>
+      </op-timeline>
     `);
     this.lastReportedTime = to;
   }
@@ -166,9 +166,9 @@ class LogbookRenderer {
     }
 
     this.entries.push(html`
-      <ha-timeline .icon=${mdiCircleOutline} .moreItems=${moreItems}>
+      <op-timeline .icon=${mdiCircleOutline} .moreItems=${moreItems}>
         ${parts}
-      </ha-timeline>
+      </op-timeline>
     `);
 
     // Clear rendered items.
@@ -381,9 +381,9 @@ class ActionRenderer {
     icon = mdiRecordCircleOutline
   ) {
     this.entries.push(html`
-      <ha-timeline .icon=${icon} data-path=${path}>
+      <op-timeline .icon=${icon} data-path=${path}>
         ${description}
-      </ha-timeline>
+      </op-timeline>
     `);
   }
 
@@ -515,13 +515,13 @@ export class HaAutomationTracer extends LitElement {
     // null means it was stopped by a condition
     if (entry) {
       entries.push(html`
-        <ha-timeline
+        <op-timeline
           lastItem
           .icon=${entry.icon}
           class=${ifDefined(entry.className)}
         >
           ${entry.description}
-        </ha-timeline>
+        </op-timeline>
       `);
     }
 

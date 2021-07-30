@@ -45,7 +45,7 @@ export class ZwaveNodeConfig extends LitElement {
   protected render(): TemplateResult {
     return html`
       <div class="content">
-        <ha-card
+        <op-card
           .header=${this.opp!.localize(
             "ui.panel.config.zwave.node_config.header"
           )}
@@ -78,7 +78,7 @@ export class ZwaveNodeConfig extends LitElement {
                       )}
                     </div>
                   </paper-input>
-                  <ha-call-service-button
+                  <op-call-service-button
                     .opp=${this.opp}
                     domain="zwave"
                     service="set_wakeup"
@@ -89,7 +89,7 @@ export class ZwaveNodeConfig extends LitElement {
                     ${this.opp!.localize(
                       "ui.panel.config.zwave.node_config.set_wakeup"
                     )}
-                  </ha-call-service-button>
+                  </op-call-service-button>
                 </div>
               `
             : ""}
@@ -198,7 +198,7 @@ export class ZwaveNodeConfig extends LitElement {
                 )
                   ? html`
                       <div class="card-actions">
-                        <ha-call-service-button
+                        <op-call-service-button
                           .opp=${this.opp}
                           domain="zwave"
                           service="set_config_parameter"
@@ -207,13 +207,13 @@ export class ZwaveNodeConfig extends LitElement {
                           ${this.opp!.localize(
                             "ui.panel.config.zwave.node_config.set_config_parameter"
                           )}
-                        </ha-call-service-button>
+                        </op-call-service-button>
                       </div>
                     `
                   : ""}
               `
             : ""}
-        </ha-card>
+        </op-card>
       </div>
     `;
   }
@@ -266,9 +266,7 @@ export class ZwaveNodeConfig extends LitElement {
 
   protected firstUpdated(changedProps: PropertyValues): void {
     super.firstUpdated(changedProps);
-    this.addEventListener("opp-service-called", (ev) =>
-      this.serviceCalled(ev)
-    );
+    this.addEventListener("opp-service-called", (ev) => this.serviceCalled(ev));
   }
 
   protected updated(changedProps: PropertyValues): void {

@@ -86,11 +86,11 @@ class StatisticsChart extends LitElement {
     }
 
     return html`
-      <ha-chart-base
+      <op-chart-base
         .data=${this._chartData}
         .options=${this._chartOptions}
         .chartType=${this.chartType}
-      ></ha-chart-base>
+      ></op-chart-base>
     `;
   }
 

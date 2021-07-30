@@ -89,7 +89,7 @@ export class DialogDeviceAutomation extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${this.opp.localize(
@@ -105,27 +105,27 @@ export class DialogDeviceAutomation extends LitElement {
             ? html`
                 ${this._triggers.length
                   ? html`
-                      <ha-device-triggers-card
+                      <op-device-triggers-card
                         .opp=${this.opp}
                         .automations=${this._triggers}
-                      ></ha-device-triggers-card>
+                      ></op-device-triggers-card>
                     `
                   : ""}
                 ${this._conditions.length
                   ? html`
-                      <ha-device-conditions-card
+                      <op-device-conditions-card
                         .opp=${this.opp}
                         .automations=${this._conditions}
-                      ></ha-device-conditions-card>
+                      ></op-device-conditions-card>
                     `
                   : ""}
                 ${this._actions.length
                   ? html`
-                      <ha-device-actions-card
+                      <op-device-actions-card
                         .opp=${this.opp}
                         .automations=${this._actions}
                         .script=${this._params.script}
-                      ></ha-device-actions-card>
+                      ></op-device-actions-card>
                     `
                   : ""}
               `
@@ -136,7 +136,7 @@ export class DialogDeviceAutomation extends LitElement {
         <mwc-button slot="primaryAction" @click=${this.closeDialog}>
           ${this.opp.localize("ui.common.close")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

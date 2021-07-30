@@ -14,10 +14,10 @@ export class HaTraceConfig extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-code-editor
+      <op-code-editor
         .value=${dump(this.trace.config).trimRight()}
         readOnly
-      ></ha-code-editor>
+      ></op-code-editor>
     `;
   }
 

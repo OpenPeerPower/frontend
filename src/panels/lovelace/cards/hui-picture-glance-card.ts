@@ -125,9 +125,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
 
     if (this._entitiesDialog) {
       for (const entity of this._entitiesDialog) {
-        if (
-          oldOpp!.states[entity.entity] !== this.opp!.states[entity.entity]
-        ) {
+        if (oldOpp!.states[entity.entity] !== this.opp!.states[entity.entity]) {
           return true;
         }
       }
@@ -135,9 +133,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
 
     if (this._entitiesToggle) {
       for (const entity of this._entitiesToggle) {
-        if (
-          oldOpp!.states[entity.entity] !== this.opp!.states[entity.entity]
-        ) {
+        if (oldOpp!.states[entity.entity] !== this.opp!.states[entity.entity]) {
           return true;
         }
       }
@@ -172,7 +168,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card>
+      <op-card>
         <hui-image
           class=${classMap({
             clickable: Boolean(
@@ -214,7 +210,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
             )}
           </div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -240,7 +236,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
 
     return html`
       <div class="wrapper">
-        <ha-icon-button
+        <op-icon-button
           @action=${this._handleAction}
           .actionHandler=${actionHandler({
             hasHold: hasAction(entityConf.hold_action),
@@ -260,7 +256,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
             stateObj,
             this.opp!.locale
           )}`}
-        ></ha-icon-button>
+        ></op-icon-button>
         ${this._config!.show_state !== true && entityConf.show_state !== true
           ? html`<div class="state"></div>`
           : html`

@@ -87,7 +87,7 @@ export class HaIntegrationHeader extends LitElement {
                 ${icons.map(
                   ([icon, description]) => html`
                     <span>
-                      <ha-svg-icon .path=${icon}></ha-svg-icon>
+                      <op-svg-icon .path=${icon}></op-svg-icon>
                       <paper-tooltip animation-delay="0"
                         >${description}</paper-tooltip
                       >

@@ -11,9 +11,9 @@ export class HaBatteryIcon extends LitElement {
 
   protected render() {
     return html`
-      <ha-icon
+      <op-icon
         .icon=${batteryIcon(this.batteryStateObj, this.batteryChargingStateObj)}
-      ></ha-icon>
+      ></op-icon>
     `;
   }
 }

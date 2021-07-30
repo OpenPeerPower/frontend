@@ -112,7 +112,7 @@ class OppioAddonInfo extends LitElement {
     return html`
       ${this.addon.update_available
         ? html`
-            <ha-card
+            <op-card
               .header="${this.supervisor.localize(
                 "common.update_available",
                 "count",
@@ -174,12 +174,12 @@ class OppioAddonInfo extends LitElement {
                   ${this.supervisor.localize("common.update")}
                 </mwc-button>
               </div>
-            </ha-card>
+            </op-card>
           `
         : ""}
       ${!this.addon.protected
         ? html`
-        <ha-card class="warning">
+        <op-card class="warning">
           <h1 class="card-header">${this.supervisor.localize(
             "addon.dashboard.protection_mode.title"
           )}
@@ -195,11 +195,11 @@ class OppioAddonInfo extends LitElement {
               </mwc-button>
             </div>
           </div>
-        </ha-card>
+        </op-card>
       `
         : ""}
 
-      <ha-card>
+      <op-card>
         <div class="card-content">
           <div class="addon-header">
             ${!this.narrow ? this.addon.name : ""}
@@ -208,22 +208,22 @@ class OppioAddonInfo extends LitElement {
                 ? html`
                     ${this._computeIsRunning
                       ? html`
-                          <ha-svg-icon
+                          <op-svg-icon
                             .title=${this.supervisor.localize(
                               "dashboard.addon_running"
                             )}
                             class="running"
                             .path=${mdiCircle}
-                          ></ha-svg-icon>
+                          ></op-svg-icon>
                         `
                       : html`
-                          <ha-svg-icon
+                          <op-svg-icon
                             .title=${this.supervisor.localize(
                               "dashboard.addon_stopped"
                             )}
                             class="stopped"
                             .path=${mdiCircle}
-                          ></ha-svg-icon>
+                          ></op-svg-icon>
                         `}
                   `
                 : html` ${this.addon.version_latest} `}
@@ -282,9 +282,9 @@ class OppioAddonInfo extends LitElement {
                       )}
                       description=""
                     >
-                      <ha-svg-icon
+                      <op-svg-icon
                         .path=${STAGE_ICON[this.addon.stage]}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </op-label-badge>`
                   : ""}
 
@@ -310,7 +310,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiNetwork}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiNetwork}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -324,7 +324,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiChip}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiChip}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -338,7 +338,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiOpenPeerPower}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -354,7 +354,7 @@ class OppioAddonInfo extends LitElement {
                           `addon.dashboard.capability.role.${this.addon.oppio_role}`
                         ) || this.addon.oppio_role}
                       >
-                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiOpenPeerPower}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -368,7 +368,7 @@ class OppioAddonInfo extends LitElement {
                         )}"
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiDocker}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiDocker}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -382,7 +382,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiPound}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiPound}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -397,7 +397,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiShield}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiShield}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -411,7 +411,7 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiKey}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiKey}></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -425,9 +425,9 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon
+                        <op-svg-icon
                           .path=${mdiCursorDefaultClickOutline}
-                        ></ha-svg-icon>
+                        ></op-svg-icon>
                       </op-label-badge>
                     `
                   : ""}
@@ -441,7 +441,7 @@ class OppioAddonInfo extends LitElement {
                         started: this.addon.state === "started",
                       })}"
                     >
-                      <ha-settings-row ?three-line=${this.narrow}>
+                      <op-settings-row ?three-line=${this.narrow}>
                         <span slot="heading">
                           ${this.supervisor.localize(
                             "addon.dashboard.option.boot.title"
@@ -452,16 +452,16 @@ class OppioAddonInfo extends LitElement {
                             "addon.dashboard.option.boot.description"
                           )}
                         </span>
-                        <ha-switch
+                        <op-switch
                           @change=${this._startOnBootToggled}
                           .checked=${this.addon.boot === "auto"}
                           haptic
-                        ></ha-switch>
-                      </ha-settings-row>
+                        ></op-switch>
+                      </op-settings-row>
 
                       ${this.addon.startup !== "once"
                         ? html`
-                            <ha-settings-row ?three-line=${this.narrow}>
+                            <op-settings-row ?three-line=${this.narrow}>
                               <span slot="heading">
                                 ${this.supervisor.localize(
                                   "addon.dashboard.option.watchdog.title"
@@ -472,18 +472,18 @@ class OppioAddonInfo extends LitElement {
                                   "addon.dashboard.option.watchdog.description"
                                 )}
                               </span>
-                              <ha-switch
+                              <op-switch
                                 @change=${this._watchdogToggled}
                                 .checked=${this.addon.watchdog}
                                 haptic
-                              ></ha-switch>
-                            </ha-settings-row>
+                              ></op-switch>
+                            </op-settings-row>
                           `
                         : ""}
                       ${this.addon.auto_update ||
                       this.opp.userData?.showAdvanced
                         ? html`
-                            <ha-settings-row ?three-line=${this.narrow}>
+                            <op-settings-row ?three-line=${this.narrow}>
                               <span slot="heading">
                                 ${this.supervisor.localize(
                                   "addon.dashboard.option.auto_update.title"
@@ -494,17 +494,17 @@ class OppioAddonInfo extends LitElement {
                                   "addon.dashboard.option.auto_update.description"
                                 )}
                               </span>
-                              <ha-switch
+                              <op-switch
                                 @change=${this._autoUpdateToggled}
                                 .checked=${this.addon.auto_update}
                                 haptic
-                              ></ha-switch>
-                            </ha-settings-row>
+                              ></op-switch>
+                            </op-settings-row>
                           `
                         : ""}
                       ${!this._computeCannotIngressSidebar && this.addon.ingress
                         ? html`
-                            <ha-settings-row ?three-line=${this.narrow}>
+                            <op-settings-row ?three-line=${this.narrow}>
                               <span slot="heading">
                                 ${this.supervisor.localize(
                                   "addon.dashboard.option.ingress_panel.title"
@@ -515,17 +515,17 @@ class OppioAddonInfo extends LitElement {
                                   "addon.dashboard.option.ingress_panel.description"
                                 )}
                               </span>
-                              <ha-switch
+                              <op-switch
                                 @change=${this._panelToggled}
                                 .checked=${this.addon.ingress_panel}
                                 haptic
-                              ></ha-switch>
-                            </ha-settings-row>
+                              ></op-switch>
+                            </op-settings-row>
                           `
                         : ""}
                       ${this._computeUsesProtectedOptions
                         ? html`
-                            <ha-settings-row ?three-line=${this.narrow}>
+                            <op-settings-row ?three-line=${this.narrow}>
                               <span slot="heading">
                                 ${this.supervisor.localize(
                                   "addon.dashboard.option.protected.title"
@@ -536,12 +536,12 @@ class OppioAddonInfo extends LitElement {
                                   "addon.dashboard.option.protected.description"
                                 )}
                               </span>
-                              <ha-switch
+                              <op-switch
                                 @change=${this._protectionToggled}
                                 .checked=${this.addon.protected}
                                 haptic
-                              ></ha-switch>
-                            </ha-settings-row>
+                              ></op-switch>
+                            </op-settings-row>
                           `
                         : ""}
                     </div>
@@ -550,12 +550,12 @@ class OppioAddonInfo extends LitElement {
             </div>
             <div>
               ${this.addon.state === "started"
-                ? html`<ha-settings-row ?three-line=${this.narrow}>
+                ? html`<op-settings-row ?three-line=${this.narrow}>
                       <span slot="heading">
                         ${this.supervisor.localize("addon.dashboard.hostname")}
                       </span>
                       <code slot="description"> ${this.addon.hostname} </code>
-                    </ha-settings-row>
+                    </op-settings-row>
                     ${metrics.map(
                       (metric) =>
                         html`
@@ -600,31 +600,31 @@ class OppioAddonInfo extends LitElement {
             ${this.addon.version
               ? this._computeIsRunning
                 ? html`
-                    <ha-progress-button
+                    <op-progress-button
                       class="warning"
                       @click=${this._stopClicked}
                     >
                       ${this.supervisor.localize("addon.dashboard.stop")}
-                    </ha-progress-button>
-                    <ha-progress-button
+                    </op-progress-button>
+                    <op-progress-button
                       class="warning"
                       @click=${this._restartClicked}
                     >
                       ${this.supervisor.localize("addon.dashboard.restart")}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : html`
-                    <ha-progress-button @click=${this._startClicked}>
+                    <op-progress-button @click=${this._startClicked}>
                       ${this.supervisor.localize("addon.dashboard.start")}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
               : html`
-                  <ha-progress-button
+                  <op-progress-button
                     .disabled=${!this.addon.available}
                     @click=${this._installClicked}
                   >
                     ${this.supervisor.localize("addon.dashboard.install")}
-                  </ha-progress-button>
+                  </op-progress-button>
                 `}
           </div>
           <div>
@@ -654,37 +654,37 @@ class OppioAddonInfo extends LitElement {
                         </mwc-button>
                       `
                     : ""}
-                  <ha-progress-button
+                  <op-progress-button
                     class="warning"
                     @click=${this._uninstallClicked}
                   >
                     ${this.supervisor.localize("addon.dashboard.uninstall")}
-                  </ha-progress-button>
+                  </op-progress-button>
                   ${this.addon.build
                     ? html`
-                        <ha-call-api-button
+                        <op-call-api-button
                           class="warning"
                           .opp=${this.opp}
                           .path="oppio/addons/${this.addon.slug}/rebuild"
                         >
                           ${this.supervisor.localize("addon.dashboard.rebuild")}
-                        </ha-call-api-button>
+                        </op-call-api-button>
                       `
                     : ""}`
               : ""}
           </div>
         </div>
-      </ha-card>
+      </op-card>
 
       ${this.addon.long_description
         ? html`
-            <ha-card>
+            <op-card>
               <div class="card-content">
-                <ha-markdown
+                <op-markdown
                   .content=${this.addon.long_description}
-                ></ha-markdown>
+                ></op-markdown>
               </div>
-            </ha-card>
+            </op-card>
           `
         : ""}
     `;
@@ -709,8 +709,7 @@ class OppioAddonInfo extends LitElement {
   private get _computeOppioApi(): boolean {
     return (
       this.addon.oppio_api &&
-      (this.addon.oppio_role === "manager" ||
-        this.addon.oppio_role === "admin")
+      (this.addon.oppio_role === "manager" || this.addon.oppio_role === "admin")
     );
   }
 
@@ -733,11 +732,11 @@ class OppioAddonInfo extends LitElement {
           ? this.supervisor.localize(
               `addon.dashboard.capability.${id}.description`,
               "icon_stable",
-              `<ha-svg-icon path="${STAGE_ICON.stable}"></ha-svg-icon>`,
+              `<op-svg-icon path="${STAGE_ICON.stable}"></op-svg-icon>`,
               "icon_experimental",
-              `<ha-svg-icon path="${STAGE_ICON.experimental}"></ha-svg-icon>`,
+              `<op-svg-icon path="${STAGE_ICON.experimental}"></op-svg-icon>`,
               "icon_deprecated",
-              `<ha-svg-icon path="${STAGE_ICON.deprecated}"></ha-svg-icon>`
+              `<op-svg-icon path="${STAGE_ICON.deprecated}"></op-svg-icon>`
             )
           : this.supervisor.localize(
               `addon.dashboard.capability.${id}.description`

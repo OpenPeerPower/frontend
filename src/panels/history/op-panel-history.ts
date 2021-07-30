@@ -57,29 +57,29 @@ class HaPanelHistory extends LitElement {
 
   protected render() {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header slot="header" fixed>
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.history")}</div>
           </app-toolbar>
         </app-header>
 
         <div class="flex content">
           <div class="flex layout horizontal wrap">
-            <ha-date-range-picker
+            <op-date-range-picker
               .opp=${this.opp}
               ?disabled=${this._isLoading}
               .startDate=${this._startDate}
               .endDate=${this._endDate}
               .ranges=${this._ranges}
               @change=${this._dateRangeChanged}
-            ></ha-date-range-picker>
+            ></op-date-range-picker>
 
-            <ha-entity-picker
+            <op-entity-picker
               .opp=${this.opp}
               .value=${this._entityId}
               .label=${this.opp.localize(
@@ -87,14 +87,14 @@ class HaPanelHistory extends LitElement {
               )}
               .disabled=${this._isLoading}
               @change=${this._entityPicked}
-            ></ha-entity-picker>
+            ></op-entity-picker>
           </div>
           ${this._isLoading
             ? html`<div class="progress-wrapper">
-                <ha-circular-progress
+                <op-circular-progress
                   active
                   alt=${this.opp.localize("ui.common.loading")}
-                ></ha-circular-progress>
+                ></op-circular-progress>
               </div>`
             : html`
                 <state-history-charts
@@ -106,7 +106,7 @@ class HaPanelHistory extends LitElement {
                 </state-history-charts>
               `}
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

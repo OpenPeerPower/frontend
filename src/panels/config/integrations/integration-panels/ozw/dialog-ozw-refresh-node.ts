@@ -79,7 +79,7 @@ class DialogOZWRefreshNode extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closing="${this._close}"
         .heading=${createCloseHeading(
@@ -102,7 +102,7 @@ class DialogOZWRefreshNode extends LitElement {
               ${this._active
                 ? html`
                     <div class="flex-container">
-                      <ha-circular-progress active></ha-circular-progress>
+                      <op-circular-progress active></op-circular-progress>
                       <div>
                         <p>
                           <b>
@@ -180,7 +180,7 @@ class DialogOZWRefreshNode extends LitElement {
                   `
                 : html``}
             `}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

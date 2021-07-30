@@ -38,11 +38,11 @@ class MoreInfoLock extends LocalizeMixin(PolymerElement) {
           >[[localize('ui.card.lock.lock')]]</mwc-button
         >
       </template>
-      <ha-attributes
+      <op-attributes
         opp="[[opp]]"
         state-obj="[[stateObj]]"
         extra-filters="code_format"
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

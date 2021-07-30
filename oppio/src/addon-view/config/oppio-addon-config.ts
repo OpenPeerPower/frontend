@@ -92,15 +92,15 @@ class OppioAddonConfig extends LitElement {
         );
     return html`
       <h1>${this.addon.name}</h1>
-      <ha-card>
+      <op-card>
         <div class="header">
           <h2>
             ${this.supervisor.localize("addon.configuration.options.header")}
           </h2>
           <div class="card-menu">
-            <ha-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
+            <op-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
               <mwc-icon-button slot="trigger">
-                <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+                <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
               </mwc-icon-button>
               <mwc-list-item .disabled=${!this._canShowSchema}>
                 ${this._yamlMode
@@ -114,13 +114,13 @@ class OppioAddonConfig extends LitElement {
               <mwc-list-item class="warning">
                 ${this.supervisor.localize("common.reset_defaults")}
               </mwc-list-item>
-            </ha-button-menu>
+            </op-button-menu>
           </div>
         </div>
 
         <div class="card-content">
           ${showForm
-            ? html`<ha-form
+            ? html`<op-form
                 .data=${this._options!}
                 @value-changed=${this._configChanged}
                 .computeLabel=${this.computeLabel}
@@ -130,11 +130,11 @@ class OppioAddonConfig extends LitElement {
                       this.addon.options,
                       this.addon.schema!
                     )}
-              ></ha-form>`
-            : html` <ha-yaml-editor
+              ></op-form>`
+            : html` <op-yaml-editor
                 @value-changed=${this._configChanged}
                 .yamlSchema=${ADDON_YAML_SCHEMA}
-              ></ha-yaml-editor>`}
+              ></op-yaml-editor>`}
           ${this._error ? html` <div class="errors">${this._error}</div> ` : ""}
           ${!this._yamlMode ||
           (this._canShowSchema && this.addon.schema) ||
@@ -149,28 +149,28 @@ class OppioAddonConfig extends LitElement {
               `}
         </div>
         ${hasHiddenOptions
-          ? html`<ha-formfield
+          ? html`<op-formfield
               class="show-additional"
               .label=${this.supervisor.localize(
                 "addon.configuration.options.show_unused_optional"
               )}
             >
-              <ha-switch
+              <op-switch
                 @change=${this._toggleOptional}
                 .checked=${this._showOptional}
               >
-              </ha-switch>
-            </ha-formfield>`
+              </op-switch>
+            </op-formfield>`
           : ""}
         <div class="card-actions right">
-          <ha-progress-button
+          <op-progress-button
             @click=${this._saveTapped}
             .disabled=${!this._configHasChanged || !this._valid}
           >
             ${this.supervisor.localize("common.save")}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

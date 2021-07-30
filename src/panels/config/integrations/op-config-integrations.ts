@@ -265,17 +265,14 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
     if (!this._configEntries) {
       return html`<opp-loading-screen></opp-loading-screen>`;
     }
-    const [
-      groupedConfigEntries,
-      ignoredConfigEntries,
-      disabledConfigEntries,
-    ] = this._filterGroupConfigEntries(this._configEntries, this._filter);
+    const [groupedConfigEntries, ignoredConfigEntries, disabledConfigEntries] =
+      this._filterGroupConfigEntries(this._configEntries, this._filter);
     const configEntriesInProgress = this._filterConfigEntriesInProgress(
       this._configEntriesInProgress,
       this._filter
     );
 
-    const filterMenu = html`<ha-button-menu
+    const filterMenu = html`<op-button-menu
       corner="BOTTOM_START"
       multi
       slot=${ifDefined(this.narrow ? "toolbar-icon" : undefined)}
@@ -286,22 +283,22 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
         .label=${this.opp.localize("ui.common.overflow_menu")}
         slot="trigger"
       >
-        <ha-svg-icon .path=${mdiFilterVariant}></ha-svg-icon>
+        <op-svg-icon .path=${mdiFilterVariant}></op-svg-icon>
       </mwc-icon-button>
       <mwc-list-item graphic="control" .selected=${this._showIgnored}>
-        <ha-checkbox slot="graphic" .checked=${this._showIgnored}></ha-checkbox>
+        <op-checkbox slot="graphic" .checked=${this._showIgnored}></op-checkbox>
         ${this.opp.localize("ui.panel.config.integrations.ignore.show_ignored")}
       </mwc-list-item>
       <mwc-list-item graphic="control" .selected=${this._showDisabled}>
-        <ha-checkbox
+        <op-checkbox
           slot="graphic"
           .checked=${this._showDisabled}
-        ></ha-checkbox>
+        ></op-checkbox>
         ${this.opp.localize(
           "ui.panel.config.integrations.disable.show_disabled"
         )}
       </mwc-list-item>
-    </ha-button-menu>`;
+    </op-button-menu>`;
 
     return html`
       <opp-tabs-subpage
@@ -365,30 +362,30 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
           ${this._showIgnored
             ? ignoredConfigEntries.map(
                 (entry: ConfigEntryExtended) => html`
-                  <ha-ignored-config-entry-card
+                  <op-ignored-config-entry-card
                     .opp=${this.opp}
                     .manifest=${this._manifests[entry.domain]}
                     .entry=${entry}
                     @change=${this._handleFlowUpdated}
-                  ></ha-ignored-config-entry-card>
+                  ></op-ignored-config-entry-card>
                 `
               )
             : ""}
           ${configEntriesInProgress.length
             ? configEntriesInProgress.map(
                 (flow: DataEntryFlowProgressExtended) => html`
-                  <ha-config-flow-card
+                  <op-config-flow-card
                     .opp=${this.opp}
                     .flow=${flow}
                     @change=${this._handleFlowUpdated}
-                  ></ha-config-flow-card>
+                  ></op-config-flow-card>
                 `
               )
             : ""}
           ${this._showDisabled
             ? Array.from(disabledConfigEntries.entries()).map(
                 ([domain, items]) =>
-                  html`<ha-integration-card
+                  html`<op-integration-card
                     data-domain=${domain}
                     disabled
                     .opp=${this.opp}
@@ -397,13 +394,13 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
                     .manifest=${this._manifests[domain]}
                     .entityRegistryEntries=${this._entityRegistryEntries}
                     .deviceRegistryEntries=${this._deviceRegistryEntries}
-                  ></ha-integration-card> `
+                  ></op-integration-card> `
               )
             : ""}
           ${groupedConfigEntries.size
             ? Array.from(groupedConfigEntries.entries()).map(
                 ([domain, items]) =>
-                  html`<ha-integration-card
+                  html`<op-integration-card
                     data-domain=${domain}
                     .opp=${this.opp}
                     .domain=${domain}
@@ -411,7 +408,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
                     .manifest=${this._manifests[domain]}
                     .entityRegistryEntries=${this._entityRegistryEntries}
                     .deviceRegistryEntries=${this._deviceRegistryEntries}
-                  ></ha-integration-card>`
+                  ></op-integration-card>`
               )
             : // If we're showing 0 cards, show empty state text
             (!this._showIgnored || ignoredConfigEntries.length === 0) &&
@@ -457,7 +454,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
               `
             : ""}
         </div>
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.integrations.add_integration"
@@ -465,8 +462,8 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
           extended
           @click=${this._createFlow}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage>
     `;
   }

@@ -54,16 +54,16 @@ class HuiCoverEntityRow extends LitElement implements LovelaceRow {
       <hui-generic-entity-row .opp=${this.opp} .config=${this._config}>
         ${isTiltOnly(stateObj)
           ? html`
-              <ha-cover-tilt-controls
+              <op-cover-tilt-controls
                 .opp=${this.opp}
                 .stateObj=${stateObj}
-              ></ha-cover-tilt-controls>
+              ></op-cover-tilt-controls>
             `
           : html`
-              <ha-cover-controls
+              <op-cover-controls
                 .opp=${this.opp}
                 .stateObj=${stateObj}
-              ></ha-cover-controls>
+              ></op-cover-controls>
             `}
       </hui-generic-entity-row>
     `;

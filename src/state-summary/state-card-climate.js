@@ -23,10 +23,10 @@ class StateCardClimate extends PolymerElement {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <ha-climate-state
+        <op-climate-state
           opp="[[opp]]"
           state-obj="[[stateObj]]"
-        ></ha-climate-state>
+        ></op-climate-state>
       </div>
     `;
   }

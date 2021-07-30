@@ -35,7 +35,7 @@ class HaCoverTiltControls extends LitElement {
       return html``;
     }
 
-    return html` <ha-icon-button
+    return html` <op-icon-button
         class=${classMap({
           invisible: !this._entityObj.supportsOpenTilt,
         })}
@@ -45,8 +45,8 @@ class HaCoverTiltControls extends LitElement {
         icon="opp:arrow-top-right"
         @click=${this._onOpenTiltTap}
         .disabled=${this._computeOpenDisabled()}
-      ></ha-icon-button>
-      <ha-icon-button
+      ></op-icon-button>
+      <op-icon-button
         class=${classMap({
           invisible: !this._entityObj.supportsStopTilt,
         })}
@@ -54,8 +54,8 @@ class HaCoverTiltControls extends LitElement {
         icon="opp:stop"
         @click=${this._onStopTiltTap}
         .disabled=${this.stateObj.state === UNAVAILABLE}
-      ></ha-icon-button>
-      <ha-icon-button
+      ></op-icon-button>
+      <op-icon-button
         class=${classMap({
           invisible: !this._entityObj.supportsCloseTilt,
         })}
@@ -65,7 +65,7 @@ class HaCoverTiltControls extends LitElement {
         icon="opp:arrow-bottom-left"
         @click=${this._onCloseTiltTap}
         .disabled=${this._computeClosedDisabled()}
-      ></ha-icon-button>`;
+      ></op-icon-button>`;
   }
 
   private _computeOpenDisabled(): boolean {

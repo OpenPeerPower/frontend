@@ -35,25 +35,23 @@ class PanelDeveloperTools extends LitElement {
   protected render(): TemplateResult {
     const page = this._page;
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header fixed slot="header">
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.developer_tools")}</div>
           </app-toolbar>
-          <ha-tabs
+          <op-tabs
             scrollable
             attr-for-selected="page-name"
             .selected=${page}
             @iron-activate=${this.handlePageSelected}
           >
             <paper-tab page-name="state">
-              ${this.opp.localize(
-                "ui.panel.developer-tools.tabs.states.title"
-              )}
+              ${this.opp.localize("ui.panel.developer-tools.tabs.states.title")}
             </paper-tab>
             <paper-tab page-name="service">
               ${this.opp.localize(
@@ -66,18 +64,16 @@ class PanelDeveloperTools extends LitElement {
               )}
             </paper-tab>
             <paper-tab page-name="event">
-              ${this.opp.localize(
-                "ui.panel.developer-tools.tabs.events.title"
-              )}
+              ${this.opp.localize("ui.panel.developer-tools.tabs.events.title")}
             </paper-tab>
-          </ha-tabs>
+          </op-tabs>
         </app-header>
         <developer-tools-router
           .route=${this.route}
           .narrow=${this.narrow}
           .opp=${this.opp}
         ></developer-tools-router>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

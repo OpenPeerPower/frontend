@@ -31,16 +31,16 @@ export class CloudAlexaPref extends LitElement {
     const { alexa_enabled, alexa_report_state } = this.cloudStatus!.prefs;
 
     return html`
-      <ha-card
+      <op-card
         header=${this.opp!.localize(
           "ui.panel.config.cloud.account.alexa.title"
         )}
       >
         <div class="switch">
-          <ha-switch
+          <op-switch
             .checked=${alexa_enabled}
             @change=${this._enabledToggleChanged}
-          ></ha-switch>
+          ></op-switch>
         </div>
         <div class="card-content">
           ${this.opp!.localize("ui.panel.config.cloud.account.alexa.info")}
@@ -77,10 +77,10 @@ export class CloudAlexaPref extends LitElement {
                     )}
                   </h3>
                   <div class="state-reporting-switch">
-                    <ha-switch
+                    <op-switch
                       .checked=${alexa_report_state}
                       @change=${this._reportToggleChanged}
-                    ></ha-switch>
+                    ></op-switch>
                   </div>
                 </div>
                 <p>
@@ -109,7 +109,7 @@ export class CloudAlexaPref extends LitElement {
             >
           </a>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

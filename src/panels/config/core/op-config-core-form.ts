@@ -42,7 +42,7 @@ class ConfigCoreForm extends LitElement {
     const disabled = this._working || !canEdit;
 
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize(
           "ui.panel.config.core.section.core.form.heading"
         )}
@@ -59,12 +59,12 @@ class ConfigCoreForm extends LitElement {
             : ""}
 
           <div class="row">
-            <ha-location-editor
+            <op-location-editor
               class="flex"
               .opp=${this.opp}
               .location=${this._locationValue}
               @change=${this._locationChanged}
-            ></ha-location-editor>
+            ></op-location-editor>
           </div>
 
           <div class="row">
@@ -153,7 +153,7 @@ class ConfigCoreForm extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

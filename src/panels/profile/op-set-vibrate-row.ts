@@ -20,18 +20,18 @@ class HaSetVibrateRow extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-settings-row .narrow=${this.narrow}>
+      <op-settings-row .narrow=${this.narrow}>
         <span slot="heading">
           ${this.opp.localize("ui.panel.profile.vibrate.header")}
         </span>
         <span slot="description">
           ${this.opp.localize("ui.panel.profile.vibrate.description")}
         </span>
-        <ha-switch
+        <op-switch
           .checked=${this.opp.vibrate}
           @change=${this._checkedChanged}
-        ></ha-switch>
-      </ha-settings-row>
+        ></op-switch>
+      </op-settings-row>
     `;
   }
 

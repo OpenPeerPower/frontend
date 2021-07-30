@@ -21,7 +21,7 @@ const conditions = [
 export class DemoAutomationDescribeCondition extends LitElement {
   protected render(): TemplateResult {
     return html`
-      <ha-card header="Conditions">
+      <op-card header="Conditions">
         ${conditions.map(
           (conf) => html`
             <div class="condition">
@@ -30,7 +30,7 @@ export class DemoAutomationDescribeCondition extends LitElement {
             </div>
           `
         )}
-      </ha-card>
+      </op-card>
     `;
   }
 

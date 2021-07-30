@@ -24,8 +24,10 @@ const MINUTE = 60000;
 const HOUR = MINUTE * 60;
 
 @customElement("hui-graph-header-footer")
-export class HuiGraphHeaderFooter extends LitElement
-  implements LovelaceHeaderFooter {
+export class HuiGraphHeaderFooter
+  extends LitElement
+  implements LovelaceHeaderFooter
+{
   public static async getConfigElement(): Promise<LovelaceHeaderFooterEditor> {
     await import("../editor/config-elements/hui-graph-footer-editor");
     return document.createElement("hui-graph-footer-editor");
@@ -104,7 +106,7 @@ export class HuiGraphHeaderFooter extends LitElement
     if (!this._coordinates) {
       return html`
         <div class="container">
-          <ha-circular-progress active></ha-circular-progress>
+          <op-circular-progress active></op-circular-progress>
         </div>
       `;
     }
@@ -112,9 +114,7 @@ export class HuiGraphHeaderFooter extends LitElement
     if (!this._coordinates.length) {
       return html`
         <div class="container">
-          <div class="info">
-            No state history found.
-          </div>
+          <div class="info">No state history found.</div>
         </div>
       `;
     }

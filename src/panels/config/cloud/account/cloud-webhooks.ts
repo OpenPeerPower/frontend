@@ -49,7 +49,7 @@ export class CloudWebhooks extends LitElement {
 
   protected render() {
     return html`
-      <ha-card
+      <op-card
         header=${this.opp!.localize(
           "ui.panel.config.cloud.account.webhooks.title"
         )}
@@ -90,7 +90,7 @@ export class CloudWebhooks extends LitElement {
               `
             : this._localHooks.map(
                 (entry) => html`
-                  <ha-settings-row .narrow=${this.narrow} .entry=${entry}>
+                  <op-settings-row .narrow=${this.narrow} .entry=${entry}>
                     <span slot="heading">
                       ${entry.name}
                       ${entry.domain !== entry.name.toLowerCase()
@@ -101,7 +101,7 @@ export class CloudWebhooks extends LitElement {
                     ${this._progress.includes(entry.webhook_id)
                       ? html`
                           <div class="progress">
-                            <ha-circular-progress active></ha-circular-progress>
+                            <op-circular-progress active></op-circular-progress>
                           </div>
                         `
                       : this._cloudHooks![entry.webhook_id]
@@ -112,9 +112,9 @@ export class CloudWebhooks extends LitElement {
                             )}
                           </mwc-button>
                         `
-                      : html`<ha-switch @click=${this._enableWebhook}>
-                        </ha-switch>`}
-                  </ha-settings-row>
+                      : html`<op-switch @click=${this._enableWebhook}>
+                        </op-switch>`}
+                  </op-settings-row>
                 `
               )}
           <div class="footer">
@@ -129,7 +129,7 @@ export class CloudWebhooks extends LitElement {
             </a>
           </div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -30,14 +30,14 @@ class HaPickDashboardRow extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-settings-row .narrow=${this.narrow}>
+      <op-settings-row .narrow=${this.narrow}>
         <span slot="heading">
           ${this.opp.localize("ui.panel.profile.dashboard.header")}
         </span>
         <span slot="description">
           ${this.opp.localize("ui.panel.profile.dashboard.description")}
         </span>
-        <ha-paper-dropdown-menu
+        <op-paper-dropdown-menu
           .label=${this.opp.localize(
             "ui.panel.profile.dashboard.dropdown_label"
           )}
@@ -62,8 +62,8 @@ class HaPickDashboardRow extends LitElement {
               `;
             })}
           </paper-listbox>
-        </ha-paper-dropdown-menu>
-      </ha-settings-row>
+        </op-paper-dropdown-menu>
+      </op-settings-row>
     `;
   }
 

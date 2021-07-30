@@ -160,10 +160,10 @@ export class EntityRegistrySettingsHelper extends LitElement {
                 })}
               </span>
             `}
-        <ha-registry-basic-editor
+        <op-registry-basic-editor
           .opp=${this.opp}
           .entry=${this.entry}
-        ></ha-registry-basic-editor>
+        ></op-registry-basic-editor>
       </div>
       <div class="buttons">
         <mwc-button

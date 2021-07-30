@@ -27,18 +27,16 @@ export class HuiSafeModeCard extends LitElement implements LovelaceCard {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp!.localize(
           "ui.panel.lovelace.cards.safe-mode.header"
         )}
       >
         <div class="card-content">
-          ${this.opp!.localize(
-            "ui.panel.lovelace.cards.safe-mode.description"
-          )}
+          ${this.opp!.localize("ui.panel.lovelace.cards.safe-mode.description")}
         </div>
         <error-log-card .opp=${this.opp}></error-log-card>
-      </ha-card>
+      </op-card>
     `;
   }
 

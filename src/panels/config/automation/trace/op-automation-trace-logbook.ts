@@ -23,12 +23,12 @@ export class HaAutomationTraceLogbook extends LitElement {
   protected render(): TemplateResult {
     return this.logbookEntries.length
       ? html`
-          <ha-logbook
+          <op-logbook
             relative-time
             .opp=${this.opp}
             .entries=${this.logbookEntries}
             .narrow=${this.narrow}
-          ></ha-logbook>
+          ></op-logbook>
           <hat-logbook-note></hat-logbook-note>
         `
       : html`<div class="padded-box">

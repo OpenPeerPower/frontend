@@ -52,11 +52,11 @@ class MoreInfoTimer extends LitElement {
             `
           : ""}
       </div>
-      <ha-attributes
+      <op-attributes
         .opp=${this.opp}
         .stateObj=${this.stateObj}
         extra-filters="remaining"
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

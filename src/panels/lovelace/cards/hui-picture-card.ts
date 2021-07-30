@@ -85,7 +85,7 @@ export class HuiPictureCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         @action=${this._handleAction}
         .actionHandler=${actionHandler({
           hasHold: hasAction(this._config!.hold_action),
@@ -103,7 +103,7 @@ export class HuiPictureCard extends LitElement implements LovelaceCard {
         })}"
       >
         <img src="${this.opp.oppUrl(this._config.image)}" />
-      </ha-card>
+      </op-card>
     `;
   }
 

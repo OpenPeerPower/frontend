@@ -52,7 +52,7 @@ class DialogZHAReconfigureDevice extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         hideActions
         @closing="${this.closeDialog}"
@@ -68,10 +68,10 @@ class DialogZHAReconfigureDevice extends LitElement {
                   ${this._params?.device.user_given_name ||
                   this._params?.device.name}
                 </h1>
-                <ha-circular-progress
+                <op-circular-progress
                   active
                   alt="Searching"
-                ></ha-circular-progress>
+                ></op-circular-progress>
               `
             : ""}
         </div>
@@ -82,7 +82,7 @@ class DialogZHAReconfigureDevice extends LitElement {
           value="${this._formattedEvents}"
         >
         </paper-textarea>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -91,8 +91,9 @@ class DialogZHAReconfigureDevice extends LitElement {
       this._formattedEvents += message.log_entry.message + "\n";
       const paperTextArea = this.shadowRoot!.querySelector("paper-textarea");
       if (paperTextArea) {
-        const textArea = (paperTextArea.inputElement as IronAutogrowTextareaElement)
-          .textarea;
+        const textArea = (
+          paperTextArea.inputElement as IronAutogrowTextareaElement
+        ).textarea;
         textArea.scrollTop = textArea.scrollHeight;
       }
     }

@@ -34,7 +34,7 @@ export class HuiEntityPickerTable extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-data-table
+      <op-data-table
         selectable
         .id=${"entity_id"}
         .columns=${this._columns(this.narrow!)}
@@ -48,7 +48,7 @@ export class HuiEntityPickerTable extends LitElement {
           "ui.panel.lovelace.unused_entities.no_data"
         )}
         @selection-changed=${this._handleSelectionChanged}
-      ></ha-data-table>
+      ></op-data-table>
     `;
   }
 
@@ -76,9 +76,7 @@ export class HuiEntityPickerTable extends LitElement {
             ${name}
             ${narrow
               ? html`
-                  <div class="secondary">
-                    ${entity.stateObj.entity_id}
-                  </div>
+                  <div class="secondary">${entity.stateObj.entity_id}</div>
                 `
               : ""}
           </div>
@@ -111,10 +109,10 @@ export class HuiEntityPickerTable extends LitElement {
       width: "15%",
       hidden: narrow,
       template: (lastChanged: string) => html`
-        <ha-relative-time
+        <op-relative-time
           .opp=${this.opp!}
           .datetime=${lastChanged}
-        ></ha-relative-time>
+        ></op-relative-time>
       `,
     };
 
@@ -130,9 +128,9 @@ export class HuiEntityPickerTable extends LitElement {
   }
 
   private _handleEntityClicked(ev: Event) {
-    const entityId = ((ev.target as HTMLElement).closest(
-      ".mdc-data-table__row"
-    ) as any).rowId;
+    const entityId = (
+      (ev.target as HTMLElement).closest(".mdc-data-table__row") as any
+    ).rowId;
     fireEvent(this, "opp-more-info", {
       entityId,
     });

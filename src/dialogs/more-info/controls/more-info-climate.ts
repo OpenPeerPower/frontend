@@ -102,14 +102,14 @@ class MoreInfoClimate extends LitElement {
             ${stateObj.attributes.temperature !== undefined &&
             stateObj.attributes.temperature !== null
               ? html`
-                  <ha-climate-control
+                  <op-climate-control
                     .value=${stateObj.attributes.temperature}
                     .units=${opp.config.unit_system.temperature}
                     .step=${temperatureStepSize}
                     .min=${stateObj.attributes.min_temp}
                     .max=${stateObj.attributes.max_temp}
                     @change=${this._targetTemperatureChanged}
-                  ></ha-climate-control>
+                  ></op-climate-control>
                 `
               : ""}
             ${(stateObj.attributes.target_temp_low !== undefined &&
@@ -117,7 +117,7 @@ class MoreInfoClimate extends LitElement {
             (stateObj.attributes.target_temp_high !== undefined &&
               stateObj.attributes.target_temp_high !== null)
               ? html`
-                  <ha-climate-control
+                  <op-climate-control
                     .value=${stateObj.attributes.target_temp_low}
                     .units=${opp.config.unit_system.temperature}
                     .step=${temperatureStepSize}
@@ -125,8 +125,8 @@ class MoreInfoClimate extends LitElement {
                     .max=${stateObj.attributes.target_temp_high}
                     class="range-control-left"
                     @change=${this._targetTemperatureLowChanged}
-                  ></ha-climate-control>
-                  <ha-climate-control
+                  ></op-climate-control>
+                  <op-climate-control
                     .value=${stateObj.attributes.target_temp_high}
                     .units=${opp.config.unit_system.temperature}
                     .step=${temperatureStepSize}
@@ -134,7 +134,7 @@ class MoreInfoClimate extends LitElement {
                     .max=${stateObj.attributes.max_temp}
                     class="range-control-right"
                     @change=${this._targetTemperatureHighChanged}
-                  ></ha-climate-control>
+                  ></op-climate-control>
                 `
               : ""}
           </div>
@@ -148,7 +148,7 @@ class MoreInfoClimate extends LitElement {
                   <div class="target-humidity">
                     ${stateObj.attributes.humidity} %
                   </div>
-                  <ha-slider
+                  <op-slider
                     class="humidity"
                     step="1"
                     pin
@@ -160,7 +160,7 @@ class MoreInfoClimate extends LitElement {
                     .value=${stateObj.attributes.humidity}
                     @change=${this._targetHumiditySliderChanged}
                   >
-                  </ha-slider>
+                  </op-slider>
                 </div>
               </div>
             `
@@ -168,7 +168,7 @@ class MoreInfoClimate extends LitElement {
 
         <div class="container-hvac_modes">
           <div class="controls">
-            <ha-paper-dropdown-menu
+            <op-paper-dropdown-menu
               label-float
               dynamic-align
               .label=${opp.localize("ui.card.climate.operation")}
@@ -190,14 +190,14 @@ class MoreInfoClimate extends LitElement {
                     `
                   )}
               </paper-listbox>
-            </ha-paper-dropdown-menu>
+            </op-paper-dropdown-menu>
           </div>
         </div>
 
         ${supportPresetMode
           ? html`
               <div class="container-preset_modes">
-                <ha-paper-dropdown-menu
+                <op-paper-dropdown-menu
                   label-float
                   dynamic-align
                   .label=${opp.localize("ui.card.climate.preset_mode")}
@@ -218,14 +218,14 @@ class MoreInfoClimate extends LitElement {
                       `
                     )}
                   </paper-listbox>
-                </ha-paper-dropdown-menu>
+                </op-paper-dropdown-menu>
               </div>
             `
           : ""}
         ${supportFanMode
           ? html`
               <div class="container-fan_list">
-                <ha-paper-dropdown-menu
+                <op-paper-dropdown-menu
                   label-float
                   dynamic-align
                   .label=${opp.localize("ui.card.climate.fan_mode")}
@@ -246,14 +246,14 @@ class MoreInfoClimate extends LitElement {
                       `
                     )}
                   </paper-listbox>
-                </ha-paper-dropdown-menu>
+                </op-paper-dropdown-menu>
               </div>
             `
           : ""}
         ${supportSwingMode
           ? html`
               <div class="container-swing_list">
-                <ha-paper-dropdown-menu
+                <op-paper-dropdown-menu
                   label-float
                   dynamic-align
                   .label=${opp.localize("ui.card.climate.swing_mode")}
@@ -270,7 +270,7 @@ class MoreInfoClimate extends LitElement {
                       `
                     )}
                   </paper-listbox>
-                </ha-paper-dropdown-menu>
+                </op-paper-dropdown-menu>
               </div>
             `
           : ""}
@@ -281,10 +281,10 @@ class MoreInfoClimate extends LitElement {
                   <div class="flex">
                     ${opp.localize("ui.card.climate.aux_heat")}
                   </div>
-                  <ha-switch
+                  <op-switch
                     .checked=${stateObj.attributes.aux_heat === "on"}
                     @change=${this._auxToggleChanged}
-                  ></ha-switch>
+                  ></op-switch>
                 </div>
               </div>
             `

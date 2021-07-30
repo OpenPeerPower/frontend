@@ -71,7 +71,7 @@ export class ZHAAddGroupPage extends LitElement {
         .narrow=${this.narrow}
         .header=${this.opp.localize("ui.panel.config.zha.groups.create_group")}
       >
-        <ha-config-section .isWide=${!this.narrow}>
+        <op-config-section .isWide=${!this.narrow}>
           <p slot="introduction">
             ${this.opp.localize(
               "ui.panel.config.zha.groups.create_group_details"
@@ -108,20 +108,20 @@ export class ZHAAddGroupPage extends LitElement {
               class="button"
             >
               ${this._processingAdd
-                ? html`<ha-circular-progress
+                ? html`<op-circular-progress
                     active
                     size="small"
                     .title=${this.opp!.localize(
                       "ui.panel.config.zha.groups.creating_group"
                     )}
-                  ></ha-circular-progress>`
+                  ></op-circular-progress>`
                 : ""}
               ${this.opp!.localize(
                 "ui.panel.config.zha.groups.create"
               )}</mwc-button
             >
           </div>
-        </ha-config-section>
+        </op-config-section>
       </opp-subpage>
     `;
   }

@@ -11,7 +11,7 @@ class HaStoreAuth extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card>
+      <op-card>
         <div class="card-content">
           ${this.opp.localize("ui.auth_store.ask")}
         </div>
@@ -23,7 +23,7 @@ class HaStoreAuth extends LitElement {
             ${this.opp.localize("ui.auth_store.confirm")}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

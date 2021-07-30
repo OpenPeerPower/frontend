@@ -46,7 +46,7 @@ class SearchInput extends LitElement {
         .noLabelFloat=${this.noLabelFloat}
       >
         <slot name="prefix" slot="prefix">
-          <ha-svg-icon class="prefix" .path=${mdiMagnify}></ha-svg-icon>
+          <op-svg-icon class="prefix" .path=${mdiMagnify}></op-svg-icon>
         </slot>
         ${this.filter &&
         html`
@@ -55,7 +55,7 @@ class SearchInput extends LitElement {
             @click=${this._clearSearch}
             title="Clear"
           >
-            <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+            <op-svg-icon .path=${mdiClose}></op-svg-icon>
           </mwc-icon-button>
         `}
       </paper-input>

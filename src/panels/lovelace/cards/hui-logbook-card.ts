@@ -181,28 +181,28 @@ export class HuiLogbookCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         .header=${this._config!.title}
         class=${classMap({ "no-header": !this._config!.title })}
       >
         <div class="content">
           ${!this._logbookEntries
             ? html`
-                <ha-circular-progress
+                <op-circular-progress
                   active
                   alt=${this.opp.localize("ui.common.loading")}
-                ></ha-circular-progress>
+                ></op-circular-progress>
               `
             : this._logbookEntries.length
             ? html`
-                <ha-logbook
+                <op-logbook
                   narrow
                   relative-time
                   virtualize
                   .opp=${this.opp}
                   .entries=${this._logbookEntries}
                   .userIdToName=${this._persons}
-                ></ha-logbook>
+                ></op-logbook>
               `
             : html`
                 <div class="no-entries">
@@ -212,16 +212,12 @@ export class HuiLogbookCard extends LitElement implements LovelaceCard {
                 </div>
               `}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
   private async _getLogBookData() {
-    if (
-      !this.opp ||
-      !this._config ||
-      !isComponentLoaded(this.opp, "logbook")
-    ) {
+    if (!this.opp || !this._config || !isComponentLoaded(this.opp, "logbook")) {
       return;
     }
 

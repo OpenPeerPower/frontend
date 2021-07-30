@@ -142,7 +142,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         @action=${this._handleAction}
         @focus="${this.handleRippleFocus}"
         @blur="${this.handleRippleBlur}"
@@ -161,7 +161,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
       >
         ${this._config.show_icon
           ? html`
-              <ha-icon
+              <op-icon
                 tabindex="-1"
                 data-domain=${ifDefined(
                   this._config.state_color && stateObj
@@ -180,7 +180,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
                     ? this._config.icon_height
                     : "",
                 })}
-              ></ha-icon>
+              ></op-icon>
             `
           : ""}
         ${this._config.show_name
@@ -201,7 +201,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
             </span>`
           : ""}
         ${this._shouldRenderRipple ? html`<mwc-ripple></mwc-ripple>` : ""}
-      </ha-card>
+      </op-card>
     `;
   }
 

@@ -32,7 +32,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
 
     return html`
       ${(action.choose || []).map(
-        (option, idx) => html`<ha-card>
+        (option, idx) => html`<op-card>
           <mwc-icon-button
             .idx=${idx}
             @click=${this._removeOption}
@@ -40,7 +40,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
               "ui.panel.config.automation.editor.actions.type.choose.remove_option"
             )}
           >
-            <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+            <op-svg-icon .path=${mdiDelete}></op-svg-icon>
           </mwc-icon-button>
           <div class="card-content">
             <h2>
@@ -55,27 +55,27 @@ export class HaChooseAction extends LitElement implements ActionElement {
                 "ui.panel.config.automation.editor.actions.type.choose.conditions"
               )}:
             </h3>
-            <ha-automation-condition
+            <op-automation-condition
               .conditions=${option.conditions}
               .opp=${this.opp}
               .idx=${idx}
               @value-changed=${this._conditionChanged}
-            ></ha-automation-condition>
+            ></op-automation-condition>
             <h3>
               ${this.opp.localize(
                 "ui.panel.config.automation.editor.actions.type.choose.sequence"
               )}:
             </h3>
-            <ha-automation-action
+            <op-automation-action
               .actions=${option.sequence}
               .opp=${this.opp}
               .idx=${idx}
               @value-changed=${this._actionChanged}
-            ></ha-automation-action>
+            ></op-automation-action>
           </div>
-        </ha-card>`
+        </op-card>`
       )}
-      <ha-card>
+      <op-card>
         <div class="card-actions add-card">
           <mwc-button @click=${this._addOption}>
             ${this.opp.localize(
@@ -83,17 +83,17 @@ export class HaChooseAction extends LitElement implements ActionElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
       <h2>
         ${this.opp.localize(
           "ui.panel.config.automation.editor.actions.type.choose.default"
         )}:
       </h2>
-      <ha-automation-action
+      <op-automation-action
         .actions=${action.default || []}
         @value-changed=${this._defaultChanged}
         .opp=${this.opp}
-      ></ha-automation-action>
+      ></op-automation-action>
     `;
   }
 

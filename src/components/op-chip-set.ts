@@ -32,9 +32,9 @@ export class HaChipSet extends LitElement {
         ${this.items.map(
           (item, idx) =>
             html`
-              <ha-chip .index=${idx} @click=${this._handleClick}>
+              <op-chip .index=${idx} @click=${this._handleClick}>
                 ${item}
-              </ha-chip>
+              </op-chip>
             `
         )}
       </div>

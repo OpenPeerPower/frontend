@@ -59,11 +59,9 @@ export class HuiDialogEditLovelace extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-paper-dialog with-backdrop modal>
+      <op-paper-dialog with-backdrop modal>
         <h2>
-          ${this.opp!.localize(
-            "ui.panel.lovelace.editor.edit_lovelace.header"
-          )}
+          ${this.opp!.localize("ui.panel.lovelace.editor.edit_lovelace.header")}
         </h2>
         <paper-dialog-scrollable>
           ${this.opp!.localize(
@@ -84,16 +82,16 @@ export class HuiDialogEditLovelace extends LitElement {
             @click="${this._save}"
           >
             ${this._saving
-              ? html`<ha-circular-progress
+              ? html`<op-circular-progress
                   active
                   size="small"
                   title="Saving"
-                ></ha-circular-progress>`
+                ></op-circular-progress>`
               : ""}
             ${this.opp!.localize("ui.common.save")}</mwc-button
           >
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

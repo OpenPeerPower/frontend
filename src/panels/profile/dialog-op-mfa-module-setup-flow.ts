@@ -79,7 +79,7 @@ class HaMfaModuleSetupFlow extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog
+      <op-dialog
         open
         .heading=${this._computeStepTitle()}
         @closing=${this.closeDialog}
@@ -90,16 +90,16 @@ class HaMfaModuleSetupFlow extends LitElement {
             : ""}
           ${!this._step
             ? html`<div class="init-spinner">
-                <ha-circular-progress active></ha-circular-progress>
+                <op-circular-progress active></op-circular-progress>
               </div>`
             : html`${this._step.type === "abort"
-                ? html` <ha-markdown
+                ? html` <op-markdown
                     allowsvg
                     breaks
                     .content=${this.opp.localize(
                       `component.auth.mfa_setup.${this._step.handler}.abort.${this._step.reason}`
                     )}
-                  ></ha-markdown>`
+                  ></op-markdown>`
                 : this._step.type === "create_entry"
                 ? html`<p>
                     ${this.opp.localize(
@@ -109,7 +109,7 @@ class HaMfaModuleSetupFlow extends LitElement {
                     )}
                   </p>`
                 : this._step.type === "form"
-                ? html` <ha-markdown
+                ? html` <op-markdown
                       allowsvg
                       breaks
                       .content=${localizeKey(
@@ -119,15 +119,15 @@ class HaMfaModuleSetupFlow extends LitElement {
                         }.description`,
                         this._step!.description_placeholders
                       )}
-                    ></ha-markdown>
-                    <ha-form
+                    ></op-markdown>
+                    <op-form
                       .data=${this._stepData}
                       .schema=${this._step.data_schema}
                       .error=${this._step.errors}
                       .computeLabel=${this._computeLabel}
                       .computeError=${this._computeError}
                       @value-changed=${this._stepDataChanged}
-                    ></ha-form>`
+                    ></op-form>`
                 : ""}`}
         </div>
         ${["abort", "create_entry"].includes(this._step?.type || "")
@@ -147,7 +147,7 @@ class HaMfaModuleSetupFlow extends LitElement {
               )}</mwc-button
             >`
           : ""}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

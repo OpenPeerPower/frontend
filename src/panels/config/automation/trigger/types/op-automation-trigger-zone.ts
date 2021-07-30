@@ -33,7 +33,7 @@ export class HaZoneTrigger extends LitElement {
   protected render() {
     const { entity_id, zone, event } = this.trigger;
     return html`
-      <ha-entity-picker
+      <op-entity-picker
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.zone.entity"
         )}
@@ -42,8 +42,8 @@ export class HaZoneTrigger extends LitElement {
         .opp=${this.opp}
         allow-custom-entity
         .entityFilter=${zoneAndLocationFilter}
-      ></ha-entity-picker>
-      <ha-entity-picker
+      ></op-entity-picker>
+      <op-entity-picker
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.zone.zone"
         )}
@@ -52,7 +52,7 @@ export class HaZoneTrigger extends LitElement {
         .opp=${this.opp}
         allow-custom-entity
         .includeDomains=${includeDomains}
-      ></ha-entity-picker>
+      ></op-entity-picker>
       <label id="eventlabel">
         ${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.zone.event"

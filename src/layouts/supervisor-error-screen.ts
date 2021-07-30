@@ -43,7 +43,7 @@ class SupervisorErrorScreen extends LitElement {
         .opp=${this.opp}
         .header=${this.opp.localize("ui.errors.supervisor.title")}
       >
-        <ha-card header="Troubleshooting">
+        <op-card header="Troubleshooting">
           <div class="card-content">
             <ol>
               <li>${this.opp.localize("ui.errors.supervisor.wait")}</li>
@@ -74,7 +74,7 @@ class SupervisorErrorScreen extends LitElement {
               </li>
             </ol>
           </div>
-        </ha-card>
+        </op-card>
       </opp-subpage>
     `;
   }

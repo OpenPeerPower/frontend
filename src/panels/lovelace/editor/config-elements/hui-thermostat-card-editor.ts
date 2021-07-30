@@ -28,8 +28,10 @@ const cardConfigStruct = object({
 const includeDomains = ["climate"];
 
 @customElement("hui-thermostat-card-editor")
-export class HuiThermostatCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiThermostatCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: ThermostatCardConfig;
@@ -58,7 +60,7 @@ export class HuiThermostatCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -70,7 +72,7 @@ export class HuiThermostatCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"

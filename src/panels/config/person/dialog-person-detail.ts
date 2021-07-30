@@ -108,7 +108,7 @@ class DialogPersonDetail extends LitElement {
     }
     const nameInvalid = this._name.trim() === "";
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this._close}
         scrimClickAction
@@ -136,44 +136,44 @@ class DialogPersonDetail extends LitElement {
               required
               auto-validate
             ></paper-input>
-            <ha-picture-upload
+            <op-picture-upload
               .opp=${this.opp}
               .value=${this._picture}
               crop
               .cropOptions=${cropOptions}
               @change=${this._pictureChanged}
-            ></ha-picture-upload>
+            ></op-picture-upload>
 
-            <ha-formfield
+            <op-formfield
               .label=${this.opp!.localize(
                 "ui.panel.config.person.detail.allow_login"
               )}
             >
-              <ha-switch
+              <op-switch
                 @change=${this._allowLoginChanged}
                 .disabled=${this._user &&
                 (this._user.id === this.opp.user?.id ||
                   this._user.system_generated ||
                   this._user.is_owner)}
                 .checked=${this._userId}
-              ></ha-switch>
-            </ha-formfield>
+              ></op-switch>
+            </op-formfield>
 
             ${this._user
-              ? html`<ha-formfield
+              ? html`<op-formfield
                   .label=${this.opp.localize(
                     "ui.panel.config.person.detail.admin"
                   )}
                   .dir=${computeRTLDirection(this.opp)}
                 >
-                  <ha-switch
+                  <op-switch
                     .disabled=${this._user.system_generated ||
                     this._user.is_owner}
                     .checked=${this._isAdmin}
                     @change=${this._adminChanged}
                   >
-                  </ha-switch>
-                </ha-formfield>`
+                  </op-switch>
+                </op-formfield>`
               : ""}
             ${this._deviceTrackersAvailable(this.opp)
               ? html`
@@ -182,7 +182,7 @@ class DialogPersonDetail extends LitElement {
                       "ui.panel.config.person.detail.device_tracker_intro"
                     )}
                   </p>
-                  <ha-entities-picker
+                  <op-entities-picker
                     .opp=${this.opp}
                     .value=${this._deviceTrackers}
                     .includeDomains=${includeDomains}
@@ -194,7 +194,7 @@ class DialogPersonDetail extends LitElement {
                     )}
                     @value-changed=${this._deviceTrackersChanged}
                   >
-                  </ha-entities-picker>
+                  </op-entities-picker>
                 `
               : html`
                   <p>
@@ -262,7 +262,7 @@ class DialogPersonDetail extends LitElement {
             ? this.opp!.localize("ui.panel.config.person.detail.update")
             : this.opp!.localize("ui.panel.config.person.detail.create")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -371,9 +371,7 @@ class DialogPersonDetail extends LitElement {
     }
     await adminChangePassword(this.opp, this._user.id, newPassword);
     showAlertDialog(this, {
-      title: this.opp.localize(
-        "ui.panel.config.users.editor.password_changed"
-      ),
+      title: this.opp.localize("ui.panel.config.users.editor.password_changed"),
     });
   }
 

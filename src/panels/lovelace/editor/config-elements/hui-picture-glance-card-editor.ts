@@ -47,8 +47,10 @@ const cardConfigStruct = object({
 const includeDomains = ["camera"];
 
 @customElement("hui-picture-glance-card-editor")
-export class HuiPictureGlanceCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiPictureGlanceCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: PictureGlanceCardConfig;
@@ -136,7 +138,7 @@ export class HuiPictureGlanceCardEditor extends LitElement
           .configValue="${"image"}"
           @value-changed="${this._valueChanged}"
         ></paper-input>
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.camera_image"
           )} (${this.opp.localize(
@@ -148,7 +150,7 @@ export class HuiPictureGlanceCardEditor extends LitElement
           @value-changed="${this._valueChanged}"
           allow-custom-entity
           .includeDomains=${includeDomains}
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-dropdown-menu
             .label="${this.opp.localize(
@@ -179,7 +181,7 @@ export class HuiPictureGlanceCardEditor extends LitElement
             @value-changed="${this._valueChanged}"
           ></paper-input>
         </div>
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.picture-glance.state_entity"
           )} (${this.opp.localize(
@@ -190,7 +192,7 @@ export class HuiPictureGlanceCardEditor extends LitElement
           .configValue=${"entity"}
           @value-changed="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <hui-action-editor
             .label="${this.opp.localize(

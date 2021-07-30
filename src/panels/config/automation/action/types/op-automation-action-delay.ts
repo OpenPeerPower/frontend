@@ -67,11 +67,11 @@ export class HaDelayAction extends LitElement implements ActionElement {
   }
 
   protected render() {
-    return html`<ha-time-input
+    return html`<op-time-input
       .data=${this._timeData}
       enableMillisecond
       @value-changed=${this._valueChanged}
-    ></ha-time-input>`;
+    ></op-time-input>`;
   }
 
   private _valueChanged(ev: CustomEvent) {

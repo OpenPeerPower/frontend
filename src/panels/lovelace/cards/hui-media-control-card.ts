@@ -187,7 +187,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
     const mediaDescription = computeMediaDescription(stateObj);
 
     return html`
-      <ha-card>
+      <op-card>
         <div
           class="background ${classMap({
             "no-image": hasNoImage,
@@ -229,18 +229,18 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
         >
           <div class="top-info">
             <div class="icon-name">
-              <ha-icon class="icon" .icon=${stateIcon(stateObj)}></ha-icon>
+              <op-icon class="icon" .icon=${stateIcon(stateObj)}></op-icon>
               <div>
                 ${this._config!.name ||
                 computeStateName(this.opp!.states[this._config!.entity])}
               </div>
             </div>
             <div>
-              <ha-icon-button
+              <op-icon-button
                 icon="opp:dots-vertical"
                 class="more-info"
                 @click=${this._handleMoreInfo}
-              ></ha-icon-button>
+              ></op-icon-button>
             </div>
           </div>
           ${!isUnavailable &&
@@ -270,14 +270,14 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
                           <div class="controls">
                             ${controls!.map(
                               (control) => html`
-                                <ha-icon-button
+                                <op-icon-button
                                   .title=${this.opp.localize(
                                     `ui.card.media_player.${control.action}`
                                   )}
                                   .icon=${control.icon}
                                   action=${control.action}
                                   @click=${this._handleClick}
-                                ></ha-icon-button>
+                                ></op-icon-button>
                               `
                             )}
                             ${supportsFeature(stateObj, SUPPORT_BROWSE_MEDIA)
@@ -288,9 +288,9 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
                                       "ui.card.media_player.browse_media"
                                     )}
                                     @click=${this._handleBrowseMedia}
-                                    ><ha-svg-icon
+                                    ><op-svg-icon
                                       .path=${mdiPlayBoxMultiple}
-                                    ></ha-svg-icon
+                                    ></op-svg-icon
                                   ></mwc-icon-button>
                                 `
                               : ""}
@@ -316,7 +316,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
               `
             : ""}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -510,9 +510,9 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
       return;
     }
 
-    const progressWidth = (this.shadowRoot!.querySelector(
-      "paper-progress"
-    ) as HTMLElement).offsetWidth;
+    const progressWidth = (
+      this.shadowRoot!.querySelector("paper-progress") as HTMLElement
+    ).offsetWidth;
 
     const percent = e.offsetX / progressWidth;
     const position = (e.currentTarget! as any).max * percent;

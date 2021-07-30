@@ -257,7 +257,7 @@ export class HaDataTable extends LitElement {
                     class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox"
                     role="columnheader"
                   >
-                    <ha-checkbox
+                    <op-checkbox
                       class="mdc-data-table__row-checkbox"
                       @change=${this._handleHeaderRowCheckboxClick}
                       .indeterminate=${this._checkedRows.length &&
@@ -265,7 +265,7 @@ export class HaDataTable extends LitElement {
                       .checked=${this._checkedRows.length ===
                       this._checkableRowsCount}
                     >
-                    </ha-checkbox>
+                    </op-checkbox>
                   </div>
                 `
               : ""}
@@ -310,11 +310,11 @@ export class HaDataTable extends LitElement {
                 >
                   ${column.sortable
                     ? html`
-                        <ha-icon
+                        <op-icon
                           .icon=${sorted && this._sortDirection === "desc"
                             ? "opp:arrow-down"
                             : "opp:arrow-up"}
-                        ></ha-icon>
+                        ></op-icon>
                       `
                     : ""}
                   <span>${column.title}</span>
@@ -377,7 +377,7 @@ export class HaDataTable extends LitElement {
                                   class="mdc-data-table__cell mdc-data-table__cell--checkbox"
                                   role="cell"
                                 >
-                                  <ha-checkbox
+                                  <op-checkbox
                                     class="mdc-data-table__row-checkbox"
                                     @change=${this._handleRowCheckboxClick}
                                     .rowId=${row[this.id]}
@@ -386,7 +386,7 @@ export class HaDataTable extends LitElement {
                                       String(row[this.id])
                                     )}
                                   >
-                                  </ha-checkbox>
+                                  </op-checkbox>
                                 </div>
                               `
                             : ""}

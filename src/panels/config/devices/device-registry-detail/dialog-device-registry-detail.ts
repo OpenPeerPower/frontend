@@ -62,7 +62,7 @@ class DialogDeviceRegistryDetail extends LitElement {
     }
     const device = this._params.device;
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${computeDeviceName(device, this.opp)}
@@ -77,17 +77,17 @@ class DialogDeviceRegistryDetail extends LitElement {
               .placeholder=${device.name || ""}
               .disabled=${this._submitting}
             ></paper-input>
-            <ha-area-picker
+            <op-area-picker
               .opp=${this.opp}
               .value=${this._areaId}
               @value-changed=${this._areaPicked}
-            ></ha-area-picker>
+            ></op-area-picker>
             <div class="row">
-              <ha-switch
+              <op-switch
                 .checked=${!this._disabledBy}
                 @change=${this._disabledByChanged}
               >
-              </ha-switch>
+              </op-switch>
               <div>
                 <div>
                   ${this.opp.localize("ui.panel.config.devices.enabled_label")}
@@ -124,7 +124,7 @@ class DialogDeviceRegistryDetail extends LitElement {
         >
           ${this.opp.localize("ui.panel.config.devices.update")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

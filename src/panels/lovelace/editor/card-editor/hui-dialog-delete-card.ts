@@ -46,10 +46,8 @@ export class HuiDialogDeleteCard extends LitElement {
     }
 
     return html`
-      <ha-paper-dialog with-backdrop opened modal>
-        <h2>
-          ${this.opp.localize("ui.panel.lovelace.cards.confirm_delete")}
-        </h2>
+      <op-paper-dialog with-backdrop opened modal>
+        <h2>${this.opp.localize("ui.panel.lovelace.cards.confirm_delete")}</h2>
         <paper-dialog-scrollable>
           ${this._cardConfig
             ? html`
@@ -70,7 +68,7 @@ export class HuiDialogDeleteCard extends LitElement {
             ${this.opp!.localize("ui.common.delete")}
           </mwc-button>
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

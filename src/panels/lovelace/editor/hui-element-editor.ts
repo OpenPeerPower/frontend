@@ -185,18 +185,18 @@ export abstract class HuiElementEditor<T> extends LitElement {
               <div class="gui-editor">
                 ${this._loading
                   ? html`
-                      <ha-circular-progress
+                      <op-circular-progress
                         active
                         alt="Loading"
                         class="center margin-bot"
-                      ></ha-circular-progress>
+                      ></op-circular-progress>
                     `
                   : this._configElement}
               </div>
             `
           : html`
               <div class="yaml-editor">
-                <ha-code-editor
+                <op-code-editor
                   mode="yaml"
                   autofocus
                   .value=${this.yaml}
@@ -204,7 +204,7 @@ export abstract class HuiElementEditor<T> extends LitElement {
                   .rtl=${computeRTL(this.opp)}
                   @value-changed=${this._handleYAMLChanged}
                   @keydown=${this._ignoreKeydown}
-                ></ha-code-editor>
+                ></op-code-editor>
               </div>
             `}
         ${this._guiSupported === false && this.configElementType
@@ -267,7 +267,7 @@ export abstract class HuiElementEditor<T> extends LitElement {
   private _handleUIConfigChanged(ev: UIConfigChangedEvent) {
     ev.stopPropagation();
     const config = ev.detail.config;
-    this.value = (config as unknown) as T;
+    this.value = config as unknown as T;
   }
 
   private _handleYAMLChanged(ev: CustomEvent) {

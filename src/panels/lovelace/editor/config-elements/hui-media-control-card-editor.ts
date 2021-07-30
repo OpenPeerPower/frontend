@@ -24,8 +24,10 @@ const cardConfigStruct = object({
 const includeDomains = ["media_player"];
 
 @customElement("hui-media-control-card-editor")
-export class HuiMediaControlCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiMediaControlCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: MediaControlCardConfig;
@@ -50,7 +52,7 @@ export class HuiMediaControlCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -62,7 +64,7 @@ export class HuiMediaControlCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <hui-theme-select-editor
           .opp=${this.opp}
           .value=${this._theme}

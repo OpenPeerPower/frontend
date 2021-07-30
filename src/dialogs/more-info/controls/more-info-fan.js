@@ -61,7 +61,7 @@ class MoreInfoFan extends LocalizeMixin(EventsMixin(PolymerElement)) {
         </div>
 
         <div class="container-preset_modes">
-          <ha-paper-dropdown-menu
+          <op-paper-dropdown-menu
             label-float=""
             dynamic-align=""
             label="[[localize('ui.card.fan.preset_mode')]]"
@@ -79,44 +79,44 @@ class MoreInfoFan extends LocalizeMixin(EventsMixin(PolymerElement)) {
                 <paper-item item-name$="[[item]]">[[item]]</paper-item>
               </template>
             </paper-listbox>
-          </ha-paper-dropdown-menu>
+          </op-paper-dropdown-menu>
         </div>
 
         <div class="container-oscillating">
           <div class="center horizontal layout single-row">
             <div class="flex">[[localize('ui.card.fan.oscillate')]]</div>
-            <ha-switch
+            <op-switch
               checked="[[oscillationToggleChecked]]"
               on-change="oscillationToggleChanged"
             >
-            </ha-switch>
+            </op-switch>
           </div>
         </div>
 
         <div class="container-direction">
           <div class="direction">
             <div>[[localize('ui.card.fan.direction')]]</div>
-            <ha-icon-button
+            <op-icon-button
               icon="opp:rotate-left"
               on-click="onDirectionReverse"
               title="[[localize('ui.card.fan.reverse')]]"
               disabled="[[computeIsRotatingReverse(stateObj)]]"
-            ></ha-icon-button>
-            <ha-icon-button
+            ></op-icon-button>
+            <op-icon-button
               icon="opp:rotate-right"
               on-click="onDirectionForward"
               title="[[localize('ui.card.fan.forward')]]"
               disabled="[[computeIsRotatingForward(stateObj)]]"
-            ></ha-icon-button>
+            ></op-icon-button>
           </div>
         </div>
       </div>
 
-      <ha-attributes
+      <op-attributes
         opp="[[opp]]"
         state-obj="[[stateObj]]"
         extra-filters="percentage_step,speed,preset_mode,preset_modes,speed_list,percentage,oscillating,direction"
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

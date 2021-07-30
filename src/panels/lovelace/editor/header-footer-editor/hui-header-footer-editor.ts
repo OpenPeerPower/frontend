@@ -53,7 +53,7 @@ export class HuiHeaderFooterEditor extends LitElement {
                 class="add-icon"
                 @click=${this._add}
               >
-                <ha-svg-icon .path=${mdiPlus}></ha-svg-icon>
+                <op-svg-icon .path=${mdiPlus}></op-svg-icon>
               </mwc-icon-button>
             `
           : html`
@@ -64,7 +64,7 @@ export class HuiHeaderFooterEditor extends LitElement {
                 class="remove-icon"
                 @click=${this._delete}
               >
-                <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                <op-svg-icon .path=${mdiClose}></op-svg-icon>
               </mwc-icon-button>
               <mwc-icon-button
                 aria-label=${this.opp!.localize(
@@ -73,7 +73,7 @@ export class HuiHeaderFooterEditor extends LitElement {
                 class="edit-icon"
                 @click=${this._edit}
               >
-                <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                <op-svg-icon .path=${mdiPencil}></op-svg-icon>
               </mwc-icon-button>
             `}
       </div>

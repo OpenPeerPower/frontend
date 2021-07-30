@@ -53,7 +53,7 @@ export class DialogOppioSnapshotUpload
           <op-header-bar>
             <span slot="title"> Upload snapshot </span>
             <mwc-icon-button slot="actionItems" dialogAction="cancel">
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
           </op-header-bar>
         </div>

@@ -43,7 +43,7 @@ export class HuiDialogSelectMediaPlayer extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         hideActions
         .heading=${createCloseHeading(
@@ -71,7 +71,7 @@ export class HuiDialogSelectMediaPlayer extends LitElement {
               `
             )}
         </mwc-list>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

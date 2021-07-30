@@ -40,7 +40,7 @@ class ConfigAnalytics extends LitElement {
       : undefined;
 
     return html`
-      <ha-card
+      <op-card
         .header=${this.opp.localize(
           "ui.panel.config.core.section.core.analytics.header"
         )}
@@ -56,11 +56,11 @@ class ConfigAnalytics extends LitElement {
               >`
             )}
           </p>
-          <ha-analytics
+          <op-analytics
             @analytics-preferences-changed=${this._preferencesChanged}
             .opp=${this.opp}
             .analytics=${this._analyticsDetails}
-          ></ha-analytics>
+          ></op-analytics>
         </div>
         <div class="card-actions">
           <mwc-button @click=${this._save}>
@@ -70,7 +70,7 @@ class ConfigAnalytics extends LitElement {
           </mwc-button>
           ${analyticsLearnMore(this.opp)}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

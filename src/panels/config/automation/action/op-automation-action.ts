@@ -26,7 +26,7 @@ export default class HaAutomationAction extends LitElement {
     return html`
       ${this.actions.map(
         (action, idx) => html`
-          <ha-automation-action-row
+          <op-automation-action-row
             .index=${idx}
             .totalActions=${this.actions.length}
             .action=${action}
@@ -35,10 +35,10 @@ export default class HaAutomationAction extends LitElement {
             @move-action=${this._move}
             @value-changed=${this._actionChanged}
             .opp=${this.opp}
-          ></ha-automation-action-row>
+          ></op-automation-action-row>
         `
       )}
-      <ha-card>
+      <op-card>
         <div class="card-actions add-card">
           <mwc-button @click=${this._addAction}>
             ${this.opp.localize(
@@ -46,7 +46,7 @@ export default class HaAutomationAction extends LitElement {
             )}
           </mwc-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

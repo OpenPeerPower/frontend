@@ -49,7 +49,7 @@ class CloudRegister extends LocalizeMixin(EventsMixin(PolymerElement)) {
     </style>
     <opp-subpage opp="[[opp]]" narrow="[[narrow]]" header="[[localize('ui.panel.config.cloud.register.title')]]">
       <div class="content">
-        <ha-config-section is-wide="[[isWide]]">
+        <op-config-section is-wide="[[isWide]]">
           <span slot="header">[[localize('ui.panel.config.cloud.register.headline')]]</span>
           <div slot="introduction">
             <p>
@@ -77,7 +77,7 @@ class CloudRegister extends LocalizeMixin(EventsMixin(PolymerElement)) {
             </p>
           </div>
 
-          <ha-card header="[[localize('ui.panel.config.cloud.register.create_account')]]">
+          <op-card header="[[localize('ui.panel.config.cloud.register.create_account')]]">
             <div class="card-content">
               <div class="header">
                 <div class="error" hidden$="[[!_error]]">[[_error]]</div>
@@ -86,11 +86,11 @@ class CloudRegister extends LocalizeMixin(EventsMixin(PolymerElement)) {
               <paper-input id="password" label="Password" value="{{_password}}" type="password" on-keydown="_keyDown" error-message="[[localize('ui.panel.config.cloud.register.password_error_msg')]]"></paper-input>
             </div>
             <div class="card-actions">
-              <ha-progress-button on-click="_handleRegister" progress="[[_requestInProgress]]">[[localize('ui.panel.config.cloud.register.start_trial')]]</ha-progress-button>
+              <op-progress-button on-click="_handleRegister" progress="[[_requestInProgress]]">[[localize('ui.panel.config.cloud.register.start_trial')]]</op-progress-button>
               <button class="link" hidden="[[_requestInProgress]]" on-click="_handleResendVerifyEmail">[[localize('ui.panel.config.cloud.register.resend_confirmation_email')]]</button>
             </div>
-          </ha-card>
-        </ha-config-section>
+          </op-card>
+        </op-config-section>
       </div>
     </opp-subpage>
 `;

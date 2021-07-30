@@ -132,7 +132,7 @@ class MoreInfoLight extends LitElement {
               ((!supportsTemp && !supportsWhite) || this._mode === "color")
                 ? html`
                     <div class="segmentationContainer">
-                      <ha-color-picker
+                      <op-color-picker
                         class="color"
                         @colorselected=${this._colorPicked}
                         .desiredRgbColor=${this._colorPickerColor}
@@ -140,12 +140,12 @@ class MoreInfoLight extends LitElement {
                         .hueSegments=${this._hueSegments}
                         .saturationSegments=${this._saturationSegments}
                       >
-                      </ha-color-picker>
-                      <ha-icon-button
+                      </op-color-picker>
+                      <op-icon-button
                         icon="opp:palette"
                         @click=${this._segmentClick}
                         class="segmentationButton"
-                      ></ha-icon-button>
+                      ></op-icon-button>
                     </div>
 
                     ${supportsRgbw || supportsRgbww
@@ -207,7 +207,7 @@ class MoreInfoLight extends LitElement {
               this.stateObj!.attributes.effect_list?.length
                 ? html`
                     <hr />
-                    <ha-paper-dropdown-menu
+                    <op-paper-dropdown-menu
                       .label=${this.opp.localize("ui.card.light.effect")}
                     >
                       <paper-listbox
@@ -223,16 +223,16 @@ class MoreInfoLight extends LitElement {
                           `
                         )}
                       </paper-listbox>
-                    </ha-paper-dropdown-menu>
+                    </op-paper-dropdown-menu>
                   `
                 : ""}
             `
           : ""}
-        <ha-attributes
+        <op-attributes
           .opp=${this.opp}
           .stateObj=${this.stateObj}
           extra-filters="brightness,color_temp,white_value,effect_list,effect,hs_color,rgb_color,rgbw_color,rgbww_color,xy_color,min_mireds,max_mireds,entity_id,supported_color_modes,color_mode"
-        ></ha-attributes>
+        ></op-attributes>
       </div>
     `;
   }

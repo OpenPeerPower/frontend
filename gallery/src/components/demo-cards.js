@@ -35,13 +35,13 @@ class DemoCards extends PolymerElement {
       </style>
       <app-toolbar>
         <div class="filters">
-          <ha-formfield label="Show config">
-            <ha-switch checked="[[_showConfig]]" on-change="_showConfigToggled">
-            </ha-switch>
-          </ha-formfield>
-          <ha-formfield label="Dark theme">
-            <ha-switch on-change="_darkThemeToggled"> </ha-switch>
-          </ha-formfield>
+          <op-formfield label="Show config">
+            <op-switch checked="[[_showConfig]]" on-change="_showConfigToggled">
+            </op-switch>
+          </op-formfield>
+          <op-formfield label="Dark theme">
+            <op-switch on-change="_darkThemeToggled"> </op-switch>
+          </op-formfield>
         </div>
       </app-toolbar>
       <div id="container">

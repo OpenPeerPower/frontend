@@ -41,7 +41,7 @@ class EventSubscribeCard extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-card
+      <op-card
         header=${this.opp!.localize(
           "ui.panel.developer-tools.tabs.events.listen_to_events"
         )}
@@ -88,7 +88,7 @@ class EventSubscribeCard extends LitElement {
             `
           )}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

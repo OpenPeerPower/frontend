@@ -86,10 +86,10 @@ export class HaFileUpload extends LitElement {
                       slot="suffix"
                       @click=${this._clearValue}
                     >
-                      <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+                      <op-svg-icon .path=${mdiClose}></op-svg-icon>
                     </mwc-icon-button>`
                   : html`<mwc-icon-button slot="suffix">
-                      <ha-svg-icon .path=${this.icon}></ha-svg-icon>
+                      <op-svg-icon .path=${this.icon}></op-svg-icon>
                     </mwc-icon-button>`}
               </paper-input-container>
             </label>

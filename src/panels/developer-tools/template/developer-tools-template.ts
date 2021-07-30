@@ -133,13 +133,13 @@ class HaPanelDevTemplate extends LitElement {
               "ui.panel.developer-tools.tabs.templates.editor"
             )}
           </p>
-          <ha-code-editor
+          <op-code-editor
             mode="jinja2"
             .value=${this._template}
             .error=${this._error}
             autofocus
             @value-changed=${this._templateChanged}
-          ></ha-code-editor>
+          ></op-code-editor>
           <mwc-button @click=${this._restoreDemo}>
             ${this.opp.localize(
               "ui.panel.developer-tools.tabs.templates.reset"
@@ -149,11 +149,11 @@ class HaPanelDevTemplate extends LitElement {
 
         <div class="render-pane">
           ${this._rendering
-            ? html`<ha-circular-progress
+            ? html`<op-circular-progress
                 class="render-spinner"
                 active
                 size="small"
-              ></ha-circular-progress>`
+              ></op-circular-progress>`
             : ""}
           ${this._templateResult
             ? html`${this.opp.localize(

@@ -298,11 +298,11 @@ export class HaConfigDeviceDashboard extends LitElement {
           return battery && (batteryIsBinary || !isNaN(battery.state as any))
             ? html`
                 ${batteryIsBinary ? "" : battery.state + " %"}
-                <ha-battery-icon
+                <op-battery-icon
                   .opp=${this.opp!}
                   .batteryStateObj=${battery}
                   .batteryChargingStateObj=${batteryCharging}
-                ></ha-battery-icon>
+                ></op-battery-icon>
               `
             : html` - `;
         },
@@ -317,7 +317,7 @@ export class HaConfigDeviceDashboard extends LitElement {
                   tabindex="0"
                   style="display:inline-block; position: relative;"
                 >
-                  <ha-svg-icon .path=${mdiCancel}></ha-svg-icon>
+                  <op-svg-icon .path=${mdiCancel}></op-svg-icon>
                   <paper-tooltip animation-delay="0" position="left">
                     ${this.opp.localize("ui.panel.config.devices.disabled")}
                   </paper-tooltip>
@@ -386,16 +386,16 @@ export class HaConfigDeviceDashboard extends LitElement {
       >
         ${includeZHAFab
           ? html`<a href="/config/zha/add" slot="fab">
-              <ha-fab
+              <op-fab
                 .label=${this.opp.localize("ui.panel.config.zha.add_device")}
                 extended
                 ?rtl=${computeRTL(this.opp)}
               >
-                <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-              </ha-fab>
+                <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+              </op-fab>
             </a>`
           : html``}
-        <ha-button-menu slot="filter-menu" corner="BOTTOM_START" multi>
+        <op-button-menu slot="filter-menu" corner="BOTTOM_START" multi>
           <mwc-icon-button
             slot="trigger"
             .label=${this.opp!.localize(
@@ -405,22 +405,22 @@ export class HaConfigDeviceDashboard extends LitElement {
               "ui.panel.config.devices.picker.filter.filter"
             )}
           >
-            <ha-svg-icon .path=${mdiFilterVariant}></ha-svg-icon>
+            <op-svg-icon .path=${mdiFilterVariant}></op-svg-icon>
           </mwc-icon-button>
           <mwc-list-item
             @request-selected="${this._showDisabledChanged}"
             graphic="control"
             .selected=${this._showDisabled}
           >
-            <ha-checkbox
+            <op-checkbox
               slot="graphic"
               .checked=${this._showDisabled}
-            ></ha-checkbox>
+            ></op-checkbox>
             ${this.opp!.localize(
               "ui.panel.config.devices.picker.filter.show_disabled"
             )}
           </mwc-list-item>
-        </ha-button-menu>
+        </op-button-menu>
       </opp-tabs-subpage-data-table>
     `;
   }

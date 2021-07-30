@@ -12,7 +12,7 @@ export class DemoUtilLongPress extends LitElement {
       ${this.renderStyle()}
       ${[1, 2, 3].map(
         () => html`
-          <ha-card>
+          <op-card>
             <mwc-button
               @action=${this._handleAction}
               .actionHandler=${actionHandler({})}
@@ -23,7 +23,7 @@ export class DemoUtilLongPress extends LitElement {
             <textarea></textarea>
 
             <div>Try pressing and scrolling too!</div>
-          </ha-card>
+          </op-card>
         `
       )}
     `;

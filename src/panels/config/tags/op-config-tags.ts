@@ -82,10 +82,10 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
           ${narrow
             ? html`<div class="secondary">
                 ${tag.last_scanned_datetime
-                  ? html`<ha-relative-time
+                  ? html`<op-relative-time
                       .opp=${this.opp}
                       .datetime=${tag.last_scanned_datetime}
-                    ></ha-relative-time>`
+                    ></op-relative-time>`
                   : this.opp.localize("ui.panel.config.tag.never_scanned")}
               </div>`
             : ""}`,
@@ -99,10 +99,10 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
           width: "20%",
           template: (last_scanned_datetime) => html`
             ${last_scanned_datetime
-              ? html`<ha-relative-time
+              ? html`<op-relative-time
                   .opp=${this.opp}
                   .datetime=${last_scanned_datetime}
-                ></ha-relative-time>`
+                ></op-relative-time>`
               : this.opp.localize("ui.panel.config.tag.never_scanned")}
           `,
         };
@@ -117,7 +117,7 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
               this._openWrite((ev.currentTarget as any).tag)}
             title=${this.opp.localize("ui.panel.config.tag.write")}
           >
-            <ha-svg-icon .path=${mdiContentDuplicate}></ha-svg-icon>
+            <op-svg-icon .path=${mdiContentDuplicate}></op-svg-icon>
           </mwc-icon-button>`,
         };
       }
@@ -130,7 +130,7 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
             this._createAutomation((ev.currentTarget as any).tag)}
           title=${this.opp.localize("ui.panel.config.tag.create_automation")}
         >
-          <ha-svg-icon .path=${mdiRobot}></ha-svg-icon>
+          <op-svg-icon .path=${mdiRobot}></op-svg-icon>
         </mwc-icon-button>`,
       };
       columns.edit = {
@@ -142,7 +142,7 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
             this._openDialog((ev.currentTarget as any).tag)}
           title=${this.opp.localize("ui.panel.config.tag.edit")}
         >
-          <ha-svg-icon .path=${mdiCog}></ha-svg-icon>
+          <op-svg-icon .path=${mdiCog}></op-svg-icon>
         </mwc-icon-button>`,
       };
       return columns;
@@ -203,16 +203,16 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
         hasFab
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._showHelp}>
-          <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+          <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
         </mwc-icon-button>
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize("ui.panel.config.tag.add_tag")}
           extended
           @click=${this._addTag}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

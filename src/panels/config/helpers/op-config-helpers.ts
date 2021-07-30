@@ -45,84 +45,73 @@ export class HaConfigHelpers extends LitElement {
 
   @internalProperty() private _stateItems: OppEntity[] = [];
 
-  private _columns = memoize(
-    (narrow, _language): DataTableColumnContainer => {
-      const columns: DataTableColumnContainer = {
-        icon: {
-          title: "",
-          type: "icon",
-          template: (icon, helper: any) => html`
-            <ha-icon .icon=${icon || domainIcon(helper.type)}></ha-icon>
-          `,
-        },
-        name: {
-          title: this.opp.localize(
-            "ui.panel.config.helpers.picker.headers.name"
-          ),
-          sortable: true,
-          filterable: true,
-          grows: true,
-          direction: "asc",
-          template: (name, item: any) =>
-            html`
-              ${name}
-              ${narrow
-                ? html`
-                    <div class="secondary">
-                      ${item.entity_id}
-                    </div>
-                  `
-                : ""}
-            `,
-        },
-      };
-      if (!narrow) {
-        columns.entity_id = {
-          title: this.opp.localize(
-            "ui.panel.config.helpers.picker.headers.entity_id"
-          ),
-          sortable: true,
-          filterable: true,
-          width: "25%",
-        };
-      }
-      columns.type = {
-        title: this.opp.localize(
-          "ui.panel.config.helpers.picker.headers.type"
-        ),
-        sortable: true,
-        width: "25%",
-        filterable: true,
-        template: (type) =>
-          html`
-            ${this.opp.localize(`ui.panel.config.helpers.types.${type}`) ||
-            type}
-          `,
-      };
-      columns.editable = {
+  private _columns = memoize((narrow, _language): DataTableColumnContainer => {
+    const columns: DataTableColumnContainer = {
+      icon: {
         title: "",
         type: "icon",
-        template: (editable) => html`
-          ${!editable
-            ? html`
-                <div
-                  tabindex="0"
-                  style="display:inline-block; position: relative;"
-                >
-                  <ha-icon icon="opp:pencil-off"></ha-icon>
-                  <paper-tooltip animation-delay="0" position="left">
-                    ${this.opp.localize(
-                      "ui.panel.config.entities.picker.status.readonly"
-                    )}
-                  </paper-tooltip>
-                </div>
-              `
-            : ""}
+        template: (icon, helper: any) => html`
+          <op-icon .icon=${icon || domainIcon(helper.type)}></op-icon>
         `,
+      },
+      name: {
+        title: this.opp.localize("ui.panel.config.helpers.picker.headers.name"),
+        sortable: true,
+        filterable: true,
+        grows: true,
+        direction: "asc",
+        template: (name, item: any) =>
+          html`
+            ${name}
+            ${narrow
+              ? html` <div class="secondary">${item.entity_id}</div> `
+              : ""}
+          `,
+      },
+    };
+    if (!narrow) {
+      columns.entity_id = {
+        title: this.opp.localize(
+          "ui.panel.config.helpers.picker.headers.entity_id"
+        ),
+        sortable: true,
+        filterable: true,
+        width: "25%",
       };
-      return columns;
     }
-  );
+    columns.type = {
+      title: this.opp.localize("ui.panel.config.helpers.picker.headers.type"),
+      sortable: true,
+      width: "25%",
+      filterable: true,
+      template: (type) =>
+        html`
+          ${this.opp.localize(`ui.panel.config.helpers.types.${type}`) || type}
+        `,
+    };
+    columns.editable = {
+      title: "",
+      type: "icon",
+      template: (editable) => html`
+        ${!editable
+          ? html`
+              <div
+                tabindex="0"
+                style="display:inline-block; position: relative;"
+              >
+                <op-icon icon="opp:pencil-off"></op-icon>
+                <paper-tooltip animation-delay="0" position="left">
+                  ${this.opp.localize(
+                    "ui.panel.config.entities.picker.status.readonly"
+                  )}
+                </paper-tooltip>
+              </div>
+            `
+          : ""}
+      `,
+    };
+    return columns;
+  });
 
   private _getItems = memoize((stateItems: OppEntity[]) => {
     return stateItems.map((state) => {
@@ -158,7 +147,7 @@ export class HaConfigHelpers extends LitElement {
           "ui.panel.config.helpers.picker.no_helpers"
         )}
       >
-        <ha-fab
+        <op-fab
           slot="fab"
           .label=${this.opp.localize(
             "ui.panel.config.helpers.picker.add_helper"
@@ -166,8 +155,8 @@ export class HaConfigHelpers extends LitElement {
           extended
           @click=${this._createHelpler}
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

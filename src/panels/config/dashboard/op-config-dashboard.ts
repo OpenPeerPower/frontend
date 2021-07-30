@@ -37,7 +37,7 @@ class HaConfigDashboard extends LitElement {
   @property() public showAdvanced!: boolean;
 
   protected render(): TemplateResult {
-    const content = html` <ha-config-section
+    const content = html` <op-config-section
       .narrow=${this.narrow}
       .isWide=${this.isWide}
     >
@@ -49,8 +49,8 @@ class HaConfigDashboard extends LitElement {
 
       ${this.cloudStatus && isComponentLoaded(this.opp, "cloud")
         ? html`
-            <ha-card>
-              <ha-config-navigation
+            <op-card>
+              <op-config-navigation
                 .opp=${this.opp}
                 .showAdvanced=${this.showAdvanced}
                 .pages=${[
@@ -62,19 +62,19 @@ class HaConfigDashboard extends LitElement {
                     iconPath: mdiCloudLock,
                   },
                 ]}
-              ></ha-config-navigation>
-            </ha-card>
+              ></op-config-navigation>
+            </op-card>
           `
         : ""}
       ${Object.values(configSections).map(
         (section) => html`
-          <ha-card>
-            <ha-config-navigation
+          <op-card>
+            <op-config-navigation
               .opp=${this.opp}
               .showAdvanced=${this.showAdvanced}
               .pages=${section}
-            ></ha-config-navigation>
-          </ha-card>
+            ></op-config-navigation>
+          </op-card>
         `
       )}
       ${!this.showAdvanced
@@ -89,25 +89,25 @@ class HaConfigDashboard extends LitElement {
             </div>
           `
         : ""}
-    </ha-config-section>`;
+    </op-config-section>`;
 
     if (!this.narrow && this.opp.dockedSidebar !== "always_hidden") {
       return content;
     }
 
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header fixed slot="header">
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
           </app-toolbar>
         </app-header>
 
         ${content}
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

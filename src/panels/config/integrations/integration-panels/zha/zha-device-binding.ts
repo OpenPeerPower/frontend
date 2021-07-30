@@ -48,19 +48,19 @@ export class ZHADeviceBindingControl extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-config-section .isWide="${this.isWide}">
+      <op-config-section .isWide="${this.isWide}">
         <div class="header" slot="header">
           <span>Device Binding</span>
-          <ha-icon-button
+          <op-icon-button
             class="toggle-help-icon"
             @click="${this._onHelpTap}"
             icon="opp:help-circle"
           >
-          </ha-icon-button>
+          </op-icon-button>
         </div>
         <span slot="introduction">Bind and unbind devices.</span>
 
-        <ha-card class="content">
+        <op-card class="content">
           <div class="command-picker">
             <paper-dropdown-menu label="Bindable Devices" class="menu">
               <paper-listbox
@@ -94,11 +94,7 @@ export class ZHADeviceBindingControl extends LitElement {
               >Bind</mwc-button
             >
             ${this._showHelp
-              ? html`
-                  <div class="helpText">
-                    Bind devices.
-                  </div>
-                `
+              ? html` <div class="helpText">Bind devices.</div> `
               : ""}
             <mwc-button
               @click="${this._onUnbindDevicesClick}"
@@ -106,15 +102,11 @@ export class ZHADeviceBindingControl extends LitElement {
               >Unbind</mwc-button
             >
             ${this._showHelp
-              ? html`
-                  <div class="helpText">
-                    Unbind devices.
-                  </div>
-                `
+              ? html` <div class="helpText">Unbind devices.</div> `
               : ""}
           </div>
-        </ha-card>
-      </ha-config-section>
+        </op-card>
+      </op-config-section>
     `;
   }
 

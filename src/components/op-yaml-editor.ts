@@ -55,12 +55,12 @@ export class HaYamlEditor extends LitElement {
     }
     return html`
       ${this.label ? html`<p>${this.label}</p>` : ""}
-      <ha-code-editor
+      <op-code-editor
         .value=${this._yaml}
         mode="yaml"
         .error=${this.isValid === false}
         @value-changed=${this._onChange}
-      ></ha-code-editor>
+      ></op-code-editor>
     `;
   }
 

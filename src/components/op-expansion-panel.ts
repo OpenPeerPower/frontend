@@ -25,10 +25,10 @@ class HaExpansionPanel extends LitElement {
           ${this.header}
           <slot class="secondary" name="secondary">${this.secondary}</slot>
         </slot>
-        <ha-svg-icon
+        <op-svg-icon
           .path=${mdiChevronDown}
           class="summary-icon ${classMap({ expanded: this.expanded })}"
-        ></ha-svg-icon>
+        ></op-svg-icon>
       </div>
       <div
         class="container ${classMap({ expanded: this.expanded })}"

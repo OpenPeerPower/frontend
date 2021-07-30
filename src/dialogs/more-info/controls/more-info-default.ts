@@ -15,10 +15,10 @@ class MoreInfoDefault extends LitElement {
       return html``;
     }
 
-    return html`<ha-attributes
+    return html`<op-attributes
       .opp=${this.opp}
       .stateObj=${this.stateObj}
-    ></ha-attributes>`;
+    ></op-attributes>`;
   }
 }
 

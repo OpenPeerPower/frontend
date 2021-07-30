@@ -40,14 +40,14 @@ export class HaStateTrigger extends LitElement implements TriggerElement {
     }
 
     return html`
-      <ha-entity-picker
+      <op-entity-picker
         .value=${entity_id}
         @value-changed=${this._valueChanged}
         .name=${"entity_id"}
         .opp=${this.opp}
         allow-custom-entity
-      ></ha-entity-picker>
-      <ha-entity-attribute-picker
+      ></op-entity-picker>
+      <op-entity-attribute-picker
         .opp=${this.opp}
         .entityId=${entity_id}
         .value=${attribute}
@@ -57,7 +57,7 @@ export class HaStateTrigger extends LitElement implements TriggerElement {
         )}
         @value-changed=${this._valueChanged}
         allow-custom-value
-      ></ha-entity-attribute-picker>
+      ></op-entity-attribute-picker>
       <paper-input
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.triggers.type.state.from"

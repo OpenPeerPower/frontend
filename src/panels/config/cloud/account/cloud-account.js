@@ -68,7 +68,7 @@ class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
         header="Open Peer Power Cloud"
       >
         <div class="content">
-          <ha-config-section is-wide="[[isWide]]">
+          <op-config-section is-wide="[[isWide]]">
             <span slot="header">Open Peer Power Cloud</span>
             <div slot="introduction">
               <p>
@@ -76,7 +76,7 @@ class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
               </p>
             </div>
 
-            <ha-card
+            <op-card
               header="[[localize('ui.panel.config.cloud.account.nabu_casa_account')]]"
             >
               <div class="account-row">
@@ -109,10 +109,10 @@ class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
                   >[[localize('ui.panel.config.cloud.account.sign_out')]]</mwc-button
                 >
               </div>
-            </ha-card>
-          </ha-config-section>
+            </op-card>
+          </op-config-section>
 
-          <ha-config-section is-wide="[[isWide]]">
+          <op-config-section is-wide="[[isWide]]">
             <span slot="header"
               >[[localize('ui.panel.config.cloud.account.integrations')]]</span
             >
@@ -161,7 +161,7 @@ class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
               cloud-status="[[cloudStatus]]"
               dir="[[_rtlDirection]]"
             ></cloud-webhooks>
-          </ha-config-section>
+          </op-config-section>
         </div>
       </opp-subpage>
     `;

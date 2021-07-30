@@ -60,7 +60,7 @@ class DialogZHACluster extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         hideActions
         @closing="${this._close}"
@@ -106,7 +106,7 @@ class DialogZHACluster extends LitElement {
               ></zha-group-binding-control>
             `
           : ""}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

@@ -53,11 +53,11 @@ class StepFlowCreateEntry extends LitElement {
                           <b>${device.name}</b><br />
                           ${device.model} (${device.manufacturer})
                         </div>
-                        <ha-area-picker
+                        <op-area-picker
                           .opp=${this.opp}
                           .device=${device.id}
                           @value-changed=${this._areaPicked}
-                        ></ha-area-picker>
+                        ></op-area-picker>
                       </div>
                     `
                 )}

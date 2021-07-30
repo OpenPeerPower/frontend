@@ -73,19 +73,19 @@ class HaPanelProfile extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header slot="header" fixed>
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.profile")}</div>
           </app-toolbar>
         </app-header>
 
         <div class="content">
-          <ha-card .header=${this.opp.user!.name}>
+          <op-card .header=${this.opp.user!.name}>
             <div class="card-content">
               ${this.opp.localize(
                 "ui.panel.profile.current_user",
@@ -97,23 +97,23 @@ class HaPanelProfile extends LitElement {
                 : ""}
             </div>
 
-            <ha-pick-language-row
+            <op-pick-language-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-pick-language-row>
-            <ha-pick-number-format-row
+            ></op-pick-language-row>
+            <op-pick-number-format-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-pick-number-format-row>
-            <ha-pick-theme-row
+            ></op-pick-number-format-row>
+            <op-pick-theme-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-pick-theme-row>
-            <ha-pick-dashboard-row
+            ></op-pick-theme-row>
+            <op-pick-dashboard-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-pick-dashboard-row>
-            <ha-settings-row .narrow=${this.narrow}>
+            ></op-pick-dashboard-row>
+            <op-settings-row .narrow=${this.narrow}>
               <span slot="heading">
                 ${this.opp.localize(
                   "ui.panel.profile.customize_sidebar.header"
@@ -129,83 +129,83 @@ class HaPanelProfile extends LitElement {
                   "ui.panel.profile.customize_sidebar.button"
                 )}
               </mwc-button>
-            </ha-settings-row>
+            </op-settings-row>
             ${this.opp.dockedSidebar !== "auto" || !this.narrow
               ? html`
-                  <ha-force-narrow-row
+                  <op-force-narrow-row
                     .narrow=${this.narrow}
                     .opp=${this.opp}
-                  ></ha-force-narrow-row>
+                  ></op-force-narrow-row>
                 `
               : ""}
             ${"vibrate" in navigator
               ? html`
-                  <ha-set-vibrate-row
+                  <op-set-vibrate-row
                     .narrow=${this.narrow}
                     .opp=${this.opp}
-                  ></ha-set-vibrate-row>
+                  ></op-set-vibrate-row>
                 `
               : ""}
             ${!isExternal
               ? html`
-                  <ha-push-notifications-row
+                  <op-push-notifications-row
                     .narrow=${this.narrow}
                     .opp=${this.opp}
-                  ></ha-push-notifications-row>
+                  ></op-push-notifications-row>
                 `
               : ""}
             ${this.opp.user!.is_admin
               ? html`
-                  <ha-advanced-mode-row
+                  <op-advanced-mode-row
                     .opp=${this.opp}
                     .narrow=${this.narrow}
                     .coreUserData=${this._coreUserData}
-                  ></ha-advanced-mode-row>
+                  ></op-advanced-mode-row>
                 `
               : ""}
-            <ha-set-suspend-row
+            <op-set-suspend-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-set-suspend-row>
-            <ha-enable-shortcuts-row
+            ></op-set-suspend-row>
+            <op-enable-shortcuts-row
               .narrow=${this.narrow}
               .opp=${this.opp}
-            ></ha-enable-shortcuts-row>
+            ></op-enable-shortcuts-row>
             <div class="card-actions">
               <mwc-button class="warning" @click=${this._handleLogOut}>
                 ${this.opp.localize("ui.panel.profile.logout")}
               </mwc-button>
             </div>
-          </ha-card>
+          </op-card>
 
           ${this.opp.user!.credentials.some(
             (cred) => cred.auth_provider_type === "openpeerpower"
           )
             ? html`
-                <ha-change-password-card
+                <op-change-password-card
                   .opp=${this.opp}
-                ></ha-change-password-card>
+                ></op-change-password-card>
               `
             : ""}
 
-          <ha-mfa-modules-card
+          <op-mfa-modules-card
             .opp=${this.opp}
             .mfaModules=${this.opp.user!.mfa_modules}
-          ></ha-mfa-modules-card>
+          ></op-mfa-modules-card>
 
-          <ha-refresh-tokens-card
+          <op-refresh-tokens-card
             .opp=${this.opp}
             .refreshTokens=${this._refreshTokens}
             @opp-refresh-tokens=${this._refreshRefreshTokens}
-          ></ha-refresh-tokens-card>
+          ></op-refresh-tokens-card>
 
-          <ha-long-lived-access-tokens-card
+          <op-long-lived-access-tokens-card
             .opp=${this.opp}
             .refreshTokens=${this._refreshTokens}
             @opp-refresh-tokens=${this._refreshRefreshTokens}
-          ></ha-long-lived-access-tokens-card>
+          ></op-long-lived-access-tokens-card>
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

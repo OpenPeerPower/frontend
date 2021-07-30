@@ -24,7 +24,7 @@ export class HaTimeline extends LitElement {
         ${this.label
           ? ""
           : html`
-              <ha-svg-icon .path=${this.icon || mdiCircleOutline}></ha-svg-icon>
+              <op-svg-icon .path=${this.icon || mdiCircleOutline}></op-svg-icon>
             `}
         ${this.lastItem ? "" : html`<div class="line"></div>`}
       </div>

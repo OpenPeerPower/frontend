@@ -229,14 +229,14 @@ class DataEntryFlowDialog extends LitElement {
               // to reset the element.
               ""
             : html`
-                <ha-icon-button
+                <op-icon-button
                   aria-label=${this.opp.localize(
                     "ui.panel.config.integrations.config_flow.dismiss"
                   )}
                   icon="opp:close"
                   dialogAction="close"
                   ?rtl=${computeRTL(this.opp)}
-                ></ha-icon-button>
+                ></op-icon-button>
                 ${this._step === null
                   ? this._handler
                     ? html`<step-flow-pick-flow

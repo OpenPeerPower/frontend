@@ -133,7 +133,7 @@ class CloudAlexa extends LitElement {
         .disabled=${!emptyFilter}
         .title=${this.opp!.localize("ui.panel.config.cloud.alexa.expose")}
       >
-        <ha-svg-icon
+        <op-svg-icon
           .path=${config.should_expose !== null
             ? isExposed
               ? mdiCheckboxMarked
@@ -141,11 +141,11 @@ class CloudAlexa extends LitElement {
             : isDomainExposed
             ? mdiCheckboxMultipleMarked
             : mdiCloseBoxMultiple}
-        ></ha-svg-icon>
+        ></op-svg-icon>
       </mwc-icon-button>`;
 
       target.push(html`
-        <ha-card>
+        <op-card>
           <div class="card-content">
             <div class="top-line">
               <state-info
@@ -161,7 +161,7 @@ class CloudAlexa extends LitElement {
               </state-info>
               ${!emptyFilter
                 ? html`${iconButton}`
-                : html`<ha-button-menu
+                : html`<op-button-menu
                     corner="BOTTOM_START"
                     .entityId=${stateObj.entity_id}
                     @action=${this._exposeChanged}
@@ -171,27 +171,27 @@ class CloudAlexa extends LitElement {
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.alexa.expose_entity"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class="exposed"
                         slot="meta"
                         .path=${mdiCheckboxMarked}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
                     <mwc-list-item hasMeta>
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.alexa.dont_expose_entity"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class="not-exposed"
                         slot="meta"
                         .path=${mdiCloseBox}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
                     <mwc-list-item hasMeta>
                       ${this.opp!.localize(
                         "ui.panel.config.cloud.alexa.follow_domain"
                       )}
-                      <ha-svg-icon
+                      <op-svg-icon
                         class=${classMap({
                           exposed: isDomainExposed,
                           "not-exposed": !isDomainExposed,
@@ -200,12 +200,12 @@ class CloudAlexa extends LitElement {
                         .path=${isDomainExposed
                           ? mdiCheckboxMultipleMarked
                           : mdiCloseBoxMultiple}
-                      ></ha-svg-icon>
+                      ></op-svg-icon>
                     </mwc-list-item>
-                  </ha-button-menu>`}
+                  </op-button-menu>`}
             </div>
           </div>
-        </ha-card>
+        </op-card>
       `);
     });
 

@@ -117,7 +117,7 @@ export class MoreInfoDialog extends LitElement {
                 "ui.dialogs.more_info_control.dismiss"
               )}
             >
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
             <div slot="title" class="main-title" @click=${this._enlarge}>
               ${computeStateName(stateObj)}
@@ -131,7 +131,7 @@ export class MoreInfoDialog extends LitElement {
                     )}
                     @click=${this._gotoSettings}
                   >
-                    <ha-svg-icon .path=${mdiCog}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiCog}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
@@ -144,7 +144,7 @@ export class MoreInfoDialog extends LitElement {
                     )}
                     @click=${this._gotoEdit}
                   >
-                    <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiPencil}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
@@ -187,17 +187,17 @@ export class MoreInfoDialog extends LitElement {
                   ${DOMAINS_WITH_MORE_INFO.includes(domain) ||
                   !this._computeShowHistoryComponent(entityId)
                     ? ""
-                    : html`<ha-more-info-history
+                    : html`<op-more-info-history
                         .opp=${this.opp}
                         .entityId=${this._entityId}
-                      ></ha-more-info-history>`}
+                      ></op-more-info-history>`}
                   ${DOMAINS_WITH_MORE_INFO.includes(domain) ||
                   !this._computeShowLogBookComponent(entityId)
                     ? ""
-                    : html`<ha-more-info-logbook
+                    : html`<op-more-info-logbook
                         .opp=${this.opp}
                         .entityId=${this._entityId}
-                      ></ha-more-info-logbook>`}
+                      ></op-more-info-logbook>`}
                   <more-info-content
                     .stateObj=${stateObj}
                     .opp=${this.opp}
@@ -226,14 +226,14 @@ export class MoreInfoDialog extends LitElement {
                     : ""}
                 `
               : html`
-                  <ha-more-info-history
+                  <op-more-info-history
                     .opp=${this.opp}
                     .entityId=${this._entityId}
-                  ></ha-more-info-history>
-                  <ha-more-info-logbook
+                  ></op-more-info-history>
+                  <op-more-info-logbook
                     .opp=${this.opp}
                     .entityId=${this._entityId}
-                  ></ha-more-info-logbook>
+                  ></op-more-info-logbook>
                 `
           )}
         </div>

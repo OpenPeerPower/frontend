@@ -76,18 +76,18 @@ class OppioSupervisorInfo extends LitElement {
       },
     ];
     return html`
-      <ha-card header="Supervisor">
+      <op-card header="Supervisor">
         <div class="card-content">
           <div>
-            <ha-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("common.version")}
               </span>
               <span slot="description">
                 supervisor-${this.supervisor.supervisor.version}
               </span>
-            </ha-settings-row>
-            <ha-settings-row>
+            </op-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("common.newest_version")}
               </span>
@@ -96,18 +96,18 @@ class OppioSupervisorInfo extends LitElement {
               </span>
               ${this.supervisor.supervisor.update_available
                 ? html`
-                    <ha-progress-button
+                    <op-progress-button
                       .title=${this.supervisor.localize(
                         "system.supervisor.update_supervisor"
                       )}
                       @click=${this._supervisorUpdate}
                     >
                       ${this.supervisor.localize("common.update")}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : ""}
-            </ha-settings-row>
-            <ha-settings-row>
+            </op-settings-row>
+            <op-settings-row>
               <span slot="heading">
                 ${this.supervisor.localize("system.supervisor.channel")}
               </span>
@@ -116,7 +116,7 @@ class OppioSupervisorInfo extends LitElement {
               </span>
               ${this.supervisor.supervisor.channel === "beta"
                 ? html`
-                    <ha-progress-button
+                    <op-progress-button
                       @click=${this._toggleBeta}
                       .title=${this.supervisor.localize(
                         "system.supervisor.leave_beta_description"
@@ -125,11 +125,11 @@ class OppioSupervisorInfo extends LitElement {
                       ${this.supervisor.localize(
                         "system.supervisor.leave_beta_action"
                       )}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : this.supervisor.supervisor.channel === "stable"
                 ? html`
-                    <ha-progress-button
+                    <op-progress-button
                       @click=${this._toggleBeta}
                       .title=${this.supervisor.localize(
                         "system.supervisor.join_beta_description"
@@ -138,14 +138,14 @@ class OppioSupervisorInfo extends LitElement {
                       ${this.supervisor.localize(
                         "system.supervisor.join_beta_action"
                       )}
-                    </ha-progress-button>
+                    </op-progress-button>
                   `
                 : ""}
-            </ha-settings-row>
+            </op-settings-row>
 
             ${this.supervisor.supervisor.supported
               ? !atLeastVersion(this.opp.config.version, 2021, 4)
-                ? html` <ha-settings-row three-line>
+                ? html` <op-settings-row three-line>
                     <span slot="heading">
                       ${this.supervisor.localize(
                         "system.supervisor.share_diagnostics"
@@ -163,12 +163,12 @@ class OppioSupervisorInfo extends LitElement {
                         ${this.supervisor.localize("common.learn_more")}
                       </button>
                     </div>
-                    <ha-switch
+                    <op-switch
                       haptic
                       .checked=${this.supervisor.supervisor.diagnostics}
                       @change=${this._toggleDiagnostics}
-                    ></ha-switch>
-                  </ha-settings-row>`
+                    ></op-switch>
+                  </op-settings-row>`
                 : ""
               : html`<div class="error">
                   ${this.supervisor.localize(
@@ -211,15 +211,15 @@ class OppioSupervisorInfo extends LitElement {
           </div>
         </div>
         <div class="card-actions">
-          <ha-progress-button
+          <op-progress-button
             @click=${this._supervisorReload}
             .title=${this.supervisor.localize(
               "system.supervisor.reload_supervisor"
             )}
           >
             ${this.supervisor.localize("system.supervisor.reload_supervisor")}
-          </ha-progress-button>
-          <ha-progress-button
+          </op-progress-button>
+          <op-progress-button
             class="warning"
             @click=${this._supervisorRestart}
             .title=${this.supervisor.localize(
@@ -233,9 +233,9 @@ class OppioSupervisorInfo extends LitElement {
               "name",
               "Supervisor"
             )}
-          </ha-progress-button>
+          </op-progress-button>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

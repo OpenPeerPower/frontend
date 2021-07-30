@@ -87,7 +87,7 @@ export class DialogEntityEditor extends LitElement {
     const stateObj: OppEntity | undefined = this.opp.states[entityId];
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         .heading=${true}
         hideActions
@@ -95,13 +95,13 @@ export class DialogEntityEditor extends LitElement {
         @close-dialog=${this.closeDialog}
       >
         <div slot="heading">
-          <ha-header-bar>
+          <op-header-bar>
             <mwc-icon-button
               slot="navigationIcon"
               .label=${this.opp.localize("ui.dialogs.entity_registry.dismiss")}
               dialogAction="cancel"
             >
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
             <span slot="title">
               ${stateObj ? computeStateName(stateObj) : entry?.name || entityId}
@@ -115,11 +115,11 @@ export class DialogEntityEditor extends LitElement {
                     )}
                     @click=${this._openMoreInfo}
                   >
-                    <ha-svg-icon .path=${mdiTune}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiTune}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
-          </ha-header-bar>
+          </op-header-bar>
           <mwc-tab-bar
             .activeIndex=${this._curTabIndex}
             @MDCTabBar:activated=${this._handleTabActivated}
@@ -127,9 +127,7 @@ export class DialogEntityEditor extends LitElement {
           >
             <mwc-tab
               id="tab-settings"
-              .label=${this.opp.localize(
-                "ui.dialogs.entity_registry.settings"
-              )}
+              .label=${this.opp.localize("ui.dialogs.entity_registry.settings")}
             >
             </mwc-tab>
             ${Object.entries(this._extraTabs).map(
@@ -148,10 +146,8 @@ export class DialogEntityEditor extends LitElement {
             </mwc-tab>
           </mwc-tab-bar>
         </div>
-        <div class="wrapper">
-          ${cache(this._renderTab())}
-        </div>
-      </ha-dialog>
+        <div class="wrapper">${cache(this._renderTab())}</div>
+      </op-dialog>
     `;
   }
 
@@ -203,12 +199,12 @@ export class DialogEntityEditor extends LitElement {
         `;
       case "tab-related":
         return html`
-          <ha-related-items
+          <op-related-items
             class="content"
             .opp=${this.opp}
             .itemId=${this._params!.entity_id}
             itemType="entity"
-          ></ha-related-items>
+          ></op-related-items>
         `;
       default:
         return html``;

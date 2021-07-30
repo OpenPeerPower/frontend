@@ -47,7 +47,7 @@ export class HaTagImage extends LitElement {
     }
     return html`<div class="container">
       <div class="image">
-        <ha-svg-icon .path=${mdiNfcVariant}></ha-svg-icon>
+        <op-svg-icon .path=${mdiNfcVariant}></op-svg-icon>
       </div>
     </div>`;
   }

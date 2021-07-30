@@ -45,7 +45,7 @@ class HaEntitiesPickerLight extends LitElement {
       ${currentEntities.map(
         (entityId) => html`
           <div>
-            <ha-entity-picker
+            <op-entity-picker
               allow-custom-entity
               .curValue=${entityId}
               .opp=${this.opp}
@@ -55,19 +55,19 @@ class HaEntitiesPickerLight extends LitElement {
               .value=${entityId}
               .label=${this.pickedEntityLabel}
               @value-changed=${this._entityChanged}
-            ></ha-entity-picker>
+            ></op-entity-picker>
           </div>
         `
       )}
       <div>
-        <ha-entity-picker
+        <op-entity-picker
           .opp=${this.opp}
           .includeDomains=${this.includeDomains}
           .excludeDomains=${this.excludeDomains}
           .entityFilter=${this._entityFilter}
           .label=${this.pickEntityLabel}
           @value-changed=${this._addEntity}
-        ></ha-entity-picker>
+        ></op-entity-picker>
       </div>
     `;
   }

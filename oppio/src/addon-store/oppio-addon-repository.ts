@@ -74,7 +74,7 @@ class OppioAddonRepositoryEl extends LitElement {
         <div class="card-group">
           ${addons.map(
             (addon) => html`
-              <ha-card
+              <op-card
                 .addon=${addon}
                 class=${addon.available ? "" : "not_available"}
                 @click=${this._addonTapped}
@@ -121,7 +121,7 @@ class OppioAddonRepositoryEl extends LitElement {
                       : ""}
                   ></oppio-card-content>
                 </div>
-              </ha-card>
+              </op-card>
             `
           )}
         </div>

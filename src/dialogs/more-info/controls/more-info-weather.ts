@@ -84,22 +84,19 @@ class MoreInfoWeather extends LitElement {
 
     return html`
       <div class="flex">
-        <ha-svg-icon .path=${mdiThermometer}></ha-svg-icon>
+        <op-svg-icon .path=${mdiThermometer}></op-svg-icon>
         <div class="main">
           ${this.opp.localize("ui.card.weather.attributes.temperature")}
         </div>
         <div>
-          ${formatNumber(
-            this.stateObj.attributes.temperature,
-            this.opp.locale
-          )}
+          ${formatNumber(this.stateObj.attributes.temperature, this.opp.locale)}
           ${getWeatherUnit(this.opp, "temperature")}
         </div>
       </div>
       ${this._showValue(this.stateObj.attributes.pressure)
         ? html`
             <div class="flex">
-              <ha-svg-icon .path=${mdiGauge}></ha-svg-icon>
+              <op-svg-icon .path=${mdiGauge}></op-svg-icon>
               <div class="main">
                 ${this.opp.localize("ui.card.weather.attributes.air_pressure")}
               </div>
@@ -116,7 +113,7 @@ class MoreInfoWeather extends LitElement {
       ${this._showValue(this.stateObj.attributes.humidity)
         ? html`
             <div class="flex">
-              <ha-svg-icon .path=${mdiWaterPercent}></ha-svg-icon>
+              <op-svg-icon .path=${mdiWaterPercent}></op-svg-icon>
               <div class="main">
                 ${this.opp.localize("ui.card.weather.attributes.humidity")}
               </div>
@@ -133,7 +130,7 @@ class MoreInfoWeather extends LitElement {
       ${this._showValue(this.stateObj.attributes.wind_speed)
         ? html`
             <div class="flex">
-              <ha-svg-icon .path=${mdiWeatherWindy}></ha-svg-icon>
+              <op-svg-icon .path=${mdiWeatherWindy}></op-svg-icon>
               <div class="main">
                 ${this.opp.localize("ui.card.weather.attributes.wind_speed")}
               </div>
@@ -150,7 +147,7 @@ class MoreInfoWeather extends LitElement {
       ${this._showValue(this.stateObj.attributes.visibility)
         ? html`
             <div class="flex">
-              <ha-svg-icon .path=${mdiEye}></ha-svg-icon>
+              <op-svg-icon .path=${mdiEye}></op-svg-icon>
               <div class="main">
                 ${this.opp.localize("ui.card.weather.attributes.visibility")}
               </div>
@@ -174,9 +171,9 @@ class MoreInfoWeather extends LitElement {
                 <div class="flex">
                   ${item.condition
                     ? html`
-                        <ha-svg-icon
+                        <op-svg-icon
                           .path="${weatherIcons[item.condition]}"
-                        ></ha-svg-icon>
+                        ></op-svg-icon>
                       `
                     : ""}
                   ${!this._showValue(item.templow)

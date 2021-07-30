@@ -147,10 +147,10 @@ export class HaTracePathDetails extends LitElement {
     }
     const config = getDataFromPath(this.trace!.config, this.selected.path);
     return config
-      ? html`<ha-code-editor
+      ? html`<op-code-editor
           .value=${dump(config).trimRight()}
           readOnly
-        ></ha-code-editor>`
+        ></op-code-editor>`
       : "Unable to find config";
   }
 

@@ -90,7 +90,7 @@ export class DialogOppioNetwork
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         escapeKeyAction
@@ -99,14 +99,14 @@ export class DialogOppioNetwork
         @closed=${this.closeDialog}
       >
         <div slot="heading">
-          <ha-header-bar>
+          <op-header-bar>
             <span slot="title">
               ${this.supervisor.localize("dialog.network.title")}
             </span>
             <mwc-icon-button slot="actionItems" dialogAction="cancel">
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>
-          </ha-header-bar>
+          </op-header-bar>
           ${this._interfaces.length > 1
             ? html` <mwc-tab-bar
                 .activeIndex=${this._curTabIndex}
@@ -123,7 +123,7 @@ export class DialogOppioNetwork
             : ""}
         </div>
         ${cache(this._renderTab())}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -134,7 +134,7 @@ export class DialogOppioNetwork
         )}
         ${this._interface?.type === "wireless"
           ? html`
-              <ha-expansion-panel header="Wi-Fi" outlined>
+              <op-expansion-panel header="Wi-Fi" outlined>
                 ${this._interface?.wifi?.ssid
                   ? html`<p>
                       ${this.supervisor.localize(
@@ -150,8 +150,8 @@ export class DialogOppioNetwork
                   .disabled=${this._scanning}
                 >
                   ${this._scanning
-                    ? html`<ha-circular-progress active size="small">
-                      </ha-circular-progress>`
+                    ? html`<op-circular-progress active size="small">
+                      </op-circular-progress>`
                     : this.supervisor.localize("dialog.network.scan_ap")}
                 </mwc-button>
                 ${this._accessPoints &&
@@ -184,12 +184,12 @@ export class DialogOppioNetwork
                 ${this._wifiConfiguration
                   ? html`
                       <div class="radio-row">
-                        <ha-formfield
+                        <op-formfield
                           .label=${this.supervisor.localize(
                             "dialog.network.open"
                           )}
                         >
-                          <ha-radio
+                          <op-radio
                             @change=${this._handleRadioValueChangedAp}
                             .ap=${this._wifiConfiguration}
                             value="open"
@@ -198,28 +198,28 @@ export class DialogOppioNetwork
                               undefined ||
                             this._wifiConfiguration.auth === "open"}
                           >
-                          </ha-radio>
-                        </ha-formfield>
-                        <ha-formfield
+                          </op-radio>
+                        </op-formfield>
+                        <op-formfield
                           .label=${this.supervisor.localize(
                             "dialog.network.wep"
                           )}
                         >
-                          <ha-radio
+                          <op-radio
                             @change=${this._handleRadioValueChangedAp}
                             .ap=${this._wifiConfiguration}
                             value="wep"
                             name="auth"
                             .checked=${this._wifiConfiguration.auth === "wep"}
                           >
-                          </ha-radio>
-                        </ha-formfield>
-                        <ha-formfield
+                          </op-radio>
+                        </op-formfield>
+                        <op-formfield
                           .label=${this.supervisor.localize(
                             "dialog.network.wpa"
                           )}
                         >
-                          <ha-radio
+                          <op-radio
                             @change=${this._handleRadioValueChangedAp}
                             .ap=${this._wifiConfiguration}
                             value="wpa-psk"
@@ -227,8 +227,8 @@ export class DialogOppioNetwork
                             .checked=${this._wifiConfiguration.auth ===
                             "wpa-psk"}
                           >
-                          </ha-radio>
-                        </ha-formfield>
+                          </op-radio>
+                        </op-formfield>
                       </div>
                       ${this._wifiConfiguration.auth === "wpa-psk" ||
                       this._wifiConfiguration.auth === "wep"
@@ -247,7 +247,7 @@ export class DialogOppioNetwork
                         : ""}
                     `
                   : ""}
-              </ha-expansion-panel>
+              </op-expansion-panel>
             `
           : ""}
         ${this._dirty
@@ -264,8 +264,8 @@ export class DialogOppioNetwork
         </mwc-button>
         <mwc-button @click=${this._updateNetwork} .disabled=${!this._dirty}>
           ${this._processing
-            ? html`<ha-circular-progress active size="small">
-              </ha-circular-progress>`
+            ? html`<op-circular-progress active size="small">
+              </op-circular-progress>`
             : this.supervisor.localize("common.save")}
         </mwc-button>
       </div>`;
@@ -298,48 +298,48 @@ export class DialogOppioNetwork
 
   private _renderIPConfiguration(version: string) {
     return html`
-      <ha-expansion-panel
+      <op-expansion-panel
         .header=${`IPv${version.charAt(version.length - 1)}`}
         outlined
       >
         <div class="radio-row">
-          <ha-formfield
+          <op-formfield
             .label=${this.supervisor.localize("dialog.network.dhcp")}
           >
-            <ha-radio
+            <op-radio
               @change=${this._handleRadioValueChanged}
               .version=${version}
               value="auto"
               name="${version}method"
               .checked=${this._interface![version]?.method === "auto"}
             >
-            </ha-radio>
-          </ha-formfield>
-          <ha-formfield
+            </op-radio>
+          </op-formfield>
+          <op-formfield
             .label=${this.supervisor.localize("dialog.network.static")}
           >
-            <ha-radio
+            <op-radio
               @change=${this._handleRadioValueChanged}
               .version=${version}
               value="static"
               name="${version}method"
               .checked=${this._interface![version]?.method === "static"}
             >
-            </ha-radio>
-          </ha-formfield>
-          <ha-formfield
+            </op-radio>
+          </op-formfield>
+          <op-formfield
             .label=${this.supervisor.localize("dialog.network.disabled")}
             class="warning"
           >
-            <ha-radio
+            <op-radio
               @change=${this._handleRadioValueChanged}
               .version=${version}
               value="disabled"
               name="${version}method"
               .checked=${this._interface![version]?.method === "disabled"}
             >
-            </ha-radio>
-          </ha-formfield>
+            </op-radio>
+          </op-formfield>
         </div>
         ${this._interface![version].method === "static"
           ? html`
@@ -372,7 +372,7 @@ export class DialogOppioNetwork
               </paper-input>
             `
           : ""}
-      </ha-expansion-panel>
+      </op-expansion-panel>
     `;
   }
 

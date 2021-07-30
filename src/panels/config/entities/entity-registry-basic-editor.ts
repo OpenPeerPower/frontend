@@ -141,18 +141,18 @@ export class HaEntityRegistryBasicEditor extends SubscribeMixin(LitElement) {
         .invalid=${invalidDomainUpdate}
         .disabled=${this._submitting}
       ></paper-input>
-      <ha-area-picker
+      <op-area-picker
         .opp=${this.opp}
         .value=${this._areaId}
         .placeholder=${this._device?.area_id}
         @value-changed=${this._areaPicked}
-      ></ha-area-picker>
+      ></op-area-picker>
       <div class="row">
-        <ha-switch
+        <op-switch
           .checked=${!this._disabledBy}
           @change=${this._disabledByChanged}
         >
-        </ha-switch>
+        </op-switch>
         <div>
           <div>
             ${this.opp.localize(

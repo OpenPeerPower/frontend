@@ -38,29 +38,25 @@ class HaCoverControls extends LitElement {
 
     return html`
       <div class="state">
-        <ha-icon-button
+        <op-icon-button
           class=${classMap({
             hidden: !this._entityObj.supportsOpen,
           })}
-          .label=${this.opp.localize(
-            "ui.dialogs.more_info_control.open_cover"
-          )}
+          .label=${this.opp.localize("ui.dialogs.more_info_control.open_cover")}
           .icon=${computeOpenIcon(this.stateObj)}
           @click=${this._onOpenTap}
           .disabled=${this._computeOpenDisabled()}
-        ></ha-icon-button>
-        <ha-icon-button
+        ></op-icon-button>
+        <op-icon-button
           class=${classMap({
             hidden: !this._entityObj.supportsStop,
           })}
-          .label=${this.opp.localize(
-            "ui.dialogs.more_info_control.stop_cover"
-          )}
+          .label=${this.opp.localize("ui.dialogs.more_info_control.stop_cover")}
           icon="opp:stop"
           @click=${this._onStopTap}
           .disabled=${this.stateObj.state === UNAVAILABLE}
-        ></ha-icon-button>
-        <ha-icon-button
+        ></op-icon-button>
+        <op-icon-button
           class=${classMap({
             hidden: !this._entityObj.supportsClose,
           })}
@@ -70,7 +66,7 @@ class HaCoverControls extends LitElement {
           .icon=${computeCloseIcon(this.stateObj)}
           @click=${this._onCloseTap}
           .disabled=${this._computeClosedDisabled()}
-        ></ha-icon-button>
+        ></op-icon-button>
       </div>
     `;
   }

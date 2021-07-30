@@ -149,31 +149,31 @@ export class SupervisorSnapshotContent extends LitElement {
                 : this._localize("select_type")}
             </div>
             <div class="snapshot-types">
-              <ha-formfield .label=${this._localize("full_snapshot")}>
-                <ha-radio
+              <op-formfield .label=${this._localize("full_snapshot")}>
+                <op-radio
                   @change=${this._handleRadioValueChanged}
                   value="full"
                   name="snapshotType"
                   .checked=${this.snapshotType === "full"}
                 >
-                </ha-radio>
-              </ha-formfield>
-              <ha-formfield .label=${this._localize("partial_snapshot")}>
-                <ha-radio
+                </op-radio>
+              </op-formfield>
+              <op-formfield .label=${this._localize("partial_snapshot")}>
+                <op-radio
                   @change=${this._handleRadioValueChanged}
                   value="partial"
                   name="snapshotType"
                   .checked=${this.snapshotType === "partial"}
                 >
-                </ha-radio>
-              </ha-formfield>
+                </op-radio>
+              </op-formfield>
             </div>`
         : ""}
       ${this.snapshotType === "partial"
         ? html`<div class="partial-picker">
             ${this.snapshot && this.snapshot.openpeerpower
               ? html`
-                  <ha-formfield
+                  <op-formfield
                     .label=${html`<supervisor-formfield-label
                       label="Open Peer Power"
                       .iconPath=${mdiOpenPeerPower}
@@ -181,53 +181,53 @@ export class SupervisorSnapshotContent extends LitElement {
                     >
                     </supervisor-formfield-label>`}
                   >
-                    <ha-checkbox
+                    <op-checkbox
                       .checked=${this.homeAssistant}
                       @click=${() => {
                         this.homeAssistant = !this.homeAssistant;
                       }}
                     >
-                    </ha-checkbox>
-                  </ha-formfield>
+                    </op-checkbox>
+                  </op-formfield>
                 `
               : ""}
             ${foldersSection?.templates.length
               ? html`
-                  <ha-formfield
+                  <op-formfield
                     .label=${html`<supervisor-formfield-label
                       .label=${this._localize("folders")}
                       .iconPath=${mdiFolder}
                     >
                     </supervisor-formfield-label>`}
                   >
-                    <ha-checkbox
+                    <op-checkbox
                       @change=${this._toggleSection}
                       .checked=${foldersSection.checked}
                       .indeterminate=${foldersSection.indeterminate}
                       .section=${"folders"}
                     >
-                    </ha-checkbox>
-                  </ha-formfield>
+                    </op-checkbox>
+                  </op-formfield>
                   <div class="section-content">${foldersSection.templates}</div>
                 `
               : ""}
             ${addonsSection?.templates.length
               ? html`
-                  <ha-formfield
+                  <op-formfield
                     .label=${html`<supervisor-formfield-label
                       .label=${this._localize("addons")}
                       .iconPath=${mdiPuzzle}
                     >
                     </supervisor-formfield-label>`}
                   >
-                    <ha-checkbox
+                    <op-checkbox
                       @change=${this._toggleSection}
                       .checked=${addonsSection.checked}
                       .indeterminate=${addonsSection.indeterminate}
                       .section=${"addons"}
                     >
-                    </ha-checkbox>
-                  </ha-formfield>
+                    </op-checkbox>
+                  </op-formfield>
                   <div class="section-content">${addonsSection.templates}</div>
                 `
               : ""}
@@ -238,16 +238,16 @@ export class SupervisorSnapshotContent extends LitElement {
         ? html`<hr />`
         : ""}
       ${!this.snapshot
-        ? html`<ha-formfield
+        ? html`<op-formfield
             class="password"
             .label=${this._localize("password_protection")}
           >
-            <ha-checkbox
+            <op-checkbox
               .checked=${this.snapshotHasPassword}
               @change=${this._toggleHasPassword}
             >
-            </ha-checkbox>
-          </ha-formfield>`
+            </op-checkbox>
+          </op-formfield>`
         : ""}
       ${this.snapshotHasPassword
         ? html`
@@ -367,7 +367,7 @@ export class SupervisorSnapshotContent extends LitElement {
         : undefined;
     let checkedItems = 0;
     this[section].forEach((item) => {
-      templates.push(html`<ha-formfield
+      templates.push(html`<op-formfield
         .label=${html`<supervisor-formfield-label
           .label=${item.name}
           .iconPath=${section === "addons" ? mdiPuzzle : mdiFolder}
@@ -381,14 +381,14 @@ export class SupervisorSnapshotContent extends LitElement {
         >
         </supervisor-formfield-label>`}
       >
-        <ha-checkbox
+        <op-checkbox
           .item=${item}
           .checked=${item.checked}
           .section=${section}
           @change=${this._updateSectionEntry}
         >
-        </ha-checkbox>
-      </ha-formfield>`);
+        </op-checkbox>
+      </op-formfield>`);
 
       if (item.checked) {
         checkedItems++;

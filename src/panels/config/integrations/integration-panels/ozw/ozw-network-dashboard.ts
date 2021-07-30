@@ -68,7 +68,7 @@ class OZWNetworkDashboard extends LitElement {
         .route=${this.route}
         .tabs=${ozwNetworkTabs(this.ozwInstance!)}
       >
-        <ha-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
+        <op-config-section .narrow=${this.narrow} .isWide=${this.isWide}>
           <div slot="header">
             ${this.opp.localize("ui.panel.config.ozw.network.header")}
           </div>
@@ -78,19 +78,17 @@ class OZWNetworkDashboard extends LitElement {
           </div>
           ${this._network
             ? html`
-                <ha-card class="content network-status">
+                <op-card class="content network-status">
                   <div class="card-content">
                     <div class="details">
-                      <ha-svg-icon
+                      <op-svg-icon
                         .path=${this._icon}
                         class="network-status-icon ${classMap({
                           [this._status]: true,
                         })}"
                         slot="item-icon"
-                      ></ha-svg-icon>
-                      ${this.opp.localize(
-                        "ui.panel.config.ozw.common.network"
-                      )}
+                      ></op-svg-icon>
+                      ${this.opp.localize("ui.panel.config.ozw.common.network")}
                       ${this.opp.localize(
                         `ui.panel.config.ozw.network_status.${this._status}`
                       )}
@@ -130,10 +128,10 @@ class OZWNetworkDashboard extends LitElement {
                     ${this._generateServiceButton("remove_node")}
                     ${this._generateServiceButton("cancel_command")}
                   </div>
-                </ha-card>
+                </op-card>
               `
             : ``}
-        </ha-config-section>
+        </op-config-section>
       </opp-tabs-subpage>
     `;
   }
@@ -161,14 +159,14 @@ class OZWNetworkDashboard extends LitElement {
   private _generateServiceButton(service: string) {
     const serviceData = { instance_id: this.ozwInstance };
     return html`
-      <ha-call-service-button
+      <op-call-service-button
         .opp=${this.opp}
         domain="ozw"
         .service=${service}
         .serviceData=${serviceData}
       >
         ${this.opp!.localize(`ui.panel.config.ozw.services.${service}`)}
-      </ha-call-service-button>
+      </op-call-service-button>
     `;
   }
 

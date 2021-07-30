@@ -40,8 +40,10 @@ const cardConfigStruct = object({
 const includeDomains = ["weather"];
 
 @customElement("hui-weather-forecast-card-editor")
-export class HuiWeatherForecastCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiWeatherForecastCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: WeatherForecastCardConfig;
@@ -78,7 +80,7 @@ export class HuiWeatherForecastCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -90,7 +92,7 @@ export class HuiWeatherForecastCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @change=${this._valueChanged}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-input
             .label="${this.opp.localize(
@@ -110,7 +112,7 @@ export class HuiWeatherForecastCardEditor extends LitElement
           ></hui-theme-select-editor>
         </div>
         <div class="side-by-side">
-          <ha-entity-attribute-picker
+          <op-entity-attribute-picker
             .opp=${this.opp}
             .entityId=${this._entity}
             .label="${this.opp.localize(
@@ -121,19 +123,19 @@ export class HuiWeatherForecastCardEditor extends LitElement
             .value=${this._secondary_info_attribute}
             .configValue=${"secondary_info_attribute"}
             @value-changed=${this._valueChanged}
-          ></ha-entity-attribute-picker>
-          <ha-formfield
+          ></op-entity-attribute-picker>
+          <op-formfield
             .label=${this.opp.localize(
               "ui.panel.lovelace.editor.card.weather-forecast.show_forecast"
             )}
             .dir=${computeRTLDirection(this.opp)}
           >
-            <ha-switch
+            <op-switch
               .checked=${this._config!.show_forecast !== false}
               .configValue=${"show_forecast"}
               @change=${this._valueChanged}
-            ></ha-switch
-          ></ha-formfield>
+            ></op-switch
+          ></op-formfield>
         </div>
       </div>
     `;

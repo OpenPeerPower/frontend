@@ -52,13 +52,13 @@ class PanelShoppingList extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-app-layout>
+      <op-app-layout>
         <app-header fixed slot="header">
           <app-toolbar>
-            <ha-menu-button
+            <op-menu-button
               .opp=${this.opp}
               .narrow=${this.narrow}
-            ></ha-menu-button>
+            ></op-menu-button>
             <div main-title>${this.opp.localize("panel.shopping_list")}</div>
             ${this._conversation(this.opp.config.components)
               ? html`
@@ -68,18 +68,16 @@ class PanelShoppingList extends LitElement {
                     )}
                     @click=${this._showVoiceCommandDialog}
                   >
-                    <ha-svg-icon .path=${mdiMicrophone}></ha-svg-icon>
+                    <op-svg-icon .path=${mdiMicrophone}></op-svg-icon>
                   </mwc-icon-button>
                 `
               : ""}
           </app-toolbar>
         </app-header>
         <div id="columns">
-          <div class="column">
-            ${this._card}
-          </div>
+          <div class="column">${this._card}</div>
         </div>
-      </ha-app-layout>
+      </op-app-layout>
     `;
   }
 

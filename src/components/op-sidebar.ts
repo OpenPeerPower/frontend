@@ -305,11 +305,11 @@ class HaSidebar extends LitElement {
               .label=${this.opp.localize("ui.sidebar.sidebar_toggle")}
               @action=${this._toggleSidebar}
             >
-              <ha-svg-icon
+              <op-svg-icon
                 .path=${this.opp.dockedSidebar === "docked"
                   ? mdiMenuOpen
                   : mdiMenu}
-              ></ha-svg-icon>
+              ></op-svg-icon>
             </mwc-icon-button>
           `
         : ""}
@@ -373,12 +373,12 @@ class HaSidebar extends LitElement {
             class="hidden-panel"
             .panel=${url}
           >
-            <ha-icon
+            <op-icon
               slot="item-icon"
               .icon=${panel.url_path === this.opp.defaultPanel
                 ? "mdi:view-dashboard"
                 : panel.icon}
-            ></ha-icon>
+            ></op-icon>
             <span class="item-text"
               >${panel.url_path === this.opp.defaultPanel
                 ? this.opp.localize("panel.states")
@@ -386,7 +386,7 @@ class HaSidebar extends LitElement {
                   panel.title}</span
             >
             <mwc-icon-button class="show-panel">
-              <ha-svg-icon .path=${mdiPlus}></ha-svg-icon>
+              <op-svg-icon .path=${mdiPlus}></op-svg-icon>
             </mwc-icon-button>
           </paper-icon-item>`;
         })}
@@ -422,7 +422,7 @@ class HaSidebar extends LitElement {
         aria-role="option"
         @click=${this._handleShowNotificationDrawer}
       >
-        <ha-svg-icon slot="item-icon" .path=${mdiBell}></ha-svg-icon>
+        <op-svg-icon slot="item-icon" .path=${mdiBell}></op-svg-icon>
         ${!this.alwaysExpand && notificationCount > 0
           ? html`
               <span class="notification-badge" slot="item-icon">
@@ -456,11 +456,11 @@ class HaSidebar extends LitElement {
       @mouseleave=${this._itemMouseLeave}
     >
       <paper-icon-item>
-        <ha-user-badge
+        <op-user-badge
           slot="item-icon"
           .user=${this.opp.user}
           .opp=${this.opp}
-        ></ha-user-badge>
+        ></op-user-badge>
 
         <span class="item-text">
           ${this.opp.user ? this.opp.user.name : ""}
@@ -484,10 +484,10 @@ class HaSidebar extends LitElement {
             @mouseleave=${this._itemMouseLeave}
           >
             <paper-icon-item>
-              <ha-svg-icon
+              <op-svg-icon
                 slot="item-icon"
                 .path=${mdiCellphoneCog}
-              ></ha-svg-icon>
+              ></op-svg-icon>
               <span class="item-text">
                 ${this.opp.localize("ui.sidebar.external_app_configuration")}
               </span>
@@ -714,11 +714,11 @@ class HaSidebar extends LitElement {
       >
         <paper-icon-item>
           ${iconPath
-            ? html`<ha-svg-icon
+            ? html`<op-svg-icon
                 slot="item-icon"
                 .path=${iconPath}
-              ></ha-svg-icon>`
-            : html`<ha-icon slot="item-icon" .icon=${icon}></ha-icon>`}
+              ></op-svg-icon>`
+            : html`<op-icon slot="item-icon" .icon=${icon}></op-icon>`}
           <span class="item-text">${title}</span>
         </paper-icon-item>
         ${this.editMode
@@ -727,7 +727,7 @@ class HaSidebar extends LitElement {
               .panel=${urlPath}
               @click=${this._hidePanel}
             >
-              <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
+              <op-svg-icon .path=${mdiClose}></op-svg-icon>
             </mwc-icon-button>`
           : ""}
       </a>

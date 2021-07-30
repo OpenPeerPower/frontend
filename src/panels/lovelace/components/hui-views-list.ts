@@ -40,7 +40,7 @@ class HuiViewsList extends LitElement {
             <paper-icon-item @click=${this._handlePickView} data-index=${index}>
               ${view.icon
                 ? html`
-                    <ha-icon .icon=${view.icon} slot="item-icon"></ha-icon>
+                    <op-icon .icon=${view.icon} slot="item-icon"></op-icon>
                   `
                 : ""}
               ${view.title || view.path || "Unnamed view"}

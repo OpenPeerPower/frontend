@@ -61,9 +61,10 @@ class HaSceneDashboard extends LitElement {
       if (filteredScenes === null) {
         return [];
       }
-      return (filteredScenes
-        ? scenes.filter((scene) => filteredScenes!.includes(scene.entity_id))
-        : scenes
+      return (
+        filteredScenes
+          ? scenes.filter((scene) => filteredScenes!.includes(scene.entity_id))
+          : scenes
       ).map((scene) => {
         return {
           ...scene,
@@ -74,88 +75,86 @@ class HaSceneDashboard extends LitElement {
     }
   );
 
-  private _columns = memoizeOne(
-    (_language): DataTableColumnContainer => {
-      return {
-        activate: {
-          title: "",
-          type: "icon-button",
-          template: (_toggle, scene) =>
-            html`
-              <mwc-icon-button
-                .scene=${scene}
-                title="${this.opp.localize(
-                  "ui.panel.config.scene.picker.activate_scene"
-                )}"
-                @click=${(ev: Event) => this._activateScene(ev)}
-              >
-                <ha-svg-icon .path=${mdiPlay}></ha-svg-icon>
-              </mwc-icon-button>
-            `,
-        },
-        icon: {
-          title: "",
-          type: "icon",
-          template: (icon) => html` <ha-icon .icon=${icon}></ha-icon> `,
-        },
-        name: {
-          title: this.opp.localize("ui.panel.config.scene.picker.headers.name"),
-          sortable: true,
-          filterable: true,
-          direction: "asc",
-          grows: true,
-        },
-        info: {
-          title: "",
-          type: "icon-button",
-          template: (_info, scene) => html`
+  private _columns = memoizeOne((_language): DataTableColumnContainer => {
+    return {
+      activate: {
+        title: "",
+        type: "icon-button",
+        template: (_toggle, scene) =>
+          html`
             <mwc-icon-button
               .scene=${scene}
-              @click=${this._showInfo}
               title="${this.opp.localize(
-                "ui.panel.config.scene.picker.show_info_scene"
+                "ui.panel.config.scene.picker.activate_scene"
               )}"
+              @click=${(ev: Event) => this._activateScene(ev)}
             >
-              <ha-svg-icon .path=${mdiInformationOutline}></ha-svg-icon>
+              <op-svg-icon .path=${mdiPlay}></op-svg-icon>
             </mwc-icon-button>
           `,
-        },
-        edit: {
-          title: "",
-          type: "icon-button",
-          template: (_info, scene: any) => html`
-            <a
-              href=${ifDefined(
-                scene.attributes.id
-                  ? `/config/scene/edit/${scene.attributes.id}`
-                  : undefined
-              )}
+      },
+      icon: {
+        title: "",
+        type: "icon",
+        template: (icon) => html` <op-icon .icon=${icon}></op-icon> `,
+      },
+      name: {
+        title: this.opp.localize("ui.panel.config.scene.picker.headers.name"),
+        sortable: true,
+        filterable: true,
+        direction: "asc",
+        grows: true,
+      },
+      info: {
+        title: "",
+        type: "icon-button",
+        template: (_info, scene) => html`
+          <mwc-icon-button
+            .scene=${scene}
+            @click=${this._showInfo}
+            title="${this.opp.localize(
+              "ui.panel.config.scene.picker.show_info_scene"
+            )}"
+          >
+            <op-svg-icon .path=${mdiInformationOutline}></op-svg-icon>
+          </mwc-icon-button>
+        `,
+      },
+      edit: {
+        title: "",
+        type: "icon-button",
+        template: (_info, scene: any) => html`
+          <a
+            href=${ifDefined(
+              scene.attributes.id
+                ? `/config/scene/edit/${scene.attributes.id}`
+                : undefined
+            )}
+          >
+            <mwc-icon-button
+              .disabled=${!scene.attributes.id}
+              title="${this.opp.localize(
+                "ui.panel.config.scene.picker.edit_scene"
+              )}"
             >
-              <mwc-icon-button
-                .disabled=${!scene.attributes.id}
-                title="${this.opp.localize(
-                  "ui.panel.config.scene.picker.edit_scene"
-                )}"
-              >
-                <ha-svg-icon
-                  .path=${scene.attributes.id ? mdiPencil : mdiPencilOff}
-                ></ha-svg-icon>
-              </mwc-icon-button>
-            </a>
-            ${!scene.attributes.id
-              ? html`
-                  <paper-tooltip animation-delay="0" position="left">
-                    ${this.opp.localize(
-                      "ui.panel.config.scene.picker.only_editable"
-                    )}
-                  </paper-tooltip>
-                `
-              : ""}
-          `,
-        },
-      };
-    }
-  );
+              <op-svg-icon
+                .path=${scene.attributes.id ? mdiPencil : mdiPencilOff}
+              ></op-svg-icon>
+            </mwc-icon-button>
+          </a>
+          ${!scene.attributes.id
+            ? html`
+                <paper-tooltip animation-delay="0" position="left">
+                  ${this.opp.localize(
+                    "ui.panel.config.scene.picker.only_editable"
+                  )}
+                </paper-tooltip>
+              `
+            : ""}
+        `,
+      },
+    };
+  });
 
   protected render(): TemplateResult {
     return html`
@@ -176,9 +175,9 @@ class HaSceneDashboard extends LitElement {
         hasFab
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._showHelp}>
-          <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+          <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
         </mwc-icon-button>
-        <ha-button-related-filter-menu
+        <op-button-related-filter-menu
           slot="filter-menu"
           corner="BOTTOM_START"
           .narrow=${this.narrow}
@@ -187,16 +186,16 @@ class HaSceneDashboard extends LitElement {
           exclude-domains='["scene"]'
           @related-changed=${this._relatedFilterChanged}
         >
-        </ha-button-related-filter-menu>
+        </op-button-related-filter-menu>
         <a href="/config/scene/edit/new" slot="fab">
-          <ha-fab
+          <op-fab
             .label=${this.opp.localize(
               "ui.panel.config.scene.picker.add_scene"
             )}
             extended
           >
-            <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-          </ha-fab>
+            <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+          </op-fab>
         </a>
       </opp-tabs-subpage-data-table>
     `;

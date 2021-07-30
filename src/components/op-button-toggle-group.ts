@@ -26,7 +26,7 @@ export class HaButtonToggleGroup extends LitElement {
                 ?active=${this.active === button.value}
                 @click=${this._handleClick}
               >
-                <ha-svg-icon .path=${button.iconPath}></ha-svg-icon>
+                <op-svg-icon .path=${button.iconPath}></op-svg-icon>
               </mwc-icon-button>`
             : html`<mwc-button
                 style=${styleMap({

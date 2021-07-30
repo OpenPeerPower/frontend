@@ -54,10 +54,10 @@ class HuiToggleEntityRow extends LitElement implements LovelaceRow {
         stateObj.state === "off" ||
         UNAVAILABLE_STATES.includes(stateObj.state)
           ? html`
-              <ha-entity-toggle
+              <op-entity-toggle
                 .opp=${this.opp}
                 .stateObj=${stateObj}
-              ></ha-entity-toggle>
+              ></op-entity-toggle>
             `
           : html`
               <div class="text-content">

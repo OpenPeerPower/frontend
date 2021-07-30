@@ -63,10 +63,10 @@ class HuiHumidifierEntityRow extends LitElement implements LovelaceRow {
             }`
           : ""}
       >
-        <ha-entity-toggle
+        <op-entity-toggle
           .opp=${this.opp}
           .stateObj=${stateObj}
-        ></ha-entity-toggle>
+        ></op-entity-toggle>
       </hui-generic-entity-row>
     `;
   }

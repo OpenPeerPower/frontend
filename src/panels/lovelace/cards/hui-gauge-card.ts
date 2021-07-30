@@ -125,8 +125,8 @@ class HuiGaugeCard extends LitElement implements LovelaceCard {
     // Use `stateObj.state` as value to keep formatting (e.g trailing zeros)
     // for consistent value display across gauge, entity, entity-row, etc.
     return html`
-      <ha-card @click=${this._handleClick} tabindex="0">
-        <ha-gauge
+      <op-card @click=${this._handleClick} tabindex="0">
+        <op-gauge
           .min=${this._config.min!}
           .max=${this._config.max!}
           .value=${stateObj.state}
@@ -138,11 +138,11 @@ class HuiGaugeCard extends LitElement implements LovelaceCard {
           style=${styleMap({
             "--gauge-color": this._computeSeverity(state),
           })}
-        ></ha-gauge>
+        ></op-gauge>
         <div class="name">
           ${this._config.name || computeStateName(stateObj)}
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

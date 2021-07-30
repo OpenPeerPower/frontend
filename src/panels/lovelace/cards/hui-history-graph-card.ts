@@ -130,7 +130,7 @@ export class HuiHistoryGraphCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card .header="${this._config.title}">
+      <op-card .header="${this._config.title}">
         <div
           class="content ${classMap({
             "has-header": !!this._config.title,
@@ -145,7 +145,7 @@ export class HuiHistoryGraphCard extends LitElement implements LovelaceCard {
             .noSingle=${true}
           ></state-history-charts>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

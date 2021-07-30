@@ -56,7 +56,7 @@ export class HaRelatedFilterButtonMenu extends LitElement {
   protected render(): TemplateResult {
     return html`
       <mwc-icon-button @click=${this._handleClick}>
-        <ha-svg-icon .path=${mdiFilterVariant}></ha-svg-icon>
+        <op-svg-icon .path=${mdiFilterVariant}></op-svg-icon>
       </mwc-icon-button>
       <mwc-menu-surface
         .open=${this._open}
@@ -65,7 +65,7 @@ export class HaRelatedFilterButtonMenu extends LitElement {
         .corner=${this.corner}
         @closed=${this._onClosed}
       >
-        <ha-area-picker
+        <op-area-picker
           .label=${this.opp.localize(
             "ui.components.related-filter-menu.filter_by_area"
           )}
@@ -73,16 +73,16 @@ export class HaRelatedFilterButtonMenu extends LitElement {
           .value=${this.value?.area}
           no-add
           @value-changed=${this._areaPicked}
-        ></ha-area-picker>
-        <ha-device-picker
+        ></op-area-picker>
+        <op-device-picker
           .label=${this.opp.localize(
             "ui.components.related-filter-menu.filter_by_device"
           )}
           .opp=${this.opp}
           .value=${this.value?.device}
           @value-changed=${this._devicePicked}
-        ></ha-device-picker>
-        <ha-entity-picker
+        ></op-device-picker>
+        <op-entity-picker
           .label=${this.opp.localize(
             "ui.components.related-filter-menu.filter_by_entity"
           )}
@@ -90,7 +90,7 @@ export class HaRelatedFilterButtonMenu extends LitElement {
           .value=${this.value?.entity}
           .excludeDomains=${this.excludeDomains}
           @value-changed=${this._entityPicked}
-        ></ha-entity-picker>
+        ></op-entity-picker>
       </mwc-menu-surface>
     `;
   }

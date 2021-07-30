@@ -30,7 +30,7 @@ export class HaZoneCondition extends LitElement {
   protected render() {
     const { entity_id, zone } = this.condition;
     return html`
-      <ha-entity-picker
+      <op-entity-picker
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.zone.entity"
         )}
@@ -39,8 +39,8 @@ export class HaZoneCondition extends LitElement {
         .opp=${this.opp}
         allow-custom-entity
         .entityFilter=${zoneAndLocationFilter}
-      ></ha-entity-picker>
-      <ha-entity-picker
+      ></op-entity-picker>
+      <op-entity-picker
         .label=${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.zone.zone"
         )}
@@ -49,7 +49,7 @@ export class HaZoneCondition extends LitElement {
         .opp=${this.opp}
         allow-custom-entity
         .includeDomains=${includeDomains}
-      ></ha-entity-picker>
+      ></op-entity-picker>
       <label id="eventlabel">
         ${this.opp.localize(
           "ui.panel.config.automation.editor.conditions.type.zone.event"

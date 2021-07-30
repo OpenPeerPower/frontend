@@ -44,8 +44,10 @@ const cardConfigStruct = object({
 const includeDomains = ["camera"];
 
 @customElement("hui-picture-entity-card-editor")
-export class HuiPictureEntityCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiPictureEntityCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: PictureEntityCardConfig;
@@ -110,7 +112,7 @@ export class HuiPictureEntityCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -121,7 +123,7 @@ export class HuiPictureEntityCardEditor extends LitElement
           .configValue=${"entity"}
           @value-changed="${this._valueChanged}"
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <paper-input
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.name"
@@ -142,7 +144,7 @@ export class HuiPictureEntityCardEditor extends LitElement
           .configValue="${"image"}"
           @value-changed="${this._valueChanged}"
         ></paper-input>
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.camera_image"
           )} (${this.opp.localize(
@@ -154,7 +156,7 @@ export class HuiPictureEntityCardEditor extends LitElement
           @value-changed="${this._valueChanged}"
           .includeDomains=${includeDomains}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-dropdown-menu
             .label="${this.opp.localize(
@@ -187,32 +189,32 @@ export class HuiPictureEntityCardEditor extends LitElement
         </div>
         <div class="side-by-side">
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_name"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked="${this._config!.show_name !== false}"
                 .configValue="${"show_name"}"
                 @change="${this._change}"
-              ></ha-switch
-            ></ha-formfield>
+              ></op-switch
+            ></op-formfield>
           </div>
           <div>
-            <ha-formfield
+            <op-formfield
               .label=${this.opp.localize(
                 "ui.panel.lovelace.editor.card.generic.show_state"
               )}
               .dir=${dir}
             >
-              <ha-switch
+              <op-switch
                 .checked="${this._config!.show_state !== false}"
                 .configValue="${"show_state"}"
                 @change="${this._change}"
-              ></ha-switch
-            ></ha-formfield>
+              ></op-switch
+            ></op-formfield>
           </div>
         </div>
         <hui-theme-select-editor

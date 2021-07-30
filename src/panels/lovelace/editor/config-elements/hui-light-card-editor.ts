@@ -35,8 +35,10 @@ const cardConfigStruct = object({
 const includeDomains = ["light"];
 
 @customElement("hui-light-card-editor")
-export class HuiLightCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiLightCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: LightCardConfig;
@@ -86,7 +88,7 @@ export class HuiLightCardEditor extends LitElement
 
     return html`
       <div class="card-config">
-        <ha-entity-picker
+        <op-entity-picker
           .label="${this.opp.localize(
             "ui.panel.lovelace.editor.card.generic.entity"
           )} (${this.opp.localize(
@@ -98,7 +100,7 @@ export class HuiLightCardEditor extends LitElement
           .includeDomains=${includeDomains}
           @value-changed=${this._valueChanged}
           allow-custom-entity
-        ></ha-entity-picker>
+        ></op-entity-picker>
         <div class="side-by-side">
           <paper-input
             .label="${this.opp.localize(
@@ -110,7 +112,7 @@ export class HuiLightCardEditor extends LitElement
             .configValue=${"name"}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <ha-icon-input
+          <op-icon-input
             .label="${this.opp.localize(
               "ui.panel.lovelace.editor.card.generic.icon"
             )} (${this.opp.localize(
@@ -121,7 +123,7 @@ export class HuiLightCardEditor extends LitElement
             stateIcon(this.opp.states[this._entity])}
             .configValue=${"icon"}
             @value-changed=${this._valueChanged}
-          ></ha-icon-input>
+          ></op-icon-input>
         </div>
 
         <hui-theme-select-editor

@@ -36,7 +36,7 @@ class HaChangePasswordCard extends LitElement {
   protected render(): TemplateResult {
     return html`
       <div>
-        <ha-card
+        <op-card
           .header=${this.opp.localize(
             "ui.panel.profile.change_password.header"
           )}
@@ -89,7 +89,7 @@ class HaChangePasswordCard extends LitElement {
           <div class="card-actions">
             ${this._loading
               ? html`<div>
-                  <ha-circular-progress active></ha-circular-progress>
+                  <op-circular-progress active></op-circular-progress>
                 </div>`
               : html`<mwc-button
                   @click=${this._changePassword}
@@ -99,7 +99,7 @@ class HaChangePasswordCard extends LitElement {
                   )}</mwc-button
                 >`}
           </div>
-        </ha-card>
+        </op-card>
       </div>
     `;
   }

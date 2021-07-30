@@ -61,7 +61,7 @@ export class HuiDialogSuggestCard extends LitElement {
       return html``;
     }
     return html`
-      <ha-paper-dialog with-backdrop opened>
+      <op-paper-dialog with-backdrop opened>
         <h2>
           ${this.opp!.localize("ui.panel.lovelace.editor.suggest_card.header")}
         </h2>
@@ -83,9 +83,9 @@ export class HuiDialogSuggestCard extends LitElement {
           ${this._params.yaml && this._cardConfig
             ? html`
                 <div class="editor">
-                  <ha-yaml-editor
+                  <op-yaml-editor
                     .defaultValue=${this._cardConfig}
-                  ></ha-yaml-editor>
+                  ></op-yaml-editor>
                 </div>
               `
             : ""}
@@ -106,11 +106,11 @@ export class HuiDialogSuggestCard extends LitElement {
                 <mwc-button ?disabled="${this._saving}" @click="${this._save}">
                   ${this._saving
                     ? html`
-                        <ha-circular-progress
+                        <op-circular-progress
                           active
                           title="Saving"
                           size="small"
-                        ></ha-circular-progress>
+                        ></op-circular-progress>
                       `
                     : this.opp!.localize(
                         "ui.panel.lovelace.editor.suggest_card.add"
@@ -119,7 +119,7 @@ export class HuiDialogSuggestCard extends LitElement {
               `
             : ""}
         </div>
-      </ha-paper-dialog>
+      </op-paper-dialog>
     `;
   }
 

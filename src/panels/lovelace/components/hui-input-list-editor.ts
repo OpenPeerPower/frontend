@@ -36,13 +36,13 @@ export class HuiInputListEditor extends LitElement {
             .index=${index}
             @value-changed=${this._valueChanged}
             @blur=${this._consolidateEntries}
-            ><ha-icon-button
+            ><op-icon-button
               slot="suffix"
               class="clear-button"
               icon="opp:close"
               no-ripple
               @click=${this._removeEntry}
-              >Clear</ha-icon-button
+              >Clear</op-icon-button
             ></paper-input
           >
         `;

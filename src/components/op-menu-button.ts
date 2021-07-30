@@ -54,7 +54,7 @@ class HaMenuButton extends LitElement {
         aria-label=${this.opp.localize("ui.sidebar.sidebar_toggle")}
         @click=${this._toggleMenu}
       >
-        <ha-svg-icon .path=${mdiMenu}></ha-svg-icon>
+        <op-svg-icon .path=${mdiMenu}></op-svg-icon>
       </mwc-icon-button>
       ${hasNotifications ? html` <div class="dot"></div> ` : ""}
     `;
@@ -83,8 +83,7 @@ class HaMenuButton extends LitElement {
     const oldNarrow =
       changedProps.get("narrow") ||
       (oldOpp && oldOpp.dockedSidebar === "always_hidden");
-    const newNarrow =
-      this.narrow || this.opp.dockedSidebar === "always_hidden";
+    const newNarrow = this.narrow || this.opp.dockedSidebar === "always_hidden";
 
     if (oldNarrow === newNarrow) {
       return;

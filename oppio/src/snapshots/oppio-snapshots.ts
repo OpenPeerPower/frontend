@@ -180,7 +180,7 @@ export class OppioSnapshots extends LitElement {
           @action=${this._handleAction}
         >
           <mwc-icon-button slot="trigger" alt="menu">
-            <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+            <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
           </mwc-icon-button>
           <mwc-list-item>
             ${this.supervisor?.localize("common.reload")}
@@ -221,7 +221,7 @@ export class OppioSnapshots extends LitElement {
                         class="warning"
                         @click=${this._deleteSelected}
                       >
-                        <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                        <op-svg-icon .path=${mdiDelete}></op-svg-icon>
                       </mwc-icon-button>
                       <paper-tooltip animation-delay="0" for="delete-btn">
                         ${this.supervisor.localize("snapshot.delete_selected")}
@@ -231,14 +231,14 @@ export class OppioSnapshots extends LitElement {
             </div> `
           : ""}
 
-        <ha-fab
+        <op-fab
           slot="fab"
           @click=${this._createSnapshot}
           .label=${this.supervisor.localize("snapshot.create_snapshot")}
           extended
         >
-          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-        </ha-fab>
+          <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+        </op-fab>
       </opp-tabs-subpage-data-table>
     `;
   }

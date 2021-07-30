@@ -81,7 +81,7 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
     );
 
     return html`
-      <ha-card .header=${this.device.user_given_name || this.device.name}>
+      <op-card .header=${this.device.user_given_name || this.device.name}>
         <div class="card-content">
           <div class="info">
             <div class="model">${this.device.model}</div>
@@ -114,13 +114,13 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
               "ui.dialogs.zha_device_info.zha_device_card.device_name_placeholder"
             )}
           ></paper-input>
-          <ha-area-picker
+          <op-area-picker
             .opp=${this.opp}
             .device=${this.device.device_reg_id}
             @value-changed=${this._areaPicked}
-          ></ha-area-picker>
+          ></op-area-picker>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

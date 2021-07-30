@@ -52,7 +52,7 @@ class NotificationManager extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <ha-toast .noCancelOnOutsideClick=${this._noCancelOnOutsideClick}>
+      <op-toast .noCancelOnOutsideClick=${this._noCancelOnOutsideClick}>
         ${this._action
           ? html`
               <mwc-button
@@ -61,7 +61,7 @@ class NotificationManager extends LitElement {
               ></mwc-button>
             `
           : ""}
-      </ha-toast>
+      </op-toast>
     `;
   }
 

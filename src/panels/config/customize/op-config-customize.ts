@@ -37,7 +37,7 @@ class HaConfigCustomize extends LitElement {
         back-path="/config"
         .tabs=${configSections.advanced}
       >
-        <ha-config-section .isWide=${this.isWide}>
+        <op-config-section .isWide=${this.isWide}>
             <span slot="header">
             ${this.opp.localize("ui.panel.config.customize.picker.header")}
             </span>
@@ -59,12 +59,12 @@ class HaConfigCustomize extends LitElement {
               )}
               </a>
             </span>
-            <ha-entity-config
+            <op-entity-config
               .opp=${this.opp}
               .selectedEntityId=${this._selectedEntityId}
             >
-            </ha-entity-config>
-          </ha-config-section>
+            </op-entity-config>
+          </op-config-section>
         </div>
       </opp-tabs-subpage>
     `;

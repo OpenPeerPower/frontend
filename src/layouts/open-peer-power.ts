@@ -64,7 +64,7 @@ export class OpenPeerPowerAppEl extends QuickBarMixin(OppElement) {
             .route=${this._route}
           ></open-peer-power-main>
         `
-      : html`<ha-init-page .error=${this._error}></ha-init-page>`;
+      : html`<op-init-page .error=${this._error}></op-init-page>`;
   }
 
   protected firstUpdated(changedProps) {

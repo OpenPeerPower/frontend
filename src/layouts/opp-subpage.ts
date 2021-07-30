@@ -25,17 +25,17 @@ class OppSubpage extends LitElement {
       <div class="toolbar">
         ${this.mainPage || history.state?.root
           ? html`
-              <ha-menu-button
+              <op-menu-button
                 .oppio=${this.supervisor}
                 .opp=${this.opp}
                 .narrow=${this.narrow}
-              ></ha-menu-button>
+              ></op-menu-button>
             `
           : html`
-              <ha-icon-button-arrow-prev
+              <op-icon-button-arrow-prev
                 .opp=${this.opp}
                 @click=${this._backTapped}
-              ></ha-icon-button-arrow-prev>
+              ></op-icon-button-arrow-prev>
             `}
 
         <div class="main-title">${this.header}</div>

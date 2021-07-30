@@ -32,11 +32,11 @@ class StateHistoryChartLine extends LitElement {
 
   protected render() {
     return html`
-      <ha-chart-base
+      <op-chart-base
         .data=${this._chartData}
         .options=${this._chartOptions}
         chart-type="line"
-      ></ha-chart-base>
+      ></op-chart-base>
     `;
   }
 

@@ -15,11 +15,11 @@ class HaMarkdown extends LitElement {
       return html``;
     }
 
-    return html`<ha-markdown-element
+    return html`<op-markdown-element
       .content=${this.content}
       .allowSvg=${this.allowSvg}
       .breaks=${this.breaks}
-    ></ha-markdown-element>`;
+    ></op-markdown-element>`;
   }
 
   static get styles(): CSSResultGroup {

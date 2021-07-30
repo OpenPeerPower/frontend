@@ -231,7 +231,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
     `;
 
     return html`
-      <ha-card
+      <op-card
         class=${classMap({
           [mode]: true,
         })}
@@ -242,7 +242,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
           @click=${this._handleMoreInfo}
           tabindex="0"
         >
-          <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+          <op-svg-icon .path=${mdiDotsVertical}></op-svg-icon>
         </mwc-icon-button>
 
         <div class="content">
@@ -250,9 +250,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
             <div id="slider">
               ${slider}
               <div id="slider-center">
-                <div id="temperature">
-                  ${currentTemperature} ${setValues}
-                </div>
+                <div id="temperature">${currentTemperature} ${setValues}</div>
               </div>
             </div>
           </div>
@@ -266,7 +264,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
             ${name}
           </div>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 
@@ -400,13 +398,13 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
       return html``;
     }
     return html`
-      <ha-icon-button
+      <op-icon-button
         class="${classMap({ "selected-icon": currentMode === mode })}"
         .mode="${mode}"
         .icon="${modeIcons[mode]}"
         @click=${this._handleAction}
         tabindex="0"
-      ></ha-icon-button>
+      ></op-icon-button>
     `;
   }
 

@@ -12,10 +12,10 @@ class StateCardVacuum extends PolymerElement {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <ha-vacuum-state
+        <op-vacuum-state
           opp="[[opp]]"
           state-obj="[[stateObj]]"
-        ></ha-vacuum-state>
+        ></op-vacuum-state>
       </div>
     `;
   }

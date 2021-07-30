@@ -21,8 +21,10 @@ import "../components/hui-warning-element";
 import { LovelaceElement, StateBadgeElementConfig } from "./types";
 
 @customElement("hui-state-badge-element")
-export class HuiStateBadgeElement extends LitElement
-  implements LovelaceElement {
+export class HuiStateBadgeElement
+  extends LitElement
+  implements LovelaceElement
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: StateBadgeElementConfig;
@@ -55,7 +57,7 @@ export class HuiStateBadgeElement extends LitElement
     }
 
     return html`
-      <ha-state-label-badge
+      <op-state-label-badge
         .opp=${this.opp}
         .state="${stateObj}"
         .title="${this._config.title === undefined
@@ -71,7 +73,7 @@ export class HuiStateBadgeElement extends LitElement
         tabindex=${ifDefined(
           hasAction(this._config.tap_action) ? "0" : undefined
         )}
-      ></ha-state-label-badge>
+      ></op-state-label-badge>
     `;
   }
 

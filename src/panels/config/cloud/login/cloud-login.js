@@ -91,12 +91,10 @@ class CloudLogin extends LocalizeMixin(
         header="Open Peer Power Cloud"
       >
         <div class="content">
-          <ha-config-section is-wide="[[isWide]]">
+          <op-config-section is-wide="[[isWide]]">
             <span slot="header">Open Peer Power Cloud</span>
             <div slot="introduction">
-              <p>
-                [[localize('ui.panel.config.cloud.login.introduction')]]
-              </p>
+              <p>[[localize('ui.panel.config.cloud.login.introduction')]]</p>
               <p>
                 [[localize('ui.panel.config.cloud.login.introduction2')]]
                 <a
@@ -107,9 +105,7 @@ class CloudLogin extends LocalizeMixin(
                   Nabu&nbsp;Casa,&nbsp;Inc</a
                 >[[localize('ui.panel.config.cloud.login.introduction2a')]]
               </p>
-              <p>
-                [[localize('ui.panel.config.cloud.login.introduction3')]]
-              </p>
+              <p>[[localize('ui.panel.config.cloud.login.introduction3')]]</p>
               <p>
                 <a
                   href="https://www.nabucasa.com"
@@ -121,17 +117,17 @@ class CloudLogin extends LocalizeMixin(
               </p>
             </div>
 
-            <ha-card hidden$="[[!flashMessage]]">
+            <op-card hidden$="[[!flashMessage]]">
               <div class="card-content flash-msg">
                 [[flashMessage]]
-                <ha-icon-button icon="opp:close" on-click="_dismissFlash"
-                  >[[localize('ui.panel.config.cloud.login.dismiss')]]</ha-icon-button
+                <op-icon-button icon="opp:close" on-click="_dismissFlash"
+                  >[[localize('ui.panel.config.cloud.login.dismiss')]]</op-icon-button
                 >
                 <paper-ripple id="flashRipple" noink=""></paper-ripple>
               </div>
-            </ha-card>
+            </op-card>
 
-            <ha-card
+            <op-card
               header="[[localize('ui.panel.config.cloud.login.sign_in')]]"
             >
               <div class="card-content login-form">
@@ -161,15 +157,15 @@ class CloudLogin extends LocalizeMixin(
                 </button>
               </div>
               <div class="card-actions">
-                <ha-progress-button
+                <op-progress-button
                   on-click="_handleLogin"
                   progress="[[_requestInProgress]]"
-                  >[[localize('ui.panel.config.cloud.login.sign_in')]]</ha-progress-button
+                  >[[localize('ui.panel.config.cloud.login.sign_in')]]</op-progress-button
                 >
               </div>
-            </ha-card>
+            </op-card>
 
-            <ha-card>
+            <op-card>
               <paper-item on-click="_handleRegister">
                 <paper-item-body two-line="">
                   [[localize('ui.panel.config.cloud.login.start_trial')]]
@@ -177,10 +173,10 @@ class CloudLogin extends LocalizeMixin(
                     [[localize('ui.panel.config.cloud.login.trial_info')]]
                   </div>
                 </paper-item-body>
-                <ha-icon-next></ha-icon-next>
+                <op-icon-next></op-icon-next>
               </paper-item>
-            </ha-card>
-          </ha-config-section>
+            </op-card>
+          </op-config-section>
         </div>
       </opp-subpage>
     `;

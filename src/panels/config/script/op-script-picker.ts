@@ -59,11 +59,12 @@ class HaScriptPicker extends LitElement {
       if (filteredScripts === null) {
         return [];
       }
-      return (filteredScripts
-        ? scripts.filter((script) =>
-            filteredScripts!.includes(script.entity_id)
-          )
-        : scripts
+      return (
+        filteredScripts
+          ? scripts.filter((script) =>
+              filteredScripts!.includes(script.entity_id)
+            )
+          : scripts
       ).map((script) => {
         return {
           ...script,
@@ -75,99 +76,95 @@ class HaScriptPicker extends LitElement {
     }
   );
 
-  private _columns = memoizeOne(
-    (narrow, _locale): DataTableColumnContainer => {
-      const columns: DataTableColumnContainer = {
-        activate: {
-          title: "",
-          type: "icon-button",
-          template: (_toggle, script) =>
-            html`
-              <mwc-icon-button
-                .script=${script}
-                title="${this.opp.localize(
-                  "ui.panel.config.script.picker.run_script"
-                )}"
-                @click=${(ev: Event) => this._runScript(ev)}
-              >
-                <ha-svg-icon .path=${mdiPlay}></ha-svg-icon>
-              </mwc-icon-button>
-            `,
-        },
-        icon: {
-          title: "",
-          type: "icon",
-          template: (icon) => html` <ha-icon .icon=${icon}></ha-icon> `,
-        },
-        name: {
-          title: this.opp.localize(
-            "ui.panel.config.script.picker.headers.name"
-          ),
-          sortable: true,
-          filterable: true,
-          direction: "asc",
-          grows: true,
-          template: narrow
-            ? (name, script: any) => html`
-                ${name}
-                <div class="secondary">
-                  ${this.opp.localize("ui.card.automation.last_triggered")}:
-                  ${script.attributes.last_triggered
-                    ? formatDateTime(
-                        new Date(script.attributes.last_triggered),
-                        this.opp.locale
-                      )
-                    : this.opp.localize("ui.components.relative_time.never")}
-                </div>
-              `
-            : undefined,
-        },
-      };
-      if (!narrow) {
-        columns.last_triggered = {
-          sortable: true,
-          width: "20%",
-          title: this.opp.localize("ui.card.automation.last_triggered"),
-          template: (last_triggered) => html`
-            ${last_triggered
-              ? formatDateTime(new Date(last_triggered), this.opp.locale)
-              : this.opp.localize("ui.components.relative_time.never")}
-          `,
-        };
-      }
-      columns.info = {
+  private _columns = memoizeOne((narrow, _locale): DataTableColumnContainer => {
+    const columns: DataTableColumnContainer = {
+      activate: {
         title: "",
         type: "icon-button",
-        template: (_info, script) => html`
+        template: (_toggle, script) =>
+          html`
+            <mwc-icon-button
+              .script=${script}
+              title="${this.opp.localize(
+                "ui.panel.config.script.picker.run_script"
+              )}"
+              @click=${(ev: Event) => this._runScript(ev)}
+            >
+              <op-svg-icon .path=${mdiPlay}></op-svg-icon>
+            </mwc-icon-button>
+          `,
+      },
+      icon: {
+        title: "",
+        type: "icon",
+        template: (icon) => html` <op-icon .icon=${icon}></op-icon> `,
+      },
+      name: {
+        title: this.opp.localize("ui.panel.config.script.picker.headers.name"),
+        sortable: true,
+        filterable: true,
+        direction: "asc",
+        grows: true,
+        template: narrow
+          ? (name, script: any) => html`
+              ${name}
+              <div class="secondary">
+                ${this.opp.localize("ui.card.automation.last_triggered")}:
+                ${script.attributes.last_triggered
+                  ? formatDateTime(
+                      new Date(script.attributes.last_triggered),
+                      this.opp.locale
+                    )
+                  : this.opp.localize("ui.components.relative_time.never")}
+              </div>
+            `
+          : undefined,
+      },
+    };
+    if (!narrow) {
+      columns.last_triggered = {
+        sortable: true,
+        width: "20%",
+        title: this.opp.localize("ui.card.automation.last_triggered"),
+        template: (last_triggered) => html`
+          ${last_triggered
+            ? formatDateTime(new Date(last_triggered), this.opp.locale)
+            : this.opp.localize("ui.components.relative_time.never")}
+        `,
+      };
+    }
+    columns.info = {
+      title: "",
+      type: "icon-button",
+      template: (_info, script) => html`
+        <mwc-icon-button
+          .script=${script}
+          @click=${this._showInfo}
+          title="${this.opp.localize(
+            "ui.panel.config.script.picker.show_info"
+          )}"
+        >
+          <op-svg-icon .path=${mdiInformationOutline}></op-svg-icon>
+        </mwc-icon-button>
+      `,
+    };
+    columns.edit = {
+      title: "",
+      type: "icon-button",
+      template: (_info, script: any) => html`
+        <a href="/config/script/edit/${script.entity_id}">
           <mwc-icon-button
-            .script=${script}
-            @click=${this._showInfo}
             title="${this.opp.localize(
-              "ui.panel.config.script.picker.show_info"
+              "ui.panel.config.script.picker.edit_script"
             )}"
           >
-            <ha-svg-icon .path=${mdiInformationOutline}></ha-svg-icon>
+            <op-svg-icon .path=${mdiPencil}></op-svg-icon>
           </mwc-icon-button>
-        `,
-      };
-      columns.edit = {
-        title: "",
-        type: "icon-button",
-        template: (_info, script: any) => html`
-          <a href="/config/script/edit/${script.entity_id}">
-            <mwc-icon-button
-              title="${this.opp.localize(
-                "ui.panel.config.script.picker.edit_script"
-              )}"
-            >
-              <ha-svg-icon .path=${mdiPencil}></ha-svg-icon>
-            </mwc-icon-button>
-          </a>
-        `,
-      };
-      return columns;
-    }
-  );
+        </a>
+      `,
+    };
+    return columns;
+  });
 
   protected render(): TemplateResult {
     return html`
@@ -188,9 +185,9 @@ class HaScriptPicker extends LitElement {
         hasFab
       >
         <mwc-icon-button slot="toolbar-icon" @click=${this._showHelp}>
-          <ha-svg-icon .path=${mdiHelpCircle}></ha-svg-icon>
+          <op-svg-icon .path=${mdiHelpCircle}></op-svg-icon>
         </mwc-icon-button>
-        <ha-button-related-filter-menu
+        <op-button-related-filter-menu
           slot="filter-menu"
           corner="BOTTOM_START"
           .narrow=${this.narrow}
@@ -199,9 +196,9 @@ class HaScriptPicker extends LitElement {
           exclude-domains='["script"]'
           @related-changed=${this._relatedFilterChanged}
         >
-        </ha-button-related-filter-menu>
+        </op-button-related-filter-menu>
         <a href="/config/script/edit/new" slot="fab">
-          <ha-fab
+          <op-fab
             ?is-wide=${this.isWide}
             ?narrow=${this.narrow}
             .label=${this.opp.localize(
@@ -210,8 +207,8 @@ class HaScriptPicker extends LitElement {
             extended
             ?rtl=${computeRTL(this.opp)}
           >
-            <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
-          </ha-fab>
+            <op-svg-icon slot="icon" .path=${mdiPlus}></op-svg-icon>
+          </op-fab>
         </a>
       </opp-tabs-subpage-data-table>
     `;

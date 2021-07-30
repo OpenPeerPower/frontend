@@ -47,7 +47,7 @@ export class HuiStartingCard extends LitElement implements LovelaceCard {
 
     return html`
       <div class="content">
-        <ha-circular-progress active></ha-circular-progress>
+        <op-circular-progress active></op-circular-progress>
         ${this.opp.localize("ui.panel.lovelace.cards.starting.description")}
       </div>
     `;

@@ -59,7 +59,7 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
               [[localize('ui.card.water_heater.target_temperature')]]
             </div>
             <template is="dom-if" if="[[supportsTemperature(stateObj)]]">
-              <ha-water_heater-control
+              <op-water_heater-control
                 value="[[stateObj.attributes.temperature]]"
                 units="[[opp.config.unit_system.temperature]]"
                 step="[[computeTemperatureStepSize(opp, stateObj)]]"
@@ -67,7 +67,7 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
                 max="[[stateObj.attributes.max_temp]]"
                 on-change="targetTemperatureChanged"
               >
-              </ha-water_heater-control>
+              </op-water_heater-control>
             </template>
           </div>
         </div>
@@ -75,7 +75,7 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
         <template is="dom-if" if="[[supportsOperationMode(stateObj)]]">
           <div class="container-operation_list">
             <div class="controls">
-              <ha-paper-dropdown-menu
+              <op-paper-dropdown-menu
                 label-float=""
                 dynamic-align=""
                 label="[[localize('ui.card.water_heater.operation')]]"
@@ -95,7 +95,7 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
                     >
                   </template>
                 </paper-listbox>
-              </ha-paper-dropdown-menu>
+              </op-paper-dropdown-menu>
             </div>
           </div>
         </template>
@@ -106,11 +106,11 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
               <div class="flex">
                 [[localize('ui.card.water_heater.away_mode')]]
               </div>
-              <ha-switch
+              <op-switch
                 checked="[[awayToggleChecked]]"
                 on-change="awayToggleChanged"
               >
-              </ha-switch>
+              </op-switch>
             </div>
           </div>
         </template>

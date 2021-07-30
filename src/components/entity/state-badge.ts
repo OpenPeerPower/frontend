@@ -39,7 +39,7 @@ export class StateBadge extends LitElement {
     // We either need a `stateObj` or one override
     if (!stateObj && !this.overrideIcon && !this.overrideImage) {
       return html`<div class="missing">
-        <ha-icon icon="opp:alert"></ha-icon>
+        <op-icon icon="opp:alert"></op-icon>
       </div>`;
     }
 
@@ -50,7 +50,7 @@ export class StateBadge extends LitElement {
     const domain = stateObj ? computeStateDomain(stateObj) : undefined;
 
     return html`
-      <ha-icon
+      <op-icon
         style=${styleMap(this._iconStyle)}
         data-domain=${ifDefined(
           this.stateColor || (domain === "light" && this.stateColor !== false)
@@ -59,7 +59,7 @@ export class StateBadge extends LitElement {
         )}
         data-state=${stateObj ? computeActiveState(stateObj) : ""}
         .icon=${this.overrideIcon || (stateObj ? stateIcon(stateObj) : "")}
-      ></ha-icon>
+      ></op-icon>
     `;
   }
 

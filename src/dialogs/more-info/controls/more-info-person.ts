@@ -25,11 +25,11 @@ class MoreInfoPerson extends LitElement {
     return html`
       ${this.stateObj.attributes.latitude && this.stateObj.attributes.longitude
         ? html`
-            <ha-map
+            <op-map
               .opp=${this.opp}
               .entities=${this._entityArray(this.stateObj.entity_id)}
               autoFit
-            ></ha-map>
+            ></op-map>
           `
         : ""}
       ${!__DEMO__ &&
@@ -47,11 +47,11 @@ class MoreInfoPerson extends LitElement {
             </div>
           `
         : ""}
-      <ha-attributes
+      <op-attributes
         .opp=${this.opp}
         .stateObj=${this.stateObj}
         extra-filters="id,user_id,editable"
-      ></ha-attributes>
+      ></op-attributes>
     `;
   }
 

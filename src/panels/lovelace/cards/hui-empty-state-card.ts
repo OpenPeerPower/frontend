@@ -31,15 +31,13 @@ export class HuiEmptyStateCard extends LitElement implements LovelaceCard {
     }
 
     return html`
-      <ha-card
+      <op-card
         .header="${this.opp.localize(
           "ui.panel.lovelace.cards.empty_state.title"
         )}"
       >
         <div class="card-content">
-          ${this.opp.localize(
-            "ui.panel.lovelace.cards.empty_state.no_devices"
-          )}
+          ${this.opp.localize("ui.panel.lovelace.cards.empty_state.no_devices")}
         </div>
         <div class="card-actions">
           <a href="/config/integrations">
@@ -50,7 +48,7 @@ export class HuiEmptyStateCard extends LitElement implements LovelaceCard {
             </mwc-button>
           </a>
         </div>
-      </ha-card>
+      </op-card>
     `;
   }
 

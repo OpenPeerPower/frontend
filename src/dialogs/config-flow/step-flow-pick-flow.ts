@@ -48,7 +48,7 @@ class StepFlowPickFlow extends LitElement {
             <paper-item-body>
               ${localizeConfigFlowTitle(this.opp.localize, flow)}
             </paper-item-body>
-            <ha-icon-next></ha-icon-next>
+            <op-icon-next></op-icon-next>
           </paper-icon-item>`
         )}
         <paper-item @click=${this._startNewFlowPicked} .handler=${this.handler}>
@@ -59,7 +59,7 @@ class StepFlowPickFlow extends LitElement {
               domainToName(this.opp.localize, this.handler)
             )}
           </paper-item-body>
-          <ha-icon-next></ha-icon-next>
+          <op-icon-next></op-icon-next>
         </paper-item>
       </div>
     `;

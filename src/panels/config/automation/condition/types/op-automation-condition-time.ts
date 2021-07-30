@@ -60,32 +60,32 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
       this._inputModeAfter ?? after?.startsWith("input_datetime.");
 
     return html`
-      <ha-formfield
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.conditions.type.time.type_value"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode_after"
           value="value"
           ?checked=${!inputModeAfter}
-        ></ha-radio>
-      </ha-formfield>
-      <ha-formfield
+        ></op-radio>
+      </op-formfield>
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.conditions.type.time.type_input"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode_after"
           value="input"
           ?checked=${inputModeAfter}
-        ></ha-radio>
-      </ha-formfield>
+        ></op-radio>
+      </op-formfield>
       ${inputModeAfter
-        ? html`<ha-entity-picker
+        ? html`<op-entity-picker
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.conditions.type.time.after"
             )}
@@ -95,7 +95,7 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
             @value-changed=${this._valueChanged}
             .opp=${this.opp}
             allow-custom-entity
-          ></ha-entity-picker>`
+          ></op-entity-picker>`
         : html`<paper-input
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.conditions.type.time.after"
@@ -105,32 +105,32 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
             @value-changed=${this._valueChanged}
           ></paper-input>`}
 
-      <ha-formfield
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.conditions.type.time.type_value"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode_before"
           value="value"
           ?checked=${!inputModeBefore}
-        ></ha-radio>
-      </ha-formfield>
-      <ha-formfield
+        ></op-radio>
+      </op-formfield>
+      <op-formfield
         .label=${this.opp!.localize(
           "ui.panel.config.automation.editor.conditions.type.time.type_input"
         )}
       >
-        <ha-radio
+        <op-radio
           @change=${this._handleModeChanged}
           name="mode_before"
           value="input"
           ?checked=${inputModeBefore}
-        ></ha-radio>
-      </ha-formfield>
+        ></op-radio>
+      </op-formfield>
       ${inputModeBefore
-        ? html`<ha-entity-picker
+        ? html`<op-entity-picker
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.conditions.type.time.before"
             )}
@@ -139,7 +139,7 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
             .value=${before?.startsWith("input_datetime.") ? before : ""}
             @value-changed=${this._valueChanged}
             .opp=${this.opp}
-          ></ha-entity-picker>`
+          ></op-entity-picker>`
         : html`<paper-input
             .label=${this.opp.localize(
               "ui.panel.config.automation.editor.conditions.type.time.before"
@@ -150,7 +150,7 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
           ></paper-input>`}
       ${Object.keys(DAYS).map(
         (day) => html`
-          <ha-formfield
+          <op-formfield
             alignEnd
             spaceBetween
             class="weekday-toggle"
@@ -159,13 +159,13 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
             )}
             .dir=${computeRTLDirection(this.opp!)}
           >
-            <ha-switch
+            <op-switch
               .day=${day}
               .checked=${!weekday || weekday === day || weekday.includes(day)}
               @change=${this._dayValueChanged}
             >
-            </ha-switch>
-          </ha-formfield>
+            </op-switch>
+          </op-formfield>
         `
       )}
     `;

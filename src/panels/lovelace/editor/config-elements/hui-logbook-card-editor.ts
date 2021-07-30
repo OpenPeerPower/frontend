@@ -29,8 +29,10 @@ const cardConfigStruct = object({
 });
 
 @customElement("hui-logbook-card-editor")
-export class HuiLogbookCardEditor extends LitElement
-  implements LovelaceCardEditor {
+export class HuiLogbookCardEditor
+  extends LitElement
+  implements LovelaceCardEditor
+{
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
   @internalProperty() private _config?: LogbookCardConfig;
@@ -102,12 +104,12 @@ export class HuiLogbookCardEditor extends LitElement
             "ui.panel.lovelace.editor.card.config.required"
           )})`}
         </h3>
-        <ha-entities-picker
+        <op-entities-picker
           .opp=${this.opp}
           .value=${this._configEntities}
           @value-changed=${this._valueChanged}
         >
-        </ha-entities-picker>
+        </op-entities-picker>
       </div>
     `;
   }

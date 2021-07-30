@@ -51,7 +51,7 @@ class CloudForgotPassword extends LocalizeMixin(EventsMixin(PolymerElement)) {
         header="[[localize('ui.panel.config.cloud.forgot_password.title')]]"
       >
         <div class="content">
-          <ha-card
+          <op-card
             header="[[localize('ui.panel.config.cloud.forgot_password.subtitle')]]"
           >
             <div class="card-content">
@@ -70,13 +70,13 @@ class CloudForgotPassword extends LocalizeMixin(EventsMixin(PolymerElement)) {
               ></paper-input>
             </div>
             <div class="card-actions">
-              <ha-progress-button
+              <op-progress-button
                 on-click="_handleEmailPasswordReset"
                 progress="[[_requestInProgress]]"
-                >[[localize('ui.panel.config.cloud.forgot_password.send_reset_email')]]</ha-progress-button
+                >[[localize('ui.panel.config.cloud.forgot_password.send_reset_email')]]</op-progress-button
               >
             </div>
-          </ha-card>
+          </op-card>
         </div>
       </opp-subpage>
     `;

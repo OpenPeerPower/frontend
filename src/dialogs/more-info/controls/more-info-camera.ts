@@ -46,12 +46,12 @@ class MoreInfoCamera extends LitElement {
     }
 
     return html`
-      <ha-camera-stream
+      <op-camera-stream
         .opp=${this.opp}
         .stateObj=${this.stateObj}
         allow-exoplayer
         controls
-      ></ha-camera-stream>
+      ></op-camera-stream>
       ${this._cameraPrefs
         ? html`
             <paper-checkbox

@@ -37,7 +37,7 @@ export class HuiIconElement extends LitElement implements LovelaceElement {
     }
 
     return html`
-      <ha-icon
+      <op-icon
         .icon="${this._config.icon}"
         .title="${computeTooltip(this.opp, this._config)}"
         @action=${this._handleAction}
@@ -48,7 +48,7 @@ export class HuiIconElement extends LitElement implements LovelaceElement {
         tabindex=${ifDefined(
           hasAction(this._config.tap_action) ? "0" : undefined
         )}
-      ></ha-icon>
+      ></op-icon>
     `;
   }
 

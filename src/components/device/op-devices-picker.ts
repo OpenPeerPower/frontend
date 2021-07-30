@@ -45,7 +45,7 @@ class HaDevicesPicker extends LitElement {
       ${currentDevices.map(
         (entityId) => html`
           <div>
-            <ha-device-picker
+            <op-device-picker
               allow-custom-entity
               .curValue=${entityId}
               .opp=${this.opp}
@@ -55,19 +55,19 @@ class HaDevicesPicker extends LitElement {
               .value=${entityId}
               .label=${this.pickedDeviceLabel}
               @value-changed=${this._deviceChanged}
-            ></ha-device-picker>
+            ></op-device-picker>
           </div>
         `
       )}
       <div>
-        <ha-device-picker
+        <op-device-picker
           .opp=${this.opp}
           .includeDomains=${this.includeDomains}
           .excludeDomains=${this.excludeDomains}
           .includeDeviceClasses=${this.includeDeviceClasses}
           .label=${this.pickDeviceLabel}
           @value-changed=${this._addDevice}
-        ></ha-device-picker>
+        ></op-device-picker>
       </div>
     `;
   }

@@ -54,7 +54,7 @@ class DialogZWaveJSRemoveNode extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed="${this.closeDialog}"
         .heading=${createCloseHeading(
@@ -79,7 +79,7 @@ class DialogZWaveJSRemoveNode extends LitElement {
         ${this._status === "started"
           ? html`
               <div class="flex-container">
-                <ha-circular-progress active></ha-circular-progress>
+                <op-circular-progress active></op-circular-progress>
                 <div class="status">
                   <p>
                     <b
@@ -105,10 +105,10 @@ class DialogZWaveJSRemoveNode extends LitElement {
         ${this._status === "failed"
           ? html`
               <div class="flex-container">
-                <ha-svg-icon
+                <op-svg-icon
                   .path=${mdiCloseCircle}
                   class="failed"
-                ></ha-svg-icon>
+                ></op-svg-icon>
                 <div class="status">
                   <p>
                     ${this.opp.localize(
@@ -125,10 +125,10 @@ class DialogZWaveJSRemoveNode extends LitElement {
         ${this._status === "finished"
           ? html`
               <div class="flex-container">
-                <ha-svg-icon
+                <op-svg-icon
                   .path=${mdiCheckCircle}
                   class="success"
-                ></ha-svg-icon>
+                ></op-svg-icon>
                 <div class="status">
                   <p>
                     ${this.opp.localize(
@@ -144,7 +144,7 @@ class DialogZWaveJSRemoveNode extends LitElement {
               </mwc-button>
             `
           : ``}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 

@@ -1,4 +1,4 @@
-import { Collection, UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { Collection, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import { LitElement, PropertyValues } from "lit";
 import { property, state } from "lit/decorators";
 import { atLeastVersion } from "../../src/common/config/version";

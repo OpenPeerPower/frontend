@@ -34,11 +34,11 @@ class StateInfo extends LitElement {
         </div>
         ${this.inDialog
           ? html`<div class="time-ago">
-              <ha-relative-time
+              <op-relative-time
                 id="last_changed"
                 .opp=${this.opp}
                 .datetime=${this.stateObj.last_changed}
-              ></ha-relative-time>
+              ></op-relative-time>
               <paper-tooltip animation-delay="0" for="last_changed">
                 <div>
                   <div class="row">
@@ -47,10 +47,10 @@ class StateInfo extends LitElement {
                         "ui.dialogs.more_info_control.last_changed"
                       )}:
                     </span>
-                    <ha-relative-time
+                    <op-relative-time
                       .opp=${this.opp}
                       .datetime=${this.stateObj.last_changed}
-                    ></ha-relative-time>
+                    ></op-relative-time>
                   </div>
                   <div class="row">
                     <span>
@@ -58,10 +58,10 @@ class StateInfo extends LitElement {
                         "ui.dialogs.more_info_control.last_updated"
                       )}:
                     </span>
-                    <ha-relative-time
+                    <op-relative-time
                       .opp=${this.opp}
                       .datetime=${this.stateObj.last_updated}
-                    ></ha-relative-time>
+                    ></op-relative-time>
                   </div>
                 </div>
               </paper-tooltip>
