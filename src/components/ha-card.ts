@@ -1,12 +1,5 @@
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 
 @customElement("ha-card")
 export class HaCard extends LitElement {
@@ -14,16 +7,16 @@ export class HaCard extends LitElement {
 
   @property({ type: Boolean, reflect: true }) public outlined = false;
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       :host {
         background: var(
-          --op-card-background,
+          --ha-card-background,
           var(--card-background-color, white)
         );
-        border-radius: var(--op-card-border-radius, 4px);
+        border-radius: var(--ha-card-border-radius, 4px);
         box-shadow: var(
-          --op-card-box-shadow,
+          --ha-card-box-shadow,
           0px 2px 1px -1px rgba(0, 0, 0, 0.2),
           0px 1px 1px 0px rgba(0, 0, 0, 0.14),
           0px 1px 3px 0px rgba(0, 0, 0, 0.12)
@@ -36,10 +29,10 @@ export class HaCard extends LitElement {
 
       :host([outlined]) {
         box-shadow: none;
-        border-width: var(--op-card-border-width, 1px);
+        border-width: var(--ha-card-border-width, 1px);
         border-style: solid;
         border-color: var(
-          --op-card-border-color,
+          --ha-card-border-color,
           var(--divider-color, #e0e0e0)
         );
       }

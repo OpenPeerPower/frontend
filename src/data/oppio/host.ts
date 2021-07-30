@@ -3,7 +3,7 @@ import { OpenPeerPower } from "../../types";
 import { oppioApiResultExtractor, OppioResponse } from "./common";
 
 export type OppioHostInfo = {
-  coppis: string;
+  chassis: string;
   cpe: string;
   deployment: string;
   disk_life_time: number | "";
@@ -28,7 +28,7 @@ export const fetchOppioHostInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioHostInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/host/info",
       method: "get",
@@ -46,7 +46,7 @@ export const fetchOppioOppOsInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioOppOSInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/os/info",
       method: "get",
@@ -54,13 +54,16 @@ export const fetchOppioOppOsInfo = async (
   }
 
   return oppioApiResultExtractor(
-    await opp.callApi<OppioResponse<OppioOppOSInfo>>("GET", "oppio/os/info")
+    await opp.callApi<OppioResponse<OppioOppOSInfo>>(
+      "GET",
+      "oppio/os/info"
+    )
   );
 };
 
 export const rebootHost = async (opp: OpenPeerPower) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/host/reboot",
       method: "post",
@@ -73,7 +76,7 @@ export const rebootHost = async (opp: OpenPeerPower) => {
 
 export const shutdownHost = async (opp: OpenPeerPower) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/host/shutdown",
       method: "post",
@@ -86,7 +89,7 @@ export const shutdownHost = async (opp: OpenPeerPower) => {
 
 export const updateOS = async (opp: OpenPeerPower) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/os/update",
       method: "post",
@@ -99,7 +102,7 @@ export const updateOS = async (opp: OpenPeerPower) => {
 
 export const configSyncOS = async (opp: OpenPeerPower) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/os/config/sync",
       method: "post",
@@ -112,7 +115,7 @@ export const configSyncOS = async (opp: OpenPeerPower) => {
 
 export const changeHostOptions = async (opp: OpenPeerPower, options: any) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/host/options",
       method: "post",

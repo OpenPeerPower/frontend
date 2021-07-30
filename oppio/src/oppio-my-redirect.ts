@@ -1,25 +1,19 @@
-import {
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
 import { sanitizeUrl } from "@braintree/sanitize-url";
+import { html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { navigate } from "../../src/common/navigate";
 import {
   createSearchParam,
   extractSearchParamsObject,
 } from "../../src/common/url/search-params";
+import { Supervisor } from "../../src/data/supervisor/supervisor";
 import "../../src/layouts/opp-error-screen";
 import {
   ParamType,
   Redirect,
   Redirects,
 } from "../../src/panels/my/ha-panel-my";
-import { navigate } from "../../src/common/navigate";
 import { OpenPeerPower, Route } from "../../src/types";
-import { Supervisor } from "../../src/data/supervisor/supervisor";
 
 const REDIRECTS: Redirects = {
   supervisor: {
@@ -43,6 +37,12 @@ const REDIRECTS: Redirects = {
       addon: "string",
     },
   },
+  supervisor_ingress: {
+    redirect: "/oppio/ingress",
+    params: {
+      addon: "string",
+    },
+  },
   supervisor_add_addon_repository: {
     redirect: "/oppio/store",
     params: {
@@ -59,7 +59,7 @@ class OppioMyRedirect extends LitElement {
 
   @property({ attribute: false }) public route!: Route;
 
-  @internalProperty() public _error?: TemplateResult | string;
+  @state() public _error?: TemplateResult | string;
 
   connectedCallback() {
     super.connectedCallback();
@@ -89,12 +89,14 @@ class OppioMyRedirect extends LitElement {
       return;
     }
 
-    navigate(this, url, true);
+    navigate(url, { replace: true });
   }
 
   protected render(): TemplateResult {
     if (this._error) {
-      return html`<opp-error-screen .error=${this._error}></opp-error-screen>`;
+      return html`<opp-error-screen
+        .error=${this._error}
+      ></opp-error-screen>`;
     }
     return html``;
   }

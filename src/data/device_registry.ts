@@ -48,14 +48,11 @@ export const computeDeviceName = (
   device: DeviceRegistryEntry,
   opp: OpenPeerPower,
   entities?: EntityRegistryEntry[] | string[]
-) => {
-  return (
-    device.name_by_user ||
-    device.name ||
-    (entities && fallbackDeviceName(opp, entities)) ||
-    opp.localize("ui.panel.config.devices.unnamed_device")
-  );
-};
+) =>
+  device.name_by_user ||
+  device.name ||
+  (entities && fallbackDeviceName(opp, entities)) ||
+  opp.localize("ui.panel.config.devices.unnamed_device");
 
 export const devicesInArea = (devices: DeviceRegistryEntry[], areaId: string) =>
   devices.filter((device) => device.area_id === areaId);

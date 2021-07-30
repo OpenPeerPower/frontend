@@ -4,7 +4,7 @@ import { computeStateDomain } from "../common/entity/compute_state_domain";
 import { computeStateName } from "../common/entity/compute_state_name";
 import { LocalizeFunc } from "../common/translations/localize";
 import { OpenPeerPower } from "../types";
-import { FrontendTranslationData } from "./translation";
+import { FrontendLocaleData } from "./translation";
 
 const DOMAINS_USE_LAST_UPDATED = ["climate", "humidifier", "water_heater"];
 const LINE_ATTRIBUTES_TO_KEEP = [
@@ -53,11 +53,28 @@ export interface HistoryResult {
   timeline: TimelineEntity[];
 }
 
+export type StatisticType = "sum" | "min" | "max" | "mean";
+
+export interface Statistics {
+  [statisticId: string]: StatisticValue[];
+}
+
+export interface StatisticValue {
+  statistic_id: string;
+  start: string;
+  last_reset: string | null;
+  max: number | null;
+  mean: number | null;
+  min: number | null;
+  sum: number | null;
+  state: number | null;
+}
+
 export const fetchRecent = (
-  opp,
-  entityId,
-  startTime,
-  endTime,
+  opp: OpenPeerPower,
+  entityId: string,
+  startTime: Date,
+  endTime: Date,
   skipInitialState = false,
   significantChangesOnly?: boolean,
   minimalResponse = true
@@ -87,15 +104,14 @@ export const fetchDate = (
   opp: OpenPeerPower,
   startTime: Date,
   endTime: Date,
-  entityId
-): Promise<OppEntity[][]> => {
-  return opp.callApi(
+  entityId?: string
+): Promise<OppEntity[][]> =>
+  opp.callApi(
     "GET",
     `history/period/${startTime.toISOString()}?end_time=${endTime.toISOString()}&minimal_response${
       entityId ? `&filter_entity_id=${entityId}` : ``
     }`
   );
-};
 
 const equalState = (obj1: LineChartState, obj2: LineChartState) =>
   obj1.state === obj2.state &&
@@ -110,7 +126,7 @@ const equalState = (obj1: LineChartState, obj2: LineChartState) =>
 
 const processTimelineEntity = (
   localize: LocalizeFunc,
-  language: FrontendTranslationData,
+  language: FrontendLocaleData,
   states: OppEntity[]
 ): TimelineEntity => {
   const data: TimelineState[] = [];
@@ -225,12 +241,15 @@ export const computeHistory = (
 
     if (stateWithUnit) {
       unit = stateWithUnit.attributes.unit_of_measurement;
-    } else if (computeStateDomain(stateInfo[0]) === "climate") {
-      unit = opp.config.unit_system.temperature;
-    } else if (computeStateDomain(stateInfo[0]) === "water_heater") {
-      unit = opp.config.unit_system.temperature;
-    } else if (computeStateDomain(stateInfo[0]) === "humidifier") {
-      unit = "%";
+    } else {
+      unit = {
+        climate: opp.config.unit_system.temperature,
+        counter: "#",
+        humidifier: "%",
+        input_number: "#",
+        number: "#",
+        water_heater: opp.config.unit_system.temperature,
+      }[computeStateDomain(stateInfo[0])];
     }
 
     if (!unit) {
@@ -250,3 +269,32 @@ export const computeHistory = (
 
   return { line: unitStates, timeline: timelineDevices };
 };
+
+// Statistics
+
+export const getStatisticIds = (
+  opp: OpenPeerPower,
+  statistic_type?: "mean" | "sum"
+) =>
+  opp.callWS<string[]>({
+    type: "history/list_statistic_ids",
+    statistic_type,
+  });
+
+export const fetchStatistics = (
+  opp: OpenPeerPower,
+  startTime: Date,
+  endTime?: Date,
+  statistic_ids?: string[]
+) =>
+  opp.callWS<Statistics>({
+    type: "history/statistics_during_period",
+    start_time: startTime.toISOString(),
+    end_time: endTime?.toISOString(),
+    statistic_ids,
+  });
+
+export const statisticsHaveType = (
+  stats: StatisticValue[],
+  type: StatisticType
+) => stats.some((stat) => stat[type] !== null);

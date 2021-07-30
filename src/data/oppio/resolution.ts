@@ -13,7 +13,7 @@ export const fetchOppioResolution = async (
   opp: OpenPeerPower
 ): Promise<OppioResolution> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/resolution/info",
       method: "get",

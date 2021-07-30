@@ -1,4 +1,6 @@
-import { html, internalProperty, LitElement, property } from "lit-element";
+import { html, LitElement } from "lit";
+import { ComboBoxLitRenderer } from "lit-vaadin-helpers";
+import { property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
@@ -6,39 +8,27 @@ import { domainToName } from "../data/integration";
 import { OpenPeerPower } from "../types";
 import "./ha-combo-box";
 
-const rowRenderer = (
-  root: HTMLElement,
-  _owner,
-  model: { item: { service: string; name: string } }
-) => {
-  if (!root.firstElementChild) {
-    root.innerHTML = `
-    <style>
-      paper-item {
-        margin: -10px 0;
-        padding: 0;
-      }
-    </style>
-    <paper-item>
-      <paper-item-body two-line="">
-        <div class='name'>[[item.name]]</div>
-        <div secondary>[[item.service]]</div>
-      </paper-item-body>
-    </paper-item>
-    `;
-  }
-
-  root.querySelector(".name")!.textContent = model.item.name;
-  root.querySelector("[secondary]")!.textContent =
-    model.item.name === model.item.service ? "" : model.item.service;
-};
+const rowRenderer: ComboBoxLitRenderer<{ service: string; name: string }> = (
+  item
+) => html`<style>
+    paper-item {
+      margin: -10px 0;
+      padding: 0;
+    }
+  </style>
+  <paper-item>
+    <paper-item-body two-line>
+      ${item.name}
+      <span secondary>${item.name === item.service ? "" : item.service}</span>
+    </paper-item-body>
+  </paper-item>`;
 
 class HaServicePicker extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
   @property() public value?: string;
 
-  @internalProperty() private _filter?: string;
+  @state() private _filter?: string;
 
   protected render() {
     return html`

@@ -1,14 +1,7 @@
 import "@material/mwc-button";
-import { mdiHomeAssistant } from "@mdi/js";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { mdiOpenPeerPower } from "@mdi/js";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
@@ -40,9 +33,8 @@ import { OpenPeerPower } from "../../../src/types";
 import { showDialogSupervisorUpdate } from "../dialogs/update/show-dialog-update";
 import { oppioStyle } from "../resources/oppio-style";
 
-const computeVersion = (key: string, version: string): string => {
-  return key === "os" ? version : `${key}-${version}`;
-};
+const computeVersion = (key: string, version: string): string =>
+  key === "os" ? version : `${key}-${version}`;
 
 @customElement("oppio-update")
 export class OppioUpdate extends LitElement {
@@ -50,11 +42,12 @@ export class OppioUpdate extends LitElement {
 
   @property({ attribute: false }) public supervisor!: Supervisor;
 
-  private _pendingUpdates = memoizeOne((supervisor: Supervisor): number => {
-    return Object.keys(supervisor).filter(
-      (value) => supervisor[value].update_available
-    ).length;
-  });
+  private _pendingUpdates = memoizeOne(
+    (supervisor: Supervisor): number =>
+      Object.keys(supervisor).filter(
+        (value) => supervisor[value].update_available
+      ).length
+  );
 
   protected render(): TemplateResult {
     if (!this.supervisor) {
@@ -91,9 +84,9 @@ export class OppioUpdate extends LitElement {
             "supervisor",
             this.supervisor.supervisor,
             "oppio/supervisor/update",
-            `https://github.com//openpeerpower/oppio/releases/tag/${this.supervisor.supervisor.version_latest}`
+            `https://github.com//open-peer-power/oppio/releases/tag/${this.supervisor.supervisor.version_latest}`
           )}
-          ${this.supervisor.host.features.includes("oppos")
+          ${this.supervisor.host.features.includes("opos")
             ? this._renderUpdateCard(
                 "Operating System",
                 "os",
@@ -121,7 +114,7 @@ export class OppioUpdate extends LitElement {
       <ha-card>
         <div class="card-content">
           <div class="icon">
-            <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
+            <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
           </div>
           <div class="update-heading">${name}</div>
           <ha-settings-row two-line>
@@ -233,7 +226,7 @@ export class OppioUpdate extends LitElement {
     });
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,

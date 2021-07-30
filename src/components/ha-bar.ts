@@ -1,19 +1,12 @@
-import {
-  css,
-  CSSResult,
-  customElement,
-  LitElement,
-  property,
-  svg,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, LitElement, svg, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import {
   getValueInPercentage,
   normalize,
   roundWithOneDecimal,
 } from "../util/calculate";
 
-@customElement("ha-bar")
+@customElement("op-bar")
 export class HaBar extends LitElement {
   @property({ type: Number }) public min = 0;
 
@@ -40,7 +33,7 @@ export class HaBar extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       rect {
         height: 100%;
@@ -64,6 +57,6 @@ export class HaBar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-bar": HaBar;
+    "op-bar": HaBar;
   }
 }

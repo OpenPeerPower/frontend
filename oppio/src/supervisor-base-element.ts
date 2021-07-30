@@ -1,10 +1,6 @@
-import { Collection, UnsubscribeFunc } from "openpeerpower-js-websocket";
-import {
-  internalProperty,
-  LitElement,
-  property,
-  PropertyValues,
-} from "lit-element";
+import { Collection, UnsubscribeFunc } from "open-peer-power-js-websocket";
+import { LitElement, PropertyValues } from "lit";
+import { property, state } from "lit/decorators";
 import { atLeastVersion } from "../../src/common/config/version";
 import { computeLocalize } from "../../src/common/translations/localize";
 import { fetchOppioAddonsInfo } from "../../src/data/oppio/addon";
@@ -46,14 +42,11 @@ export class SupervisorBaseElement extends urlSyncMixin(
     localize: () => "",
   };
 
-  @internalProperty() private _unsubs: Record<string, UnsubscribeFunc> = {};
+  @state() private _unsubs: Record<string, UnsubscribeFunc> = {};
 
-  @internalProperty() private _collections: Record<
-    string,
-    Collection<unknown>
-  > = {};
+  @state() private _collections: Record<string, Collection<unknown>> = {};
 
-  @internalProperty() private _language = "en";
+  @state() private _language = "en";
 
   public connectedCallback(): void {
     super.connectedCallback();
@@ -93,10 +86,8 @@ export class SupervisorBaseElement extends urlSyncMixin(
         const unsubs = Object.keys(this._unsubs);
         for (const collection of Object.keys(this._collections)) {
           if (!unsubs.includes(collection)) {
-            this._unsubs[collection] = this._collections[
-              collection
-            ].subscribe((data) =>
-              this._updateSupervisor({ [collection]: data })
+            this._unsubs[collection] = this._collections[collection].subscribe(
+              (data) => this._updateSupervisor({ [collection]: data })
             );
           }
         }

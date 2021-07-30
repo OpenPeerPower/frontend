@@ -6,3 +6,6 @@ export const callExecuteScript = (opp: OpenPeerPower, sequence: Action[]) =>
     type: "execute_script",
     sequence,
   });
+
+export const serviceCallWillDisconnect = (domain: string, service: string) =>
+  domain === "openpeerpower" && ["restart", "stop"].includes(service);

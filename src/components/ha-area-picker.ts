@@ -8,16 +8,15 @@ import "@vaadin/vaadin-combo-box/theme/material/vaadin-combo-box-light";
 import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
-  query,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { ComboBoxLitRenderer, comboBoxRenderer } from "lit-vaadin-helpers";
+import { customElement, property, query, state } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../common/dom/fire_event";
 import { computeDomain } from "../common/entity/compute_domain";
@@ -45,36 +44,20 @@ import { OpenPeerPower } from "../types";
 import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
 import "./ha-svg-icon";
 
-const rowRenderer = (
-  root: HTMLElement,
-  _owner,
-  model: { item: AreaRegistryEntry }
-) => {
-  if (!root.firstElementChild) {
-    root.innerHTML = `
-      <style>
-        paper-item {
-          margin: -10px 0;
-          padding: 0;
-        }
-        paper-item.add-new {
-            font-weight: 500;
-        }
-      </style>
-      <paper-item>
-        <paper-item-body two-line>
-          <div class='name'>[[item.name]]</div>
-        </paper-item-body>
-      </paper-item>
-      `;
-  }
-  root.querySelector(".name")!.textContent = model.item.name!;
-  if (model.item.area_id === "add_new") {
-    root.querySelector("paper-item")!.className = "add-new";
-  } else {
-    root.querySelector("paper-item")!.classList.remove("add-new");
-  }
-};
+const rowRenderer: ComboBoxLitRenderer<AreaRegistryEntry> = (
+  item
+) => html`<style>
+    paper-item {
+      margin: -10px 0;
+      padding: 0;
+    }
+    paper-item.add-new {
+      font-weight: 500;
+    }
+  </style>
+  <paper-item class=${classMap({ "add-new": item.area_id === "add_new" })}>
+    <paper-item-body two-line>${item.name}</paper-item-body>
+  </paper-item>`;
 
 @customElement("ha-area-picker")
 export class HaAreaPicker extends SubscribeMixin(LitElement) {
@@ -119,19 +102,19 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
 
   @property({ type: Boolean }) public disabled?: boolean;
 
-  @internalProperty() private _areas?: AreaRegistryEntry[];
+  @state() private _areas?: AreaRegistryEntry[];
 
-  @internalProperty() private _devices?: DeviceRegistryEntry[];
+  @state() private _devices?: DeviceRegistryEntry[];
 
-  @internalProperty() private _entities?: EntityRegistryEntry[];
+  @state() private _entities?: EntityRegistryEntry[];
 
-  @internalProperty() private _opened?: boolean;
+  @state() private _opened?: boolean;
 
   @query("vaadin-combo-box-light", true) public comboBox!: HTMLElement;
 
   private _init = false;
 
-  public oppSubscribe(): UnsubscribeFunc[] {
+  public hassSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeAreaRegistry(this.opp.connection!, (areas) => {
         this._areas = areas;
@@ -343,8 +326,8 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
         item-id-path="area_id"
         item-label-path="name"
         .value=${this._value}
-        .renderer=${rowRenderer}
         .disabled=${this.disabled}
+        ${comboBoxRenderer(rowRenderer)}
         @opened-changed=${this._openedChanged}
         @value-changed=${this._areaChanged}
       >
@@ -391,11 +374,9 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
     `;
   }
 
-  private _area = memoizeOne((areaId: string):
-    | AreaRegistryEntry
-    | undefined => {
-    return this._areas?.find((area) => area.area_id === areaId);
-  });
+  private _area = memoizeOne((areaId: string): AreaRegistryEntry | undefined =>
+    this._areas?.find((area) => area.area_id === areaId)
+  );
 
   private _clearValue(ev: Event) {
     ev.stopPropagation();
@@ -459,7 +440,7 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
     }, 0);
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       paper-input > mwc-icon-button {
         --mdc-icon-button-size: 24px;

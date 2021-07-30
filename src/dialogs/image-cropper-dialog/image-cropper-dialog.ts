@@ -4,19 +4,16 @@ import Cropper from "cropperjs";
 import cropperCss from "cropperjs/dist/cropper.css";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
-  query,
   TemplateResult,
   unsafeCSS,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
-import "../../components/ha-dialog";
+} from "lit";
+import { customElement, property, state, query } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
+import "../../components/op-dialog";
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { HaImageCropperDialogParams } from "./show-image-cropper-dialog";
@@ -25,9 +22,9 @@ import { HaImageCropperDialogParams } from "./show-image-cropper-dialog";
 export class HaImagecropperDialog extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _params?: HaImageCropperDialogParams;
+  @state() private _params?: HaImageCropperDialogParams;
 
-  @internalProperty() private _open = false;
+  @state() private _open = false;
 
   @query("img", true) private _image!: HTMLImageElement;
 
@@ -65,7 +62,7 @@ export class HaImagecropperDialog extends LitElement {
   }
 
   protected render(): TemplateResult {
-    return html`<ha-dialog
+    return html`<op-dialog
       @closed=${this.closeDialog}
       scrimClickAction
       escapeKeyAction
@@ -84,7 +81,7 @@ export class HaImagecropperDialog extends LitElement {
       <mwc-button slot="primaryAction" @click=${this._cropImage}>
         ${this.opp.localize("ui.dialogs.image_cropper.crop")}
       </mwc-button>
-    </ha-dialog>`;
+    </op-dialog>`;
   }
 
   private _cropImage() {
@@ -104,7 +101,7 @@ export class HaImagecropperDialog extends LitElement {
     );
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`

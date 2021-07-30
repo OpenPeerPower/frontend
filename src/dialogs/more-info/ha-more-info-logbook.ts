@@ -1,24 +1,16 @@
-import {
-  css,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  PropertyValues,
-  TemplateResult,
-} from "lit-element";
+import { css, html, LitElement, PropertyValues, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
-import { closeDialog } from "../make-dialog-manager";
 import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { throttle } from "../../common/util/throttle";
-import "../../components/ha-circular-progress";
-import "../../components/state-history-charts";
-import { TraceContexts, loadTraceContexts } from "../../data/trace";
+import "../../components/op-circular-progress";
+import { fetchUsers } from "../../data/user";
 import { getLogbookData, LogbookEntry } from "../../data/logbook";
-import "../../panels/logbook/ha-logbook";
-import { haStyle, haStyleScrollbar } from "../../resources/styles";
+import { loadTraceContexts, TraceContexts } from "../../data/trace";
+import "../../panels/logbook/op-logbook";
+import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
+import { closeDialog } from "../make-dialog-manager";
 
 @customElement("ha-more-info-logbook")
 export class MoreInfoLogbook extends LitElement {
@@ -26,13 +18,17 @@ export class MoreInfoLogbook extends LitElement {
 
   @property() public entityId!: string;
 
-  @internalProperty() private _logbookEntries?: LogbookEntry[];
+  @state() private _logbookEntries?: LogbookEntry[];
 
-  @internalProperty() private _traceContexts?: TraceContexts;
+  @state() private _traceContexts?: TraceContexts;
 
-  @internalProperty() private _persons = {};
+  @state() private _userIdToName = {};
 
   private _lastLogbookDate?: Date;
+
+  private _fetchUserPromise?: Promise<void>;
+
+  private _error?: string;
 
   private _throttleGetLogbookEntries = throttle(() => {
     this._getLogBookData();
@@ -50,17 +46,22 @@ export class MoreInfoLogbook extends LitElement {
 
     return html`
       ${isComponentLoaded(this.opp, "logbook")
-        ? !this._logbookEntries
+        ? this._error
+          ? html`<div class="no-entries">
+              ${`${this.opp.localize(
+                "ui.components.logbook.retrieval_error"
+              )}: ${this._error}`}
+            </div>`
+          : !this._logbookEntries
           ? html`
-              <ha-circular-progress
+              <op-circular-progress
                 active
                 alt=${this.opp.localize("ui.common.loading")}
-              ></ha-circular-progress>
+              ></op-circular-progress>
             `
           : this._logbookEntries.length
           ? html`
-              <ha-logbook
-                class="ha-scrollbar"
+              <op-logbook
                 narrow
                 no-icon
                 no-name
@@ -68,8 +69,8 @@ export class MoreInfoLogbook extends LitElement {
                 .opp=${this.opp}
                 .entries=${this._logbookEntries}
                 .traceContexts=${this._traceContexts}
-                .userIdToName=${this._persons}
-              ></ha-logbook>
+                .userIdToName=${this._userIdToName}
+              ></op-logbook>
             `
           : html`<div class="no-entries">
               ${this.opp.localize("ui.components.logbook.entries_not_found")}
@@ -79,7 +80,7 @@ export class MoreInfoLogbook extends LitElement {
   }
 
   protected firstUpdated(): void {
-    this._fetchPersonNames();
+    this._fetchUserPromise = this._fetchUserNames();
     this.addEventListener("click", (ev) => {
       if ((ev.composedPath()[0] as HTMLElement).tagName === "A") {
         setTimeout(() => closeDialog("ha-more-info-dialog"), 500);
@@ -125,16 +126,25 @@ export class MoreInfoLogbook extends LitElement {
       this._lastLogbookDate ||
       new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
     const now = new Date();
-    const [newEntries, traceContexts] = await Promise.all([
-      getLogbookData(
-        this.opp,
-        lastDate.toISOString(),
-        now.toISOString(),
-        this.entityId,
-        true
-      ),
-      loadTraceContexts(this.opp),
-    ]);
+    let newEntries;
+    let traceContexts;
+
+    try {
+      [newEntries, traceContexts] = await Promise.all([
+        getLogbookData(
+          this.opp,
+          lastDate.toISOString(),
+          now.toISOString(),
+          this.entityId,
+          true
+        ),
+        this.opp.user?.is_admin ? loadTraceContexts(this.opp) : {},
+        this._fetchUserPromise,
+      ]);
+    } catch (err) {
+      this._error = err.message;
+    }
+
     this._logbookEntries = this._logbookEntries
       ? [...newEntries, ...this._logbookEntries]
       : newEntries;
@@ -142,38 +152,54 @@ export class MoreInfoLogbook extends LitElement {
     this._traceContexts = traceContexts;
   }
 
-  private _fetchPersonNames() {
+  private async _fetchUserNames() {
+    const userIdToName = {};
+
+    // Start loading users
+    const userProm = this.opp.user?.is_admin && fetchUsers(this.opp);
+
+    // Process persons
     Object.values(this.opp.states).forEach((entity) => {
       if (
         entity.attributes.user_id &&
         computeStateDomain(entity) === "person"
       ) {
-        this._persons[entity.attributes.user_id] =
+        this._userIdToName[entity.attributes.user_id] =
           entity.attributes.friendly_name;
       }
     });
+
+    // Process users
+    if (userProm) {
+      const users = await userProm;
+      for (const user of users) {
+        if (!(user.id in userIdToName)) {
+          userIdToName[user.id] = user.name;
+        }
+      }
+    }
+
+    this._userIdToName = userIdToName;
   }
 
   static get styles() {
     return [
       haStyle,
-      haStyleScrollbar,
       css`
         .no-entries {
           text-align: center;
           padding: 16px;
           color: var(--secondary-text-color);
         }
-        ha-logbook {
-          max-height: 250px;
-          overflow: auto;
+        op-logbook {
+          --logbook-max-height: 250px;
         }
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-logbook {
-            max-height: unset;
+          op-logbook {
+            --logbook-max-height: unset;
           }
         }
-        ha-circular-progress {
+        op-circular-progress {
           display: flex;
           justify-content: center;
         }

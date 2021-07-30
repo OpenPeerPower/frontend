@@ -14,19 +14,24 @@ interface OppioHardwareAudioList {
   };
 }
 
+interface HardwareDevice {
+  attributes: Record<string, string>;
+  by_id: null | string;
+  dev_path: string;
+  name: string;
+  subsystem: string;
+  sysfs: string;
+}
+
 export interface OppioHardwareInfo {
-  serial: string[];
-  input: string[];
-  disk: string[];
-  gpio: string[];
-  audio: Record<string, unknown>;
+  devices: HardwareDevice[];
 }
 
 export const fetchOppioHardwareAudio = async (
   opp: OpenPeerPower
 ): Promise<OppioHardwareAudioList> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/hardware/audio`,
       method: "get",
@@ -45,7 +50,7 @@ export const fetchOppioHardwareInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioHardwareInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/hardware/info`,
       method: "get",

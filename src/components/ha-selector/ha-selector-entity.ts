@@ -1,11 +1,6 @@
 import { OppEntity, UnsubscribeFunc } from "openpeerpower-js-websocket";
-import {
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-} from "lit-element";
+import { html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { subscribeEntityRegistry } from "../../data/entity_registry";
 import { EntitySelector } from "../../data/selector";
@@ -19,7 +14,7 @@ export class HaEntitySelector extends SubscribeMixin(LitElement) {
 
   @property() public selector!: EntitySelector;
 
-  @internalProperty() private _entityPlaformLookup?: Record<string, string>;
+  @state() private _entityPlaformLookup?: Record<string, string>;
 
   @property() public value?: any;
 
@@ -38,7 +33,7 @@ export class HaEntitySelector extends SubscribeMixin(LitElement) {
     ></ha-entity-picker>`;
   }
 
-  public oppSubscribe(): UnsubscribeFunc[] {
+  public hassSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeEntityRegistry(this.opp.connection!, (entities) => {
         const entityLookup = {};

@@ -8,23 +8,15 @@ import {
   mdiDocker,
   mdiExclamationThick,
   mdiFlask,
-  mdiHomeAssistant,
+  mdiOpenPeerPower,
   mdiKey,
   mdiNetwork,
   mdiPound,
   mdiShield,
 } from "@mdi/js";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../../src/common/config/version";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
@@ -32,7 +24,7 @@ import { navigate } from "../../../../src/common/navigate";
 import "../../../../src/components/buttons/ha-call-api-button";
 import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/ha-card";
-import "../../../../src/components/ha-label-badge";
+import "../../../../src/components/op-label-badge";
 import "../../../../src/components/ha-markdown";
 import "../../../../src/components/ha-settings-row";
 import "../../../../src/components/ha-svg-icon";
@@ -90,9 +82,9 @@ class OppioAddonInfo extends LitElement {
 
   @property({ attribute: false }) public supervisor!: Supervisor;
 
-  @internalProperty() private _metrics?: OppioStats;
+  @state() private _metrics?: OppioStats;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
   private _addonStoreInfo = memoizeOne(
     (slug: string, storeAddons: StoreAddon[]) =>
@@ -171,16 +163,16 @@ class OppioAddonInfo extends LitElement {
                   : ""}
               </div>
               <div class="card-actions">
-                <mwc-button @click=${this._updateClicked}>
-                  ${this.supervisor.localize("common.update")}
-                </mwc-button>
                 ${this.addon.changelog
                   ? html`
                       <mwc-button @click=${this._openChangelog}>
                         ${this.supervisor.localize("addon.dashboard.changelog")}
                       </mwc-button>
                     `
-                  : ""}
+                  : html`<span></span>`}
+                <mwc-button @click=${this._updateClicked}>
+                  ${this.supervisor.localize("common.update")}
+                </mwc-button>
               </div>
             </ha-card>
           `
@@ -261,13 +253,9 @@ class OppioAddonInfo extends LitElement {
             ${this.supervisor.localize(
               "addon.dashboard.visit_addon_page",
               "name",
-              html`<a
-                href="${this.addon.url!}"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ${this.addon.name}
-              </a>`
+              html`<a href="${this.addon.url!}" target="_blank" rel="noreferrer"
+                >${this.addon.name}</a
+              >`
             )}
           </div>
           <div class="addon-container">
@@ -282,7 +270,7 @@ class OppioAddonInfo extends LitElement {
                 : ""}
               <div class="security">
                 ${this.addon.stage !== "stable"
-                  ? html` <ha-label-badge
+                  ? html` <op-label-badge
                       class=${classMap({
                         yellow: this.addon.stage === "experimental",
                         red: this.addon.stage === "deprecated",
@@ -297,10 +285,10 @@ class OppioAddonInfo extends LitElement {
                       <ha-svg-icon
                         .path=${STAGE_ICON[this.addon.stage]}
                       ></ha-svg-icon>
-                    </ha-label-badge>`
+                    </op-label-badge>`
                   : ""}
 
-                <ha-label-badge
+                <op-label-badge
                   class=${classMap({
                     green: [5, 6].includes(Number(this.addon.rating)),
                     yellow: [3, 4].includes(Number(this.addon.rating)),
@@ -311,10 +299,10 @@ class OppioAddonInfo extends LitElement {
                   .value=${this.addon.rating}
                   label="rating"
                   description=""
-                ></ha-label-badge>
+                ></op-label-badge>
                 ${this.addon.host_network
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="host_network"
                         .label=${this.supervisor.localize(
@@ -323,12 +311,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiNetwork}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.full_access
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="full_access"
                         .label=${this.supervisor.localize(
@@ -337,12 +325,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiChip}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.openpeerpower_api
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="openpeerpower_api"
                         .label=${this.supervisor.localize(
@@ -350,13 +338,13 @@ class OppioAddonInfo extends LitElement {
                         )}
                         description=""
                       >
-                        <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
-                      </ha-label-badge>
+                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this._computeOppioApi
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="oppio_api"
                         .label=${this.supervisor.localize(
@@ -366,13 +354,13 @@ class OppioAddonInfo extends LitElement {
                           `addon.dashboard.capability.role.${this.addon.oppio_role}`
                         ) || this.addon.oppio_role}
                       >
-                        <ha-svg-icon .path=${mdiHomeAssistant}></ha-svg-icon>
-                      </ha-label-badge>
+                        <ha-svg-icon .path=${mdiOpenPeerPower}></ha-svg-icon>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.docker_api
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="docker_api"
                         .label=".${this.supervisor.localize(
@@ -381,12 +369,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiDocker}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.host_pid
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="host_pid"
                         .label=${this.supervisor.localize(
@@ -395,12 +383,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiPound}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.apparmor
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         class=${this._computeApparmorClassName}
                         id="apparmor"
@@ -410,12 +398,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiShield}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.auth_api
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="auth_api"
                         .label=${this.supervisor.localize(
@@ -424,12 +412,12 @@ class OppioAddonInfo extends LitElement {
                         description=""
                       >
                         <ha-svg-icon .path=${mdiKey}></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
                 ${this.addon.ingress
                   ? html`
-                      <ha-label-badge
+                      <op-label-badge
                         @click=${this._showMoreInfo}
                         id="ingress"
                         .label=${this.supervisor.localize(
@@ -440,7 +428,7 @@ class OppioAddonInfo extends LitElement {
                         <ha-svg-icon
                           .path=${mdiCursorDefaultClickOutline}
                         ></ha-svg-icon>
-                      </ha-label-badge>
+                      </op-label-badge>
                     `
                   : ""}
               </div>
@@ -566,9 +554,7 @@ class OppioAddonInfo extends LitElement {
                       <span slot="heading">
                         ${this.supervisor.localize("addon.dashboard.hostname")}
                       </span>
-                      <code slot="description">
-                        ${this.addon.hostname}
-                      </code>
+                      <code slot="description"> ${this.addon.hostname} </code>
                     </ha-settings-row>
                     ${metrics.map(
                       (metric) =>
@@ -723,7 +709,8 @@ class OppioAddonInfo extends LitElement {
   private get _computeOppioApi(): boolean {
     return (
       this.addon.oppio_api &&
-      (this.addon.oppio_role === "manager" || this.addon.oppio_role === "admin")
+      (this.addon.oppio_role === "manager" ||
+        this.addon.oppio_role === "admin")
     );
   }
 
@@ -774,7 +761,7 @@ class OppioAddonInfo extends LitElement {
   }
 
   private _openIngress(): void {
-    navigate(this, `/oppio/ingress/${this.addon.slug}`);
+    navigate(`/oppio/ingress/${this.addon.slug}`);
   }
 
   private get _computeShowIngressUI(): boolean {
@@ -905,7 +892,19 @@ class OppioAddonInfo extends LitElement {
 
   private async _openChangelog(): Promise<void> {
     try {
-      const content = await fetchOppioAddonChangelog(this.opp, this.addon.slug);
+      let content = await fetchOppioAddonChangelog(this.opp, this.addon.slug);
+      if (
+        content.includes(`# ${this.addon.version}`) &&
+        content.includes(`# ${this.addon.version_latest}`)
+      ) {
+        const newcontent = content.split(`# ${this.addon.version}`)[0];
+        if (newcontent.includes(`# ${this.addon.version_latest}`)) {
+          // Only change the content if the new version still exist
+          // if the changelog does not have the newests version on top
+          // this will not be true, and we don't modify the content
+          content = newcontent;
+        }
+      }
       showOppioMarkdownDialog(this, {
         title: this.supervisor.localize("addon.dashboard.changelog"),
         content,
@@ -993,7 +992,7 @@ class OppioAddonInfo extends LitElement {
         addons: [this.addon.slug],
         openpeerpower: false,
       },
-      updateHandler: async () => await this._updateAddon(),
+      updateHandler: async () => this._updateAddon(),
     });
   }
 
@@ -1061,7 +1060,7 @@ class OppioAddonInfo extends LitElement {
   }
 
   private _openConfiguration(): void {
-    navigate(this, `/oppio/addon/${this.addon.slug}/config`);
+    navigate(`/oppio/addon/${this.addon.slug}/config`);
   }
 
   private async _uninstallClicked(ev: CustomEvent): Promise<void> {
@@ -1100,7 +1099,7 @@ class OppioAddonInfo extends LitElement {
     button.progress = false;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
@@ -1197,7 +1196,7 @@ class OppioAddonInfo extends LitElement {
           margin-bottom: 8px;
           font-weight: normal;
         }
-        .security ha-label-badge {
+        .security op-label-badge {
           cursor: pointer;
           margin-right: 4px;
           --op-label-badge-padding: 8px 0 0 0;

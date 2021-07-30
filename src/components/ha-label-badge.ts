@@ -1,13 +1,13 @@
 import {
   css,
-  CSSResult,
+  CSSResultGroup,
   html,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+} from "lit";
+import { property } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import "./ha-icon";
 
 class HaLabelBadge extends LitElement {
@@ -33,10 +33,10 @@ class HaLabelBadge extends LitElement {
           >
             <slot>
               ${this.icon && !this.value && !this.image
-                ? html` <ha-icon .icon=${this.icon}></ha-icon> `
+                ? html`<ha-icon .icon=${this.icon}></ha-icon>`
                 : ""}
               ${this.value && !this.image
-                ? html` <span>${this.value}</span> `
+                ? html`<span>${this.value}</span>`
                 : ""}
             </slot>
           </div>
@@ -60,7 +60,7 @@ class HaLabelBadge extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       css`
         .badge-container {
@@ -149,8 +149,8 @@ class HaLabelBadge extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-label-badge": HaLabelBadge;
+    "op-label-badge": HaLabelBadge;
   }
 }
 
-customElements.define("ha-label-badge", HaLabelBadge);
+customElements.define("op-label-badge", HaLabelBadge);

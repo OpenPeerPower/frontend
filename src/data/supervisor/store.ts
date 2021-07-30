@@ -38,7 +38,7 @@ export const fetchSupervisorStore = async (
   opp: OpenPeerPower
 ): Promise<SupervisorStore> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/store",
       method: "get",

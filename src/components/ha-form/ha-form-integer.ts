@@ -1,20 +1,11 @@
 import "@polymer/paper-input/paper-input";
 import type { PaperInputElement } from "@polymer/paper-input/paper-input";
-import "@polymer/paper-slider/paper-slider";
-import type { PaperSliderElement } from "@polymer/paper-slider/paper-slider";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  query,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { HaCheckbox } from "../ha-checkbox";
 import "../ha-slider";
+import type { HaSlider } from "../ha-slider";
 import {
   HaFormElement,
   HaFormIntegerData,
@@ -96,9 +87,7 @@ export class HaFormInteger extends LitElement implements HaFormElement {
   }
 
   private _valueChanged(ev: Event) {
-    const value = Number(
-      (ev.target as PaperInputElement | PaperSliderElement).value
-    );
+    const value = Number((ev.target as PaperInputElement | HaSlider).value);
     if (this._value === value) {
       return;
     }
@@ -107,7 +96,7 @@ export class HaFormInteger extends LitElement implements HaFormElement {
     });
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       .flex {
         display: flex;

@@ -12,19 +12,26 @@ export interface ConfigEntry {
     | "setup_retry"
     | "not_loaded"
     | "failed_unload";
-  connection_class: string;
   supports_options: boolean;
   supports_unload: boolean;
+  pref_disable_new_entities: boolean;
+  pref_disable_polling: boolean;
   disabled_by: "user" | null;
+  reason: string | null;
 }
 
-export interface ConfigEntryMutableParams {
-  title: string;
-}
+export type ConfigEntryMutableParams = Partial<
+  Pick<
+    ConfigEntry,
+    "title" | "pref_disable_new_entities" | "pref_disable_polling"
+  >
+>;
 
-export interface ConfigEntrySystemOptions {
-  disable_new_entities: boolean;
-}
+export const ERROR_STATES: ConfigEntry["state"][] = [
+  "migration_error",
+  "setup_error",
+  "setup_retry",
+];
 
 export const getConfigEntries = (opp: OpenPeerPower) =>
   opp.callApi<ConfigEntry[]>("GET", "config/config_entries/entry");
@@ -32,9 +39,9 @@ export const getConfigEntries = (opp: OpenPeerPower) =>
 export const updateConfigEntry = (
   opp: OpenPeerPower,
   configEntryId: string,
-  updatedValues: Partial<ConfigEntryMutableParams>
+  updatedValues: ConfigEntryMutableParams
 ) =>
-  opp.callWS<ConfigEntry>({
+  opp.callWS<{ require_restart: boolean; config_entry: ConfigEntry }>({
     type: "config_entries/update",
     entry_id: configEntryId,
     ...updatedValues,
@@ -50,10 +57,15 @@ export const reloadConfigEntry = (opp: OpenPeerPower, configEntryId: string) =>
     require_restart: boolean;
   }>("POST", `config/config_entries/entry/${configEntryId}/reload`);
 
-export const disableConfigEntry = (opp: OpenPeerPower, configEntryId: string) =>
-  opp.callWS<{
-    require_restart: boolean;
-  }>({
+export interface DisableConfigEntryResult {
+  require_restart: boolean;
+}
+
+export const disableConfigEntry = (
+  opp: OpenPeerPower,
+  configEntryId: string
+) =>
+  opp.callWS<DisableConfigEntryResult>({
     type: "config_entries/disable",
     entry_id: configEntryId,
     disabled_by: "user",
@@ -66,24 +78,4 @@ export const enableConfigEntry = (opp: OpenPeerPower, configEntryId: string) =>
     type: "config_entries/disable",
     entry_id: configEntryId,
     disabled_by: null,
-  });
-
-export const getConfigEntrySystemOptions = (
-  opp: OpenPeerPower,
-  configEntryId: string
-) =>
-  opp.callWS<ConfigEntrySystemOptions>({
-    type: "config_entries/system_options/list",
-    entry_id: configEntryId,
-  });
-
-export const updateConfigEntrySystemOptions = (
-  opp: OpenPeerPower,
-  configEntryId: string,
-  params: Partial<ConfigEntrySystemOptions>
-) =>
-  opp.callWS({
-    type: "config_entries/system_options/update",
-    entry_id: configEntryId,
-    ...params,
   });

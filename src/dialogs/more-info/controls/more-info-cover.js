@@ -5,7 +5,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { attributeClassNames } from "../../../common/entity/attribute_class_names";
 import { featureClassNames } from "../../../common/entity/feature_class_names";
 import "../../../components/ha-cover-tilt-controls";
-import "../../../components/ha-labeled-slider";
+import "../../../components/op-labeled-slider";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import CoverEntity from "../../../util/cover-model";
 
@@ -37,17 +37,17 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
       </style>
       <div class$="[[computeClassNames(stateObj)]]">
         <div class="current_position">
-          <ha-labeled-slider
+          <op-labeled-slider
             caption="[[localize('ui.card.cover.position')]]"
             pin=""
             value="{{coverPositionSliderValue}}"
             disabled="[[!entityObj.supportsSetPosition]]"
             on-change="coverPositionSliderChanged"
-          ></ha-labeled-slider>
+          ></op-labeled-slider>
         </div>
 
         <div class="tilt">
-          <ha-labeled-slider
+          <op-labeled-slider
             caption="[[localize('ui.card.cover.tilt_position')]]"
             pin=""
             extra=""
@@ -61,10 +61,11 @@ class MoreInfoCover extends LocalizeMixin(PolymerElement) {
               opp="[[opp]]"
               state-obj="[[stateObj]]"
             ></ha-cover-tilt-controls>
-          </ha-labeled-slider>
+          </op-labeled-slider>
         </div>
       </div>
       <ha-attributes
+        opp="[[opp]]"
         state-obj="[[stateObj]]"
         extra-filters="current_position,current_tilt_position"
       ></ha-attributes>

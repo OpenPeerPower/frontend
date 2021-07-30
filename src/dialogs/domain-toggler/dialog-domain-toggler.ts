@@ -1,15 +1,8 @@
 import "@material/mwc-button/mwc-button";
-import {
-  css,
-  CSSResultArray,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import { createCloseHeading } from "../../components/ha-dialog";
+import { createCloseHeading } from "../../components/op-dialog";
 import "../../components/ha-formfield";
 import "../../components/ha-switch";
 import { domainToName } from "../../data/integration";
@@ -19,11 +12,13 @@ import { OppDialog } from "../make-dialog-manager";
 import { HaDomainTogglerDialogParams } from "./show-dialog-domain-toggler";
 
 @customElement("dialog-domain-toggler")
-class DomainTogglerDialog extends LitElement
-  implements OppDialog<HaDomainTogglerDialogParams> {
+class DomainTogglerDialog
+  extends LitElement
+  implements OppDialog<HaDomainTogglerDialogParams>
+{
   public opp!: OpenPeerPower;
 
-  @internalProperty() private _params?: HaDomainTogglerDialogParams;
+  @state() private _params?: HaDomainTogglerDialogParams;
 
   public showDialog(params: HaDomainTogglerDialogParams): void {
     this._params = params;
@@ -44,7 +39,7 @@ class DomainTogglerDialog extends LitElement
       .sort();
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         scrimClickAction
@@ -76,7 +71,7 @@ class DomainTogglerDialog extends LitElement
               `
           )}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -90,11 +85,11 @@ class DomainTogglerDialog extends LitElement
     ev.currentTarget.blur();
   }
 
-  static get styles(): CSSResultArray {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 500px;
         }
         div {

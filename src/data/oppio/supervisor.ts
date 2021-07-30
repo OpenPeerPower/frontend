@@ -128,7 +128,7 @@ export const fetchOppioOpenPeerPowerInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioOpenPeerPowerInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/core/info",
       method: "get",
@@ -147,7 +147,7 @@ export const fetchOppioSupervisorInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioSupervisorInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/supervisor/info",
       method: "get",
@@ -166,7 +166,7 @@ export const fetchOppioInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/info",
       method: "get",
@@ -178,9 +178,8 @@ export const fetchOppioInfo = async (
   );
 };
 
-export const fetchOppioLogs = async (opp: OpenPeerPower, provider: string) => {
-  return opp.callApi<string>("GET", `oppio/${provider}/logs`);
-};
+export const fetchOppioLogs = async (opp: OpenPeerPower, provider: string) =>
+  opp.callApi<string>("GET", `oppio/${provider}/logs`);
 
 export const setSupervisorOption = async (
   opp: OpenPeerPower,

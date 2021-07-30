@@ -1,4 +1,4 @@
-import { TemplateResult } from "lit-html";
+import { TemplateResult } from "lit";
 import { fireEvent } from "../../common/dom/fire_event";
 import { HaFormSchema } from "../../components/ha-form/ha-form";
 import {
@@ -79,7 +79,20 @@ export interface FlowConfig {
     opp: OpenPeerPower,
     step: DataEntryFlowStepProgress
   ): TemplateResult | "";
+
+  renderLoadingDescription(
+    opp: OpenPeerPower,
+    loadingReason: LoadingReason,
+    handler?: string,
+    step?: DataEntryFlowStep | null
+  ): string;
 }
+
+export type LoadingReason =
+  | "loading_handlers"
+  | "loading_flow"
+  | "loading_step"
+  | "loading_devices_areas";
 
 export interface DataEntryFlowDialogParams {
   startFlowHandler?: string;

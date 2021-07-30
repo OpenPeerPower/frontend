@@ -1,3 +1,4 @@
+import { Layout1d, scroll } from "@lit-labs/virtualizer";
 import "@material/mwc-list/mwc-list";
 import type { List } from "@material/mwc-list/mwc-list";
 import { SingleSelectedEvent } from "@material/mwc-list/mwc-list-foundation";
@@ -11,18 +12,10 @@ import {
   mdiReload,
   mdiServerNetwork,
 } from "@mdi/js";
-import {
-  css,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  query,
-} from "lit-element";
-import { ifDefined } from "lit-html/directives/if-defined";
-import { styleMap } from "lit-html/directives/style-map";
-import { scroll } from "lit-virtualizer";
+import { css, html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators";
+import { ifDefined } from "lit/directives/if-defined";
+import { styleMap } from "lit/directives/style-map";
 import memoizeOne from "memoize-one";
 import { canShowPage } from "../../common/config/can_show_page";
 import { componentsWithService } from "../../common/config/components_with_service";
@@ -38,9 +31,10 @@ import {
   ScorableTextItem,
 } from "../../common/string/filter/sequence-matching";
 import { debounce } from "../../common/util/debounce";
-import "../../components/ha-circular-progress";
-import "../../components/ha-dialog";
-import "../../components/ha-header-bar";
+import "../../components/ha-chip";
+import "../../components/op-circular-progress";
+import "../../components/op-dialog";
+import "../../components/op-header-bar";
 import { domainToName } from "../../data/integration";
 import { getPanelNameTranslationKey } from "../../data/panel";
 import { PageNavigation } from "../../layouts/opp-tabs-subpage";
@@ -52,7 +46,6 @@ import {
   showConfirmationDialog,
 } from "../generic/show-dialog-box";
 import { QuickBarParams } from "./show-dialog-quick-bar";
-import "../../components/ha-chip";
 
 interface QuickBarItem extends ScorableTextItem {
   primaryText: string;
@@ -70,9 +63,8 @@ interface EntityItem extends QuickBarItem {
   icon?: string;
 }
 
-const isCommandItem = (item: QuickBarItem): item is CommandItem => {
-  return (item as CommandItem).categoryKey !== undefined;
-};
+const isCommandItem = (item: QuickBarItem): item is CommandItem =>
+  (item as CommandItem).categoryKey !== undefined;
 
 interface QuickBarNavigationItem extends CommandItem {
   path: string;
@@ -88,19 +80,19 @@ type BaseNavigationCommand = Pick<
 export class QuickBar extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _commandItems?: CommandItem[];
+  @state() private _commandItems?: CommandItem[];
 
-  @internalProperty() private _entityItems?: EntityItem[];
+  @state() private _entityItems?: EntityItem[];
 
-  @internalProperty() private _filter = "";
+  @state() private _filter = "";
 
-  @internalProperty() private _search = "";
+  @state() private _search = "";
 
-  @internalProperty() private _opened = false;
+  @state() private _opened = false;
 
-  @internalProperty() private _commandMode = false;
+  @state() private _commandMode = false;
 
-  @internalProperty() private _done = false;
+  @state() private _done = false;
 
   @query("paper-input", false) private _filterInputField?: HTMLElement;
 
@@ -135,7 +127,7 @@ export class QuickBar extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         .heading=${true}
         open
         @opened=${this._handleOpened}
@@ -148,7 +140,9 @@ export class QuickBar extends LitElement {
           slot="heading"
           class="heading"
           @value-changed=${this._handleSearchChange}
-          .label=${this.opp.localize("ui.dialogs.quick-bar.filter_placeholder")}
+          .label=${this.opp.localize(
+            "ui.dialogs.quick-bar.filter_placeholder"
+          )}
           .value=${this._commandMode ? `>${this._search}` : this._search}
           @keydown=${this._handleInputKeyDown}
           @focus=${this._setFocusFirstListItem}
@@ -176,10 +170,10 @@ export class QuickBar extends LitElement {
           `}
         </paper-input>
         ${!items
-          ? html`<ha-circular-progress
+          ? html`<op-circular-progress
               size="small"
               active
-            ></ha-circular-progress>`
+            ></op-circular-progress>`
           : html`<mwc-list
               @rangechange=${this._handleRangeChanged}
               @keydown=${this._handleListItemKeyDown}
@@ -193,11 +187,12 @@ export class QuickBar extends LitElement {
             >
               ${scroll({
                 items,
-                renderItem: (item: QuickBarItem, index?: number) =>
+                layout: Layout1d,
+                renderItem: (item: QuickBarItem, index) =>
                   this._renderItem(item, index),
               })}
             </mwc-list>`}
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -227,6 +222,9 @@ export class QuickBar extends LitElement {
   }
 
   private _renderItem(item: QuickBarItem, index?: number) {
+    if (!item) {
+      return html``;
+    }
     return isCommandItem(item)
       ? this._renderCommandItem(item, index)
       : this._renderEntityItem(item as EntityItem, index);
@@ -324,7 +322,7 @@ export class QuickBar extends LitElement {
   }
 
   private _addSpinnerToCommandItem(index: number): void {
-    const spinner = document.createElement("ha-circular-progress");
+    const spinner = document.createElement("op-circular-progress");
     spinner.size = "small";
     spinner.slot = "meta";
     spinner.active = true;
@@ -420,7 +418,9 @@ export class QuickBar extends LitElement {
     return reloadableDomains.map((domain) => {
       const commandItem = {
         primaryText:
-          this.opp.localize(`ui.dialogs.quick-bar.commands.reload.${domain}`) ||
+          this.opp.localize(
+            `ui.dialogs.quick-bar.commands.reload.${domain}`
+          ) ||
           this.opp.localize(
             "ui.dialogs.quick-bar.commands.reload.reload",
             "domain",
@@ -559,7 +559,7 @@ export class QuickBar extends LitElement {
         categoryText: this.opp.localize(
           `ui.dialogs.quick-bar.commands.types.${categoryKey}`
         ),
-        action: () => navigate(this, item.path),
+        action: () => navigate(item.path),
       };
 
       return {
@@ -575,9 +575,8 @@ export class QuickBar extends LitElement {
   }
 
   private _filterItems = memoizeOne(
-    (items: QuickBarItem[], filter: string): QuickBarItem[] => {
-      return fuzzyFilterSort<QuickBarItem>(filter.trimLeft(), items);
-    }
+    (items: QuickBarItem[], filter: string): QuickBarItem[] =>
+      fuzzyFilterSort<QuickBarItem>(filter.trimLeft(), items)
   );
 
   static get styles() {
@@ -588,13 +587,13 @@ export class QuickBar extends LitElement {
           padding: 8px 20px 0px;
         }
 
-        ha-dialog {
+        op-dialog {
           --dialog-z-index: 8;
           --dialog-content-padding: 0;
         }
 
         @media (min-width: 800px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 800px;
             --mdc-dialog-min-width: 500px;
             --dialog-surface-position: fixed;
@@ -619,36 +618,24 @@ export class QuickBar extends LitElement {
         }
 
         .command-category {
-          --op-chip-icon-color: #585858;
-          --op-chip-text-color: #212121;
+          --ha-chip-icon-color: #585858;
+          --ha-chip-text-color: #212121;
         }
 
         .command-category.reload {
-          --op-chip-background-color: #cddc39;
+          --ha-chip-background-color: #cddc39;
         }
 
         .command-category.navigation {
-          --op-chip-background-color: var(--light-primary-color);
+          --ha-chip-background-color: var(--light-primary-color);
         }
 
         .command-category.server_control {
-          --op-chip-background-color: var(--warning-color);
+          --ha-chip-background-color: var(--warning-color);
         }
 
         span.command-text {
           margin-left: 8px;
-        }
-
-        .uni-virtualizer-host {
-          display: block;
-          position: relative;
-          contain: strict;
-          overflow: auto;
-          height: 100%;
-        }
-
-        .uni-virtualizer-host > * {
-          box-sizing: border-box;
         }
 
         mwc-list-item {

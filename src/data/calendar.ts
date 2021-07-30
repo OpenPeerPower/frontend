@@ -74,8 +74,8 @@ const getCalendarDate = (dateObj: any): string | undefined => {
   return undefined;
 };
 
-export const getCalendars = (opp: OpenPeerPower): Calendar[] => {
-  return Object.keys(opp.states)
+export const getCalendars = (opp: OpenPeerPower): Calendar[] =>
+  Object.keys(opp.states)
     .filter((eid) => computeDomain(eid) === "calendar")
     .sort()
     .map((eid, idx) => ({
@@ -83,4 +83,3 @@ export const getCalendars = (opp: OpenPeerPower): Calendar[] => {
       name: computeStateName(opp.states[eid]),
       backgroundColor: `#${HA_COLOR_PALETTE[idx % HA_COLOR_PALETTE.length]}`,
     }));
-};

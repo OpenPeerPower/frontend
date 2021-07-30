@@ -1,11 +1,10 @@
 import "@material/mwc-button";
 import "@polymer/iron-flex-layout/iron-flex-layout-classes";
-import "@polymer/iron-input/iron-input";
 import "@polymer/paper-input/paper-input";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-markdown";
 
 class MoreInfoConfigurator extends PolymerElement {
@@ -38,7 +37,7 @@ class MoreInfoConfigurator extends PolymerElement {
           height: 41px;
         }
 
-        ha-circular-progress {
+        op-circular-progress {
           width: 14px;
           height: 14px;
           margin-right: 20px;
@@ -75,11 +74,11 @@ class MoreInfoConfigurator extends PolymerElement {
               disabled="[[isConfiguring]]"
               on-click="submitClicked"
             >
-              <ha-circular-progress
+              <op-circular-progress
                 active="[[isConfiguring]]"
                 hidden="[[!isConfiguring]]"
                 alt="Configuring"
-              ></ha-circular-progress>
+              ></op-circular-progress>
               [[stateObj.attributes.submit_caption]]
             </mwc-button>
           </p>
@@ -136,12 +135,12 @@ class MoreInfoConfigurator extends PolymerElement {
     this.isConfiguring = true;
 
     this.opp.callService("configurator", "configure", data).then(
-      function () {
+      () => {
         this.isConfiguring = false;
-      }.bind(this),
-      function () {
+      },
+      () => {
         this.isConfiguring = false;
-      }.bind(this)
+      }
     );
   }
 }

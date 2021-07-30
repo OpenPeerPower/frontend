@@ -1,13 +1,10 @@
-import "@material/mwc-dialog";
-import type { Dialog } from "@material/mwc-dialog";
-import { style } from "@material/mwc-dialog/mwc-dialog-css";
+import { Dialog } from "@material/mwc-dialog";
 import { mdiClose } from "@mdi/js";
-import { css, CSSResult, customElement, html } from "lit-element";
+import { css, CSSResultGroup, html } from "lit";
+import { customElement } from "lit/decorators";
 import { computeRTLDirection } from "../common/util/compute_rtl";
-import type { Constructor, OpenPeerPower } from "../types";
+import type { OpenPeerPower } from "../types";
 import "./ha-icon-button";
-
-const MwcDialog = customElements.get("mwc-dialog") as Constructor<Dialog>;
 
 export const createCloseHeading = (opp: OpenPeerPower, title: string) => html`
   <span class="header_title">${title}</span>
@@ -21,21 +18,20 @@ export const createCloseHeading = (opp: OpenPeerPower, title: string) => html`
   </mwc-icon-button>
 `;
 
-@customElement("ha-dialog")
-export class HaDialog extends MwcDialog {
+@customElement("op-dialog")
+// @ts-expect-error
+export class HaDialog extends Dialog {
   public scrollToPos(x: number, y: number) {
     this.contentElement.scrollTo(x, y);
   }
 
   protected renderHeading() {
-    return html`<slot name="heading">
-      ${super.renderHeading()}
-    </slot>`;
+    return html`<slot name="heading"> ${super.renderHeading()} </slot>`;
   }
 
-  protected static get styles(): CSSResult[] {
+  protected static get styles(): CSSResultGroup {
     return [
-      style,
+      Dialog.styles,
       css`
         .mdc-dialog {
           --mdc-dialog-scroll-divider-color: var(--divider-color);
@@ -97,6 +93,6 @@ export class HaDialog extends MwcDialog {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-dialog": HaDialog;
+    "op-dialog": HaDialog;
   }
 }

@@ -1,13 +1,5 @@
-import {
-  css,
-  CSSResultArray,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent, OPPDomEvent } from "../../common/dom/fire_event";
 import type {
   MediaPickedEvent,
@@ -15,7 +7,7 @@ import type {
 } from "../../data/media-player";
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
-import "../ha-dialog";
+import "../op-dialog";
 import "./ha-media-player-browse";
 import { MediaPlayerBrowseDialogParams } from "./show-media-browser-dialog";
 
@@ -23,15 +15,15 @@ import { MediaPlayerBrowseDialogParams } from "./show-media-browser-dialog";
 class DialogMediaPlayerBrowse extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _entityId!: string;
+  @state() private _entityId!: string;
 
-  @internalProperty() private _mediaContentId?: string;
+  @state() private _mediaContentId?: string;
 
-  @internalProperty() private _mediaContentType?: string;
+  @state() private _mediaContentType?: string;
 
-  @internalProperty() private _action?: MediaPlayerBrowseAction;
+  @state() private _action?: MediaPlayerBrowseAction;
 
-  @internalProperty() private _params?: MediaPlayerBrowseDialogParams;
+  @state() private _params?: MediaPlayerBrowseDialogParams;
 
   public showDialog(params: MediaPlayerBrowseDialogParams): void {
     this._params = params;
@@ -52,7 +44,7 @@ class DialogMediaPlayerBrowse extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         scrimClickAction
         escapeKeyAction
@@ -70,7 +62,7 @@ class DialogMediaPlayerBrowse extends LitElement {
           @close-dialog=${this.closeDialog}
           @media-picked=${this._mediaPicked}
         ></ha-media-player-browse>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -81,11 +73,11 @@ class DialogMediaPlayerBrowse extends LitElement {
     }
   }
 
-  static get styles(): CSSResultArray {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --dialog-z-index: 8;
           --dialog-content-padding: 0;
         }
@@ -95,7 +87,7 @@ class DialogMediaPlayerBrowse extends LitElement {
         }
 
         @media (min-width: 800px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 800px;
             --dialog-surface-position: fixed;
             --dialog-surface-top: 40px;

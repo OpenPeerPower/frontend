@@ -1,16 +1,8 @@
 import "@material/mwc-button";
 import type { Button } from "@material/mwc-button";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  query,
-  TemplateResult,
-} from "lit-element";
-import "../ha-circular-progress";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, query } from "lit/decorators";
+import "../op-circular-progress";
 
 @customElement("ha-progress-button")
 class HaProgressButton extends LitElement {
@@ -33,7 +25,7 @@ class HaProgressButton extends LitElement {
       </mwc-button>
       ${this.progress
         ? html`<div class="progress">
-            <ha-circular-progress size="small" active></ha-circular-progress>
+            <op-circular-progress size="small" active></op-circular-progress>
           </div>`
         : ""}
     `;
@@ -60,7 +52,7 @@ class HaProgressButton extends LitElement {
     }
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       :host {
         outline: none;

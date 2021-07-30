@@ -24,12 +24,17 @@ export interface IntegrationManifest {
     | "local_push";
 }
 
+export interface IntegrationSetup {
+  domain: string;
+  seconds?: number;
+}
+
 export const integrationIssuesUrl = (
   domain: string,
   manifest: IntegrationManifest
 ) =>
   manifest.issue_tracker ||
-  `https://github.com/openpeerpower/openpeerpower/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+${domain}%22`;
+  `https://github.com/open-peer-power/open-peer-power/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+${domain}%22`;
 
 export const domainToName = (
   localize: LocalizeFunc,
@@ -44,3 +49,6 @@ export const fetchIntegrationManifest = (
   opp: OpenPeerPower,
   integration: string
 ) => opp.callWS<IntegrationManifest>({ type: "manifest/get", integration });
+
+export const fetchIntegrationSetups = (opp: OpenPeerPower) =>
+  opp.callWS<IntegrationSetup[]>({ type: "integration/setup_info" });

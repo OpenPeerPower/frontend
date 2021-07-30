@@ -1,4 +1,4 @@
-import { customElement, property } from "lit-element";
+import { customElement, property } from "lit/decorators";
 import { OppioPanelInfo } from "../../src/data/oppio/supervisor";
 import { Supervisor } from "../../src/data/supervisor/supervisor";
 import {
@@ -61,11 +61,10 @@ class OppioRouter extends OppRouterPage {
     el.opp = this.opp;
     el.narrow = this.narrow;
     el.route = route;
+    el.supervisor = this.supervisor;
 
     if (el.localName === "oppio-ingress-view") {
       el.ingressPanel = this.panel.config && this.panel.config.ingress;
-    } else {
-      el.supervisor = this.supervisor;
     }
   }
 

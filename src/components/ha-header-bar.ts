@@ -1,8 +1,9 @@
 // @ts-ignore
 import topAppBarStyles from "@material/top-app-bar/dist/mdc.top-app-bar.min.css";
-import { css, customElement, html, LitElement, unsafeCSS } from "lit-element";
+import { css, html, LitElement, unsafeCSS } from "lit";
+import { customElement } from "lit/decorators";
 
-@customElement("ha-header-bar")
+@customElement("op-header-bar")
 export class HaHeaderBar extends LitElement {
   protected render() {
     return html`<header class="mdc-top-app-bar">
@@ -42,6 +43,6 @@ export class HaHeaderBar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-header-bar": HaHeaderBar;
+    "op-header-bar": HaHeaderBar;
   }
 }

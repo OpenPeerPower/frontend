@@ -25,11 +25,14 @@ import { subscribeUser } from "../data/ws-user";
 import type { ExternalAuth } from "../external_app/external_auth";
 import "../resources/safari-14-attachshadow-patch";
 import { OpenPeerPower } from "../types";
+import { MAIN_WINDOW_NAME } from "../data/main_window";
+
+window.name = MAIN_WINDOW_NAME;
 
 declare global {
   interface Window {
-    oppConnection: Promise<{ auth: Auth; conn: Connection }>;
-    oppConnectionReady?: (oppConnection: Window["oppConnection"]) => void;
+    hassConnection: Promise<{ auth: Auth; conn: Connection }>;
+    hassConnectionReady?: (hassConnection: Window["hassConnection"]) => void;
   }
 }
 
@@ -51,7 +54,7 @@ const connProm = async (auth) => {
     // Clear auth data from url if we have been able to establish a connection
     if (location.search.includes("auth_callback=1")) {
       const searchParams = new URLSearchParams(location.search);
-      // https://github.com/openpeerpower/openpeerpower-js-websocket/blob/master/lib/auth.ts
+      // https://github.com/open-peer-power/ openpeerpower-js-websocket/blob/master/lib/auth.ts
       // Remove all data from QueryCallbackData type
       searchParams.delete("auth_callback");
       searchParams.delete("code");
@@ -127,13 +130,13 @@ window.addEventListener("error", (e) => {
     e.stopPropagation();
     return;
   }
-  const openPeerPower = document.querySelector("openpeerpower-js") as any;
+  const homeAssistant = document.querySelector("open-peer-power") as any;
   if (
-    openPeerPower &&
-    openPeerPower.opp &&
-    (openPeerPower.opp as OpenPeerPower).callService
+    homeAssistant &&
+    homeAssistant.opp &&
+    (homeAssistant.opp as OpenPeerPower).callService
   ) {
-    openPeerPower.opp.callService("system_log", "write", {
+    homeAssistant.opp.callService("system_log", "write", {
       logger: `frontend.${
         __DEV__ ? "js_dev" : "js"
       }.${__BUILD__}.${__VERSION__.replace(".", "")}`,

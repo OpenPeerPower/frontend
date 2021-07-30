@@ -1,8 +1,9 @@
-import type { LitElement } from "lit-element";
+import type { LitElement } from "lit";
 import type { ClassElement } from "../../types";
 
-export const restoreScroll = (selector: string): any => {
-  return (element: ClassElement) => ({
+export const restoreScroll =
+  (selector: string): any =>
+  (element: ClassElement) => ({
     kind: "method",
     placement: "prototype",
     key: element.key,
@@ -30,4 +31,3 @@ export const restoreScroll = (selector: string): any => {
       };
     },
   });
-};

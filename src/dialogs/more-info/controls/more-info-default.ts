@@ -1,11 +1,6 @@
 import { OppEntity } from "openpeerpower-js-websocket";
-import {
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import "../../../components/ha-attributes";
 import { OpenPeerPower } from "../../../types";
 
@@ -20,7 +15,10 @@ class MoreInfoDefault extends LitElement {
       return html``;
     }
 
-    return html` <ha-attributes .stateObj=${this.stateObj}></ha-attributes> `;
+    return html`<ha-attributes
+      .opp=${this.opp}
+      .stateObj=${this.stateObj}
+    ></ha-attributes>`;
   }
 }
 

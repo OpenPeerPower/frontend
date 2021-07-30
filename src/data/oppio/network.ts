@@ -56,7 +56,7 @@ export const fetchNetworkInfo = async (
   opp: OpenPeerPower
 ): Promise<NetworkInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/network/info",
       method: "get",
@@ -64,7 +64,10 @@ export const fetchNetworkInfo = async (
   }
 
   return oppioApiResultExtractor(
-    await opp.callApi<OppioResponse<NetworkInfo>>("GET", "oppio/network/info")
+    await opp.callApi<OppioResponse<NetworkInfo>>(
+      "GET",
+      "oppio/network/info"
+    )
   );
 };
 
@@ -96,7 +99,7 @@ export const accesspointScan = async (
   network_interface: string
 ): Promise<AccessPoints> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/network/interface/${network_interface}/accesspoints`,
       method: "get",

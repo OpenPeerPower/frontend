@@ -1,14 +1,7 @@
 import "@material/mwc-button";
 import { OppEntity } from "openpeerpower-js-websocket";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import "../../../components/ha-relative-time";
 import { triggerAutomationActions } from "../../../data/automation";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
@@ -26,6 +19,7 @@ class MoreInfoAutomation extends LitElement {
     }
 
     return html`
+      <hr />
       <div class="flex">
         <div>${this.opp.localize("ui.card.automation.last_triggered")}:</div>
         <ha-relative-time
@@ -49,7 +43,7 @@ class MoreInfoAutomation extends LitElement {
     triggerAutomationActions(this.opp, this.stateObj!.entity_id);
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       .flex {
         display: flex;
@@ -60,6 +54,11 @@ class MoreInfoAutomation extends LitElement {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+      }
+      hr {
+        border-color: var(--divider-color);
+        border-bottom: none;
+        margin: 16px 0;
       }
     `;
   }

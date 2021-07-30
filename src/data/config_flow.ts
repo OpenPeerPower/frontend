@@ -13,6 +13,7 @@ export const DISCOVERY_SOURCES = [
   "zeroconf",
   "discovery",
   "mqtt",
+  "oppio",
 ];
 
 export const ATTENTION_SOURCES = ["reauth"];

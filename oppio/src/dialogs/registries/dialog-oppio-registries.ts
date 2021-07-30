@@ -3,16 +3,8 @@ import "@material/mwc-icon-button/mwc-icon-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiDelete } from "@mdi/js";
 import { PaperInputElement } from "@polymer/paper-input/paper-input";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import "../../../../src/components/ha-circular-progress";
 import { createCloseHeading } from "../../../../src/components/ha-dialog";
 import "../../../../src/components/ha-svg-icon";
@@ -39,21 +31,21 @@ class OppioRegistriesDialog extends LitElement {
     username: string;
   }[];
 
-  @internalProperty() private _registry?: string;
+  @state() private _registry?: string;
 
-  @internalProperty() private _username?: string;
+  @state() private _username?: string;
 
-  @internalProperty() private _password?: string;
+  @state() private _password?: string;
 
-  @internalProperty() private _opened = false;
+  @state() private _opened = false;
 
-  @internalProperty() private _addingRegistry = false;
+  @state() private _addingRegistry = false;
 
   protected render(): TemplateResult {
     return html`
       <ha-dialog
         .open=${this._opened}
-        @closing=${this.closeDialog}
+        @closed=${this.closeDialog}
         scrimClickAction
         escapeKeyAction
         .heading=${createCloseHeading(
@@ -108,8 +100,8 @@ class OppioRegistriesDialog extends LitElement {
                 </mwc-button>
               `
             : html`${this._registries?.length
-                  ? this._registries.map((entry) => {
-                      return html`
+                  ? this._registries.map(
+                      (entry) => html`
                         <mwc-list-item class="option" hasMeta twoline>
                           <span>${entry.registry}</span>
                           <span slot="secondary"
@@ -129,8 +121,8 @@ class OppioRegistriesDialog extends LitElement {
                             <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
                           </mwc-icon-button>
                         </mwc-list-item>
-                      `;
-                    })
+                      `
+                    )
                   : html`
                       <mwc-list-item>
                         <span
@@ -169,9 +161,9 @@ class OppioRegistriesDialog extends LitElement {
 
   public focus(): void {
     this.updateComplete.then(() =>
-      (this.shadowRoot?.querySelector(
-        "[dialogInitialFocus]"
-      ) as HTMLElement)?.focus()
+      (
+        this.shadowRoot?.querySelector("[dialogInitialFocus]") as HTMLElement
+      )?.focus()
     );
   }
 
@@ -220,7 +212,7 @@ class OppioRegistriesDialog extends LitElement {
     }
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       haStyleDialog,
@@ -251,9 +243,6 @@ class OppioRegistriesDialog extends LitElement {
         }
         mwc-list-item span[slot="secondary"] {
           color: var(--secondary-text-color);
-        }
-        ha-paper-dropdown-menu {
-          display: block;
         }
       `,
     ];

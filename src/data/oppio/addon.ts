@@ -2,7 +2,11 @@ import { atLeastVersion } from "../../common/config/version";
 import { HaFormSchema } from "../../components/ha-form/ha-form";
 import { OpenPeerPower } from "../../types";
 import { SupervisorArch } from "../supervisor/supervisor";
-import { oppioApiResultExtractor, OppioResponse } from "./common";
+import {
+  extractApiErrorMessage,
+  oppioApiResultExtractor,
+  OppioResponse,
+} from "./common";
 
 export type AddonStage = "stable" | "experimental" | "deprecated";
 export type AddonAppArmour = "disable" | "default" | "profile";
@@ -135,7 +139,7 @@ export const fetchOppioAddonsInfo = async (
   opp: OpenPeerPower
 ): Promise<OppioAddonsInfo> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: "/addons",
       method: "get",
@@ -152,7 +156,7 @@ export const fetchOppioAddonInfo = async (
   slug: string
 ): Promise<OppioAddonDetails> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/addons/${slug}/info`,
       method: "get",
@@ -170,20 +174,15 @@ export const fetchOppioAddonInfo = async (
 export const fetchOppioAddonChangelog = async (
   opp: OpenPeerPower,
   slug: string
-) => {
-  return opp.callApi<string>("GET", `oppio/addons/${slug}/changelog`);
-};
+) => opp.callApi<string>("GET", `oppio/addons/${slug}/changelog`);
 
-export const fetchOppioAddonLogs = async (opp: OpenPeerPower, slug: string) => {
-  return opp.callApi<string>("GET", `oppio/addons/${slug}/logs`);
-};
+export const fetchOppioAddonLogs = async (opp: OpenPeerPower, slug: string) =>
+  opp.callApi<string>("GET", `oppio/addons/${slug}/logs`);
 
 export const fetchOppioAddonDocumentation = async (
   opp: OpenPeerPower,
   slug: string
-) => {
-  return opp.callApi<string>("GET", `oppio/addons/${slug}/documentation`);
-};
+) => opp.callApi<string>("GET", `oppio/addons/${slug}/documentation`);
 
 export const setOppioAddonOption = async (
   opp: OpenPeerPower,
@@ -191,16 +190,20 @@ export const setOppioAddonOption = async (
   data: OppioAddonSetOptionParams
 ) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    await opp.callWS({
+    const response = await opp.callWS<OppioResponse<any>>({
       type: "supervisor/api",
       endpoint: `/addons/${slug}/options`,
       method: "post",
       data,
     });
-    return;
+
+    if (response.result === "error") {
+      throw Error(extractApiErrorMessage(response));
+    }
+    return response;
   }
 
-  await opp.callApi<OppioResponse<void>>(
+  return opp.callApi<OppioResponse<any>>(
     "POST",
     `oppio/addons/${slug}/options`,
     data
@@ -209,13 +212,15 @@ export const setOppioAddonOption = async (
 
 export const validateOppioAddonOption = async (
   opp: OpenPeerPower,
-  slug: string
+  slug: string,
+  data?: any
 ): Promise<{ message: string; valid: boolean }> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/addons/${slug}/options/validate`,
       method: "post",
+      data,
     });
   }
 
@@ -229,7 +234,7 @@ export const validateOppioAddonOption = async (
 
 export const startOppioAddon = async (opp: OpenPeerPower, slug: string) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/addons/${slug}/start`,
       method: "post",
@@ -242,7 +247,7 @@ export const startOppioAddon = async (opp: OpenPeerPower, slug: string) => {
 
 export const stopOppioAddon = async (opp: OpenPeerPower, slug: string) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/addons/${slug}/stop`,
       method: "post",
@@ -334,7 +339,10 @@ export const restartOppioAddon = async (
   );
 };
 
-export const uninstallOppioAddon = async (opp: OpenPeerPower, slug: string) => {
+export const uninstallOppioAddon = async (
+  opp: OpenPeerPower,
+  slug: string
+) => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
     await opp.callWS({
       type: "supervisor/api",

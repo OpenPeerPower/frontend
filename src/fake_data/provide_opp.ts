@@ -5,10 +5,10 @@ import {
 } from "../common/dom/apply_themes_on_element";
 import { computeLocalize } from "../common/translations/localize";
 import { DEFAULT_PANEL } from "../data/panel";
-import { NumberFormat } from "../data/translation";
+import { NumberFormat, TimeFormat } from "../data/translation";
 import { translationMetadata } from "../resources/translations-metadata";
 import { OpenPeerPower } from "../types";
-import { getTranslation, getLocalLanguage } from "../util/opp-translation";
+import { getLocalLanguage, getTranslation } from "../util/opp-translation";
 import { demoConfig } from "./demo_config";
 import { demoPanels } from "./demo_panels";
 import { demoServices } from "./demo_services";
@@ -30,6 +30,7 @@ export interface MockOpenPeerPower extends OpenPeerPower {
   updateStates(newStates: OppEntities);
   addEntities(entites: Entity | Entity[], replace?: boolean);
   updateTranslations(fragment: null | string, language?: string);
+  addTranslations(translations: Record<string, string>, language?: string);
   mockWS(
     type: string,
     callback: (msg: any, onChange?: (response: any) => void) => any
@@ -60,15 +61,25 @@ export const provideOpp = (
   ) {
     const lang = language || getLocalLanguage();
     const translation = await getTranslation(fragment, lang);
+    await addTranslations(translation.data, lang);
+  }
+
+  async function addTranslations(
+    translations: Record<string, string>,
+    language?: string
+  ) {
+    const lang = language || getLocalLanguage();
     const resources = {
       [lang]: {
         ...(opp().resources && opp().resources[lang]),
-        ...translation.data,
+        ...translations,
       },
     };
     opp().updateOpp({
       resources,
-      localize: await computeLocalize(elements[0], lang, resources),
+    });
+    opp().updateOpp({
+      localize: await computeLocalize(elements[0], lang, opp().resources),
     });
   }
 
@@ -119,7 +130,7 @@ export const provideOpp = (
   const localLanguage = getLocalLanguage();
   const noop = () => undefined;
 
-  const oppObj: MockOpenPeerPower = {
+  const hassObj: MockOpenPeerPower = {
     // Open Peer Power properties
     auth: {
       data: {
@@ -204,11 +215,15 @@ export const provideOpp = (
     locale: {
       language: localLanguage,
       number_format: NumberFormat.language,
+      time_format: TimeFormat.language,
     },
     resources: null as any,
     localize: () => "",
 
     translationMetadata: translationMetadata as any,
+    async loadBackendTranslation() {
+      return opp().localize;
+    },
     dockedSidebar: "auto",
     vibrate: true,
     suspendWhenHidden: false,
@@ -237,8 +252,8 @@ export const provideOpp = (
     },
     oppUrl: (path?) => path,
     fetchWithAuth: () => Promise.reject("Not implemented"),
-    sendWS: (msg) => oppObj.connection.sendMessage(msg),
-    callWS: (msg) => oppObj.connection.sendMessagePromise(msg),
+    sendWS: (msg) => hassObj.connection.sendMessage(msg),
+    callWS: (msg) => hassObj.connection.sendMessagePromise(msg),
 
     // Mock stuff
     mockEntities: entities,
@@ -250,6 +265,7 @@ export const provideOpp = (
     },
     updateStates,
     updateTranslations,
+    addTranslations,
     addEntities,
     mockWS(type, callback) {
       wsCommands[type] = callback;
@@ -280,9 +296,9 @@ export const provideOpp = (
     ...overrideData,
   };
 
-  // Update the elements. Note, we call it on oppObj so that if it was
+  // Update the elements. Note, we call it on hassObj so that if it was
   // overridden (like in the demo), it will still work.
-  oppObj.updateOpp(oppObj);
+  hassObj.updateOpp(hassObj);
 
   // @ts-ignore
   return oppObj;

@@ -1,18 +1,10 @@
 import "@material/mwc-button/mwc-button";
 import "@polymer/paper-input/paper-input";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-dialog";
+import "../../components/op-dialog";
 import "../../components/ha-switch";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { haStyleDialog } from "../../resources/styles";
@@ -23,9 +15,9 @@ import { DialogBoxParams } from "./show-dialog-box";
 class DialogBox extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _params?: DialogBoxParams;
+  @state() private _params?: DialogBoxParams;
 
-  @internalProperty() private _value?: string;
+  @state() private _value?: string;
 
   public async showDialog(params: DialogBoxParams): Promise<void> {
     this._params = params;
@@ -53,11 +45,11 @@ class DialogBox extends LitElement {
     const confirmPrompt = this._params.confirmation || this._params.prompt;
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         ?scrimClickAction=${confirmPrompt}
         ?escapeKeyAction=${confirmPrompt}
-        @closing=${this._dialogClosed}
+        @closed=${this._dialogClosed}
         defaultAction="ignore"
         .heading=${this._params.title
           ? this._params.title
@@ -111,7 +103,7 @@ class DialogBox extends LitElement {
             ? this._params.confirmText
             : this.opp.localize("ui.dialogs.generic.ok")}
         </mwc-button>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -154,7 +146,7 @@ class DialogBox extends LitElement {
     fireEvent(this, "dialog-closed", { dialog: this.localName });
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`
@@ -177,7 +169,7 @@ class DialogBox extends LitElement {
         .secondary {
           color: var(--secondary-text-color);
         }
-        ha-dialog {
+        op-dialog {
           /* Place above other dialogs */
           --dialog-z-index: 104;
         }

@@ -2,12 +2,9 @@ import { PageNavigation } from "../../layouts/opp-tabs-subpage";
 import { OpenPeerPower } from "../../types";
 import { isComponentLoaded } from "./is_component_loaded";
 
-export const canShowPage = (opp: OpenPeerPower, page: PageNavigation) => {
-  return (
-    (isCore(page) || isLoadedIntegration(opp, page)) &&
-    !hideAdvancedPage(opp, page)
-  );
-};
+export const canShowPage = (opp: OpenPeerPower, page: PageNavigation) =>
+  (isCore(page) || isLoadedIntegration(opp, page)) &&
+  !hideAdvancedPage(opp, page);
 
 const isLoadedIntegration = (opp: OpenPeerPower, page: PageNavigation) =>
   !page.component || isComponentLoaded(opp, page.component);

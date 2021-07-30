@@ -43,7 +43,17 @@ export const domainIcon = (
         : "opp:air-humidifier";
 
     case "lock":
-      return compareState === "unlocked" ? "opp:lock-open" : "opp:lock";
+      switch (compareState) {
+        case "unlocked":
+          return "opp:lock-open";
+        case "jammed":
+          return "opp:lock-alert";
+        case "locking":
+        case "unlocking":
+          return "opp:lock-clock";
+        default:
+          return "opp:lock";
+      }
 
     case "media_player":
       return compareState === "playing" ? "opp:cast-connected" : "opp:cast";
@@ -89,8 +99,6 @@ export const domainIcon = (
   }
 
   // eslint-disable-next-line
-  console.warn(
-    "Unable to find icon for domain " + domain + " (" + stateObj + ")"
-  );
+  console.warn(`Unable to find icon for domain ${domain}`);
   return DEFAULT_DOMAIN_ICON;
 };

@@ -14,18 +14,9 @@ import {
   OppServiceTarget,
   UnsubscribeFunc,
 } from "openpeerpower-js-websocket";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  query,
-  unsafeCSS,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+import { css, CSSResultGroup, html, LitElement, unsafeCSS } from "lit";
+import { customElement, property, state, query } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../common/dom/fire_event";
 import { ensureArray } from "../common/ensure-array";
 import { computeDomain } from "../common/entity/compute_domain";
@@ -86,19 +77,19 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
 
   @property({ type: Boolean, reflect: true }) public disabled = false;
 
-  @internalProperty() private _areas?: { [areaId: string]: AreaRegistryEntry };
+  @state() private _areas?: { [areaId: string]: AreaRegistryEntry };
 
-  @internalProperty() private _devices?: {
+  @state() private _devices?: {
     [deviceId: string]: DeviceRegistryEntry;
   };
 
-  @internalProperty() private _entities?: EntityRegistryEntry[];
+  @state() private _entities?: EntityRegistryEntry[];
 
-  @internalProperty() private _addMode?: "area_id" | "entity_id" | "device_id";
+  @state() private _addMode?: "area_id" | "entity_id" | "device_id";
 
   @query("#input") private _inputElement?;
 
-  public oppSubscribe(): UnsubscribeFunc[] {
+  public hassSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeAreaRegistry(this.opp.connection!, (areas) => {
         const areaLookup: { [areaId: string]: AreaRegistryEntry } = {};
@@ -534,7 +525,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
     return true;
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       ${unsafeCSS(chipStyles)}
       .mdc-chip {

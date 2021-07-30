@@ -3,7 +3,8 @@ import { OpenPeerPower } from "../../types";
 
 export interface OppioResponse<T> {
   data: T;
-  result: "ok";
+  message?: string;
+  result: "ok" | "error";
 }
 
 export interface OppioStats {
@@ -20,13 +21,12 @@ export interface OppioStats {
 export const oppioApiResultExtractor = <T>(response: OppioResponse<T>) =>
   response.data;
 
-export const extractApiErrorMessage = (error: any): string => {
-  return typeof error === "object"
+export const extractApiErrorMessage = (error: any): string =>
+  typeof error === "object"
     ? typeof error.body === "object"
       ? error.body.message || "Unknown error, see supervisor logs"
       : error.body || error.message || "Unknown error, see supervisor logs"
     : error;
-};
 
 const ignoredStatusCodes = new Set([502, 503, 504]);
 
@@ -50,7 +50,7 @@ export const fetchOppioStats = async (
   container: string
 ): Promise<OppioStats> => {
   if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-    return await opp.callWS({
+    return opp.callWS({
       type: "supervisor/api",
       endpoint: `/${container}/stats`,
       method: "get",

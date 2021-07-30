@@ -1,16 +1,8 @@
 import "@material/mwc-icon-button";
 import { mdiMenu } from "@mdi/js";
 import { UnsubscribeFunc } from "openpeerpower-js-websocket";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { computeDomain } from "../common/entity/compute_domain";
 import { subscribeNotifications } from "../data/persistent_notification";
@@ -25,7 +17,7 @@ class HaMenuButton extends LitElement {
 
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _hasNotifications = false;
+  @state() private _hasNotifications = false;
 
   private _alwaysVisible = false;
 
@@ -101,7 +93,6 @@ class HaMenuButton extends LitElement {
     this.style.display = newNarrow || this._alwaysVisible ? "initial" : "none";
 
     if (!newNarrow) {
-      this._hasNotifications = false;
       if (this._unsubNotifications) {
         this._unsubNotifications();
         this._unsubNotifications = undefined;
@@ -125,7 +116,7 @@ class HaMenuButton extends LitElement {
     fireEvent(this, "opp-toggle-menu");
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       :host {
         position: relative;

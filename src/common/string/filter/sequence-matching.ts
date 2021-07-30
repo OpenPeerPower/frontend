@@ -5,7 +5,7 @@ import { fuzzyScore } from "./filter";
  *   in that order, allowing for skipping. Ex: "chdr" exists in "chandelier")
  *
  * @param {string} filter - Sequence of letters to check for
- * @param {string} word - Word to check for sequence
+ * @param {ScorableTextItem} item - Item against whose strings will be checked
  *
  * @return {number} Score representing how well the word matches the filter. Return of 0 means no match.
  */
@@ -71,8 +71,8 @@ type FuzzyFilterSort = <T extends ScorableTextItem>(
   items: T[]
 ) => T[];
 
-export const fuzzyFilterSort: FuzzyFilterSort = (filter, items) => {
-  return items
+export const fuzzyFilterSort: FuzzyFilterSort = (filter, items) =>
+  items
     .map((item) => {
       item.score = fuzzySequentialMatch(filter, item);
       return item;
@@ -81,4 +81,3 @@ export const fuzzyFilterSort: FuzzyFilterSort = (filter, items) => {
     .sort(({ score: scoreA = 0 }, { score: scoreB = 0 }) =>
       scoreA > scoreB ? -1 : scoreA < scoreB ? 1 : 0
     );
-};

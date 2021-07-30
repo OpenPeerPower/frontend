@@ -42,6 +42,7 @@ export const FIXED_DOMAIN_ICONS = {
   remote: "opp:remote",
   scene: "opp:palette",
   script: "opp:script-text",
+  select: "opp:format-list-bulleted",
   sensor: "opp:eye",
   simple_alarm: "opp:bell",
   sun: "opp:white-balance-sunny",
@@ -83,6 +84,7 @@ export const DOMAINS_WITH_CARD = [
   "number",
   "scene",
   "script",
+  "select",
   "timer",
   "vacuum",
   "water_heater",
@@ -121,6 +123,7 @@ export const DOMAINS_HIDE_MORE_INFO = [
   "input_text",
   "number",
   "scene",
+  "select",
 ];
 
 /** Domains that should have the history hidden in the more info dialog. */

@@ -1,26 +1,17 @@
-import {
-  css,
-  customElement,
-  internalProperty,
-  LitElement,
-  property,
-  PropertyValues,
-  svg,
-} from "lit-element";
-import { ifDefined } from "lit-html/directives/if-defined";
-import { styleMap } from "lit-html/directives/style-map";
+import { css, LitElement, PropertyValues, svg } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { ifDefined } from "lit/directives/if-defined";
+import { styleMap } from "lit/directives/style-map";
 import { formatNumber } from "../common/string/format_number";
 import { afterNextRender } from "../common/util/render-status";
-import { FrontendTranslationData } from "../data/translation";
+import { FrontendLocaleData } from "../data/translation";
 import { getValueInPercentage, normalize } from "../util/calculate";
+import { isSafari } from "../util/is_safari";
 
 const getAngle = (value: number, min: number, max: number) => {
   const percentage = getValueInPercentage(normalize(value, min, max), min, max);
   return (percentage * 180) / 100;
 };
-
-// Workaround for https://github.com/openpeerpower/frontend/issues/6467
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 @customElement("ha-gauge")
 export class Gauge extends LitElement {
@@ -30,13 +21,13 @@ export class Gauge extends LitElement {
 
   @property({ type: Number }) public value = 0;
 
-  @property() public locale!: FrontendTranslationData;
+  @property() public locale!: FrontendLocaleData;
 
   @property() public label = "";
 
-  @internalProperty() private _angle = 0;
+  @state() private _angle = 0;
 
-  @internalProperty() private _updated = false;
+  @state() private _updated = false;
 
   protected firstUpdated(changedProperties: PropertyValues) {
     super.firstUpdated(changedProperties);
@@ -77,6 +68,7 @@ export class Gauge extends LitElement {
           )}
         >
         ${
+          // Workaround for https://github.com/open-peer-power/frontend/issues/6467
           isSafari
             ? svg`<animateTransform
                 attributeName="transform"

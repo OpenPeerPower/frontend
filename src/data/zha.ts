@@ -1,4 +1,5 @@
 import { OppEntity } from "openpeerpower-js-websocket";
+import { HaFormSchema } from "../components/ha-form/ha-form";
 import { OpenPeerPower } from "../types";
 
 export interface ZHAEntityReference extends OppEntity {
@@ -54,6 +55,52 @@ export interface Cluster {
   type: string;
 }
 
+export interface ClusterConfigurationData {
+  cluster_name: string;
+  cluster_id: number;
+  success: boolean;
+}
+
+export interface ClusterAttributeData {
+  cluster_name: string;
+  cluster_id: number;
+  attributes: AttributeConfigurationStatus[];
+}
+
+export interface AttributeConfigurationStatus {
+  id: number;
+  name: string;
+  success: boolean | undefined;
+  min: number;
+  max: number;
+  change: number;
+}
+
+export interface ClusterConfigurationStatus {
+  cluster: Cluster;
+  bindSuccess: boolean | undefined;
+  attributes: Map<number, AttributeConfigurationStatus>;
+}
+
+interface ClusterConfigurationBindEvent {
+  type: "zha_channel_bind";
+  zha_channel_msg_data: ClusterConfigurationData;
+}
+
+interface ClusterConfigurationReportConfigurationEvent {
+  type: "zha_channel_configure_reporting";
+  zha_channel_msg_data: ClusterAttributeData;
+}
+
+interface ClusterConfigurationEventFinish {
+  type: "zha_channel_cfg_done";
+}
+
+export type ClusterConfigurationEvent =
+  | ClusterConfigurationReportConfigurationEvent
+  | ClusterConfigurationBindEvent
+  | ClusterConfigurationEventFinish;
+
 export interface Command {
   name: string;
   id: number;
@@ -75,6 +122,11 @@ export interface ZHAGroup {
   members: ZHADeviceEndpoint[];
 }
 
+export interface ZHAConfiguration {
+  data: Record<string, Record<string, unknown>>;
+  schemas: Record<string, HaFormSchema[]>;
+}
+
 export interface ZHAGroupMember {
   ieee: string;
   endpoint_id: string;
@@ -83,16 +135,15 @@ export interface ZHAGroupMember {
 export const reconfigureNode = (
   opp: OpenPeerPower,
   ieeeAddress: string,
-  callbackFunction: any
-) => {
-  return opp.connection.subscribeMessage(
-    (message) => callbackFunction(message),
+  callbackFunction: (message: ClusterConfigurationEvent) => void
+) =>
+  opp.connection.subscribeMessage(
+    (message: ClusterConfigurationEvent) => callbackFunction(message),
     {
       type: "zha/devices/reconfigure",
       ieee: ieeeAddress,
     }
   );
-};
 
 export const refreshTopology = (opp: OpenPeerPower): Promise<void> =>
   opp.callWS({
@@ -188,12 +239,11 @@ export const unbindDeviceFromGroup = (
 export const readAttributeValue = (
   opp: OpenPeerPower,
   data: ReadAttributeServiceData
-): Promise<string> => {
-  return opp.callWS({
+): Promise<string> =>
+  opp.callWS({
     ...data,
     type: "zha/devices/clusters/attributes/value",
   });
-};
 
 export const fetchCommandsForCluster = (
   opp: OpenPeerPower,
@@ -282,6 +332,22 @@ export const addGroup = (
     members: membersToAdd,
   });
 
+export const fetchZHAConfiguration = (
+  opp: OpenPeerPower
+): Promise<ZHAConfiguration> =>
+  opp.callWS({
+    type: "zha/configuration",
+  });
+
+export const updateZHAConfiguration = (
+  opp: OpenPeerPower,
+  data: any
+): Promise<any> =>
+  opp.callWS({
+    type: "zha/configuration/update",
+    data: data,
+  });
+
 export const INITIALIZED = "INITIALIZED";
 export const INTERVIEW_COMPLETE = "INTERVIEW_COMPLETE";
 export const CONFIGURED = "CONFIGURED";
@@ -301,3 +367,7 @@ export const DEVICE_MESSAGE_TYPES = [
   DEVICE_FULLY_INITIALIZED,
 ];
 export const LOG_OUTPUT = "log_output";
+export const ZHA_CHANNEL_MSG = "zha_channel_message";
+export const ZHA_CHANNEL_MSG_BIND = "zha_channel_bind";
+export const ZHA_CHANNEL_MSG_CFG_RPT = "zha_channel_configure_reporting";
+export const ZHA_CHANNEL_CFG_DONE = "zha_channel_cfg_done";

@@ -1,13 +1,5 @@
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { createCloseHeading } from "../../../../src/components/ha-dialog";
 import "../../../../src/components/ha-markdown";
 import { haStyleDialog } from "../../../../src/resources/styles";
@@ -23,7 +15,7 @@ class OppioMarkdownDialog extends LitElement {
 
   @property() public content!: string;
 
-  @internalProperty() private _opened = false;
+  @state() private _opened = false;
 
   public showDialog(params: OppioMarkdownDialogParams) {
     this.title = params.title;
@@ -50,7 +42,7 @@ class OppioMarkdownDialog extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       oppioStyle,
@@ -68,10 +60,6 @@ class OppioMarkdownDialog extends LitElement {
         }
         app-toolbar [main-title] {
           margin-left: 16px;
-        }
-        paper-checkbox {
-          display: block;
-          margin: 4px;
         }
         @media all and (max-width: 450px), all and (max-height: 500px) {
           ha-paper-dialog {

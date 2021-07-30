@@ -1,3 +1,4 @@
+import { Connection } from "openpeerpower-js-websocket";
 import { HaFormSchema } from "../components/ha-form/ha-form";
 import { ConfigEntry } from "./config_entries";
 
@@ -28,6 +29,7 @@ export interface DataEntryFlowStepForm {
   data_schema: HaFormSchema[];
   errors: Record<string, string>;
   description_placeholders: Record<string, string>;
+  last_step: boolean | null;
 }
 
 export interface DataEntryFlowStepExternal {
@@ -73,3 +75,12 @@ export type DataEntryFlowStep =
   | DataEntryFlowStepCreateEntry
   | DataEntryFlowStepAbort
   | DataEntryFlowStepProgress;
+
+export const subscribeDataEntryFlowProgressed = (
+  conn: Connection,
+  callback: (ev: DataEntryFlowProgressedEvent) => void
+) =>
+  conn.subscribeEvents<DataEntryFlowProgressedEvent>(
+    callback,
+    "data_entry_flow_progressed"
+  );

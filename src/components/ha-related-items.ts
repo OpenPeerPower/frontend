@@ -1,15 +1,13 @@
 import { OppEntity, UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import {
   AreaRegistryEntry,
@@ -34,15 +32,15 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
 
   @property() public itemId!: string;
 
-  @internalProperty() private _entries?: ConfigEntry[];
+  @state() private _entries?: ConfigEntry[];
 
-  @internalProperty() private _devices?: DeviceRegistryEntry[];
+  @state() private _devices?: DeviceRegistryEntry[];
 
-  @internalProperty() private _areas?: AreaRegistryEntry[];
+  @state() private _areas?: AreaRegistryEntry[];
 
-  @internalProperty() private _related?: RelatedResult;
+  @state() private _related?: RelatedResult;
 
-  public oppSubscribe(): UnsubscribeFunc[] {
+  public hassSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeDeviceRegistry(this.opp.connection!, (devices) => {
         this._devices = devices;
@@ -155,9 +153,8 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
             </h3>
             <ul>
               ${this._related.entity.map((entityId) => {
-                const entity: OppEntity | undefined = this.opp.states[
-                  entityId
-                ];
+                const entity: OppEntity | undefined =
+                  this.opp.states[entityId];
                 if (!entity) {
                   return "";
                 }
@@ -205,9 +202,8 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
             <h3>${this.opp.localize("ui.components.related-items.scene")}:</h3>
             <ul>
               ${this._related.scene.map((sceneId) => {
-                const scene: SceneEntity | undefined = this.opp.states[
-                  sceneId
-                ];
+                const scene: SceneEntity | undefined =
+                  this.opp.states[sceneId];
                 if (!scene) {
                   return "";
                 }
@@ -233,9 +229,8 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
             </h3>
             <ul>
               ${this._related.automation.map((automationId) => {
-                const automation: OppEntity | undefined = this.opp.states[
-                  automationId
-                ];
+                const automation: OppEntity | undefined =
+                  this.opp.states[automationId];
                 if (!automation) {
                   return "";
                 }
@@ -262,9 +257,8 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
             </h3>
             <ul>
               ${this._related.script.map((scriptId) => {
-                const script: OppEntity | undefined = this.opp.states[
-                  scriptId
-                ];
+                const script: OppEntity | undefined =
+                  this.opp.states[scriptId];
                 if (!script) {
                   return "";
                 }
@@ -303,7 +297,7 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
     fireEvent(this, "opp-more-info", { entityId });
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       a {
         color: var(--primary-color);

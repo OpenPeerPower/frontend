@@ -1,6 +1,5 @@
-import { html } from "lit-element";
+import { html } from "lit";
 import { caseInsensitiveCompare } from "../../common/string/compare";
-import { localizeKey } from "../../common/translations/localize";
 import {
   createConfigFlow,
   deleteConfigFlow,
@@ -52,8 +51,7 @@ export const showConfigFlowDialog = (
     deleteFlow: deleteConfigFlow,
 
     renderAbortDescription(opp, step) {
-      const description = localizeKey(
-        opp.localize,
+      const description = opp.localize(
         `component.${step.handler}.config.abort.${step.reason}`,
         step.description_placeholders
       );
@@ -74,8 +72,7 @@ export const showConfigFlowDialog = (
     },
 
     renderShowFormStepDescription(opp, step) {
-      const description = localizeKey(
-        opp.localize,
+      const description = opp.localize(
         `component.${step.handler}.config.step.${step.step_id}.description`,
         step.description_placeholders
       );
@@ -93,7 +90,10 @@ export const showConfigFlowDialog = (
     },
 
     renderShowFormStepFieldError(opp, step, error) {
-      return opp.localize(`component.${step.handler}.config.error.${error}`);
+      return opp.localize(
+        `component.${step.handler}.config.error.${error}`,
+        step.description_placeholders
+      );
     },
 
     renderExternalStepHeader(opp, step) {
@@ -108,8 +108,7 @@ export const showConfigFlowDialog = (
     },
 
     renderExternalStepDescription(opp, step) {
-      const description = localizeKey(
-        opp.localize,
+      const description = opp.localize(
         `component.${step.handler}.config.${step.step_id}.description`,
         step.description_placeholders
       );
@@ -133,8 +132,7 @@ export const showConfigFlowDialog = (
     },
 
     renderCreateEntryDescription(opp, step) {
-      const description = localizeKey(
-        opp.localize,
+      const description = opp.localize(
         `component.${step.handler}.config.create_entry.${
           step.description || "default"
         }`,
@@ -170,8 +168,7 @@ export const showConfigFlowDialog = (
     },
 
     renderShowFormProgressDescription(opp, step) {
-      const description = localizeKey(
-        opp.localize,
+      const description = opp.localize(
         `component.${step.handler}.config.progress.${step.progress_action}`,
         step.description_placeholders
       );
@@ -180,5 +177,23 @@ export const showConfigFlowDialog = (
             <ha-markdown allowsvg breaks .content=${description}></ha-markdown>
           `
         : "";
+    },
+
+    renderLoadingDescription(opp, reason, handler, step) {
+      if (!["loading_flow", "loading_step"].includes(reason)) {
+        return "";
+      }
+      const domain = step?.handler || handler;
+      return opp.localize(
+        `ui.panel.config.integrations.config_flow.loading.${reason}`,
+        {
+          integration: domain
+            ? domainToName(opp.localize, domain)
+            : // when we are continuing a config flow, we only know the ID and not the domain
+              opp.localize(
+                "ui.panel.config.integrations.config_flow.loading.fallback_title"
+              ),
+        }
+      );
     },
   });

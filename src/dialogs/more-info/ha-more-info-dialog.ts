@@ -3,15 +3,9 @@ import "@material/mwc-icon-button";
 import "@material/mwc-tab";
 import "@material/mwc-tab-bar";
 import { mdiClose, mdiCog, mdiPencil } from "@mdi/js";
-import {
-  css,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-} from "lit-element";
-import { cache } from "lit-html/directives/cache";
+import { css, html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { cache } from "lit/directives/cache";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
 import {
   DOMAINS_MORE_INFO_NO_HISTORY,
@@ -21,8 +15,8 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { computeDomain } from "../../common/entity/compute_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { navigate } from "../../common/navigate";
-import "../../components/ha-dialog";
-import "../../components/ha-header-bar";
+import "../../components/op-dialog";
+import "../../components/op-header-bar";
 import "../../components/ha-svg-icon";
 import { removeEntityRegistryEntry } from "../../data/entity_registry";
 import { CONTINUOUS_DOMAINS } from "../../data/logbook";
@@ -31,11 +25,11 @@ import { haStyleDialog } from "../../resources/styles";
 import "../../state-summary/state-card-content";
 import { OpenPeerPower } from "../../types";
 import { showConfirmationDialog } from "../generic/show-dialog-box";
+import { replaceDialog } from "../make-dialog-manager";
 import "./controls/more-info-default";
 import "./ha-more-info-history";
 import "./ha-more-info-logbook";
 import "./more-info-content";
-import { replaceDialog } from "../make-dialog-manager";
 
 const DOMAINS_NO_INFO = ["camera", "configurator"];
 /**
@@ -58,9 +52,9 @@ export class MoreInfoDialog extends LitElement {
 
   @property({ type: Boolean, reflect: true }) public large = false;
 
-  @internalProperty() private _entityId?: string | null;
+  @state() private _entityId?: string | null;
 
-  @internalProperty() private _currTabIndex = 0;
+  @state() private _currTabIndex = 0;
 
   public showDialog(params: MoreInfoDialogParams) {
     this._entityId = params.entityId;
@@ -107,7 +101,7 @@ export class MoreInfoDialog extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         .heading=${true}
@@ -115,7 +109,7 @@ export class MoreInfoDialog extends LitElement {
         data-domain=${domain}
       >
         <div slot="heading" class="heading">
-          <ha-header-bar>
+          <op-header-bar>
             <mwc-icon-button
               slot="navigationIcon"
               dialogAction="cancel"
@@ -154,7 +148,7 @@ export class MoreInfoDialog extends LitElement {
                   </mwc-icon-button>
                 `
               : ""}
-          </ha-header-bar>
+          </op-header-bar>
           ${DOMAINS_WITH_MORE_INFO.includes(domain) &&
           (this._computeShowHistoryComponent(entityId) ||
             this._computeShowLogBookComponent(entityId))
@@ -243,7 +237,7 @@ export class MoreInfoDialog extends LitElement {
                 `
           )}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
@@ -312,7 +306,7 @@ export class MoreInfoDialog extends LitElement {
       idToPassThroughUrl = stateObj.attributes.id;
     }
 
-    navigate(this, `/config/${domain}/edit/${idToPassThroughUrl}`);
+    navigate(`/config/${domain}/edit/${idToPassThroughUrl}`);
     this.closeDialog();
   }
 
@@ -329,12 +323,12 @@ export class MoreInfoDialog extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --dialog-surface-position: static;
           --dialog-content-position: static;
         }
 
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;
@@ -342,7 +336,7 @@ export class MoreInfoDialog extends LitElement {
         }
 
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-header-bar {
+          op-header-bar {
             --mdc-theme-primary: var(--app-header-background-color);
             --mdc-theme-on-primary: var(--app-header-text-color, white);
             border-bottom: none;
@@ -355,7 +349,7 @@ export class MoreInfoDialog extends LitElement {
         }
 
         @media all and (min-width: 451px) and (min-height: 501px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 90vw;
           }
 
@@ -363,7 +357,7 @@ export class MoreInfoDialog extends LitElement {
             width: 352px;
           }
 
-          ha-header-bar {
+          op-header-bar {
             width: 400px;
           }
 
@@ -373,8 +367,8 @@ export class MoreInfoDialog extends LitElement {
             cursor: default;
           }
 
-          ha-dialog[data-domain="camera"] .content,
-          ha-dialog[data-domain="camera"] ha-header-bar {
+          op-dialog[data-domain="camera"] .content,
+          op-dialog[data-domain="camera"] op-header-bar {
             width: auto;
           }
 
@@ -382,13 +376,13 @@ export class MoreInfoDialog extends LitElement {
             width: calc(90vw - 48px);
           }
 
-          :host([large]) ha-dialog[data-domain="camera"] .content,
-          :host([large]) ha-header-bar {
+          :host([large]) op-dialog[data-domain="camera"] .content,
+          :host([large]) op-header-bar {
             width: 90vw;
           }
         }
 
-        ha-dialog[data-domain="camera"] {
+        op-dialog[data-domain="camera"] {
           --dialog-content-padding: 0;
         }
 

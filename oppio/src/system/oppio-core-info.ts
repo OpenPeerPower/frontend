@@ -1,18 +1,10 @@
 import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-button-menu";
+import "../../../src/components/op-button-menu";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-settings-row";
 import {
@@ -39,7 +31,7 @@ class OppioCoreInfo extends LitElement {
 
   @property({ attribute: false }) public supervisor!: Supervisor;
 
-  @internalProperty() private _metrics?: OppioStats;
+  @state() private _metrics?: OppioStats;
 
   protected render(): TemplateResult | void {
     const metrics = [
@@ -178,7 +170,7 @@ class OppioCoreInfo extends LitElement {
         folders: ["openpeerpower"],
         openpeerpower: true,
       },
-      updateHandler: async () => await this._updateCore(),
+      updateHandler: async () => this._updateCore(),
     });
   }
 
@@ -189,7 +181,7 @@ class OppioCoreInfo extends LitElement {
     });
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
@@ -230,7 +222,7 @@ class OppioCoreInfo extends LitElement {
           --mdc-theme-primary: var(--error-color);
         }
 
-        ha-button-menu {
+        op-button-menu {
           color: var(--secondary-text-color);
           --mdc-menu-min-width: 200px;
         }

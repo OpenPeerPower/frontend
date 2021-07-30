@@ -37,12 +37,11 @@ export const subscribeMQTTTopic = (
   opp: OpenPeerPower,
   topic: string,
   callback: (message: MQTTMessage) => void
-) => {
-  return opp.connection.subscribeMessage<MQTTMessage>(callback, {
+) =>
+  opp.connection.subscribeMessage<MQTTMessage>(callback, {
     type: "mqtt/subscribe",
     topic,
   });
-};
 
 export const removeMQTTDeviceEntry = (
   opp: OpenPeerPower,

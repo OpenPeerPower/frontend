@@ -1,119 +1,180 @@
 import "@material/mwc-button";
-import "@material/mwc-icon-button";
-import { ActionDetail } from "@material/mwc-list/mwc-list-foundation";
+import { ActionDetail } from "@material/mwc-list";
 import "@material/mwc-list/mwc-list-item";
-import {
-  mdiDotsVertical,
-  mdiPackageVariant,
-  mdiPackageVariantClosed,
-} from "@mdi/js";
-import "@polymer/paper-checkbox/paper-checkbox";
-import type { PaperCheckboxElement } from "@polymer/paper-checkbox/paper-checkbox";
-import "@polymer/paper-input/paper-input";
-import type { PaperInputElement } from "@polymer/paper-input/paper-input";
-import "@polymer/paper-radio-button/paper-radio-button";
-import "@polymer/paper-radio-group/paper-radio-group";
-import type { PaperRadioGroupElement } from "@polymer/paper-radio-group/paper-radio-group";
+import { mdiDelete, mdiDotsVertical, mdiPlus } from "@mdi/js";
 import {
   css,
-  CSSResultArray,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, query, state } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
+import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
-import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-button-menu";
-import "../../../src/components/ha-card";
-import "../../../src/components/ha-svg-icon";
+import relativeTime from "../../../src/common/datetime/relative_time";
+import { OPPDomEvent } from "../../../src/common/dom/fire_event";
+import {
+  DataTableColumnContainer,
+  RowClickedEvent,
+  SelectionChangedEvent,
+} from "../../../src/components/data-table/ha-data-table";
+import "../../../src/components/op-button-menu";
+import "../../../src/components/ha-fab";
 import { extractApiErrorMessage } from "../../../src/data/oppio/common";
 import {
-  createOppioFullSnapshot,
-  createOppioPartialSnapshot,
   fetchOppioSnapshots,
-  OppioFullSnapshotCreateParams,
-  OppioPartialSnapshotCreateParams,
+  friendlyFolderName,
   OppioSnapshot,
   reloadOppioSnapshots,
+  removeSnapshot,
 } from "../../../src/data/oppio/snapshot";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
-import { showAlertDialog } from "../../../src/dialogs/generic/show-dialog-box";
-import "../../../src/layouts/opp-tabs-subpage";
-import { PolymerChangedEvent } from "../../../src/polymer-types";
+import {
+  showAlertDialog,
+  showConfirmationDialog,
+} from "../../../src/dialogs/generic/show-dialog-box";
+import "../../../src/layouts/opp-tabs-subpage-data-table";
+import type { HaTabsSubpageDataTable } from "../../../src/layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../src/resources/styles";
 import { OpenPeerPower, Route } from "../../../src/types";
-import "../components/oppio-card-content";
-import "../components/oppio-upload-snapshot";
+import { showOppioCreateSnapshotDialog } from "../dialogs/snapshot/show-dialog-oppio-create-snapshot";
 import { showOppioSnapshotDialog } from "../dialogs/snapshot/show-dialog-oppio-snapshot";
 import { showSnapshotUploadDialog } from "../dialogs/snapshot/show-dialog-snapshot-upload";
 import { supervisorTabs } from "../oppio-tabs";
 import { oppioStyle } from "../resources/oppio-style";
 
-interface CheckboxItem {
-  slug: string;
-  checked: boolean;
-  name?: string;
-}
-
 @customElement("oppio-snapshots")
-class OppioSnapshots extends LitElement {
+export class OppioSnapshots extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
-
-  @property({ type: Boolean }) public narrow!: boolean;
-
-  @property({ attribute: false }) public route!: Route;
 
   @property({ attribute: false }) public supervisor!: Supervisor;
 
-  @internalProperty() private _snapshotName = "";
+  @property({ type: Object }) public route!: Route;
 
-  @internalProperty() private _snapshotPassword = "";
+  @property({ type: Boolean }) public narrow!: boolean;
 
-  @internalProperty() private _snapshotHasPassword = false;
+  @property({ type: Boolean }) public isWide!: boolean;
 
-  @internalProperty() private _snapshotType: OppioSnapshot["type"] = "full";
+  @state() private _selectedSnapshots: string[] = [];
 
-  @internalProperty() private _snapshots?: OppioSnapshot[] = [];
+  @state() private _snapshots?: OppioSnapshot[] = [];
 
-  @internalProperty() private _addonList: CheckboxItem[] = [];
+  @query("opp-tabs-subpage-data-table", true)
+  private _dataTable!: HaTabsSubpageDataTable;
 
-  @internalProperty() private _folderList: CheckboxItem[] = [
-    {
-      slug: "openpeerpower",
-      checked: true,
-    },
-    { slug: "ssl", checked: true },
-    { slug: "share", checked: true },
-    { slug: "media", checked: true },
-    { slug: "addons/local", checked: true },
-  ];
+  private _firstUpdatedCalled = false;
 
-  @internalProperty() private _error = "";
+  public connectedCallback(): void {
+    super.connectedCallback();
+    if (this.opp && this._firstUpdatedCalled) {
+      this.refreshData();
+    }
+  }
 
   public async refreshData() {
     await reloadOppioSnapshots(this.opp);
-    await this._updateSnapshots();
+    await this.fetchSnapshots();
   }
 
+  private _computeSnapshotContent = (snapshot: OppioSnapshot): string => {
+    if (snapshot.type === "full") {
+      return this.supervisor.localize("snapshot.full_snapshot");
+    }
+    const content: string[] = [];
+    if (snapshot.content.openpeerpower) {
+      content.push("Open Peer Power");
+    }
+    if (snapshot.content.folders.length !== 0) {
+      for (const folder of snapshot.content.folders) {
+        content.push(friendlyFolderName[folder] || folder);
+      }
+    }
+
+    if (snapshot.content.addons.length !== 0) {
+      for (const addon of snapshot.content.addons) {
+        content.push(
+          this.supervisor.supervisor.addons.find(
+            (entry) => entry.slug === addon
+          )?.name || addon
+        );
+      }
+    }
+
+    return content.join(", ");
+  };
+
+  protected firstUpdated(changedProperties: PropertyValues): void {
+    super.firstUpdated(changedProperties);
+    if (this.opp && this.isConnected) {
+      this.refreshData();
+    }
+    this._firstUpdatedCalled = true;
+  }
+
+  private _columns = memoizeOne(
+    (narrow: boolean): DataTableColumnContainer => ({
+      name: {
+        title: this.supervisor?.localize("snapshot.name") || "",
+        sortable: true,
+        filterable: true,
+        grows: true,
+        template: (entry: string, snapshot: any) =>
+          html`${entry || snapshot.slug}
+            <div class="secondary">${snapshot.secondary}</div>`,
+      },
+      date: {
+        title: this.supervisor?.localize("snapshot.created") || "",
+        width: "15%",
+        direction: "desc",
+        hidden: narrow,
+        filterable: true,
+        sortable: true,
+        template: (entry: string) =>
+          relativeTime(new Date(entry), this.opp.localize),
+      },
+      secondary: {
+        title: "",
+        hidden: true,
+        filterable: true,
+      },
+    })
+  );
+
+  private _snapshotData = memoizeOne((snapshots: OppioSnapshot[]) =>
+    snapshots.map((snapshot) => ({
+      ...snapshot,
+      secondary: this._computeSnapshotContent(snapshot),
+    }))
+  );
+
   protected render(): TemplateResult {
+    if (!this.supervisor) {
+      return html``;
+    }
     return html`
-      <opp-tabs-subpage
+      <opp-tabs-subpage-data-table
+        .tabs=${supervisorTabs}
         .opp=${this.opp}
         .localizeFunc=${this.supervisor.localize}
+        .searchLabel=${this.supervisor.localize("search")}
+        .noDataText=${this.supervisor.localize("snapshot.no_snapshots")}
         .narrow=${this.narrow}
         .route=${this.route}
-        .tabs=${supervisorTabs}
+        .columns=${this._columns(this.narrow)}
+        .data=${this._snapshotData(this._snapshots || [])}
+        id="slug"
+        @row-click=${this._handleRowClicked}
+        @selection-changed=${this._handleSelectionChanged}
+        clickable
+        selectable
+        hasFab
         main-page
         supervisor
       >
-        <span slot="header">
-          ${this.supervisor.localize("panel.snapshots")}
-        </span>
-        <ha-button-menu
+        <op-button-menu
           corner="BOTTOM_START"
           slot="toolbar-icon"
           @action=${this._handleAction}
@@ -122,172 +183,64 @@ class OppioSnapshots extends LitElement {
             <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
           </mwc-icon-button>
           <mwc-list-item>
-            ${this.supervisor.localize("common.reload")}
+            ${this.supervisor?.localize("common.reload")}
           </mwc-list-item>
           ${atLeastVersion(this.opp.config.version, 0, 116)
             ? html`<mwc-list-item>
-                ${this.supervisor.localize("snapshot.upload_snapshot")}
+                ${this.supervisor?.localize("snapshot.upload_snapshot")}
               </mwc-list-item>`
             : ""}
-        </ha-button-menu>
+        </op-button-menu>
 
-        <div class="content">
-          <h1>
-            ${this.supervisor.localize("snapshot.create_snapshot")}
-          </h1>
-          <p class="description">
-            ${this.supervisor.localize("snapshot.description")}
-          </p>
-          <div class="card-group">
-            <ha-card>
-              <div class="card-content">
-                <paper-input
-                  autofocus
-                  .label=${this.supervisor.localize("snapshot.name")}
-                  name="snapshotName"
-                  .value=${this._snapshotName}
-                  @value-changed=${this._handleTextValueChanged}
-                ></paper-input>
-                ${this.supervisor.localize("snapshot.type")}:
-                <paper-radio-group
-                  name="snapshotType"
-                  type="${this.supervisor.localize("snapshot.type")}"
-                  .selected=${this._snapshotType}
-                  @selected-changed=${this._handleRadioValueChanged}
-                >
-                  <paper-radio-button name="full">
-                    ${this.supervisor.localize("snapshot.full_snapshot")}
-                  </paper-radio-button>
-                  <paper-radio-button name="partial">
-                    ${this.supervisor.localize("snapshot.partial_snapshot")}
-                  </paper-radio-button>
-                </paper-radio-group>
-                ${this._snapshotType === "full"
-                  ? undefined
-                  : html`
-                      ${this.supervisor.localize("snapshot.folders")}:
-                      ${this._folderList.map(
-                        (folder, idx) => html`
-                          <paper-checkbox
-                            .idx=${idx}
-                            .checked=${folder.checked}
-                            @checked-changed=${this._folderChecked}
-                          >
-                            ${this.supervisor.localize(
-                              `snapshot.folder.${folder.slug}`
-                            )}
-                          </paper-checkbox>
-                        `
-                      )}
-                      ${this.supervisor.localize("snapshot.addons")}:
-                      ${this._addonList.map(
-                        (addon, idx) => html`
-                          <paper-checkbox
-                            .idx=${idx}
-                            .checked=${addon.checked}
-                            @checked-changed=${this._addonChecked}
-                          >
-                            ${addon.name}
-                          </paper-checkbox>
-                        `
-                      )}
-                    `}
-                ${this.supervisor.localize("snapshot.security")}:
-                <paper-checkbox
-                  name="snapshotHasPassword"
-                  .checked=${this._snapshotHasPassword}
-                  @checked-changed=${this._handleCheckboxValueChanged}
-                >
-                  ${this.supervisor.localize("snapshot.password_protection")}
-                </paper-checkbox>
-                ${this._snapshotHasPassword
+        ${this._selectedSnapshots.length
+          ? html`<div
+              class=${classMap({
+                "header-toolbar": this.narrow,
+                "table-header": !this.narrow,
+              })}
+              slot="header"
+            >
+              <p class="selected-txt">
+                ${this.supervisor.localize("snapshot.selected", {
+                  number: this._selectedSnapshots.length,
+                })}
+              </p>
+              <div class="header-btns">
+                ${!this.narrow
                   ? html`
-                      <paper-input
-                        .label=${this.supervisor.localize("snapshot.password")}
-                        type="password"
-                        name="snapshotPassword"
-                        .value=${this._snapshotPassword}
-                        @value-changed=${this._handleTextValueChanged}
-                      ></paper-input>
+                      <mwc-button
+                        @click=${this._deleteSelected}
+                        class="warning"
+                      >
+                        ${this.supervisor.localize("snapshot.delete_selected")}
+                      </mwc-button>
                     `
-                  : undefined}
-                ${this._error !== ""
-                  ? html` <p class="error">${this._error}</p> `
-                  : undefined}
+                  : html`
+                      <mwc-icon-button
+                        id="delete-btn"
+                        class="warning"
+                        @click=${this._deleteSelected}
+                      >
+                        <ha-svg-icon .path=${mdiDelete}></ha-svg-icon>
+                      </mwc-icon-button>
+                      <paper-tooltip animation-delay="0" for="delete-btn">
+                        ${this.supervisor.localize("snapshot.delete_selected")}
+                      </paper-tooltip>
+                    `}
               </div>
-              <div class="card-actions">
-                <ha-progress-button
-                  @click=${this._createSnapshot}
-                  .title=${this.supervisor.info.state !== "running"
-                    ? this.supervisor.localize(
-                        "snapshot.create_blocked_not_running",
-                        "state",
-                        this.supervisor.info.state
-                      )
-                    : ""}
-                  .disabled=${this.supervisor.info.state !== "running"}
-                >
-                  ${this.supervisor.localize("snapshot.create")}
-                </ha-progress-button>
-              </div>
-            </ha-card>
-          </div>
+            </div> `
+          : ""}
 
-          <h1>${this.supervisor.localize("snapshot.available_snapshots")}</h1>
-          <div class="card-group">
-            ${this._snapshots === undefined
-              ? undefined
-              : this._snapshots.length === 0
-              ? html`
-                  <ha-card>
-                    <div class="card-content">
-                      ${this.supervisor.localize("snapshot.no_snapshots")}
-                    </div>
-                  </ha-card>
-                `
-              : this._snapshots.map(
-                  (snapshot) => html`
-                    <ha-card
-                      class="pointer"
-                      .snapshot=${snapshot}
-                      @click=${this._snapshotClicked}
-                    >
-                      <div class="card-content">
-                        <oppio-card-content
-                          .opp=${this.opp}
-                          .title=${snapshot.name || snapshot.slug}
-                          .description=${this._computeDetails(snapshot)}
-                          .datetime=${snapshot.date}
-                          .icon=${snapshot.type === "full"
-                            ? mdiPackageVariantClosed
-                            : mdiPackageVariant}
-                          icon-class="snapshot"
-                        ></oppio-card-content>
-                      </div>
-                    </ha-card>
-                  `
-                )}
-          </div>
-        </div>
-      </opp-tabs-subpage>
+        <ha-fab
+          slot="fab"
+          @click=${this._createSnapshot}
+          .label=${this.supervisor.localize("snapshot.create_snapshot")}
+          extended
+        >
+          <ha-svg-icon slot="icon" .path=${mdiPlus}></ha-svg-icon>
+        </ha-fab>
+      </opp-tabs-subpage-data-table>
     `;
-  }
-
-  protected firstUpdated(changedProps: PropertyValues) {
-    super.firstUpdated(changedProps);
-    this.refreshData();
-  }
-
-  protected updated(changedProps: PropertyValues) {
-    if (changedProps.has("supervisor")) {
-      this._addonList = this.supervisor.supervisor.addons
-        .map((addon) => ({
-          slug: addon.slug,
-          name: addon.name,
-          checked: true,
-        }))
-        .sort((a, b) => (a.name < b.name ? -1 : 1));
-    }
   }
 
   private _handleAction(ev: CustomEvent<ActionDetail>) {
@@ -301,121 +254,10 @@ class OppioSnapshots extends LitElement {
     }
   }
 
-  private _handleTextValueChanged(ev: PolymerChangedEvent<string>) {
-    const input = ev.currentTarget as PaperInputElement;
-    this[`_${input.name}`] = ev.detail.value;
-  }
-
-  private _handleCheckboxValueChanged(ev) {
-    const input = ev.currentTarget as PaperCheckboxElement;
-    this[`_${input.name}`] = input.checked;
-  }
-
-  private _handleRadioValueChanged(ev: PolymerChangedEvent<string>) {
-    const input = ev.currentTarget as PaperRadioGroupElement;
-    this[`_${input.getAttribute("name")}`] = ev.detail.value;
-  }
-
-  private _folderChecked(ev) {
-    const { idx, checked } = ev.currentTarget!;
-    this._folderList = this._folderList.map((folder, curIdx) =>
-      curIdx === idx ? { ...folder, checked } : folder
-    );
-  }
-
-  private _addonChecked(ev) {
-    const { idx, checked } = ev.currentTarget!;
-    this._addonList = this._addonList.map((addon, curIdx) =>
-      curIdx === idx ? { ...addon, checked } : addon
-    );
-  }
-
-  private async _updateSnapshots() {
-    try {
-      this._snapshots = await fetchOppioSnapshots(this.opp);
-      this._snapshots.sort((a, b) => (a.date < b.date ? 1 : -1));
-    } catch (err) {
-      this._error = extractApiErrorMessage(err);
-    }
-  }
-
-  private async _createSnapshot(ev: CustomEvent): Promise<void> {
-    if (this.supervisor.info.state !== "running") {
-      await showAlertDialog(this, {
-        title: this.supervisor.localize("snapshot.could_not_create"),
-        text: this.supervisor.localize(
-          "snapshot.create_blocked_not_running",
-          "state",
-          this.supervisor.info.state
-        ),
-      });
-    }
-    const button = ev.currentTarget as any;
-    button.progress = true;
-
-    this._error = "";
-    if (this._snapshotHasPassword && !this._snapshotPassword.length) {
-      this._error = this.supervisor.localize("snapshot.enter_password");
-      button.progress = false;
-      return;
-    }
-    await this.updateComplete;
-
-    const name =
-      this._snapshotName ||
-      new Date().toLocaleDateString(navigator.language, {
-        weekday: "long",
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
-
-    try {
-      if (this._snapshotType === "full") {
-        const data: OppioFullSnapshotCreateParams = { name };
-        if (this._snapshotHasPassword) {
-          data.password = this._snapshotPassword;
-        }
-        await createOppioFullSnapshot(this.opp, data);
-      } else {
-        const addons = this._addonList
-          .filter((addon) => addon.checked)
-          .map((addon) => addon.slug);
-        const folders = this._folderList
-          .filter((folder) => folder.checked)
-          .map((folder) => folder.slug);
-
-        const data: OppioPartialSnapshotCreateParams = {
-          name,
-          folders,
-          addons,
-        };
-        if (this._snapshotHasPassword) {
-          data.password = this._snapshotPassword;
-        }
-        await createOppioPartialSnapshot(this.opp, data);
-      }
-      this._updateSnapshots();
-    } catch (err) {
-      this._error = extractApiErrorMessage(err);
-    }
-    button.progress = false;
-  }
-
-  private _computeDetails(snapshot: OppioSnapshot) {
-    const type =
-      snapshot.type === "full"
-        ? this.supervisor.localize("snapshot.full_snapshot")
-        : this.supervisor.localize("snapshot.partial_snapshot");
-    return snapshot.protected ? `${type}, password protected` : type;
-  }
-
-  private _snapshotClicked(ev) {
-    showOppioSnapshotDialog(this, {
-      slug: ev.currentTarget!.snapshot.slug,
-      supervisor: this.supervisor,
-      onDelete: () => this._updateSnapshots(),
-    });
+  private _handleSelectionChanged(
+    ev: OPPDomEvent<SelectionChangedEvent>
+  ): void {
+    this._selectedSnapshots = ev.detail.value;
   }
 
   private _showUploadSnapshotDialog() {
@@ -424,31 +266,110 @@ class OppioSnapshots extends LitElement {
         showOppioSnapshotDialog(this, {
           slug,
           supervisor: this.supervisor,
-          onDelete: () => this._updateSnapshots(),
+          onDelete: () => this.fetchSnapshots(),
         }),
       reloadSnapshot: () => this.refreshData(),
     });
   }
 
-  static get styles(): CSSResultArray {
+  private async fetchSnapshots() {
+    await reloadOppioSnapshots(this.opp);
+    this._snapshots = await fetchOppioSnapshots(this.opp);
+  }
+
+  private async _deleteSelected() {
+    const confirm = await showConfirmationDialog(this, {
+      title: this.supervisor.localize("snapshot.delete_snapshot_title"),
+      text: this.supervisor.localize("snapshot.delete_snapshot_text", {
+        number: this._selectedSnapshots.length,
+      }),
+      confirmText: this.supervisor.localize("snapshot.delete_snapshot_confirm"),
+    });
+
+    if (!confirm) {
+      return;
+    }
+
+    try {
+      await Promise.all(
+        this._selectedSnapshots.map((slug) => removeSnapshot(this.opp, slug))
+      );
+    } catch (err) {
+      showAlertDialog(this, {
+        title: this.supervisor.localize("snapshot.failed_to_delete"),
+        text: extractApiErrorMessage(err),
+      });
+      return;
+    }
+    await reloadOppioSnapshots(this.opp);
+    this._snapshots = await fetchOppioSnapshots(this.opp);
+    this._dataTable.clearSelection();
+  }
+
+  private _handleRowClicked(ev: OPPDomEvent<RowClickedEvent>) {
+    const slug = ev.detail.id;
+    showOppioSnapshotDialog(this, {
+      slug,
+      supervisor: this.supervisor,
+      onDelete: () => this.fetchSnapshots(),
+    });
+  }
+
+  private _createSnapshot() {
+    if (this.supervisor!.info.state !== "running") {
+      showAlertDialog(this, {
+        title: this.supervisor!.localize("snapshot.could_not_create"),
+        text: this.supervisor!.localize(
+          "snapshot.create_blocked_not_running",
+          "state",
+          this.supervisor!.info.state
+        ),
+      });
+      return;
+    }
+    showOppioCreateSnapshotDialog(this, {
+      supervisor: this.supervisor!,
+      onCreate: () => this.fetchSnapshots(),
+    });
+  }
+
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
       css`
-        paper-radio-group {
-          display: block;
+        .table-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 58px;
+          border-bottom: 1px solid rgba(var(--rgb-primary-text-color), 0.12);
         }
-        paper-radio-button {
-          padding: 0 0 2px 2px;
+        .header-toolbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: var(--secondary-text-color);
+          position: relative;
+          top: -4px;
         }
-        paper-radio-button,
-        paper-checkbox,
-        paper-input[type="password"] {
-          display: block;
-          margin: 4px 0 4px 48px;
+        .selected-txt {
+          font-weight: bold;
+          padding-left: 16px;
+          color: var(--primary-text-color);
         }
-        .pointer {
-          cursor: pointer;
+        .table-header .selected-txt {
+          margin-top: 20px;
+        }
+        .header-toolbar .selected-txt {
+          font-size: 16px;
+        }
+        .header-toolbar .header-btns {
+          margin-right: -12px;
+        }
+        .header-btns > mwc-button,
+        .header-btns > mwc-icon-button {
+          margin: 8px;
         }
       `,
     ];

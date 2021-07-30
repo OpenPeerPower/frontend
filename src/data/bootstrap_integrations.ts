@@ -6,11 +6,13 @@ export const subscribeBootstrapIntegrations = (
   opp: OpenPeerPower,
   callback: (message: BootstrapIntegrationsTimings) => void
 ) => {
-  const unsubProm = opp.connection.subscribeMessage<
-    BootstrapIntegrationsTimings
-  >((message) => callback(message), {
-    type: "subscribe_bootstrap_integrations",
-  });
+  const unsubProm =
+    opp.connection.subscribeMessage<BootstrapIntegrationsTimings>(
+      (message) => callback(message),
+      {
+        type: "subscribe_bootstrap_integrations",
+      }
+    );
 
   return unsubProm;
 };

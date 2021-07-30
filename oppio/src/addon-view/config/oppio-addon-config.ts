@@ -2,19 +2,16 @@ import "@material/mwc-button";
 import { ActionDetail } from "@material/mwc-list";
 import "@material/mwc-list/mwc-list-item";
 import { mdiDotsVertical } from "@mdi/js";
-import "@polymer/iron-autogrow-textarea/iron-autogrow-textarea";
+import { DEFAULT_SCHEMA, Type } from "js-yaml";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
-  query,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, query, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/buttons/ha-progress-button";
@@ -30,6 +27,7 @@ import {
   OppioAddonDetails,
   OppioAddonSetOptionParams,
   setOppioAddonOption,
+  validateOppioAddonOption,
 } from "../../../../src/data/oppio/addon";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import { Supervisor } from "../../../../src/data/supervisor/supervisor";
@@ -40,6 +38,13 @@ import { suggestAddonRestart } from "../../dialogs/suggestAddonRestart";
 import { oppioStyle } from "../../resources/oppio-style";
 
 const SUPPORTED_UI_TYPES = ["string", "select", "boolean", "integer", "float"];
+
+const ADDON_YAML_SCHEMA = DEFAULT_SCHEMA.extend([
+  new Type("!secret", {
+    kind: "scalar",
+    construct: (data) => `!secret ${data}`,
+  }),
+]);
 
 @customElement("oppio-addon-config")
 class OppioAddonConfig extends LitElement {
@@ -53,31 +58,27 @@ class OppioAddonConfig extends LitElement {
 
   @property({ type: Boolean }) private _valid = true;
 
-  @internalProperty() private _canShowSchema = false;
+  @state() private _canShowSchema = false;
 
-  @internalProperty() private _showOptional = false;
+  @state() private _showOptional = false;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
-  @internalProperty() private _options?: Record<string, unknown>;
+  @state() private _options?: Record<string, unknown>;
 
-  @internalProperty() private _yamlMode = false;
+  @state() private _yamlMode = false;
 
   @query("ha-yaml-editor") private _editor?: HaYamlEditor;
 
-  public computeLabel = (entry: HaFormSchema): string => {
-    return (
-      this.addon.translations[this.opp.language]?.configuration?.[entry.name]
-        ?.name ||
-      this.addon.translations.en?.configuration?.[entry.name].name ||
-      entry.name
-    );
-  };
+  public computeLabel = (entry: HaFormSchema): string =>
+    this.addon.translations[this.opp.language]?.configuration?.[entry.name]
+      ?.name ||
+    this.addon.translations.en?.configuration?.[entry.name].name ||
+    entry.name;
 
   private _filteredShchema = memoizeOne(
-    (options: Record<string, unknown>, schema: HaFormSchema[]) => {
-      return schema.filter((entry) => entry.name in options || entry.required);
-    }
+    (options: Record<string, unknown>, schema: HaFormSchema[]) =>
+      schema.filter((entry) => entry.name in options || entry.required)
   );
 
   protected render(): TemplateResult {
@@ -132,6 +133,7 @@ class OppioAddonConfig extends LitElement {
               ></ha-form>`
             : html` <ha-yaml-editor
                 @value-changed=${this._configChanged}
+                .yamlSchema=${ADDON_YAML_SCHEMA}
               ></ha-yaml-editor>`}
           ${this._error ? html` <div class="errors">${this._error}</div> ` : ""}
           ${!this._yamlMode ||
@@ -266,36 +268,48 @@ class OppioAddonConfig extends LitElement {
 
   private async _saveTapped(ev: CustomEvent): Promise<void> {
     const button = ev.currentTarget as any;
+    const options: Record<string, unknown> = this._yamlMode
+      ? this._editor?.value
+      : this._options;
+    const eventdata = {
+      success: true,
+      response: undefined,
+      path: "options",
+    };
     button.progress = true;
 
     this._error = undefined;
 
     try {
+      const validation = await validateOppioAddonOption(
+        this.opp,
+        this.addon.slug,
+        options
+      );
+      if (!validation.valid) {
+        throw Error(validation.message);
+      }
       await setOppioAddonOption(this.opp, this.addon.slug, {
-        options: this._yamlMode ? this._editor?.value : this._options,
+        options,
       });
 
       this._configHasChanged = false;
-      const eventdata = {
-        success: true,
-        response: undefined,
-        path: "options",
-      };
-      fireEvent(this, "opp-api-called", eventdata);
       if (this.addon?.state === "started") {
         await suggestAddonRestart(this, this.opp, this.supervisor, this.addon);
       }
     } catch (err) {
       this._error = this.supervisor.localize(
-        "addon.configuration.options.failed_to_save",
+        "addon.failed_to_save",
         "error",
         extractApiErrorMessage(err)
       );
+      eventdata.success = false;
     }
     button.progress = false;
+    fireEvent(this, "opp-api-called", eventdata);
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
@@ -313,10 +327,6 @@ class OppioAddonConfig extends LitElement {
         .errors {
           color: var(--error-color);
           margin-top: 16px;
-        }
-        iron-autogrow-textarea {
-          width: 100%;
-          font-family: var(--code-font-family, monospace);
         }
         .syntaxerror {
           color: var(--error-color);

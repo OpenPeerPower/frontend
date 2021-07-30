@@ -1,9 +1,10 @@
-import { customElement, html, LitElement, property } from "lit-element";
-import { fireEvent } from "../../common/dom/fire_event";
-import { OpenPeerPower } from "../../types";
-import "@polymer/paper-input/paper-textarea";
 import "@polymer/paper-input/paper-input";
+import "@polymer/paper-input/paper-textarea";
+import { html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators";
+import { fireEvent } from "../../common/dom/fire_event";
 import { StringSelector } from "../../data/selector";
+import { OpenPeerPower } from "../../types";
 
 @customElement("ha-selector-text")
 export class HaTextSelector extends LitElement {

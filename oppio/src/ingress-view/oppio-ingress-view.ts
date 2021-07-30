@@ -1,25 +1,27 @@
 import { mdiMenu } from "@mdi/js";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import { navigate } from "../../../src/common/navigate";
+import { extractSearchParam } from "../../../src/common/url/search-params";
+import { nextRender } from "../../../src/common/util/render-status";
 import {
   fetchOppioAddonInfo,
   OppioAddonDetails,
 } from "../../../src/data/oppio/addon";
+import { extractApiErrorMessage } from "../../../src/data/oppio/common";
 import {
   createOppioSession,
   validateOppioSession,
 } from "../../../src/data/oppio/ingress";
+import { Supervisor } from "../../../src/data/supervisor/supervisor";
 import { showAlertDialog } from "../../../src/dialogs/generic/show-dialog-box";
 import "../../../src/layouts/opp-loading-screen";
 import "../../../src/layouts/opp-subpage";
@@ -29,11 +31,13 @@ import { OpenPeerPower, Route } from "../../../src/types";
 class OppioIngressView extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
+  @property({ attribute: false }) public supervisor!: Supervisor;
+
   @property() public route!: Route;
 
   @property() public ingressPanel = false;
 
-  @internalProperty() private _addon?: OppioAddonDetails;
+  @state() private _addon?: OppioAddonDetails;
 
   @property({ type: Boolean })
   public narrow = false;
@@ -80,6 +84,43 @@ class OppioIngressView extends LitElement {
       : iframe}`;
   }
 
+  protected async firstUpdated(): Promise<void> {
+    if (this.route.path === "") {
+      const requestedAddon = extractSearchParam("addon");
+      let addonInfo: OppioAddonDetails;
+      if (requestedAddon) {
+        try {
+          addonInfo = await fetchOppioAddonInfo(this.opp, requestedAddon);
+        } catch (err) {
+          await showAlertDialog(this, {
+            text: extractApiErrorMessage(err),
+            title: requestedAddon,
+          });
+          await nextRender();
+          navigate("/oppio/store", { replace: true });
+          return;
+        }
+        if (!addonInfo.version) {
+          await showAlertDialog(this, {
+            text: this.supervisor.localize("my.error_addon_not_installed"),
+            title: addonInfo.name,
+          });
+          await nextRender();
+          navigate(`/oppio/addon/${addonInfo.slug}/info`, { replace: true });
+        } else if (!addonInfo.ingress) {
+          await showAlertDialog(this, {
+            text: this.supervisor.localize("my.error_addon_no_ingress"),
+            title: addonInfo.name,
+          });
+          await nextRender();
+          navigate(`/oppio/addon/${addonInfo.slug}/info`, { replace: true });
+        } else {
+          navigate(`/oppio/ingress/${addonInfo.slug}`, { replace: true });
+        }
+      }
+    }
+  }
+
   protected updated(changedProps: PropertyValues) {
     super.updated(changedProps);
 
@@ -109,6 +150,7 @@ class OppioIngressView extends LitElement {
         text: "Unable to fetch add-on info to start Ingress",
         title: "Supervisor",
       });
+      await nextRender();
       history.back();
       return;
     }
@@ -118,6 +160,7 @@ class OppioIngressView extends LitElement {
         text: "Add-on does not support Ingress",
         title: addon.name,
       });
+      await nextRender();
       history.back();
       return;
     }
@@ -127,7 +170,8 @@ class OppioIngressView extends LitElement {
         text: "Add-on is not running. Please start it first",
         title: addon.name,
       });
-      navigate(this, `/oppio/addon/${addon.slug}/info`, true);
+      await nextRender();
+      navigate(`/oppio/addon/${addon.slug}/info`, { replace: true });
       return;
     }
 
@@ -140,6 +184,7 @@ class OppioIngressView extends LitElement {
         text: "Unable to create an Ingress session",
         title: addon.name,
       });
+      await nextRender();
       history.back();
       return;
     }
@@ -162,7 +207,7 @@ class OppioIngressView extends LitElement {
     fireEvent(this, "opp-toggle-menu");
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       iframe {
         display: block;

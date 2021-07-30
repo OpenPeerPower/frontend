@@ -1,20 +1,13 @@
-import "@material/mwc-button";
-import { mdiClose, mdiDelete, mdiDownload, mdiHistory } from "@mdi/js";
-import "@polymer/paper-checkbox/paper-checkbox";
-import type { PaperCheckboxElement } from "@polymer/paper-checkbox/paper-checkbox";
-import "@polymer/paper-input/paper-input";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { ActionDetail } from "@material/mwc-list";
+import "@material/mwc-list/mwc-list-item";
+import { mdiClose, mdiDotsVertical } from "@mdi/js";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/ha-header-bar";
+import { slugify } from "../../../../src/common/string/slugify";
+import "../../../../src/components/buttons/ha-progress-button";
+import "../../../../src/components/op-button-menu";
+import "../../../../src/components/op-header-bar";
 import "../../../../src/components/ha-svg-icon";
 import { getSignedPath } from "../../../../src/data/auth";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
@@ -22,96 +15,48 @@ import {
   fetchOppioSnapshotInfo,
   OppioSnapshotDetail,
 } from "../../../../src/data/oppio/snapshot";
-import { Supervisor } from "../../../../src/data/supervisor/supervisor";
 import {
   showAlertDialog,
   showConfirmationDialog,
 } from "../../../../src/dialogs/generic/show-dialog-box";
-import { PolymerChangedEvent } from "../../../../src/polymer-types";
+import { OppDialog } from "../../../../src/dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../src/resources/styles";
 import { OpenPeerPower } from "../../../../src/types";
+import { fileDownload } from "../../../../src/util/file_download";
+import "../../components/supervisor-snapshot-content";
+import type { SupervisorSnapshotContent } from "../../components/supervisor-snapshot-content";
 import { OppioSnapshotDialogParams } from "./show-dialog-oppio-snapshot";
 
-const _computeFolders = (folders) => {
-  const list: Array<{ slug: string; name: string; checked: boolean }> = [];
-  if (folders.includes("openpeerpower")) {
-    list.push({
-      slug: "openpeerpower",
-      name: "Open Peer Power configuration",
-      checked: true,
-    });
-  }
-  if (folders.includes("ssl")) {
-    list.push({ slug: "ssl", name: "SSL", checked: true });
-  }
-  if (folders.includes("share")) {
-    list.push({ slug: "share", name: "Share", checked: true });
-  }
-  if (folders.includes("addons/local")) {
-    list.push({ slug: "addons/local", name: "Local add-ons", checked: true });
-  }
-  return list;
-};
-
-const _computeAddons = (addons) => {
-  return addons.map((addon) => ({
-    slug: addon.slug,
-    name: addon.name,
-    version: addon.version,
-    checked: true,
-  }));
-};
-
-interface AddonItem {
-  slug: string;
-  name: string;
-  version: string;
-  checked: boolean | null | undefined;
-}
-
-interface FolderItem {
-  slug: string;
-  name: string;
-  checked: boolean | null | undefined;
-}
-
 @customElement("dialog-oppio-snapshot")
-class OppioSnapshotDialog extends LitElement {
+class OppioSnapshotDialog
+  extends LitElement
+  implements OppDialog<OppioSnapshotDialogParams>
+{
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @property({ attribute: false }) public supervisor?: Supervisor;
+  @state() private _error?: string;
 
-  @internalProperty() private _error?: string;
+  @state() private _snapshot?: OppioSnapshotDetail;
 
-  @internalProperty() private _onboarding = false;
+  @state() private _dialogParams?: OppioSnapshotDialogParams;
 
-  @internalProperty() private _snapshot?: OppioSnapshotDetail;
+  @state() private _restoringSnapshot = false;
 
-  @internalProperty() private _folders!: FolderItem[];
-
-  @internalProperty() private _addons!: AddonItem[];
-
-  @internalProperty() private _dialogParams?: OppioSnapshotDialogParams;
-
-  @internalProperty() private _snapshotPassword!: string;
-
-  @internalProperty() private _restoreOpp = true;
+  @query("supervisor-snapshot-content")
+  private _snapshotContent!: SupervisorSnapshotContent;
 
   public async showDialog(params: OppioSnapshotDialogParams) {
     this._snapshot = await fetchOppioSnapshotInfo(this.opp, params.slug);
-    this._folders = _computeFolders(
-      this._snapshot?.folders
-    ).sort((a: FolderItem, b: FolderItem) => (a.name > b.name ? 1 : -1));
-    this._addons = _computeAddons(
-      this._snapshot?.addons
-    ).sort((a: AddonItem, b: AddonItem) => (a.name > b.name ? 1 : -1));
-
     this._dialogParams = params;
-    this._onboarding = params.onboarding ?? false;
-    this.supervisor = params.supervisor;
-    if (!this._snapshot.openpeerpower) {
-      this._restoreOpp = false;
-    }
+    this._restoringSnapshot = false;
+  }
+
+  public closeDialog() {
+    this._snapshot = undefined;
+    this._dialogParams = undefined;
+    this._restoringSnapshot = false;
+    this._error = undefined;
+    fireEvent(this, "dialog-closed", { dialog: this.localName });
   }
 
   protected render(): TemplateResult {
@@ -119,204 +64,110 @@ class OppioSnapshotDialog extends LitElement {
       return html``;
     }
     return html`
-      <ha-dialog open @closing=${this._closeDialog} .heading=${true}>
+      <op-dialog
+        open
+        scrimClickAction
+        @closed=${this.closeDialog}
+        .heading=${true}
+      >
         <div slot="heading">
-          <ha-header-bar>
-            <span slot="title">
-              ${this._computeName}
-            </span>
+          <op-header-bar>
+            <span slot="title">${this._snapshot.name}</span>
             <mwc-icon-button slot="actionItems" dialogAction="cancel">
               <ha-svg-icon .path=${mdiClose}></ha-svg-icon>
             </mwc-icon-button>
-          </ha-header-bar>
+          </op-header-bar>
         </div>
-        <div class="details">
-          ${this._snapshot.type === "full"
-            ? "Full snapshot"
-            : "Partial snapshot"}
-          (${this._computeSize})<br />
-          ${this._formatDatetime(this._snapshot.date)}
-        </div>
-        ${this._snapshot.openpeerpower
-          ? html`<div>Open Peer Power:</div>
-              <paper-checkbox
-                .checked=${this._restoreOpp}
-                @change="${(ev: Event) => {
-                  this._restoreOpp = (ev.target as PaperCheckboxElement).checked!;
-                }}"
-              >
-                Open Peer Power ${this._snapshot.openpeerpower}
-              </paper-checkbox>`
-          : ""}
-        ${this._folders.length
-          ? html`
-              <div>Folders:</div>
-              <paper-dialog-scrollable class="no-margin-top">
-                ${this._folders.map((item) => {
-                  return html`
-                    <paper-checkbox
-                      .checked=${item.checked}
-                      @change="${(ev: Event) =>
-                        this._updateFolders(
-                          item,
-                          (ev.target as PaperCheckboxElement).checked
-                        )}"
-                    >
-                      ${item.name}
-                    </paper-checkbox>
-                  `;
-                })}
-              </paper-dialog-scrollable>
-            `
-          : ""}
-        ${this._addons.length
-          ? html`
-              <div>Add-on:</div>
-              <paper-dialog-scrollable class="no-margin-top">
-                ${this._addons.map((item) => {
-                  return html`
-                    <paper-checkbox
-                      .checked=${item.checked}
-                      @change="${(ev: Event) =>
-                        this._updateAddons(
-                          item,
-                          (ev.target as PaperCheckboxElement).checked
-                        )}"
-                    >
-                      ${item.name}
-                    </paper-checkbox>
-                  `;
-                })}
-              </paper-dialog-scrollable>
-            `
-          : ""}
-        ${this._snapshot.protected
-          ? html`
-              <paper-input
-                autofocus=""
-                label="Password"
-                type="password"
-                @value-changed=${this._passwordInput}
-                .value=${this._snapshotPassword}
-              ></paper-input>
-            `
-          : ""}
-        ${this._error ? html` <p class="error">Error: ${this._error}</p> ` : ""}
+        ${this._restoringSnapshot
+          ? html` <op-circular-progress active></op-circular-progress>`
+          : html`<supervisor-snapshot-content
+              .opp=${this.opp}
+              .supervisor=${this._dialogParams.supervisor}
+              .snapshot=${this._snapshot}
+              .onboarding=${this._dialogParams.onboarding || false}
+              .localize=${this._dialogParams.localize}
+            >
+            </supervisor-snapshot-content>`}
+        ${this._error ? html`<p class="error">Error: ${this._error}</p>` : ""}
 
-        <div class="button-row" slot="primaryAction">
-          <mwc-button @click=${this._partialRestoreClicked}>
-            <ha-svg-icon .path=${mdiHistory} class="icon"></ha-svg-icon>
-            Restore Selected
-          </mwc-button>
-          ${!this._onboarding
-            ? html`
-                <mwc-button @click=${this._deleteClicked}>
-                  <ha-svg-icon .path=${mdiDelete} class="icon warning">
-                  </ha-svg-icon>
-                  <span class="warning">Delete Snapshot</span>
-                </mwc-button>
-              `
-            : ""}
-        </div>
-        <div class="button-row" slot="secondaryAction">
-          ${this._snapshot.type === "full"
-            ? html`
-                <mwc-button @click=${this._fullRestoreClicked}>
-                  <ha-svg-icon .path=${mdiHistory} class="icon"></ha-svg-icon>
-                  Restore Everything
-                </mwc-button>
-              `
-            : ""}
-          ${!this._onboarding
-            ? html`<mwc-button @click=${this._downloadClicked}>
-                <ha-svg-icon .path=${mdiDownload} class="icon"></ha-svg-icon>
-                Download Snapshot
-              </mwc-button>`
-            : ""}
-        </div>
-      </ha-dialog>
+        <mwc-button
+          .disabled=${this._restoringSnapshot}
+          slot="secondaryAction"
+          @click=${this._restoreClicked}
+        >
+          Restore
+        </mwc-button>
+
+        ${!this._dialogParams.onboarding
+          ? html`<op-button-menu
+              fixed
+              slot="primaryAction"
+              @action=${this._handleMenuAction}
+              @closed=${(ev: Event) => ev.stopPropagation()}
+            >
+              <mwc-icon-button slot="trigger" alt="menu">
+                <ha-svg-icon .path=${mdiDotsVertical}></ha-svg-icon>
+              </mwc-icon-button>
+              <mwc-list-item>Download Snapshot</mwc-list-item>
+              <mwc-list-item class="error">Delete Snapshot</mwc-list-item>
+            </op-button-menu>`
+          : ""}
+      </op-dialog>
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       haStyleDialog,
       css`
-        paper-checkbox {
+        ha-svg-icon {
+          color: var(--primary-text-color);
+        }
+        op-circular-progress {
           display: block;
-          margin: 4px;
+          text-align: center;
         }
-        mwc-button ha-svg-icon {
-          margin-right: 4px;
-        }
-        .button-row {
-          display: grid;
-          gap: 8px;
-          margin-right: 8px;
-        }
-        .details {
-          color: var(--secondary-text-color);
-        }
-        .warning,
-        .error {
-          color: var(--error-color);
-        }
-        .buttons li {
-          list-style-type: none;
-        }
-        .buttons .icon {
-          margin-right: 16px;
-        }
-        .no-margin-top {
-          margin-top: 0;
-        }
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;
-        }
-        /* overrule the ha-style-dialog max-height on small screens */
-        @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-header-bar {
-            --mdc-theme-primary: var(--app-header-background-color);
-            --mdc-theme-on-primary: var(--app-header-text-color, white);
-          }
+          display: block;
         }
       `,
     ];
   }
 
-  private _updateFolders(item: FolderItem, value: boolean | null | undefined) {
-    this._folders = this._folders.map((folder) => {
-      if (folder.slug === item.slug) {
-        folder.checked = value;
-      }
-      return folder;
-    });
+  private _handleMenuAction(ev: CustomEvent<ActionDetail>) {
+    switch (ev.detail.index) {
+      case 0:
+        this._downloadClicked();
+        break;
+      case 1:
+        this._deleteClicked();
+        break;
+    }
   }
 
-  private _updateAddons(item: AddonItem, value: boolean | null | undefined) {
-    this._addons = this._addons.map((addon) => {
-      if (addon.slug === item.slug) {
-        addon.checked = value;
-      }
-      return addon;
-    });
+  private async _restoreClicked() {
+    const snapshotDetails = this._snapshotContent.snapshotDetails();
+    this._restoringSnapshot = true;
+    if (this._snapshotContent.snapshotType === "full") {
+      await this._fullRestoreClicked(snapshotDetails);
+    } else {
+      await this._partialRestoreClicked(snapshotDetails);
+    }
+    this._restoringSnapshot = false;
   }
 
-  private _passwordInput(ev: PolymerChangedEvent<string>) {
-    this._snapshotPassword = ev.detail.value;
-  }
-
-  private async _partialRestoreClicked() {
+  private async _partialRestoreClicked(snapshotDetails) {
     if (
-      this.supervisor !== undefined &&
-      this.supervisor.info.state !== "running"
+      this._dialogParams?.supervisor !== undefined &&
+      this._dialogParams?.supervisor.info.state !== "running"
     ) {
       await showAlertDialog(this, {
         title: "Could not restore snapshot",
-        text: `Restoring a snapshot is not possible right now because the system is in ${this.supervisor.info.state} state.`,
+        text: `Restoring a snapshot is not possible right now because the system is in ${this._dialogParams?.supervisor.info.state} state.`,
       });
       return;
     }
@@ -330,41 +181,17 @@ class OppioSnapshotDialog extends LitElement {
       return;
     }
 
-    const addons = this._addons
-      .filter((addon) => addon.checked)
-      .map((addon) => addon.slug);
-
-    const folders = this._folders
-      .filter((folder) => folder.checked)
-      .map((folder) => folder.slug);
-
-    const data: {
-      openpeerpower: boolean;
-      addons: any;
-      folders: any;
-      password?: string;
-    } = {
-      openpeerpower: this._restoreOpp,
-      addons,
-      folders,
-    };
-
-    if (this._snapshot!.protected) {
-      data.password = this._snapshotPassword;
-    }
-
-    if (!this._onboarding) {
+    if (!this._dialogParams?.onboarding) {
       this.opp
         .callApi(
           "POST",
 
           `oppio/snapshots/${this._snapshot!.slug}/restore/partial`,
-          data
+          snapshotDetails
         )
         .then(
           () => {
-            alert("Snapshot restored!");
-            this._closeDialog();
+            this.closeDialog();
           },
           (error) => {
             this._error = error.body.message;
@@ -374,20 +201,20 @@ class OppioSnapshotDialog extends LitElement {
       fireEvent(this, "restoring");
       fetch(`/api/oppio/snapshots/${this._snapshot!.slug}/restore/partial`, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(snapshotDetails),
       });
-      this._closeDialog();
+      this.closeDialog();
     }
   }
 
-  private async _fullRestoreClicked() {
+  private async _fullRestoreClicked(snapshotDetails) {
     if (
-      this.supervisor !== undefined &&
-      this.supervisor.info.state !== "running"
+      this._dialogParams?.supervisor !== undefined &&
+      this._dialogParams?.supervisor.info.state !== "running"
     ) {
       await showAlertDialog(this, {
         title: "Could not restore snapshot",
-        text: `Restoring a snapshot is not possible right now because the system is in ${this.supervisor.info.state} state.`,
+        text: `Restoring a snapshot is not possible right now because the system is in ${this._dialogParams?.supervisor.info.state} state.`,
       });
       return;
     }
@@ -402,20 +229,16 @@ class OppioSnapshotDialog extends LitElement {
       return;
     }
 
-    const data = this._snapshot!.protected
-      ? { password: this._snapshotPassword }
-      : undefined;
-    if (!this._onboarding) {
+    if (!this._dialogParams?.onboarding) {
       this.opp
         .callApi(
           "POST",
           `oppio/snapshots/${this._snapshot!.slug}/restore/full`,
-          data
+          snapshotDetails
         )
         .then(
           () => {
-            alert("Snapshot restored!");
-            this._closeDialog();
+            this.closeDialog();
           },
           (error) => {
             this._error = error.body.message;
@@ -425,9 +248,9 @@ class OppioSnapshotDialog extends LitElement {
       fireEvent(this, "restoring");
       fetch(`/api/oppio/snapshots/${this._snapshot!.slug}/restore/full`, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(snapshotDetails),
       });
-      this._closeDialog();
+      this.closeDialog();
     }
   }
 
@@ -450,7 +273,7 @@ class OppioSnapshotDialog extends LitElement {
           if (this._dialogParams!.onDelete) {
             this._dialogParams!.onDelete();
           }
-          this._closeDialog();
+          this.closeDialog();
         },
         (error) => {
           this._error = error.body.message;
@@ -466,15 +289,16 @@ class OppioSnapshotDialog extends LitElement {
         `/api/oppio/snapshots/${this._snapshot!.slug}/download`
       );
     } catch (err) {
-      alert(`Error: ${extractApiErrorMessage(err)}`);
+      await showAlertDialog(this, {
+        text: extractApiErrorMessage(err),
+      });
       return;
     }
 
     if (window.location.href.includes("ui.nabu.casa")) {
       const confirm = await showConfirmationDialog(this, {
         title: "Potential slow download",
-        text:
-          "Downloading snapshots over the Nabu Casa URL will take some time, it is recomended to use your local URL instead, do you want to continue?",
+        text: "Downloading snapshots over the Nabu Casa URL will take some time, it is recomended to use your local URL instead, do you want to continue?",
         confirmText: "continue",
         dismissText: "cancel",
       });
@@ -483,42 +307,17 @@ class OppioSnapshotDialog extends LitElement {
       }
     }
 
-    const name = this._computeName.replace(/[^a-z0-9]+/gi, "_");
-    const a = document.createElement("a");
-    a.href = signedPath.path;
-    a.download = `Opp_io_${name}.tar`;
-    this.shadowRoot!.appendChild(a);
-    a.click();
-    this.shadowRoot!.removeChild(a);
+    fileDownload(
+      this,
+      signedPath.path,
+      `open_peer_power_snapshot_${slugify(this._computeName)}.tar`
+    );
   }
 
   private get _computeName() {
     return this._snapshot
       ? this._snapshot.name || this._snapshot.slug
       : "Unnamed snapshot";
-  }
-
-  private get _computeSize() {
-    return Math.ceil(this._snapshot!.size * 10) / 10 + " MB";
-  }
-
-  private _formatDatetime(datetime) {
-    return new Date(datetime).toLocaleDateString(navigator.language, {
-      weekday: "long",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  }
-
-  private _closeDialog() {
-    this._dialogParams = undefined;
-    this._snapshot = undefined;
-    this._snapshotPassword = "";
-    this._folders = [];
-    this._addons = [];
   }
 }
 

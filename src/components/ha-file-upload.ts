@@ -2,20 +2,11 @@ import "@material/mwc-icon-button/mwc-icon-button";
 import { mdiClose } from "@mdi/js";
 import "@polymer/iron-input/iron-input";
 import "@polymer/paper-input/paper-input-container";
-import {
-  css,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  PropertyValues,
-  query,
-  TemplateResult,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+import { css, html, LitElement, PropertyValues, TemplateResult } from "lit";
+import { customElement, property, state, query } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../common/dom/fire_event";
-import "./ha-circular-progress";
+import "./op-circular-progress";
 import "./ha-svg-icon";
 
 declare global {
@@ -39,7 +30,7 @@ export class HaFileUpload extends LitElement {
   @property({ type: Boolean, attribute: "auto-open-file-dialog" })
   private autoOpenFileDialog = false;
 
-  @internalProperty() private _drag = false;
+  @state() private _drag = false;
 
   @query("#input") private _input?: HTMLInputElement;
 
@@ -52,20 +43,20 @@ export class HaFileUpload extends LitElement {
 
   protected updated(changedProperties: PropertyValues) {
     if (changedProperties.has("_drag") && !this.uploading) {
-      (this.shadowRoot!.querySelector(
-        "paper-input-container"
-      ) as any)._setFocused(this._drag);
+      (
+        this.shadowRoot!.querySelector("paper-input-container") as any
+      )._setFocused(this._drag);
     }
   }
 
   public render(): TemplateResult {
     return html`
       ${this.uploading
-        ? html`<ha-circular-progress
+        ? html`<op-circular-progress
             alt="Uploading"
             size="large"
             active
-          ></ha-circular-progress>`
+          ></op-circular-progress>`
         : html`
             <label for="input">
               <paper-input-container
@@ -79,9 +70,7 @@ export class HaFileUpload extends LitElement {
                   dragged: this._drag,
                 })}
               >
-                <label for="input" slot="label">
-                  ${this.label}
-                </label>
+                <label for="input" slot="label"> ${this.label} </label>
                 <iron-input slot="input">
                   <input
                     id="input"
@@ -169,7 +158,7 @@ export class HaFileUpload extends LitElement {
         --mdc-icon-button-size: 24px;
         --mdc-icon-size: 20px;
       }
-      ha-circular-progress {
+      op-circular-progress {
         display: block;
         text-align-last: center;
       }

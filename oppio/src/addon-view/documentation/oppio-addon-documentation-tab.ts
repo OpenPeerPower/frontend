@@ -1,16 +1,8 @@
 import "../../../../src/components/ha-card";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import "../../../../src/components/ha-circular-progress";
 import "../../../../src/components/ha-markdown";
+import { customElement, property, state } from "lit/decorators";
 import {
   fetchOppioAddonDocumentation,
   OppioAddonDetails,
@@ -30,9 +22,9 @@ class OppioAddonDocumentationDashboard extends LitElement {
 
   @property({ attribute: false }) public addon?: OppioAddonDetails;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
-  @internalProperty() private _content?: string;
+  @state() private _content?: string;
 
   public async connectedCallback(): Promise<void> {
     super.connectedCallback();
@@ -57,7 +49,7 @@ class OppioAddonDocumentationDashboard extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,

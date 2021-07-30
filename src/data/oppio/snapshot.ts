@@ -2,12 +2,27 @@ import { atLeastVersion } from "../../common/config/version";
 import { OpenPeerPower } from "../../types";
 import { oppioApiResultExtractor, OppioResponse } from "./common";
 
+export const friendlyFolderName = {
+  ssl: "SSL",
+  openpeerpower: "Configuration",
+  "addons/local": "Local add-ons",
+  media: "Media",
+  share: "Share",
+};
+
+interface SnapshotContent {
+  openpeerpower: boolean;
+  folders: string[];
+  addons: string[];
+}
+
 export interface OppioSnapshot {
   slug: string;
   date: string;
   name: string;
   type: "full" | "partial";
   protected: boolean;
+  content: SnapshotContent;
 }
 
 export interface OppioSnapshotDetail extends OppioSnapshot {
@@ -26,12 +41,12 @@ export interface OppioSnapshotDetail extends OppioSnapshot {
 export interface OppioFullSnapshotCreateParams {
   name: string;
   password?: string;
+  confirm_password?: string;
 }
-export interface OppioPartialSnapshotCreateParams {
-  name: string;
+export interface OppioPartialSnapshotCreateParams
+  extends OppioFullSnapshotCreateParams {
   folders?: string[];
   addons?: string[];
-  password?: string;
   openpeerpower?: boolean;
 }
 
@@ -61,7 +76,7 @@ export const fetchOppioSnapshotInfo = async (
 ): Promise<OppioSnapshotDetail> => {
   if (opp) {
     if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
-      return await opp.callWS({
+      return opp.callWS({
         type: "supervisor/api",
         endpoint: `/snapshots/${snapshot}/info`,
         method: "get",
@@ -74,7 +89,7 @@ export const fetchOppioSnapshotInfo = async (
       )
     );
   }
-  // When called from onboarding we don't have opp
+  // When called from onboarding we don't have hass
   const resp = await fetch(`/api/oppio/snapshots/${snapshot}/info`, {
     method: "GET",
   });
@@ -116,6 +131,21 @@ export const createOppioFullSnapshot = async (
   );
 };
 
+export const removeSnapshot = async (opp: OpenPeerPower, slug: string) => {
+  if (atLeastVersion(opp.config.version, 2021, 2, 4)) {
+    await opp.callWS({
+      type: "supervisor/api",
+      endpoint: `/snapshots/${slug}/remove`,
+      method: "post",
+    });
+    return;
+  }
+  await opp.callApi<OppioResponse<void>>(
+    "POST",
+    `oppio/snapshots/${slug}/remove`
+  );
+};
+
 export const createOppioPartialSnapshot = async (
   opp: OpenPeerPower,
   data: OppioPartialSnapshotCreateParams
@@ -151,7 +181,7 @@ export const uploadSnapshot = async (
       body: fd,
     });
   } else {
-    // When called from onboarding we don't have opp
+    // When called from onboarding we don't have hass
     resp = await fetch("/api/oppio/snapshots/new/upload", {
       method: "POST",
       body: fd,
@@ -163,5 +193,5 @@ export const uploadSnapshot = async (
   } else if (resp.status !== 200) {
     throw new Error(`${resp.status} ${resp.statusText}`);
   }
-  return await resp.json();
+  return resp.json();
 };

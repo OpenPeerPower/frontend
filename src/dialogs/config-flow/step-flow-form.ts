@@ -2,16 +2,15 @@ import "@material/mwc-button";
 import "@polymer/paper-tooltip/paper-tooltip";
 import {
   css,
-  CSSResultArray,
-  customElement,
+  CSSResultGroup,
   html,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import "../../components/ha-form/ha-form";
 import type { HaFormSchema } from "../../components/ha-form/ha-form";
 import "../../components/ha-markdown";
@@ -22,22 +21,17 @@ import { configFlowContentStyles } from "./styles";
 
 @customElement("step-flow-form")
 class StepFlowForm extends LitElement {
-  public flowConfig!: FlowConfig;
+  @property({ attribute: false }) public flowConfig!: FlowConfig;
 
-  @property()
-  public step!: DataEntryFlowStepForm;
+  @property({ attribute: false }) public step!: DataEntryFlowStepForm;
 
-  @property()
-  public opp!: OpenPeerPower;
+  @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @property()
-  private _loading = false;
+  @state() private _loading = false;
 
-  @property()
-  private _stepData?: Record<string, any>;
+  @state() private _stepData?: Record<string, any>;
 
-  @property()
-  private _errorMsg?: string;
+  @state() private _errorMsg?: string;
 
   protected render(): TemplateResult {
     const step = this.step;
@@ -55,9 +49,7 @@ class StepFlowForm extends LitElement {
           );
 
     return html`
-      <h2>
-        ${this.flowConfig.renderShowFormStepHeader(this.opp, this.step)}
-      </h2>
+      <h2>${this.flowConfig.renderShowFormStepHeader(this.opp, this.step)}</h2>
       <div class="content">
         ${this._errorMsg
           ? html` <div class="error">${this._errorMsg}</div> `
@@ -76,7 +68,7 @@ class StepFlowForm extends LitElement {
         ${this._loading
           ? html`
               <div class="submit-spinner">
-                <ha-circular-progress active></ha-circular-progress>
+                <op-circular-progress active></op-circular-progress>
               </div>
             `
           : html`
@@ -85,7 +77,9 @@ class StepFlowForm extends LitElement {
                   @click=${this._submitStep}
                   .disabled=${!allRequiredInfoFilledIn}
                   >${this.opp.localize(
-                    "ui.panel.config.integrations.config_flow.submit"
+                    `ui.panel.config.integrations.config_flow.${
+                      this.step.last_step === false ? "next" : "submit"
+                    }`
                   )}
                 </mwc-button>
 
@@ -183,7 +177,7 @@ class StepFlowForm extends LitElement {
   private _errorCallback = (error: string) =>
     this.flowConfig.renderShowFormStepFieldError(this.opp, this.step, error);
 
-  static get styles(): CSSResultArray {
+  static get styles(): CSSResultGroup {
     return [
       configFlowContentStyles,
       css`

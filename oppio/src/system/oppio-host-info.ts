@@ -2,21 +2,13 @@ import "@material/mwc-button";
 import { ActionDetail } from "@material/mwc-list/mwc-list-foundation";
 import "@material/mwc-list/mwc-list-item";
 import { mdiDotsVertical } from "@mdi/js";
-import { safeDump } from "js-yaml";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-button-menu";
+import "../../../src/components/op-button-menu";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-settings-row";
 import {
@@ -31,7 +23,10 @@ import {
   shutdownHost,
   updateOS,
 } from "../../../src/data/oppio/host";
-import { fetchNetworkInfo, NetworkInfo } from "../../../src/data/oppio/network";
+import {
+  fetchNetworkInfo,
+  NetworkInfo,
+} from "../../../src/data/oppio/network";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
 import {
   showAlertDialog,
@@ -45,8 +40,8 @@ import {
   roundWithOneDecimal,
 } from "../../../src/util/calculate";
 import "../components/supervisor-metric";
-import { showOppioMarkdownDialog } from "../dialogs/markdown/show-dialog-oppio-markdown";
 import { showNetworkDialog } from "../dialogs/network/show-dialog-network";
+import { showOppioHardwareDialog } from "../dialogs/hardware/show-dialog-oppio-hardware";
 import { oppioStyle } from "../resources/oppio-style";
 
 @customElement("oppio-host-info")
@@ -94,9 +89,7 @@ class OppioHostInfo extends LitElement {
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.ip_address")}
                   </span>
-                  <span slot="description">
-                    ${primaryIpAddress}
-                  </span>
+                  <span slot="description"> ${primaryIpAddress} </span>
                   <mwc-button
                     .label=${this.supervisor.localize("system.host.change")}
                     @click=${this._changeNetworkClicked}
@@ -120,7 +113,7 @@ class OppioHostInfo extends LitElement {
                   `
                 : ""}
             </ha-settings-row>
-            ${!this.supervisor.host.features.includes("oppos")
+            ${!this.supervisor.host.features.includes("opos")
               ? html`<ha-settings-row>
                   <span slot="heading">
                     ${this.supervisor.localize("system.host.docker_version")}
@@ -187,7 +180,7 @@ class OppioHostInfo extends LitElement {
               `
             : ""}
 
-          <ha-button-menu
+          <op-button-menu
             corner="BOTTOM_START"
             @action=${this._handleMenuAction}
           >
@@ -197,12 +190,12 @@ class OppioHostInfo extends LitElement {
             <mwc-list-item>
               ${this.supervisor.localize("system.host.hardware")}
             </mwc-list-item>
-            ${this.supervisor.host.features.includes("oppos")
+            ${this.supervisor.host.features.includes("opos")
               ? html`<mwc-list-item>
                   ${this.supervisor.localize("system.host.import_from_usb")}
                 </mwc-list-item>`
               : ""}
-          </ha-button-menu>
+          </op-button-menu>
         </div>
       </ha-card>
     `;
@@ -235,20 +228,19 @@ class OppioHostInfo extends LitElement {
   }
 
   private async _showHardware(): Promise<void> {
+    let hardware;
     try {
-      const content = await fetchOppioHardwareInfo(this.opp);
-      showOppioMarkdownDialog(this, {
-        title: this.supervisor.localize("system.host.hardware"),
-        content: `<pre>${safeDump(content, { indent: 2 })}</pre>`,
-      });
+      hardware = await fetchOppioHardwareInfo(this.opp);
     } catch (err) {
-      showAlertDialog(this, {
+      await showAlertDialog(this, {
         title: this.supervisor.localize(
           "system.host.failed_to_get_hardware_list"
         ),
         text: extractApiErrorMessage(err),
       });
+      return;
     }
+    showOppioHardwareDialog(this, { supervisor: this.supervisor, hardware });
   }
 
   private async _hostReboot(ev: CustomEvent): Promise<void> {
@@ -414,7 +406,7 @@ class OppioHostInfo extends LitElement {
     }
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
@@ -455,7 +447,7 @@ class OppioHostInfo extends LitElement {
           --mdc-theme-primary: var(--error-color);
         }
 
-        ha-button-menu {
+        op-button-menu {
           color: var(--secondary-text-color);
           --mdc-menu-min-width: 200px;
         }

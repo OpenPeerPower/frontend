@@ -3,18 +3,17 @@ import "@polymer/paper-dialog-scrollable/paper-dialog-scrollable";
 import type { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
-  CSSResultArray,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
-import { fireEvent } from "../../common/dom/fire_event";
+} from "lit";
+import { customElement, state } from "lit/decorators";
+import { fireEvent, OPPDomEvent } from "../../common/dom/fire_event";
 import { computeRTL } from "../../common/util/compute_rtl";
-import "../../components/ha-circular-progress";
-import "../../components/ha-dialog";
+import "../../components/op-circular-progress";
+import "../../components/op-dialog";
 import "../../components/ha-form/ha-form";
 import "../../components/ha-icon-button";
 import "../../components/ha-markdown";
@@ -23,10 +22,10 @@ import {
   subscribeAreaRegistry,
 } from "../../data/area_registry";
 import { fetchConfigFlowInProgress } from "../../data/config_flow";
-import type {
+import {
   DataEntryFlowProgress,
-  DataEntryFlowProgressedEvent,
   DataEntryFlowStep,
+  subscribeDataEntryFlowProgressed,
 } from "../../data/data_entry_flow";
 import {
   DeviceRegistryEntry,
@@ -35,25 +34,34 @@ import {
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { showAlertDialog } from "../generic/show-dialog-box";
-import { DataEntryFlowDialogParams } from "./show-dialog-data-entry-flow";
+import {
+  DataEntryFlowDialogParams,
+  LoadingReason,
+} from "./show-dialog-data-entry-flow";
 import "./step-flow-abort";
 import "./step-flow-create-entry";
 import "./step-flow-external";
 import "./step-flow-form";
 import "./step-flow-loading";
+import "./step-flow-pick-flow";
 import "./step-flow-pick-handler";
 import "./step-flow-progress";
-import "./step-flow-pick-flow";
 
 let instance = 0;
+
+interface FlowUpdateEvent {
+  step?: DataEntryFlowStep;
+  stepPromise?: Promise<DataEntryFlowStep>;
+}
 
 declare global {
   // for fire event
   interface OPPDomEvents {
-    "flow-update": {
-      step?: DataEntryFlowStep;
-      stepPromise?: Promise<DataEntryFlowStep>;
-    };
+    "flow-update": FlowUpdateEvent;
+  }
+  // for add event listener
+  interface HTMLElementEventMap {
+    "flow-update": OPPDomEvent<FlowUpdateEvent>;
   }
 }
 
@@ -61,31 +69,33 @@ declare global {
 class DataEntryFlowDialog extends LitElement {
   public opp!: OpenPeerPower;
 
-  @internalProperty() private _params?: DataEntryFlowDialogParams;
+  @state() private _params?: DataEntryFlowDialogParams;
 
-  @internalProperty() private _loading = true;
+  @state() private _loading?: LoadingReason;
 
   private _instance = instance;
 
-  @internalProperty() private _step:
+  @state() private _step:
     | DataEntryFlowStep
     | undefined
     // Null means we need to pick a config flow
     | null;
 
-  @internalProperty() private _devices?: DeviceRegistryEntry[];
+  @state() private _devices?: DeviceRegistryEntry[];
 
-  @internalProperty() private _areas?: AreaRegistryEntry[];
+  @state() private _areas?: AreaRegistryEntry[];
 
-  @internalProperty() private _handlers?: string[];
+  @state() private _handlers?: string[];
 
-  @internalProperty() private _handler?: string;
+  @state() private _handler?: string;
 
-  @internalProperty() private _flowsInProgress?: DataEntryFlowProgress[];
+  @state() private _flowsInProgress?: DataEntryFlowProgress[];
 
   private _unsubAreas?: UnsubscribeFunc;
 
   private _unsubDevices?: UnsubscribeFunc;
+
+  private _unsubDataEntryFlowProgressed?: Promise<UnsubscribeFunc>;
 
   public async showDialog(params: DataEntryFlowDialogParams): Promise<void> {
     this._params = params;
@@ -97,7 +107,7 @@ class DataEntryFlowDialog extends LitElement {
     }
 
     if (params.continueFlowId) {
-      this._loading = true;
+      this._loading = "loading_flow";
       const curInstance = this._instance;
       let step: DataEntryFlowStep;
       try {
@@ -125,7 +135,7 @@ class DataEntryFlowDialog extends LitElement {
       }
 
       this._processStep(step);
-      this._loading = false;
+      this._loading = undefined;
       return;
     }
 
@@ -137,14 +147,13 @@ class DataEntryFlowDialog extends LitElement {
 
     // We only load the handlers once
     if (this._handlers === undefined) {
-      this._loading = true;
+      this._loading = "loading_handlers";
       try {
         this._handlers = await params.flowConfig.getFlowHandlers(this.opp);
       } finally {
-        this._loading = false;
+        this._loading = undefined;
       }
     }
-    await this.updateComplete;
   }
 
   public closeDialog() {
@@ -179,6 +188,12 @@ class DataEntryFlowDialog extends LitElement {
       this._unsubDevices();
       this._unsubDevices = undefined;
     }
+    if (this._unsubDataEntryFlowProgressed) {
+      this._unsubDataEntryFlowProgressed.then((unsub) => {
+        unsub();
+      });
+      this._unsubDataEntryFlowProgressed = undefined;
+    }
     fireEvent(this, "dialog-closed", { dialog: this.localName });
   }
 
@@ -188,7 +203,7 @@ class DataEntryFlowDialog extends LitElement {
     }
 
     return html`
-      <ha-dialog
+      <op-dialog
         open
         @closed=${this.closeDialog}
         scrimClickAction
@@ -202,9 +217,11 @@ class DataEntryFlowDialog extends LitElement {
             this._handler === undefined)
             ? html`
                 <step-flow-loading
-                  .label=${this.opp.localize(
-                    "ui.panel.config.integrations.config_flow.loading_first_time"
-                  )}
+                  .flowConfig=${this._params.flowConfig}
+                  .opp=${this.opp}
+                  .loadingReason=${this._loading || "loading_handlers"}
+                  .handler=${this._handler}
+                  .step=${this._step}
                 ></step-flow-loading>
               `
             : this._step === undefined
@@ -233,7 +250,6 @@ class DataEntryFlowDialog extends LitElement {
                         <step-flow-pick-handler
                           .opp=${this.opp}
                           .handlers=${this._handlers}
-                          .showAdvanced=${this._params.showAdvanced}
                           @handler-picked=${this._handlerPicked}
                         ></step-flow-pick-handler>
                       `
@@ -271,7 +287,13 @@ class DataEntryFlowDialog extends LitElement {
                     `
                   : this._devices === undefined || this._areas === undefined
                   ? // When it's a create entry result, we will fetch device & area registry
-                    html` <step-flow-loading></step-flow-loading> `
+                    html`
+                      <step-flow-loading
+                        .flowConfig=${this._params.flowConfig}
+                        .opp=${this.opp}
+                        loadingReason="loading_devices_areas"
+                      ></step-flow-loading>
+                    `
                   : html`
                       <step-flow-create-entry
                         .flowConfig=${this._params.flowConfig}
@@ -283,37 +305,28 @@ class DataEntryFlowDialog extends LitElement {
                     `}
               `}
         </div>
-      </ha-dialog>
+      </op-dialog>
     `;
   }
 
   protected firstUpdated(changedProps: PropertyValues) {
     super.firstUpdated(changedProps);
-    this.opp.connection.subscribeEvents<DataEntryFlowProgressedEvent>(
-      async (ev) => {
-        if (ev.data.flow_id !== this._step?.flow_id) {
-          return;
-        }
-        const step = await this._params!.flowConfig.fetchFlow(
-          this.opp,
-          this._step?.flow_id
-        );
-        this._processStep(step);
-      },
-      "data_entry_flow_progressed"
-    );
     this.addEventListener("flow-update", (ev) => {
-      const { step, stepPromise } = (ev as any).detail;
+      const { step, stepPromise } = ev.detail;
       this._processStep(step || stepPromise);
     });
   }
 
-  protected updated(changedProps: PropertyValues) {
-    if (
-      changedProps.has("_step") &&
-      this._step &&
-      this._step.type === "create_entry"
-    ) {
+  public willUpdate(changedProps: PropertyValues) {
+    super.willUpdate(changedProps);
+    if (!changedProps.has("_step") || !this._step) {
+      return;
+    }
+    if (["external", "progress"].includes(this._step.type)) {
+      // external and progress step will send update event from the backend, so we should subscribe to them
+      this._subscribeDataEntryFlowProgressed();
+    }
+    if (this._step.type === "create_entry") {
       if (this._step.result && this._params!.flowConfig.loadDevicesAndAreas) {
         this._fetchDevices(this._step.result.entry_id);
         this._fetchAreas();
@@ -342,13 +355,16 @@ class DataEntryFlowDialog extends LitElement {
   }
 
   private async _checkFlowsInProgress(handler: string) {
-    this._loading = true;
+    this._loading = "loading_handlers";
+    this._handler = handler;
 
     const flowsInProgress = (
       await fetchConfigFlowInProgress(this.opp.connection)
     ).filter((flow) => flow.handler === handler);
 
     if (!flowsInProgress.length) {
+      // No flows in progress, create a new flow
+      this._loading = "loading_flow";
       let step: DataEntryFlowStep;
       try {
         step = await this._params!.flowConfig.createFlow(this.opp, handler);
@@ -364,14 +380,15 @@ class DataEntryFlowDialog extends LitElement {
           ),
         });
         return;
+      } finally {
+        this._handler = undefined;
       }
       this._processStep(step);
     } else {
       this._step = null;
-      this._handler = handler;
       this._flowsInProgress = flowsInProgress;
     }
-    this._loading = false;
+    this._loading = undefined;
   }
 
   private _handlerPicked(ev) {
@@ -382,11 +399,11 @@ class DataEntryFlowDialog extends LitElement {
     step: DataEntryFlowStep | undefined | Promise<DataEntryFlowStep>
   ): Promise<void> {
     if (step instanceof Promise) {
-      this._loading = true;
+      this._loading = "loading_step";
       try {
         this._step = await step;
       } finally {
-        this._loading = false;
+        this._loading = undefined;
       }
       return;
     }
@@ -400,11 +417,28 @@ class DataEntryFlowDialog extends LitElement {
     this._step = step;
   }
 
-  static get styles(): CSSResultArray {
+  private _subscribeDataEntryFlowProgressed() {
+    if (this._unsubDataEntryFlowProgressed) {
+      return;
+    }
+    this._unsubDataEntryFlowProgressed = subscribeDataEntryFlowProgressed(
+      this.opp.connection,
+      async (ev) => {
+        if (ev.data.flow_id !== this._step?.flow_id) {
+          return;
+        }
+        this._processStep(
+          this._params!.flowConfig.fetchFlow(this.opp, this._step?.flow_id)
+        );
+      }
+    );
+  }
+
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --dialog-content-padding: 0;
         }
         ha-icon-button {

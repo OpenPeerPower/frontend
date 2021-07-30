@@ -4,15 +4,13 @@ import "@polymer/paper-item/paper-item";
 import "@polymer/paper-listbox/paper-listbox";
 import {
   css,
-  CSSResult,
-  customElement,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
-} from "lit-element";
+} from "lit";
+import { customElement, property, state } from "lit/decorators";
 import "web-animations-js/web-animations-next-lite.min";
 import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/ha-card";
@@ -39,15 +37,15 @@ class OppioAddonAudio extends LitElement {
 
   @property({ attribute: false }) public addon!: OppioAddonDetails;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
-  @internalProperty() private _inputDevices?: OppioHardwareAudioDevice[];
+  @state() private _inputDevices?: OppioHardwareAudioDevice[];
 
-  @internalProperty() private _outputDevices?: OppioHardwareAudioDevice[];
+  @state() private _outputDevices?: OppioHardwareAudioDevice[];
 
-  @internalProperty() private _selectedInput!: null | string;
+  @state() private _selectedInput!: null | string;
 
-  @internalProperty() private _selectedOutput!: null | string;
+  @state() private _selectedOutput!: null | string;
 
   protected render(): TemplateResult {
     return html`
@@ -69,13 +67,13 @@ class OppioAddonAudio extends LitElement {
               .selected=${this._selectedInput!}
             >
               ${this._inputDevices &&
-              this._inputDevices.map((item) => {
-                return html`
+              this._inputDevices.map(
+                (item) => html`
                   <paper-item device=${item.device || ""}>
                     ${item.name}
                   </paper-item>
-                `;
-              })}
+                `
+              )}
             </paper-listbox>
           </paper-dropdown-menu>
           <paper-dropdown-menu
@@ -90,13 +88,13 @@ class OppioAddonAudio extends LitElement {
               .selected=${this._selectedOutput!}
             >
               ${this._outputDevices &&
-              this._outputDevices.map((item) => {
-                return html`
+              this._outputDevices.map(
+                (item) => html`
                   <paper-item device=${item.device || ""}
                     >${item.name}</paper-item
                   >
-                `;
-              })}
+                `
+              )}
             </paper-listbox>
           </paper-dropdown-menu>
         </div>
@@ -109,7 +107,7 @@ class OppioAddonAudio extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,

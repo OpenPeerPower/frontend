@@ -64,18 +64,18 @@ class HaCallServiceButton extends EventsMixin(PolymerElement) {
     this.opp
       .callService(this.domain, this.service, this.serviceData)
       .then(
-        function () {
+        () => {
           el.progress = false;
           el.$.progress.actionSuccess();
           eventData.success = true;
         },
-        function () {
+        () => {
           el.progress = false;
           el.$.progress.actionError();
           eventData.success = false;
         }
       )
-      .then(function () {
+      .then(() => {
         el.fire("opp-service-called", eventData);
       });
   }

@@ -1,12 +1,6 @@
-import {
-  css,
-  customElement,
-  html,
-  LitElement,
-  property,
-  svg,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
+import { css, html, LitElement, svg } from "lit";
+import { customElement, property } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
 
 export const BRANCH_HEIGHT = 20;
 export const SPACING = 10;
@@ -36,16 +30,16 @@ export class HatGraph extends LitElement {
 
   @property({ reflect: true, type: Boolean }) branching?: boolean;
 
-  @property({ reflect: true, converter: track_converter })
+  @property({ converter: track_converter })
   track_start?: number[];
 
-  @property({ reflect: true, converter: track_converter }) track_end?: number[];
+  @property({ converter: track_converter }) track_end?: number[];
 
   @property({ reflect: true, type: Boolean }) disabled?: boolean;
 
-  @property({ reflect: true, type: Boolean }) selected?: boolean;
+  @property({ type: Boolean }) selected?: boolean;
 
-  @property({ reflect: true, type: Boolean }) short = false;
+  @property({ type: Boolean }) short = false;
 
   async updateChildren() {
     this._num_items = this.children.length;
@@ -74,7 +68,7 @@ export class HatGraph extends LitElement {
 
     return html`
       <slot name="head" @slotchange=${this.updateChildren}> </slot>
-      ${this.branching
+      ${this.branching && branches.some((branch) => !branch.start)
         ? svg`
             <svg
               id="top"

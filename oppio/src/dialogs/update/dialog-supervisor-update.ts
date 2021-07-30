@@ -1,13 +1,6 @@
 import "@material/mwc-button/mwc-button";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/ha-circular-progress";
 import "../../../../src/components/ha-dialog";
@@ -27,15 +20,15 @@ import { SupervisorDialogSupervisorUpdateParams } from "./show-dialog-update";
 class DialogSupervisorUpdate extends LitElement {
   public opp!: OpenPeerPower;
 
-  @internalProperty() private _opened = false;
+  @state() private _opened = false;
 
-  @internalProperty() private _createSnapshot = true;
+  @state() private _createSnapshot = true;
 
-  @internalProperty() private _action: "snapshot" | "update" | null = null;
+  @state() private _action: "snapshot" | "update" | null = null;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
-  @internalProperty()
+  @state()
   private _dialogParams?: SupervisorDialogSupervisorUpdateParams;
 
   public async showDialog(
@@ -56,9 +49,9 @@ class DialogSupervisorUpdate extends LitElement {
 
   public focus(): void {
     this.updateComplete.then(() =>
-      (this.shadowRoot?.querySelector(
-        "[dialogInitialFocus]"
-      ) as HTMLElement)?.focus()
+      (
+        this.shadowRoot?.querySelector("[dialogInitialFocus]") as HTMLElement
+      )?.focus()
     );
   }
 
@@ -165,15 +158,15 @@ class DialogSupervisorUpdate extends LitElement {
     } catch (err) {
       if (this.opp.connection.connected && !ignoreSupervisorError(err)) {
         this._error = extractApiErrorMessage(err);
+        this._action = null;
       }
-      this._action = null;
       return;
     }
 
     this.closeDialog();
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       haStyleDialog,

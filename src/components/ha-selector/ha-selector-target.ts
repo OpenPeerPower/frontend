@@ -8,15 +8,8 @@ import {
   OppServiceTarget,
   UnsubscribeFunc,
 } from "openpeerpower-js-websocket";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import { ConfigEntry, getConfigEntries } from "../../data/config_entries";
 import { DeviceRegistryEntry } from "../../data/device_registry";
 import {
@@ -38,13 +31,13 @@ export class HaTargetSelector extends SubscribeMixin(LitElement) {
 
   @property() public label?: string;
 
-  @internalProperty() private _entityPlaformLookup?: Record<string, string>;
+  @state() private _entityPlaformLookup?: Record<string, string>;
 
-  @internalProperty() private _configEntries?: ConfigEntry[];
+  @state() private _configEntries?: ConfigEntry[];
 
   @property({ type: Boolean }) public disabled = false;
 
-  public oppSubscribe(): UnsubscribeFunc[] {
+  public hassSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeEntityRegistry(this.opp.connection!, (entities) => {
         const entityLookup = {};
@@ -153,7 +146,7 @@ export class HaTargetSelector extends SubscribeMixin(LitElement) {
     );
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       ha-target-picker {
         display: block;

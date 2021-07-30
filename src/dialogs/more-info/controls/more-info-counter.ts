@@ -1,14 +1,7 @@
 import "@material/mwc-button";
 import { OppEntity } from "openpeerpower-js-websocket";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";
 
@@ -59,7 +52,7 @@ class MoreInfoCounter extends LitElement {
     });
   }
 
-  static get styles(): CSSResult {
+  static get styles(): CSSResultGroup {
     return css`
       .actions {
         margin: 8px 0;

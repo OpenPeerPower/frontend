@@ -7,7 +7,10 @@ module.exports = {
   build_dir: path.resolve(__dirname, "../build"),
   app_output_root: path.resolve(__dirname, "../opp_frontend"),
   app_output_static: path.resolve(__dirname, "../opp_frontend/static"),
-  app_output_latest: path.resolve(__dirname, "../opp_frontend/frontend_latest"),
+  app_output_latest: path.resolve(
+    __dirname,
+    "../opp_frontend/frontend_latest"
+  ),
   app_output_es5: path.resolve(__dirname, "../opp_frontend/frontend_es5"),
 
   demo_dir: path.resolve(__dirname, "../demo"),

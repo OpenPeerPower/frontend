@@ -1,18 +1,9 @@
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-item/paper-item-body";
 import Fuse from "fuse.js";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
-import { classMap } from "lit-html/directives/class-map";
-import { styleMap } from "lit-html/directives/style-map";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { styleMap } from "lit/directives/style-map";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../common/search/search-input";
@@ -42,11 +33,9 @@ declare global {
 class StepFlowPickHandler extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @property() public handlers!: string[];
+  @property({ attribute: false }) public handlers!: string[];
 
-  @property() public showAdvanced?: boolean;
-
-  @internalProperty() private _filter?: string;
+  @state() private _filter?: string;
 
   private _width?: number;
 
@@ -54,12 +43,10 @@ class StepFlowPickHandler extends LitElement {
 
   private _getHandlers = memoizeOne(
     (h: string[], filter?: string, _localize?: LocalizeFunc) => {
-      const handlers: HandlerObj[] = h.map((handler) => {
-        return {
-          name: domainToName(this.opp.localize, handler),
-          slug: handler,
-        };
-      });
+      const handlers: HandlerObj[] = h.map((handler) => ({
+        name: domainToName(this.opp.localize, handler),
+        slug: handler,
+      }));
 
       if (filter) {
         const options: Fuse.IFuseOptions<HandlerObj> = {
@@ -97,49 +84,50 @@ class StepFlowPickHandler extends LitElement {
           width: `${this._width}px`,
           height: `${this._height}px`,
         })}
-        class=${classMap({ advanced: Boolean(this.showAdvanced) })}
       >
-        ${handlers.map(
-          (handler: HandlerObj) =>
-            html`
-              <paper-icon-item
-                @click=${this._handlerPicked}
-                .handler=${handler}
-              >
-                <img
-                  slot="item-icon"
-                  loading="lazy"
-                  src=${brandsUrl(handler.slug, "icon", true)}
-                  referrerpolicy="no-referrer"
-                />
+        ${handlers.length
+          ? handlers.map(
+              (handler: HandlerObj) =>
+                html`
+                  <paper-icon-item
+                    @click=${this._handlerPicked}
+                    .handler=${handler}
+                  >
+                    <img
+                      slot="item-icon"
+                      loading="lazy"
+                      src=${brandsUrl(handler.slug, "icon", true)}
+                      referrerpolicy="no-referrer"
+                    />
 
-                <paper-item-body>
-                  ${handler.name}
-                </paper-item-body>
-                <ha-icon-next></ha-icon-next>
-              </paper-icon-item>
-            `
-        )}
+                    <paper-item-body> ${handler.name} </paper-item-body>
+                    <ha-icon-next></ha-icon-next>
+                  </paper-icon-item>
+                `
+            )
+          : html`
+              <p>
+                ${this.opp.localize(
+                  "ui.panel.config.integrations.note_about_integrations"
+                )}<br />
+                ${this.opp.localize(
+                  "ui.panel.config.integrations.note_about_website_reference"
+                )}<a
+                  href="${documentationUrl(
+                    this.opp,
+                    `/integrations/${
+                      this._filter ? `#search/${this._filter}` : ""
+                    }`
+                  )}"
+                  target="_blank"
+                  rel="noreferrer"
+                  >${this.opp.localize(
+                    "ui.panel.config.integrations.open_peer_power_website"
+                  )}</a
+                >.
+              </p>
+            `}
       </div>
-      ${this.showAdvanced
-        ? html`
-            <p>
-              ${this.opp.localize(
-                "ui.panel.config.integrations.note_about_integrations"
-              )}<br />
-              ${this.opp.localize(
-                "ui.panel.config.integrations.note_about_website_reference"
-              )}<a
-                href="${documentationUrl(this.opp, "/integrations/")}"
-                target="_blank"
-                rel="noreferrer"
-                >${this.opp.localize(
-                  "ui.panel.config.integrations.open_peer_power_website"
-                )}</a
-              >.
-            </p>
-          `
-        : ""}
     `;
   }
 
@@ -179,7 +167,7 @@ class StepFlowPickHandler extends LitElement {
     });
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       configFlowContentStyles,
       css`
@@ -204,9 +192,6 @@ class StepFlowPickHandler extends LitElement {
         @media all and (max-height: 900px) {
           div {
             max-height: calc(100vh - 134px);
-          }
-          div.advanced {
-            max-height: calc(100vh - 250px);
           }
         }
         paper-icon-item {

@@ -4,16 +4,8 @@ import {
   mdiInformationVariant,
   mdiMathLog,
 } from "@mdi/js";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import { navigate } from "../../../src/common/navigate";
@@ -52,7 +44,7 @@ class OppioAddonDashboard extends LitElement {
 
   @property({ type: Boolean }) public narrow!: boolean;
 
-  @internalProperty() _error?: string;
+  @state() _error?: string;
 
   private _computeTail = memoizeOne((route: Route) => {
     const dividerPos = route.path.indexOf("/", 1);
@@ -69,7 +61,9 @@ class OppioAddonDashboard extends LitElement {
 
   protected render(): TemplateResult {
     if (this._error) {
-      return html`<opp-error-screen .error=${this._error}></opp-error-screen>`;
+      return html`<opp-error-screen
+        .error=${this._error}
+      ></opp-error-screen>`;
     }
 
     if (!this.addon) {
@@ -131,7 +125,7 @@ class OppioAddonDashboard extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       oppioStyle,
@@ -181,7 +175,7 @@ class OppioAddonDashboard extends LitElement {
         if (!validAddon) {
           this._error = this.supervisor.localize("my.error_addon_not_found");
         } else {
-          navigate(this, `/oppio/addon/${requestedAddon}`, true);
+          navigate(`/oppio/addon/${requestedAddon}`, { replace: true });
         }
       }
     }
@@ -189,6 +183,10 @@ class OppioAddonDashboard extends LitElement {
   }
 
   private async _apiCalled(ev): Promise<void> {
+    if (!ev.detail.success) {
+      return;
+    }
+
     const pathSplit: string[] = ev.detail.path?.split("/");
 
     if (!pathSplit || pathSplit.length === 0) {
