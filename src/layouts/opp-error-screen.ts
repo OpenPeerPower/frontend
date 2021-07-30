@@ -1,16 +1,9 @@
 import "@material/mwc-button";
-import {
-  css,
-  CSSResultArray,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
-import { OpenPeerPower } from "../types";
-import "../components/ha-menu-button";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property } from "lit/decorators";
 import "../components/ha-icon-button-arrow-prev";
+import "../components/ha-menu-button";
+import { OpenPeerPower } from "../types";
 
 @customElement("opp-error-screen")
 class OppErrorScreen extends LitElement {
@@ -58,7 +51,7 @@ class OppErrorScreen extends LitElement {
     history.back();
   }
 
-  static get styles(): CSSResultArray {
+  static get styles(): CSSResultGroup {
     return [
       css`
         :host {

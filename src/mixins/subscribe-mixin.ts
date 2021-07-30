@@ -1,12 +1,13 @@
 import { UnsubscribeFunc } from "openpeerpower-js-websocket";
-import { property, PropertyValues, UpdatingElement } from "lit-element";
+import { PropertyValues, ReactiveElement } from "lit";
+import { property } from "lit/decorators";
 import { Constructor, OpenPeerPower } from "../types";
 
 export interface OppSubscribeElement {
   oppSubscribe(): UnsubscribeFunc[];
 }
 
-export const SubscribeMixin = <T extends Constructor<UpdatingElement>>(
+export const SubscribeMixin = <T extends Constructor<ReactiveElement>>(
   superClass: T
 ) => {
   class SubscribeClass extends superClass {
@@ -50,7 +51,7 @@ export const SubscribeMixin = <T extends Constructor<UpdatingElement>>(
     private __checkSubscribed(): void {
       if (
         this.__unsubs !== undefined ||
-        !((this as unknown) as Element).isConnected ||
+        !(this as unknown as Element).isConnected ||
         this.opp === undefined
       ) {
         return;

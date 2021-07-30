@@ -1,11 +1,11 @@
-import { PropertyValues, UpdatingElement } from "lit-element";
+import { PropertyValues, ReactiveElement } from "lit";
 import { Constructor, OpenPeerPower } from "../types";
 
 export interface ProvideOppElement {
   provideOpp(element: HTMLElement);
 }
 
-export const ProvideOppLitMixin = <T extends Constructor<UpdatingElement>>(
+export const ProvideOppLitMixin = <T extends Constructor<ReactiveElement>>(
   superClass: T
 ) =>
   class extends superClass {

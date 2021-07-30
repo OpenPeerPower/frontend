@@ -4,7 +4,8 @@ import {
   STATE_RUNNING,
   STATE_STARTING,
 } from "openpeerpower-js-websocket";
-import { customElement, property, PropertyValues } from "lit-element";
+import { PropertyValues } from "lit";
+import { customElement, property } from "lit/decorators";
 import { deepActiveElement } from "../common/dom/deep-active-element";
 import { deepEqual } from "../common/util/deep-equal";
 import { getDefaultPanel } from "../data/panel";
@@ -42,7 +43,7 @@ const COMPONENTS = {
 class PartialPanelResolver extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @property() public narrow?: boolean;
+  @property({ type: Boolean }) public narrow?: boolean;
 
   private _waitForStart = false;
 
@@ -64,8 +65,8 @@ class PartialPanelResolver extends OppRouterPage {
     document.addEventListener("resume", () => this._checkVisibility());
   }
 
-  protected updated(changedProps: PropertyValues) {
-    super.updated(changedProps);
+  public willUpdate(changedProps: PropertyValues) {
+    super.willUpdate(changedProps);
 
     if (!changedProps.has("opp")) {
       return;
@@ -205,7 +206,7 @@ class PartialPanelResolver extends OppRouterPage {
       this._currentPage &&
       !this.opp.panels[this._currentPage]
     ) {
-      if (this.opp.config.state !== STATE_NOT_RUNNING) {
+      if (this.opp.config.state === STATE_NOT_RUNNING) {
         this._waitForStart = true;
         if (this.lastChild) {
           this.removeChild(this.lastChild);

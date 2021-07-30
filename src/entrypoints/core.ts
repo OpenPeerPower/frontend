@@ -31,8 +31,8 @@ window.name = MAIN_WINDOW_NAME;
 
 declare global {
   interface Window {
-    hassConnection: Promise<{ auth: Auth; conn: Connection }>;
-    hassConnectionReady?: (hassConnection: Window["hassConnection"]) => void;
+    oppConnection: Promise<{ auth: Auth; conn: Connection }>;
+    oppConnectionReady?: (oppConnection: Window["oppConnection"]) => void;
   }
 }
 
