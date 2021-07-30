@@ -1,18 +1,11 @@
 import "@material/mwc-button";
 import "@polymer/paper-dialog-scrollable/paper-dialog-scrollable";
 import "@polymer/paper-input/paper-input";
-import {
-  css,
-  CSSResult,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { navigate } from "../../../common/navigate";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import { AreaRegistryEntryMutableParams } from "../../../data/area_registry";
 import { PolymerChangedEvent } from "../../../polymer-types";
 import { haStyleDialog } from "../../../resources/styles";
@@ -22,13 +15,13 @@ import { AreaRegistryDetailDialogParams } from "./show-dialog-area-registry-deta
 class DialogAreaDetail extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
-  @internalProperty() private _name!: string;
+  @state() private _name!: string;
 
-  @internalProperty() private _error?: string;
+  @state() private _error?: string;
 
-  @internalProperty() private _params?: AreaRegistryDetailDialogParams;
+  @state() private _params?: AreaRegistryDetailDialogParams;
 
-  @internalProperty() private _submitting?: boolean;
+  @state() private _submitting?: boolean;
 
   public async showDialog(
     params: AreaRegistryDetailDialogParams
@@ -156,10 +149,10 @@ class DialogAreaDetail extends LitElement {
       this._submitting = false;
     }
 
-    navigate(this, "/config/areas/dashboard");
+    navigate("/config/areas/dashboard");
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`

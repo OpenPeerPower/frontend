@@ -3,7 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
-import hassAttributeUtil, {
+import oppAttributeUtil, {
   formatAttributeName,
   formatAttributeValue,
 } from "../util/opp-attributes-util";
@@ -25,7 +25,7 @@ class HaAttributes extends LitElement {
     }
 
     const attributes = this.computeDisplayAttributes(
-      Object.keys(hassAttributeUtil.LOGIC_STATE_ATTRIBUTES).concat(
+      Object.keys(oppAttributeUtil.LOGIC_STATE_ATTRIBUTES).concat(
         this.extraFilters ? this.extraFilters.split(",") : []
       )
     );

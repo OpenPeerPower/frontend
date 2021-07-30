@@ -19,7 +19,7 @@ export const timeCachePromiseFunc = async <T>(
   let cache: ResultCache<T> | undefined = (opp as any)[cacheKey];
 
   if (!cache) {
-    cache = hass[cacheKey] = {};
+    cache = opp[cacheKey] = {};
   }
 
   const lastResult = cache[entityId];

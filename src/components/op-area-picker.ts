@@ -114,7 +114,7 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
 
   private _init = false;
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeAreaRegistry(this.opp.connection!, (areas) => {
         this._areas = areas;
@@ -348,7 +348,9 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
           ${this.value
             ? html`
                 <mwc-icon-button
-                  .label=${this.opp.localize("ui.components.area-picker.clear")}
+                  .label=${this.opp.localize(
+                    "ui.components.area-picker.clear"
+                  )}
                   slot="suffix"
                   class="clear-button"
                   @click=${this._clearValue}

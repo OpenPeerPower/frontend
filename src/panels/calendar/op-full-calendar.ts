@@ -14,18 +14,17 @@ import "@material/mwc-button";
 import { mdiViewAgenda, mdiViewDay, mdiViewModule, mdiViewWeek } from "@mdi/js";
 import {
   css,
-  CSSResult,
+  CSSResultGroup,
   html,
-  internalProperty,
   LitElement,
-  property,
   PropertyValues,
   TemplateResult,
   unsafeCSS,
-} from "lit-element";
+} from "lit";
+import { property, state } from "lit/decorators";
 import memoize from "memoize-one";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-button-toggle-group";
+import "../../components/op-button-toggle-group";
 import "../../components/ha-icon-button";
 import { haStyle } from "../../resources/styles";
 import type {
@@ -91,9 +90,9 @@ export class HAFullCalendar extends LitElement {
 
   @property() public initialView: FullCalendarView = "dayGridMonth";
 
-  @internalProperty() private calendar?: Calendar;
+  private calendar?: Calendar;
 
-  @internalProperty() private _activeView?: FullCalendarView;
+  @state() private _activeView = this.initialView;
 
   public updateSize(): void {
     this.calendar?.updateSize();
@@ -182,8 +181,8 @@ export class HAFullCalendar extends LitElement {
     `;
   }
 
-  protected updated(changedProps: PropertyValues): void {
-    super.updated(changedProps);
+  public willUpdate(changedProps: PropertyValues): void {
+    super.willUpdate(changedProps);
 
     if (!this.calendar) {
       return;
@@ -216,8 +215,6 @@ export class HAFullCalendar extends LitElement {
       locale: this.opp.language,
       initialView: this.initialView,
     };
-
-    this._activeView = this.initialView;
 
     config.dateClick = (info) => this._handleDateClick(info);
     config.eventClick = (info) => this._handleEventClick(info);
@@ -285,7 +282,7 @@ export class HAFullCalendar extends LitElement {
     )
   );
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       css`
@@ -340,23 +337,23 @@ export class HAFullCalendar extends LitElement {
           --mdc-icon-button-size: 32px;
         }
 
-        ha-button-toggle-group {
+        op-button-toggle-group {
           color: var(--primary-color);
         }
 
         #calendar {
           flex-grow: 1;
           background-color: var(
-            --op-card-background,
+            --ha-card-background,
             var(--card-background-color, white)
           );
           min-height: 400px;
           --fc-neutral-bg-color: var(
-            --op-card-background,
+            --ha-card-background,
             var(--card-background-color, white)
           );
           --fc-list-event-hover-bg-color: var(
-            --op-card-background,
+            --ha-card-background,
             var(--card-background-color, white)
           );
           --fc-theme-standard-border-color: var(--divider-color);
@@ -447,7 +444,7 @@ export class HAFullCalendar extends LitElement {
         }
 
         .fc-icon-x:before {
-          font-family: var(--material-font-family);
+          font-family: var(--paper-font-common-base_-_font-family);
           content: "X";
         }
 

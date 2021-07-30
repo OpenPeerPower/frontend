@@ -709,7 +709,8 @@ class OppioAddonInfo extends LitElement {
   private get _computeOppioApi(): boolean {
     return (
       this.addon.oppio_api &&
-      (this.addon.oppio_role === "manager" || this.addon.oppio_role === "admin")
+      (this.addon.oppio_role === "manager" ||
+        this.addon.oppio_role === "admin")
     );
   }
 

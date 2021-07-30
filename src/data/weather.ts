@@ -148,7 +148,10 @@ export const getWind = (
   return speedText;
 };
 
-export const getWeatherUnit = (opp: OpenPeerPower, measure: string): string => {
+export const getWeatherUnit = (
+  opp: OpenPeerPower,
+  measure: string
+): string => {
   const lengthUnit = opp.config.unit_system.length || "";
   switch (measure) {
     case "pressure":

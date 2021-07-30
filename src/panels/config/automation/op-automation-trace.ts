@@ -1,47 +1,36 @@
 import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  property,
-  TemplateResult,
-} from "lit-element";
-import { AutomationEntity } from "../../../../data/automation";
+  mdiDownload,
+  mdiPencil,
+  mdiRayEndArrow,
+  mdiRayStartArrow,
+  mdiRefresh,
+} from "@mdi/js";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, property, state } from "lit/decorators";
+import { classMap } from "lit/directives/class-map";
+import { repeat } from "lit/directives/repeat";
+import { isComponentLoaded } from "../../../common/config/is_component_loaded";
+import { formatDateTimeWithSeconds } from "../../../common/datetime/format_date_time";
+import type { NodeInfo } from "../../../components/trace/hat-graph";
+import "../../../components/trace/hat-script-graph";
+import { AutomationEntity } from "../../../data/automation";
+import { getLogbookDataForContext, LogbookEntry } from "../../../data/logbook";
 import {
   AutomationTrace,
   AutomationTraceExtended,
   loadTrace,
   loadTraces,
-} from "../../../../data/trace";
-import "../../../../components/trace/hat-script-graph";
-import type { NodeInfo } from "../../../../components/trace/hat-graph";
-import { haStyle } from "../../../../resources/styles";
-import { OpenPeerPower, Route } from "../../../../types";
-import { configSections } from "../../ha-panel-config";
-import {
-  getLogbookDataForContext,
-  LogbookEntry,
-} from "../../../../data/logbook";
-import { formatDateTimeWithSeconds } from "../../../../common/datetime/format_date_time";
-import { repeat } from "lit-html/directives/repeat";
-import { showAlertDialog } from "../../../../dialogs/generic/show-dialog-box";
-import "./ha-automation-trace-path-details";
-import "./ha-automation-trace-timeline";
-import "./ha-automation-trace-config";
-import "./ha-automation-trace-logbook";
-import { classMap } from "lit-html/directives/class-map";
-import { traceTabStyles } from "./styles";
-import {
-  mdiRayEndArrow,
-  mdiRayStartArrow,
-  mdiPencil,
-  mdiRefresh,
-  mdiDownload,
-} from "@mdi/js";
-import "./ha-automation-trace-blueprint-config";
-import { isComponentLoaded } from "../../../../common/config/is_component_loaded";
+} from "../../../data/trace";
+import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
+import { haStyle } from "../../../resources/styles";
+import { OpenPeerPower, Route } from "../../../types";
+import { configSections } from "../ha-panel-config";
+import "../../../components/trace/ha-trace-blueprint-config";
+import "../../../components/trace/ha-trace-config";
+import "../../../components/trace/ha-trace-logbook";
+import "../../../components/trace/ha-trace-path-details";
+import "../../../components/trace/ha-trace-timeline";
+import { traceTabStyles } from "../../../components/trace/trace-tab-styles";
 
 @customElement("ha-automation-trace")
 export class HaAutomationTrace extends LitElement {
@@ -57,19 +46,19 @@ export class HaAutomationTrace extends LitElement {
 
   @property({ attribute: false }) public route!: Route;
 
-  @internalProperty() private _entityId?: string;
+  @state() private _entityId?: string;
 
-  @internalProperty() private _traces?: AutomationTrace[];
+  @state() private _traces?: AutomationTrace[];
 
-  @internalProperty() private _runId?: string;
+  @state() private _runId?: string;
 
-  @internalProperty() private _selected?: NodeInfo;
+  @state() private _selected?: NodeInfo;
 
-  @internalProperty() private _trace?: AutomationTraceExtended;
+  @state() private _trace?: AutomationTraceExtended;
 
-  @internalProperty() private _logbookEntries?: LogbookEntry[];
+  @state() private _logbookEntries?: LogbookEntry[];
 
-  @internalProperty() private _view:
+  @state() private _view:
     | "details"
     | "config"
     | "timeline"
@@ -81,8 +70,9 @@ export class HaAutomationTrace extends LitElement {
       ? this.opp.states[this._entityId]
       : undefined;
 
-    const trackedNodes =
-      this.shadowRoot!.querySelector("hat-script-graph")?.getTrackedNodes();
+    const graph = this.shadowRoot!.querySelector("hat-script-graph");
+    const trackedNodes = graph?.trackedNodes;
+    const renderedNodes = graph?.renderedNodes;
 
     const title = stateObj?.attributes.friendly_name || this._entityId;
 
@@ -179,7 +169,7 @@ export class HaAutomationTrace extends LitElement {
           : html`
               <div class="main">
                 <div class="graph">
-                  <hat-script-graph
+                  <opt-script-graph
                     .trace=${this._trace}
                     .selected=${this._selected?.path}
                     @graph-node-selected=${this._pickNode}
@@ -216,7 +206,7 @@ export class HaAutomationTrace extends LitElement {
                             @click=${this._showTab}
                           >
                             Blueprint Config
-                          </div>
+                          </button>
                         `
                       : ""}
                   </div>
@@ -226,45 +216,47 @@ export class HaAutomationTrace extends LitElement {
                     ? ""
                     : this._view === "details"
                     ? html`
-                        <op-automation-trace-path-details
+                        <op-trace-path-details
                           .opp=${this.opp}
                           .narrow=${this.narrow}
                           .trace=${this._trace}
                           .selected=${this._selected}
                           .logbookEntries=${this._logbookEntries}
                           .trackedNodes=${trackedNodes}
-                        ></op-automation-trace-path-details>
+                          .renderedNodes=${renderedNodes!}
+                        ></op-trace-path-details>
                       `
                     : this._view === "config"
                     ? html`
-                        <op-automation-trace-config
+                        <op-trace-config
                           .opp=${this.opp}
                           .trace=${this._trace}
-                        ></op-automation-trace-config>
+                        ></op-trace-config>
                       `
                     : this._view === "logbook"
                     ? html`
-                        <op-automation-trace-logbook
+                        <op-trace-logbook
                           .opp=${this.opp}
                           .narrow=${this.narrow}
+                          .trace=${this._trace}
                           .logbookEntries=${this._logbookEntries}
-                        ></op-automation-trace-logbook>
+                        ></op-trace-logbook>
                       `
                     : this._view === "blueprint"
                     ? html`
-                        <op-automation-trace-blueprint-config
+                        <op-trace-blueprint-config
                           .opp=${this.opp}
                           .trace=${this._trace}
-                        ></op-automation-trace-blueprint-config>
+                        ></op-trace-blueprint-config>
                       `
                     : html`
-                        <op-automation-trace-timeline
+                        <op-trace-timeline
                           .opp=${this.opp}
                           .trace=${this._trace}
                           .logbookEntries=${this._logbookEntries}
                           .selected=${this._selected}
                           @value-changed=${this._timelinePathPicked}
-                        ></op-automation-trace-timeline>
+                        ></op-trace-timeline>
                       `}
                 </div>
               </div>
@@ -442,13 +434,13 @@ export class HaAutomationTrace extends LitElement {
   private _timelinePathPicked(ev) {
     const path = ev.detail.value;
     const nodes =
-      this.shadowRoot!.querySelector("hat-script-graph")!.getTrackedNodes();
+      this.shadowRoot!.querySelector("hat-script-graph")!.trackedNodes;
     if (nodes[path]) {
       this._selected = nodes[path];
     }
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyle,
       traceTabStyles,

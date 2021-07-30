@@ -2,10 +2,7 @@
 import "../../src/resources/compatibility";
 import { isNavigationClick } from "../../src/common/dom/is-navigation-click";
 import { navigate } from "../../src/common/navigate";
-import {
-  MockOpenPeerPower,
-  provideOpp,
-} from "../../src/fake_data/provide_opp";
+import { MockOpenPeerPower, provideOpp } from "../../src/fake_data/provide_opp";
 import { OpenPeerPowerAppEl } from "../../src/layouts/open-peer-power";
 import { OpenPeerPower } from "../../src/types";
 import { selectedDemoConfig } from "./configs/demo-configs";
@@ -26,8 +23,8 @@ class HaDemo extends OpenPeerPowerAppEl {
     const initial: Partial<MockOpenPeerPower> = {
       panelUrl: (this as any)._panelUrl,
       // Override updateOpp so that the correct opp lifecycle methods are called
-      updateOpp: (hassUpdate: Partial<OpenPeerPower>) =>
-        this._updateOpp(hassUpdate),
+      updateOpp: (oppUpdate: Partial<OpenPeerPower>) =>
+        this._updateOpp(oppUpdate),
     };
 
     const opp = (this.opp = provideOpp(this, initial));

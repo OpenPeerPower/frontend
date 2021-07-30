@@ -37,7 +37,7 @@ export class HaTargetSelector extends SubscribeMixin(LitElement) {
 
   @property({ type: Boolean }) public disabled = false;
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeEntityRegistry(this.opp.connection!, (entities) => {
         const entityLookup = {};

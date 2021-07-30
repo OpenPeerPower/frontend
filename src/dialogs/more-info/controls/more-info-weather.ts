@@ -89,7 +89,10 @@ class MoreInfoWeather extends LitElement {
           ${this.opp.localize("ui.card.weather.attributes.temperature")}
         </div>
         <div>
-          ${formatNumber(this.stateObj.attributes.temperature, this.opp.locale)}
+          ${formatNumber(
+            this.stateObj.attributes.temperature,
+            this.opp.locale
+          )}
           ${getWeatherUnit(this.opp, "temperature")}
         </div>
       </div>

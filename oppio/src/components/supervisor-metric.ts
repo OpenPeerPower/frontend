@@ -44,7 +44,10 @@ class SupervisorMetric extends LitElement {
         justify-content: space-between;
       }
       op-bar {
-        --op-bar-primary-color: var(--oppio-bar-ok-color, var(--success-color));
+        --op-bar-primary-color: var(
+          --oppio-bar-ok-color,
+          var(--success-color)
+        );
       }
       .target-warning {
         --op-bar-primary-color: var(

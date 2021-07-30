@@ -33,7 +33,7 @@ export class HaEntitySelector extends SubscribeMixin(LitElement) {
     ></op-entity-picker>`;
   }
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeEntityRegistry(this.opp.connection!, (entities) => {
         const entityLookup = {};

@@ -10,7 +10,10 @@ import {
   mdiUnfoldMoreVertical,
 } from "@mdi/js";
 import "@polymer/paper-tooltip/paper-tooltip";
-import { OppServiceTarget, UnsubscribeFunc } from "openpeerpower-js-websocket";
+import {
+  OppServiceTarget,
+  UnsubscribeFunc,
+} from "openpeerpower-js-websocket";
 import { css, CSSResultGroup, html, LitElement, unsafeCSS } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
@@ -86,7 +89,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
 
   @query("#input") private _inputElement?;
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeAreaRegistry(this.opp.connection!, (areas) => {
         const areaLookup: { [areaId: string]: AreaRegistryEntry } = {};
@@ -302,7 +305,9 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
           .opp=${this.opp}
           id="input"
           .type=${"area_id"}
-          .label=${this.opp.localize("ui.components.target-picker.add_area_id")}
+          .label=${this.opp.localize(
+            "ui.components.target-picker.add_area_id"
+          )}
           no-add
           .deviceFilter=${this.deviceFilter}
           .entityFilter=${this.entityRegFilter}

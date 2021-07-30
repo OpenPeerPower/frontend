@@ -40,7 +40,7 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
 
   @state() private _related?: RelatedResult;
 
-  public hassSubscribe(): UnsubscribeFunc[] {
+  public oppSubscribe(): UnsubscribeFunc[] {
     return [
       subscribeDeviceRegistry(this.opp.connection!, (devices) => {
         this._devices = devices;

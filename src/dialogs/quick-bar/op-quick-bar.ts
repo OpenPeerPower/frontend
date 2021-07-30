@@ -140,7 +140,9 @@ export class QuickBar extends LitElement {
           slot="heading"
           class="heading"
           @value-changed=${this._handleSearchChange}
-          .label=${this.opp.localize("ui.dialogs.quick-bar.filter_placeholder")}
+          .label=${this.opp.localize(
+            "ui.dialogs.quick-bar.filter_placeholder"
+          )}
           .value=${this._commandMode ? `>${this._search}` : this._search}
           @keydown=${this._handleInputKeyDown}
           @focus=${this._setFocusFirstListItem}
@@ -416,7 +418,9 @@ export class QuickBar extends LitElement {
     return reloadableDomains.map((domain) => {
       const commandItem = {
         primaryText:
-          this.opp.localize(`ui.dialogs.quick-bar.commands.reload.${domain}`) ||
+          this.opp.localize(
+            `ui.dialogs.quick-bar.commands.reload.${domain}`
+          ) ||
           this.opp.localize(
             "ui.dialogs.quick-bar.commands.reload.reload",
             "domain",

@@ -83,7 +83,8 @@ class HaMenuButton extends LitElement {
     const oldNarrow =
       changedProps.get("narrow") ||
       (oldOpp && oldOpp.dockedSidebar === "always_hidden");
-    const newNarrow = this.narrow || this.opp.dockedSidebar === "always_hidden";
+    const newNarrow =
+      this.narrow || this.opp.dockedSidebar === "always_hidden";
 
     if (oldNarrow === newNarrow) {
       return;

@@ -1,16 +1,9 @@
 import "@material/mwc-button/mwc-button";
-import {
-  css,
-  CSSResult,
-  customElement,
-  html,
-  internalProperty,
-  LitElement,
-  TemplateResult,
-} from "lit-element";
+import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { customElement, state } from "lit/decorators";
 import { computeStateName } from "../../../../../../common/entity/compute_state_name";
 import { computeRTLDirection } from "../../../../../../common/util/compute_rtl";
-import "../../../../../../components/ha-dialog";
+import "../../../../../../components/op-dialog";
 import "../../../../../../components/ha-formfield";
 import "../../../../../../components/ha-switch";
 import type { HaSwitch } from "../../../../../../components/ha-switch";
@@ -29,13 +22,13 @@ import { MQTTDeviceDebugInfoDialogParams } from "./show-dialog-mqtt-device-debug
 class DialogMQTTDeviceDebugInfo extends LitElement {
   public opp!: OpenPeerPower;
 
-  @internalProperty() private _params?: MQTTDeviceDebugInfoDialogParams;
+  @state() private _params?: MQTTDeviceDebugInfoDialogParams;
 
-  @internalProperty() private _debugInfo?: MQTTDeviceDebugInfo;
+  @state() private _debugInfo?: MQTTDeviceDebugInfo;
 
-  @internalProperty() private _showAsYaml = true;
+  @state() private _showAsYaml = true;
 
-  @internalProperty() private _showDeserialized = true;
+  @state() private _showDeserialized = true;
 
   public async showDialog(
     params: MQTTDeviceDebugInfoDialogParams
@@ -56,7 +49,7 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
     return html`
       <op-dialog
         open
-        @closing=${this._close}
+        @closed=${this._close}
         .heading="${this.opp!.localize(
           "ui.dialogs.mqtt_device_debug_info.title",
           "device",
@@ -219,11 +212,11 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
     `;
   }
 
-  static get styles(): CSSResult[] {
+  static get styles(): CSSResultGroup {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 95%;
           --mdc-dialog-min-width: 640px;
         }

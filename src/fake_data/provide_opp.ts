@@ -130,7 +130,7 @@ export const provideOpp = (
   const localLanguage = getLocalLanguage();
   const noop = () => undefined;
 
-  const hassObj: MockOpenPeerPower = {
+  const oppObj: MockOpenPeerPower = {
     // Open Peer Power properties
     auth: {
       data: {
@@ -252,8 +252,8 @@ export const provideOpp = (
     },
     oppUrl: (path?) => path,
     fetchWithAuth: () => Promise.reject("Not implemented"),
-    sendWS: (msg) => hassObj.connection.sendMessage(msg),
-    callWS: (msg) => hassObj.connection.sendMessagePromise(msg),
+    sendWS: (msg) => oppObj.connection.sendMessage(msg),
+    callWS: (msg) => oppObj.connection.sendMessagePromise(msg),
 
     // Mock stuff
     mockEntities: entities,
@@ -296,9 +296,9 @@ export const provideOpp = (
     ...overrideData,
   };
 
-  // Update the elements. Note, we call it on hassObj so that if it was
+  // Update the elements. Note, we call it on oppObj so that if it was
   // overridden (like in the demo), it will still work.
-  hassObj.updateOpp(hassObj);
+  oppObj.updateOpp(oppObj);
 
   // @ts-ignore
   return oppObj;

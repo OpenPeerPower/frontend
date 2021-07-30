@@ -1,5 +1,6 @@
 import { OppEntities } from "openpeerpower-js-websocket";
-import { customElement, property, PropertyValues } from "lit-element";
+import { PropertyValues } from "lit";
+import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";
 import { debounce } from "../../../common/util/debounce";
@@ -9,8 +10,8 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-automation-picker";
 import "./ha-automation-editor";
+import "./ha-automation-picker";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -50,17 +51,16 @@ class HaConfigAutomation extends OppRouterPage {
       },
       trace: {
         tag: "ha-automation-trace",
-        load: () => import("./trace/ha-automation-trace"),
+        load: () => import("./ha-automation-trace"),
       },
     },
   };
 
   private _getAutomations = memoizeOne(
-    (states: OppEntities): AutomationEntity[] => {
-      return Object.values(states).filter(
+    (states: OppEntities): AutomationEntity[] =>
+      Object.values(states).filter(
         (entity) => computeStateDomain(entity) === "automation"
-      ) as AutomationEntity[];
-    }
+      ) as AutomationEntity[]
   );
 
   protected firstUpdated(changedProps) {

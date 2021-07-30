@@ -89,7 +89,7 @@ export const fetchOppioSnapshotInfo = async (
       )
     );
   }
-  // When called from onboarding we don't have hass
+  // When called from onboarding we don't have opp
   const resp = await fetch(`/api/oppio/snapshots/${snapshot}/info`, {
     method: "GET",
   });
@@ -181,7 +181,7 @@ export const uploadSnapshot = async (
       body: fd,
     });
   } else {
-    // When called from onboarding we don't have hass
+    // When called from onboarding we don't have opp
     resp = await fetch("/api/oppio/snapshots/new/upload", {
       method: "POST",
       body: fd,

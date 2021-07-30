@@ -255,7 +255,9 @@ export class HaVoiceCommandDialog extends LitElement {
         const text =
           this.results && this.results.transcript
             ? this.results.transcript
-            : `<${this.opp.localize("ui.dialogs.voice_command.did_not_hear")}>`;
+            : `<${this.opp.localize(
+                "ui.dialogs.voice_command.did_not_hear"
+              )}>`;
         this._addMessage({ who: "user", text, error: true });
       }
       this.results = null;
@@ -301,7 +303,11 @@ export class HaVoiceCommandDialog extends LitElement {
     // To make sure the answer is placed at the right user text, we add it before we process it
     this._addMessage(message);
     try {
-      const response = await processText(this.opp, text, this._conversationId!);
+      const response = await processText(
+        this.opp,
+        text,
+        this._conversationId!
+      );
       const plain = response.speech.plain;
       message.text = plain.speech;
 

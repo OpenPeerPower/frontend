@@ -42,7 +42,9 @@ class HaCoverControls extends LitElement {
           class=${classMap({
             hidden: !this._entityObj.supportsOpen,
           })}
-          .label=${this.opp.localize("ui.dialogs.more_info_control.open_cover")}
+          .label=${this.opp.localize(
+            "ui.dialogs.more_info_control.open_cover"
+          )}
           .icon=${computeOpenIcon(this.stateObj)}
           @click=${this._onOpenTap}
           .disabled=${this._computeOpenDisabled()}
@@ -51,7 +53,9 @@ class HaCoverControls extends LitElement {
           class=${classMap({
             hidden: !this._entityObj.supportsStop,
           })}
-          .label=${this.opp.localize("ui.dialogs.more_info_control.stop_cover")}
+          .label=${this.opp.localize(
+            "ui.dialogs.more_info_control.stop_cover"
+          )}
           icon="opp:stop"
           @click=${this._onStopTap}
           .disabled=${this.stateObj.state === UNAVAILABLE}

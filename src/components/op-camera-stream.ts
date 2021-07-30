@@ -92,7 +92,10 @@ class HaCameraStream extends LitElement {
 
   private async _getStreamUrl(): Promise<void> {
     try {
-      const { url } = await fetchStreamUrl(this.opp!, this.stateObj!.entity_id);
+      const { url } = await fetchStreamUrl(
+        this.opp!,
+        this.stateObj!.entity_id
+      );
 
       this._url = url;
     } catch (err) {

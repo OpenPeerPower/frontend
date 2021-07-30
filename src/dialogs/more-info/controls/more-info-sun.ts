@@ -29,7 +29,9 @@ class MoreInfoSun extends LitElement {
             <div class="key">
               <span
                 >${item === "ris"
-                  ? this.opp.localize("ui.dialogs.more_info_control.sun.rising")
+                  ? this.opp.localize(
+                      "ui.dialogs.more_info_control.sun.rising"
+                    )
                   : this.opp.localize(
                       "ui.dialogs.more_info_control.sun.setting"
                     )}</span
