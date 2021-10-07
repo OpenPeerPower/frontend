@@ -80,7 +80,7 @@ export class DialogOppioSnapshotUpload
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;
         }
-        /* overrule the ha-style-dialog max-height on small screens */
+        /* overrule the op-style-dialog max-height on small screens */
         @media all and (max-width: 450px), all and (max-height: 500px) {
           op-header-bar {
             --mdc-theme-primary: var(--app-header-background-color);

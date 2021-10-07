@@ -29,7 +29,7 @@ class HaConfigCustomize extends LitElement {
 
   protected render(): TemplateResult {
     return html`
-      <style include="ha-style"></style>
+      <style include="op-style"></style>
       <opp-tabs-subpage
       .opp=${this.opp}
         .narrow=${this.narrow}

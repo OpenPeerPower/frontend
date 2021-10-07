@@ -14,7 +14,7 @@ import { computeStateDisplay } from "../../../common/entity/compute_state_displa
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import { debounce } from "../../../common/util/debounce";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import "../../../components/ha-slider";
 import { UNAVAILABLE, UNAVAILABLE_STATES, UNKNOWN } from "../../../data/entity";
 import {

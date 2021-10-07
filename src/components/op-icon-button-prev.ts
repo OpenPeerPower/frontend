@@ -5,7 +5,7 @@ import { customElement, property, state } from "lit/decorators";
 import { OpenPeerPower } from "../types";
 import "./ha-svg-icon";
 
-@customElement("ha-icon-button-prev")
+@customElement("op-icon-button-prev")
 export class HaIconButtonPrev extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -41,6 +41,6 @@ export class HaIconButtonPrev extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-icon-button-prev": HaIconButtonPrev;
+    "op-icon-button-prev": HaIconButtonPrev;
   }
 }

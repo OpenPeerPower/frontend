@@ -157,7 +157,7 @@ export class HuiCreateDialogCard
       haStyleDialog,
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          /* overrule the ha-style-dialog max-height on small screens */
+          /* overrule the op-style-dialog max-height on small screens */
           ha-dialog {
             --mdc-dialog-max-height: 100%;
             height: 100%;

@@ -14,7 +14,7 @@ import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-attributes";
 import "../../../components/op-button-toggle-group";
 import "../../../components/ha-color-picker";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import "../../../components/op-labeled-slider";
 import "../../../components/ha-paper-dropdown-menu";
 import {

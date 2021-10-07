@@ -192,7 +192,7 @@ export class HaLocationsEditor extends LitElement {
         if (location.name) {
           el.innerText = location.name;
         }
-        const iconEl = document.createElement("ha-icon");
+        const iconEl = document.createElement("op-icon");
         iconEl.setAttribute("icon", location.icon);
         el.prepend(iconEl);
 

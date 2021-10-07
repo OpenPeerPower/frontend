@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-next";
+import "../../../components/op-icon-next";
 import "../../../components/ha-menu-button";
 import "../../../components/ha-svg-icon";
 import { CloudStatus } from "../../../data/cloud";

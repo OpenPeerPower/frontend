@@ -12,8 +12,8 @@ import { computeStateName } from "../../../../../common/entity/compute_state_nam
 import { sortStatesByName } from "../../../../../common/entity/states_sort_by_name";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/ha-card";
-import "../../../../../components/ha-icon-button";
-import "../../../../../components/ha-icon-button-arrow-prev";
+import "../../../../../components/op-icon-button";
+import "../../../../../components/op-icon-button-arrow-prev";
 import "../../../../../components/ha-menu-button";
 import "../../../../../components/ha-service-description";
 import "../../../../../layouts/ha-app-layout";

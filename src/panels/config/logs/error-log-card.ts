@@ -8,7 +8,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { fetchErrorLog } from "../../../data/error_log";
 import { OpenPeerPower } from "../../../types";
 
@@ -54,7 +54,7 @@ class ErrorLogCard extends LitElement {
         margin: 16px;
       }
 
-      ha-icon-button {
+      op-icon-button {
         float: right;
       }
 

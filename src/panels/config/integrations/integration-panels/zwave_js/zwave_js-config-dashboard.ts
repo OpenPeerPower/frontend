@@ -14,7 +14,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-svg-icon";
-import "../../../../../components/ha-icon-next";
+import "../../../../../components/op-icon-next";
 import { getSignedPath } from "../../../../../data/auth";
 import {
   fetchNetworkStatus,

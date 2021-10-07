@@ -3,7 +3,7 @@ import "@polymer/app-layout/app-toolbar/app-toolbar";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import "../../../layouts/opp-tabs-subpage";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";

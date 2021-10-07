@@ -18,7 +18,7 @@ import {
 import { debounce } from "../../../../../common/util/debounce";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-svg-icon";
-import "../../../../../components/ha-icon-next";
+import "../../../../../components/op-icon-next";
 import "../../../../../components/ha-switch";
 import {
   fetchNodeConfigParameters,

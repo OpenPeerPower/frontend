@@ -14,8 +14,8 @@ import { isComponentLoaded } from "../common/config/is_component_loaded";
 import { restoreScroll } from "../common/decorators/restore-scroll";
 import { LocalizeFunc } from "../common/translations/localize";
 import { computeRTL } from "../common/util/compute_rtl";
-import "../components/ha-icon";
-import "../components/ha-icon-button-arrow-prev";
+import "../components/op-icon";
+import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import "../components/ha-svg-icon";
 import "../components/ha-tab";
@@ -261,7 +261,7 @@ class OppTabsSubpage extends LitElement {
       }
 
       ha-menu-button,
-      ha-icon-button-arrow-prev,
+      op-icon-button-arrow-prev,
       ::slotted([slot="toolbar-icon"]) {
         flex-shrink: 0;
         pointer-events: auto;

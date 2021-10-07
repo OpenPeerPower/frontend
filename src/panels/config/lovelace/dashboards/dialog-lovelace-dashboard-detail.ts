@@ -13,7 +13,7 @@ import { slugify } from "../../../../common/string/slugify";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import { createCloseHeading } from "../../../../components/ha-dialog";
 import "../../../../components/ha-formfield";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import "../../../../components/ha-switch";
 import type { HaSwitch } from "../../../../components/ha-switch";
 import {

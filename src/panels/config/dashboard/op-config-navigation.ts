@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { canShowPage } from "../../../common/config/can_show_page";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-next";
+import "../../../components/op-icon-next";
 import { CloudStatus, CloudStatusLoggedIn } from "../../../data/cloud";
 import { PageNavigation } from "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower } from "../../../types";
@@ -86,7 +86,7 @@ class HaConfigNavigation extends LitElement {
         outline: 0;
       }
       ha-svg-icon,
-      ha-icon-next {
+      op-icon-next {
         color: var(--secondary-text-color);
       }
       .iron-selected paper-item::before,

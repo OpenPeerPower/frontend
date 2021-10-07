@@ -18,7 +18,7 @@ import {
   RowClickedEvent,
 } from "../../../../../components/data-table/ha-data-table";
 import "../../../../../components/ha-fab";
-import "../../../../../components/ha-icon-button";
+import "../../../../../components/op-icon-button";
 import { fetchGroups, ZHADevice, ZHAGroup } from "../../../../../data/zha";
 import "../../../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../../../resources/styles";

@@ -14,7 +14,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { navigate } from "../../../../../common/navigate";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/ha-card";
-import "../../../../../components/ha-icon-next";
+import "../../../../../components/op-icon-next";
 import {
   fetchOZWNetworkStatistics,
   fetchOZWNetworkStatus,

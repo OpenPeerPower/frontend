@@ -1,7 +1,7 @@
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "./ha-icon";
+import "./op-icon";
 import "./ha-slider";
 
 class HaLabeledSlider extends PolymerElement {
@@ -21,7 +21,7 @@ class HaLabeledSlider extends PolymerElement {
           display: flex;
         }
 
-        ha-icon {
+        op-icon {
           margin-top: 4px;
           color: var(--secondary-text-color);
         }

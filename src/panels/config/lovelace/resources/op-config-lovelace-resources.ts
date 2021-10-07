@@ -19,7 +19,7 @@ import {
   RowClickedEvent,
 } from "../../../../components/data-table/ha-data-table";
 import "../../../../components/ha-fab";
-import "../../../../components/ha-icon";
+import "../../../../components/op-icon";
 import "../../../../components/ha-svg-icon";
 import {
   createResource,

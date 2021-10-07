@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { computeTooltip } from "../common/compute-tooltip";
@@ -61,7 +61,7 @@ export class HuiIconElement extends LitElement implements LovelaceElement {
       :host {
         cursor: pointer;
       }
-      ha-icon:focus {
+      op-icon:focus {
         outline: none;
         background: var(--divider-color);
         border-radius: 100%;

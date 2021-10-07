@@ -19,7 +19,7 @@ import { guard } from "lit-html/directives/guard";
 import { repeat } from "lit-html/directives/repeat";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import {
   addItem,
   clearItems,
@@ -369,7 +369,7 @@ class HuiShoppingListCard
         align-items: center;
       }
 
-      .addRow ha-icon {
+      .addRow op-icon {
         color: var(--secondary-text-color);
         --mdc-icon-size: 26px;
       }

@@ -7,7 +7,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 
 @customElement("hui-warning-element")
 export class HuiWarningElement extends LitElement {
@@ -19,7 +19,7 @@ export class HuiWarningElement extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-icon {
+      op-icon {
         color: #fce588;
       }
     `;

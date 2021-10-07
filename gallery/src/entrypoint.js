@@ -1,6 +1,6 @@
 import "@polymer/polymer/lib/elements/dom-if";
 import "@polymer/polymer/lib/elements/dom-repeat";
-import "../../src/resources/ha-style";
+import "../../src/resources/op-style";
 import "../../src/resources/roboto";
 import "./ha-gallery";
 

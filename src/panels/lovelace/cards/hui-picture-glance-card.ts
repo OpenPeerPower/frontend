@@ -18,7 +18,7 @@ import { computeStateDisplay } from "../../../common/entity/compute_state_displa
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
@@ -326,13 +326,13 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
         margin-left: 8px;
       }
 
-      ha-icon-button {
+      op-icon-button {
         --mdc-icon-button-size: 40px;
         --disabled-text-color: currentColor;
         color: var(--op-picture-icon-button-color, #a9a9a9);
       }
 
-      ha-icon-button.state-on {
+      op-icon-button.state-on {
         color: var(--op-picture-icon-button-on-color, white);
       }
       .state {

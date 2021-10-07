@@ -1,7 +1,7 @@
 import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../components/ha-icon-button-arrow-prev";
+import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import { OpenPeerPower } from "../types";
 
@@ -72,7 +72,7 @@ class OppErrorScreen extends LitElement {
           border-bottom: var(--app-header-border-bottom, none);
           box-sizing: border-box;
         }
-        ha-icon-button-arrow-prev {
+        op-icon-button-arrow-prev {
           pointer-events: auto;
         }
         .content {

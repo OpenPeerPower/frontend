@@ -43,7 +43,7 @@ import { installResizeObserver } from "../common/install-resize-observer";
 import { createEntityNotFoundWarning } from "../components/hui-warning";
 
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 
 const DAY_IN_MILLISECONDS = 86400000;
 

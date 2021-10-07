@@ -39,7 +39,7 @@ const debouncedWriteCache = debounce(() => writeCache(chunks), 2000);
 
 const cachedIcons: Record<string, string> = {};
 
-@customElement("ha-icon")
+@customElement("op-icon")
 export class HaIcon extends LitElement {
   @property() public icon?: string;
 
@@ -171,6 +171,6 @@ export class HaIcon extends LitElement {
 }
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-icon": HaIcon;
+    "op-icon": HaIcon;
   }
 }

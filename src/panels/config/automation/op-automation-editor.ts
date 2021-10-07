@@ -28,7 +28,7 @@ import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import "../../../components/ha-svg-icon";
 import "../../../components/ha-yaml-editor";
 import type { HaYamlEditor } from "../../../components/ha-yaml-editor";

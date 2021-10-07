@@ -2,7 +2,7 @@ import "@polymer/paper-input/paper-input";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../../components/ha-icon";
+import "../../../../components/op-icon";
 
 class HaCustomizeIcon extends PolymerElement {
   static get template() {

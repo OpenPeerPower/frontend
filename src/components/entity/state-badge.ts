@@ -15,7 +15,7 @@ import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { stateIcon } from "../../common/entity/state_icon";
 import { iconColorCSS } from "../../common/style/icon_color_css";
 import type { OpenPeerPower } from "../../types";
-import "../ha-icon";
+import "../op-icon";
 
 export class StateBadge extends LitElement {
   public opp?: OpenPeerPower;
@@ -152,7 +152,7 @@ export class StateBadge extends LitElement {
       :host([icon]:focus) {
         background: var(--divider-color);
       }
-      ha-icon {
+      op-icon {
         transition: color 0.3s ease-in-out, filter 0.3s ease-in-out;
       }
       .missing {

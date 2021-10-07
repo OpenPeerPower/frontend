@@ -3,7 +3,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { EventsMixin } from "../mixins/events-mixin";
-import "./ha-icon-button";
+import "./op-icon-button";
 
 /*
  * @appliesMixin EventsMixin
@@ -30,7 +30,7 @@ class HaWaterHeaterControl extends EventsMixin(PolymerElement) {
           font-size: 200%;
           text-align: right;
         }
-        ha-icon-button {
+        op-icon-button {
           height: 48px;
           width: 48px;
         }

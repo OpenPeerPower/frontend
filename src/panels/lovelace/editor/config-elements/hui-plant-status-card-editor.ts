@@ -11,7 +11,7 @@ import {
 import { assert, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/entity/ha-entity-picker";
-import "../../../../components/ha-icon";
+import "../../../../components/op-icon";
 import { OpenPeerPower } from "../../../../types";
 import { PlantStatusCardConfig } from "../../cards/types";
 import "../../components/hui-theme-select-editor";

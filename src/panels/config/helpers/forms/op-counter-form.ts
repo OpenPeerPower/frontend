@@ -2,7 +2,7 @@ import "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import "../../../../components/ha-switch";
 import type { HaSwitch } from "../../../../components/ha-switch";
 import { Counter } from "../../../../data/counter";

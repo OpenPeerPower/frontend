@@ -19,7 +19,7 @@ import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import "./ha-entity-marker";
 import { OpenPeerPower } from "../../types";
-import "../ha-icon-button";
+import "../op-icon-button";
 import { installResizeObserver } from "../../panels/lovelace/common/install-resize-observer";
 
 const getEntityId = (entity: string | HaMapEntity): string =>
@@ -362,7 +362,7 @@ export class HaMap extends ReactiveElement {
         // create icon
         let iconHTML = "";
         if (icon) {
-          const el = document.createElement("ha-icon");
+          const el = document.createElement("op-icon");
           el.setAttribute("icon", icon);
           iconHTML = el.outerHTML;
         } else {

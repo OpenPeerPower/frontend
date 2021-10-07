@@ -22,7 +22,7 @@ const renderMarkdown = (
   if (!whiteListNormal) {
     whiteListNormal = {
       ...(getDefaultWhiteList() as WhiteList),
-      "ha-icon": ["icon"],
+      "op-icon": ["icon"],
       "ha-svg-icon": ["path"],
     };
   }

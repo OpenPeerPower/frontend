@@ -481,7 +481,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
         margin: 16px auto;
         overflow: hidden;
       }
-      ha-icon,
+      op-icon,
       mwc-icon-button:not([disabled]) {
         color: var(--secondary-text-color);
       }

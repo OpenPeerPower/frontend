@@ -13,7 +13,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/ha-circular-progress";
-import "../../../../../components/ha-icon-button";
+import "../../../../../components/op-icon-button";
 import "../../../../../components/ha-service-description";
 import {
   DEVICE_MESSAGE_TYPES,

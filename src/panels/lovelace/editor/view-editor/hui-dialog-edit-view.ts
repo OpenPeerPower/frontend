@@ -15,7 +15,7 @@ import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
 import { navigate } from "../../../../common/navigate";
 import "../../../../components/ha-circular-progress";
 import "../../../../components/ha-dialog";
-import "../../../../components/ha-icon-button";
+import "../../../../components/op-icon-button";
 import type {
   LovelaceBadgeConfig,
   LovelaceCardConfig,

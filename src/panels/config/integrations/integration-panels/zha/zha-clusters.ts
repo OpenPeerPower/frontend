@@ -14,7 +14,7 @@ import {
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/ha-card";
-import "../../../../../components/ha-icon-button";
+import "../../../../../components/op-icon-button";
 import "../../../../../components/ha-service-description";
 import {
   Cluster,

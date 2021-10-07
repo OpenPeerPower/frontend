@@ -31,7 +31,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { debounce } from "../../../common/util/debounce";
 import parseAspectRatio from "../../../common/util/parse-aspect-ratio";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { fetchRecent } from "../../../data/history";
 import { OpenPeerPower } from "../../../types";
 import "../../map/ha-entity-marker";
@@ -501,7 +501,7 @@ class HuiMapCard extends LitElement implements LovelaceCard {
         // create icon
         let iconHTML = "";
         if (icon) {
-          const el = document.createElement("ha-icon");
+          const el = document.createElement("op-icon");
           el.setAttribute("icon", icon);
           iconHTML = el.outerHTML;
         } else {
@@ -672,7 +672,7 @@ class HuiMapCard extends LitElement implements LovelaceCard {
         background: inherit;
       }
 
-      ha-icon-button {
+      op-icon-button {
         position: absolute;
         top: 75px;
         left: 3px;

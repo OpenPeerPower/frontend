@@ -12,7 +12,7 @@ import { DOMAINS_TOGGLE } from "../../../common/const";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
@@ -87,7 +87,7 @@ export class HuiButtonRow extends LitElement implements LovelaceRow {
         display: flex;
         align-items: center;
       }
-      ha-icon {
+      op-icon {
         padding: 8px;
         color: var(--paper-item-icon-color);
       }

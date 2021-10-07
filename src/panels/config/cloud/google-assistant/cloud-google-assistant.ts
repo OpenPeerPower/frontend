@@ -32,7 +32,7 @@ import "../../../../components/entity/state-info";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-card";
 import "../../../../components/ha-formfield";
-import "../../../../components/ha-icon-button";
+import "../../../../components/op-icon-button";
 import "../../../../components/ha-switch";
 import type { HaSwitch } from "../../../../components/ha-switch";
 import {

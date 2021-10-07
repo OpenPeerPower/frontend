@@ -16,7 +16,7 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { SpeechRecognition } from "../../common/dom/speech-recognition";
 import { uid } from "../../common/util/uid";
 import "../../components/dialog/ha-paper-dialog";
-import "../../components/ha-icon-button";
+import "../../components/op-icon-button";
 import {
   AgentInfo,
   getAgentInfo,
@@ -370,11 +370,11 @@ export class HaVoiceCommandDialog extends LitElement {
           z-index: 103;
         }
 
-        ha-icon-button {
+        op-icon-button {
           color: var(--secondary-text-color);
         }
 
-        ha-icon-button[active] {
+        op-icon-button[active] {
           color: var(--primary-color);
         }
 

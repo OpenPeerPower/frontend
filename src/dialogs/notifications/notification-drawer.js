@@ -5,7 +5,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeDomain } from "../../common/entity/compute_domain";
-import "../../components/ha-icon-button-prev";
+import "../../components/op-icon-button-prev";
 import { subscribeNotifications } from "../../data/persistent_notification";
 import { EventsMixin } from "../../mixins/events-mixin";
 import LocalizeMixin from "../../mixins/localize-mixin";

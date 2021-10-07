@@ -21,8 +21,8 @@ import { deepEqual } from "../../common/util/deep-equal";
 import "../../components/ha-circular-progress";
 import "../../components/ha-code-editor";
 import type { HaCodeEditor } from "../../components/ha-code-editor";
-import "../../components/ha-icon";
-import "../../components/ha-icon-button";
+import "../../components/op-icon";
+import "../../components/op-icon-button";
 import type { LovelaceConfig } from "../../data/lovelace";
 import {
   showAlertDialog,

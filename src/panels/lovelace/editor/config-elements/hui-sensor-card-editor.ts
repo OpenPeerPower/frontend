@@ -16,7 +16,7 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { stateIcon } from "../../../../common/entity/state_icon";
 import "../../../../components/entity/ha-entity-picker";
 import "../../../../components/ha-formfield";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import "../../../../components/ha-switch";
 import { OpenPeerPower } from "../../../../types";
 import { SensorCardConfig } from "../../cards/types";

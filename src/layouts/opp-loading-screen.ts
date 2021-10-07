@@ -2,7 +2,7 @@ import "@polymer/app-layout/app-toolbar/app-toolbar";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../components/op-circular-progress";
-import "../components/ha-icon-button-arrow-prev";
+import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
@@ -70,7 +70,7 @@ class OppLoadingScreen extends LitElement {
           box-sizing: border-box;
         }
         ha-menu-button,
-        ha-icon-button-arrow-prev {
+        op-icon-button-arrow-prev {
           pointer-events: auto;
         }
         .content {

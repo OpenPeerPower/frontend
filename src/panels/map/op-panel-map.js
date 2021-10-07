@@ -9,7 +9,7 @@ import {
 import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { navigate } from "../../common/navigate";
-import "../../components/ha-icon";
+import "../../components/op-icon";
 import "../../components/ha-menu-button";
 import { defaultRadiusColor } from "../../data/zone";
 import "../../layouts/ha-app-layout";
@@ -163,7 +163,7 @@ class HaPanelMap extends LocalizeMixin(PolymerElement) {
         // create icon
         let iconHTML = "";
         if (entity.attributes.icon) {
-          const el = document.createElement("ha-icon");
+          const el = document.createElement("op-icon");
           el.setAttribute("icon", entity.attributes.icon);
           iconHTML = el.outerHTML;
         } else {

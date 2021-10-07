@@ -9,7 +9,7 @@ import {
   unsafeCSS,
 } from "lit";
 import { customElement, property } from "lit/decorators";
-import "./ha-icon";
+import "./op-icon";
 
 declare global {
   // for fire event

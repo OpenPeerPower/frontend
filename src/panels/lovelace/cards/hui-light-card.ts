@@ -20,7 +20,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { UNAVAILABLE, UNAVAILABLE_STATES } from "../../../data/entity";
 import { LightEntity, SUPPORT_BRIGHTNESS } from "../../../data/light";
 import { ActionHandlerEvent } from "../../../data/lovelace";

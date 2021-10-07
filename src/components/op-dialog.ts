@@ -4,7 +4,7 @@ import { css, CSSResultGroup, html } from "lit";
 import { customElement } from "lit/decorators";
 import { computeRTLDirection } from "../common/util/compute_rtl";
 import type { OpenPeerPower } from "../types";
-import "./ha-icon-button";
+import "./op-icon-button";
 
 export const createCloseHeading = (opp: OpenPeerPower, title: string) => html`
   <span class="header_title">${title}</span>

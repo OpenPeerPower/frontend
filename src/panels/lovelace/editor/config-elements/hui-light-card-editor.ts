@@ -11,7 +11,7 @@ import {
 import { assert, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { stateIcon } from "../../../../common/entity/state_icon";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import { ActionConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";
 import { LightCardConfig } from "../../cards/types";

@@ -27,7 +27,7 @@ import { nextRender } from "../../common/util/render-status";
 import { haStyleScrollbar } from "../../resources/styles";
 import "../ha-checkbox";
 import type { HaCheckbox } from "../ha-checkbox";
-import "../ha-icon";
+import "../op-icon";
 import { filterData, sortData } from "./sort-filter";
 
 declare global {
@@ -741,10 +741,10 @@ export class HaDataTable extends LitElement {
           text-align: right;
         }
 
-        .mdc-data-table__cell--icon:first-child ha-icon {
+        .mdc-data-table__cell--icon:first-child op-icon {
           margin-left: 8px;
         }
-        :host([dir="rtl"]) .mdc-data-table__cell--icon:first-child ha-icon {
+        :host([dir="rtl"]) .mdc-data-table__cell--icon:first-child op-icon {
           margin-left: auto;
           margin-right: 8px;
         }
@@ -862,14 +862,14 @@ export class HaDataTable extends LitElement {
         :host([dir="rtl"]) .mdc-data-table__header-cell > * {
           transition: right 0.2s ease;
         }
-        .mdc-data-table__header-cell ha-icon {
+        .mdc-data-table__header-cell op-icon {
           top: -3px;
           position: absolute;
         }
-        .mdc-data-table__header-cell.not-sorted ha-icon {
+        .mdc-data-table__header-cell.not-sorted op-icon {
           left: -20px;
         }
-        :host([dir="rtl"]) .mdc-data-table__header-cell.not-sorted ha-icon {
+        :host([dir="rtl"]) .mdc-data-table__header-cell.not-sorted op-icon {
           right: -20px;
         }
         .mdc-data-table__header-cell.sortable:not(.not-sorted) span,
@@ -885,16 +885,16 @@ export class HaDataTable extends LitElement {
           left: auto;
           right: 24px;
         }
-        .mdc-data-table__header-cell.sortable:not(.not-sorted) ha-icon,
-        .mdc-data-table__header-cell.sortable:hover.not-sorted ha-icon {
+        .mdc-data-table__header-cell.sortable:not(.not-sorted) op-icon,
+        .mdc-data-table__header-cell.sortable:hover.not-sorted op-icon {
           left: 12px;
         }
         :host([dir="rtl"])
           .mdc-data-table__header-cell.sortable:not(.not-sorted)
-          ha-icon,
+          op-icon,
         :host([dir="rtl"])
           .mdc-data-table__header-cell.sortable:hover.not-sorted
-          ha-icon {
+          op-icon {
           left: auto;
           right: 12px;
         }

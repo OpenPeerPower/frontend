@@ -4,7 +4,7 @@ import { haStyleDialog } from "../resources/styles";
 const documentContainer = document.createElement("template");
 documentContainer.setAttribute("style", "display: none;");
 
-documentContainer.innerHTML = `<dom-module id="ha-style-dialog">
+documentContainer.innerHTML = `<dom-module id="op-style-dialog">
 <template>
   <style>
     ${haStyleDialog.cssText}

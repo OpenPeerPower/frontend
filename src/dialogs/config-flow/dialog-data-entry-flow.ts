@@ -15,7 +15,7 @@ import { computeRTL } from "../../common/util/compute_rtl";
 import "../../components/op-circular-progress";
 import "../../components/op-dialog";
 import "../../components/ha-form/ha-form";
-import "../../components/ha-icon-button";
+import "../../components/op-icon-button";
 import "../../components/ha-markdown";
 import {
   AreaRegistryEntry,
@@ -441,13 +441,13 @@ class DataEntryFlowDialog extends LitElement {
         op-dialog {
           --dialog-content-padding: 0;
         }
-        ha-icon-button {
+        op-icon-button {
           padding: 16px;
           position: absolute;
           top: 0;
           right: 0;
         }
-        ha-icon-button[rtl] {
+        op-icon-button[rtl] {
           right: auto;
           left: 0;
         }

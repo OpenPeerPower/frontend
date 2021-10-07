@@ -26,7 +26,7 @@ import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/entity/state-badge";
 import "../../../../components/ha-card";
 import "../../../../components/ha-formfield";
-import "../../../../components/ha-icon";
+import "../../../../components/op-icon";
 import "../../../../components/ha-switch";
 import type { OpenPeerPower } from "../../../../types";
 import type { EntitiesCardConfig } from "../../cards/types";

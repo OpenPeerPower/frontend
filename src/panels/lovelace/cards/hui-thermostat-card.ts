@@ -22,7 +22,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { formatNumber } from "../../../common/string/format_number";
 import "../../../components/ha-card";
 import type { HaCard } from "../../../components/ha-card";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import {
   ClimateEntity,
   CLIMATE_PRESET_NONE,

@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import { InputNumber } from "../../../../data/input_number";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";

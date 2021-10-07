@@ -1,6 +1,6 @@
 import { setPassiveTouchGestures } from "@polymer/polymer/lib/utils/settings";
 import "../layouts/open-peer-power";
-import "../resources/ha-style";
+import "../resources/op-style";
 import "../resources/roboto";
 import "../util/legacy-support";
 

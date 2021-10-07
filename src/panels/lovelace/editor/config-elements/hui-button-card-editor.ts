@@ -13,7 +13,7 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { stateIcon } from "../../../../common/entity/state_icon";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/ha-formfield";
-import "../../../../components/ha-icon-input";
+import "../../../../components/op-icon-input";
 import "../../../../components/ha-switch";
 import { ActionConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";

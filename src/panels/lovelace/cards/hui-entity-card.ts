@@ -17,7 +17,7 @@ import { stateIcon } from "../../../common/entity/state_icon";
 import { isValidEntityId } from "../../../common/entity/valid_entity_id";
 import { formatNumber } from "../../../common/string/format_number";
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";
 import { computeCardSize } from "../common/compute-card-size";

@@ -8,7 +8,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../common/search/search-input";
 import { LocalizeFunc } from "../../common/translations/localize";
-import "../../components/ha-icon-next";
+import "../../components/op-icon-next";
 import { domainToName } from "../../data/integration";
 import { OpenPeerPower } from "../../types";
 import { brandsUrl } from "../../util/brands-url";
@@ -179,7 +179,7 @@ class StepFlowPickHandler extends LitElement {
           display: block;
           margin: -12px 16px 0;
         }
-        ha-icon-next {
+        op-icon-next {
           margin-right: 8px;
         }
         div {

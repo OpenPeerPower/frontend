@@ -24,8 +24,8 @@ import { supportsFeature } from "../../../common/entity/supports-feature";
 import { extractColors } from "../../../common/image/extract_color";
 import { debounce } from "../../../common/util/debounce";
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon";
+import "../../../components/op-icon-button";
 import "../../../components/ha-svg-icon";
 import { showMediaBrowserDialog } from "../../../components/media-player/show-media-browser-dialog";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
@@ -659,17 +659,17 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
         align-items: center;
       }
 
-      .controls ha-icon-button {
+      .controls op-icon-button {
         --mdc-icon-button-size: 44px;
         --mdc-icon-size: 30px;
       }
 
-      ha-icon-button[action="media_play"],
-      ha-icon-button[action="media_play_pause"],
-      ha-icon-button[action="media_pause"],
-      ha-icon-button[action="media_stop"],
-      ha-icon-button[action="turn_on"],
-      ha-icon-button[action="turn_off"] {
+      op-icon-button[action="media_play"],
+      op-icon-button[action="media_play_pause"],
+      op-icon-button[action="media_pause"],
+      op-icon-button[action="media_stop"],
+      op-icon-button[action="turn_on"],
+      op-icon-button[action="turn_off"] {
         --mdc-icon-button-size: 56px;
         --mdc-icon-size: 40px;
       }
@@ -691,7 +691,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
         align-items: center;
       }
 
-      .icon-name ha-icon {
+      .icon-name op-icon {
         padding-right: 8px;
       }
 
@@ -737,20 +737,20 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
         padding-bottom: 0;
       }
 
-      .narrow ha-icon-button {
+      .narrow op-icon-button {
         --mdc-icon-button-size: 40px;
         --mdc-icon-size: 28px;
       }
 
-      .narrow ha-icon-button[action="media_play"],
-      .narrow ha-icon-button[action="media_play_pause"],
-      .narrow ha-icon-button[action="media_pause"],
-      .narrow ha-icon-button[action="turn_on"] {
+      .narrow op-icon-button[action="media_play"],
+      .narrow op-icon-button[action="media_play_pause"],
+      .narrow op-icon-button[action="media_pause"],
+      .narrow op-icon-button[action="turn_on"] {
         --mdc-icon-button-size: 50px;
         --mdc-icon-size: 36px;
       }
 
-      .narrow ha-icon-button.browse-media {
+      .narrow op-icon-button.browse-media {
         --mdc-icon-size: 24px;
       }
 

@@ -602,7 +602,7 @@ export class QuickBar extends LitElement {
           }
         }
 
-        ha-icon.entity,
+        op-icon.entity,
         ha-svg-icon.entity {
           margin-left: 20px;
         }

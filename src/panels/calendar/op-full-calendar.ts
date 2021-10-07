@@ -25,7 +25,7 @@ import { property, state } from "lit/decorators";
 import memoize from "memoize-one";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/op-button-toggle-group";
-import "../../components/ha-icon-button";
+import "../../components/op-icon-button";
 import { haStyle } from "../../resources/styles";
 import type {
   CalendarEvent,

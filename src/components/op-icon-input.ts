@@ -2,9 +2,9 @@ import "@polymer/paper-input/paper-input";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import "./ha-icon";
+import "./op-icon";
 
-@customElement("ha-icon-input")
+@customElement("op-icon-input")
 export class HaIconInput extends LitElement {
   @property() public value?: string;
 
@@ -53,7 +53,7 @@ export class HaIconInput extends LitElement {
 
   static get styles() {
     return css`
-      ha-icon {
+      op-icon {
         position: absolute;
         bottom: 2px;
         right: 0;

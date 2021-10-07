@@ -14,7 +14,7 @@ import "../../../components/buttons/ha-call-service-button";
 import "../../../components/buttons/ha-progress-button";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { domainToName } from "../../../data/integration";
 import {
   fetchSystemLog,

@@ -4,7 +4,7 @@ import { haStyle } from "../resources/styles";
 const documentContainer = document.createElement("template");
 documentContainer.setAttribute("style", "display: none;");
 
-documentContainer.innerHTML = `<dom-module id="ha-style">
+documentContainer.innerHTML = `<dom-module id="op-style">
   <template>
     <style>
     ${haStyle.cssText}

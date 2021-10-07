@@ -4,7 +4,7 @@ import "@polymer/paper-item/paper-item-body";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-icon-next";
+import "../../components/op-icon-next";
 import { localizeConfigFlowTitle } from "../../data/config_flow";
 import { DataEntryFlowProgress } from "../../data/data_entry_flow";
 import { domainToName } from "../../data/integration";
@@ -90,7 +90,7 @@ class StepFlowPickFlow extends LitElement {
           width: 40px;
           height: 40px;
         }
-        ha-icon-next {
+        op-icon-next {
           margin-right: 8px;
         }
         div {

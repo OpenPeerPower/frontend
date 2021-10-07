@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { navigate } from "../../common/navigate";
-import "../../components/ha-icon-button";
+import "../../components/op-icon-button";
 import "../../components/ha-menu-button";
 import "../../components/ha-tabs";
 import "../../layouts/ha-app-layout";

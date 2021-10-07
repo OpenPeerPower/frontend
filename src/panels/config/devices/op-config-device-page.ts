@@ -17,7 +17,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { compare } from "../../../common/string/compare";
 import { slugify } from "../../../common/string/slugify";
 import "../../../components/entity/ha-battery-icon";
-import "../../../components/ha-icon-next";
+import "../../../components/op-icon-next";
 import { AreaRegistryEntry } from "../../../data/area_registry";
 import { ConfigEntry, disableConfigEntry } from "../../../data/config_entries";
 import {
@@ -767,7 +767,7 @@ export class HaConfigDevicePage extends LitElement {
           justify-content: space-between;
         }
 
-        .card-header ha-icon-button {
+        .card-header op-icon-button {
           margin-right: -8px;
           color: var(--primary-color);
           height: auto;

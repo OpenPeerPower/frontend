@@ -8,7 +8,7 @@ import "../../styles/polymer-op-style";
 class HaPanelIframe extends PolymerElement {
   static get template() {
     return html`
-      <style include="ha-style">
+      <style include="op-style">
         iframe {
           border: 0;
           width: 100%;

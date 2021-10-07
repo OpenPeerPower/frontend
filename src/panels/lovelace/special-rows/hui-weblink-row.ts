@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceRow, WeblinkConfig } from "../entity-rows/types";
 
@@ -55,7 +55,7 @@ class HuiWeblinkRow extends LitElement implements LovelaceRow {
         align-items: center;
         color: var(--primary-color);
       }
-      ha-icon {
+      op-icon {
         padding: 8px;
         color: var(--paper-item-icon-color);
       }

@@ -7,7 +7,7 @@ import {
   LitElement,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceRow, SectionConfig } from "../entity-rows/types";
 

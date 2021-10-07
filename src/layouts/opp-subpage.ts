@@ -1,7 +1,7 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, eventOptions, property } from "lit/decorators";
 import { restoreScroll } from "../common/decorators/restore-scroll";
-import "../components/ha-icon-button-arrow-prev";
+import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import { OpenPeerPower } from "../types";
 
@@ -82,7 +82,7 @@ class OppSubpage extends LitElement {
       }
 
       ha-menu-button,
-      ha-icon-button-arrow-prev,
+      op-icon-button-arrow-prev,
       ::slotted([slot="toolbar-icon"]) {
         pointer-events: auto;
       }

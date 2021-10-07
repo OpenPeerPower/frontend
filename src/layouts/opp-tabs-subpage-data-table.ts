@@ -279,7 +279,7 @@ export class HaTabsSubpageDataTable extends LitElement {
         margin-left: 4px;
         font-size: 14px;
       }
-      .active-filters ha-icon {
+      .active-filters op-icon {
         color: var(--primary-color);
       }
       .active-filters mwc-button {

@@ -7,7 +7,7 @@ import "@polymer/paper-ripple/paper-ripple";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../ha-icon";
+import "../op-icon";
 import {
   HaFormElement,
   HaFormMultiSelectData,

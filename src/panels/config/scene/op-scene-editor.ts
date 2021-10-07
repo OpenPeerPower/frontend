@@ -25,8 +25,8 @@ import "../../../components/device/ha-device-picker";
 import "../../../components/entity/ha-entities-picker";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
-import "../../../components/ha-icon-button";
-import "../../../components/ha-icon-input";
+import "../../../components/op-icon-button";
+import "../../../components/op-icon-input";
 import "../../../components/ha-svg-icon";
 import {
   computeDeviceName,
@@ -780,10 +780,10 @@ export class HaSceneEditor extends SubscribeMixin(
         paper-icon-item {
           padding: 8px 16px;
         }
-        ha-card ha-icon-button {
+        ha-card op-icon-button {
           color: var(--secondary-text-color);
         }
-        .card-header > ha-icon-button {
+        .card-header > op-icon-button {
           float: right;
           position: relative;
           top: -8px;

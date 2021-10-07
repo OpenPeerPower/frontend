@@ -13,8 +13,8 @@ import "../../../../../components/buttons/ha-call-api-button";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-circular-progress";
-import "../../../../../components/ha-icon";
-import "../../../../../components/ha-icon-button";
+import "../../../../../components/op-icon";
+import "../../../../../components/op-icon-button";
 import "../../../../../components/ha-service-description";
 import {
   fetchNetworkStatus,
@@ -261,7 +261,7 @@ export class ZwaveNetwork extends LitElement {
           padding: 24px;
         }
 
-        .network-status ha-icon {
+        .network-status op-icon {
           display: block;
           margin: 0px auto 16px;
           width: 48px;

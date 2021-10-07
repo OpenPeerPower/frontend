@@ -4,8 +4,8 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-attributes";
-import "../../../components/ha-icon";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon";
+import "../../../components/op-icon-button";
 import "../../../components/ha-paper-dropdown-menu";
 import {
   VacuumEntity,

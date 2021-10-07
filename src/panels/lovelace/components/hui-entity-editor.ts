@@ -19,7 +19,7 @@ import Sortable, {
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/ha-entity-picker";
 import type { HaEntityPicker } from "../../../components/entity/ha-entity-picker";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { sortableStyles } from "../../../resources/ha-sortable-style";
 import { OpenPeerPower } from "../../../types";
 import { EntityConfig } from "../entity-rows/types";

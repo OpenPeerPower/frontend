@@ -15,7 +15,7 @@ import { computeDomain } from "../../../../common/entity/compute_domain";
 import { domainIcon } from "../../../../common/entity/domain_icon";
 import "../../../../components/entity/state-badge";
 import "../../../../components/ha-card";
-import "../../../../components/ha-icon";
+import "../../../../components/op-icon";
 import { OpenPeerPower } from "../../../../types";
 import { HuiErrorCard } from "../../../lovelace/cards/hui-error-card";
 import { createRowElement } from "../../../lovelace/create-element/create-row-element";
@@ -178,7 +178,7 @@ export class HaDeviceEntitiesCard extends LitElement {
       :host {
         display: block;
       }
-      ha-icon {
+      op-icon {
         margin-left: 8px;
       }
       .entity-id {

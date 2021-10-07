@@ -14,7 +14,7 @@ import {
 import { computeRTL } from "../../../../../common/util/compute_rtl";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-fab";
-import "../../../../../components/ha-icon-next";
+import "../../../../../components/op-icon-next";
 import "../../../../../layouts/opp-tabs-subpage";
 import type { PageNavigation } from "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";

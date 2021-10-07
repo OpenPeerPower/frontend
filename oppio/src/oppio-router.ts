@@ -5,7 +5,7 @@ import {
   OppRouterPage,
   RouterOptions,
 } from "../../src/layouts/opp-router-page";
-import "../../src/resources/ha-style";
+import "../../src/resources/op-style";
 import { OpenPeerPower } from "../../src/types";
 // Don't codesplit it, that way the dashboard always loads fast.
 import "./oppio-panel";

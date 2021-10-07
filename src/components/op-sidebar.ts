@@ -43,7 +43,7 @@ import {
 import { actionHandler } from "../panels/lovelace/common/directives/action-handler-directive";
 import { haStyleScrollbar } from "../resources/styles";
 import type { OpenPeerPower, PanelInfo } from "../types";
-import "./ha-icon";
+import "./op-icon";
 import "./ha-menu-button";
 import "./ha-svg-icon";
 import "./user/ha-user-badge";
@@ -860,7 +860,7 @@ class HaSidebar extends LitElement {
           padding-right: 12px;
         }
 
-        ha-icon[slot="item-icon"],
+        op-icon[slot="item-icon"],
         ha-svg-icon[slot="item-icon"] {
           color: var(--sidebar-icon-color);
         }
@@ -902,7 +902,7 @@ class HaSidebar extends LitElement {
           font-size: 14px;
         }
 
-        a.iron-selected paper-icon-item ha-icon,
+        a.iron-selected paper-icon-item op-icon,
         a.iron-selected paper-icon-item ha-svg-icon {
           color: var(--sidebar-selected-icon-color);
         }

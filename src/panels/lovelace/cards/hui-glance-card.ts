@@ -18,7 +18,7 @@ import { computeStateDisplay } from "../../../common/entity/compute_state_displa
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/entity/state-badge";
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import {
   ActionHandlerEvent,

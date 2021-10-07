@@ -10,7 +10,7 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { compare } from "../../common/string/compare";
 import { fetchUsers, User } from "../../data/user";
 import { OpenPeerPower } from "../../types";
-import "../ha-icon-button";
+import "../op-icon-button";
 import "./ha-user-badge";
 
 class HaUserPicker extends LitElement {

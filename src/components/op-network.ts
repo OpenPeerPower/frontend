@@ -20,7 +20,7 @@ import { OpenPeerPower } from "../types";
 import "./ha-checkbox";
 import type { HaCheckbox } from "./ha-checkbox";
 import "./ha-settings-row";
-import "./ha-icon";
+import "./op-icon";
 
 const format_addresses = (
   addresses: IPv6ConfiguredAddress[] | IPv4ConfiguredAddress[]

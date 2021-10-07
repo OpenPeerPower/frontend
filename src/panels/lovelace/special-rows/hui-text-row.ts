@@ -7,7 +7,7 @@ import {
   LitElement,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { LovelaceRow, TextConfig } from "../entity-rows/types";
 
 @customElement("hui-text-row")
@@ -40,7 +40,7 @@ class HuiTextRow extends LitElement implements LovelaceRow {
         display: flex;
         align-items: center;
       }
-      ha-icon {
+      op-icon {
         padding: 8px;
         color: var(--paper-item-icon-color);
       }

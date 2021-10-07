@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { toggleAttribute } from "../../../common/dom/toggle_attribute";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { LovelaceConfig } from "../../../data/lovelace";
 
 declare global {
@@ -73,7 +73,7 @@ class HuiViewsList extends LitElement {
         padding-top: 0;
       }
 
-      paper-listbox ha-icon {
+      paper-listbox op-icon {
         padding: 12px;
         color: var(--secondary-text-color);
       }

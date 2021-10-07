@@ -14,7 +14,7 @@ import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_elemen
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/ha-card";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
 import { findEntities } from "../common/find-entities";
@@ -212,7 +212,7 @@ class HuiPlantStatusCard extends LitElement implements LovelaceCard {
         padding-bottom: 16px;
       }
 
-      ha-icon {
+      op-icon {
         color: var(--paper-item-icon-color);
         margin-bottom: 8px;
       }

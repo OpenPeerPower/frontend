@@ -9,7 +9,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { OpenPeerPower } from "../../../types";
 import { EditorTarget } from "../editor/types";
 
@@ -99,7 +99,7 @@ export class HuiInputListEditor extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-icon-button {
+      op-icon-button {
         --mdc-icon-button-size: 24px;
         padding: 2px;
         color: var(--secondary-text-color);

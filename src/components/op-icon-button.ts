@@ -1,9 +1,9 @@
 import "@material/mwc-icon-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "./ha-icon";
+import "./op-icon";
 
-@customElement("ha-icon-button")
+@customElement("op-icon-button")
 export class HaIconButton extends LitElement {
   @property({ type: Boolean, reflect: true }) disabled = false;
 
@@ -37,8 +37,8 @@ export class HaIconButton extends LitElement {
         --mdc-theme-on-primary: currentColor;
         --mdc-theme-text-disabled-on-light: var(--disabled-text-color);
       }
-      ha-icon {
-        --ha-icon-display: inline;
+      op-icon {
+        --op-icon-display: inline;
       }
     `;
   }
@@ -46,6 +46,6 @@ export class HaIconButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-icon-button": HaIconButton;
+    "op-icon-button": HaIconButton;
   }
 }

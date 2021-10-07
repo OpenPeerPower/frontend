@@ -3,7 +3,7 @@ import "@polymer/paper-item/paper-item-body";
 import { html, LitElement } from "lit";
 import { property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import "../components/ha-icon-next";
+import "../components/op-icon-next";
 import { AuthProvider } from "../data/auth";
 import { litLocalizeLiteMixin } from "../mixins/lit-localize-lite-mixin";
 

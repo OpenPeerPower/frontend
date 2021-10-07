@@ -17,8 +17,8 @@ export class HaIconPrev extends HaSvgIcon {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-icon-prev": HaIconPrev;
+    "op-icon-prev": HaIconPrev;
   }
 }
 
-customElements.define("ha-icon-prev", HaIconPrev);
+customElements.define("op-icon-prev", HaIconPrev);

@@ -17,7 +17,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/ha-card";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { HumidifierEntity } from "../../../data/humidifier";
 import { OpenPeerPower } from "../../../types";

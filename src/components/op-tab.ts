@@ -10,7 +10,7 @@ import {
   state,
 } from "lit/decorators";
 import { ifDefined } from "lit/directives/if-defined";
-import "./ha-icon";
+import "./op-icon";
 import "./ha-svg-icon";
 
 @customElement("ha-tab")

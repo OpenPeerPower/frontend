@@ -13,7 +13,7 @@ import { computeCloseIcon, computeOpenIcon } from "../common/entity/cover_icon";
 import { UNAVAILABLE } from "../data/entity";
 import type { OpenPeerPower } from "../types";
 import CoverEntity from "../util/cover-model";
-import "./ha-icon-button";
+import "./op-icon-button";
 
 @customElement("ha-cover-controls")
 class HaCoverControls extends LitElement {

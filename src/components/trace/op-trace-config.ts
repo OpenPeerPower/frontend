@@ -2,7 +2,7 @@ import { dump } from "js-yaml";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../ha-code-editor";
-import "../ha-icon-button";
+import "../op-icon-button";
 import { TraceExtended } from "../../data/trace";
 import { OpenPeerPower } from "../../types";
 

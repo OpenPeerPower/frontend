@@ -25,7 +25,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
 import "../../../components/ha-fab";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import "../../../components/ha-svg-icon";
 import "../../../components/ha-button-related-filter-menu";
 import { forwardHaptic } from "../../../data/haptics";

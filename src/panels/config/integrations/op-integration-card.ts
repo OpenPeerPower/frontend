@@ -17,7 +17,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { shouldHandleRequestSelectedEvent } from "../../../common/mwc/handle-request-selected-event";
-import "../../../components/ha-icon-next";
+import "../../../components/op-icon-next";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-svg-icon";
 import "../../../components/ha-card";

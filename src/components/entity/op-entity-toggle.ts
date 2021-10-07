@@ -15,7 +15,7 @@ import { UNAVAILABLE, UNAVAILABLE_STATES } from "../../data/entity";
 import { forwardHaptic } from "../../data/haptics";
 import { OpenPeerPower } from "../../types";
 import "../ha-formfield";
-import "../ha-icon-button";
+import "../op-icon-button";
 import "../ha-switch";
 
 const isOn = (stateObj?: OppEntity) =>
@@ -154,12 +154,12 @@ export class HaEntityToggle extends LitElement {
         white-space: nowrap;
         min-width: 38px;
       }
-      ha-icon-button {
-        color: var(--ha-icon-button-inactive-color, var(--primary-text-color));
+      op-icon-button {
+        color: var(--op-icon-button-inactive-color, var(--primary-text-color));
         transition: color 0.5s;
       }
-      ha-icon-button[state-active] {
-        color: var(--ha-icon-button-active-color, var(--primary-color));
+      op-icon-button[state-active] {
+        color: var(--op-icon-button-active-color, var(--primary-color));
       }
       ha-switch {
         padding: 13px 5px;

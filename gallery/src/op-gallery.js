@@ -17,7 +17,7 @@ import { DEMOS } from "../build/import-demos";
 class HaGallery extends PolymerElement {
   static get template() {
     return html`
-      <style include="iron-positioning ha-style">
+      <style include="iron-positioning op-style">
         :host {
           -ms-user-select: initial;
           -webkit-user-select: initial;

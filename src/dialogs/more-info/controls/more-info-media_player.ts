@@ -9,8 +9,8 @@ import { customElement, property, query } from "lit/decorators";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-icon";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon";
+import "../../../components/op-icon-button";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/ha-slider";
 import "../../../components/ha-svg-icon";
@@ -197,8 +197,8 @@ class MoreInfoMediaPlayer extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-icon-button[action="turn_off"],
-      ha-icon-button[action="turn_on"],
+      op-icon-button[action="turn_off"],
+      op-icon-button[action="turn_on"],
       ha-slider,
       #ttsInput {
         flex-grow: 1;
@@ -222,8 +222,8 @@ class MoreInfoMediaPlayer extends LitElement {
         justify-content: space-between;
       }
 
-      .source-input ha-icon,
-      .sound-input ha-icon {
+      .source-input op-icon,
+      .sound-input op-icon {
         padding: 7px;
         margin-top: 24px;
       }

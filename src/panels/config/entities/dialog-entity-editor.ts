@@ -286,7 +286,7 @@ export class DialogEntityEditor extends LitElement {
           padding: 20px 24px;
         }
 
-        /* overrule the ha-style-dialog max-height on small screens */
+        /* overrule the op-style-dialog max-height on small screens */
         @media all and (max-width: 450px), all and (max-height: 500px) {
           ha-header-bar {
             --mdc-theme-primary: var(--app-header-background-color);

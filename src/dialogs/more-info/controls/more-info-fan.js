@@ -7,7 +7,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { attributeClassNames } from "../../../common/entity/attribute_class_names";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-attributes";
-import "../../../components/ha-icon-button";
+import "../../../components/op-icon-button";
 import "../../../components/op-labeled-slider";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/ha-switch";

@@ -4,7 +4,7 @@ import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { formatDateTimeWithSeconds } from "../../common/datetime/format_date_time";
 import "../ha-code-editor";
-import "../ha-icon-button";
+import "../op-icon-button";
 import type { NodeInfo } from "./hat-graph";
 import "./hat-logbook-note";
 import { LogbookEntry } from "../../data/logbook";

@@ -14,7 +14,7 @@ import {
 } from "lit-element";
 import { navigate } from "../../../../../common/navigate";
 import "../../../../../components/ha-card";
-import "../../../../../components/ha-icon-next";
+import "../../../../../components/op-icon-next";
 import {
   fetchOZWInstances,
   networkOfflineStatuses,
@@ -203,7 +203,7 @@ class OZWConfigDashboard extends LitElement {
           color: red;
         }
         ha-svg-icon,
-        ha-icon-next {
+        op-icon-next {
           color: var(--secondary-text-color);
         }
         .iron-selected paper-item::before,

@@ -42,7 +42,7 @@ import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
 import "./entity/ha-entity-picker";
 import type { HaEntityPickerEntityFilterFunc } from "./entity/ha-entity-picker";
 import "./ha-area-picker";
-import "./ha-icon";
+import "./op-icon";
 import "./ha-svg-icon";
 
 @customElement("ha-target-picker")

@@ -18,7 +18,7 @@ import { dynamicElement } from "../../../../common/dom/dynamic-element-directive
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-card";
-import "../../../../components/ha-icon-button";
+import "../../../../components/op-icon-button";
 import type { Trigger } from "../../../../data/automation";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../../resources/styles";

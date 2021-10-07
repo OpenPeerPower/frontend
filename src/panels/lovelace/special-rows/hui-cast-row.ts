@@ -16,7 +16,7 @@ import {
   castSendShowLovelaceView,
   ensureConnectedCastSession,
 } from "../../../cast/receiver_messages";
-import "../../../components/ha-icon";
+import "../../../components/op-icon";
 import { OpenPeerPower } from "../../../types";
 import { CastConfig, LovelaceRow } from "../entity-rows/types";
 
@@ -135,7 +135,7 @@ class HuiCastRow extends LitElement implements LovelaceRow {
         display: flex;
         align-items: center;
       }
-      ha-icon {
+      op-icon {
         padding: 8px;
         color: var(--paper-item-icon-color);
       }

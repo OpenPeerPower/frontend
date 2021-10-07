@@ -1,7 +1,7 @@
 import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
 import "@material/mwc-button/mwc-button";
-import "../../../../../components/ha-icon-button";
+import "../../../../../components/op-icon-button";
 import "../../../../../components/ha-circular-progress";
 import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
@@ -17,7 +17,7 @@ import {
 import "../../../../../components/buttons/ha-call-api-button";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/ha-card";
-import "../../../../../components/ha-icon";
+import "../../../../../components/op-icon";
 import {
   fetchNetworkStatus,
   ZWaveNetworkStatus,

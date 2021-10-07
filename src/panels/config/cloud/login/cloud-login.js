@@ -9,8 +9,8 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeRTL } from "../../../../common/util/compute_rtl";
 import "../../../../components/buttons/ha-progress-button";
 import "../../../../components/ha-card";
-import "../../../../components/ha-icon-button";
-import "../../../../components/ha-icon-next";
+import "../../../../components/op-icon-button";
+import "../../../../components/op-icon-next";
 import "../../../../layouts/opp-subpage";
 import { EventsMixin } from "../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../mixins/localize-mixin";
@@ -65,13 +65,13 @@ class CloudLogin extends LocalizeMixin(
         .flash-msg {
           padding-right: 44px;
         }
-        .flash-msg ha-icon-button {
+        .flash-msg op-icon-button {
           position: absolute;
           top: 4px;
           right: 8px;
           color: var(--secondary-text-color);
         }
-        :host([rtl]) .flash-msg ha-icon-button {
+        :host([rtl]) .flash-msg op-icon-button {
           right: auto;
           left: 8px;
         }

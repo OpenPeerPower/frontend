@@ -12,7 +12,7 @@ import { classMap } from "lit/directives/class-map";
 import { UNAVAILABLE } from "../data/entity";
 import { OpenPeerPower } from "../types";
 import CoverEntity from "../util/cover-model";
-import "./ha-icon-button";
+import "./op-icon-button";
 
 @customElement("ha-cover-tilt-controls")
 class HaCoverTiltControls extends LitElement {

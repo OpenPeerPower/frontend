@@ -1,6 +1,6 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../components/ha-icon";
+import "../components/op-icon";
 
 @customElement("action-badge")
 class ActionBadge extends LitElement {
