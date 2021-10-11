@@ -7,7 +7,7 @@ import "../resources/custom-card-support";
 import { OppElement } from "../state/opp-element";
 import QuickBarMixin from "../state/quick-bar-mixin";
 import { OpenPeerPower, Route } from "../types";
-import { storeState } from "../util/ha-pref-storage";
+import { storeState } from "../util/op-pref-storage";
 import {
   registerServiceWorker,
   supportsServiceWorker,

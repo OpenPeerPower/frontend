@@ -5,7 +5,7 @@ import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../common/dom/fire_event";
 import { NumberSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "../ha-slider";
+import "../op-slider";
 
 @customElement("ha-selector-number")
 export class HaNumberSelector extends LitElement {
@@ -91,7 +91,7 @@ export class HaNumberSelector extends LitElement {
         justify-content: space-between;
         align-items: center;
       }
-      ha-slider {
+      op-slider {
         flex: 1;
       }
       .single {

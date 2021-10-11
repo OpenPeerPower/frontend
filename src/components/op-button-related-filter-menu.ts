@@ -10,7 +10,7 @@ import { computeDeviceName } from "../data/device_registry";
 import { findRelated, RelatedResult } from "../data/search";
 import type { OpenPeerPower } from "../types";
 import "./device/ha-device-picker";
-import "./entity/ha-entity-picker";
+import "./entity/op-entity-picker";
 import "./ha-area-picker";
 import "./ha-svg-icon";
 
@@ -178,7 +178,7 @@ export class HaRelatedFilterButtonMenu extends LitElement {
       }
       ha-area-picker,
       ha-device-picker,
-      ha-entity-picker {
+      op-entity-picker {
         display: block;
         width: 300px;
         padding: 4px 16px;

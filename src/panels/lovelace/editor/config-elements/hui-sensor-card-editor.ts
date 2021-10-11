@@ -14,7 +14,7 @@ import {
 import { assert, number, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { stateIcon } from "../../../../common/entity/state_icon";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import "../../../../components/ha-formfield";
 import "../../../../components/op-icon-input";
 import "../../../../components/ha-switch";

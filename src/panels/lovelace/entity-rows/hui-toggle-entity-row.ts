@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeStateDisplay } from "../../../common/entity/compute_state_display";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";
 import { hasConfigOrEntityChanged } from "../common/has-changed";

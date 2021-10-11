@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/entity/ha-entities-picker";
+import "../../../components/entity/op-entities-picker";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
 import "../../../components/ha-picture-upload";

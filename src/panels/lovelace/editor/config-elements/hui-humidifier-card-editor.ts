@@ -10,7 +10,7 @@ import {
 } from "lit-element";
 import { assert, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import { OpenPeerPower } from "../../../../types";
 import { HumidifierCardConfig } from "../../cards/types";
 import "../../components/hui-theme-select-editor";

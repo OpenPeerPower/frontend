@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-slider";
+import "../../../components/op-slider";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { setValue } from "../../../data/input_text";
 import { OpenPeerPower } from "../../../types";
@@ -135,7 +135,7 @@ class HuiNumberEntityRow extends LitElement implements LovelaceRow {
       paper-input {
         text-align: end;
       }
-      ha-slider {
+      op-slider {
         width: 100%;
         max-width: 200px;
       }

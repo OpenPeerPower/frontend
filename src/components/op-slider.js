@@ -114,4 +114,4 @@ class HaSlider extends PaperSliderClass {
     return numSteps * this.step + this.min;
   }
 }
-customElements.define("ha-slider", HaSlider);
+customElements.define("op-slider", HaSlider);

@@ -5,10 +5,10 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { isValidEntityId } from "../../common/entity/valid_entity_id";
 import type { PolymerChangedEvent } from "../../polymer-types";
 import type { OpenPeerPower } from "../../types";
-import "./ha-entity-picker";
-import type { HaEntityPickerEntityFilterFunc } from "./ha-entity-picker";
+import "./op-entity-picker";
+import type { HaEntityPickerEntityFilterFunc } from "./op-entity-picker";
 
-@customElement("ha-entities-picker")
+@customElement("op-entities-picker")
 class HaEntitiesPickerLight extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -127,6 +127,6 @@ class HaEntitiesPickerLight extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-entities-picker": HaEntitiesPickerLight;
+    "op-entities-picker": HaEntitiesPickerLight;
   }
 }

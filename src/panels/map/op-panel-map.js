@@ -15,7 +15,7 @@ import { defaultRadiusColor } from "../../data/zone";
 import "../../layouts/ha-app-layout";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import "../../styles/polymer-op-style";
-import "./ha-entity-marker";
+import "./op-entity-marker";
 
 /*
  * @appliesMixin LocalizeMixin

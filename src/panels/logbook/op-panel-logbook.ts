@@ -11,7 +11,7 @@ import {
   PropertyValues,
 } from "lit-element";
 import { computeRTL } from "../../common/util/compute_rtl";
-import "../../components/entity/ha-entity-picker";
+import "../../components/entity/op-entity-picker";
 import "../../components/ha-circular-progress";
 import "../../components/ha-date-range-picker";
 import type { DateRangePickerRanges } from "../../components/ha-date-range-picker";
@@ -321,13 +321,13 @@ export class HaPanelLogbook extends LitElement {
           flex-wrap: wrap;
         }
 
-        ha-entity-picker {
+        op-entity-picker {
           display: inline-block;
           flex-grow: 1;
           max-width: 400px;
         }
 
-        :host([narrow]) ha-entity-picker {
+        :host([narrow]) op-entity-picker {
           max-width: none;
           width: 100%;
         }

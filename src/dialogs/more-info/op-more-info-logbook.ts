@@ -12,7 +12,7 @@ import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 import { closeDialog } from "../make-dialog-manager";
 
-@customElement("ha-more-info-logbook")
+@customElement("op-more-info-logbook")
 export class MoreInfoLogbook extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -83,7 +83,7 @@ export class MoreInfoLogbook extends LitElement {
     this._fetchUserPromise = this._fetchUserNames();
     this.addEventListener("click", (ev) => {
       if ((ev.composedPath()[0] as HTMLElement).tagName === "A") {
-        setTimeout(() => closeDialog("ha-more-info-dialog"), 500);
+        setTimeout(() => closeDialog("op-more-info-dialog"), 500);
       }
     });
   }
@@ -210,6 +210,6 @@ export class MoreInfoLogbook extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-more-info-logbook": MoreInfoLogbook;
+    "op-more-info-logbook": MoreInfoLogbook;
   }
 }

@@ -5,7 +5,7 @@ import { formatNumber } from "../common/string/format_number";
 import { CLIMATE_PRESET_NONE } from "../data/climate";
 import type { OpenPeerPower } from "../types";
 
-@customElement("ha-climate-state")
+@customElement("op-climate-state")
 class HaClimateState extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -151,6 +151,6 @@ class HaClimateState extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-climate-state": HaClimateState;
+    "op-climate-state": HaClimateState;
   }
 }

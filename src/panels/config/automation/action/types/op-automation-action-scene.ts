@@ -1,6 +1,6 @@
 import { customElement, html, LitElement, property } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import { SceneAction } from "../../../../../data/script";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
 import { OpenPeerPower } from "../../../../../types";

@@ -14,7 +14,7 @@ import { OpenPeerPower } from "../types";
 import CoverEntity from "../util/cover-model";
 import "./op-icon-button";
 
-@customElement("ha-cover-tilt-controls")
+@customElement("op-cover-tilt-controls")
 class HaCoverTiltControls extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -113,6 +113,6 @@ class HaCoverTiltControls extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-cover-tilt-controls": HaCoverTiltControls;
+    "op-cover-tilt-controls": HaCoverTiltControls;
   }
 }

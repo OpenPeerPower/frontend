@@ -14,7 +14,7 @@ import {
 } from "lit-element";
 import { any, array, assert, object, optional, string } from "superstruct";
 import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import { LovelaceCardConfig, LovelaceConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";
 import { ConditionalCardConfig } from "../../cards/types";

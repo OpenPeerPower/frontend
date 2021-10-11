@@ -5,7 +5,7 @@ import {
 import { OPPDomEvent } from "../common/dom/fire_event";
 import { subscribeThemes } from "../data/ws-themes";
 import { Constructor, OpenPeerPower } from "../types";
-import { storeState } from "../util/ha-pref-storage";
+import { storeState } from "../util/op-pref-storage";
 import { OppBaseEl } from "./opp-base-mixin";
 
 declare global {

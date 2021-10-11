@@ -14,7 +14,7 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { applyPatch, getPath } from "../../../../common/util/patch";
 import "../../../../components/device/ha-area-devices-picker";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import {
   AreaRegistryEntry,
   subscribeAreaRegistry,

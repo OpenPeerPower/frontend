@@ -3,7 +3,7 @@ import "@polymer/paper-radio-group/paper-radio-group";
 import type { PaperRadioGroupElement } from "@polymer/paper-radio-group/paper-radio-group";
 import { customElement, html, LitElement, property } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import type { GeoLocationTrigger } from "../../../../../data/automation";
 import type { OpenPeerPower } from "../../../../../types";
 import { handleChangeEvent } from "../ha-automation-trigger-row";

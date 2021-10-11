@@ -17,7 +17,7 @@ import {
   union,
 } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entities-picker";
+import "../../../../components/entity/op-entities-picker";
 import type { OpenPeerPower } from "../../../../types";
 import type { CalendarCardConfig } from "../../cards/types";
 import "../../components/hui-entity-editor";

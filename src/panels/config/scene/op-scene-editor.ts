@@ -22,7 +22,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { navigate } from "../../../common/navigate";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import "../../../components/device/ha-device-picker";
-import "../../../components/entity/ha-entities-picker";
+import "../../../components/entity/op-entities-picker";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
 import "../../../components/op-icon-button";

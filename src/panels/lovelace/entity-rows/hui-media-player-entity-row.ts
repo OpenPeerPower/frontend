@@ -15,7 +15,7 @@ import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import { debounce } from "../../../common/util/debounce";
 import "../../../components/op-icon-button";
-import "../../../components/ha-slider";
+import "../../../components/op-slider";
 import { UNAVAILABLE, UNAVAILABLE_STATES, UNKNOWN } from "../../../data/entity";
 import {
   computeMediaDescription,
@@ -326,7 +326,7 @@ class HuiMediaPlayerEntityRow extends LitElement implements LovelaceRow {
       .controls {
         white-space: nowrap;
       }
-      ha-slider {
+      op-slider {
         flex-grow: 2;
         flex-shrink: 2;
         width: 100%;

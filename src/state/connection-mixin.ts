@@ -18,7 +18,7 @@ import { subscribePanels } from "../data/ws-panels";
 import { translationMetadata } from "../resources/translations-metadata";
 import { Constructor, ServiceCallResponse } from "../types";
 import { fetchWithAuth } from "../util/fetch-with-auth";
-import { getState } from "../util/ha-pref-storage";
+import { getState } from "../util/op-pref-storage";
 import oppCallApi from "../util/opp-call-api";
 import { getLocalLanguage } from "../util/opp-translation";
 import { OppBaseEl } from "./opp-base-mixin";

@@ -1,7 +1,7 @@
 import "@polymer/paper-input/paper-input";
 import "@polymer/paper-input/paper-textarea";
 import { customElement, html, LitElement, property } from "lit-element";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import { ForDict, NumericStateTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 import { handleChangeEvent } from "../ha-automation-trigger-row";

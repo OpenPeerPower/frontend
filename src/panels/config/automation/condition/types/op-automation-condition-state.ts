@@ -1,7 +1,7 @@
 import "@polymer/paper-input/paper-input";
 import { customElement, html, LitElement, property } from "lit-element";
-import "../../../../../components/entity/ha-entity-attribute-picker";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-attribute-picker";
+import "../../../../../components/entity/op-entity-picker";
 import { ForDict, StateCondition } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 import {

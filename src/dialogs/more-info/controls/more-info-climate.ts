@@ -14,9 +14,9 @@ import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-climate-control";
+import "../../../components/op-climate-control";
 import "../../../components/ha-paper-dropdown-menu";
-import "../../../components/ha-slider";
+import "../../../components/op-slider";
 import "../../../components/ha-switch";
 import {
   ClimateEntity,
@@ -451,7 +451,7 @@ class MoreInfoClimate extends LitElement {
         cursor: pointer;
       }
 
-      ha-slider {
+      op-slider {
         width: 100%;
       }
 
@@ -467,15 +467,15 @@ class MoreInfoClimate extends LitElement {
         direction: ltr;
       }
 
-      ha-climate-control.range-control-left,
-      ha-climate-control.range-control-right {
+      op-climate-control.range-control-left,
+      op-climate-control.range-control-right {
         float: left;
         width: 46%;
       }
-      ha-climate-control.range-control-left {
+      op-climate-control.range-control-left {
         margin-right: 4%;
       }
-      ha-climate-control.range-control-right {
+      op-climate-control.range-control-right {
         margin-left: 4%;
       }
 

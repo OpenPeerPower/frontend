@@ -5,7 +5,7 @@ import { customElement, html, LitElement, property } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { computeStateDomain } from "../../../../../common/entity/compute_state_domain";
 import { hasLocation } from "../../../../../common/entity/has_location";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import type { ZoneTrigger } from "../../../../../data/automation";
 import type { PolymerChangedEvent } from "../../../../../polymer-types";
 import type { OpenPeerPower } from "../../../../../types";

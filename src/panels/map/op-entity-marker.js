@@ -85,4 +85,4 @@ class HaEntityMarker extends EventsMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-entity-marker", HaEntityMarker);
+customElements.define("op-entity-marker", HaEntityMarker);

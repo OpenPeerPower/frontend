@@ -6,7 +6,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import { OpenPeerPower } from "../../../types";
 import { hasConfigOrEntityChanged } from "../common/has-changed";
 import "../components/hui-generic-entity-row";

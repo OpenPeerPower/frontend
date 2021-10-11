@@ -4,8 +4,8 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { HaCheckbox } from "../ha-checkbox";
-import "../ha-slider";
-import type { HaSlider } from "../ha-slider";
+import "../op-slider";
+import type { HaSlider } from "../op-slider";
 import {
   HaFormElement,
   HaFormIntegerData,
@@ -22,7 +22,7 @@ export class HaFormInteger extends LitElement implements HaFormElement {
 
   @property() public suffix?: string;
 
-  @query("paper-input ha-slider") private _input?: HTMLElement;
+  @query("paper-input op-slider") private _input?: HTMLElement;
 
   public focus() {
     if (this._input) {
@@ -101,7 +101,7 @@ export class HaFormInteger extends LitElement implements HaFormElement {
       .flex {
         display: flex;
       }
-      ha-slider {
+      op-slider {
         width: 100%;
         margin-right: 16px;
       }

@@ -5,7 +5,7 @@ import {
   showQuickBar,
 } from "../dialogs/quick-bar/show-dialog-quick-bar";
 import { OpenPeerPower } from "../types";
-import { storeState } from "../util/ha-pref-storage";
+import { storeState } from "../util/op-pref-storage";
 import { OppElement } from "./opp-element";
 
 declare global {

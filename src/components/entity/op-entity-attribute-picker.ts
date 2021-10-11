@@ -31,7 +31,7 @@ const rowRenderer: ComboBoxLitRenderer<string> = (item) => html`<style>
   </style>
   <paper-item>${formatAttributeName(item)}</paper-item>`;
 
-@customElement("ha-entity-attribute-picker")
+@customElement("op-entity-attribute-picker")
 class HaEntityAttributePicker extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -174,6 +174,6 @@ class HaEntityAttributePicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-entity-attribute-picker": HaEntityAttributePicker;
+    "op-entity-attribute-picker": HaEntityAttributePicker;
   }
 }

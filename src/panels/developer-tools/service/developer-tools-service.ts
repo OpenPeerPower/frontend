@@ -15,7 +15,7 @@ import { computeObjectId } from "../../../common/entity/compute_object_id";
 import { hasTemplate } from "../../../common/string/has-template";
 import { extractSearchParam } from "../../../common/url/search-params";
 import "../../../components/buttons/ha-progress-button";
-import "../../../components/entity/ha-entity-picker";
+import "../../../components/entity/op-entity-picker";
 import "../../../components/ha-card";
 import "../../../components/ha-expansion-panel";
 import "../../../components/ha-service-control";

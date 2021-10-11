@@ -15,7 +15,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/ha-paper-dropdown-menu";
-import "../../../components/ha-slider";
+import "../../../components/op-slider";
 import "../../../components/ha-switch";
 import {
   HumidifierEntity,
@@ -185,7 +185,7 @@ class MoreInfoHumidifier extends LitElement {
         cursor: pointer;
       }
 
-      ha-slider {
+      op-slider {
         width: 100%;
       }
 

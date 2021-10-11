@@ -2,7 +2,7 @@ import { PropertyValues } from "lit-element";
 import { OPPDomEvent } from "../common/dom/fire_event";
 import { HapticType } from "../data/haptics";
 import { Constructor, OpenPeerPower } from "../types";
-import { storeState } from "../util/ha-pref-storage";
+import { storeState } from "../util/op-pref-storage";
 import { OppBaseEl } from "./opp-base-mixin";
 
 interface VibrateParams {

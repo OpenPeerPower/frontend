@@ -11,7 +11,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { safeDump, safeLoad } from "js-yaml";
 import { formatDateTimeWithSeconds } from "../../../common/datetime/format_date_time";
 import { computeRTL } from "../../../common/util/compute_rtl";
-import "../../../components/entity/ha-entity-picker";
+import "../../../components/entity/op-entity-picker";
 import "../../../components/ha-code-editor";
 import "../../../components/ha-svg-icon";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";

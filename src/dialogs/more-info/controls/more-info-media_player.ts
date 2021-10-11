@@ -12,7 +12,7 @@ import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/op-icon";
 import "../../../components/op-icon-button";
 import "../../../components/ha-paper-dropdown-menu";
-import "../../../components/ha-slider";
+import "../../../components/op-slider";
 import "../../../components/ha-svg-icon";
 import { showMediaBrowserDialog } from "../../../components/media-player/show-media-browser-dialog";
 import { UNAVAILABLE, UNAVAILABLE_STATES, UNKNOWN } from "../../../data/entity";
@@ -199,7 +199,7 @@ class MoreInfoMediaPlayer extends LitElement {
     return css`
       op-icon-button[action="turn_off"],
       op-icon-button[action="turn_on"],
-      ha-slider,
+      op-slider,
       #ttsInput {
         flex-grow: 1;
       }

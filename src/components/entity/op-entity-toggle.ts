@@ -168,4 +168,4 @@ export class HaEntityToggle extends LitElement {
   }
 }
 
-customElements.define("ha-entity-toggle", HaEntityToggle);
+customElements.define("op-entity-toggle", HaEntityToggle);

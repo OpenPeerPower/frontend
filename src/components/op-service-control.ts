@@ -400,7 +400,7 @@ export class HaServiceControl extends LitElement {
         );
       }
       ha-service-picker,
-      ha-entity-picker,
+      op-entity-picker,
       ha-yaml-editor {
         display: block;
         margin: var(--service-control-padding, 0 16px);

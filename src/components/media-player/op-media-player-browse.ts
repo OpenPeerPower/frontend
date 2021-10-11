@@ -40,7 +40,7 @@ import { installResizeObserver } from "../../panels/lovelace/common/install-resi
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { documentationUrl } from "../../util/documentation-url";
-import "../entity/ha-entity-picker";
+import "../entity/op-entity-picker";
 import "../op-button-menu";
 import "../ha-card";
 import "../op-circular-progress";

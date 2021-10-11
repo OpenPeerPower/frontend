@@ -139,4 +139,4 @@ class HaClimateControl extends EventsMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-climate-control", HaClimateControl);
+customElements.define("op-climate-control", HaClimateControl);

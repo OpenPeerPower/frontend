@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { html } from "lit-html";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import "../../../components/ha-blueprint-picker";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
@@ -287,7 +287,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
         p {
           margin-bottom: 0;
         }
-        ha-entity-toggle {
+        op-entity-toggle {
           margin-right: 8px;
         }
         ha-settings-row {

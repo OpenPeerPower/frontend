@@ -1,7 +1,7 @@
 import type { PropertyValues } from "lit-element";
 import type { OPPDomEvent } from "../common/dom/fire_event";
 import { showDialog } from "../dialogs/make-dialog-manager";
-import type { MoreInfoDialogParams } from "../dialogs/more-info/ha-more-info-dialog";
+import type { MoreInfoDialogParams } from "../dialogs/more-info/op-more-info-dialog";
 import type { Constructor } from "../types";
 import type { OppBaseEl } from "./opp-base-mixin";
 
@@ -15,7 +15,7 @@ declare global {
 let moreInfoImportPromise;
 const importMoreInfo = () => {
   if (!moreInfoImportPromise) {
-    moreInfoImportPromise = import("../dialogs/more-info/ha-more-info-dialog");
+    moreInfoImportPromise = import("../dialogs/more-info/op-more-info-dialog");
   }
   return moreInfoImportPromise;
 };
@@ -34,7 +34,7 @@ export default <T extends Constructor<OppBaseEl>>(superClass: T) =>
       showDialog(
         this,
         this.shadowRoot!,
-        "ha-more-info-dialog",
+        "op-more-info-dialog",
         {
           entityId: ev.detail.entityId,
         },

@@ -8,7 +8,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { hasTemplate } from "../../../../../common/string/has-template";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import { HaFormTimeData } from "../../../../../components/ha-form/ha-form";
 import "../../../../../components/ha-service-picker";
 import { DelayAction } from "../../../../../data/script";

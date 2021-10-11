@@ -83,4 +83,4 @@ class HaWaterHeaterState extends LocalizeMixin(PolymerElement) {
     return computeStateDisplay(this.opp.localize, stateObj, this.opp.locale);
   }
 }
-customElements.define("ha-water_heater-state", HaWaterHeaterState);
+customElements.define("op-water_heater-state", HaWaterHeaterState);

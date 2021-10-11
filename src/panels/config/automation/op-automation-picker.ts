@@ -25,7 +25,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { navigate } from "../../../common/navigate";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import "../../../components/ha-fab";
 import "../../../components/ha-svg-icon";
 import "../../../components/ha-button-related-filter-menu";

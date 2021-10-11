@@ -9,8 +9,8 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-cover-controls";
-import "../../../components/ha-cover-tilt-controls";
+import "../../../components/op-cover-controls";
+import "../../../components/op-cover-tilt-controls";
 import { OpenPeerPower } from "../../../types";
 import { isTiltOnly } from "../../../util/cover-model";
 import { hasConfigOrEntityChanged } from "../common/has-changed";
@@ -71,8 +71,8 @@ class HuiCoverEntityRow extends LitElement implements LovelaceRow {
 
   static get styles(): CSSResult {
     return css`
-      ha-cover-controls,
-      ha-cover-tilt-controls {
+      op-cover-controls,
+      op-cover-tilt-controls {
         margin-right: -0.57em;
       }
     `;

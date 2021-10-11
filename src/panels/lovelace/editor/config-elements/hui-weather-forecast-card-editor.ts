@@ -10,8 +10,8 @@ import {
 import { assert, boolean, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/entity/ha-entity-attribute-picker";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-attribute-picker";
+import "../../../../components/entity/op-entity-picker";
 import "../../../../components/ha-formfield";
 import "../../../../components/ha-switch";
 import { OpenPeerPower } from "../../../../types";

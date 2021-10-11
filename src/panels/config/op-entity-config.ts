@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../components/buttons/ha-progress-button";
-import "../../components/entity/ha-entity-picker";
+import "../../components/entity/op-entity-picker";
 import "../../components/ha-card";
 import "../../components/ha-circular-progress";
 import { haStyle } from "../../resources/styles";
@@ -19,7 +19,7 @@ import "../../styles/polymer-op-style";
 import type { OpenPeerPower } from "../../types";
 import { HaFormCustomize } from "./customize/ha-form-customize";
 
-@customElement("ha-entity-config")
+@customElement("op-entity-config")
 export class HaEntityConfig extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

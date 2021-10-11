@@ -21,7 +21,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { navigate } from "../../../common/navigate";
 import { extractSearchParam } from "../../../common/url/search-params";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import "../../../components/ha-fab";
 import "../../../components/ha-svg-icon";
 import { showAutomationEditor } from "../../../data/automation";

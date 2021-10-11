@@ -4,7 +4,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { attributeClassNames } from "../../../common/entity/attribute_class_names";
 import { featureClassNames } from "../../../common/entity/feature_class_names";
-import "../../../components/ha-cover-tilt-controls";
+import "../../../components/op-cover-tilt-controls";
 import "../../../components/op-labeled-slider";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import CoverEntity from "../../../util/cover-model";

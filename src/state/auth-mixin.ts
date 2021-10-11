@@ -1,7 +1,7 @@
 import { askWrite } from "../common/auth/token_storage";
 import { subscribeUser, userCollection } from "../data/ws-user";
 import { Constructor } from "../types";
-import { clearState } from "../util/ha-pref-storage";
+import { clearState } from "../util/op-pref-storage";
 import { OppBaseEl } from "./opp-base-mixin";
 
 declare global {

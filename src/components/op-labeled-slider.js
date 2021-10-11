@@ -2,7 +2,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "./op-icon";
-import "./ha-slider";
+import "./op-slider";
 
 class HaLabeledSlider extends PolymerElement {
   static get template() {
@@ -26,7 +26,7 @@ class HaLabeledSlider extends PolymerElement {
           color: var(--secondary-text-color);
         }
 
-        ha-slider {
+        op-slider {
           flex-grow: 1;
           background-image: var(--op-slider-background);
           border-radius: 4px;

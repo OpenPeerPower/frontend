@@ -13,7 +13,7 @@ import {
 } from "lit-element";
 import { array, assert, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import { ActionConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";
 import { PictureGlanceCardConfig } from "../../cards/types";

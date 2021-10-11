@@ -86,4 +86,4 @@ class HaVacuumState extends LocalizeMixin(PolymerElement) {
     this.opp.callService("vacuum", service, { entity_id: stateObj.entity_id });
   }
 }
-customElements.define("ha-vacuum-state", HaVacuumState);
+customElements.define("op-vacuum-state", HaVacuumState);

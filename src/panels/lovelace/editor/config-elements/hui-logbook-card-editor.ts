@@ -10,8 +10,8 @@ import {
 } from "lit-element";
 import { array, assert, number, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entities-picker";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entities-picker";
+import "../../../../components/entity/op-entity-picker";
 import { OpenPeerPower } from "../../../../types";
 import { LogbookCardConfig } from "../../cards/types";
 import "../../components/hui-entity-editor";

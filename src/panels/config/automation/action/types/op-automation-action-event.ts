@@ -8,7 +8,7 @@ import {
 } from "lit-element";
 import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import "../../../../../components/ha-service-picker";
 import "../../../../../components/ha-yaml-editor";
 import type { HaYamlEditor } from "../../../../../components/ha-yaml-editor";

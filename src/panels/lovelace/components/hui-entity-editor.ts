@@ -17,8 +17,8 @@ import Sortable, {
   OnSpill,
 } from "sortablejs/modular/sortable.core.esm";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/entity/ha-entity-picker";
-import type { HaEntityPicker } from "../../../components/entity/ha-entity-picker";
+import "../../../components/entity/op-entity-picker";
+import type { HaEntityPicker } from "../../../components/entity/op-entity-picker";
 import "../../../components/op-icon-button";
 import { sortableStyles } from "../../../resources/ha-sortable-style";
 import { OpenPeerPower } from "../../../types";
@@ -193,7 +193,7 @@ export class HuiEntityEditor extends LitElement {
           padding-right: 8px;
           cursor: move;
         }
-        .entity ha-entity-picker {
+        .entity op-entity-picker {
           flex-grow: 1;
         }
       `,

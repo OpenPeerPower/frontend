@@ -66,4 +66,4 @@ class HaEntityMarker extends LitElement {
   }
 }
 
-customElements.define("ha-entity-marker", HaEntityMarker);
+customElements.define("op-entity-marker", HaEntityMarker);

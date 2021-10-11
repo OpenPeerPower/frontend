@@ -3,7 +3,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../components/entity/state-info";
-import "../components/ha-vacuum-state";
+import "../components/op-vacuum-state";
 
 class StateCardVacuum extends PolymerElement {
   static get template() {

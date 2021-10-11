@@ -132,4 +132,4 @@ class HaWaterHeaterControl extends EventsMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-water_heater-control", HaWaterHeaterControl);
+customElements.define("op-water_heater-control", HaWaterHeaterControl);

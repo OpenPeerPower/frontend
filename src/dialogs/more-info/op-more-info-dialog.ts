@@ -27,8 +27,8 @@ import { OpenPeerPower } from "../../types";
 import { showConfirmationDialog } from "../generic/show-dialog-box";
 import { replaceDialog } from "../make-dialog-manager";
 import "./controls/more-info-default";
-import "./ha-more-info-history";
-import "./ha-more-info-logbook";
+import "./op-more-info-history";
+import "./op-more-info-logbook";
 import "./more-info-content";
 
 const DOMAINS_NO_INFO = ["camera", "configurator"];
@@ -46,7 +46,7 @@ export interface MoreInfoDialogParams {
   entityId: string | null;
 }
 
-@customElement("ha-more-info-dialog")
+@customElement("op-more-info-dialog")
 export class MoreInfoDialog extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -387,8 +387,8 @@ export class MoreInfoDialog extends LitElement {
         }
 
         state-card-content,
-        ha-more-info-history,
-        ha-more-info-logbook:not(:last-child) {
+        op-more-info-history,
+        op-more-info-logbook:not(:last-child) {
           display: block;
           margin-bottom: 16px;
         }
@@ -399,6 +399,6 @@ export class MoreInfoDialog extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-more-info-dialog": MoreInfoDialog;
+    "op-more-info-dialog": MoreInfoDialog;
   }
 }

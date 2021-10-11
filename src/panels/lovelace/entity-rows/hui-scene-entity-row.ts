@@ -10,7 +10,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { activateScene } from "../../../data/scene";
 import { OpenPeerPower } from "../../../types";

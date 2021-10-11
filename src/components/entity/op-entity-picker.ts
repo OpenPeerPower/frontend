@@ -40,7 +40,7 @@ const rowRenderer: ComboBoxLitRenderer<OppEntity> = (item) => html`<style>
     </paper-item-body>
   </paper-icon-item>`;
 
-@customElement("ha-entity-picker")
+@customElement("op-entity-picker")
 export class HaEntityPicker extends LitElement {
   @property({ type: Boolean }) public autofocus = false;
 
@@ -316,6 +316,6 @@ export class HaEntityPicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-entity-picker": HaEntityPicker;
+    "op-entity-picker": HaEntityPicker;
   }
 }

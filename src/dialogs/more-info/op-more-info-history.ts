@@ -7,7 +7,7 @@ import { getRecentWithCache } from "../../data/cached-history";
 import { HistoryResult } from "../../data/history";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-more-info-history")
+@customElement("op-more-info-history")
 export class MoreInfoHistory extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -82,6 +82,6 @@ export class MoreInfoHistory extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-more-info-history": MoreInfoHistory;
+    "op-more-info-history": MoreInfoHistory;
   }
 }

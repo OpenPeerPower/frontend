@@ -3,8 +3,8 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../components/entity/state-info";
-import "../components/ha-cover-controls";
-import "../components/ha-cover-tilt-controls";
+import "../components/op-cover-controls";
+import "../components/op-cover-tilt-controls";
 import CoverEntity from "../util/cover-model";
 
 class StateCardCover extends PolymerElement {

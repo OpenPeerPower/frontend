@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { assert } from "superstruct";
 import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/entity/op-entity-picker";
 import "../../../../components/ha-formfield";
 import "../../../../components/ha-switch";
 import type { OpenPeerPower } from "../../../../types";

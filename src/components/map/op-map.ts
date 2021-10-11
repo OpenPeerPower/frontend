@@ -17,7 +17,7 @@ import {
 } from "../../common/dom/setup-leaflet-map";
 import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
-import "./ha-entity-marker";
+import "./op-entity-marker";
 import { OpenPeerPower } from "../../types";
 import "../op-icon-button";
 import { installResizeObserver } from "../../panels/lovelace/common/install-resize-observer";

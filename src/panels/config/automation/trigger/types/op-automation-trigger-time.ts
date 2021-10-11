@@ -6,7 +6,7 @@ import {
   LitElement,
   property,
 } from "lit-element";
-import "../../../../../components/entity/ha-entity-picker";
+import "../../../../../components/entity/op-entity-picker";
 import "../../../../../components/ha-formfield";
 import "../../../../../components/ha-radio";
 import { TimeTrigger } from "../../../../../data/automation";

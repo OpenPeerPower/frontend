@@ -6,7 +6,7 @@ import { subscribeEntityRegistry } from "../../data/entity_registry";
 import { EntitySelector } from "../../data/selector";
 import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../../types";
-import "../entity/ha-entity-picker";
+import "../entity/op-entity-picker";
 
 @customElement("ha-selector-entity")
 export class HaEntitySelector extends SubscribeMixin(LitElement) {

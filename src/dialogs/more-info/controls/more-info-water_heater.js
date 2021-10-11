@@ -10,7 +10,7 @@ import { featureClassNames } from "../../../common/entity/feature_class_names";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/ha-switch";
-import "../../../components/ha-water_heater-control";
+import "../../../components/op-water_heater-control";
 import { EventsMixin } from "../../../mixins/events-mixin";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 
@@ -35,15 +35,15 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
           cursor: pointer;
         }
 
-        ha-water_heater-control.range-control-left,
-        ha-water_heater-control.range-control-right {
+        op-water_heater-control.range-control-left,
+        op-water_heater-control.range-control-right {
           float: left;
           width: 46%;
         }
-        ha-water_heater-control.range-control-left {
+        op-water_heater-control.range-control-left {
           margin-right: 4%;
         }
-        ha-water_heater-control.range-control-right {
+        op-water_heater-control.range-control-right {
           margin-left: 4%;
         }
 

@@ -7,7 +7,7 @@ import {
   LitElement,
   property,
 } from "lit-element";
-import "../components/entity/ha-entity-toggle";
+import "../components/entity/op-entity-toggle";
 import "../components/entity/state-info";
 import { UNAVAILABLE_STATES } from "../data/entity";
 import { canRun, ScriptEntity } from "../data/script";

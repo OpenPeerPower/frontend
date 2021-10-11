@@ -12,7 +12,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import "../ha-config-section";
-import "../ha-entity-config";
+import "../op-entity-config";
 import { configSections } from "../ha-panel-config";
 import "./ha-form-customize";
 

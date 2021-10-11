@@ -7,7 +7,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeStateDisplay } from "../common/entity/compute_state_display";
 import "../components/entity/state-info";
-import "../components/ha-slider";
+import "../components/op-slider";
 
 class StateCardInputNumber extends mixinBehaviors(
   [IronResizableBehavior],
@@ -17,7 +17,7 @@ class StateCardInputNumber extends mixinBehaviors(
     return html`
       <style include="iron-flex iron-flex-alignment"></style>
       <style>
-        ha-slider {
+        op-slider {
           margin-left: auto;
         }
         .state {
@@ -30,7 +30,7 @@ class StateCardInputNumber extends mixinBehaviors(
         .sliderstate {
           min-width: 45px;
         }
-        ha-slider[hidden] {
+        op-slider[hidden] {
           display: none !important;
         }
         paper-input {

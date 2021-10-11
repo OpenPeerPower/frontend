@@ -34,7 +34,7 @@ import "../../../components/ha-card";
 import "../../../components/op-icon-button";
 import { fetchRecent } from "../../../data/history";
 import { OpenPeerPower } from "../../../types";
-import "../../map/ha-entity-marker";
+import "../../map/op-entity-marker";
 import { findEntities } from "../common/find-entities";
 import { installResizeObserver } from "../common/install-resize-observer";
 import { processConfigEntities } from "../common/process-config-entities";

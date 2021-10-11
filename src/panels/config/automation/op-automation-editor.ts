@@ -553,7 +553,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
         p {
           margin-bottom: 0;
         }
-        ha-entity-toggle {
+        op-entity-toggle {
           margin-right: 8px;
         }
         ha-fab {

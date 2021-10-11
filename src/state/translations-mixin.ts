@@ -11,7 +11,7 @@ import {
 } from "../data/translation";
 import { translationMetadata } from "../resources/translations-metadata";
 import { Constructor, OpenPeerPower } from "../types";
-import { storeState } from "../util/ha-pref-storage";
+import { storeState } from "../util/op-pref-storage";
 import {
   getTranslation,
   getLocalLanguage,

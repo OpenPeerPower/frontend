@@ -10,7 +10,7 @@ import {
 import { DOMAINS_TOGGLE } from "../../../common/const";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateDisplay } from "../../../common/entity/compute_state_display";
-import "../../../components/entity/ha-entity-toggle";
+import "../../../components/entity/op-entity-toggle";
 import { OpenPeerPower } from "../../../types";
 import { hasConfigOrEntityChanged } from "../common/has-changed";
 import "../components/hui-generic-entity-row";

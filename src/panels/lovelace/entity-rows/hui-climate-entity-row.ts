@@ -9,7 +9,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-climate-state";
+import "../../../components/op-climate-state";
 import { OpenPeerPower } from "../../../types";
 import { hasConfigOrEntityChanged } from "../common/has-changed";
 import "../components/hui-generic-entity-row";
@@ -61,7 +61,7 @@ class HuiClimateEntityRow extends LitElement implements LovelaceRow {
 
   static get styles(): CSSResult {
     return css`
-      ha-climate-state {
+      op-climate-state {
         text-align: right;
       }
     `;
