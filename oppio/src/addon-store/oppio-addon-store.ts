@@ -17,8 +17,8 @@ import { fireEvent } from "../../../src/common/dom/fire_event";
 import { navigate } from "../../../src/common/navigate";
 import "../../../src/common/search/search-input";
 import { extractSearchParam } from "../../../src/common/url/search-params";
-import "../../../src/components/ha-button-menu";
-import "../../../src/components/ha-svg-icon";
+import "../../../src/components/op-button-menu";
+import "../../../src/components/op-svg-icon";
 import {
   OppioAddonInfo,
   OppioAddonRepository,

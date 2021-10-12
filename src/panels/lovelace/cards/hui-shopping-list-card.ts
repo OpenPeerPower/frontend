@@ -18,7 +18,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { guard } from "lit-html/directives/guard";
 import { repeat } from "lit-html/directives/repeat";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import {
   addItem,
@@ -324,7 +324,7 @@ class HuiShoppingListCard
       animation: 150,
       fallbackClass: "sortable-fallback",
       dataIdAttr: "item-id",
-      handle: "ha-svg-icon",
+      handle: "op-svg-icon",
       onEnd: async (evt) => {
         // Since this is `onEnd` event, it's possible that
         // an item wa dragged away and was put back to its original position.
@@ -351,7 +351,7 @@ class HuiShoppingListCard
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         padding: 16px;
         height: 100%;
         box-sizing: border-box;

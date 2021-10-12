@@ -11,10 +11,10 @@ import {
   TemplateResult,
 } from "lit-element";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-next";
 import "../../../components/ha-menu-button";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import { CloudStatus } from "../../../data/cloud";
 import "../../../layouts/ha-app-layout";
 import { haStyle } from "../../../resources/styles";
@@ -118,7 +118,7 @@ class HaConfigDashboard extends LitElement {
         app-header {
           --app-header-background-color: var(--primary-background-color);
         }
-        ha-card:last-child {
+        op-card:last-child {
           margin-bottom: 24px;
         }
         ha-config-section {
@@ -127,10 +127,10 @@ class HaConfigDashboard extends LitElement {
         :host([narrow]) ha-config-section {
           margin-top: -20px;
         }
-        ha-card {
+        op-card {
           overflow: hidden;
         }
-        ha-card a {
+        op-card a {
           text-decoration: none;
           color: var(--primary-text-color);
         }

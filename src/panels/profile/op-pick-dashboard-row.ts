@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../components/ha-paper-dropdown-menu";
-import "../../components/ha-settings-row";
+import "../../components/op-settings-row";
 import { fetchDashboards, LovelaceDashboard } from "../../data/lovelace";
 import { setDefaultPanel } from "../../data/panel";
 import { OpenPeerPower } from "../../types";

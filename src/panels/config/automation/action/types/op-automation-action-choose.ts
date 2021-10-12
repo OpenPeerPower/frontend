@@ -151,7 +151,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           margin-top: 16px;
         }
         .add-card mwc-button {

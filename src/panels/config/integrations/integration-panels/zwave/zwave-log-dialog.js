@@ -9,7 +9,7 @@ import "../../../../../styles/polymer-op-style-dialog";
 class ZwaveLogDialog extends EventsMixin(PolymerElement) {
   static get template() {
     return html`
-    <style include="ha-style-dialog">
+    <style include="op-style-dialog">
       pre {
         font-family: var(--code-font-family, monospace);
       }

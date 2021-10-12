@@ -24,7 +24,7 @@ import {
 } from "../../../../src/common/auth/token_storage";
 import { atLeastVersion } from "../../../../src/common/config/version";
 import { toggleAttribute } from "../../../../src/common/dom/toggle_attribute";
-import "../../../../src/components/ha-icon";
+import "../../../../src/components/op-icon";
 import {
   getLegacyLovelaceCollection,
   getLovelaceCollection,
@@ -241,7 +241,7 @@ class HcCast extends LitElement {
         color: var(--secondary-text-color);
       }
 
-      mwc-button ha-icon {
+      mwc-button op-icon {
         margin-right: 8px;
         height: 18px;
       }
@@ -250,7 +250,7 @@ class HcCast extends LitElement {
         padding-top: 0;
       }
 
-      paper-listbox ha-icon {
+      paper-listbox op-icon {
         padding: 12px;
         color: var(--secondary-text-color);
       }

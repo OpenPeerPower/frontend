@@ -22,7 +22,7 @@ import { SceneEntity } from "../data/scene";
 import { findRelated, ItemType, RelatedResult } from "../data/search";
 import { SubscribeMixin } from "../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../types";
-import "./ha-switch";
+import "./op-switch";
 
 @customElement("ha-related-items")
 export class HaRelatedItems extends SubscribeMixin(LitElement) {

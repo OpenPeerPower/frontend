@@ -10,7 +10,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/ha-code-editor";
 import { getConfigEntries } from "../../../../../data/config_entries";
 import { showOptionsFlowDialog } from "../../../../../dialogs/config-flow/show-dialog-options-flow";
@@ -139,7 +139,7 @@ class HaPanelDevMqtt extends LitElement {
           margin: 0 auto;
           direction: ltr;
         }
-        ha-card:first-child {
+        op-card:first-child {
           margin-bottom: 16px;
         }
         mqtt-subscribe-card {

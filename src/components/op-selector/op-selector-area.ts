@@ -7,7 +7,7 @@ import { AreaSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 import "../ha-area-picker";
 
-@customElement("ha-selector-area")
+@customElement("op-selector-area")
 export class HaAreaSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -95,6 +95,6 @@ export class HaAreaSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-area": HaAreaSelector;
+    "op-selector-area": HaAreaSelector;
   }
 }

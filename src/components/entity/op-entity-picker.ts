@@ -21,7 +21,7 @@ import { computeDomain } from "../../common/entity/compute_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import "./state-badge";
 
 export type HaEntityPickerEntityFilterFunc = (entityId: OppEntity) => boolean;

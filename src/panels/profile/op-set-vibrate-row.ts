@@ -6,13 +6,13 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-settings-row";
-import "../../components/ha-switch";
-import type { HaSwitch } from "../../components/ha-switch";
+import "../../components/op-settings-row";
+import "../../components/op-switch";
+import type { HaSwitch } from "../../components/op-switch";
 import { forwardHaptic } from "../../data/haptics";
 import type { OpenPeerPower } from "../../types";
 
-@customElement("ha-set-vibrate-row")
+@customElement("op-set-vibrate-row")
 class HaSetVibrateRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -49,6 +49,6 @@ class HaSetVibrateRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-set-vibrate-row": HaSetVibrateRow;
+    "op-set-vibrate-row": HaSetVibrateRow;
   }
 }

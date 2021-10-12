@@ -6,7 +6,7 @@ import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
 import "../../../src/components/op-button-menu";
 import "../../../src/components/ha-card";
-import "../../../src/components/ha-settings-row";
+import "../../../src/components/op-settings-row";
 import {
   extractApiErrorMessage,
   fetchOppioStats,
@@ -205,15 +205,15 @@ class OppioCoreInfo extends LitElement {
           height: calc(100% - 124px);
           justify-content: space-between;
         }
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
           height: 54px;
           width: 100%;
         }
-        ha-settings-row[three-line] {
+        op-settings-row[three-line] {
           height: 74px;
         }
-        ha-settings-row > span[slot="description"] {
+        op-settings-row > span[slot="description"] {
           white-space: normal;
           color: var(--secondary-text-color);
         }
@@ -236,7 +236,7 @@ class OppioCoreInfo extends LitElement {
           cursor: pointer;
           min-height: 35px;
         }
-        mwc-list-item ha-svg-icon {
+        mwc-list-item op-svg-icon {
           color: var(--secondary-text-color);
         }
       `,

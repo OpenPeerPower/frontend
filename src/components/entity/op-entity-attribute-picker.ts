@@ -18,7 +18,7 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
 import { formatAttributeName } from "../../util/opp-attributes-util";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import "./state-badge";
 
 export type HaEntityPickerEntityFilterFunc = (entityId: OppEntity) => boolean;

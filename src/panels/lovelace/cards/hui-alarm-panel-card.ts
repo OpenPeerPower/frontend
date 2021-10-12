@@ -15,7 +15,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/ha-label-badge";
 import {
   callAlarmAction,
@@ -269,7 +269,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         padding-bottom: 16px;
         position: relative;
         height: 100%;

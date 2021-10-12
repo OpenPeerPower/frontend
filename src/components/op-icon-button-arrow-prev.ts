@@ -3,7 +3,7 @@ import { mdiArrowLeft, mdiArrowRight } from "@mdi/js";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { OpenPeerPower } from "../types";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("op-icon-button-arrow-prev")
 export class HaIconButtonArrowPrev extends LitElement {

@@ -12,9 +12,9 @@ import {
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { slugify } from "../../../../common/string/slugify";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/ha-formfield";
+import "../../../../components/op-formfield";
 import "../../../../components/op-icon-input";
-import "../../../../components/ha-switch";
+import "../../../../components/op-switch";
 import { LovelaceViewConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";
 import "../../components/hui-theme-select-editor";

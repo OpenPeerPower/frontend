@@ -12,9 +12,9 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import {
   DEVICE_MESSAGE_TYPES,
   LOG_OUTPUT,
@@ -232,7 +232,7 @@ class ZHAAddDevicesPage extends LitElement {
         .error {
           color: var(--error-color);
         }
-        ha-circular-progress {
+        op-circular-progress {
           padding: 20px;
         }
         .searching {
@@ -255,7 +255,7 @@ class ZHAAddDevicesPage extends LitElement {
           right: 0;
           color: var(--primary-color);
         }
-        ha-service-description {
+        op-service-description {
           margin-top: 16px;
           margin-left: 16px;
           display: block;

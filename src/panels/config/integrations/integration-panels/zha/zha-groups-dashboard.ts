@@ -17,7 +17,7 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../../../components/data-table/ha-data-table";
-import "../../../../../components/ha-fab";
+import "../../../../../components/op-fab";
 import "../../../../../components/op-icon-button";
 import { fetchGroups, ZHADevice, ZHAGroup } from "../../../../../data/zha";
 import "../../../../../layouts/opp-tabs-subpage-data-table";

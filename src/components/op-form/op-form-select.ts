@@ -8,7 +8,7 @@ import "@polymer/paper-ripple/paper-ripple";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import { HaFormElement, HaFormSelectData, HaFormSelectSchema } from "./ha-form";
 
 @customElement("ha-form-select")

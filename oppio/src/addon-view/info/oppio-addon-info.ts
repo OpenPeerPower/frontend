@@ -26,9 +26,9 @@ import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/ha-card";
 import "../../../../src/components/op-label-badge";
 import "../../../../src/components/ha-markdown";
-import "../../../../src/components/ha-settings-row";
-import "../../../../src/components/ha-svg-icon";
-import "../../../../src/components/ha-switch";
+import "../../../../src/components/op-settings-row";
+import "../../../../src/components/op-svg-icon";
+import "../../../../src/components/op-switch";
 import {
   fetchOppioAddonChangelog,
   fetchOppioAddonInfo,
@@ -1154,13 +1154,13 @@ class OppioAddonInfo extends LitElement {
           display: block;
         }
 
-        ha-switch {
+        op-switch {
           display: flex;
         }
-        ha-svg-icon.running {
+        op-svg-icon.running {
           color: var(--paper-green-400);
         }
-        ha-svg-icon.stopped {
+        op-svg-icon.stopped {
           color: var(--google-red-300);
         }
         ha-call-api-button {
@@ -1212,16 +1212,16 @@ class OppioAddonInfo extends LitElement {
         ha-markdown {
           padding: 16px;
         }
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
           height: 54px;
           width: 100%;
         }
-        ha-settings-row > span[slot="description"] {
+        op-settings-row > span[slot="description"] {
           white-space: normal;
           color: var(--secondary-text-color);
         }
-        ha-settings-row[three-line] {
+        op-settings-row[three-line] {
           height: 74px;
         }
 

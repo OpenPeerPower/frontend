@@ -7,9 +7,9 @@ import { formatDate } from "../../../src/common/datetime/format_date";
 import { formatDateTime } from "../../../src/common/datetime/format_date_time";
 import { LocalizeFunc } from "../../../src/common/translations/localize";
 import "../../../src/components/ha-checkbox";
-import "../../../src/components/ha-formfield";
-import "../../../src/components/ha-radio";
-import type { HaRadio } from "../../../src/components/ha-radio";
+import "../../../src/components/op-formfield";
+import "../../../src/components/op-radio";
+import type { HaRadio } from "../../../src/components/op-radio";
 import {
   OppioFullSnapshotCreateParams,
   OppioPartialSnapshotCreateParams,
@@ -276,7 +276,7 @@ export class SupervisorSnapshotContent extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      .partial-picker ha-formfield {
+      .partial-picker op-formfield {
         display: block;
       }
       .partial-picker ha-checkbox {
@@ -303,7 +303,7 @@ export class SupervisorSnapshotContent extends LitElement {
         flex-direction: column;
         margin-left: 30px;
       }
-      ha-formfield.password {
+      op-formfield.password {
         display: block;
         margin: 0 -14px -16px;
       }

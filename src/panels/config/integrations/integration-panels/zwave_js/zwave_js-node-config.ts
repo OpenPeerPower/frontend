@@ -1,4 +1,4 @@
-import "../../../../../components/ha-settings-row";
+import "../../../../../components/op-settings-row";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-listbox/paper-listbox";
 import "@polymer/paper-dropdown-menu/paper-dropdown-menu";
@@ -16,10 +16,10 @@ import {
   TemplateResult,
 } from "lit-element";
 import { debounce } from "../../../../../common/util/debounce";
-import "../../../../../components/ha-card";
-import "../../../../../components/ha-svg-icon";
+import "../../../../../components/op-card";
+import "../../../../../components/op-svg-icon";
 import "../../../../../components/op-icon-next";
-import "../../../../../components/ha-switch";
+import "../../../../../components/op-switch";
 import {
   fetchNodeConfigParameters,
   setNodeConfigParameter,
@@ -391,22 +391,22 @@ class ZWaveJSNodeConfig extends SubscribeMixin(LitElement) {
           padding-right: 40px;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }
 
-        ha-settings-row {
+        op-settings-row {
           --paper-time-input-justify-content: flex-end;
           border-top: 1px solid var(--divider-color);
         }
 
-        :host(:not([narrow])) ha-settings-row paper-input {
+        :host(:not([narrow])) op-settings-row paper-input {
           width: 30%;
           text-align: right;
         }
 
-        ha-card:last-child {
+        op-card:last-child {
           margin-bottom: 24px;
         }
       `,

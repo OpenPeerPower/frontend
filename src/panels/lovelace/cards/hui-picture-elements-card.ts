@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { OpenPeerPower } from "../../../types";
 import { findEntities } from "../common/find-entities";
 import { LovelaceElement, LovelaceElementConfig } from "../elements/types";
@@ -149,7 +149,7 @@ class HuiPictureElementsCard extends LitElement implements LovelaceCard {
         transform: translate(-50%, -50%);
       }
 
-      ha-card {
+      op-card {
         overflow: hidden;
         height: 100%;
         box-sizing: border-box;

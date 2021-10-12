@@ -3,20 +3,20 @@ import { customElement, property } from "lit/decorators";
 import { dynamicElement } from "../../common/dom/dynamic-element-directive";
 import { Selector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "./ha-selector-action";
-import "./ha-selector-addon";
-import "./ha-selector-area";
-import "./ha-selector-boolean";
-import "./ha-selector-device";
-import "./ha-selector-entity";
-import "./ha-selector-number";
-import "./ha-selector-object";
-import "./ha-selector-select";
-import "./ha-selector-target";
-import "./ha-selector-text";
-import "./ha-selector-time";
+import "./op-selector-action";
+import "./op-selector-addon";
+import "./op-selector-area";
+import "./op-selector-boolean";
+import "./op-selector-device";
+import "./op-selector-entity";
+import "./op-selector-number";
+import "./op-selector-object";
+import "./op-selector-select";
+import "./op-selector-target";
+import "./op-selector-text";
+import "./op-selector-time";
 
-@customElement("ha-selector")
+@customElement("op-selector")
 export class HaSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -44,7 +44,7 @@ export class HaSelector extends LitElement {
 
   protected render() {
     return html`
-      ${dynamicElement(`ha-selector-${this._type}`, {
+      ${dynamicElement(`op-selector-${this._type}`, {
         opp: this.opp,
         selector: this.selector,
         value: this.value,
@@ -59,6 +59,6 @@ export class HaSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector": HaSelector;
+    "op-selector": HaSelector;
   }
 }

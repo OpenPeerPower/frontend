@@ -10,8 +10,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { DOMAINS_TOGGLE } from "../../../common/const";
-import "../../../components/ha-switch";
-import type { HaSwitch } from "../../../components/ha-switch";
+import "../../../components/op-switch";
+import type { HaSwitch } from "../../../components/op-switch";
 import { forwardHaptic } from "../../../data/haptics";
 import type { OpenPeerPower } from "../../../types";
 import { turnOnOffEntities } from "../common/entity/turn-on-off-entities";
@@ -60,7 +60,7 @@ class HuiEntitiesToggle extends LitElement {
         width: 38px;
         display: block;
       }
-      ha-switch {
+      op-switch {
         padding: 13px 5px;
         margin: -4px -5px;
       }

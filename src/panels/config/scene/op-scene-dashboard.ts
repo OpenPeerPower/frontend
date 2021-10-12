@@ -24,10 +24,10 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
-import "../../../components/ha-fab";
+import "../../../components/op-fab";
 import "../../../components/op-icon";
-import "../../../components/ha-svg-icon";
-import "../../../components/ha-button-related-filter-menu";
+import "../../../components/op-svg-icon";
+import "../../../components/op-button-related-filter-menu";
 import { forwardHaptic } from "../../../data/haptics";
 import { activateScene, SceneEntity } from "../../../data/scene";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
@@ -38,7 +38,7 @@ import { documentationUrl } from "../../../util/documentation-url";
 import { showToast } from "../../../util/toast";
 import { configSections } from "../ha-panel-config";
 
-@customElement("ha-scene-dashboard")
+@customElement("op-scene-dashboard")
 class HaSceneDashboard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -269,6 +269,6 @@ class HaSceneDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-scene-dashboard": HaSceneDashboard;
+    "op-scene-dashboard": HaSceneDashboard;
   }
 }

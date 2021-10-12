@@ -5,7 +5,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import isPwa from "../../../../../common/config/is_pwa";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";
@@ -16,12 +16,12 @@ let registeredDialog = false;
 class OzwLog extends LocalizeMixin(EventsMixin(PolymerElement)) {
   static get template() {
     return html`
-    <style include="iron-flex ha-style">
+    <style include="iron-flex op-style">
       .content {
         margin-top: 24px;
       }
 
-      ha-card {
+      op-card {
         margin: 0 auto;
         max-width: 600px;
       }

@@ -2,7 +2,7 @@ import "@polymer/paper-item/paper-item-body";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 
-@customElement("ha-settings-row")
+@customElement("op-settings-row")
 export class HaSettingsRow extends LitElement {
   @property({ type: Boolean, reflect: true }) public narrow!: boolean;
 
@@ -49,7 +49,7 @@ export class HaSettingsRow extends LitElement {
         border-top: 1px solid var(--divider-color);
         padding-bottom: 8px;
       }
-      ::slotted(ha-switch) {
+      ::slotted(op-switch) {
         padding: 16px 0;
       }
       div[secondary] {
@@ -67,6 +67,6 @@ export class HaSettingsRow extends LitElement {
 }
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-settings-row": HaSettingsRow;
+    "op-settings-row": HaSettingsRow;
   }
 }

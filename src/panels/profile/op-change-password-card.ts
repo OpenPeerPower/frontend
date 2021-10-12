@@ -12,8 +12,8 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../components/ha-card";
-import "../../components/ha-circular-progress";
+import "../../components/op-card";
+import "../../components/op-circular-progress";
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 

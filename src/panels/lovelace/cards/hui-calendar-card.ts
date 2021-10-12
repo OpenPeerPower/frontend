@@ -14,7 +14,7 @@ import { HA_COLOR_PALETTE } from "../../../common/const";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { OPPDomEvent } from "../../../common/dom/fire_event";
 import { debounce } from "../../../common/util/debounce";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import { Calendar, fetchCalendarEvents } from "../../../data/calendar";
 import type {
@@ -181,7 +181,7 @@ export class HuiCalendarCard extends LitElement implements LovelaceCard {
   }
 
   private _measureCard() {
-    const card = this.shadowRoot!.querySelector("ha-card");
+    const card = this.shadowRoot!.querySelector("op-card");
     if (!card) {
       return;
     }
@@ -198,8 +198,8 @@ export class HuiCalendarCard extends LitElement implements LovelaceCard {
         debounce(() => this._measureCard(), 250, false)
       );
     }
-    const card = this.shadowRoot!.querySelector("ha-card");
-    // If we show an error or warning there is no ha-card
+    const card = this.shadowRoot!.querySelector("op-card");
+    // If we show an error or warning there is no op-card
     if (!card) {
       return;
     }
@@ -208,7 +208,7 @@ export class HuiCalendarCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         position: relative;
         padding: 0 8px 8px;
         box-sizing: border-box;

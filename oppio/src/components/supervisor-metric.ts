@@ -2,7 +2,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import "../../../src/components/op-bar";
-import "../../../src/components/ha-settings-row";
+import "../../../src/components/op-settings-row";
 import { roundWithOneDecimal } from "../../../src/util/calculate";
 
 @customElement("supervisor-metric")
@@ -32,12 +32,12 @@ class SupervisorMetric extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-settings-row {
+      op-settings-row {
         padding: 0;
         height: 54px;
         width: 100%;
       }
-      ha-settings-row > div[slot="description"] {
+      op-settings-row > div[slot="description"] {
         white-space: normal;
         color: var(--secondary-text-color);
         display: flex;

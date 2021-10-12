@@ -12,10 +12,10 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-dialog";
-import "../../../components/ha-formfield";
-import "../../../components/ha-switch";
+import "../../../components/op-formfield";
+import "../../../components/op-switch";
 import { createAuthForUser } from "../../../data/auth";
 import {
   createUser,
@@ -268,7 +268,7 @@ export class DialogAddUser extends LitElement {
           --mdc-dialog-max-width: 500px;
           --dialog-z-index: 10;
         }
-        ha-switch {
+        op-switch {
           margin-top: 8px;
         }
       `,

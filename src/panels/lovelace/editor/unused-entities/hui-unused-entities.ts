@@ -15,8 +15,8 @@ import { computeDomain } from "../../../../common/entity/compute_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { computeRTL } from "../../../../common/util/compute_rtl";
 import type { DataTableRowData } from "../../../../components/data-table/ha-data-table";
-import "../../../../components/ha-fab";
-import "../../../../components/ha-svg-icon";
+import "../../../../components/op-fab";
+import "../../../../components/op-svg-icon";
 import type { LovelaceConfig } from "../../../../data/lovelace";
 import type { OpenPeerPower } from "../../../../types";
 import { computeUnusedEntities } from "../../common/compute-unused-entities";
@@ -164,7 +164,7 @@ export class HuiUnusedEntities extends LitElement {
         flex-direction: column;
         height: 100%;
       }
-      ha-card {
+      op-card {
         --op-card-box-shadow: none;
         --op-card-border-radius: 0;
       }
@@ -186,12 +186,12 @@ export class HuiUnusedEntities extends LitElement {
         padding-right: 16px;
         padding-left: calc(16px + env(safe-area-inset-left));
       }
-      ha-fab {
+      op-fab {
         position: relative;
         bottom: calc(-80px - env(safe-area-inset-bottom));
         transition: bottom 0.3s;
       }
-      .fab.selected ha-fab {
+      .fab.selected op-fab {
         bottom: 0;
       }
     `;

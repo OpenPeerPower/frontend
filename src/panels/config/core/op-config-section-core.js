@@ -4,7 +4,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../components/buttons/ha-call-service-button";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";
 import "../ha-config-section";

@@ -10,14 +10,14 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { cache } from "lit/directives/cache";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/ha-circular-progress";
+import "../../../../src/components/op-circular-progress";
 import "../../../../src/components/ha-dialog";
 import "../../../../src/components/ha-expansion-panel";
-import "../../../../src/components/ha-formfield";
+import "../../../../src/components/op-formfield";
 import "../../../../src/components/ha-header-bar";
-import "../../../../src/components/ha-radio";
+import "../../../../src/components/op-radio";
 import "../../../../src/components/ha-related-items";
-import "../../../../src/components/ha-svg-icon";
+import "../../../../src/components/op-svg-icon";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import {
   AccessPoints,

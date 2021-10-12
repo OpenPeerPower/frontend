@@ -41,8 +41,8 @@ import type {
   RowClickedEvent,
   SelectionChangedEvent,
 } from "../../../components/data-table/ha-data-table";
-import "../../../components/ha-button-menu";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-button-menu";
+import "../../../components/op-svg-icon";
 import {
   AreaRegistryEntry,
   subscribeAreaRegistry,
@@ -884,7 +884,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
         .header-btns > mwc-icon-button {
           margin: 8px;
         }
-        ha-button-menu {
+        op-button-menu {
           margin: 0 -8px 0 8px;
         }
       `,

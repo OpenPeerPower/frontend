@@ -13,8 +13,8 @@ import { classMap } from "lit-html/directives/class-map";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { nextRender } from "../../../common/util/render-status";
-import "../../../components/entity/ha-state-label-badge";
-import "../../../components/ha-svg-icon";
+import "../../../components/entity/op-state-label-badge";
+import "../../../components/op-svg-icon";
 import type {
   LovelaceViewConfig,
   LovelaceViewElement,
@@ -292,7 +292,7 @@ export class MasonryView extends LitElement implements LovelaceViewElement {
         margin: var(--masonry-view-card-margin, 4px 4px 8px);
       }
 
-      ha-fab {
+      op-fab {
         position: sticky;
         float: right;
         right: calc(16px + env(safe-area-inset-right));
@@ -300,7 +300,7 @@ export class MasonryView extends LitElement implements LovelaceViewElement {
         z-index: 1;
       }
 
-      ha-fab.rtl {
+      op-fab.rtl {
         float: left;
         right: auto;
         left: calc(16px + env(safe-area-inset-left));

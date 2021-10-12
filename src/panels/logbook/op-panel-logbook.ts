@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { computeRTL } from "../../common/util/compute_rtl";
 import "../../components/entity/op-entity-picker";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import "../../components/ha-date-range-picker";
 import type { DateRangePickerRanges } from "../../components/ha-date-range-picker";
 import "../../components/op-icon-button";
@@ -304,7 +304,7 @@ export class HaPanelLogbook extends LitElement {
           position: relative;
         }
 
-        ha-circular-progress {
+        op-circular-progress {
           position: absolute;
           left: 50%;
           top: 50%;

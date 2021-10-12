@@ -13,7 +13,7 @@ import {
 import { html } from "lit-html";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/op-entity-toggle";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import {
   Condition,
   ManualAutomationConfig,
@@ -319,7 +319,7 @@ export class HaManualAutomationEditor extends LitElement {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           overflow: hidden;
         }
         span[slot="introduction"] a {

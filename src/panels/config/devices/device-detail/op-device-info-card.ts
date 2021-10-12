@@ -99,7 +99,7 @@ export class HaDeviceCard extends LitElement {
       :host {
         display: block;
       }
-      ha-card {
+      op-card {
         flex: 1 0 100%;
         min-width: 0;
       }

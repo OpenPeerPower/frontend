@@ -24,7 +24,7 @@ import {
   RowClickedEvent,
 } from "../../../components/data-table/ha-data-table";
 import "../../../components/entity/ha-battery-icon";
-import "../../../components/ha-button-menu";
+import "../../../components/op-button-menu";
 import { AreaRegistryEntry } from "../../../data/area_registry";
 import { ConfigEntry } from "../../../data/config_entries";
 import {
@@ -475,7 +475,7 @@ export class HaConfigDeviceDashboard extends LitElement {
   static get styles(): CSSResult[] {
     return [
       css`
-        ha-button-menu {
+        op-button-menu {
           margin: 0 -8px 0 8px;
         }
       `,

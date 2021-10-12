@@ -17,7 +17,7 @@ import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/op-climate-control";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/op-slider";
-import "../../../components/ha-switch";
+import "../../../components/op-switch";
 import {
   ClimateEntity,
   CLIMATE_SUPPORT_AUX_HEAT,

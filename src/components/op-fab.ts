@@ -1,7 +1,7 @@
 import { Fab } from "@material/mwc-fab";
 import { customElement } from "lit/decorators";
 
-@customElement("ha-fab")
+@customElement("op-fab")
 export class HaFab extends Fab {
   protected firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
@@ -11,6 +11,6 @@ export class HaFab extends Fab {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-fab": HaFab;
+    "op-fab": HaFab;
   }
 }

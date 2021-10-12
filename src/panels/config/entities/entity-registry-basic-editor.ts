@@ -12,8 +12,8 @@ import {
 } from "lit-element";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import "../../../components/ha-area-picker";
-import "../../../components/ha-switch";
-import type { HaSwitch } from "../../../components/ha-switch";
+import "../../../components/op-switch";
+import type { HaSwitch } from "../../../components/op-switch";
 import {
   DeviceRegistryEntry,
   subscribeDeviceRegistry,
@@ -193,7 +193,7 @@ export class HaEntityRegistryBasicEditor extends SubscribeMixin(LitElement) {
 
   static get styles() {
     return css`
-      ha-switch {
+      op-switch {
         margin-right: 16px;
       }
       .row {

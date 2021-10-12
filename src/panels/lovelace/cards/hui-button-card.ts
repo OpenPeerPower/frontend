@@ -27,7 +27,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { isValidEntityId } from "../../../common/entity/valid_entity_id";
 import { iconColorCSS } from "../../../common/style/icon_color_css";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { LightEntity } from "../../../data/light";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
@@ -249,7 +249,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -263,7 +263,7 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
         position: relative;
       }
 
-      ha-card:focus {
+      op-card:focus {
         outline: none;
       }
 

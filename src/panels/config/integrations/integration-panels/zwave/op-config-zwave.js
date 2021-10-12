@@ -11,11 +11,11 @@ import { computeStateDomain } from "../../../../../common/entity/compute_state_d
 import { computeStateName } from "../../../../../common/entity/compute_state_name";
 import { sortStatesByName } from "../../../../../common/entity/states_sort_by_name";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-icon-button-arrow-prev";
 import "../../../../../components/ha-menu-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import "../../../../../layouts/ha-app-layout";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
@@ -37,7 +37,7 @@ import "./zwave-values";
 class HaConfigZwave extends LocalizeMixin(EventsMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style ha-form-style">
+      <style include="iron-flex op-style ha-form-style">
         app-toolbar {
           border-bottom: 1px solid var(--divider-color);
         }
@@ -60,7 +60,7 @@ class HaConfigZwave extends LocalizeMixin(EventsMixin(PolymerElement)) {
           padding-right: 24px;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }
@@ -73,12 +73,12 @@ class HaConfigZwave extends LocalizeMixin(EventsMixin(PolymerElement)) {
           padding-bottom: 24px;
         }
 
-        ha-service-description {
+        op-service-description {
           display: block;
           color: grey;
         }
 
-        ha-service-description[hidden] {
+        op-service-description[hidden] {
           display: none;
         }
 

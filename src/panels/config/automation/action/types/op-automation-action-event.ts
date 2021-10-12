@@ -9,9 +9,9 @@ import {
 import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/entity/op-entity-picker";
-import "../../../../../components/ha-service-picker";
-import "../../../../../components/ha-yaml-editor";
-import type { HaYamlEditor } from "../../../../../components/ha-yaml-editor";
+import "../../../../../components/op-service-picker";
+import "../../../../../components/op-yaml-editor";
+import type { HaYamlEditor } from "../../../../../components/op-yaml-editor";
 import type { EventAction } from "../../../../../data/script";
 import type { OpenPeerPower } from "../../../../../types";
 import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
@@ -22,7 +22,7 @@ export class HaEventAction extends LitElement implements ActionElement {
 
   @property() public action!: EventAction;
 
-  @query("ha-yaml-editor", true) private _yamlEditor?: HaYamlEditor;
+  @query("op-yaml-editor", true) private _yamlEditor?: HaYamlEditor;
 
   private _actionData?: EventAction["event_data"];
 

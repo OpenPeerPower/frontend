@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
-import "../../../components/entity/ha-state-label-badge";
+import "../../../components/entity/op-state-label-badge";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
@@ -61,12 +61,12 @@ export class HuiStateLabelBadge extends LitElement implements LovelaceBadge {
 
   static get styles(): CSSResult {
     return css`
-      ha-state-label-badge:focus {
+      op-state-label-badge:focus {
         outline: none;
         background: var(--divider-color);
         border-radius: 4px;
       }
-      ha-state-label-badge {
+      op-state-label-badge {
         display: inline-block;
         padding: 4px 2px 4px 2px;
         margin: -4px -2px -4px -2px;

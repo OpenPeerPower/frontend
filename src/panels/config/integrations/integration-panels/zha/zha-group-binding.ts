@@ -17,9 +17,9 @@ import {
 import type { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/buttons/ha-call-service-button";
 import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import {
   bindDeviceToGroup,
   Cluster,
@@ -266,7 +266,7 @@ export class ZHAGroupBindingControl extends LitElement {
           margin-top: 24px;
         }
 
-        ha-card {
+        op-card {
           max-width: 680px;
         }
 
@@ -306,7 +306,7 @@ export class ZHAGroupBindingControl extends LitElement {
           color: var(--primary-color);
         }
 
-        ha-service-description {
+        op-service-description {
           display: block;
           color: grey;
         }

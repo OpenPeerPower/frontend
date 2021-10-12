@@ -16,7 +16,7 @@ import {
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/ha-area-picker";
 import "../../../../components/ha-dialog";
-import type { HaSwitch } from "../../../../components/ha-switch";
+import type { HaSwitch } from "../../../../components/op-switch";
 import { computeDeviceName } from "../../../../data/device_registry";
 import { PolymerChangedEvent } from "../../../../polymer-types";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
@@ -173,7 +173,7 @@ class DialogDeviceRegistryDetail extends LitElement {
         .error {
           color: var(--error-color);
         }
-        ha-switch {
+        op-switch {
           margin-right: 16px;
         }
         .row {

@@ -22,8 +22,8 @@ import { navigate } from "../../../common/navigate";
 import { extractSearchParam } from "../../../common/url/search-params";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
 import "../../../components/entity/op-entity-toggle";
-import "../../../components/ha-fab";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-fab";
+import "../../../components/op-svg-icon";
 import { showAutomationEditor } from "../../../data/automation";
 import {
   BlueprintMetaData,

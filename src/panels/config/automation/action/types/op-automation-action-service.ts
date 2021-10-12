@@ -15,7 +15,7 @@ import { ServiceAction } from "../../../../../data/script";
 import type { OpenPeerPower } from "../../../../../types";
 import { EntityIdOrAll } from "../../../../../common/structs/is-entity-id";
 import { ActionElement } from "../ha-automation-action-row";
-import "../../../../../components/ha-service-control";
+import "../../../../../components/op-service-control";
 import { hasTemplate } from "../../../../../common/string/has-template";
 
 const actionStruct = object({
@@ -88,7 +88,7 @@ export class HaServiceAction extends LitElement implements ActionElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-service-control {
+      op-service-control {
         display: block;
         margin: 0 -16px;
       }

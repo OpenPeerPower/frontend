@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
 import { computeStateName } from "../../../common/entity/compute_state_name";
-import "../../../components/entity/ha-state-label-badge";
+import "../../../components/entity/op-state-label-badge";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";

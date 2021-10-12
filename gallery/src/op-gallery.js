@@ -218,4 +218,4 @@ class HaGallery extends PolymerElement {
   }
 }
 
-customElements.define("ha-gallery", HaGallery);
+customElements.define("op-gallery", HaGallery);

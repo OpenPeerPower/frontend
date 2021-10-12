@@ -13,9 +13,9 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import {
   Cluster,
   fetchClustersForZhaNode,
@@ -150,7 +150,7 @@ export class ZHAClusters extends LitElement {
           flex-grow: 1;
         }
 
-        ha-card {
+        op-card {
           max-width: 680px;
         }
 

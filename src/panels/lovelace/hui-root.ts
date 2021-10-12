@@ -49,12 +49,12 @@ import { constructUrlCurrentPath } from "../../common/url/construct-url";
 import { computeRTLDirection } from "../../common/util/compute_rtl";
 import { debounce } from "../../common/util/debounce";
 import { afterNextRender } from "../../common/util/render-status";
-import "../../components/ha-button-menu";
+import "../../components/op-button-menu";
 import "../../components/op-icon";
 import "../../components/op-icon-button-arrow-next";
 import "../../components/op-icon-button-arrow-prev";
 import "../../components/ha-menu-button";
-import "../../components/ha-svg-icon";
+import "../../components/op-svg-icon";
 import "../../components/ha-tabs";
 import type {
   LovelaceConfig,
@@ -925,7 +925,7 @@ class HUIRoot extends LitElement {
           position: absolute;
           height: 44px;
         }
-        #add-view ha-svg-icon {
+        #add-view op-svg-icon {
           background-color: var(--accent-color);
           border-radius: 4px;
         }

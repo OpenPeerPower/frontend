@@ -42,7 +42,7 @@ import { hasConfigOrEntityChanged } from "../common/has-changed";
 import { installResizeObserver } from "../common/install-resize-observer";
 import { createEntityNotFoundWarning } from "../components/hui-warning";
 
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 
 const DAY_IN_MILLISECONDS = 86400000;
@@ -358,8 +358,8 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
         debounce(() => this._measureCard(), 250, false)
       );
     }
-    const card = this.shadowRoot!.querySelector("ha-card");
-    // If we show an error or warning there is no ha-card
+    const card = this.shadowRoot!.querySelector("op-card");
+    // If we show an error or warning there is no op-card
     if (!card) {
       return;
     }
@@ -371,8 +371,8 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
       return;
     }
 
-    const card = this.shadowRoot!.querySelector("ha-card");
-    // If we show an error or warning there is no ha-card
+    const card = this.shadowRoot!.querySelector("op-card");
+    // If we show an error or warning there is no op-card
     if (!card) {
       return;
     }
@@ -394,7 +394,7 @@ class HuiWeatherForecastCard extends LitElement implements LovelaceCard {
     return [
       weatherSVGStyles,
       css`
-        ha-card {
+        op-card {
           cursor: pointer;
           outline: none;
           height: 100%;

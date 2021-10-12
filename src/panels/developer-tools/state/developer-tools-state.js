@@ -13,7 +13,7 @@ import { formatDateTimeWithSeconds } from "../../../common/datetime/format_date_
 import { computeRTL } from "../../../common/util/compute_rtl";
 import "../../../components/entity/op-entity-picker";
 import "../../../components/ha-code-editor";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import { EventsMixin } from "../../../mixins/events-mixin";
 import LocalizeMixin from "../../../mixins/localize-mixin";
@@ -28,7 +28,7 @@ const ERROR_SENTINEL = {};
 class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="ha-style">
+      <style include="op-style">
         :host {
           -ms-user-select: initial;
           -webkit-user-select: initial;
@@ -84,7 +84,7 @@ class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
           min-width: 200px;
           word-break: break-word;
         }
-        .entities ha-svg-icon {
+        .entities op-svg-icon {
           --mdc-icon-size: 20px;
           padding: 4px;
           cursor: pointer;

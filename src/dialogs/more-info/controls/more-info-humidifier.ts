@@ -16,7 +16,7 @@ import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/op-slider";
-import "../../../components/ha-switch";
+import "../../../components/op-switch";
 import {
   HumidifierEntity,
   HUMIDIFIER_SUPPORT_MODES,

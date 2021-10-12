@@ -19,7 +19,7 @@ import type {
   DataTableColumnContainer,
   DataTableRowData,
 } from "../../../../../components/data-table/ha-data-table";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import { fetchDevices, ZHADevice } from "../../../../../data/zha";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 

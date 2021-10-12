@@ -13,9 +13,9 @@ import {
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/ha-analytics";
 import { analyticsLearnMore } from "../../../components/ha-analytics-learn-more";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/ha-checkbox";
-import "../../../components/ha-settings-row";
+import "../../../components/op-settings-row";
 import {
   Analytics,
   getAnalyticsDetails,
@@ -117,7 +117,7 @@ class ConfigAnalytics extends LitElement {
           color: var(--error-color);
         }
 
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
         }
 

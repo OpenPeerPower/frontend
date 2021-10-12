@@ -17,7 +17,7 @@ import { computeRTL } from "../common/util/compute_rtl";
 import "../components/op-icon";
 import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
-import "../components/ha-svg-icon";
+import "../components/op-svg-icon";
 import "../components/ha-tab";
 import { OpenPeerPower, Route } from "../types";
 

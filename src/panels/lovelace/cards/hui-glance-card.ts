@@ -17,7 +17,7 @@ import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateDisplay } from "../../../common/entity/compute_state_display";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/entity/state-badge";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import {
@@ -188,7 +188,7 @@ export class HuiGlanceCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
       }
       .entities {

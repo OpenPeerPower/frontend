@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import {
   fetchNodeConfig,
   ZWaveConfigItem,
@@ -226,7 +226,7 @@ export class ZwaveNodeConfig extends LitElement {
           margin-top: 24px;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }

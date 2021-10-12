@@ -15,7 +15,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-button-menu";
+import "../../../components/op-button-menu";
 import { saveConfig } from "../../../data/lovelace";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import { OpenPeerPower } from "../../../types";
@@ -127,7 +127,7 @@ export class HuiCardOptions extends LitElement {
         height: calc(100% - 59px);
       }
 
-      ha-card {
+      op-card {
         border-top-right-radius: 0;
         border-top-left-radius: 0;
       }

@@ -13,9 +13,9 @@ import {
 import memoizeOne from "memoize-one";
 import relativeTime from "../../common/datetime/relative_time";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-card";
-import "../../components/ha-settings-row";
-import "../../components/ha-svg-icon";
+import "../../components/op-card";
+import "../../components/op-settings-row";
+import "../../components/op-svg-icon";
 import { RefreshToken } from "../../data/refresh_token";
 import {
   showAlertDialog,
@@ -177,7 +177,7 @@ class HaLongLivedTokens extends LitElement {
     return [
       haStyle,
       css`
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
         }
         a {

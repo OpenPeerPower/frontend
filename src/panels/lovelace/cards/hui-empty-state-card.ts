@@ -8,7 +8,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceCard } from "../types";
 import { EmptyStateCardConfig } from "./types";

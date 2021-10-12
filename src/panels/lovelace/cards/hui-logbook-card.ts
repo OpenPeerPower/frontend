@@ -14,8 +14,8 @@ import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";
 import { throttle } from "../../../common/util/throttle";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
 import { getLogbookData, LogbookEntry } from "../../../data/logbook";
 import type { OpenPeerPower } from "../../../types";
 import "../../logbook/ha-logbook";
@@ -265,7 +265,7 @@ export class HuiLogbookCard extends LitElement implements LovelaceCard {
   static get styles(): CSSResultArray {
     return [
       css`
-        ha-card {
+        op-card {
           height: 100%;
           display: flex;
           flex-direction: column;
@@ -292,7 +292,7 @@ export class HuiLogbookCard extends LitElement implements LovelaceCard {
           display: block;
         }
 
-        ha-circular-progress {
+        op-circular-progress {
           display: flex;
           justify-content: center;
         }

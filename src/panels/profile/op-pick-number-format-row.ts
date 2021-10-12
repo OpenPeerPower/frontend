@@ -7,10 +7,10 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../components/ha-card";
+import "../../components/op-card";
 import "../../components/ha-paper-dropdown-menu";
 import { OpenPeerPower } from "../../types";
-import "../../components/ha-settings-row";
+import "../../components/op-settings-row";
 import { formatNumber } from "../../common/string/format_number";
 import { NumberFormat } from "../../data/translation";
 import { fireEvent } from "../../common/dom/fire_event";

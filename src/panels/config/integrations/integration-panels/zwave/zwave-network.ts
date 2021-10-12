@@ -11,11 +11,11 @@ import {
 } from "lit-element";
 import "../../../../../components/buttons/ha-call-api-button";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-card";
+import "../../../../../components/op-circular-progress";
 import "../../../../../components/op-icon";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import {
   fetchNetworkStatus,
   ZWaveNetworkStatus,
@@ -272,7 +272,7 @@ export class ZwaveNetwork extends LitElement {
           font-size: 1rem;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }
@@ -288,7 +288,7 @@ export class ZwaveNetwork extends LitElement {
           color: var(--primary-color);
         }
 
-        ha-service-description {
+        op-service-description {
           display: block;
           color: grey;
           padding: 0 8px 12px;

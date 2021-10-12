@@ -11,9 +11,9 @@ import {
   TemplateResult,
 } from "lit-element";
 import { compare } from "../../../common/string/compare";
-import "../../../components/ha-card";
-import "../../../components/ha-fab";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-card";
+import "../../../components/op-fab";
+import "../../../components/op-svg-icon";
 import "../../../components/user/ha-person-badge";
 import {
   createPerson,
@@ -270,7 +270,7 @@ class HaConfigPerson extends LitElement {
       a {
         color: var(--primary-color);
       }
-      ha-card {
+      op-card {
         max-width: 600px;
         margin: 16px auto;
         overflow: hidden;
@@ -283,7 +283,7 @@ class HaConfigPerson extends LitElement {
         padding-top: 4px;
         padding-bottom: 4px;
       }
-      ha-card.storage paper-icon-item {
+      op-card.storage paper-icon-item {
         cursor: pointer;
       }
     `;

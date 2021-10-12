@@ -37,7 +37,7 @@ import {
 import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import "./ha-devices-picker";
 
 interface DevicesByArea {

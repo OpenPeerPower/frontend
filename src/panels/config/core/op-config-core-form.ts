@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { UNIT_C } from "../../../common/const";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/map/ha-location-editor";
 import { createTimezoneListEl } from "../../../components/timezone-datalist";
 import { ConfigUpdateValues, saveCoreConfig } from "../../../data/core";

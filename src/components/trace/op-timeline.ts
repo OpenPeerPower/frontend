@@ -2,7 +2,7 @@ import { mdiCircleOutline } from "@mdi/js";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { buttonLinkStyle } from "../../resources/styles";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 
 @customElement("ha-timeline")
 export class HaTimeline extends LitElement {
@@ -76,14 +76,14 @@ export class HaTimeline extends LitElement {
           margin-right: 8px;
           width: 24px;
         }
-        ha-svg-icon {
+        op-svg-icon {
           color: var(
             --timeline-ball-color,
             var(--timeline-color, var(--secondary-text-color))
           );
           border-radius: 50%;
         }
-        :host([raised]) ha-svg-icon {
+        :host([raised]) op-svg-icon {
           transform: scale(1.3);
         }
         .line {

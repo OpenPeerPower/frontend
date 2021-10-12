@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-expansion-panel";
 import {
   BlueprintImportResult,

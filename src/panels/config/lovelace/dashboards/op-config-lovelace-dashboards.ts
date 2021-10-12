@@ -16,10 +16,10 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../../components/data-table/ha-data-table";
-import "../../../../components/ha-fab";
+import "../../../../components/op-fab";
 import "../../../../components/op-icon";
 import "../../../../components/op-icon-button";
-import "../../../../components/ha-svg-icon";
+import "../../../../components/op-svg-icon";
 import {
   createDashboard,
   deleteDashboard,

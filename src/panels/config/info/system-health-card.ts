@@ -16,10 +16,10 @@ import {
 import { formatDateTime } from "../../../common/datetime/format_date_time";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
-import "../../../components/ha-button-menu";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-button-menu";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
+import "../../../components/op-svg-icon";
 import { domainToName } from "../../../data/integration";
 import {
   subscribeSystemHealthInfo,

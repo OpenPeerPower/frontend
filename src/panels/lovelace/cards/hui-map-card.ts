@@ -30,7 +30,7 @@ import { computeStateDomain } from "../../../common/entity/compute_state_domain"
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { debounce } from "../../../common/util/debounce";
 import parseAspectRatio from "../../../common/util/parse-aspect-ratio";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-button";
 import { fetchRecent } from "../../../data/history";
 import { OpenPeerPower } from "../../../types";
@@ -655,7 +655,7 @@ class HuiMapCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         overflow: hidden;
         width: 100%;
         height: 100%;

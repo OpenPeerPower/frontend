@@ -13,7 +13,7 @@ import { ifDefined } from "lit-html/directives/if-defined";
 import memoizeOne from "memoize-one";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { computeStateName } from "../../../common/entity/compute_state_name";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import {
   AreaRegistryEntry,
   deleteAreaRegistryEntry,

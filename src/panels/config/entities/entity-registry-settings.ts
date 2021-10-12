@@ -18,8 +18,8 @@ import { domainIcon } from "../../../common/entity/domain_icon";
 import "../../../components/ha-area-picker";
 import "../../../components/ha-expansion-panel";
 import "../../../components/op-icon-input";
-import "../../../components/ha-switch";
-import type { HaSwitch } from "../../../components/ha-switch";
+import "../../../components/op-switch";
+import type { HaSwitch } from "../../../components/op-switch";
 import {
   DeviceRegistryEntry,
   subscribeDeviceRegistry,
@@ -384,7 +384,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
           padding-bottom: max(env(safe-area-inset-bottom), 8px);
           background-color: var(--mdc-theme-surface, #fff);
         }
-        ha-switch {
+        op-switch {
           margin-right: 16px;
         }
         .row {

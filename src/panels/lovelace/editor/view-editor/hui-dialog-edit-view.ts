@@ -13,7 +13,7 @@ import {
 } from "lit-element";
 import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
 import { navigate } from "../../../../common/navigate";
-import "../../../../components/ha-circular-progress";
+import "../../../../components/op-circular-progress";
 import "../../../../components/ha-dialog";
 import "../../../../components/op-icon-button";
 import type {
@@ -397,10 +397,10 @@ export class HuiDialogEditView extends LitElement {
         mwc-button.warning {
           margin-right: auto;
         }
-        ha-circular-progress {
+        op-circular-progress {
           display: none;
         }
-        ha-circular-progress[active] {
+        op-circular-progress[active] {
           display: block;
         }
         .hidden {

@@ -11,7 +11,7 @@ import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 const defaultRowRenderer: ComboBoxLitRenderer<string> = (item) => html`<style>
     paper-item {

@@ -12,8 +12,8 @@ import {
 import { assert } from "superstruct";
 import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/entity/op-entity-picker";
-import "../../../../components/ha-formfield";
-import "../../../../components/ha-switch";
+import "../../../../components/op-formfield";
+import "../../../../components/op-switch";
 import type { OpenPeerPower } from "../../../../types";
 import {
   GraphHeaderFooterConfig,

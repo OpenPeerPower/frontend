@@ -23,7 +23,7 @@ import "./op-entity-marker";
 class HaPanelMap extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-      <style include="ha-style">
+      <style include="op-style">
         #map {
           height: calc(100vh - var(--header-height));
           width: 100%;

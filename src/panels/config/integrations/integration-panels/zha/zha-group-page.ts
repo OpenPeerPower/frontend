@@ -13,7 +13,7 @@ import {
 import { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
 import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import "../../../../../components/op-icon-button";
 import {
   addMembersToGroup,

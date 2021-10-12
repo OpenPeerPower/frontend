@@ -18,7 +18,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { array, assert, object, optional, string, type } from "superstruct";
 import { computeRTL } from "../../common/util/compute_rtl";
 import { deepEqual } from "../../common/util/deep-equal";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import "../../components/ha-code-editor";
 import type { HaCodeEditor } from "../../components/ha-code-editor";
 import "../../components/op-icon";

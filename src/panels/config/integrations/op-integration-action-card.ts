@@ -8,9 +8,9 @@ import {
 } from "lit-element";
 import type { IntegrationManifest } from "../../../data/integration";
 import type { OpenPeerPower } from "../../../types";
-import "./ha-integration-header";
+import "./op-integration-header";
 
-@customElement("ha-integration-action-card")
+@customElement("op-integration-action-card")
 export class HaIntegrationActionCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -42,7 +42,7 @@ export class HaIntegrationActionCard extends LitElement {
   }
 
   static styles = css`
-    ha-card {
+    op-card {
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -72,6 +72,6 @@ export class HaIntegrationActionCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-integration-action-card": HaIntegrationActionCard;
+    "op-integration-action-card": HaIntegrationActionCard;
   }
 }

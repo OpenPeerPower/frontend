@@ -4,9 +4,9 @@ import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { computeRTLDirection } from "../../common/util/compute_rtl";
 import "../../components/op-dialog";
-import "../../components/ha-formfield";
-import "../../components/ha-switch";
-import type { HaSwitch } from "../../components/ha-switch";
+import "../../components/op-formfield";
+import "../../components/op-switch";
+import type { HaSwitch } from "../../components/op-switch";
 import {
   ConfigEntryMutableParams,
   updateConfigEntry,

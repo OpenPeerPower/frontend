@@ -8,7 +8,7 @@ import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../../types";
 import "../entity/op-entity-picker";
 
-@customElement("ha-selector-entity")
+@customElement("op-selector-entity")
 export class HaEntitySelector extends SubscribeMixin(LitElement) {
   @property() public opp!: OpenPeerPower;
 
@@ -77,6 +77,6 @@ export class HaEntitySelector extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-entity": HaEntitySelector;
+    "op-selector-entity": HaEntitySelector;
   }
 }

@@ -13,7 +13,7 @@ import {
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
@@ -161,7 +161,7 @@ class HuiPlantStatusCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
         box-sizing: border-box;
       }

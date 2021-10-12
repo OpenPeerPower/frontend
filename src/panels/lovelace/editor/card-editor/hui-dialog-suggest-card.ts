@@ -12,8 +12,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../components/dialog/ha-paper-dialog";
-import "../../../../components/ha-yaml-editor";
-import type { HaYamlEditor } from "../../../../components/ha-yaml-editor";
+import "../../../../components/op-yaml-editor";
+import type { HaYamlEditor } from "../../../../components/op-yaml-editor";
 import { LovelaceCardConfig } from "../../../../data/lovelace";
 import { haStyleDialog } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
@@ -34,7 +34,7 @@ export class HuiDialogSuggestCard extends LitElement {
 
   @internalProperty() private _saving = false;
 
-  @query("ha-yaml-editor") private _yamlEditor?: HaYamlEditor;
+  @query("op-yaml-editor") private _yamlEditor?: HaYamlEditor;
 
   public showDialog(params: SuggestCardDialogParams): void {
     this._params = params;

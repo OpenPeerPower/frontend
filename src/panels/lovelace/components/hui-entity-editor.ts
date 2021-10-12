@@ -20,7 +20,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/op-entity-picker";
 import type { HaEntityPicker } from "../../../components/entity/op-entity-picker";
 import "../../../components/op-icon-button";
-import { sortableStyles } from "../../../resources/ha-sortable-style";
+import { sortableStyles } from "../../../resources/op-sortable-style";
 import { OpenPeerPower } from "../../../types";
 import { EntityConfig } from "../entity-rows/types";
 
@@ -134,7 +134,7 @@ export class HuiEntityEditor extends LitElement {
     this._sortable = new Sortable(this.shadowRoot!.querySelector(".entities"), {
       animation: 150,
       fallbackClass: "sortable-fallback",
-      handle: "ha-svg-icon",
+      handle: "op-svg-icon",
       dataIdAttr: "data-entity-id",
       onEnd: async (evt: SortableEvent) => this._entityMoved(evt),
     });
@@ -189,7 +189,7 @@ export class HuiEntityEditor extends LitElement {
           display: flex;
           align-items: center;
         }
-        .entity ha-svg-icon {
+        .entity op-svg-icon {
           padding-right: 8px;
           cursor: move;
         }

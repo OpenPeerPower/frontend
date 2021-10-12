@@ -135,7 +135,7 @@ class OppioCreateSnapshotDialog extends LitElement {
       haStyle,
       haStyleDialog,
       css`
-        ha-circular-progress {
+        op-circular-progress {
           display: block;
           text-align: center;
         }

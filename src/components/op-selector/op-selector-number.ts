@@ -7,7 +7,7 @@ import { NumberSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 import "../op-slider";
 
-@customElement("ha-selector-number")
+@customElement("op-selector-number")
 export class HaNumberSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -103,6 +103,6 @@ export class HaNumberSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-number": HaNumberSelector;
+    "op-selector-number": HaNumberSelector;
   }
 }

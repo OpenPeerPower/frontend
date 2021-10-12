@@ -2,11 +2,11 @@ import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/ha-circular-progress";
+import "../../../../src/components/op-circular-progress";
 import "../../../../src/components/ha-dialog";
-import "../../../../src/components/ha-settings-row";
-import "../../../../src/components/ha-svg-icon";
-import "../../../../src/components/ha-switch";
+import "../../../../src/components/op-settings-row";
+import "../../../../src/components/op-svg-icon";
+import "../../../../src/components/op-switch";
 import {
   extractApiErrorMessage,
   ignoreSupervisorError,
@@ -175,12 +175,12 @@ class DialogSupervisorUpdate extends LitElement {
           color: var(--primary-text-color);
         }
 
-        ha-settings-row {
+        op-settings-row {
           margin-top: 32px;
           padding: 0;
         }
 
-        ha-circular-progress {
+        op-circular-progress {
           display: block;
           margin: 32px;
           text-align: center;

@@ -8,7 +8,7 @@ import { slugify } from "../../../../src/common/string/slugify";
 import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/op-button-menu";
 import "../../../../src/components/op-header-bar";
-import "../../../../src/components/ha-svg-icon";
+import "../../../../src/components/op-svg-icon";
 import { getSignedPath } from "../../../../src/data/auth";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import {
@@ -121,7 +121,7 @@ class OppioSnapshotDialog
       haStyle,
       haStyleDialog,
       css`
-        ha-svg-icon {
+        op-svg-icon {
           color: var(--primary-text-color);
         }
         op-circular-progress {

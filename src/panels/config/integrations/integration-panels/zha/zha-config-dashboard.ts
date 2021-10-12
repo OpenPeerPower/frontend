@@ -12,8 +12,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeRTL } from "../../../../../common/util/compute_rtl";
-import "../../../../../components/ha-card";
-import "../../../../../components/ha-fab";
+import "../../../../../components/op-card";
+import "../../../../../components/op-fab";
 import "../../../../../components/op-icon-next";
 import "../../../../../layouts/opp-tabs-subpage";
 import type { PageNavigation } from "../../../../../layouts/opp-tabs-subpage";
@@ -104,7 +104,7 @@ class ZHAConfigDashboard extends LitElement {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           margin: auto;
           margin-top: 16px;
           max-width: 500px;

@@ -13,12 +13,12 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-dialog";
-import "../../../components/ha-formfield";
-import "../../../components/ha-svg-icon";
-import "../../../components/ha-switch";
-import "../../../components/ha-yaml-editor";
+import "../../../components/op-formfield";
+import "../../../components/op-svg-icon";
+import "../../../components/op-switch";
+import "../../../components/op-yaml-editor";
 import type { OppDialog } from "../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
@@ -205,7 +205,7 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
         ha-paper-dialog {
           max-width: 650px;
         }
-        ha-switch {
+        op-switch {
           padding-bottom: 16px;
         }
       `,

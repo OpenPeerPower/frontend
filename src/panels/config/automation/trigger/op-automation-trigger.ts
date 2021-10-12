@@ -8,7 +8,7 @@ import {
   property,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import { Trigger } from "../../../../data/automation";
 import { OpenPeerPower } from "../../../../types";
 import "./ha-automation-trigger-row";
@@ -80,7 +80,7 @@ export default class HaAutomationTrigger extends LitElement {
   static get styles(): CSSResult {
     return css`
       ha-automation-trigger-row,
-      ha-card {
+      op-card {
         display: block;
         margin-top: 16px;
       }

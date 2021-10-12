@@ -5,7 +5,7 @@ import { ActionSelector } from "../../data/selector";
 import "../../panels/config/automation/action/ha-automation-action";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-selector-action")
+@customElement("op-selector-action")
 export class HaActionSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -41,6 +41,6 @@ export class HaActionSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-action": HaActionSelector;
+    "op-selector-action": HaActionSelector;
   }
 }

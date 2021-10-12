@@ -1,6 +1,6 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../../src/components/ha-circular-progress";
+import "../../../../src/components/op-circular-progress";
 import { OppioAddonDetails } from "../../../../src/data/oppio/addon";
 import { Supervisor } from "../../../../src/data/supervisor/supervisor";
 import { haStyle } from "../../../../src/resources/styles";

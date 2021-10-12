@@ -11,8 +11,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
 import { LovelaceCardConfig } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceCard } from "../types";
@@ -59,7 +59,7 @@ export class HuiStartingCard extends LitElement implements LovelaceCard {
         display: block;
         height: calc(100vh - var(--header-height));
       }
-      ha-circular-progress {
+      op-circular-progress {
         padding-bottom: 20px;
       }
       .content {

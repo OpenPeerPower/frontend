@@ -3,8 +3,8 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { applyThemesOnElement } from "../../../src/common/dom/apply_themes_on_element";
-import "../../../src/components/ha-formfield";
-import "../../../src/components/ha-switch";
+import "../../../src/components/op-formfield";
+import "../../../src/components/op-switch";
 import "./demo-more-info";
 
 class DemoMoreInfos extends PolymerElement {
@@ -29,7 +29,7 @@ class DemoMoreInfos extends PolymerElement {
         .filters {
           margin-left: 60px;
         }
-        ha-formfield {
+        op-formfield {
           margin-right: 16px;
         }
       </style>

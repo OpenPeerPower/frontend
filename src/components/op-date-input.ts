@@ -4,7 +4,7 @@ import "@vaadin/vaadin-date-picker/theme/material/vaadin-date-picker-light";
 import { css, CSSResultGroup, html, LitElement, PropertyValues } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 const i18n = {
   monthNames: [
@@ -131,7 +131,7 @@ export class HaDateInput extends LitElement {
       paper-input {
         width: 110px;
       }
-      ha-svg-icon {
+      op-svg-icon {
         color: var(--secondary-text-color);
       }
     `;

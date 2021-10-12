@@ -4,9 +4,9 @@ import "@polymer/paper-input/paper-input-container";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../../src/common/dom/fire_event";
-import "../../../src/components/ha-circular-progress";
+import "../../../src/components/op-circular-progress";
 import "../../../src/components/ha-file-upload";
-import "../../../src/components/ha-svg-icon";
+import "../../../src/components/op-svg-icon";
 import { extractApiErrorMessage } from "../../../src/data/oppio/common";
 import {
   OppioSnapshot,

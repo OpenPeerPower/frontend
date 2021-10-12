@@ -3,7 +3,7 @@ import "@polymer/paper-input/paper-textarea";
 import { customElement, LitElement, property } from "lit-element";
 import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/ha-formfield";
+import "../../../../../components/op-formfield";
 import { WaitForTriggerAction } from "../../../../../data/script";
 import { OpenPeerPower } from "../../../../../types";
 import "../../trigger/ha-automation-trigger";

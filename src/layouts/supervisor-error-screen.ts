@@ -10,7 +10,7 @@ import {
 import { customElement, property } from "lit/decorators";
 import { atLeastVersion } from "../common/config/version";
 import { applyThemesOnElement } from "../common/dom/apply_themes_on_element";
-import "../components/ha-card";
+import "../components/op-card";
 import "../resources/op-style";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
@@ -119,13 +119,13 @@ class SupervisorErrorScreen extends LitElement {
           color: var(--mdc-theme-primary);
         }
 
-        ha-card {
+        op-card {
           width: 600px;
           margin: auto;
           padding: 8px;
         }
         @media all and (max-width: 500px) {
-          ha-card {
+          op-card {
             width: calc(100vw - 32px);
           }
         }

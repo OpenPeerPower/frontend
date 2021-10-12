@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import { styleMap } from "lit-html/directives/style-map";
 import parseAspectRatio from "../../../common/util/parse-aspect-ratio";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { LovelaceCard, LovelaceCardEditor } from "../types";
 import { IframeCardConfig } from "./types";
 
@@ -86,12 +86,12 @@ export class HuiIframeCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      :host([ispanel]) ha-card {
+      :host([ispanel]) op-card {
         width: 100%;
         height: 100%;
       }
 
-      ha-card {
+      op-card {
         overflow: hidden;
       }
 

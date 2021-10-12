@@ -10,7 +10,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import { fetchRecent } from "../../../data/history";
 import { OpenPeerPower } from "../../../types";
 import { findEntities } from "../common/find-entities";
@@ -208,7 +208,7 @@ export class HuiGraphHeaderFooter
 
   static get styles(): CSSResult {
     return css`
-      ha-circular-progress {
+      op-circular-progress {
         position: absolute;
         top: calc(50% - 28px);
       }

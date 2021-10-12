@@ -12,8 +12,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
-import "../../../../../components/ha-card";
-import "../../../../../components/ha-svg-icon";
+import "../../../../../components/op-card";
+import "../../../../../components/op-svg-icon";
 import "../../../../../components/op-icon-next";
 import { getSignedPath } from "../../../../../data/auth";
 import {
@@ -307,7 +307,7 @@ class ZWaveJSConfigDashboard extends LitElement {
           height: 48px;
           margin-right: 16px;
         }
-        .network-status div.heading ha-svg-icon {
+        .network-status div.heading op-svg-icon {
           width: 48px;
           height: 48px;
         }
@@ -319,7 +319,7 @@ class ZWaveJSConfigDashboard extends LitElement {
           font-size: 1rem;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }

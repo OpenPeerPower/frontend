@@ -9,7 +9,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { featureClassNames } from "../../../common/entity/feature_class_names";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/ha-paper-dropdown-menu";
-import "../../../components/ha-switch";
+import "../../../components/op-switch";
 import "../../../components/op-water_heater-control";
 import { EventsMixin } from "../../../mixins/events-mixin";
 import LocalizeMixin from "../../../mixins/localize-mixin";

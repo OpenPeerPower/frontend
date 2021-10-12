@@ -5,7 +5,7 @@ import { SelectSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 import "../ha-paper-dropdown-menu";
 
-@customElement("ha-selector-select")
+@customElement("op-selector-select")
 export class HaSelectSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -65,6 +65,6 @@ export class HaSelectSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-select": HaSelectSelector;
+    "op-selector-select": HaSelectSelector;
   }
 }

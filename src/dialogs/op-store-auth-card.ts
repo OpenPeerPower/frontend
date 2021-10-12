@@ -2,8 +2,8 @@ import { LitElement, TemplateResult, html, css } from "lit";
 import { property } from "lit/decorators";
 import { enableWrite } from "../common/auth/token_storage";
 import { OpenPeerPower } from "../types";
-import "../components/ha-card";
-import type { HaCard } from "../components/ha-card";
+import "../components/op-card";
+import type { HaCard } from "../components/op-card";
 import "@material/mwc-button/mwc-button";
 
 class HaStoreAuth extends LitElement {
@@ -37,20 +37,20 @@ class HaStoreAuth extends LitElement {
   }
 
   private _dismiss(): void {
-    const card = this.shadowRoot!.querySelector("ha-card") as HaCard;
+    const card = this.shadowRoot!.querySelector("op-card") as HaCard;
     card.style.bottom = `-${card.offsetHeight + 8}px`;
     setTimeout(() => this.parentNode!.removeChild(this), 300);
   }
 
   static get styles() {
     return css`
-      ha-card {
+      op-card {
         position: fixed;
         padding: 8px 0;
         bottom: 16px;
         right: 16px;
         transition: bottom 0.25s;
-        --ha-card-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+        --op-card-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
           0px 6px 10px 0px rgba(0, 0, 0, 0.14),
           0px 1px 18px 0px rgba(0, 0, 0, 0.12);
       }
@@ -60,7 +60,7 @@ class HaStoreAuth extends LitElement {
         border-top: 0;
       }
 
-      :host(.small) ha-card {
+      :host(.small) op-card {
         bottom: 0;
         left: 0;
         right: 0;
@@ -69,10 +69,10 @@ class HaStoreAuth extends LitElement {
   }
 }
 
-customElements.define("ha-store-auth-card", HaStoreAuth);
+customElements.define("op-store-auth-card", HaStoreAuth);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-store-auth-card": HaStoreAuth;
+    "op-store-auth-card": HaStoreAuth;
   }
 }

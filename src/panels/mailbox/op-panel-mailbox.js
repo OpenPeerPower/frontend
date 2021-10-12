@@ -9,7 +9,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { formatDateTime } from "../../common/datetime/format_date_time";
-import "../../components/ha-card";
+import "../../components/op-card";
 import "../../components/ha-menu-button";
 import "../../components/ha-tabs";
 import "../../layouts/ha-app-layout";
@@ -25,7 +25,7 @@ let registeredDialog = false;
 class HaPanelMailbox extends EventsMixin(LocalizeMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="ha-style">
+      <style include="op-style">
         :host {
           -ms-user-select: initial;
           -webkit-user-select: initial;
@@ -38,7 +38,7 @@ class HaPanelMailbox extends EventsMixin(LocalizeMixin(PolymerElement)) {
           margin: 0 auto;
         }
 
-        ha-card {
+        op-card {
           overflow: hidden;
         }
 

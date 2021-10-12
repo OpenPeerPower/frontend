@@ -334,7 +334,7 @@ export class HaDataTable extends LitElement {
               `
             : html`
                 <div
-                  class="mdc-data-table__content scroller ha-scrollbar"
+                  class="mdc-data-table__content scroller op-scrollbar"
                   @scroll=${this._saveScrollPos}
                 >
                   ${scroll({

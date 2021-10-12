@@ -3,7 +3,7 @@ import { css, CSSResultGroup } from "lit";
 import { customElement, property } from "lit/decorators";
 import { forwardHaptic } from "../data/haptics";
 
-@customElement("ha-switch")
+@customElement("op-switch")
 // @ts-expect-error
 export class HaSwitch extends Switch {
   // Generate a haptic vibration.
@@ -51,6 +51,6 @@ export class HaSwitch extends Switch {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-switch": HaSwitch;
+    "op-switch": HaSwitch;
   }
 }

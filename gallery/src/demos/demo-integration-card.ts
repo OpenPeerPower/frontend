@@ -1,6 +1,6 @@
 import { html, css, LitElement, TemplateResult } from "lit";
-import "../../../src/components/ha-formfield";
-import "../../../src/components/ha-switch";
+import "../../../src/components/op-formfield";
+import "../../../src/components/op-switch";
 
 import { classMap } from "lit/directives/class-map";
 import { customElement, property, state } from "lit/decorators";
@@ -8,7 +8,7 @@ import { IntegrationManifest } from "../../../src/data/integration";
 
 import { provideOpp } from "../../../src/fake_data/provide_opp";
 import { OpenPeerPower } from "../../../src/types";
-import "../../../src/panels/config/integrations/ha-integration-card";
+import "../../../src/panels/config/integrations/op-integration-card";
 import "../../../src/panels/config/integrations/ha-ignored-config-entry-card";
 import "../../../src/panels/config/integrations/ha-config-flow-card";
 import type {
@@ -339,7 +339,7 @@ export class DemoIntegrationCard extends LitElement {
         max-width: 500px;
       }
 
-      ha-formfield {
+      op-formfield {
         margin: 8px 0;
         display: block;
       }

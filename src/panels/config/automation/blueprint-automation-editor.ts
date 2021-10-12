@@ -14,11 +14,11 @@ import { html } from "lit-html";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/op-entity-toggle";
 import "../../../components/ha-blueprint-picker";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-markdown";
-import "../../../components/ha-selector/ha-selector";
-import "../../../components/ha-settings-row";
+import "../../../components/op-selector/op-selector";
+import "../../../components/op-settings-row";
 import {
   BlueprintAutomationConfig,
   triggerAutomationActions,
@@ -290,14 +290,14 @@ export class HaBlueprintAutomationEditor extends LitElement {
         op-entity-toggle {
           margin-right: 8px;
         }
-        ha-settings-row {
+        op-settings-row {
           --paper-time-input-justify-content: flex-end;
           border-top: 1px solid var(--divider-color);
         }
-        :host(:not([narrow])) ha-settings-row paper-input {
+        :host(:not([narrow])) op-settings-row paper-input {
           width: 60%;
         }
-        :host(:not([narrow])) ha-settings-row ha-selector {
+        :host(:not([narrow])) op-settings-row op-selector {
           width: 60%;
         }
       `,

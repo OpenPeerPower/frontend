@@ -344,16 +344,16 @@ export class HAFullCalendar extends LitElement {
         #calendar {
           flex-grow: 1;
           background-color: var(
-            --ha-card-background,
+            --op-card-background,
             var(--card-background-color, white)
           );
           min-height: 400px;
           --fc-neutral-bg-color: var(
-            --ha-card-background,
+            --op-card-background,
             var(--card-background-color, white)
           );
           --fc-list-event-hover-bg-color: var(
-            --ha-card-background,
+            --op-card-background,
             var(--card-background-color, white)
           );
           --fc-theme-standard-border-color: var(--divider-color);

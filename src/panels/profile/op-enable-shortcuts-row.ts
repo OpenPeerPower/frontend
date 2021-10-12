@@ -6,9 +6,9 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-settings-row";
-import "../../components/ha-switch";
-import type { HaSwitch } from "../../components/ha-switch";
+import "../../components/op-settings-row";
+import "../../components/op-switch";
+import type { HaSwitch } from "../../components/op-switch";
 import type { OpenPeerPower } from "../../types";
 
 @customElement("ha-enable-shortcuts-row")

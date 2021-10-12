@@ -9,8 +9,8 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-script-editor";
-import "./ha-script-picker";
+import "./op-script-editor";
+import "./op-script-picker";
 
 const equal = (a: ScriptEntity[], b: ScriptEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -35,11 +35,11 @@ class HaConfigScript extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       dashboard: {
-        tag: "ha-script-picker",
+        tag: "op-script-picker",
         cache: true,
       },
       edit: {
-        tag: "ha-script-editor",
+        tag: "op-script-editor",
       },
     },
   };

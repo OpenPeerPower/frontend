@@ -28,14 +28,14 @@ import { navigate } from "../../../common/navigate";
 import { slugify } from "../../../common/string/slugify";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
-import "../../../components/ha-button-menu";
-import "../../../components/ha-card";
-import "../../../components/ha-fab";
+import "../../../components/op-button-menu";
+import "../../../components/op-card";
+import "../../../components/op-fab";
 import "../../../components/op-icon-button";
 import "../../../components/op-icon-input";
-import "../../../components/ha-svg-icon";
-import "../../../components/ha-yaml-editor";
-import type { HaYamlEditor } from "../../../components/ha-yaml-editor";
+import "../../../components/op-svg-icon";
+import "../../../components/op-yaml-editor";
+import type { HaYamlEditor } from "../../../components/op-yaml-editor";
 import {
   Action,
   deleteScript,
@@ -81,7 +81,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
 
   @internalProperty() private _mode: "gui" | "yaml" = "gui";
 
-  @query("ha-yaml-editor", true) private _editor?: HaYamlEditor;
+  @query("op-yaml-editor", true) private _editor?: HaYamlEditor;
 
   protected render(): TemplateResult {
     return html`
@@ -685,7 +685,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           overflow: hidden;
         }
         p {
@@ -705,12 +705,12 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
           flex-direction: column;
           padding-bottom: 0;
         }
-        ha-yaml-editor {
+        op-yaml-editor {
           flex-grow: 1;
           --code-mirror-height: 100%;
           min-height: 0;
         }
-        .yaml-mode ha-card {
+        .yaml-mode op-card {
           overflow: initial;
           --op-card-border-radius: 0;
           border-bottom: 1px solid var(--divider-color);
@@ -718,12 +718,12 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
         span[slot="introduction"] a {
           color: var(--primary-color);
         }
-        ha-fab {
+        op-fab {
           position: relative;
           bottom: calc(-80px - env(safe-area-inset-bottom));
           transition: bottom 0.3s;
         }
-        ha-fab.dirty {
+        op-fab.dirty {
           bottom: 0;
         }
         .selected_menu_item {
@@ -737,4 +737,4 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
   }
 }
 
-customElements.define("ha-script-editor", HaScriptEditor);
+customElements.define("op-script-editor", HaScriptEditor);

@@ -3,7 +3,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../../components/buttons/ha-progress-button";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import "../../../../layouts/opp-subpage";
 import { EventsMixin } from "../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../mixins/localize-mixin";
@@ -18,7 +18,7 @@ import "../../ha-config-section";
 class CloudRegister extends LocalizeMixin(EventsMixin(PolymerElement)) {
   static get template() {
     return html`
-    <style include="iron-flex ha-style">
+    <style include="iron-flex op-style">
       [slot=introduction] {
         margin: -1em 0;
       }

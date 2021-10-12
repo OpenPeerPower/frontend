@@ -4,7 +4,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { getAppKey } from "../data/notify_html5";
 import { showPromptDialog } from "../dialogs/generic/show-dialog-box";
 import { EventsMixin } from "../mixins/events-mixin";
-import "./ha-switch";
+import "./op-switch";
 
 export const pushSupported =
   "serviceWorker" in navigator &&

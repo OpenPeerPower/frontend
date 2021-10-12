@@ -6,7 +6,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import "../../../../components/ha-chip-set";
 import { showAutomationEditor } from "../../../../data/automation";
 import {

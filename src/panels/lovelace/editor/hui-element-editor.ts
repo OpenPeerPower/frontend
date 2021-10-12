@@ -14,7 +14,7 @@ import {
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { deepEqual } from "../../../common/util/deep-equal";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-code-editor";
 import type { HaCodeEditor } from "../../../components/ha-code-editor";
 import type {
@@ -386,7 +386,7 @@ export abstract class HuiElementEditor<T> extends LitElement {
       .error li {
         white-space: pre-wrap;
       }
-      ha-circular-progress {
+      op-circular-progress {
         display: block;
         margin: auto;
       }

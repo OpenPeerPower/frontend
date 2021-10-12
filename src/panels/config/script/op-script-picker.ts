@@ -24,9 +24,9 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
-import "../../../components/ha-button-related-filter-menu";
-import "../../../components/ha-fab";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-button-related-filter-menu";
+import "../../../components/op-fab";
+import "../../../components/op-svg-icon";
 import { triggerScript } from "../../../data/script";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/opp-tabs-subpage-data-table";
@@ -36,7 +36,7 @@ import { documentationUrl } from "../../../util/documentation-url";
 import { showToast } from "../../../util/toast";
 import { configSections } from "../ha-panel-config";
 
-@customElement("ha-script-picker")
+@customElement("op-script-picker")
 class HaScriptPicker extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -281,6 +281,6 @@ class HaScriptPicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-script-picker": HaScriptPicker;
+    "op-script-picker": HaScriptPicker;
   }
 }

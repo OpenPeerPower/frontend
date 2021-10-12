@@ -15,7 +15,7 @@ import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_elemen
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateDisplay } from "../../../common/entity/compute_state_display";
 import { computeStateName } from "../../../common/entity/compute_state_name";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
@@ -176,7 +176,7 @@ class HuiPictureEntityCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         min-height: 75px;
         overflow: hidden;
         position: relative;

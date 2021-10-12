@@ -23,11 +23,11 @@ import { navigate } from "../../../common/navigate";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import "../../../components/device/ha-device-picker";
 import "../../../components/entity/op-entities-picker";
-import "../../../components/ha-card";
-import "../../../components/ha-fab";
+import "../../../components/op-card";
+import "../../../components/op-fab";
 import "../../../components/op-icon-button";
 import "../../../components/op-icon-input";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import {
   computeDeviceName,
   DeviceRegistryEntry,
@@ -71,7 +71,7 @@ interface DeviceEntitiesLookup {
   [deviceId: string]: string[];
 }
 
-@customElement("ha-scene-editor")
+@customElement("op-scene-editor")
 export class HaSceneEditor extends SubscribeMixin(
   KeyboardShortcutMixin(LitElement)
 ) {
@@ -740,7 +740,7 @@ export class HaSceneEditor extends SubscribeMixin(
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           overflow: hidden;
         }
         .errors {
@@ -755,8 +755,8 @@ export class HaSceneEditor extends SubscribeMixin(
         .script {
           margin-top: -16px;
         }
-        .triggers ha-card,
-        .script ha-card {
+        .triggers op-card,
+        .script op-card {
           margin-top: 16px;
         }
         .add-card mwc-button {
@@ -780,7 +780,7 @@ export class HaSceneEditor extends SubscribeMixin(
         paper-icon-item {
           padding: 8px 16px;
         }
-        ha-card op-icon-button {
+        op-card op-icon-button {
           color: var(--secondary-text-color);
         }
         .card-header > op-icon-button {
@@ -794,12 +794,12 @@ export class HaSceneEditor extends SubscribeMixin(
         span[slot="introduction"] a {
           color: var(--primary-color);
         }
-        ha-fab {
+        op-fab {
           position: relative;
           bottom: calc(-80px - env(safe-area-inset-bottom));
           transition: bottom 0.3s;
         }
-        ha-fab.dirty {
+        op-fab.dirty {
           bottom: 0;
         }
       `,
@@ -809,6 +809,6 @@ export class HaSceneEditor extends SubscribeMixin(
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-scene-editor": HaSceneEditor;
+    "op-scene-editor": HaSceneEditor;
   }
 }

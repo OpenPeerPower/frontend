@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import { ZWaveValue } from "../../../../../data/zwave";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
@@ -62,7 +62,7 @@ export class ZwaveValues extends LitElement {
           margin-top: 24px;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }

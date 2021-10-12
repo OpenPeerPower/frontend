@@ -50,16 +50,16 @@ import { configSections } from "../ha-panel-config";
 import type { OpenPeerPower, Route } from "../../../types";
 import type { OPPDomEvent } from "../../../common/dom/fire_event";
 import type { LocalizeFunc } from "../../../common/translations/localize";
-import type { HaIntegrationCard } from "./ha-integration-card";
+import type { HaIntegrationCard } from "./op-integration-card";
 
 import "../../../common/search/search-input";
-import "../../../components/ha-button-menu";
-import "../../../components/ha-fab";
+import "../../../components/op-button-menu";
+import "../../../components/op-fab";
 import "../../../components/ha-checkbox";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
-import "./ha-integration-card";
+import "./op-integration-card";
 import "./ha-config-flow-card";
 import "./ha-ignored-config-entry-card";
 
@@ -599,7 +599,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
     return [
       haStyle,
       css`
-        ha-button-menu {
+        op-button-menu {
           margin: 0 -8px 0 8px;
         }
         .container {

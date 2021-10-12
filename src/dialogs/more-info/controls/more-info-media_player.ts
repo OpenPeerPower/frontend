@@ -13,7 +13,7 @@ import "../../../components/op-icon";
 import "../../../components/op-icon-button";
 import "../../../components/ha-paper-dropdown-menu";
 import "../../../components/op-slider";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import { showMediaBrowserDialog } from "../../../components/media-player/show-media-browser-dialog";
 import { UNAVAILABLE, UNAVAILABLE_STATES, UNKNOWN } from "../../../data/entity";
 import {

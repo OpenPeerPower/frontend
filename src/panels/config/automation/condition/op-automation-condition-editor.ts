@@ -11,8 +11,8 @@ import {
 } from "lit-element";
 import { dynamicElement } from "../../../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-card";
-import "../../../../components/ha-yaml-editor";
+import "../../../../components/op-card";
+import "../../../../components/op-yaml-editor";
 import type { Condition } from "../../../../data/automation";
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";

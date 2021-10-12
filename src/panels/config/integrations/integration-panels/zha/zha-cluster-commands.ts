@@ -13,9 +13,9 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-service-description";
 import {
   Cluster,
   Command,
@@ -219,7 +219,7 @@ export class ZHAClusterCommands extends LitElement {
           margin-top: 24px;
         }
 
-        ha-card {
+        op-card {
           max-width: 680px;
         }
 
@@ -264,7 +264,7 @@ export class ZHAClusterCommands extends LitElement {
           color: var(--primary-color);
         }
 
-        ha-service-description {
+        op-service-description {
           display: block;
           color: grey;
         }

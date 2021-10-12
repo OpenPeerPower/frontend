@@ -18,9 +18,9 @@ import { classMap } from "lit-html/directives/class-map";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { shouldHandleRequestSelectedEvent } from "../../../common/mwc/handle-request-selected-event";
 import "../../../components/op-icon-next";
-import "../../../components/ha-button-menu";
-import "../../../components/ha-svg-icon";
-import "../../../components/ha-card";
+import "../../../components/op-button-menu";
+import "../../../components/op-svg-icon";
+import "../../../components/op-card";
 import {
   ConfigEntry,
   deleteConfigEntry,
@@ -42,7 +42,7 @@ import {
 import { haStyle } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
 import type { ConfigEntryExtended } from "./ha-config-integrations";
-import "./ha-integration-header";
+import "./op-integration-header";
 
 const ERROR_STATES: ConfigEntry["state"][] = [
   "migration_error",
@@ -59,7 +59,7 @@ const integrationsWithPanel = {
   zwave_js: "/config/zwave_js/dashboard",
 };
 
-@customElement("ha-integration-card")
+@customElement("op-integration-card")
 export class HaIntegrationCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -420,7 +420,7 @@ export class HaIntegrationCard extends LitElement {
   }
 
   private _showOptions(ev) {
-    showOptionsFlowDialog(this, ev.target.closest("ha-card").configEntry);
+    showOptionsFlowDialog(this, ev.target.closest("op-card").configEntry);
   }
 
   private _handleReload(ev: CustomEvent<RequestSelectedDetail>): void {
@@ -428,7 +428,7 @@ export class HaIntegrationCard extends LitElement {
       return;
     }
     this._reloadIntegration(
-      ((ev.target as HTMLElement).closest("ha-card") as any).configEntry
+      ((ev.target as HTMLElement).closest("op-card") as any).configEntry
     );
   }
 
@@ -437,7 +437,7 @@ export class HaIntegrationCard extends LitElement {
       return;
     }
     this._removeIntegration(
-      ((ev.target as HTMLElement).closest("ha-card") as any).configEntry
+      ((ev.target as HTMLElement).closest("op-card") as any).configEntry
     );
   }
 
@@ -446,7 +446,7 @@ export class HaIntegrationCard extends LitElement {
       return;
     }
     this._disableIntegration(
-      ((ev.target as HTMLElement).closest("ha-card") as any).configEntry
+      ((ev.target as HTMLElement).closest("op-card") as any).configEntry
     );
   }
 
@@ -455,7 +455,7 @@ export class HaIntegrationCard extends LitElement {
       return;
     }
     this._enableIntegration(
-      ((ev.target as HTMLElement).closest("ha-card") as any).configEntry
+      ((ev.target as HTMLElement).closest("op-card") as any).configEntry
     );
   }
 
@@ -464,7 +464,7 @@ export class HaIntegrationCard extends LitElement {
       return;
     }
     this._showSystemOptions(
-      ((ev.target as HTMLElement).closest("ha-card") as any).configEntry
+      ((ev.target as HTMLElement).closest("op-card") as any).configEntry
     );
   }
 
@@ -555,7 +555,7 @@ export class HaIntegrationCard extends LitElement {
   }
 
   private async _editEntryName(ev) {
-    const configEntry = ev.target.closest("ha-card").configEntry;
+    const configEntry = ev.target.closest("op-card").configEntry;
     const newName = await showPromptDialog(this, {
       title: this.opp.localize("ui.panel.config.integrations.rename_dialog"),
       defaultValue: configEntry.title,
@@ -576,7 +576,7 @@ export class HaIntegrationCard extends LitElement {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           display: flex;
           flex-direction: column;
           height: 100%;
@@ -595,7 +595,7 @@ export class HaIntegrationCard extends LitElement {
         .state-not-loaded {
           --state-message-color: var(--primary-text-color);
         }
-        :host(.highlight) ha-card {
+        :host(.highlight) op-card {
           --state-color: var(--primary-color);
           --text-on-state-color: var(--text-primary-color);
         }
@@ -638,12 +638,12 @@ export class HaIntegrationCard extends LitElement {
         a {
           color: var(--primary-color);
         }
-        ha-button-menu {
+        op-button-menu {
           color: var(--secondary-text-color);
           --mdc-menu-min-width: 200px;
         }
         @media (min-width: 563px) {
-          ha-card.group {
+          op-card.group {
             position: relative;
             min-height: 164px;
           }
@@ -671,7 +671,7 @@ export class HaIntegrationCard extends LitElement {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        mwc-list-item ha-svg-icon {
+        mwc-list-item op-svg-icon {
           color: var(--secondary-text-color);
         }
       `,
@@ -681,6 +681,6 @@ export class HaIntegrationCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-integration-card": HaIntegrationCard;
+    "op-integration-card": HaIntegrationCard;
   }
 }

@@ -13,7 +13,7 @@ import { css, html, svg, SVGTemplateResult, TemplateResult } from "lit";
 import { styleMap } from "lit/directives/style-map";
 import { formatNumber } from "../common/string/format_number";
 import "../components/op-icon";
-import "../components/ha-svg-icon";
+import "../components/op-svg-icon";
 import type { OpenPeerPower } from "../types";
 
 interface ForecastAttribute {

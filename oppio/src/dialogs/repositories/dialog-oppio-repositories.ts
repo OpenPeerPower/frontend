@@ -9,9 +9,9 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/ha-circular-progress";
+import "../../../../src/components/op-circular-progress";
 import { createCloseHeading } from "../../../../src/components/ha-dialog";
-import "../../../../src/components/ha-svg-icon";
+import "../../../../src/components/op-svg-icon";
 import {
   fetchOppioAddonsInfo,
   OppioAddonRepository,
@@ -150,7 +150,7 @@ class OppioRepositoriesDialog extends LitElement {
         mwc-button {
           margin-left: 8px;
         }
-        ha-circular-progress {
+        op-circular-progress {
           display: block;
           margin: 32px;
           text-align: center;

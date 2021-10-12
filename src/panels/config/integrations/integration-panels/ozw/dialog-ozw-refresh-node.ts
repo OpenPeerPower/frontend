@@ -9,7 +9,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import "../../../../../components/ha-code-editor";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
 import {
@@ -256,7 +256,7 @@ class DialogOZWRefreshNode extends LitElement {
           align-items: center;
         }
 
-        .flex-container ha-circular-progress {
+        .flex-container op-circular-progress {
           margin-right: 20px;
         }
       `,

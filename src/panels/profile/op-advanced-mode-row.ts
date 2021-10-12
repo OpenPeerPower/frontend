@@ -7,9 +7,9 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../components/ha-card";
-import "../../components/ha-settings-row";
-import "../../components/ha-switch";
+import "../../components/op-card";
+import "../../components/op-settings-row";
+import "../../components/op-switch";
 import {
   CoreFrontendUserData,
   getOptimisticFrontendUserDataCollection,

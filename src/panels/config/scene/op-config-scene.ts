@@ -9,8 +9,8 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-scene-dashboard";
-import "./ha-scene-editor";
+import "./op-scene-dashboard";
+import "./op-scene-editor";
 
 const equal = (a: SceneEntity[], b: SceneEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -35,11 +35,11 @@ class HaConfigScene extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       dashboard: {
-        tag: "ha-scene-dashboard",
+        tag: "op-scene-dashboard",
         cache: true,
       },
       edit: {
-        tag: "ha-scene-editor",
+        tag: "op-scene-editor",
       },
     },
   };

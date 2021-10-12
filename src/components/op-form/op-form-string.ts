@@ -5,7 +5,7 @@ import type { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import type {
   HaFormElement,
   HaFormStringData,

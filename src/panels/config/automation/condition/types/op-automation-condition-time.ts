@@ -11,9 +11,9 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../../common/util/compute_rtl";
-import "../../../../../components/ha-formfield";
-import "../../../../../components/ha-radio";
-import { HaSwitch } from "../../../../../components/ha-switch";
+import "../../../../../components/op-formfield";
+import "../../../../../components/op-radio";
+import { HaSwitch } from "../../../../../components/op-switch";
 import { TimeCondition } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 import {

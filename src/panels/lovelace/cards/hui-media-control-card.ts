@@ -23,10 +23,10 @@ import { stateIcon } from "../../../common/entity/state_icon";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { extractColors } from "../../../common/image/extract_color";
 import { debounce } from "../../../common/util/debounce";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import "../../../components/op-icon-button";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import { showMediaBrowserDialog } from "../../../components/media-player/show-media-browser-dialog";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import {
@@ -436,7 +436,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
   }
 
   private _measureCard() {
-    const card = this.shadowRoot!.querySelector("ha-card");
+    const card = this.shadowRoot!.querySelector("op-card");
     if (!card) {
       return;
     }
@@ -452,8 +452,8 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
         debounce(() => this._measureCard(), 250, false)
       );
     }
-    const card = this.shadowRoot!.querySelector("ha-card");
-    // If we show an error or warning there is no ha-card
+    const card = this.shadowRoot!.querySelector("op-card");
+    // If we show an error or warning there is no op-card
     if (!card) {
       return;
     }
@@ -554,7 +554,7 @@ export class HuiMediaControlCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         overflow: hidden;
         height: 100%;
       }

@@ -11,7 +11,7 @@ import {
 import { DOMAINS_TOGGLE } from "../../../common/const";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { computeDomain } from "../../../common/entity/compute_domain";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { OpenPeerPower } from "../../../types";
 import { computeCardSize } from "../common/compute-card-size";
 import { findEntities } from "../common/find-entities";
@@ -227,7 +227,7 @@ class HuiEntitiesCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
         display: flex;
         flex-direction: column;

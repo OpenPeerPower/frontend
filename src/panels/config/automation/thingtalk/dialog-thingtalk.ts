@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../components/dialog/ha-paper-dialog";
-import "../../../../components/ha-circular-progress";
+import "../../../../components/op-circular-progress";
 import type { AutomationConfig } from "../../../../data/automation";
 import { convertThingTalk } from "../../../../data/cloud";
 import type { PolymerChangedEvent } from "../../../../polymer-types";

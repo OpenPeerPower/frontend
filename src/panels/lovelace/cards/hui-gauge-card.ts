@@ -15,7 +15,7 @@ import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_elemen
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { isValidEntityId } from "../../../common/entity/valid_entity_id";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/ha-gauge";
 import { UNAVAILABLE } from "../../../data/entity";
 import type { OpenPeerPower } from "../../../types";
@@ -209,7 +209,7 @@ class HuiGaugeCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         cursor: pointer;
         height: 100%;
         overflow: hidden;
@@ -221,7 +221,7 @@ class HuiGaugeCard extends LitElement implements LovelaceCard {
         box-sizing: border-box;
       }
 
-      ha-card:focus {
+      op-card:focus {
         outline: none;
         background: var(--divider-color);
       }

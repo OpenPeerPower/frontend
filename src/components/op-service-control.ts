@@ -15,11 +15,11 @@ import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
 import { documentationUrl } from "../util/documentation-url";
 import "./ha-checkbox";
-import "./ha-selector/ha-selector";
-import "./ha-service-picker";
-import "./ha-settings-row";
-import "./ha-yaml-editor";
-import type { HaYamlEditor } from "./ha-yaml-editor";
+import "./op-selector/op-selector";
+import "./op-service-picker";
+import "./op-settings-row";
+import "./op-yaml-editor";
+import type { HaYamlEditor } from "./op-yaml-editor";
 
 interface ExtOppService extends Omit<OppService, "fields"> {
   fields: {
@@ -35,7 +35,7 @@ interface ExtOppService extends Omit<OppService, "fields"> {
   hasSelector: string[];
 }
 
-@customElement("ha-service-control")
+@customElement("op-service-control")
 export class HaServiceControl extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -53,7 +53,7 @@ export class HaServiceControl extends LitElement {
 
   @state() private _checkedKeys = new Set();
 
-  @query("ha-yaml-editor") private _yamlEditor?: HaYamlEditor;
+  @query("op-yaml-editor") private _yamlEditor?: HaYamlEditor;
 
   protected updated(changedProperties: PropertyValues<this>) {
     if (!changedProperties.has("value")) {
@@ -389,33 +389,33 @@ export class HaServiceControl extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-settings-row {
+      op-settings-row {
         padding: var(--service-control-padding, 0 16px);
       }
-      ha-settings-row {
+      op-settings-row {
         --paper-time-input-justify-content: flex-end;
         border-top: var(
           --service-control-items-border-top,
           1px solid var(--divider-color)
         );
       }
-      ha-service-picker,
+      op-service-picker,
       op-entity-picker,
-      ha-yaml-editor {
+      op-yaml-editor {
         display: block;
         margin: var(--service-control-padding, 0 16px);
       }
-      ha-yaml-editor {
+      op-yaml-editor {
         padding: 16px 0;
       }
       p {
         margin: var(--service-control-padding, 0 16px);
         padding: 16px 0;
       }
-      :host(:not([narrow])) ha-settings-row paper-input {
+      :host(:not([narrow])) op-settings-row paper-input {
         width: 60%;
       }
-      :host(:not([narrow])) ha-settings-row ha-selector {
+      :host(:not([narrow])) op-settings-row op-selector {
         width: 60%;
       }
       .checkbox-spacer {
@@ -439,6 +439,6 @@ export class HaServiceControl extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-service-control": HaServiceControl;
+    "op-service-control": HaServiceControl;
   }
 }

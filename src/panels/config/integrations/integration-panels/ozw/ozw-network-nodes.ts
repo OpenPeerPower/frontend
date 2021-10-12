@@ -17,7 +17,7 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../../../components/data-table/ha-data-table";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import { fetchOZWNodes, OZWDevice } from "../../../../../data/ozw";
 import "../../../../../layouts/opp-tabs-subpage";

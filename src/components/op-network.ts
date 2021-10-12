@@ -19,7 +19,7 @@ import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
 import "./ha-checkbox";
 import type { HaCheckbox } from "./ha-checkbox";
-import "./ha-settings-row";
+import "./op-settings-row";
 import "./op-icon";
 
 const format_addresses = (
@@ -159,7 +159,7 @@ export class HaNetwork extends LitElement {
           color: var(--error-color);
         }
 
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
         }
 

@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { canShowPage } from "../../../common/config/can_show_page";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-next";
 import { CloudStatus, CloudStatusLoggedIn } from "../../../data/cloud";
 import { PageNavigation } from "../../../layouts/opp-tabs-subpage";
@@ -85,7 +85,7 @@ class HaConfigNavigation extends LitElement {
         display: block;
         outline: 0;
       }
-      ha-svg-icon,
+      op-svg-icon,
       op-icon-next {
         color: var(--secondary-text-color);
       }

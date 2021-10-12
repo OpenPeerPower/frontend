@@ -26,9 +26,9 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { navigate } from "../../../common/navigate";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
 import "../../../components/entity/op-entity-toggle";
-import "../../../components/ha-fab";
-import "../../../components/ha-svg-icon";
-import "../../../components/ha-button-related-filter-menu";
+import "../../../components/op-fab";
+import "../../../components/op-svg-icon";
+import "../../../components/op-button-related-filter-menu";
 import {
   AutomationEntity,
   triggerAutomationActions,

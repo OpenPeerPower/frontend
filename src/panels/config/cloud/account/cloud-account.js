@@ -6,7 +6,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { formatDateTime } from "../../../../common/datetime/format_date_time";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/buttons/ha-call-api-button";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import { fetchCloudSubscriptionInfo } from "../../../../data/cloud";
 import "../../../../layouts/opp-subpage";
 import { EventsMixin } from "../../../../mixins/events-mixin";
@@ -26,7 +26,7 @@ import "./cloud-webhooks";
 class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style">
+      <style include="iron-flex op-style">
         [slot="introduction"] {
           margin: -1em 0;
         }

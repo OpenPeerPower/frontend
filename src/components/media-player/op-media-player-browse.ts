@@ -42,10 +42,10 @@ import type { OpenPeerPower } from "../../types";
 import { documentationUrl } from "../../util/documentation-url";
 import "../entity/op-entity-picker";
 import "../op-button-menu";
-import "../ha-card";
+import "../op-card";
 import "../op-circular-progress";
-import "../ha-fab";
-import "../ha-svg-icon";
+import "../op-fab";
+import "../op-svg-icon";
 
 declare global {
   interface OPPDomEvents {
@@ -256,7 +256,7 @@ export class HaMediaPlayerBrowse extends LitElement {
                         .item=${child}
                         @click=${this._childClicked}
                       >
-                        <div class="ha-card-parent">
+                        <div class="op-card-parent">
                           <op-card
                             outlined
                             style=${styleMap({
@@ -763,12 +763,12 @@ export class HaMediaPlayerBrowse extends LitElement {
           cursor: pointer;
         }
 
-        .ha-card-parent {
+        .op-card-parent {
           position: relative;
           width: 100%;
         }
 
-        .children ha-card {
+        .children op-card {
           width: 100%;
           padding-bottom: 100%;
           position: relative;
@@ -779,7 +779,7 @@ export class HaMediaPlayerBrowse extends LitElement {
           transition: padding-bottom 0.1s ease-out;
         }
 
-        .portrait.children ha-card {
+        .portrait.children op-card {
           padding-bottom: 150%;
         }
 
@@ -809,7 +809,7 @@ export class HaMediaPlayerBrowse extends LitElement {
           --mdc-icon-size: 48px;
         }
 
-        .ha-card-parent:hover .play:not(.can_expand) {
+        .op-card-parent:hover .play:not(.can_expand) {
           opacity: 1;
           color: var(--primary-color);
         }
@@ -825,7 +825,7 @@ export class HaMediaPlayerBrowse extends LitElement {
           color: var(--primary-color);
         }
 
-        .ha-card-parent:hover ha-card {
+        .op-card-parent:hover op-card {
           opacity: 0.5;
         }
 
@@ -917,7 +917,7 @@ export class HaMediaPlayerBrowse extends LitElement {
           transition: width 0.4s, height 0.4s, padding-bottom 0.4s;
         }
 
-        ha-fab {
+        op-fab {
           position: absolute;
           --mdc-theme-secondary: var(--primary-color);
           bottom: -20px;
@@ -1001,7 +1001,7 @@ export class HaMediaPlayerBrowse extends LitElement {
           margin-bottom: 0;
         }
 
-        :host([scroll]) ha-fab {
+        :host([scroll]) op-fab {
           bottom: 4px;
           right: 4px;
           --mdc-fab-box-shadow: none;

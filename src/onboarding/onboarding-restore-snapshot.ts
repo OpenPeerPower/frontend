@@ -5,7 +5,7 @@ import "../../oppio/src/components/oppio-ansi-to-html";
 import { showOppioSnapshotDialog } from "../../oppio/src/dialogs/snapshot/show-dialog-oppio-snapshot";
 import { showSnapshotUploadDialog } from "../../oppio/src/dialogs/snapshot/show-dialog-snapshot-upload";
 import type { LocalizeFunc } from "../common/translations/localize";
-import "../components/ha-card";
+import "../components/op-card";
 import {
   DiscoveryInformation,
   fetchDiscoveryInformation,
@@ -94,7 +94,7 @@ class OnboardingRestoreSnapshot extends ProvideOppLitMixin(LitElement) {
         .logentry {
           text-align: center;
         }
-        ha-card {
+        op-card {
           padding: 4px;
           margin-top: 8px;
         }
@@ -106,7 +106,7 @@ class OnboardingRestoreSnapshot extends ProvideOppLitMixin(LitElement) {
         }
 
         @media all and (min-width: 600px) {
-          ha-card {
+          op-card {
             width: 600px;
             margin-left: -100px;
           }

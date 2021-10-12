@@ -29,12 +29,12 @@ import {
 import { compare } from "../../../../common/string/compare";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/entity/state-info";
-import "../../../../components/ha-button-menu";
-import "../../../../components/ha-card";
-import "../../../../components/ha-formfield";
+import "../../../../components/op-button-menu";
+import "../../../../components/op-card";
+import "../../../../components/op-formfield";
 import "../../../../components/op-icon-button";
-import "../../../../components/ha-switch";
-import type { HaSwitch } from "../../../../components/ha-switch";
+import "../../../../components/op-switch";
+import type { HaSwitch } from "../../../../components/op-switch";
 import {
   CloudPreferences,
   CloudStatusLoggedIn,
@@ -514,7 +514,7 @@ class CloudGoogleAssistant extends LitElement {
         state-info {
           cursor: pointer;
         }
-        ha-switch {
+        op-switch {
           padding: 8px 0;
         }
         .top-line {
@@ -540,7 +540,7 @@ class CloudGoogleAssistant extends LitElement {
           color: var(--error-color);
         }
         @media all and (max-width: 450px) {
-          ha-card {
+          op-card {
             max-width: 100%;
           }
         }

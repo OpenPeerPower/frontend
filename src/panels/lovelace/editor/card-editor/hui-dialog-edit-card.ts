@@ -15,7 +15,7 @@ import {
 import type { OPPDomEvent } from "../../../../common/dom/fire_event";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/ha-circular-progress";
+import "../../../../components/op-circular-progress";
 import "../../../../components/ha-dialog";
 import "../../../../components/ha-header-bar";
 import type {
@@ -455,7 +455,7 @@ export class HuiDialogEditCard
           padding: 4px;
           border-radius: 4px;
         }
-        .element-preview ha-circular-progress {
+        .element-preview op-circular-progress {
           top: 50%;
           left: 50%;
           position: absolute;

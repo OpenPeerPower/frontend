@@ -12,7 +12,7 @@ import type { OpenPeerPower } from "../types";
 import "./device/ha-device-picker";
 import "./entity/op-entity-picker";
 import "./ha-area-picker";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 declare global {
   // for fire event

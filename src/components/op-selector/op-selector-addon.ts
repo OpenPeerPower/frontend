@@ -4,7 +4,7 @@ import { AddonSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 import "../ha-addon-picker";
 
-@customElement("ha-selector-addon")
+@customElement("op-selector-addon")
 export class HaAddonSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -26,6 +26,6 @@ export class HaAddonSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-addon": HaAddonSelector;
+    "op-selector-addon": HaAddonSelector;
   }
 }

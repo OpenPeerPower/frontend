@@ -20,8 +20,8 @@ import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_elemen
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { formatNumber } from "../../../common/string/format_number";
-import "../../../components/ha-card";
-import type { HaCard } from "../../../components/ha-card";
+import "../../../components/op-card";
+import type { HaCard } from "../../../components/op-card";
 import "../../../components/op-icon-button";
 import {
   ClimateEntity,
@@ -78,7 +78,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
 
   @internalProperty() private _setTemp?: number | number[];
 
-  @query("ha-card") private _card?: HaCard;
+  @query("op-card") private _card?: HaCard;
 
   public getCardSize(): number {
     return 7;
@@ -427,7 +427,7 @@ export class HuiThermostatCard extends LitElement implements LovelaceCard {
         display: block;
       }
 
-      ha-card {
+      op-card {
         height: 100%;
         position: relative;
         overflow: hidden;

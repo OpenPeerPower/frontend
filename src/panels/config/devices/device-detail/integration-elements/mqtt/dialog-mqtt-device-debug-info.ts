@@ -4,9 +4,9 @@ import { customElement, state } from "lit/decorators";
 import { computeStateName } from "../../../../../../common/entity/compute_state_name";
 import { computeRTLDirection } from "../../../../../../common/util/compute_rtl";
 import "../../../../../../components/op-dialog";
-import "../../../../../../components/ha-formfield";
-import "../../../../../../components/ha-switch";
-import type { HaSwitch } from "../../../../../../components/ha-switch";
+import "../../../../../../components/op-formfield";
+import "../../../../../../components/op-switch";
+import type { HaSwitch } from "../../../../../../components/op-switch";
 import { computeDeviceName } from "../../../../../../data/device_registry";
 import {
   fetchMQTTDebugInfo,
@@ -220,7 +220,7 @@ class DialogMQTTDeviceDebugInfo extends LitElement {
           --mdc-dialog-max-width: 95%;
           --mdc-dialog-min-width: 640px;
         }
-        ha-switch {
+        op-switch {
           margin: 16px;
         }
         .discoverydata {

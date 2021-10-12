@@ -14,8 +14,8 @@ import {
 import { assert, boolean, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/ha-formfield";
-import "../../../../components/ha-switch";
+import "../../../../components/op-formfield";
+import "../../../../components/op-switch";
 import { ActionConfig } from "../../../../data/lovelace";
 import { OpenPeerPower } from "../../../../types";
 import { PictureEntityCardConfig } from "../../cards/types";

@@ -17,7 +17,7 @@ import { computeStateName } from "../../common/entity/compute_state_name";
 import { navigate } from "../../common/navigate";
 import "../../components/op-dialog";
 import "../../components/op-header-bar";
-import "../../components/ha-svg-icon";
+import "../../components/op-svg-icon";
 import { removeEntityRegistryEntry } from "../../data/entity_registry";
 import { CONTINUOUS_DOMAINS } from "../../data/logbook";
 import { showEntityEditorDialog } from "../../panels/config/entities/show-dialog-entity-editor";

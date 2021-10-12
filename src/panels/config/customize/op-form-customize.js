@@ -15,7 +15,7 @@ import "./ha-form-customize-attributes";
 export class HaFormCustomize extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style ha-form-style">
+      <style include="iron-flex op-style ha-form-style">
         .warning {
           color: red;
         }

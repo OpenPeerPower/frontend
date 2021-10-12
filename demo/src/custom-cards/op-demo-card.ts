@@ -10,7 +10,7 @@ import {
 } from "lit-element";
 import { until } from "lit-html/directives/until";
 import "../../../src/components/ha-card";
-import "../../../src/components/ha-circular-progress";
+import "../../../src/components/op-circular-progress";
 import { LovelaceCardConfig } from "../../../src/data/lovelace";
 import { MockOpenPeerPower } from "../../../src/fake_data/provide_opp";
 import { Lovelace, LovelaceCard } from "../../../src/panels/lovelace/types";

@@ -14,8 +14,8 @@ import { classMap } from "lit-html/directives/class-map";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/entity/state-badge";
 import "../../../../../components/ha-area-picker";
-import "../../../../../components/ha-card";
-import "../../../../../components/ha-service-description";
+import "../../../../../components/op-card";
+import "../../../../../components/op-service-description";
 import {
   CONFIGURED,
   INCOMPLETE_PAIRING_STATUSES,

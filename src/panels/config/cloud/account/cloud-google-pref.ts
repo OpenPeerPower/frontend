@@ -11,8 +11,8 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/buttons/ha-call-api-button";
-import "../../../../components/ha-card";
-import type { HaSwitch } from "../../../../components/ha-switch";
+import "../../../../components/op-card";
+import type { HaSwitch } from "../../../../components/op-switch";
 import { CloudStatusLoggedIn, updateCloudPref } from "../../../../data/cloud";
 import { showAlertDialog } from "../../../../dialogs/generic/show-dialog-box";
 import type { OpenPeerPower } from "../../../../types";

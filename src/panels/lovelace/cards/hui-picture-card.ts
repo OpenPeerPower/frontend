@@ -11,7 +11,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import { ifDefined } from "lit-html/directives/if-defined";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { actionHandler } from "../common/directives/action-handler-directive";
@@ -109,12 +109,12 @@ export class HuiPictureCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         overflow: hidden;
         height: 100%;
       }
 
-      ha-card.clickable {
+      op-card.clickable {
         cursor: pointer;
       }
 

@@ -2,10 +2,10 @@ import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { OpenPeerPower } from "../../types";
-import "../ha-formfield";
-import "../ha-switch";
+import "../op-formfield";
+import "../op-switch";
 
-@customElement("ha-selector-boolean")
+@customElement("op-selector-boolean")
 export class HaBooleanSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -35,7 +35,7 @@ export class HaBooleanSelector extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-formfield {
+      op-formfield {
         width: 100%;
         margin: 16px 0;
         --mdc-typography-body2-font-size: 1em;
@@ -46,6 +46,6 @@ export class HaBooleanSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-boolean": HaBooleanSelector;
+    "op-selector-boolean": HaBooleanSelector;
   }
 }

@@ -7,7 +7,7 @@ import { customElement, property, state, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../common/dom/fire_event";
 import "./op-circular-progress";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 declare global {
   interface OPPDomEvents {

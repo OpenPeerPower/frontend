@@ -23,10 +23,10 @@ import {
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/entity/state-badge";
-import "../../../../components/ha-card";
-import "../../../../components/ha-formfield";
+import "../../../../components/op-card";
+import "../../../../components/op-formfield";
 import "../../../../components/op-icon";
-import "../../../../components/ha-switch";
+import "../../../../components/op-switch";
 import { OpenPeerPower } from "../../../../types";
 import { ConfigEntity, GlanceCardConfig } from "../../cards/types";
 import "../../components/hui-entity-editor";

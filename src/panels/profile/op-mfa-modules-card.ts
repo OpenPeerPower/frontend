@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-card";
+import "../../components/op-card";
 import { showConfirmationDialog } from "../../dialogs/generic/show-dialog-box";
 import { OpenPeerPower, MFAModule } from "../../types";
 import { showMfaModuleSetupFlowDialog } from "./show-op-mfa-module-setup-flow-dialog";

@@ -12,8 +12,8 @@ import {
 } from "lit-element";
 import "../../../components/buttons/ha-call-service-button";
 import "../../../components/buttons/ha-progress-button";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
 import "../../../components/op-icon-button";
 import { domainToName } from "../../../data/integration";
 import {
@@ -154,7 +154,7 @@ export class SystemLogCard extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         padding-top: 16px;
       }
 

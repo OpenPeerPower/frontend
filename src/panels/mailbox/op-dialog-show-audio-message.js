@@ -3,7 +3,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../components/dialog/ha-paper-dialog";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import "../../styles/polymer-op-style-dialog";
 
@@ -13,7 +13,7 @@ import "../../styles/polymer-op-style-dialog";
 class HaDialogShowAudioMessage extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-      <style include="ha-style-dialog">
+      <style include="op-style-dialog">
         .error {
           color: red;
         }

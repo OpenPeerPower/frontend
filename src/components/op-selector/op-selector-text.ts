@@ -6,7 +6,7 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { StringSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-selector-text")
+@customElement("op-selector-text")
 export class HaTextSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -54,6 +54,6 @@ export class HaTextSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-text": HaTextSelector;
+    "op-selector-text": HaTextSelector;
   }
 }

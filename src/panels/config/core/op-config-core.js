@@ -16,7 +16,7 @@ import "./ha-config-section-core";
 class HaConfigCore extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style">
+      <style include="iron-flex op-style">
         .content {
           padding-bottom: 32px;
         }

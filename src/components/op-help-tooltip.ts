@@ -2,7 +2,7 @@ import { mdiHelpCircle } from "@mdi/js";
 import "@polymer/paper-tooltip/paper-tooltip";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("ha-help-tooltip")
 export class HaHelpTooltip extends LitElement {
@@ -24,7 +24,7 @@ export class HaHelpTooltip extends LitElement {
 
   static get styles() {
     return css`
-      ha-svg-icon {
+      op-svg-icon {
         --mdc-icon-size: var(--ha-help-tooltip-size, 14px);
         color: var(--ha-help-tooltip-color, var(--disabled-text-color));
       }

@@ -7,7 +7,7 @@ import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
 import "./ha-checkbox";
 import type { HaCheckbox } from "./ha-checkbox";
-import "./ha-settings-row";
+import "./op-settings-row";
 
 const ADDITIONAL_PREFERENCES = [
   {
@@ -152,7 +152,7 @@ export class HaAnalytics extends LitElement {
           color: var(--error-color);
         }
 
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
         }
 

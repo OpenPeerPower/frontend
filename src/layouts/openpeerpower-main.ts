@@ -103,7 +103,7 @@ class OpenPeerPowerMain extends LitElement {
   }
 
   protected firstUpdated() {
-    import(/* webpackPreload: true */ "../components/ha-sidebar");
+    import(/* webpackPreload: true */ "../components/op-sidebar");
 
     this.addEventListener(
       "opp-edit-sidebar",
@@ -193,7 +193,7 @@ class OpenPeerPowerMain extends LitElement {
         --app-drawer-width: calc(256px + env(safe-area-inset-left));
       }
       partial-panel-resolver,
-      ha-sidebar {
+      op-sidebar {
         /* allow a light tap highlight on the actual interface elements  */
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
       }

@@ -1,7 +1,7 @@
 import { css, CSSResultGroup, LitElement, svg, SVGTemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 
-@customElement("ha-svg-icon")
+@customElement("op-svg-icon")
 export class HaSvgIcon extends LitElement {
   @property() public path?: string;
 
@@ -42,6 +42,6 @@ export class HaSvgIcon extends LitElement {
 }
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-svg-icon": HaSvgIcon;
+    "op-svg-icon": HaSvgIcon;
   }
 }

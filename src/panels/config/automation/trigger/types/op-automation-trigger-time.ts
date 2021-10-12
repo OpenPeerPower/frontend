@@ -7,8 +7,8 @@ import {
   property,
 } from "lit-element";
 import "../../../../../components/entity/op-entity-picker";
-import "../../../../../components/ha-formfield";
-import "../../../../../components/ha-radio";
+import "../../../../../components/op-formfield";
+import "../../../../../components/op-radio";
 import { TimeTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 import {

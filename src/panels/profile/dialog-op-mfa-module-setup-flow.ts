@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import { html, TemplateResult } from "lit-html";
 import { localizeKey } from "../../common/translations/localize";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import "../../components/ha-form/ha-form";
 import "../../components/ha-markdown";
 import {

@@ -12,7 +12,7 @@ import type { IntegrationManifest } from "../../../data/integration";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import type { OpenPeerPower } from "../../../types";
 import type { ConfigEntryExtended } from "./ha-config-integrations";
-import "./ha-integration-action-card";
+import "./op-integration-action-card";
 
 @customElement("ha-ignored-config-entry-card")
 export class HaIgnoredConfigEntryCard extends LitElement {

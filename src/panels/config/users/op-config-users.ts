@@ -12,8 +12,8 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../components/data-table/ha-data-table";
-import "../../../components/ha-fab";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-fab";
+import "../../../components/op-svg-icon";
 import { deleteUser, fetchUsers, updateUser, User } from "../../../data/user";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/opp-tabs-subpage-data-table";

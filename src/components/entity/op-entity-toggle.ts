@@ -14,9 +14,9 @@ import { computeStateName } from "../../common/entity/compute_state_name";
 import { UNAVAILABLE, UNAVAILABLE_STATES } from "../../data/entity";
 import { forwardHaptic } from "../../data/haptics";
 import { OpenPeerPower } from "../../types";
-import "../ha-formfield";
+import "../op-formfield";
 import "../op-icon-button";
-import "../ha-switch";
+import "../op-switch";
 
 const isOn = (stateObj?: OppEntity) =>
   stateObj !== undefined &&
@@ -161,7 +161,7 @@ export class HaEntityToggle extends LitElement {
       op-icon-button[state-active] {
         color: var(--op-icon-button-active-color, var(--primary-color));
       }
-      ha-switch {
+      op-switch {
         padding: 13px 5px;
       }
     `;

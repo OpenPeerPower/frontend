@@ -10,10 +10,10 @@ import {
   property,
   PropertyValues,
 } from "lit-element";
-import "../../../../components/ha-card";
-import "../../../../components/ha-circular-progress";
-import "../../../../components/ha-settings-row";
-import "../../../../components/ha-switch";
+import "../../../../components/op-card";
+import "../../../../components/op-circular-progress";
+import "../../../../components/op-settings-row";
+import "../../../../components/op-switch";
 import { isComponentLoaded } from "../../../../common/config/is_component_loaded";
 import {
   CloudStatusLoggedIn,
@@ -232,7 +232,7 @@ export class CloudWebhooks extends LitElement {
         .footer a {
           color: var(--primary-color);
         }
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
         }
       `,

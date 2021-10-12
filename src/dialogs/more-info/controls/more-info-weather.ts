@@ -32,7 +32,7 @@ import { customElement, property } from "lit/decorators";
 import { formatDateWeekday } from "../../../common/datetime/format_date";
 import { formatTimeWeekday } from "../../../common/datetime/format_time";
 import { formatNumber } from "../../../common/string/format_number";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import { getWeatherUnit, getWind } from "../../../data/weather";
 import { OpenPeerPower } from "../../../types";
 
@@ -226,7 +226,7 @@ class MoreInfoWeather extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-svg-icon {
+      op-svg-icon {
         color: var(--paper-item-icon-color);
       }
       .section {

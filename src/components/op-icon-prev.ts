@@ -1,5 +1,5 @@
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
-import { HaSvgIcon } from "./ha-svg-icon";
+import { HaSvgIcon } from "./op-svg-icon";
 
 export class HaIconPrev extends HaSvgIcon {
   public connectedCallback() {

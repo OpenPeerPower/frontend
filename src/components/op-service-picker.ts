@@ -116,10 +116,10 @@ class HaServicePicker extends LitElement {
   }
 }
 
-customElements.define("ha-service-picker", HaServicePicker);
+customElements.define("op-service-picker", HaServicePicker);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-service-picker": HaServicePicker;
+    "op-service-picker": HaServicePicker;
   }
 }

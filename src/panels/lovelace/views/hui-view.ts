@@ -6,8 +6,8 @@ import {
   UpdatingElement,
 } from "lit-element";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
-import "../../../components/entity/ha-state-label-badge";
-import "../../../components/ha-svg-icon";
+import "../../../components/entity/op-state-label-badge";
+import "../../../components/op-svg-icon";
 import type {
   LovelaceBadgeConfig,
   LovelaceCardConfig,

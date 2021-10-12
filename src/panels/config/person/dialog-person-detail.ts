@@ -13,7 +13,7 @@ import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/entity/op-entities-picker";
 import { createCloseHeading } from "../../../components/ha-dialog";
-import "../../../components/ha-formfield";
+import "../../../components/op-formfield";
 import "../../../components/ha-picture-upload";
 import type { HaPictureUpload } from "../../../components/ha-picture-upload";
 import { adminChangePassword } from "../../../data/auth";
@@ -446,7 +446,7 @@ class DialogPersonDetail extends LitElement {
         ha-picture-upload {
           display: block;
         }
-        ha-formfield {
+        op-formfield {
           display: block;
           padding: 16px 0;
         }

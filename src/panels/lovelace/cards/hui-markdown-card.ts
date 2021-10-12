@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/ha-markdown";
 import {
   RenderTemplateResult,
@@ -164,7 +164,7 @@ export class HuiMarkdownCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
       }
       ha-markdown {

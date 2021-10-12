@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
 import { throttle } from "../../../common/util/throttle";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/state-history-charts";
 import { CacheConfig, getRecentWithCache } from "../../../data/cached-history";
 import { HistoryResult } from "../../../data/history";
@@ -171,7 +171,7 @@ export class HuiHistoryGraphCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
       }
       .content {

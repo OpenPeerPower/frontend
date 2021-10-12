@@ -8,7 +8,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeRTL } from "../../../../common/util/compute_rtl";
 import "../../../../components/buttons/ha-progress-button";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import "../../../../components/op-icon-button";
 import "../../../../components/op-icon-next";
 import "../../../../layouts/opp-subpage";
@@ -28,7 +28,7 @@ class CloudLogin extends LocalizeMixin(
 ) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style">
+      <style include="iron-flex op-style">
         .content {
           padding-bottom: 24px;
         }
@@ -41,10 +41,10 @@ class CloudLogin extends LocalizeMixin(
         paper-item {
           cursor: pointer;
         }
-        ha-card {
+        op-card {
           overflow: hidden;
         }
-        ha-card .card-header {
+        op-card .card-header {
           margin-bottom: -8px;
         }
         h1 {

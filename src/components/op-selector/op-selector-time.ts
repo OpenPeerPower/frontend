@@ -8,7 +8,7 @@ import { FrontendLocaleData } from "../../data/translation";
 import { OpenPeerPower } from "../../types";
 import "../paper-time-input";
 
-@customElement("ha-selector-time")
+@customElement("op-selector-time")
 export class HaTimeSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -69,6 +69,6 @@ export class HaTimeSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-time": HaTimeSelector;
+    "op-selector-time": HaTimeSelector;
   }
 }

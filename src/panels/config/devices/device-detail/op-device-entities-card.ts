@@ -14,7 +14,7 @@ import {
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { domainIcon } from "../../../../common/entity/domain_icon";
 import "../../../../components/entity/state-badge";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import "../../../../components/op-icon";
 import { OpenPeerPower } from "../../../../types";
 import { HuiErrorCard } from "../../../lovelace/cards/hui-error-card";

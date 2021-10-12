@@ -1,7 +1,7 @@
 import "@material/mwc-button/mwc-button";
 import { mdiCheckCircle, mdiCloseCircle } from "@mdi/js";
-import "../../../../../components/ha-switch";
-import "../../../../../components/ha-formfield";
+import "../../../../../components/op-switch";
+import "../../../../../components/op-formfield";
 import {
   CSSResult,
   customElement,
@@ -12,7 +12,7 @@ import {
   TemplateResult,
   css,
 } from "lit-element";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
@@ -286,13 +286,13 @@ class DialogZWaveJSAddNode extends LitElement {
           align-items: center;
         }
 
-        ha-svg-icon {
+        op-svg-icon {
           width: 68px;
           height: 48px;
         }
 
-        .flex-container ha-circular-progress,
-        .flex-container ha-svg-icon {
+        .flex-container op-circular-progress,
+        .flex-container op-svg-icon {
           margin-right: 20px;
         }
       `,

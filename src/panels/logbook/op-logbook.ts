@@ -20,7 +20,7 @@ import { computeDomain } from "../../common/entity/compute_domain";
 import { domainIcon } from "../../common/entity/domain_icon";
 import { computeRTL, emitRTLDirection } from "../../common/util/compute_rtl";
 import "../../components/entity/state-badge";
-import "../../components/ha-circular-progress";
+import "../../components/op-circular-progress";
 import "../../components/ha-relative-time";
 import { TraceContexts } from "../../data/trace";
 import { LogbookEntry } from "../../data/logbook";
@@ -90,7 +90,7 @@ class HaLogbook extends LitElement {
 
     return html`
       <div
-        class="container ha-scrollbar ${classMap({
+        class="container op-scrollbar ${classMap({
           narrow: this.narrow,
           rtl: this._rtl,
           "no-name": this.noName,

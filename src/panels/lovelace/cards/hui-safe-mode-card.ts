@@ -8,7 +8,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { OpenPeerPower } from "../../../types";
 import "../../config/logs/error-log-card";
 import { LovelaceCard } from "../types";
@@ -42,7 +42,7 @@ export class HuiSafeModeCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         --op-card-header-color: var(--primary-color);
       }
       error-log-card {

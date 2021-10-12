@@ -11,7 +11,7 @@ import {
 } from "lit/decorators";
 import { ifDefined } from "lit/directives/if-defined";
 import "./op-icon";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("ha-tab")
 export class HaTab extends LitElement {

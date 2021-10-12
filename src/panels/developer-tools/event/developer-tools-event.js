@@ -22,7 +22,7 @@ const ERROR_SENTINEL = {};
 class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="ha-style iron-flex iron-positioning"></style>
+      <style include="op-style iron-flex iron-positioning"></style>
       <style>
         :host {
           -ms-user-select: initial;

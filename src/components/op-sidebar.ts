@@ -45,7 +45,7 @@ import { haStyleScrollbar } from "../resources/styles";
 import type { OpenPeerPower, PanelInfo } from "../types";
 import "./op-icon";
 import "./ha-menu-button";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 import "./user/ha-user-badge";
 
 const SHOW_AFTER_SPACER = ["config", "developer-tools", "oppio"];
@@ -158,7 +158,7 @@ const computePanels = memoizeOne(
 
 let Sortable;
 
-@customElement("ha-sidebar")
+@customElement("op-sidebar")
 class HaSidebar extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -333,7 +333,7 @@ class HaSidebar extends LitElement {
     return html`
       <paper-listbox
         attr-for-selected="data-panel"
-        class="ha-scrollbar"
+        class="op-scrollbar"
         .selected=${this.opp.panelUrl}
         @focusin=${this._listboxFocusIn}
         @focusout=${this._listboxFocusOut}
@@ -513,7 +513,7 @@ class HaSidebar extends LitElement {
     if (!Sortable) {
       const [sortableImport, sortStylesImport] = await Promise.all([
         import("sortablejs/modular/sortable.core.esm"),
-        import("../resources/ha-sortable-style"),
+        import("../resources/op-sortable-style"),
       ]);
 
       const style = document.createElement("style");
@@ -861,7 +861,7 @@ class HaSidebar extends LitElement {
         }
 
         op-icon[slot="item-icon"],
-        ha-svg-icon[slot="item-icon"] {
+        op-svg-icon[slot="item-icon"] {
           color: var(--sidebar-icon-color);
         }
 
@@ -903,7 +903,7 @@ class HaSidebar extends LitElement {
         }
 
         a.iron-selected paper-icon-item op-icon,
-        a.iron-selected paper-icon-item ha-svg-icon {
+        a.iron-selected paper-icon-item op-svg-icon {
           color: var(--sidebar-selected-icon-color);
         }
 
@@ -975,7 +975,7 @@ class HaSidebar extends LitElement {
           padding: 0px 6px;
           color: var(--text-accent-color, var(--text-primary-color));
         }
-        ha-svg-icon + .notification-badge {
+        op-svg-icon + .notification-badge {
           position: absolute;
           bottom: 14px;
           left: 26px;
@@ -1031,6 +1031,6 @@ class HaSidebar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-sidebar": HaSidebar;
+    "op-sidebar": HaSidebar;
   }
 }

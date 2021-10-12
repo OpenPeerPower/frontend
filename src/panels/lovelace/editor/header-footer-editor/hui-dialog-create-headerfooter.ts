@@ -148,13 +148,13 @@ export class HuiCreateDialogHeaderFooter
         }
 
         .spinner,
-        ha-card {
+        op-card {
           width: calc(50% - 8px);
           text-align: center;
           margin: 4px;
         }
 
-        ha-card {
+        op-card {
           box-sizing: border-box;
           padding: 8px;
           color: var(--secondary-text-color);
@@ -162,7 +162,7 @@ export class HuiCreateDialogHeaderFooter
           cursor: pointer;
         }
 
-        ha-svg-icon {
+        op-svg-icon {
           padding-bottom: 4px;
           --mdc-icon-size: 38px;
         }

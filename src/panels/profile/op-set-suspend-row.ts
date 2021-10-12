@@ -6,9 +6,9 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent, OPPDomEvent } from "../../common/dom/fire_event";
-import "../../components/ha-settings-row";
-import "../../components/ha-switch";
-import type { HaSwitch } from "../../components/ha-switch";
+import "../../components/op-settings-row";
+import "../../components/op-switch";
+import type { HaSwitch } from "../../components/op-switch";
 import type { OpenPeerPower } from "../../types";
 
 declare global {
@@ -24,7 +24,7 @@ declare global {
   }
 }
 
-@customElement("ha-set-suspend-row")
+@customElement("op-set-suspend-row")
 class HaSetSuspendRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -60,6 +60,6 @@ class HaSetSuspendRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-set-suspend-row": HaSetSuspendRow;
+    "op-set-suspend-row": HaSetSuspendRow;
   }
 }

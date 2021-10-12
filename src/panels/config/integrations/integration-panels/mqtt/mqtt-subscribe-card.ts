@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { formatTime } from "../../../../../common/datetime/format_time";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import { MQTTMessage, subscribeMQTTTopic } from "../../../../../data/mqtt";
 import { OpenPeerPower } from "../../../../../types";
 

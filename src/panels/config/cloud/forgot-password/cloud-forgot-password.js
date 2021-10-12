@@ -3,7 +3,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../../components/buttons/ha-progress-button";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import "../../../../layouts/opp-subpage";
 import { EventsMixin } from "../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../mixins/localize-mixin";
@@ -16,12 +16,12 @@ import "../../../../styles/polymer-op-style";
 class CloudForgotPassword extends LocalizeMixin(EventsMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="iron-flex ha-style">
+      <style include="iron-flex op-style">
         .content {
           padding-bottom: 24px;
         }
 
-        ha-card {
+        op-card {
           max-width: 600px;
           margin: 0 auto;
           margin-top: 24px;

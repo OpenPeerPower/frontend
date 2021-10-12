@@ -4,7 +4,7 @@ import { customElement, property, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../common/dom/fire_event";
 import { nextRender } from "../common/util/render-status";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("ha-expansion-panel")
 class HaExpansionPanel extends LitElement {
@@ -76,10 +76,10 @@ class HaExpansionPanel extends LitElement {
         border-width: 1px;
         border-style: solid;
         border-color: var(
-          --ha-card-border-color,
+          --op-card-border-color,
           var(--divider-color, #e0e0e0)
         );
-        border-radius: var(--ha-card-border-radius, 4px);
+        border-radius: var(--op-card-border-radius, 4px);
         padding: 0 8px;
       }
 

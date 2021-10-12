@@ -6,14 +6,14 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../../../components/buttons/ha-call-api-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";
 
 class ZwaveNodeProtection extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-    <style include="iron-flex ha-style">
+    <style include="iron-flex op-style">
       .card-actions.warning ha-call-api-button {
         color: var(--error-color);
       }
@@ -21,7 +21,7 @@ class ZwaveNodeProtection extends LocalizeMixin(PolymerElement) {
         margin-top: 24px;
       }
 
-      ha-card {
+      op-card {
         margin: 0 auto;
         max-width: 600px;
       }

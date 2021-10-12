@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { formatTime } from "../../../common/datetime/format_time";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { PolymerChangedEvent } from "../../../polymer-types";
 import { OpenPeerPower } from "../../../types";
 

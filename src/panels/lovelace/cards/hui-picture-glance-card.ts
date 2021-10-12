@@ -17,7 +17,7 @@ import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateDisplay } from "../../../common/entity/compute_state_display";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-button";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
@@ -285,7 +285,7 @@ class HuiPictureGlanceCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         position: relative;
         min-height: 48px;
         overflow: hidden;

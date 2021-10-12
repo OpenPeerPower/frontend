@@ -12,7 +12,7 @@ import { domainToName, IntegrationManifest } from "../../../data/integration";
 import { OpenPeerPower } from "../../../types";
 import { brandsUrl } from "../../../util/brands-url";
 
-@customElement("ha-integration-header")
+@customElement("op-integration-header")
 export class HaIntegrationHeader extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -153,7 +153,7 @@ export class HaIntegrationHeader extends LitElement {
       border-bottom-right-radius: 4px;
       padding: 1px 4px 2px;
     }
-    .icons ha-svg-icon {
+    .icons op-svg-icon {
       width: 20px;
       height: 20px;
     }
@@ -165,6 +165,6 @@ export class HaIntegrationHeader extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-integration-header": HaIntegrationHeader;
+    "op-integration-header": HaIntegrationHeader;
   }
 }

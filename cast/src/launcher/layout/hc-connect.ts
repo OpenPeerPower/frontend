@@ -26,7 +26,7 @@ import {
   loadTokens,
   saveTokens,
 } from "../../../../src/common/auth/token_storage";
-import "../../../../src/components/ha-icon";
+import "../../../../src/components/op-icon";
 import "../../../../src/layouts/opp-loading-screen";
 import { registerServiceWorker } from "../../../../src/util/register-service-worker";
 import "./hc-layout";
@@ -314,7 +314,7 @@ export class HcConnect extends LitElement {
         color: darkred;
       }
 
-      mwc-button ha-icon {
+      mwc-button op-icon {
         margin-left: 8px;
       }
 

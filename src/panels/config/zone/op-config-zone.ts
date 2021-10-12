@@ -1,4 +1,4 @@
-import "../../../components/ha-fab";
+import "../../../components/op-fab";
 import "@material/mwc-icon-button";
 import { mdiPencil, mdiPencilOff, mdiPlus } from "@mdi/js";
 import "@polymer/paper-item/paper-icon-item";
@@ -23,8 +23,8 @@ import memoizeOne from "memoize-one";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";
 import { navigate } from "../../../common/navigate";
 import { compare } from "../../../common/string/compare";
-import "../../../components/ha-card";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-card";
+import "../../../components/op-svg-icon";
 import "../../../components/map/ha-locations-editor";
 import type {
   HaLocationsEditor,
@@ -476,7 +476,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
       a {
         color: var(--primary-color);
       }
-      ha-card {
+      op-card {
         max-width: 600px;
         margin: 16px auto;
         overflow: hidden;
@@ -531,10 +531,10 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
         transition: opacity 15ms linear;
         will-change: opacity;
       }
-      ha-card {
+      op-card {
         margin-bottom: 100px;
       }
-      ha-card paper-item {
+      op-card paper-item {
         cursor: pointer;
       }
     `;

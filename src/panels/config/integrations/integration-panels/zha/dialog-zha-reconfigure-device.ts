@@ -14,7 +14,7 @@ import { OpenPeerPower } from "../../../../../types";
 import { ZHAReconfigureDeviceDialogParams } from "./show-dialog-zha-reconfigure-device";
 import { IronAutogrowTextareaElement } from "@polymer/iron-autogrow-textarea";
 import "@polymer/paper-input/paper-textarea";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import { LOG_OUTPUT, reconfigureNode } from "../../../../../data/zha";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 
@@ -130,7 +130,7 @@ class DialogZHAReconfigureDevice extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-circular-progress {
+        op-circular-progress {
           padding: 20px;
         }
         .searching {

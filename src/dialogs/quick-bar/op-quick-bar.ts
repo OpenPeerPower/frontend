@@ -603,11 +603,11 @@ export class QuickBar extends LitElement {
         }
 
         op-icon.entity,
-        ha-svg-icon.entity {
+        op-svg-icon.entity {
           margin-left: 20px;
         }
 
-        ha-svg-icon.prefix {
+        op-svg-icon.prefix {
           margin: 8px;
           color: var(--primary-text-color);
         }

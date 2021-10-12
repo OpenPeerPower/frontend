@@ -42,7 +42,7 @@ import { SubscribeMixin } from "../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
 import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 const rowRenderer: ComboBoxLitRenderer<AreaRegistryEntry> = (
   item

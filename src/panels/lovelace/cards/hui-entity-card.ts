@@ -16,7 +16,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { isValidEntityId } from "../../../common/entity/valid_entity_id";
 import { formatNumber } from "../../../common/string/format_number";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";
@@ -187,7 +187,7 @@ export class HuiEntityCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
         display: flex;
         flex-direction: column;

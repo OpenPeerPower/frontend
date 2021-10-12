@@ -5,7 +5,7 @@ import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/op-dialog";
-import "../../components/ha-switch";
+import "../../components/op-switch";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { haStyleDialog } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";

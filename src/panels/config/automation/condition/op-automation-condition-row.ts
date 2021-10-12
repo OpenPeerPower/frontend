@@ -12,8 +12,8 @@ import {
   property,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-button-menu";
-import "../../../../components/ha-card";
+import "../../../../components/op-button-menu";
+import "../../../../components/op-card";
 import "../../../../components/op-icon-button";
 import { Condition } from "../../../../data/automation";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";

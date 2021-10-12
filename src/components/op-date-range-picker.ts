@@ -18,7 +18,7 @@ import { useAmPm } from "../common/datetime/use_am_pm";
 import { computeRTLDirection } from "../common/util/compute_rtl";
 import { OpenPeerPower } from "../types";
 import "./date-range-picker";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 export interface DateRangePickerRanges {
   [key: string]: [Date, Date];
@@ -138,7 +138,7 @@ export class HaDateRangePicker extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-svg-icon {
+      op-svg-icon {
         margin-right: 8px;
       }
 
@@ -180,7 +180,7 @@ export class HaDateRangePicker extends LitElement {
           min-width: inherit;
         }
 
-        ha-svg-icon {
+        op-svg-icon {
           display: none;
         }
       }

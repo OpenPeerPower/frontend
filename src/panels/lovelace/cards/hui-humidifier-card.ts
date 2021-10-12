@@ -16,7 +16,7 @@ import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_elemen
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-button";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { HumidifierEntity } from "../../../data/humidifier";
@@ -227,9 +227,9 @@ export class HuiHumidifierCard extends LitElement implements LovelaceCard {
     // That way it will auto-scale correctly
     // This is not done to the SVG containing the current humidity, because
     // it should not be centered on the text, but only on the value
-    if (this.shadowRoot && this.shadowRoot.querySelector("ha-card")) {
+    if (this.shadowRoot && this.shadowRoot.querySelector("op-card")) {
       (
-        this.shadowRoot.querySelector("ha-card") as LitElement
+        this.shadowRoot.querySelector("op-card") as LitElement
       ).updateComplete.then(() => {
         const svgRoot = this.shadowRoot!.querySelector("#set-values");
         const box = svgRoot!.querySelector("g")!.getBBox();
@@ -274,7 +274,7 @@ export class HuiHumidifierCard extends LitElement implements LovelaceCard {
         display: block;
       }
 
-      ha-card {
+      op-card {
         height: 100%;
         position: relative;
         overflow: hidden;

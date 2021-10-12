@@ -3,8 +3,8 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/op-icon-input";
-import "../../../../components/ha-switch";
-import type { HaSwitch } from "../../../../components/ha-switch";
+import "../../../../components/op-switch";
+import type { HaSwitch } from "../../../../components/op-switch";
 import { Counter } from "../../../../data/counter";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
@@ -158,7 +158,7 @@ class HaCounterForm extends LitElement {
         ? ev.detail.value !== ""
           ? Number(ev.detail.value)
           : undefined
-        : target.localName === "ha-switch"
+        : target.localName === "op-switch"
         ? (ev.target as HaSwitch).checked
         : ev.detail.value;
     if (this[`_${configValue}`] === value) {

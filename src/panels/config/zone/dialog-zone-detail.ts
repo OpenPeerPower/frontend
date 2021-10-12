@@ -13,8 +13,8 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { addDistanceToCoord } from "../../../common/location/add_distance_to_coord";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import { createCloseHeading } from "../../../components/ha-dialog";
-import "../../../components/ha-formfield";
-import "../../../components/ha-switch";
+import "../../../components/op-formfield";
+import "../../../components/op-switch";
 import "../../../components/map/ha-location-editor";
 import {
   defaultRadiusColor,

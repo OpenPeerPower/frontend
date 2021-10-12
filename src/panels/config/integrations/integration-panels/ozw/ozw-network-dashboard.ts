@@ -13,7 +13,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import { navigate } from "../../../../../common/navigate";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import {
   fetchOZWNetworkStatistics,
@@ -204,7 +204,7 @@ class OZWNetworkDashboard extends LitElement {
           margin-bottom: 16px;
         }
 
-        .network-status ha-svg-icon {
+        .network-status op-svg-icon {
           display: block;
           margin: 0px auto 16px;
           width: 48px;
@@ -215,7 +215,7 @@ class OZWNetworkDashboard extends LitElement {
           font-size: 1rem;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }
@@ -231,7 +231,7 @@ class OZWNetworkDashboard extends LitElement {
           color: var(--primary-color);
         }
 
-        ha-service-description {
+        op-service-description {
           display: block;
           color: grey;
           padding: 0 8px 12px;

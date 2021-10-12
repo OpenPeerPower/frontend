@@ -15,14 +15,14 @@ import { customElement, property, query, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/buttons/ha-progress-button";
-import "../../../../src/components/ha-button-menu";
+import "../../../../src/components/op-button-menu";
 import "../../../../src/components/ha-card";
 import "../../../../src/components/ha-form/ha-form";
 import type { HaFormSchema } from "../../../../src/components/ha-form/ha-form";
-import "../../../../src/components/ha-formfield";
-import "../../../../src/components/ha-switch";
-import "../../../../src/components/ha-yaml-editor";
-import type { HaYamlEditor } from "../../../../src/components/ha-yaml-editor";
+import "../../../../src/components/op-formfield";
+import "../../../../src/components/op-switch";
+import "../../../../src/components/op-yaml-editor";
+import type { HaYamlEditor } from "../../../../src/components/op-yaml-editor";
 import {
   OppioAddonDetails,
   OppioAddonSetOptionParams,
@@ -68,7 +68,7 @@ class OppioAddonConfig extends LitElement {
 
   @state() private _yamlMode = false;
 
-  @query("ha-yaml-editor") private _editor?: HaYamlEditor;
+  @query("op-yaml-editor") private _editor?: HaYamlEditor;
 
   public computeLabel = (entry: HaFormSchema): string =>
     this.addon.translations[this.opp.language]?.configuration?.[entry.name]

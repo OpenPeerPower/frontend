@@ -9,7 +9,7 @@ import {
   PropertyValues,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import { Condition } from "../../../../data/automation";
 import { OpenPeerPower } from "../../../../types";
 import "./ha-automation-condition-row";
@@ -110,7 +110,7 @@ export default class HaAutomationCondition extends LitElement {
   static get styles(): CSSResult {
     return css`
       ha-automation-condition-row,
-      ha-card {
+      op-card {
         display: block;
         margin-top: 16px;
       }

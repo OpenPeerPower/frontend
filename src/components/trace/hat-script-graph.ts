@@ -40,7 +40,7 @@ import {
   ConditionTraceStep,
   TraceExtended,
 } from "../../data/trace";
-import "../ha-svg-icon";
+import "../op-svg-icon";
 import { NodeInfo, NODE_SIZE, SPACING } from "./hat-graph";
 import "./hat-graph-node";
 import "./hat-graph-spacer";

@@ -21,7 +21,7 @@ import { UNAVAILABLE, UNKNOWN } from "../../data/entity";
 import { OpenPeerPower } from "../../types";
 import "../op-label-badge";
 
-@customElement("ha-state-label-badge")
+@customElement("op-state-label-badge")
 export class HaStateLabelBadge extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -265,6 +265,6 @@ export class HaStateLabelBadge extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-state-label-badge": HaStateLabelBadge;
+    "op-state-label-badge": HaStateLabelBadge;
   }
 }

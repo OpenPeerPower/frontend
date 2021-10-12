@@ -20,7 +20,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/ha-dialog";
 import "../../../components/ha-header-bar";
 import "../../../components/ha-related-items";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import {
   EntityRegistryEntry,
   ExtEntityRegistryEntry,

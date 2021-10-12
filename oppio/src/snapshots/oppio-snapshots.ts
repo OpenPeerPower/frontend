@@ -22,7 +22,7 @@ import {
   SelectionChangedEvent,
 } from "../../../src/components/data-table/ha-data-table";
 import "../../../src/components/op-button-menu";
-import "../../../src/components/ha-fab";
+import "../../../src/components/op-fab";
 import { extractApiErrorMessage } from "../../../src/data/oppio/common";
 import {
   fetchOppioSnapshots,

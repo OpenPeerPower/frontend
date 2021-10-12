@@ -14,7 +14,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import "../../../components/ha-dialog";
 import "../../../components/ha-header-bar";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import {
   domainToName,
   fetchIntegrationManifest,

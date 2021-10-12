@@ -138,7 +138,7 @@ export class PanelView extends LitElement implements LovelaceViewElement {
         height: 100%;
       }
 
-      ha-fab {
+      op-fab {
         position: sticky;
         float: right;
         right: calc(16px + env(safe-area-inset-right));
@@ -146,7 +146,7 @@ export class PanelView extends LitElement implements LovelaceViewElement {
         z-index: 1;
       }
 
-      ha-fab.rtl {
+      op-fab.rtl {
         float: left;
         right: auto;
         left: calc(16px + env(safe-area-inset-left));

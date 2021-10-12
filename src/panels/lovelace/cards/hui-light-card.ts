@@ -19,7 +19,7 @@ import { computeStateDisplay } from "../../../common/entity/compute_state_displa
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/op-icon-button";
 import { UNAVAILABLE, UNAVAILABLE_STATES } from "../../../data/entity";
 import { LightEntity, SUPPORT_BRIGHTNESS } from "../../../data/light";
@@ -262,7 +262,7 @@ export class HuiLightCard extends LitElement implements LovelaceCard {
 
   static get styles(): CSSResult {
     return css`
-      ha-card {
+      op-card {
         height: 100%;
         box-sizing: border-box;
         position: relative;

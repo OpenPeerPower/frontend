@@ -13,7 +13,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/ha-paper-dropdown-menu";
-import "../../../../components/ha-svg-icon";
+import "../../../../components/op-svg-icon";
 import type { LovelaceConfig } from "../../../../data/lovelace";
 import type { OpenPeerPower } from "../../../../types";
 import type { LovelaceHeaderFooterConfig } from "../../header-footer/types";

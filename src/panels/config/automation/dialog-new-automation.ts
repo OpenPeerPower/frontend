@@ -12,8 +12,8 @@ import {
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/ha-blueprint-picker";
-import "../../../components/ha-card";
-import "../../../components/ha-circular-progress";
+import "../../../components/op-card";
+import "../../../components/op-circular-progress";
 import "../../../components/ha-dialog";
 import {
   AutomationConfig,
@@ -133,17 +133,17 @@ class DialogNewAutomation extends LitElement {
         .container {
           display: flex;
         }
-        ha-card {
+        op-card {
           width: calc(50% - 8px);
           margin: 4px;
         }
-        ha-card div {
+        op-card div {
           height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
         }
-        ha-card {
+        op-card {
           box-sizing: border-box;
           padding: 8px;
         }
@@ -159,7 +159,7 @@ class DialogNewAutomation extends LitElement {
           .container {
             flex-direction: column;
           }
-          ha-card {
+          op-card {
             width: 100%;
           }
         }

@@ -6,7 +6,7 @@ import { DeviceSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
 import "../device/ha-device-picker";
 
-@customElement("ha-selector-device")
+@customElement("op-selector-device")
 export class HaDeviceSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -81,6 +81,6 @@ export class HaDeviceSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-device": HaDeviceSelector;
+    "op-selector-device": HaDeviceSelector;
   }
 }

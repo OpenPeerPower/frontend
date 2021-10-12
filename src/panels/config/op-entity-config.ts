@@ -12,8 +12,8 @@ import {
 } from "lit-element";
 import "../../components/buttons/ha-progress-button";
 import "../../components/entity/op-entity-picker";
-import "../../components/ha-card";
-import "../../components/ha-circular-progress";
+import "../../components/op-card";
+import "../../components/op-circular-progress";
 import { haStyle } from "../../resources/styles";
 import "../../styles/polymer-op-style";
 import type { OpenPeerPower } from "../../types";
@@ -107,7 +107,7 @@ export class HaEntityConfig extends LitElement {
     return [
       haStyle,
       css`
-        ha-card {
+        op-card {
           direction: ltr;
         }
 

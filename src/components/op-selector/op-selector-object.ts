@@ -2,9 +2,9 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { OpenPeerPower } from "../../types";
-import "../ha-yaml-editor";
+import "../op-yaml-editor";
 
-@customElement("ha-selector-object")
+@customElement("op-selector-object")
 export class HaObjectSelector extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -39,6 +39,6 @@ export class HaObjectSelector extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-object": HaObjectSelector;
+    "op-selector-object": HaObjectSelector;
   }
 }

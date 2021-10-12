@@ -1,6 +1,6 @@
 import "../../../../src/components/ha-card";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import "../../../../src/components/ha-circular-progress";
+import "../../../../src/components/op-circular-progress";
 import "../../../../src/components/ha-markdown";
 import { customElement, property, state } from "lit/decorators";
 import {

@@ -1,5 +1,5 @@
 // hui-view dependencies for when in edit mode.
-import "../../../components/ha-fab";
+import "../../../components/op-fab";
 import "../components/hui-card-options";
 import { importCreateCardDialog } from "../editor/card-editor/show-create-card-dialog";
 import { importDeleteCardDialog } from "../editor/card-editor/show-delete-card-dialog";

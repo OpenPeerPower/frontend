@@ -11,7 +11,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { saveCoreConfig } from "../../../data/core";
 import type { PolymerChangedEvent } from "../../../polymer-types";
 import type { OpenPeerPower } from "../../../types";

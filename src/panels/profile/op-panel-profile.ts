@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-card";
+import "../../components/op-card";
 import "../../components/ha-menu-button";
 import { isExternal } from "../../data/external";
 import {
@@ -38,8 +38,8 @@ import "./ha-pick-number-format-row";
 import "./ha-pick-theme-row";
 import "./ha-push-notifications-row";
 import "./ha-refresh-tokens-card";
-import "./ha-set-suspend-row";
-import "./ha-set-vibrate-row";
+import "./op-set-suspend-row";
+import "./op-set-vibrate-row";
 
 class HaPanelProfile extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;

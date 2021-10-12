@@ -19,7 +19,7 @@ import { showConfigFlowDialog } from "../../../dialogs/config-flow/show-dialog-c
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import type { OpenPeerPower } from "../../../types";
 import type { DataEntryFlowProgressExtended } from "./ha-config-integrations";
-import "./ha-integration-action-card";
+import "./op-integration-action-card";
 
 @customElement("ha-config-flow-card")
 export class HaConfigFlowCard extends LitElement {

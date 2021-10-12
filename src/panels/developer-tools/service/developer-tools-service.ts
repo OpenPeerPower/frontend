@@ -16,12 +16,12 @@ import { hasTemplate } from "../../../common/string/has-template";
 import { extractSearchParam } from "../../../common/url/search-params";
 import "../../../components/buttons/ha-progress-button";
 import "../../../components/entity/op-entity-picker";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../components/ha-expansion-panel";
-import "../../../components/ha-service-control";
-import "../../../components/ha-service-picker";
-import "../../../components/ha-yaml-editor";
-import type { HaYamlEditor } from "../../../components/ha-yaml-editor";
+import "../../../components/op-service-control";
+import "../../../components/op-service-picker";
+import "../../../components/op-yaml-editor";
+import type { HaYamlEditor } from "../../../components/op-yaml-editor";
 import { ServiceAction } from "../../../data/script";
 import { callExecuteScript } from "../../../data/service";
 import { haStyle } from "../../../resources/styles";
@@ -43,7 +43,7 @@ class HaPanelDevService extends LitElement {
   @LocalStorage("panel-dev-service-state-yaml-mode", true)
   private _yamlMode = false;
 
-  @query("ha-yaml-editor") private _yamlEditor?: HaYamlEditor;
+  @query("op-yaml-editor") private _yamlEditor?: HaYamlEditor;
 
   protected firstUpdated(params) {
     super.firstUpdated(params);

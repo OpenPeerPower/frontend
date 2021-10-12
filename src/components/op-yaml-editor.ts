@@ -16,7 +16,7 @@ const isEmpty = (obj: Record<string, unknown>): boolean => {
   return true;
 };
 
-@customElement("ha-yaml-editor")
+@customElement("op-yaml-editor")
 export class HaYamlEditor extends LitElement {
   @property() public value?: any;
 
@@ -94,6 +94,6 @@ export class HaYamlEditor extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-yaml-editor": HaYamlEditor;
+    "op-yaml-editor": HaYamlEditor;
   }
 }

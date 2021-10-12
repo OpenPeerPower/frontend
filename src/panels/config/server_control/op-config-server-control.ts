@@ -14,7 +14,7 @@ import {
 } from "lit-element";
 import { componentsWithService } from "../../../common/config/components_with_service";
 import "../../../components/buttons/ha-call-service-button";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import { checkCoreConfig } from "../../../data/core";
 import { domainToName } from "../../../data/integration";
 import "../../../layouts/opp-tabs-subpage";

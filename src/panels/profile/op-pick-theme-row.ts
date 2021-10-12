@@ -13,11 +13,11 @@ import {
 } from "lit-element";
 import { html, TemplateResult } from "lit-html";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-formfield";
+import "../../components/op-formfield";
 import "../../components/ha-paper-dropdown-menu";
-import "../../components/ha-radio";
-import type { HaRadio } from "../../components/ha-radio";
-import "../../components/ha-settings-row";
+import "../../components/op-radio";
+import type { HaRadio } from "../../components/op-radio";
+import "../../components/op-settings-row";
 import { OpenPeerPower } from "../../types";
 import { documentationUrl } from "../../util/documentation-url";
 
@@ -219,7 +219,7 @@ export class HaPickThemeRow extends LitElement {
         justify-content: space-between;
         margin: 0 12px;
       }
-      ha-formfield {
+      op-formfield {
         margin: 0 4px;
       }
       .color-pickers {

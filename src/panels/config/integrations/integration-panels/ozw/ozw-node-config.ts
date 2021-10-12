@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { navigate } from "../../../../../common/navigate";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import {
   fetchOZWNodeConfig,
@@ -235,7 +235,7 @@ class OZWNodeConfig extends LitElement {
           padding-right: 40px;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }

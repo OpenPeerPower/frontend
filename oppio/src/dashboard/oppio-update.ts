@@ -7,8 +7,8 @@ import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
 import "../../../src/components/ha-card";
-import "../../../src/components/ha-settings-row";
-import "../../../src/components/ha-svg-icon";
+import "../../../src/components/op-settings-row";
+import "../../../src/components/op-svg-icon";
 import {
   extractApiErrorMessage,
   OppioResponse,
@@ -253,7 +253,7 @@ export class OppioUpdate extends LitElement {
         a {
           text-decoration: none;
         }
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
           --paper-item-body-two-line-min-height: 32px;
         }

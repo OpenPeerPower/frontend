@@ -12,8 +12,8 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { createCloseHeading } from "../../../components/ha-dialog";
-import "../../../components/ha-formfield";
-import "../../../components/ha-switch";
+import "../../../components/op-formfield";
+import "../../../components/op-switch";
 import "../../../components/map/ha-location-editor";
 import { Tag, UpdateTagParams } from "../../../data/tag";
 import { OppDialog } from "../../../dialogs/make-dialog-manager";

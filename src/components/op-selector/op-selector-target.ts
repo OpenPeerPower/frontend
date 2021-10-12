@@ -21,7 +21,7 @@ import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../../types";
 import "../ha-target-picker";
 
-@customElement("ha-selector-target")
+@customElement("op-selector-target")
 export class HaTargetSelector extends SubscribeMixin(LitElement) {
   @property() public opp!: OpenPeerPower;
 
@@ -157,6 +157,6 @@ export class HaTargetSelector extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-selector-target": HaTargetSelector;
+    "op-selector-target": HaTargetSelector;
   }
 }

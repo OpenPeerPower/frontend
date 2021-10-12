@@ -20,7 +20,7 @@ import {
   MDI_PREFIXES,
   writeCache,
 } from "../data/iconsets";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 interface DeprecatedIcon {
   [key: string]: {

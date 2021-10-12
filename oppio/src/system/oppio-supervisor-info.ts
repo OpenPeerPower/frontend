@@ -4,8 +4,8 @@ import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
 import "../../../src/components/ha-card";
-import "../../../src/components/ha-settings-row";
-import "../../../src/components/ha-switch";
+import "../../../src/components/op-settings-row";
+import "../../../src/components/op-switch";
 import {
   extractApiErrorMessage,
   fetchOppioStats,
@@ -526,15 +526,15 @@ class OppioSupervisorInfo extends LitElement {
         button.link {
           color: var(--primary-color);
         }
-        ha-settings-row {
+        op-settings-row {
           padding: 0;
           height: 54px;
           width: 100%;
         }
-        ha-settings-row[three-line] {
+        op-settings-row[three-line] {
           height: 74px;
         }
-        ha-settings-row > div[slot="description"] {
+        op-settings-row > div[slot="description"] {
           white-space: normal;
           color: var(--secondary-text-color);
         }

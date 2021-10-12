@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit";
 import { customElement, property, query } from "lit/decorators";
-import "../../components/ha-svg-icon";
+import "../../components/op-svg-icon";
 import { fireEvent } from "../dom/fire_event";
 
 @customElement("search-input")
@@ -89,14 +89,14 @@ class SearchInput extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-svg-icon,
+      op-svg-icon,
       mwc-icon-button {
         color: var(--primary-text-color);
       }
       mwc-icon-button {
         --mdc-icon-button-size: 24px;
       }
-      ha-svg-icon.prefix {
+      op-svg-icon.prefix {
         margin: 8px;
       }
     `;

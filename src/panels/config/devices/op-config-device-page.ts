@@ -871,11 +871,11 @@ export class HaConfigDevicePage extends LitElement {
           color: var(--primary-color);
         }
 
-        ha-card {
+        op-card {
           padding-bottom: 8px;
         }
 
-        ha-card a {
+        op-card a {
           color: var(--primary-text-color);
         }
       `,

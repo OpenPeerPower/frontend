@@ -2,7 +2,7 @@ import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
 import "@material/mwc-button/mwc-button";
 import "../../../../../components/op-icon-button";
-import "../../../../../components/ha-circular-progress";
+import "../../../../../components/op-circular-progress";
 import { UnsubscribeFunc } from "openpeerpower-js-websocket";
 import {
   css,
@@ -16,7 +16,7 @@ import {
 } from "lit-element";
 import "../../../../../components/buttons/ha-call-api-button";
 import "../../../../../components/buttons/ha-call-service-button";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon";
 import {
   fetchNetworkStatus,
@@ -474,7 +474,7 @@ export class ZwaveMigration extends LitElement {
           align-items: center;
         }
 
-        .flex-container ha-circular-progress {
+        .flex-container op-circular-progress {
           margin-right: 20px;
         }
 
@@ -488,7 +488,7 @@ export class ZwaveMigration extends LitElement {
           font-family: monospace;
         }
 
-        ha-card {
+        op-card {
           margin: 0 auto;
           max-width: 600px;
         }

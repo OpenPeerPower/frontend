@@ -12,9 +12,9 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/ha-card";
-import "../../../../components/ha-switch";
-import "../../../../components/ha-svg-icon";
+import "../../../../components/op-card";
+import "../../../../components/op-switch";
+import "../../../../components/op-svg-icon";
 import {
   CloudStatusLoggedIn,
   CloudTTSInfo,

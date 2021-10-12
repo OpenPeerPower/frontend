@@ -1,5 +1,5 @@
 import { customElement } from "lit-element";
-import "../../../../components/ha-card";
+import "../../../../components/op-card";
 import {
   DeviceAction,
   localizeDeviceAutomationAction,

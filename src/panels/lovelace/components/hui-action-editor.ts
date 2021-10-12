@@ -24,7 +24,7 @@ import {
 import { ServiceAction } from "../../../data/script";
 import { OpenPeerPower } from "../../../types";
 import { EditorTarget } from "../editor/types";
-import "../../../components/ha-service-control";
+import "../../../components/op-service-control";
 import memoizeOne from "memoize-one";
 
 @customElement("hui-action-editor")
@@ -216,7 +216,7 @@ export class HuiActionEditor extends LitElement {
       .dropdown {
         display: flex;
       }
-      ha-service-control {
+      op-service-control {
         --service-control-padding: 0;
       }
     `;

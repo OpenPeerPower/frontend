@@ -13,7 +13,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent, OPPDomEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import type { OpenPeerPower } from "../../../types";
 import type { LovelaceRowConfig } from "../entity-rows/types";
 import type { LovelaceHeaderFooterConfig } from "../header-footer/types";

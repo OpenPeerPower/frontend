@@ -5,7 +5,7 @@ import { customElement, property } from "lit/decorators";
 import { styleMap } from "lit/directives/style-map";
 import { fireEvent } from "../common/dom/fire_event";
 import type { ToggleButton } from "../types";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("op-button-toggle-group")
 export class HaButtonToggleGroup extends LitElement {

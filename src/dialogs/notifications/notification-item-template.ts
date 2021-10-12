@@ -1,6 +1,6 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement } from "lit/decorators";
-import "../../components/ha-card";
+import "../../components/op-card";
 
 @customElement("notification-item-template")
 export class HuiNotificationItemTemplate extends LitElement {
@@ -24,7 +24,7 @@ export class HuiNotificationItemTemplate extends LitElement {
         user-select: text;
       }
 
-      ha-card .header {
+      op-card .header {
         /* start paper-font-headline style */
         font-family: "Roboto", "Noto", sans-serif;
         -webkit-font-smoothing: antialiased; /* OS X subpixel AA bleed bug */

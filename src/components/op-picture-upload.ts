@@ -13,7 +13,7 @@ import {
 import { OpenPeerPower } from "../types";
 import "./op-circular-progress";
 import "./ha-file-upload";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("ha-picture-upload")
 export class HaPictureUpload extends LitElement {

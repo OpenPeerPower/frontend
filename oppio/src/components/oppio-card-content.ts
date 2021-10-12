@@ -2,7 +2,7 @@ import { mdiHelpCircle } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../../../src/components/ha-relative-time";
-import "../../../src/components/ha-svg-icon";
+import "../../../src/components/op-svg-icon";
 import { OpenPeerPower } from "../../../src/types";
 
 @customElement("oppio-card-content")
@@ -72,25 +72,25 @@ class OppioCardContent extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-svg-icon {
+      op-svg-icon {
         margin-right: 24px;
         margin-left: 8px;
         margin-top: 12px;
         float: left;
         color: var(--secondary-text-color);
       }
-      ha-svg-icon.update {
+      op-svg-icon.update {
         color: var(--paper-orange-400);
       }
-      ha-svg-icon.running,
-      ha-svg-icon.installed {
+      op-svg-icon.running,
+      op-svg-icon.installed {
         color: var(--paper-green-400);
       }
-      ha-svg-icon.oppupdate,
-      ha-svg-icon.snapshot {
+      op-svg-icon.oppupdate,
+      op-svg-icon.snapshot {
         color: var(--paper-item-icon-color);
       }
-      ha-svg-icon.not_available {
+      op-svg-icon.not_available {
         color: var(--error-color);
       }
       .title {

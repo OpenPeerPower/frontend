@@ -2,7 +2,7 @@ import "@polymer/paper-input/paper-input";
 import { customElement, LitElement, property } from "lit-element";
 import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/ha-yaml-editor";
+import "../../../../../components/op-yaml-editor";
 import "../../../../../components/user/ha-users-picker";
 import { EventTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";

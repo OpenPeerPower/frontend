@@ -13,7 +13,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { navigate } from "../../../../../common/navigate";
-import "../../../../../components/ha-card";
+import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import {
   fetchOZWInstances,
@@ -163,7 +163,7 @@ class OZWConfigDashboard extends LitElement {
     return [
       haStyle,
       css`
-        ha-card:last-child {
+        op-card:last-child {
           margin-bottom: 24px;
         }
         ha-config-section {
@@ -172,10 +172,10 @@ class OZWConfigDashboard extends LitElement {
         :host([narrow]) ha-config-section {
           margin-top: -20px;
         }
-        ha-card {
+        op-card {
           overflow: hidden;
         }
-        ha-card a {
+        op-card a {
           text-decoration: none;
           color: var(--primary-text-color);
         }
@@ -189,7 +189,7 @@ class OZWConfigDashboard extends LitElement {
           display: block;
           outline: 0;
         }
-        ha-svg-icon.network-status-icon {
+        op-svg-icon.network-status-icon {
           height: 14px;
           width: 14px;
         }
@@ -202,7 +202,7 @@ class OZWConfigDashboard extends LitElement {
         .offline {
           color: red;
         }
-        ha-svg-icon,
+        op-svg-icon,
         op-icon-next {
           color: var(--secondary-text-color);
         }

@@ -22,9 +22,9 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../components/data-table/ha-data-table";
-import "../../../components/ha-fab";
+import "../../../components/op-fab";
 import "../../../components/op-icon";
-import "../../../components/ha-svg-icon";
+import "../../../components/op-svg-icon";
 import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../types";

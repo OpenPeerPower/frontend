@@ -12,8 +12,8 @@ import {
 import { assert, number, object, optional, string } from "superstruct";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/ha-formfield";
-import "../../../../components/ha-switch";
+import "../../../../components/op-formfield";
+import "../../../../components/op-switch";
 import { OpenPeerPower } from "../../../../types";
 import { GaugeCardConfig, SeverityConfig } from "../../cards/types";
 import "../../components/hui-entity-editor";
@@ -213,7 +213,7 @@ export class HuiGaugeCardEditor
           flex: 1 0 30%;
           padding-right: 4px;
         }
-        ha-switch[checked] ~ .severity {
+        op-switch[checked] ~ .severity {
           display: flex;
         }
       `,

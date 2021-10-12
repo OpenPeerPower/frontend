@@ -29,9 +29,9 @@ export default <T extends Constructor<OppBaseEl>>(superClass: T) =>
 
       if (askWrite()) {
         this.updateComplete
-          .then(() => import("../dialogs/ha-store-auth-card"))
+          .then(() => import("../dialogs/op-store-auth-card"))
           .then(() => {
-            const el = document.createElement("ha-store-auth-card");
+            const el = document.createElement("op-store-auth-card");
             this.shadowRoot!.appendChild(el);
             this.provideOpp(el);
           });

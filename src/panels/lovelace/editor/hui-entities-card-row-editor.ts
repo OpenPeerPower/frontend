@@ -20,8 +20,8 @@ import Sortable, {
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/op-entity-picker";
 import type { HaEntityPicker } from "../../../components/entity/op-entity-picker";
-import "../../../components/ha-svg-icon";
-import { sortableStyles } from "../../../resources/ha-sortable-style";
+import "../../../components/op-svg-icon";
+import { sortableStyles } from "../../../resources/op-sortable-style";
 import { OpenPeerPower } from "../../../types";
 import { EntityConfig, LovelaceRowConfig } from "../entity-rows/types";
 

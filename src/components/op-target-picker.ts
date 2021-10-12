@@ -43,7 +43,7 @@ import "./entity/op-entity-picker";
 import type { HaEntityPickerEntityFilterFunc } from "./entity/op-entity-picker";
 import "./ha-area-picker";
 import "./op-icon";
-import "./ha-svg-icon";
+import "./op-svg-icon";
 
 @customElement("ha-target-picker")
 export class HaTargetPicker extends SubscribeMixin(LitElement) {
@@ -549,7 +549,7 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
         align-items: center;
         outline: none;
       }
-      .mdc-chip mwc-icon-button ha-svg-icon {
+      .mdc-chip mwc-icon-button op-svg-icon {
         border-radius: 50%;
         background: var(--secondary-text-color);
       }

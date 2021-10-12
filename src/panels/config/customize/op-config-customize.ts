@@ -6,7 +6,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower, Route } from "../../../types";

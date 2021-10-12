@@ -24,4 +24,4 @@ class HaServiceDescription extends PolymerElement {
   }
 }
 
-customElements.define("ha-service-description", HaServiceDescription);
+customElements.define("op-service-description", HaServiceDescription);

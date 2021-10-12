@@ -12,10 +12,10 @@ import {
 import { slugify } from "../../../../common/string/slugify";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import { createCloseHeading } from "../../../../components/ha-dialog";
-import "../../../../components/ha-formfield";
+import "../../../../components/op-formfield";
 import "../../../../components/op-icon-input";
-import "../../../../components/ha-switch";
-import type { HaSwitch } from "../../../../components/ha-switch";
+import "../../../../components/op-switch";
+import type { HaSwitch } from "../../../../components/op-switch";
 import {
   LovelaceDashboard,
   LovelaceDashboardCreateParams,
@@ -327,7 +327,7 @@ export class DialogLovelaceDashboardDetail extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-switch {
+        op-switch {
           padding: 16px 0;
         }
       `,

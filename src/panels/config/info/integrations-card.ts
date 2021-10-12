@@ -9,7 +9,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import memoizeOne from "memoize-one";
-import "../../../components/ha-card";
+import "../../../components/op-card";
 import {
   domainToName,
   fetchIntegrationManifests,
