@@ -9,13 +9,13 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../components/ha-paper-dropdown-menu";
+import "../../components/op-paper-dropdown-menu";
 import "../../components/op-settings-row";
 import { fetchDashboards, LovelaceDashboard } from "../../data/lovelace";
 import { setDefaultPanel } from "../../data/panel";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-pick-dashboard-row")
+@customElement("op-pick-dashboard-row")
 class HaPickDashboardRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -82,6 +82,6 @@ class HaPickDashboardRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-pick-dashboard-row": HaPickDashboardRow;
+    "op-pick-dashboard-row": HaPickDashboardRow;
   }
 }

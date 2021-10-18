@@ -8,8 +8,8 @@ import {
   property,
 } from "lit-element";
 import { formatDateTime } from "../../../../common/datetime/format_date_time";
-import "../../../../components/dialog/ha-paper-dialog";
-import type { HaPaperDialog } from "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
+import type { HaPaperDialog } from "../../../../components/dialog/op-paper-dialog";
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
 import type { CloudCertificateParams as CloudCertificateDialogParams } from "./show-dialog-cloud-certificate";
@@ -74,7 +74,7 @@ class DialogCloudCertificate extends LitElement {
   }
 
   private get _dialog(): HaPaperDialog {
-    return this.shadowRoot!.querySelector("ha-paper-dialog")!;
+    return this.shadowRoot!.querySelector("op-paper-dialog")!;
   }
 
   private _closeDialog() {
@@ -85,7 +85,7 @@ class DialogCloudCertificate extends LitElement {
     return [
       haStyle,
       css`
-        ha-paper-dialog {
+        op-paper-dialog {
           width: 535px;
         }
         .break-word {

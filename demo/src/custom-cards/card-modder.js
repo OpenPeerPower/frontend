@@ -36,15 +36,15 @@ class CardModder extends LitElement {
     if (!this._config.style) return;
 
     let target = null;
-    target = target || this.card.querySelector("ha-card");
+    target = target || this.card.querySelector("op-card");
     target =
       target ||
-      (this.card.shadowRoot && this.card.shadowRoot.querySelector("ha-card"));
+      (this.card.shadowRoot && this.card.shadowRoot.querySelector("op-card"));
     target =
       target ||
       (this.card.firstChild &&
         this.card.firstChild.shadowRoot &&
-        this.card.firstChild.shadowRoot.querySelector("ha-card"));
+        this.card.firstChild.shadowRoot.querySelector("op-card"));
     if (!target && !this.attempts)
       // Try twice
       setTimeout(() => this._cardMod(), 100);

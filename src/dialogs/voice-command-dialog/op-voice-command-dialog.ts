@@ -15,7 +15,7 @@ import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../common/dom/fire_event";
 import { SpeechRecognition } from "../../common/dom/speech-recognition";
 import { uid } from "../../common/util/uid";
-import "../../components/dialog/ha-paper-dialog";
+import "../../components/dialog/op-paper-dialog";
 import "../../components/op-icon-button";
 import {
   AgentInfo,
@@ -37,7 +37,7 @@ interface Results {
   final: boolean;
 }
 
-@customElement("ha-voice-command-dialog")
+@customElement("op-voice-command-dialog")
 export class HaVoiceCommandDialog extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -382,7 +382,7 @@ export class HaVoiceCommandDialog extends LitElement {
           margin: 0 0 16px 0;
         }
 
-        ha-paper-dialog {
+        op-paper-dialog {
           width: 450px;
         }
         a.button {
@@ -513,6 +513,6 @@ export class HaVoiceCommandDialog extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-voice-command-dialog": HaVoiceCommandDialog;
+    "op-voice-command-dialog": HaVoiceCommandDialog;
   }
 }

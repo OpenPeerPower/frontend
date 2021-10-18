@@ -46,7 +46,7 @@ import type { OpenPeerPower, PanelInfo } from "../types";
 import "./op-icon";
 import "./ha-menu-button";
 import "./op-svg-icon";
-import "./user/ha-user-badge";
+import "./user/op-user-badge";
 
 const SHOW_AFTER_SPACER = ["config", "developer-tools", "oppio"];
 

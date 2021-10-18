@@ -9,9 +9,9 @@ import { computeStateName } from "../common/entity/compute_state_name";
 import { computeDeviceName } from "../data/device_registry";
 import { findRelated, RelatedResult } from "../data/search";
 import type { OpenPeerPower } from "../types";
-import "./device/ha-device-picker";
+import "./device/op-device-picker";
 import "./entity/op-entity-picker";
-import "./ha-area-picker";
+import "./op-area-picker";
 import "./op-svg-icon";
 
 declare global {
@@ -176,16 +176,16 @@ export class HaRelatedFilterButtonMenu extends LitElement {
       :host([narrow]) {
         position: static;
       }
-      ha-area-picker,
-      ha-device-picker,
+      op-area-picker,
+      op-device-picker,
       op-entity-picker {
         display: block;
         width: 300px;
         padding: 4px 16px;
         box-sizing: border-box;
       }
-      :host([narrow]) ha-area-picker,
-      :host([narrow]) ha-device-picker {
+      :host([narrow]) op-area-picker,
+      :host([narrow]) op-device-picker {
         width: 100%;
       }
     `;

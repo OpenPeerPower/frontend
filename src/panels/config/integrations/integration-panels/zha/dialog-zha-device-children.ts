@@ -10,15 +10,15 @@ import {
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../../../common/util/compute_rtl";
 import "../../../../../components/ha-code-editor";
-import { createCloseHeading } from "../../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import { ZHADeviceChildrenDialogParams } from "./show-dialog-zha-device-children";
-import "../../../../../components/data-table/ha-data-table";
+import { ZHADeviceChildrenDialogParams } from "./show-dialog-zop-device-children";
+import "../../../../../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
   DataTableRowData,
-} from "../../../../../components/data-table/ha-data-table";
+} from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-circular-progress";
 import { fetchDevices, ZHADevice } from "../../../../../data/zha";
 import { fireEvent } from "../../../../../common/dom/fire_event";
@@ -29,7 +29,7 @@ export interface DeviceRowData extends DataTableRowData {
   lqi: number;
 }
 
-@customElement("dialog-zha-device-children")
+@customElement("dialog-zop-device-children")
 class DialogZHADeviceChildren extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -139,6 +139,6 @@ class DialogZHADeviceChildren extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "dialog-zha-device-children": DialogZHADeviceChildren;
+    "dialog-zop-device-children": DialogZHADeviceChildren;
   }
 }

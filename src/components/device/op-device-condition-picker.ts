@@ -4,9 +4,9 @@ import {
   fetchDeviceConditions,
   localizeDeviceAutomationCondition,
 } from "../../data/device_automation";
-import { HaDeviceAutomationPicker } from "./ha-device-automation-picker";
+import { HaDeviceAutomationPicker } from "./op-device-automation-picker";
 
-@customElement("ha-device-condition-picker")
+@customElement("op-device-condition-picker")
 class HaDeviceConditionPicker extends HaDeviceAutomationPicker<DeviceCondition> {
   protected get NO_AUTOMATION_TEXT() {
     return this.opp.localize(
@@ -36,6 +36,6 @@ class HaDeviceConditionPicker extends HaDeviceAutomationPicker<DeviceCondition> 
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-condition-picker": HaDeviceConditionPicker;
+    "op-device-condition-picker": HaDeviceConditionPicker;
   }
 }

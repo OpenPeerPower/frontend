@@ -28,7 +28,7 @@ import { findRelated, RelatedResult } from "../../../data/search";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import {
   loadAreaRegistryDetailDialog,
   showAreaRegistryDetailDialog,

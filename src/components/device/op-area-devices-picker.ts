@@ -38,7 +38,7 @@ import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
 import "../op-svg-icon";
-import "./ha-devices-picker";
+import "./op-devices-picker";
 
 interface DevicesByArea {
   [areaId: string]: AreaDevices;
@@ -73,7 +73,7 @@ const rowRenderer: ComboBoxLitRenderer<AreaDevices> = (item) => html`<style>
     </paper-item-body>
   </paper-item>`;
 
-@customElement("ha-area-devices-picker")
+@customElement("op-area-devices-picker")
 export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -411,6 +411,6 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-area-devices-picker": HaAreaDevicesPicker;
+    "op-area-devices-picker": HaAreaDevicesPicker;
   }
 }

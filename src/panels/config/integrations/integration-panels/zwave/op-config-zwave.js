@@ -16,7 +16,7 @@ import "../../../../../components/op-icon-button";
 import "../../../../../components/op-icon-button-arrow-prev";
 import "../../../../../components/ha-menu-button";
 import "../../../../../components/op-service-description";
-import "../../../../../layouts/ha-app-layout";
+import "../../../../../layouts/op-app-layout";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";

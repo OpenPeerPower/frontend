@@ -13,13 +13,13 @@ import {
 import { navigate } from "../../common/navigate";
 import "../../components/op-icon-button";
 import "../../components/ha-menu-button";
-import "../../components/ha-tabs";
-import "../../layouts/ha-app-layout";
+import "../../components/op-tabs";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower, Route } from "../../types";
 import "./developer-tools-router";
 
-@customElement("ha-panel-developer-tools")
+@customElement("op-panel-developer-tools")
 class PanelDeveloperTools extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -102,7 +102,7 @@ class PanelDeveloperTools extends LitElement {
           display: block;
           height: calc(100vh - 112px);
         }
-        ha-tabs {
+        op-tabs {
           margin-left: max(env(safe-area-inset-left), 24px);
           margin-right: max(env(safe-area-inset-right), 24px);
           --paper-tabs-selection-bar-color: var(
@@ -118,6 +118,6 @@ class PanelDeveloperTools extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-developer-tools": PanelDeveloperTools;
+    "op-panel-developer-tools": PanelDeveloperTools;
   }
 }

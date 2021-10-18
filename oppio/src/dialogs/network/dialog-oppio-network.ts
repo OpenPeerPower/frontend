@@ -11,12 +11,12 @@ import { customElement, property, state } from "lit/decorators";
 import { cache } from "lit/directives/cache";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/op-circular-progress";
-import "../../../../src/components/ha-dialog";
+import "../../../../src/components/op-dialog";
 import "../../../../src/components/ha-expansion-panel";
 import "../../../../src/components/op-formfield";
 import "../../../../src/components/ha-header-bar";
 import "../../../../src/components/op-radio";
-import "../../../../src/components/ha-related-items";
+import "../../../../src/components/op-related-items";
 import "../../../../src/components/op-svg-icon";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import {
@@ -551,7 +551,7 @@ export class DialogOppioNetwork
             var(--mdc-dialog-scroll-divider-color, rgba(0, 0, 0, 0.12));
         }
 
-        ha-dialog {
+        op-dialog {
           --dialog-content-position: static;
           --dialog-content-padding: 0;
           --dialog-z-index: 6;

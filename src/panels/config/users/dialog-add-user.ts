@@ -13,7 +13,7 @@ import {
 } from "lit-element";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/op-switch";
 import { createAuthForUser } from "../../../data/auth";
@@ -264,7 +264,7 @@ export class DialogAddUser extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 500px;
           --dialog-z-index: 10;
         }

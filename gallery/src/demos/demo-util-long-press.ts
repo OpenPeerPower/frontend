@@ -1,7 +1,7 @@
 import "@material/mwc-button";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement } from "lit/decorators";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import { ActionHandlerEvent } from "../../../src/data/lovelace";
 import { actionHandler } from "../../../src/panels/lovelace/common/directives/action-handler-directive";
 
@@ -44,16 +44,16 @@ export class DemoUtilLongPress extends LitElement {
   private renderStyle() {
     return html`
       <style>
-        ha-card {
+        op-card {
           width: 200px;
           margin: calc(42vh - 140px) auto;
           padding: 8px;
           text-align: center;
         }
-        ha-card:first-of-type {
+        op-card:first-of-type {
           margin-top: 16px;
         }
-        ha-card:last-of-type {
+        op-card:last-of-type {
           margin-bottom: 16px;
         }
 

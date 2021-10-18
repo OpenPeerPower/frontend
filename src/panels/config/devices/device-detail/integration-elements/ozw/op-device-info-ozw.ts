@@ -17,7 +17,7 @@ import {
 import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
 
-@customElement("ha-device-info-ozw")
+@customElement("op-device-info-ozw")
 export class HaDeviceInfoOzw extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

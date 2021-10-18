@@ -6,7 +6,7 @@ import type {
   DataTableSortColumnData,
   SortableColumnContainer,
   SortingDirection,
-} from "./ha-data-table";
+} from "./op-data-table";
 
 const filterData = (
   data: DataTableRowData[],

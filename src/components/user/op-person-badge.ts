@@ -3,9 +3,9 @@ import { customElement, property } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { styleMap } from "lit/directives/style-map";
 import { Person } from "../../data/person";
-import { computeInitials } from "./ha-user-badge";
+import { computeInitials } from "./op-user-badge";
 
-@customElement("ha-person-badge")
+@customElement("op-person-badge")
 class PersonBadge extends LitElement {
   @property({ attribute: false }) public person?: Person;
 
@@ -62,6 +62,6 @@ class PersonBadge extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-person-badge": PersonBadge;
+    "op-person-badge": PersonBadge;
   }
 }

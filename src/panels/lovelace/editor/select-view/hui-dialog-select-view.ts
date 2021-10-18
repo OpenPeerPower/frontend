@@ -8,9 +8,9 @@ import {
   LitElement,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/dialog/ha-paper-dialog";
-import { createCloseHeading } from "../../../../components/ha-dialog";
-import "../../../../components/ha-paper-dropdown-menu";
+import "../../../../components/dialog/op-paper-dialog";
+import { createCloseHeading } from "../../../../components/op-dialog";
+import "../../../../components/op-paper-dropdown-menu";
 import {
   fetchConfig,
   fetchDashboards,
@@ -142,7 +142,7 @@ export class HuiDialogSelectView extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-paper-dropdown-menu {
+        op-paper-dropdown-menu {
           width: 100%;
         }
       `,

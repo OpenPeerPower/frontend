@@ -1,7 +1,7 @@
 import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../components/ha-attributes";
+import "../../../components/op-attributes";
 import { TimerEntity } from "../../../data/timer";
 import { OpenPeerPower } from "../../../types";
 

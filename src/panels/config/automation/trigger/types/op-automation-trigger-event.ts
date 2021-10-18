@@ -3,15 +3,15 @@ import { customElement, LitElement, property } from "lit-element";
 import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/op-yaml-editor";
-import "../../../../../components/user/ha-users-picker";
+import "../../../../../components/user/op-users-picker";
 import { EventTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-event")
+@customElement("op-automation-trigger-event")
 export class HaEventTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -100,6 +100,6 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-event": HaEventTrigger;
+    "op-automation-trigger-event": HaEventTrigger;
   }
 }

@@ -18,7 +18,7 @@ import { stopPropagation } from "../../../common/dom/stop_propagation";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/entity/state-badge";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { forwardHaptic } from "../../../data/haptics";
 import {
@@ -141,7 +141,7 @@ class HuiInputSelectEntityRow extends LitElement implements LovelaceRow {
         display: flex;
         align-items: center;
       }
-      ha-paper-dropdown-menu {
+      op-paper-dropdown-menu {
         margin-left: 16px;
         flex: 1;
       }

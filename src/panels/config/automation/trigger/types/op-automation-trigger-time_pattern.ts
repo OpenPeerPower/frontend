@@ -6,9 +6,9 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-time_pattern")
+@customElement("op-automation-trigger-time_pattern")
 export class HaTimePatternTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -55,6 +55,6 @@ export class HaTimePatternTrigger extends LitElement implements TriggerElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-time_pattern": HaTimePatternTrigger;
+    "op-automation-trigger-time_pattern": HaTimePatternTrigger;
   }
 }

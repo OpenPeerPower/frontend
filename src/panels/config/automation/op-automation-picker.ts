@@ -24,7 +24,7 @@ import { formatDateTime } from "../../../common/datetime/format_date_time";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { navigate } from "../../../common/navigate";
-import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
+import { DataTableColumnContainer } from "../../../components/data-table/op-data-table";
 import "../../../components/entity/op-entity-toggle";
 import "../../../components/op-fab";
 import "../../../components/op-svg-icon";
@@ -39,10 +39,10 @@ import "../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { showNewAutomationDialog } from "./show-dialog-new-automation";
 
-@customElement("ha-automation-picker")
+@customElement("op-automation-picker")
 class HaAutomationPicker extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -343,6 +343,6 @@ class HaAutomationPicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-picker": HaAutomationPicker;
+    "op-automation-picker": HaAutomationPicker;
   }
 }

@@ -3,9 +3,9 @@ import "@material/mwc-list/mwc-list-item";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../src/common/dom/fire_event";
-import "../../../src/components/buttons/ha-progress-button";
+import "../../../src/components/buttons/op-progress-button";
 import "../../../src/components/op-button-menu";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import "../../../src/components/op-settings-row";
 import {
   extractApiErrorMessage,
@@ -186,7 +186,7 @@ class OppioCoreInfo extends LitElement {
       haStyle,
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           height: 100%;
           justify-content: space-between;
           flex-direction: column;

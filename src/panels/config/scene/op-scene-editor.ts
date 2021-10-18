@@ -21,7 +21,7 @@ import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { navigate } from "../../../common/navigate";
 import { computeRTL } from "../../../common/util/compute_rtl";
-import "../../../components/device/ha-device-picker";
+import "../../../components/device/op-device-picker";
 import "../../../components/entity/op-entities-picker";
 import "../../../components/op-card";
 import "../../../components/op-fab";
@@ -59,7 +59,7 @@ import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 interface DeviceEntities {
   id: string;

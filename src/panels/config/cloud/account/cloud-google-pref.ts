@@ -169,14 +169,14 @@ export class CloudGooglePref extends LitElement {
         "ui.panel.config.cloud.account.google.not_configured_text"
       ),
     });
-    fireEvent(this, "ha-refresh-cloud-status");
+    fireEvent(this, "op-refresh-cloud-status");
   }
 
   private async _enableToggleChanged(ev) {
     const toggle = ev.target as HaSwitch;
     try {
       await updateCloudPref(this.opp, { [toggle.id]: toggle.checked! });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       toggle.checked = !toggle.checked;
     }
@@ -188,7 +188,7 @@ export class CloudGooglePref extends LitElement {
       await updateCloudPref(this.opp, {
         google_report_state: toggle.checked!,
       });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       alert(
         `Unable to ${toggle.checked ? "enable" : "disable"} report state. ${
@@ -206,7 +206,7 @@ export class CloudGooglePref extends LitElement {
         [input.id]: input.value || null,
       });
       showSaveSuccessToast(this, this.opp);
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       alert(
         `${this.opp.localize(

@@ -28,7 +28,7 @@ declare global {
   }
 }
 
-@customElement("ha-analytics")
+@customElement("op-analytics")
 export class HaAnalytics extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -167,6 +167,6 @@ export class HaAnalytics extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-analytics": HaAnalytics;
+    "op-analytics": HaAnalytics;
   }
 }

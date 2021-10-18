@@ -2,8 +2,8 @@ import type { LocalizeFunc } from "../../../src/common/translations/localize";
 import type { MockOpenPeerPower } from "../../../src/fake_data/provide_opp";
 import { selectedDemoConfig } from "../configs/demo-configs";
 import "../custom-cards/cast-demo-row";
-import "../custom-cards/ha-demo-card";
-import type { HADemoCard } from "../custom-cards/ha-demo-card";
+import "../custom-cards/op-demo-card";
+import type { HADemoCard } from "../custom-cards/op-demo-card";
 
 export const mockLovelace = (
   opp: MockOpenPeerPower,

@@ -7,7 +7,7 @@ import { fireEvent } from "../../../../../common/dom/fire_event";
 import type { OppTrigger } from "../../../../../data/automation";
 import type { OpenPeerPower } from "../../../../../types";
 
-@customElement("ha-automation-trigger-openpeerpower")
+@customElement("op-automation-trigger-openpeerpower")
 export default class HaOppTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -59,6 +59,6 @@ export default class HaOppTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-openpeerpower": HaOppTrigger;
+    "op-automation-trigger-openpeerpower": HaOppTrigger;
   }
 }

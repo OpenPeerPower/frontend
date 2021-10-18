@@ -2,7 +2,7 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { AddonSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "../ha-addon-picker";
+import "../op-addon-picker";
 
 @customElement("op-selector-addon")
 export class HaAddonSelector extends LitElement {

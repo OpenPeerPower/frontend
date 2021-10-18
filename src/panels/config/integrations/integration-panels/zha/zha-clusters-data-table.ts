@@ -8,11 +8,11 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../../../common/util/compute_rtl";
-import "../../../../../components/data-table/ha-data-table";
+import "../../../../../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
   HaDataTable,
-} from "../../../../../components/data-table/ha-data-table";
+} from "../../../../../components/data-table/op-data-table";
 import type { Cluster } from "../../../../../data/zha";
 import type { OpenPeerPower } from "../../../../../types";
 import { formatAsPaddedHex } from "./functions";
@@ -30,7 +30,7 @@ export class ZHAClustersDataTable extends LitElement {
 
   @property() public clusters: Cluster[] = [];
 
-  @query("ha-data-table", true) private _dataTable!: HaDataTable;
+  @query("op-data-table", true) private _dataTable!: HaDataTable;
 
   private _clusters = memoizeOne((clusters: Cluster[]) => {
     let outputClusters: ClusterRowData[] = clusters;

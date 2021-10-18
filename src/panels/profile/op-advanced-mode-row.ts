@@ -16,7 +16,7 @@ import {
 } from "../../data/frontend";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-advanced-mode-row")
+@customElement("op-advanced-mode-row")
 class AdvancedModeRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -66,6 +66,6 @@ class AdvancedModeRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-advanced-mode-row": AdvancedModeRow;
+    "op-advanced-mode-row": AdvancedModeRow;
   }
 }

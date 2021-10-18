@@ -28,16 +28,16 @@ import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
 import { handleStructError } from "../../../../common/structs/handle-errors";
-import "./types/ha-automation-action-choose";
-import "./types/ha-automation-action-condition";
-import "./types/ha-automation-action-delay";
-import "./types/ha-automation-action-device_id";
-import "./types/ha-automation-action-event";
-import "./types/ha-automation-action-repeat";
-import "./types/ha-automation-action-scene";
-import "./types/ha-automation-action-service";
-import "./types/ha-automation-action-wait_for_trigger";
-import "./types/ha-automation-action-wait_template";
+import "./types/op-automation-action-choose";
+import "./types/op-automation-action-condition";
+import "./types/op-automation-action-delay";
+import "./types/op-automation-action-device_id";
+import "./types/op-automation-action-event";
+import "./types/op-automation-action-repeat";
+import "./types/op-automation-action-scene";
+import "./types/op-automation-action-service";
+import "./types/op-automation-action-wait_for_trigger";
+import "./types/op-automation-action-wait_template";
 
 const OPTIONS = [
   "condition",
@@ -89,7 +89,7 @@ export const handleChangeEvent = (element: ActionElement, ev: CustomEvent) => {
   fireEvent(element, "value-changed", { value: newAction });
 };
 
-@customElement("ha-automation-action-row")
+@customElement("op-automation-action-row")
 export default class HaAutomationActionRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -250,7 +250,7 @@ export default class HaAutomationActionRow extends LitElement {
                   </paper-listbox>
                 </paper-dropdown-menu-light>
                 <div @ui-mode-not-available=${this._handleUiModeNotAvailable}>
-                  ${dynamicElement(`ha-automation-action-${type}`, {
+                  ${dynamicElement(`op-automation-action-${type}`, {
                     opp: this.opp,
                     action: this.action,
                     narrow: this.narrow,
@@ -318,7 +318,7 @@ export default class HaAutomationActionRow extends LitElement {
     }
 
     if (type !== getType(this.action)) {
-      const elClass = customElements.get(`ha-automation-action-${type}`);
+      const elClass = customElements.get(`op-automation-action-${type}`);
 
       fireEvent(this, "value-changed", {
         value: {
@@ -369,6 +369,6 @@ export default class HaAutomationActionRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-row": HaAutomationActionRow;
+    "op-automation-action-row": HaAutomationActionRow;
   }
 }

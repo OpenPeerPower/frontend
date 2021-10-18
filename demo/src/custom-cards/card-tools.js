@@ -32,7 +32,7 @@ if (!window.cardTools) {
       composed: true,
     });
     ev.detail = detail || {};
-    document.querySelector("ha-demo").dispatchEvent(ev);
+    document.querySelector("op-demo").dispatchEvent(ev);
   };
 
   cardTools.createThing = (thing, config) => {

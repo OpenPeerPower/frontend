@@ -8,7 +8,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { featureClassNames } from "../../../common/entity/feature_class_names";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import "../../../components/op-switch";
 import "../../../components/op-water_heater-control";
 import { EventsMixin } from "../../../mixins/events-mixin";
@@ -27,7 +27,7 @@ class MoreInfoWaterHeater extends LocalizeMixin(EventsMixin(PolymerElement)) {
           color: var(--primary-text-color);
         }
 
-        ha-paper-dropdown-menu {
+        op-paper-dropdown-menu {
           width: 100%;
         }
 

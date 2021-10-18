@@ -12,8 +12,8 @@ import {
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "web-animations-js/web-animations-next-lite.min";
-import "../../../../src/components/buttons/ha-progress-button";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/buttons/op-progress-button";
+import "../../../../src/components/op-card";
 import {
   OppioAddonDetails,
   OppioAddonSetOptionParams,
@@ -113,7 +113,7 @@ class OppioAddonAudio extends LitElement {
       oppioStyle,
       css`
         :host,
-        ha-card,
+        op-card,
         paper-dropdown-menu {
           display: block;
         }

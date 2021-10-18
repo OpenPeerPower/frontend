@@ -47,16 +47,16 @@ import {
   triggerScript,
 } from "../../../data/script";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
-import "../../../layouts/ha-app-layout";
+import "../../../layouts/op-app-layout";
 import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import { showToast } from "../../../util/toast";
-import "../automation/action/ha-automation-action";
-import { HaDeviceAction } from "../automation/action/types/ha-automation-action-device_id";
+import "../automation/action/op-automation-action";
+import { HaDeviceAction } from "../automation/action/types/op-automation-action-device_id";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;

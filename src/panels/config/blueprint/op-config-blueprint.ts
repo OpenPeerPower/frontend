@@ -5,7 +5,7 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-blueprint-overview";
+import "./op-blueprint-overview";
 
 declare global {
   // for fire event
@@ -30,11 +30,11 @@ class HaConfigBlueprint extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       dashboard: {
-        tag: "ha-blueprint-overview",
+        tag: "op-blueprint-overview",
         cache: true,
       },
       edit: {
-        tag: "ha-blueprint-editor",
+        tag: "op-blueprint-editor",
       },
     },
   };

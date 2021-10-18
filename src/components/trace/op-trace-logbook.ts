@@ -6,7 +6,7 @@ import "./hat-logbook-note";
 import "../../panels/logbook/op-logbook";
 import { TraceExtended } from "../../data/trace";
 
-@customElement("ha-trace-logbook")
+@customElement("op-trace-logbook")
 export class HaTraceLogbook extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -45,6 +45,6 @@ export class HaTraceLogbook extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-trace-logbook": HaTraceLogbook;
+    "op-trace-logbook": HaTraceLogbook;
   }
 }

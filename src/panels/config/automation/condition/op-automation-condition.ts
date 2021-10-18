@@ -12,10 +12,10 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/op-card";
 import { Condition } from "../../../../data/automation";
 import { OpenPeerPower } from "../../../../types";
-import "./ha-automation-condition-row";
-import { HaDeviceCondition } from "./types/ha-automation-condition-device";
+import "./op-automation-condition-row";
+import { HaDeviceCondition } from "./types/op-automation-condition-device";
 
-@customElement("ha-automation-condition")
+@customElement("op-automation-condition")
 export default class HaAutomationCondition extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -109,7 +109,7 @@ export default class HaAutomationCondition extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-automation-condition-row,
+      op-automation-condition-row,
       op-card {
         display: block;
         margin-top: 16px;
@@ -124,6 +124,6 @@ export default class HaAutomationCondition extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition": HaAutomationCondition;
+    "op-automation-condition": HaAutomationCondition;
   }
 }

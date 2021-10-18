@@ -17,7 +17,7 @@ import { InputText } from "../../../../data/input_text";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-input_text-form")
+@customElement("op-input_text-form")
 class HaInputTextForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -187,7 +187,7 @@ class HaInputTextForm extends LitElement {
         .row {
           padding: 16px 0;
         }
-        ha-paper-dropdown-menu {
+        op-paper-dropdown-menu {
           display: block;
         }
       `,
@@ -197,6 +197,6 @@ class HaInputTextForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-input_text-form": HaInputTextForm;
+    "op-input_text-form": HaInputTextForm;
   }
 }

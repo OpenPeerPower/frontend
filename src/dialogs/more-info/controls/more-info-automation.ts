@@ -2,7 +2,7 @@ import "@material/mwc-button";
 import { OppEntity } from "openpeerpower-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../components/ha-relative-time";
+import "../../../components/op-relative-time";
 import { triggerAutomationActions } from "../../../data/automation";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";

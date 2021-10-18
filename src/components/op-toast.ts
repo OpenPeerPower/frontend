@@ -31,8 +31,8 @@ export class HaToast extends PaperToast {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-toast": HaToast;
+    "op-toast": HaToast;
   }
 }
 
-customElements.define("ha-toast", HaToast);
+customElements.define("op-toast", HaToast);

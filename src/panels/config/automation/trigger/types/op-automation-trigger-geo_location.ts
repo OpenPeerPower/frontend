@@ -6,11 +6,11 @@ import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/entity/op-entity-picker";
 import type { GeoLocationTrigger } from "../../../../../data/automation";
 import type { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-trigger-row";
+import { handleChangeEvent } from "../op-automation-trigger-row";
 
 const includeDomains = ["zone"];
 
-@customElement("ha-automation-trigger-geo_location")
+@customElement("op-automation-trigger-geo_location")
 export default class HaGeolocationTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -94,6 +94,6 @@ export default class HaGeolocationTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-geo_location": HaGeolocationTrigger;
+    "op-automation-trigger-geo_location": HaGeolocationTrigger;
   }
 }

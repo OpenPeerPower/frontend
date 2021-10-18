@@ -9,8 +9,8 @@ import {
   internalProperty,
   LitElement,
 } from "lit-element";
-import "../../../../components/dialog/ha-paper-dialog";
-import type { HaPaperDialog } from "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
+import type { HaPaperDialog } from "../../../../components/dialog/op-paper-dialog";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
@@ -103,7 +103,7 @@ export class DialogManageCloudhook extends LitElement {
   }
 
   private get _dialog(): HaPaperDialog {
-    return this.shadowRoot!.querySelector("ha-paper-dialog")!;
+    return this.shadowRoot!.querySelector("op-paper-dialog")!;
   }
 
   private get _paperInput(): PaperInputElement {
@@ -152,7 +152,7 @@ export class DialogManageCloudhook extends LitElement {
     return [
       haStyle,
       css`
-        ha-paper-dialog {
+        op-paper-dialog {
           width: 650px;
         }
         paper-input {

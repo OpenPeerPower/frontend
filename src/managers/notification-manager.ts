@@ -2,8 +2,8 @@ import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state, query } from "lit/decorators";
 import { computeRTL } from "../common/util/compute_rtl";
-import "../components/ha-toast";
-import type { HaToast } from "../components/ha-toast";
+import "../components/op-toast";
+import type { HaToast } from "../components/op-toast";
 import type { OpenPeerPower } from "../types";
 
 export interface ShowToastParams {
@@ -25,7 +25,7 @@ class NotificationManager extends LitElement {
 
   @state() private _noCancelOnOutsideClick = false;
 
-  @query("ha-toast") private _toast!: HaToast;
+  @query("op-toast") private _toast!: HaToast;
 
   public async showDialog({
     message,
@@ -74,7 +74,7 @@ class NotificationManager extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-toast {
+      op-toast {
         display: flex;
         align-items: center;
         justify-content: space-between;

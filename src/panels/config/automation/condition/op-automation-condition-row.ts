@@ -18,7 +18,7 @@ import "../../../../components/op-icon-button";
 import { Condition } from "../../../../data/automation";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";
 import { OpenPeerPower } from "../../../../types";
-import "./ha-automation-condition-editor";
+import "./op-automation-condition-editor";
 import { haStyle } from "../../../../resources/styles";
 
 export interface ConditionElement extends LitElement {
@@ -50,7 +50,7 @@ export const handleChangeEvent = (
   fireEvent(element, "value-changed", { value: newCondition });
 };
 
-@customElement("ha-automation-condition-row")
+@customElement("op-automation-condition-row")
 export default class HaAutomationConditionRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -157,6 +157,6 @@ export default class HaAutomationConditionRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-row": HaAutomationConditionRow;
+    "op-automation-condition-row": HaAutomationConditionRow;
   }
 }

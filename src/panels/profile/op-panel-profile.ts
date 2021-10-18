@@ -23,21 +23,21 @@ import {
 } from "../../data/frontend";
 import { RefreshToken } from "../../data/refresh_token";
 import { showConfirmationDialog } from "../../dialogs/generic/show-dialog-box";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
-import "./ha-advanced-mode-row";
+import "./op-advanced-mode-row";
 import "./ha-change-password-card";
 import "./ha-enable-shortcuts-row";
 import "./ha-force-narrow-row";
 import "./ha-long-lived-access-tokens-card";
 import "./ha-mfa-modules-card";
-import "./ha-pick-dashboard-row";
-import "./ha-pick-language-row";
-import "./ha-pick-number-format-row";
-import "./ha-pick-theme-row";
-import "./ha-push-notifications-row";
-import "./ha-refresh-tokens-card";
+import "./op-pick-dashboard-row";
+import "./op-pick-language-row";
+import "./op-pick-number-format-row";
+import "./op-pick-theme-row";
+import "./op-push-notifications-row";
+import "./op-refresh-tokens-card";
 import "./op-set-suspend-row";
 import "./op-set-vibrate-row";
 
@@ -259,4 +259,4 @@ class HaPanelProfile extends LitElement {
   }
 }
 
-customElements.define("ha-panel-profile", HaPanelProfile);
+customElements.define("op-panel-profile", HaPanelProfile);

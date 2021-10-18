@@ -13,7 +13,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/op-card";
 
 @customElement("hc-layout")
 class HcLayout extends LitElement {
@@ -79,7 +79,7 @@ class HcLayout extends LitElement {
         flex-direction: column;
       }
 
-      ha-card {
+      op-card {
         display: flex;
         width: 100%;
         max-width: 500px;

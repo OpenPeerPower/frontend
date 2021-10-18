@@ -16,14 +16,14 @@ import memoizeOne from "memoize-one";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
 import "../../components/ha-menu-button";
 import { showVoiceCommandDialog } from "../../dialogs/voice-command-dialog/show-op-voice-command-dialog";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 import { HuiErrorCard } from "../lovelace/cards/hui-error-card";
 import { createCardElement } from "../lovelace/create-element/create-card-element";
 import { LovelaceCard } from "../lovelace/types";
 
-@customElement("ha-panel-shopping-list")
+@customElement("op-panel-shopping-list")
 class PanelShoppingList extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -121,6 +121,6 @@ class PanelShoppingList extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-shopping-list": PanelShoppingList;
+    "op-panel-shopping-list": PanelShoppingList;
   }
 }

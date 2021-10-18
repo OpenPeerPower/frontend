@@ -16,7 +16,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { dynamicElement } from "../../../common/dom/dynamic-element-directive";
 import { domainIcon } from "../../../common/entity/domain_icon";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import { createCounter } from "../../../data/counter";
 import { createInputBoolean } from "../../../data/input_boolean";
 import { createInputDateTime } from "../../../data/input_datetime";
@@ -28,12 +28,12 @@ import { haStyleDialog } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
 import { Helper } from "./const";
 import "./forms/ha-counter-form";
-import "./forms/ha-input_boolean-form";
-import "./forms/ha-input_datetime-form";
-import "./forms/ha-input_number-form";
-import "./forms/ha-input_select-form";
-import "./forms/ha-input_text-form";
-import "./forms/ha-timer-form";
+import "./forms/op-input_boolean-form";
+import "./forms/op-input_datetime-form";
+import "./forms/op-input_number-form";
+import "./forms/op-input_select-form";
+import "./forms/op-input_text-form";
+import "./forms/op-timer-form";
 
 const HELPERS = {
   input_boolean: createInputBoolean,
@@ -211,7 +211,7 @@ export class DialogHelperDetail extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog.button-left {
+        op-dialog.button-left {
           --justify-action-buttons: flex-start;
         }
         paper-icon-item {

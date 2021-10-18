@@ -11,14 +11,14 @@ import memoizeOne from "memoize-one";
 import type { OPPDomEvent } from "../../../../common/dom/fire_event";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import "../../../../components/data-table/ha-data-table";
+import "../../../../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
   DataTableRowData,
   SelectionChangedEvent,
-} from "../../../../components/data-table/ha-data-table";
+} from "../../../../components/data-table/op-data-table";
 import "../../../../components/entity/state-badge";
-import "../../../../components/ha-relative-time";
+import "../../../../components/op-relative-time";
 import type { OpenPeerPower } from "../../../../types";
 
 @customElement("hui-entity-picker-table")
@@ -138,7 +138,7 @@ export class HuiEntityPickerTable extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-data-table {
+      op-data-table {
         --data-table-border-width: 0;
         height: 100%;
       }

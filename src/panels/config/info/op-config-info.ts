@@ -10,7 +10,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import "./integrations-card";
 import "./system-health-card";
 

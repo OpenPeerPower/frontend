@@ -132,7 +132,7 @@ export class CloudAlexaPref extends LitElement {
     const toggle = ev.target as HaSwitch;
     try {
       await updateCloudPref(this.opp!, { alexa_enabled: toggle.checked! });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       toggle.checked = !toggle.checked;
     }
@@ -144,7 +144,7 @@ export class CloudAlexaPref extends LitElement {
       await updateCloudPref(this.opp!, {
         alexa_report_state: toggle.checked!,
       });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       alert(
         `${this.opp!.localize(

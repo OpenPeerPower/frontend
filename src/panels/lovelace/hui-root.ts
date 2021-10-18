@@ -55,7 +55,7 @@ import "../../components/op-icon-button-arrow-next";
 import "../../components/op-icon-button-arrow-prev";
 import "../../components/ha-menu-button";
 import "../../components/op-svg-icon";
-import "../../components/ha-tabs";
+import "../../components/op-tabs";
 import type {
   LovelaceConfig,
   LovelacePanelConfig,
@@ -66,8 +66,8 @@ import {
   showConfirmationDialog,
 } from "../../dialogs/generic/show-dialog-box";
 import { showVoiceCommandDialog } from "../../dialogs/voice-command-dialog/show-op-voice-command-dialog";
-import "../../layouts/ha-app-layout";
-import type { haAppLayout } from "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
+import type { haAppLayout } from "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { documentationUrl } from "../../util/documentation-url";
@@ -89,7 +89,7 @@ class HUIRoot extends LitElement {
 
   @internalProperty() private _curView?: number | "opp-unused-entities";
 
-  @query("ha-app-layout", true) private _appLayout!: haAppLayout;
+  @query("op-app-layout", true) private _appLayout!: haAppLayout;
 
   private _viewCache?: { [viewId: string]: HUIView };
 
@@ -879,10 +879,10 @@ class HUIRoot extends LitElement {
           -moz-user-select: none;
         }
 
-        ha-app-layout {
+        op-app-layout {
           min-height: 100%;
         }
-        ha-tabs {
+        op-tabs {
           width: 100%;
           height: 100%;
           margin-left: 4px;
@@ -892,7 +892,7 @@ class HUIRoot extends LitElement {
           margin-left: max(env(safe-area-inset-left), 12px);
           margin-right: env(safe-area-inset-right);
         }
-        ha-tabs,
+        op-tabs,
         paper-tabs {
           --paper-tabs-selection-bar-color: var(
             --app-header-selection-bar-color,

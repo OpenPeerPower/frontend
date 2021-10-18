@@ -10,8 +10,8 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/dialog/ha-paper-dialog";
-import type { HaPaperDialog } from "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
+import type { HaPaperDialog } from "../../../../components/dialog/op-paper-dialog";
 import "../../../../components/op-circular-progress";
 import type { LovelaceConfig } from "../../../../data/lovelace";
 import { haStyleDialog } from "../../../../resources/styles";
@@ -54,7 +54,7 @@ export class HuiDialogEditLovelace extends LitElement {
   }
 
   private get _dialog(): HaPaperDialog {
-    return this.shadowRoot!.querySelector("ha-paper-dialog")!;
+    return this.shadowRoot!.querySelector("op-paper-dialog")!;
   }
 
   protected render(): TemplateResult {
@@ -139,17 +139,17 @@ export class HuiDialogEditLovelace extends LitElement {
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-paper-dialog {
+          op-paper-dialog {
             max-height: 100%;
             height: 100%;
           }
         }
         @media all and (min-width: 660px) {
-          ha-paper-dialog {
+          op-paper-dialog {
             width: 650px;
           }
         }
-        ha-paper-dialog {
+        op-paper-dialog {
           max-width: 650px;
         }
       `,

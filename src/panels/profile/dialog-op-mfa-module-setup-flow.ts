@@ -18,7 +18,7 @@ import {
 } from "../../data/data_entry_flow";
 import { haStyleDialog } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
-import "../../components/ha-dialog";
+import "../../components/op-dialog";
 
 let instance = 0;
 
@@ -158,7 +158,7 @@ class HaMfaModuleSetupFlow extends LitElement {
         .error {
           color: red;
         }
-        ha-dialog {
+        op-dialog {
           max-width: 500px;
         }
         ha-markdown {

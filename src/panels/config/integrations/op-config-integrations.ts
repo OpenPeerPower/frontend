@@ -45,7 +45,7 @@ import { showConfigFlowDialog } from "../../../dialogs/config-flow/show-dialog-c
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 import type { OpenPeerPower, Route } from "../../../types";
 import type { OPPDomEvent } from "../../../common/dom/fire_event";
@@ -61,7 +61,7 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import "./op-integration-card";
 import "./ha-config-flow-card";
-import "./ha-ignored-config-entry-card";
+import "./op-ignored-config-entry-card";
 
 export interface ConfigEntryUpdatedEvent {
   entry: ConfigEntry;

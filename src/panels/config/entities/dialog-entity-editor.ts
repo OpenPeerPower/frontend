@@ -17,9 +17,9 @@ import { cache } from "lit-html/directives/cache";
 import { dynamicElement } from "../../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import "../../../components/ha-header-bar";
-import "../../../components/ha-related-items";
+import "../../../components/op-related-items";
 import "../../../components/op-svg-icon";
 import {
   EntityRegistryEntry,
@@ -269,7 +269,7 @@ export class DialogEntityEditor extends LitElement {
             var(--mdc-dialog-scroll-divider-color, rgba(0, 0, 0, 0.12));
         }
 
-        ha-dialog {
+        op-dialog {
           --dialog-content-position: static;
           --dialog-content-padding: 0;
           --dialog-z-index: 6;

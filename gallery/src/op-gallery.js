@@ -6,9 +6,9 @@ import "@polymer/paper-item/paper-item-body";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../src/components/ha-card";
-import "../../src/components/ha-icon";
-import "../../src/components/ha-icon-button";
+import "../../src/components/op-card";
+import "../../src/components/op-icon";
+import "../../src/components/op-icon-button";
 import "../../src/managers/notification-manager";
 import "../../src/styles/polymer-op-style";
 // eslint-disable-next-line import/extensions
@@ -26,7 +26,7 @@ class HaGallery extends PolymerElement {
         app-header-layout {
           min-height: 100vh;
         }
-        ha-icon-button.invisible {
+        op-icon-button.invisible {
           visibility: hidden;
         }
 
@@ -37,13 +37,13 @@ class HaGallery extends PolymerElement {
           align-items: start;
         }
 
-        .pickers ha-card {
+        .pickers op-card {
           width: 400px;
           display: block;
           margin: 16px 8px;
         }
 
-        .pickers ha-card:last-child {
+        .pickers op-card:last-child {
           margin-bottom: 16px;
         }
 

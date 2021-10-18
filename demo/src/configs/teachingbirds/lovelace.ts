@@ -5,7 +5,7 @@ export const demoLovelaceTeachingbirds: DemoConfig["lovelace"] = () => ({
   views: [
     {
       cards: [
-        { type: "custom:ha-demo-card" },
+        { type: "custom:op-demo-card" },
         {
           type: "grid",
           columns: 4,

@@ -8,7 +8,7 @@ export const showAddBlueprintDialog = (
   dialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "ha-dialog-import-blueprint",
+    dialogTag: "op-dialog-import-blueprint",
     dialogImport: loadImportBlueprintDialog,
     dialogParams,
   });

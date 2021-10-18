@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import { createCloseHeading } from "../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../components/op-dialog";
 import type { OppDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
@@ -124,19 +124,19 @@ export class HuiCreateDialogHeaderFooter
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-height: 100%;
             height: 100%;
           }
         }
 
         @media all and (min-width: 850px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-min-width: 550px;
           }
         }
 
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 550px;
           --dialog-content-padding: 2px 24px 20px 24px;
           --dialog-z-index: 5;

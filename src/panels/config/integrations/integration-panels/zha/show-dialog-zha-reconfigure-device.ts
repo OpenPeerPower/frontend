@@ -6,14 +6,14 @@ export interface ZHAReconfigureDeviceDialogParams {
 }
 
 export const loadZHAReconfigureDeviceDialog = () =>
-  import("./dialog-zha-reconfigure-device");
+  import("./dialog-zop-reconfigure-device");
 
 export const showZHAReconfigureDeviceDialog = (
   element: HTMLElement,
   zhaReconfigureDeviceParams: ZHAReconfigureDeviceDialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "dialog-zha-reconfigure-device",
+    dialogTag: "dialog-zop-reconfigure-device",
     dialogImport: loadZHAReconfigureDeviceDialog,
     dialogParams: zhaReconfigureDeviceParams,
   });

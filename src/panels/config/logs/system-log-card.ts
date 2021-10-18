@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../components/buttons/ha-call-service-button";
-import "../../../components/buttons/ha-progress-button";
+import "../../../components/buttons/op-progress-button";
 import "../../../components/op-card";
 import "../../../components/op-circular-progress";
 import "../../../components/op-icon-button";

@@ -11,14 +11,14 @@ import { OPPDomEvent } from "../../../common/dom/fire_event";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
-} from "../../../components/data-table/ha-data-table";
+} from "../../../components/data-table/op-data-table";
 import "../../../components/op-fab";
 import "../../../components/op-svg-icon";
 import { deleteUser, fetchUsers, updateUser, User } from "../../../data/user";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { showAddUserDialog } from "./show-dialog-add-user";
 import { showUserDetailDialog } from "./show-dialog-user-detail";
 

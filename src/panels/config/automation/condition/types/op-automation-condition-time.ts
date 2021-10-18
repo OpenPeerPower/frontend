@@ -19,7 +19,7 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   ConditionElement,
   handleChangeEvent,
-} from "../ha-automation-condition-row";
+} from "../op-automation-condition-row";
 
 const includeDomains = ["input_datetime"];
 
@@ -37,7 +37,7 @@ interface WeekdayHaSwitch extends HaSwitch {
   day: string;
 }
 
-@customElement("ha-automation-condition-time")
+@customElement("op-automation-condition-time")
 export class HaTimeCondition extends LitElement implements ConditionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -222,6 +222,6 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-time": HaTimeCondition;
+    "op-automation-condition-time": HaTimeCondition;
   }
 }

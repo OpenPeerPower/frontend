@@ -14,8 +14,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-area-picker";
-import "../../../../components/ha-dialog";
+import "../../../../components/op-area-picker";
+import "../../../../components/op-dialog";
 import type { HaSwitch } from "../../../../components/op-switch";
 import { computeDeviceName } from "../../../../data/device_registry";
 import { PolymerChangedEvent } from "../../../../polymer-types";

@@ -1,6 +1,6 @@
 import { html, LitElement, PropertyValues, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import {
   LightColorModes,
   SUPPORT_EFFECT,

@@ -24,7 +24,7 @@ import { SubscribeMixin } from "../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../types";
 import "./op-switch";
 
-@customElement("ha-related-items")
+@customElement("op-related-items")
 export class HaRelatedItems extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -332,6 +332,6 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-related-items": HaRelatedItems;
+    "op-related-items": HaRelatedItems;
   }
 }

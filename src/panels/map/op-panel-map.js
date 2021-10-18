@@ -12,7 +12,7 @@ import { navigate } from "../../common/navigate";
 import "../../components/op-icon";
 import "../../components/ha-menu-button";
 import { defaultRadiusColor } from "../../data/zone";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import "../../styles/polymer-op-style";
 import "./op-entity-marker";
@@ -257,4 +257,4 @@ class HaPanelMap extends LocalizeMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-panel-map", HaPanelMap);
+customElements.define("op-panel-map", HaPanelMap);

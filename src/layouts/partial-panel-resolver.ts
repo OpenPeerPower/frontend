@@ -20,23 +20,23 @@ import {
 
 const CACHE_URL_PATHS = ["lovelace", "developer-tools"];
 const COMPONENTS = {
-  calendar: () => import("../panels/calendar/ha-panel-calendar"),
-  config: () => import("../panels/config/ha-panel-config"),
-  custom: () => import("../panels/custom/ha-panel-custom"),
+  calendar: () => import("../panels/calendar/op-panel-calendar"),
+  config: () => import("../panels/config/op-panel-config"),
+  custom: () => import("../panels/custom/op-panel-custom"),
   "developer-tools": () =>
-    import("../panels/developer-tools/ha-panel-developer-tools"),
-  lovelace: () => import("../panels/lovelace/ha-panel-lovelace"),
-  history: () => import("../panels/history/ha-panel-history"),
-  iframe: () => import("../panels/iframe/ha-panel-iframe"),
-  logbook: () => import("../panels/logbook/ha-panel-logbook"),
-  mailbox: () => import("../panels/mailbox/ha-panel-mailbox"),
-  map: () => import("../panels/map/ha-panel-map"),
-  my: () => import("../panels/my/ha-panel-my"),
-  profile: () => import("../panels/profile/ha-panel-profile"),
+    import("../panels/developer-tools/op-panel-developer-tools"),
+  lovelace: () => import("../panels/lovelace/op-panel-lovelace"),
+  history: () => import("../panels/history/op-panel-history"),
+  iframe: () => import("../panels/iframe/op-panel-iframe"),
+  logbook: () => import("../panels/logbook/op-panel-logbook"),
+  mailbox: () => import("../panels/mailbox/op-panel-mailbox"),
+  map: () => import("../panels/map/op-panel-map"),
+  my: () => import("../panels/my/op-panel-my"),
+  profile: () => import("../panels/profile/op-panel-profile"),
   "shopping-list": () =>
-    import("../panels/shopping-list/ha-panel-shopping-list"),
+    import("../panels/shopping-list/op-panel-shopping-list"),
   "media-browser": () =>
-    import("../panels/media-browser/ha-panel-media-browser"),
+    import("../panels/media-browser/op-panel-media-browser"),
 };
 
 @customElement("partial-panel-resolver")
@@ -131,7 +131,7 @@ class PartialPanelResolver extends OppRouterPage {
     const routes: RouterOptions["routes"] = {};
     Object.values(panels).forEach((panel) => {
       const data: RouteOptions = {
-        tag: `ha-panel-${panel.component_name}`,
+        tag: `op-panel-${panel.component_name}`,
         cache: CACHE_URL_PATHS.includes(panel.url_path),
       };
       if (panel.component_name in COMPONENTS) {

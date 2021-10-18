@@ -6,9 +6,9 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-mqtt")
+@customElement("op-automation-trigger-mqtt")
 export class HaMQTTTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -47,6 +47,6 @@ export class HaMQTTTrigger extends LitElement implements TriggerElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-mqtt": HaMQTTTrigger;
+    "op-automation-trigger-mqtt": HaMQTTTrigger;
   }
 }

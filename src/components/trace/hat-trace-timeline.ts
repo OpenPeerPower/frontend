@@ -34,8 +34,8 @@ import {
   TriggerTraceStep,
 } from "../../data/trace";
 import { OpenPeerPower } from "../../types";
-import "./ha-timeline";
-import type { HaTimeline } from "./ha-timeline";
+import "./op-timeline";
+import type { HaTimeline } from "./op-timeline";
 
 const LOGBOOK_ENTRIES_BEFORE_FOLD = 2;
 
@@ -540,7 +540,7 @@ export class HaAutomationTracer extends LitElement {
       !(this.selectedPath in this.trace.trace)
     ) {
       const element = this.shadowRoot!.querySelector<HaTimeline>(
-        "ha-timeline[data-path]"
+        "op-timeline[data-path]"
       );
       if (element) {
         fireEvent(this, "value-changed", { value: element.dataset.path });
@@ -550,7 +550,7 @@ export class HaAutomationTracer extends LitElement {
 
     if (props.has("trace") || props.has("selectedPath")) {
       this.shadowRoot!.querySelectorAll<HaTimeline>(
-        "ha-timeline[data-path]"
+        "op-timeline[data-path]"
       ).forEach((el) => {
         el.toggleAttribute("selected", this.selectedPath === el.dataset.path);
         if (!this.allowPick || el.tabIndex === 0) {
@@ -580,16 +580,16 @@ export class HaAutomationTracer extends LitElement {
   static get styles(): CSSResultGroup {
     return [
       css`
-        ha-timeline[lastItem].condition {
+        op-timeline[lastItem].condition {
           --timeline-ball-color: var(--error-color);
         }
-        ha-timeline[data-path] {
+        op-timeline[data-path] {
           cursor: pointer;
         }
-        ha-timeline[selected] {
+        op-timeline[selected] {
           --timeline-ball-color: var(--primary-color);
         }
-        ha-timeline:focus {
+        op-timeline:focus {
           outline: none;
           --timeline-ball-color: var(--accent-color);
         }

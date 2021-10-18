@@ -18,7 +18,7 @@ import "../components/op-icon";
 import "../components/op-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import "../components/op-svg-icon";
-import "../components/ha-tab";
+import "../components/op-tab";
 import { OpenPeerPower, Route } from "../types";
 
 export interface PageNavigation {

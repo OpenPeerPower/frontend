@@ -14,10 +14,10 @@ import { Condition } from "../../../../../data/automation";
 import { Action, ChooseAction } from "../../../../../data/script";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import "../ha-automation-action";
-import { ActionElement } from "../ha-automation-action-row";
+import "../op-automation-action";
+import { ActionElement } from "../op-automation-action-row";
 
-@customElement("ha-automation-action-choose")
+@customElement("op-automation-action-choose")
 export class HaChooseAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -170,6 +170,6 @@ export class HaChooseAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-choose": HaChooseAction;
+    "op-automation-action-choose": HaChooseAction;
   }
 }

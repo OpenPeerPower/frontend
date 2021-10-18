@@ -14,8 +14,8 @@ import {
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { Condition } from "../../../../lovelace/common/validate-condition";
-import "../ha-automation-action";
-import { ActionElement } from "../ha-automation-action-row";
+import "../op-automation-action";
+import { ActionElement } from "../op-automation-action-row";
 
 const OPTIONS = ["count", "while", "until"];
 
@@ -23,7 +23,7 @@ const getType = (action) => {
   return OPTIONS.find((option) => option in action);
 };
 
-@customElement("ha-automation-action-repeat")
+@customElement("op-automation-action-repeat")
 export class HaRepeatAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -174,6 +174,6 @@ export class HaRepeatAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-repeat": HaRepeatAction;
+    "op-automation-action-repeat": HaRepeatAction;
   }
 }

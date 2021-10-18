@@ -1,4 +1,4 @@
-import "../../../../src/components/ha-card";
+import "../../../../src/components/op-card";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import "../../../../src/components/op-circular-progress";
 import "../../../../src/components/ha-markdown";
@@ -54,7 +54,7 @@ class OppioAddonDocumentationDashboard extends LitElement {
       haStyle,
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           display: block;
         }
         .content {

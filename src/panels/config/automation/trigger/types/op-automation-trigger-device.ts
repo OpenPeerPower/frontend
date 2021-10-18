@@ -2,8 +2,8 @@ import { html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/device/ha-device-picker";
-import "../../../../../components/device/ha-device-trigger-picker";
+import "../../../../../components/device/op-device-picker";
+import "../../../../../components/device/op-device-trigger-picker";
 import "../../../../../components/ha-form/ha-form";
 import {
   deviceAutomationsEqual,
@@ -13,7 +13,7 @@ import {
 } from "../../../../../data/device_automation";
 import { OpenPeerPower } from "../../../../../types";
 
-@customElement("ha-automation-trigger-device")
+@customElement("op-automation-trigger-device")
 export class HaDeviceTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -149,6 +149,6 @@ export class HaDeviceTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-device": HaDeviceTrigger;
+    "op-automation-trigger-device": HaDeviceTrigger;
   }
 }

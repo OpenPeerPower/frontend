@@ -7,7 +7,7 @@ import "../../../components/op-icon-button";
 import "../../../layouts/opp-tabs-subpage";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import "./ha-config-section-core";
 
 /*

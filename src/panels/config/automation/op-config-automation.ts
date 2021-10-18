@@ -10,8 +10,8 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-automation-editor";
-import "./ha-automation-picker";
+import "./op-automation-editor";
+import "./op-automation-picker";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -43,15 +43,15 @@ class HaConfigAutomation extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       dashboard: {
-        tag: "ha-automation-picker",
+        tag: "op-automation-picker",
         cache: true,
       },
       edit: {
-        tag: "ha-automation-editor",
+        tag: "op-automation-editor",
       },
       trace: {
-        tag: "ha-automation-trace",
-        load: () => import("./ha-automation-trace"),
+        tag: "op-automation-trace",
+        load: () => import("./op-automation-trace"),
       },
     },
   };

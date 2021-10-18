@@ -165,6 +165,6 @@ class HaPushNotificationsToggle extends EventsMixin(PolymerElement) {
 }
 
 customElements.define(
-  "ha-push-notifications-toggle",
+  "op-push-notifications-toggle",
   HaPushNotificationsToggle
 );

@@ -24,7 +24,7 @@ import { LovelaceRow } from "../../../lovelace/entity-rows/types";
 import { showEntityEditorDialog } from "../../entities/show-dialog-entity-editor";
 import { EntityRegistryStateEntry } from "../ha-config-device-page";
 
-@customElement("ha-device-entities-card")
+@customElement("op-device-entities-card")
 export class HaDeviceEntitiesCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -227,6 +227,6 @@ export class HaDeviceEntitiesCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-entities-card": HaDeviceEntitiesCard;
+    "op-device-entities-card": HaDeviceEntitiesCard;
   }
 }

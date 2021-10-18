@@ -21,13 +21,13 @@ import {
   MediaPickedEvent,
   SUPPORT_BROWSE_MEDIA,
 } from "../../data/media-player";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { showWebBrowserPlayMediaDialog } from "./show-media-player-dialog";
 import { showSelectMediaPlayerDialog } from "./show-select-media-source-dialog";
 
-@customElement("ha-panel-media-browser")
+@customElement("op-panel-media-browser")
 class PanelMediaBrowser extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -157,6 +157,6 @@ class PanelMediaBrowser extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-media-browser": PanelMediaBrowser;
+    "op-panel-media-browser": PanelMediaBrowser;
   }
 }

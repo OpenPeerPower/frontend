@@ -119,7 +119,7 @@ export const haStyle = css`
   }
 
   app-header-layout,
-  ha-app-layout {
+  op-app-layout {
     background-color: var(--primary-background-color);
   }
 
@@ -272,14 +272,14 @@ export const haStyleDialog = css`
   }
 
   @media all and (min-width: 450px) and (min-height: 500px) {
-    ha-paper-dialog {
+    op-paper-dialog {
       min-width: 400px;
     }
   }
 
   @media all and (max-width: 450px), all and (max-height: 500px) {
     paper-dialog,
-    ha-paper-dialog {
+    op-paper-dialog {
       margin: 0;
       width: calc(
         100% - env(safe-area-inset-right) - env(safe-area-inset-left)
@@ -302,8 +302,8 @@ export const haStyleDialog = css`
     }
   }
 
-  /* mwc-dialog (ha-dialog) styles */
-  ha-dialog {
+  /* mwc-dialog (op-dialog) styles */
+  op-dialog {
     --mdc-dialog-min-width: 400px;
     --mdc-dialog-max-width: 600px;
     --mdc-dialog-heading-ink-color: var(--primary-text-color);
@@ -311,7 +311,7 @@ export const haStyleDialog = css`
     --justify-action-buttons: space-between;
   }
 
-  ha-dialog .form {
+  op-dialog .form {
     padding-bottom: 24px;
     color: var(--primary-text-color);
   }
@@ -322,7 +322,7 @@ export const haStyleDialog = css`
 
   /* make dialog fullscreen on small screens */
   @media all and (max-width: 450px), all and (max-height: 500px) {
-    ha-dialog {
+    op-dialog {
       --mdc-dialog-min-width: calc(
         100vw - env(safe-area-inset-right) - env(safe-area-inset-left)
       );

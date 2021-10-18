@@ -1,7 +1,7 @@
 import { mdiHelpCircle } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../src/components/ha-relative-time";
+import "../../../src/components/op-relative-time";
 import "../../../src/components/op-svg-icon";
 import { OpenPeerPower } from "../../../src/types";
 
@@ -106,7 +106,7 @@ class OppioCardContent extends LitElement {
         height: 2.4em;
         line-height: 1.2em;
       }
-      ha-relative-time {
+      op-relative-time {
         display: block;
       }
       .icon_image img {

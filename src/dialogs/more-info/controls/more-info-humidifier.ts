@@ -14,7 +14,7 @@ import { classMap } from "lit/directives/class-map";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import "../../../components/op-slider";
 import "../../../components/op-switch";
 import {
@@ -177,7 +177,7 @@ class MoreInfoHumidifier extends LitElement {
         color: var(--primary-text-color);
       }
 
-      ha-paper-dropdown-menu {
+      op-paper-dropdown-menu {
         width: 100%;
       }
 

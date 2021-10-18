@@ -10,7 +10,7 @@ import { customElement, property, query, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/op-circular-progress";
-import { createCloseHeading } from "../../../../src/components/ha-dialog";
+import { createCloseHeading } from "../../../../src/components/op-dialog";
 import "../../../../src/components/op-svg-icon";
 import {
   fetchOppioAddonsInfo,
@@ -133,7 +133,7 @@ class OppioRepositoriesDialog extends LitElement {
       haStyle,
       haStyleDialog,
       css`
-        ha-dialog.button-left {
+        op-dialog.button-left {
           --justify-action-buttons: flex-start;
         }
         paper-icon-item {

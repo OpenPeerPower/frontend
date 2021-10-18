@@ -21,7 +21,7 @@ import { domainIcon } from "../../common/entity/domain_icon";
 import { computeRTL, emitRTLDirection } from "../../common/util/compute_rtl";
 import "../../components/entity/state-badge";
 import "../../components/op-circular-progress";
-import "../../components/ha-relative-time";
+import "../../components/op-relative-time";
 import { TraceContexts } from "../../data/trace";
 import { LogbookEntry } from "../../data/logbook";
 import { haStyle, haStyleScrollbar } from "../../resources/styles";

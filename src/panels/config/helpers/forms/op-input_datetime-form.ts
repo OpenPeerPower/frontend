@@ -17,7 +17,7 @@ import { InputDateTime } from "../../../../data/input_datetime";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-input_datetime-form")
+@customElement("op-input_datetime-form")
 class HaInputDateTimeForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -162,6 +162,6 @@ class HaInputDateTimeForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-input_datetime-form": HaInputDateTimeForm;
+    "op-input_datetime-form": HaInputDateTimeForm;
   }
 }

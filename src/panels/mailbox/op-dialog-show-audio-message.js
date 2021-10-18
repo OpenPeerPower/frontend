@@ -2,7 +2,7 @@ import "@material/mwc-button";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../components/dialog/ha-paper-dialog";
+import "../../components/dialog/op-paper-dialog";
 import "../../components/op-circular-progress";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import "../../styles/polymer-op-style-dialog";
@@ -18,7 +18,7 @@ class HaDialogShowAudioMessage extends LocalizeMixin(PolymerElement) {
           color: red;
         }
         @media all and (max-width: 500px) {
-          ha-paper-dialog {
+          op-paper-dialog {
             margin: 0;
             width: 100%;
             max-height: calc(100% - var(--header-height));
@@ -33,10 +33,10 @@ class HaDialogShowAudioMessage extends LocalizeMixin(PolymerElement) {
           }
         }
 
-        ha-paper-dialog {
+        op-paper-dialog {
           border-radius: 2px;
         }
-        ha-paper-dialog p {
+        op-paper-dialog p {
           color: var(--secondary-text-color);
         }
 
@@ -182,4 +182,4 @@ class HaDialogShowAudioMessage extends LocalizeMixin(PolymerElement) {
     }
   }
 }
-customElements.define("ha-dialog-show-audio-message", HaDialogShowAudioMessage);
+customElements.define("op-dialog-show-audio-message", HaDialogShowAudioMessage);

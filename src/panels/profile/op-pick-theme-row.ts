@@ -14,14 +14,14 @@ import {
 import { html, TemplateResult } from "lit-html";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/op-formfield";
-import "../../components/ha-paper-dropdown-menu";
+import "../../components/op-paper-dropdown-menu";
 import "../../components/op-radio";
 import type { HaRadio } from "../../components/op-radio";
 import "../../components/op-settings-row";
 import { OpenPeerPower } from "../../types";
 import { documentationUrl } from "../../util/documentation-url";
 
-@customElement("ha-pick-theme-row")
+@customElement("op-pick-theme-row")
 export class HaPickThemeRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -239,6 +239,6 @@ export class HaPickThemeRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-pick-theme-row": HaPickThemeRow;
+    "op-pick-theme-row": HaPickThemeRow;
   }
 }

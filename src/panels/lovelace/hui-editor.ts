@@ -28,7 +28,7 @@ import {
   showAlertDialog,
   showConfirmationDialog,
 } from "../../dialogs/generic/show-dialog-box";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { showToast } from "../../util/toast";
@@ -144,7 +144,7 @@ class LovelaceFullConfigEditor extends LitElement {
           --code-mirror-height: 100%;
         }
 
-        ha-app-layout {
+        op-app-layout {
           height: 100vh;
         }
 

@@ -39,7 +39,7 @@ import { OpenPeerPower, Route } from "../../types";
 declare global {
   // for fire event
   interface OPPDomEvents {
-    "ha-refresh-cloud-status": undefined;
+    "op-refresh-cloud-status": undefined;
   }
 }
 
@@ -189,7 +189,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   ],
 };
 
-@customElement("ha-panel-config")
+@customElement("op-panel-config")
 class HaPanelConfig extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -351,7 +351,7 @@ class HaPanelConfig extends OppRouterPage {
     if (isComponentLoaded(this.opp, "cloud")) {
       this._updateCloudStatus();
     }
-    this.addEventListener("ha-refresh-cloud-status", () =>
+    this.addEventListener("op-refresh-cloud-status", () =>
       this._updateCloudStatus()
     );
     this.style.setProperty(
@@ -403,6 +403,6 @@ class HaPanelConfig extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-config": HaPanelConfig;
+    "op-panel-config": HaPanelConfig;
   }
 }

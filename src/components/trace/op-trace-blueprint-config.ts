@@ -6,7 +6,7 @@ import "../op-icon-button";
 import { TraceExtended } from "../../data/trace";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-trace-blueprint-config")
+@customElement("op-trace-blueprint-config")
 export class HaTraceBlueprintConfig extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -24,6 +24,6 @@ export class HaTraceBlueprintConfig extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-trace-blueprint-config": HaTraceBlueprintConfig;
+    "op-trace-blueprint-config": HaTraceBlueprintConfig;
   }
 }

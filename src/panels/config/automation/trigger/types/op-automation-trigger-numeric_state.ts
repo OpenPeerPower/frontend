@@ -4,9 +4,9 @@ import { customElement, html, LitElement, property } from "lit-element";
 import "../../../../../components/entity/op-entity-picker";
 import { ForDict, NumericStateTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-trigger-row";
+import { handleChangeEvent } from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-numeric_state")
+@customElement("op-automation-trigger-numeric_state")
 export default class HaNumericStateTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -99,6 +99,6 @@ export default class HaNumericStateTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-numeric_state": HaNumericStateTrigger;
+    "op-automation-trigger-numeric_state": HaNumericStateTrigger;
   }
 }

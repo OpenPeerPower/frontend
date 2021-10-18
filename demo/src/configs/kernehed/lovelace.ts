@@ -6,7 +6,7 @@ export const demoLovelaceKernehed: DemoConfig["lovelace"] = () => ({
   views: [
     {
       cards: [
-        { type: "custom:ha-demo-card" },
+        { type: "custom:op-demo-card" },
         {
           cards: [
             {

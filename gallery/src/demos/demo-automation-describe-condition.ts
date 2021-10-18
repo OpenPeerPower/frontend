@@ -1,7 +1,7 @@
 import { dump } from "js-yaml";
 import { html, css, LitElement, TemplateResult } from "lit";
 import { customElement } from "lit/decorators";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import { describeCondition } from "../../../src/data/automation_i18n";
 
 const conditions = [
@@ -36,7 +36,7 @@ export class DemoAutomationDescribeCondition extends LitElement {
 
   static get styles() {
     return css`
-      ha-card {
+      op-card {
         max-width: 600px;
         margin: 24px auto;
       }

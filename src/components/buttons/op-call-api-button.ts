@@ -2,7 +2,7 @@ import { css, CSSResultGroup, html, LitElement } from "lit";
 import { property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { OpenPeerPower } from "../../types";
-import "./ha-progress-button";
+import "./op-progress-button";
 
 class HaCallApiButton extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
@@ -17,7 +17,7 @@ class HaCallApiButton extends LitElement {
 
   @property() public path?: string;
 
-  @query("ha-progress-button", true) private _progressButton;
+  @query("op-progress-button", true) private _progressButton;
 
   render() {
     return html`

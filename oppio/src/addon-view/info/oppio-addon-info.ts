@@ -22,8 +22,8 @@ import { atLeastVersion } from "../../../../src/common/config/version";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import { navigate } from "../../../../src/common/navigate";
 import "../../../../src/components/buttons/ha-call-api-button";
-import "../../../../src/components/buttons/ha-progress-button";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/buttons/op-progress-button";
+import "../../../../src/components/op-card";
 import "../../../../src/components/op-label-badge";
 import "../../../../src/components/ha-markdown";
 import "../../../../src/components/op-settings-row";
@@ -1107,21 +1107,21 @@ class OppioAddonInfo extends LitElement {
         :host {
           display: block;
         }
-        ha-card {
+        op-card {
           display: block;
           margin-bottom: 16px;
         }
-        ha-card.warning {
+        op-card.warning {
           background-color: var(--error-color);
           color: white;
         }
-        ha-card.warning .card-header {
+        op-card.warning .card-header {
           color: white;
         }
-        ha-card.warning .card-content {
+        op-card.warning .card-content {
           color: white;
         }
-        ha-card.warning mwc-button {
+        op-card.warning mwc-button {
           --mdc-theme-primary: white !important;
         }
         .warning {

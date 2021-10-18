@@ -16,11 +16,11 @@ import "../../../components/op-icon-next";
 import "../../../components/ha-menu-button";
 import "../../../components/op-svg-icon";
 import { CloudStatus } from "../../../data/cloud";
-import "../../../layouts/ha-app-layout";
+import "../../../layouts/op-app-layout";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import "./ha-config-navigation";
 
 @customElement("ha-config-dashboard")

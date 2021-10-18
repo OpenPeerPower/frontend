@@ -3,7 +3,7 @@ import "@polymer/paper-listbox/paper-listbox";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../components/ha-paper-dropdown-menu";
+import "../../components/op-paper-dropdown-menu";
 import "../../components/op-settings-row";
 import { EventsMixin } from "../../mixins/events-mixin";
 import LocalizeMixin from "../../mixins/localize-mixin";
@@ -108,4 +108,4 @@ class HaPickLanguageRow extends LocalizeMixin(EventsMixin(PolymerElement)) {
   }
 }
 
-customElements.define("ha-pick-language-row", HaPickLanguageRow);
+customElements.define("op-pick-language-row", HaPickLanguageRow);

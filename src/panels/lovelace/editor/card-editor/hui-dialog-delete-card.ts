@@ -12,8 +12,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/dialog/ha-paper-dialog";
-import type { HaPaperDialog } from "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
+import type { HaPaperDialog } from "../../../../components/dialog/op-paper-dialog";
 import type { LovelaceCardConfig } from "../../../../data/lovelace";
 import { haStyleDialog } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
@@ -28,7 +28,7 @@ export class HuiDialogDeleteCard extends LitElement {
 
   @internalProperty() private _cardConfig?: LovelaceCardConfig;
 
-  @query("ha-paper-dialog", true) private _dialog!: HaPaperDialog;
+  @query("op-paper-dialog", true) private _dialog!: HaPaperDialog;
 
   public async showDialog(params: DeleteCardDialogParams): Promise<void> {
     this._params = params;

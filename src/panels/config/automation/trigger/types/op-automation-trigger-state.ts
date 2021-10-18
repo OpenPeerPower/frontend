@@ -7,9 +7,9 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-state")
+@customElement("op-automation-trigger-state")
 export class HaStateTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -92,6 +92,6 @@ export class HaStateTrigger extends LitElement implements TriggerElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-state": HaStateTrigger;
+    "op-automation-trigger-state": HaStateTrigger;
   }
 }

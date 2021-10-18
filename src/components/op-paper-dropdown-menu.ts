@@ -21,8 +21,8 @@ export class HaPaperDropdownClass extends paperDropdownClass {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-paper-dropdown-menu": HaPaperDropdownClass;
+    "op-paper-dropdown-menu": HaPaperDropdownClass;
   }
 }
 
-customElements.define("ha-paper-dropdown-menu", HaPaperDropdownClass);
+customElements.define("op-paper-dropdown-menu", HaPaperDropdownClass);

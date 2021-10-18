@@ -3,7 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { formatTime } from "../../../common/datetime/format_time";
 import { formatNumber } from "../../../common/string/format_number";
-import "../../../components/ha-relative-time";
+import "../../../components/op-relative-time";
 import { OpenPeerPower } from "../../../types";
 
 @customElement("more-info-sun")
@@ -69,11 +69,11 @@ class MoreInfoSun extends LitElement {
         flex-direction: row;
         justify-content: space-between;
       }
-      ha-relative-time {
+      op-relative-time {
         display: inline-block;
         white-space: nowrap;
       }
-      ha-relative-time::first-letter {
+      op-relative-time::first-letter {
         text-transform: lowercase;
       }
       hr {

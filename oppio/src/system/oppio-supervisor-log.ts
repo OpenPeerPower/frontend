@@ -4,8 +4,8 @@ import "@polymer/paper-item/paper-item";
 import "@polymer/paper-listbox/paper-listbox";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
-import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-card";
+import "../../../src/components/buttons/op-progress-button";
+import "../../../src/components/op-card";
 import { extractApiErrorMessage } from "../../../src/data/oppio/common";
 import { fetchOppioLogs } from "../../../src/data/oppio/supervisor";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
@@ -143,7 +143,7 @@ class OppioSupervisorLog extends LitElement {
       haStyle,
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           margin-top: 8px;
           width: 100%;
         }

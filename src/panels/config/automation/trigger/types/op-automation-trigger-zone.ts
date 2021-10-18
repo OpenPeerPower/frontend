@@ -16,7 +16,7 @@ function zoneAndLocationFilter(stateObj) {
 
 const includeDomains = ["zone"];
 
-@customElement("ha-automation-trigger-zone")
+@customElement("op-automation-trigger-zone")
 export class HaZoneTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -104,6 +104,6 @@ export class HaZoneTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-zone": HaZoneTrigger;
+    "op-automation-trigger-zone": HaZoneTrigger;
   }
 }

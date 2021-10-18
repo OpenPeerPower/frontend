@@ -3,10 +3,10 @@ import "@polymer/paper-listbox/paper-listbox";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-attributes";
+import "../../../components/op-attributes";
 import "../../../components/op-icon";
 import "../../../components/op-icon-button";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import {
   VacuumEntity,
   VACUUM_SUPPORT_BATTERY,

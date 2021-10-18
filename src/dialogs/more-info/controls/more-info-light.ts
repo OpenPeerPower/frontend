@@ -11,12 +11,12 @@ import {
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-attributes";
+import "../../../components/op-attributes";
 import "../../../components/op-button-toggle-group";
 import "../../../components/ha-color-picker";
 import "../../../components/op-icon-button";
 import "../../../components/op-labeled-slider";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import {
   getLightCurrentModeRgbColor,
   LightColorModes,

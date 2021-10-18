@@ -5,14 +5,14 @@ export interface QuickBarParams {
   commandMode?: boolean;
 }
 
-export const loadQuickBar = () => import("./ha-quick-bar");
+export const loadQuickBar = () => import("./op-quick-bar");
 
 export const showQuickBar = (
   element: HTMLElement,
   dialogParams: QuickBarParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "ha-quick-bar",
+    dialogTag: "op-quick-bar",
     dialogImport: loadQuickBar,
     dialogParams,
   });

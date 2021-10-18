@@ -16,7 +16,7 @@ import { navigate } from "../../../common/navigate";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
-} from "../../../components/data-table/ha-data-table";
+} from "../../../components/data-table/op-data-table";
 import "../../../components/op-fab";
 import "../../../components/op-icon-button";
 import "../../../components/op-svg-icon";
@@ -33,7 +33,7 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../types";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import {
   loadAreaRegistryDetailDialog,
   showAreaRegistryDetailDialog,

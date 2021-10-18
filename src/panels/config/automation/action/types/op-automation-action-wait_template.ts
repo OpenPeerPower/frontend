@@ -5,9 +5,9 @@ import { html } from "lit-html";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { WaitAction } from "../../../../../data/script";
 import { OpenPeerPower } from "../../../../../types";
-import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
+import { ActionElement, handleChangeEvent } from "../op-automation-action-row";
 
-@customElement("ha-automation-action-wait_template")
+@customElement("op-automation-action-wait_template")
 export class HaWaitAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -65,6 +65,6 @@ export class HaWaitAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-wait_template": HaWaitAction;
+    "op-automation-action-wait_template": HaWaitAction;
   }
 }

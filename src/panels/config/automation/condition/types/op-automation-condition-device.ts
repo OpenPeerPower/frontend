@@ -7,8 +7,8 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/device/ha-device-condition-picker";
-import "../../../../../components/device/ha-device-picker";
+import "../../../../../components/device/op-device-condition-picker";
+import "../../../../../components/device/op-device-picker";
 import "../../../../../components/ha-form/ha-form";
 import {
   deviceAutomationsEqual,
@@ -18,7 +18,7 @@ import {
 } from "../../../../../data/device_automation";
 import { OpenPeerPower } from "../../../../../types";
 
-@customElement("ha-automation-condition-device")
+@customElement("op-automation-condition-device")
 export class HaDeviceCondition extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -151,6 +151,6 @@ export class HaDeviceCondition extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-device": HaDeviceCondition;
+    "op-automation-condition-device": HaDeviceCondition;
   }
 }

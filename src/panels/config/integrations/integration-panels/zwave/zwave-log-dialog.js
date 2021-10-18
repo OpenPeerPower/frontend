@@ -2,7 +2,7 @@ import "@polymer/paper-dialog-scrollable/paper-dialog-scrollable";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../../../components/dialog/ha-paper-dialog";
+import "../../../../../components/dialog/op-paper-dialog";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import "../../../../../styles/polymer-op-style-dialog";
 

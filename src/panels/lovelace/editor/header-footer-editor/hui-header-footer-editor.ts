@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-paper-dropdown-menu";
+import "../../../../components/op-paper-dropdown-menu";
 import "../../../../components/op-svg-icon";
 import type { LovelaceConfig } from "../../../../data/lovelace";
 import type { OpenPeerPower } from "../../../../types";

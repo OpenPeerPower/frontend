@@ -70,7 +70,7 @@ const i18n = {
     return undefined;
   },
 };
-@customElement("ha-date-input")
+@customElement("op-date-input")
 export class HaDateInput extends LitElement {
   @property() public value?: string;
 
@@ -139,6 +139,6 @@ export class HaDateInput extends LitElement {
 }
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-date-input": HaDateInput;
+    "op-date-input": HaDateInput;
   }
 }

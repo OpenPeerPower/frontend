@@ -10,7 +10,7 @@ import {
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { navigate } from "../../../src/common/navigate";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import {
   OppioAddonInfo,
   OppioAddonRepository,
@@ -137,7 +137,7 @@ class OppioAddonRepositoryEl extends LitElement {
     return [
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           cursor: pointer;
         }
         .not_available {

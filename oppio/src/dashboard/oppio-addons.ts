@@ -4,7 +4,7 @@ import { customElement, property } from "lit/decorators";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { navigate } from "../../../src/common/navigate";
 import { compare } from "../../../src/common/string/compare";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import { Supervisor } from "../../../src/data/supervisor/supervisor";
 import { haStyle } from "../../../src/resources/styles";
 import { OpenPeerPower } from "../../../src/types";
@@ -88,7 +88,7 @@ class OppioAddons extends LitElement {
       haStyle,
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           cursor: pointer;
         }
       `,

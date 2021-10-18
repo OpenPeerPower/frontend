@@ -23,7 +23,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { stateIcon } from "../../../common/entity/state_icon";
-import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
+import { DataTableColumnContainer } from "../../../components/data-table/op-data-table";
 import "../../../components/op-fab";
 import "../../../components/op-icon";
 import "../../../components/op-svg-icon";
@@ -36,7 +36,7 @@ import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import { showToast } from "../../../util/toast";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 @customElement("op-scene-dashboard")
 class HaSceneDashboard extends LitElement {

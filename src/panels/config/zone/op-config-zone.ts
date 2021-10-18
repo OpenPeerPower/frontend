@@ -49,7 +49,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import type { OpenPeerPower, Route } from "../../../types";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { showZoneDetailDialog } from "./show-dialog-zone-detail";
 
 @customElement("ha-config-zone")

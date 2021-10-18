@@ -13,7 +13,7 @@ export const showThingtalkDialog = (
   dialogParams: ThingtalkDialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "ha-dialog-thinktalk",
+    dialogTag: "op-dialog-thinktalk",
     dialogImport: loadThingtalkDialog,
     dialogParams,
   });

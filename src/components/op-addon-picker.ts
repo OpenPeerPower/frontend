@@ -24,7 +24,7 @@ const rowRenderer: ComboBoxLitRenderer<OppioAddonInfo> = (item) => html`<style>
     </paper-item-body>
   </paper-item>`;
 
-@customElement("ha-addon-picker")
+@customElement("op-addon-picker")
 class HaAddonPicker extends LitElement {
   public opp!: OpenPeerPower;
 
@@ -124,6 +124,6 @@ class HaAddonPicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-addon-picker": HaAddonPicker;
+    "op-addon-picker": HaAddonPicker;
   }
 }

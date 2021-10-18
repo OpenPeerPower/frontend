@@ -1,11 +1,11 @@
 import { customElement } from "lit/decorators";
-import { HaLogicalCondition } from "./ha-automation-condition-logical";
+import { HaLogicalCondition } from "./op-automation-condition-logical";
 
-@customElement("ha-automation-condition-or")
+@customElement("op-automation-condition-or")
 export class HaOrCondition extends HaLogicalCondition {}
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-or": HaOrCondition;
+    "op-automation-condition-or": HaOrCondition;
   }
 }

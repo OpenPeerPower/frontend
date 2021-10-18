@@ -15,7 +15,7 @@ import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
 import { formatAsPaddedHex } from "../../../../integrations/integration-panels/zha/functions";
 
-@customElement("ha-device-info-zha")
+@customElement("op-device-info-zha")
 export class HaDeviceActionsZha extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

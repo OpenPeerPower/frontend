@@ -41,4 +41,4 @@ class HaPanelIframe extends PolymerElement {
   }
 }
 
-customElements.define("ha-panel-iframe", HaPanelIframe);
+customElements.define("op-panel-iframe", HaPanelIframe);

@@ -6,7 +6,7 @@ import { showConfirmationDialog } from "../../../../../../dialogs/generic/show-d
 import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
 
-@customElement("ha-device-actions-tasmota")
+@customElement("op-device-actions-tasmota")
 export class HaDeviceActionsTasmota extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

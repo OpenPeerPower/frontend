@@ -359,4 +359,4 @@ class LovelacePanel extends LitElement {
   }
 }
 
-customElements.define("ha-panel-lovelace", LovelacePanel);
+customElements.define("op-panel-lovelace", LovelacePanel);

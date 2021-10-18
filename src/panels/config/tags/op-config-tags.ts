@@ -15,10 +15,10 @@ import {
   PropertyValues,
 } from "lit-element";
 import memoizeOne from "memoize-one";
-import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
+import { DataTableColumnContainer } from "../../../components/data-table/op-data-table";
 import "../../../components/op-card";
 import "../../../components/op-fab";
-import "../../../components/ha-relative-time";
+import "../../../components/op-relative-time";
 import { showAutomationEditor, TagTrigger } from "../../../data/automation";
 import {
   createTag,
@@ -39,7 +39,7 @@ import "../../../layouts/opp-tabs-subpage-data-table";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { showTagDetailDialog } from "./show-dialog-tag-detail";
 import "./tag-image";
 

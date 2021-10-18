@@ -11,8 +11,8 @@ import {
   TemplateResult,
 } from "lit-element";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
-import "../../../components/ha-analytics";
-import { analyticsLearnMore } from "../../../components/ha-analytics-learn-more";
+import "../../../components/op-analytics";
+import { analyticsLearnMore } from "../../../components/op-analytics-learn-more";
 import "../../../components/op-card";
 import "../../../components/ha-checkbox";
 import "../../../components/op-settings-row";

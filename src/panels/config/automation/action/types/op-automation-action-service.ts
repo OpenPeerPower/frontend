@@ -14,7 +14,7 @@ import { fireEvent } from "../../../../../common/dom/fire_event";
 import { ServiceAction } from "../../../../../data/script";
 import type { OpenPeerPower } from "../../../../../types";
 import { EntityIdOrAll } from "../../../../../common/structs/is-entity-id";
-import { ActionElement } from "../ha-automation-action-row";
+import { ActionElement } from "../op-automation-action-row";
 import "../../../../../components/op-service-control";
 import { hasTemplate } from "../../../../../common/string/has-template";
 
@@ -25,7 +25,7 @@ const actionStruct = object({
   data: optional(any()),
 });
 
-@customElement("ha-automation-action-service")
+@customElement("op-automation-action-service")
 export class HaServiceAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -98,6 +98,6 @@ export class HaServiceAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-service": HaServiceAction;
+    "op-automation-action-service": HaServiceAction;
   }
 }

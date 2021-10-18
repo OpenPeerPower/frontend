@@ -2,7 +2,7 @@ import "@polymer/paper-dialog/paper-dialog";
 import type { PaperDialogElement } from "@polymer/paper-dialog/paper-dialog";
 import { mixinBehaviors } from "@polymer/polymer/lib/legacy/class";
 import type { Constructor } from "../../types";
-import { HaIronFocusablesHelper } from "./ha-iron-focusables-helper";
+import { HaIronFocusablesHelper } from "./op-iron-focusables-helper";
 
 const paperDialogClass = customElements.get("paper-dialog") as Constructor<
   PaperDialogElement
@@ -24,8 +24,8 @@ export class HaPaperDialog
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-paper-dialog": HaPaperDialog;
+    "op-paper-dialog": HaPaperDialog;
   }
 }
 // @ts-ignore
-customElements.define("ha-paper-dialog", HaPaperDialog);
+customElements.define("op-paper-dialog", HaPaperDialog);

@@ -89,7 +89,7 @@ export interface SortableColumnContainer {
   [key: string]: ClonedDataTableColumnData;
 }
 
-@customElement("ha-data-table")
+@customElement("op-data-table")
 export class HaDataTable extends LitElement {
   @property({ type: Object }) public columns: DataTableColumnContainer = {};
 
@@ -939,6 +939,6 @@ export class HaDataTable extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-data-table": HaDataTable;
+    "op-data-table": HaDataTable;
   }
 }

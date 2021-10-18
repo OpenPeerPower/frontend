@@ -13,9 +13,9 @@ import { HaFormTimeData } from "../../../../../components/ha-form/ha-form";
 import "../../../../../components/op-service-picker";
 import { DelayAction } from "../../../../../data/script";
 import { OpenPeerPower } from "../../../../../types";
-import { ActionElement } from "../ha-automation-action-row";
+import { ActionElement } from "../op-automation-action-row";
 
-@customElement("ha-automation-action-delay")
+@customElement("op-automation-action-delay")
 export class HaDelayAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -88,6 +88,6 @@ export class HaDelayAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-delay": HaDelayAction;
+    "op-automation-action-delay": HaDelayAction;
   }
 }

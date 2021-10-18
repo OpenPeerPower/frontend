@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
-import { createCloseHeading } from "../../components/ha-dialog";
+import { createCloseHeading } from "../../components/op-dialog";
 import "../../components/ha-hls-player";
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
@@ -96,7 +96,7 @@ export class HuiDialogWebBrowserPlayMedia extends LitElement {
       haStyleDialog,
       css`
         @media (min-width: 800px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 800px;
             --mdc-dialog-min-width: 400px;
           }

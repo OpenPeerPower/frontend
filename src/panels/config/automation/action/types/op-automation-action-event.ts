@@ -14,9 +14,9 @@ import "../../../../../components/op-yaml-editor";
 import type { HaYamlEditor } from "../../../../../components/op-yaml-editor";
 import type { EventAction } from "../../../../../data/script";
 import type { OpenPeerPower } from "../../../../../types";
-import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
+import { ActionElement, handleChangeEvent } from "../op-automation-action-row";
 
-@customElement("ha-automation-action-event")
+@customElement("op-automation-action-event")
 export class HaEventAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -84,6 +84,6 @@ export class HaEventAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-event": HaEventAction;
+    "op-automation-action-event": HaEventAction;
   }
 }

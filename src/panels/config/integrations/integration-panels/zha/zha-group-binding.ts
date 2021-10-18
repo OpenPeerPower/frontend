@@ -16,7 +16,7 @@ import {
 } from "lit-element";
 import type { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/buttons/ha-call-service-button";
-import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import { SelectionChangedEvent } from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-service-description";

@@ -19,7 +19,7 @@ import {
 import { TargetSelector } from "../../data/selector";
 import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../../types";
-import "../ha-target-picker";
+import "../op-target-picker";
 
 @customElement("op-selector-target")
 export class HaTargetSelector extends SubscribeMixin(LitElement) {
@@ -148,7 +148,7 @@ export class HaTargetSelector extends SubscribeMixin(LitElement) {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-target-picker {
+      op-target-picker {
         display: block;
       }
     `;

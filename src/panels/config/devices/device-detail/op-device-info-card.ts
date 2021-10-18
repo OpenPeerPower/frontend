@@ -15,7 +15,7 @@ import {
 import { OpenPeerPower } from "../../../../types";
 import { loadDeviceRegistryDetailDialog } from "../device-registry-detail/show-dialog-device-registry-detail";
 
-@customElement("ha-device-info-card")
+@customElement("op-device-info-card")
 export class HaDeviceCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

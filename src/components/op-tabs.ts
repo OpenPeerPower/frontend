@@ -11,7 +11,7 @@ const PaperTabs = customElements.get(
 
 let subTemplate: HTMLTemplateElement;
 
-@customElement("ha-tabs")
+@customElement("op-tabs")
 export class HaTabs extends PaperTabs {
   private _firstTabWidth = 0;
 
@@ -95,6 +95,6 @@ export class HaTabs extends PaperTabs {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-tabs": HaTabs;
+    "op-tabs": HaTabs;
   }
 }

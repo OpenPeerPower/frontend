@@ -27,8 +27,8 @@ class ZHAConfigDashboardRouter extends OppRouterPage {
         load: () => import("./zha-config-dashboard"),
       },
       add: {
-        tag: "zha-add-devices-page",
-        load: () => import("./zha-add-devices-page"),
+        tag: "zop-add-devices-page",
+        load: () => import("./zop-add-devices-page"),
       },
       groups: {
         tag: "zha-groups-dashboard",
@@ -39,8 +39,8 @@ class ZHAConfigDashboardRouter extends OppRouterPage {
         load: () => import("./zha-group-page"),
       },
       "group-add": {
-        tag: "zha-add-group-page",
-        load: () => import("./zha-add-group-page"),
+        tag: "zop-add-group-page",
+        load: () => import("./zop-add-group-page"),
       },
       visualization: {
         tag: "zha-network-visualization-page",

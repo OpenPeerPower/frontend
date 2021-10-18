@@ -24,7 +24,7 @@ export interface DateRangePickerRanges {
   [key: string]: [Date, Date];
 }
 
-@customElement("ha-date-range-picker")
+@customElement("op-date-range-picker")
 export class HaDateRangePicker extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -190,6 +190,6 @@ export class HaDateRangePicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-date-range-picker": HaDateRangePicker;
+    "op-date-range-picker": HaDateRangePicker;
   }
 }

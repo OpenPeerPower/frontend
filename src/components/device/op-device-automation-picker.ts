@@ -10,7 +10,7 @@ import {
   deviceAutomationsEqual,
 } from "../../data/device_automation";
 import { OpenPeerPower } from "../../types";
-import "../ha-paper-dropdown-menu";
+import "../op-paper-dropdown-menu";
 
 const NO_AUTOMATION_KEY = "NO_AUTOMATION";
 const UNKNOWN_AUTOMATION_KEY = "UNKNOWN_AUTOMATION";
@@ -183,7 +183,7 @@ export abstract class HaDeviceAutomationPicker<
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-paper-dropdown-menu {
+      op-paper-dropdown-menu {
         width: 100%;
       }
       paper-listbox {

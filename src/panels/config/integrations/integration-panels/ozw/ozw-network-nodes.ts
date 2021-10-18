@@ -16,7 +16,7 @@ import "../../../../../components/buttons/ha-call-service-button";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
-} from "../../../../../components/data-table/ha-data-table";
+} from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import { fetchOZWNodes, OZWDevice } from "../../../../../data/ozw";

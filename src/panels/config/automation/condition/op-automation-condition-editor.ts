@@ -16,16 +16,16 @@ import "../../../../components/op-yaml-editor";
 import type { Condition } from "../../../../data/automation";
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
-import "./types/ha-automation-condition-and";
-import "./types/ha-automation-condition-device";
-import "./types/ha-automation-condition-not";
-import "./types/ha-automation-condition-numeric_state";
-import "./types/ha-automation-condition-or";
-import "./types/ha-automation-condition-state";
-import "./types/ha-automation-condition-sun";
-import "./types/ha-automation-condition-template";
-import "./types/ha-automation-condition-time";
-import "./types/ha-automation-condition-zone";
+import "./types/op-automation-condition-and";
+import "./types/op-automation-condition-device";
+import "./types/op-automation-condition-not";
+import "./types/op-automation-condition-numeric_state";
+import "./types/op-automation-condition-or";
+import "./types/op-automation-condition-state";
+import "./types/op-automation-condition-sun";
+import "./types/op-automation-condition-template";
+import "./types/op-automation-condition-time";
+import "./types/op-automation-condition-zone";
 
 const OPTIONS = [
   "device",
@@ -40,7 +40,7 @@ const OPTIONS = [
   "zone",
 ];
 
-@customElement("ha-automation-condition-editor")
+@customElement("op-automation-condition-editor")
 export default class HaAutomationConditionEditor extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -98,7 +98,7 @@ export default class HaAutomationConditionEditor extends LitElement {
             </paper-dropdown-menu-light>
             <div>
               ${dynamicElement(
-                `ha-automation-condition-${this.condition.condition}`,
+                `op-automation-condition-${this.condition.condition}`,
                 { opp: this.opp, condition: this.condition }
               )}
             </div>
@@ -114,7 +114,7 @@ export default class HaAutomationConditionEditor extends LitElement {
       return;
     }
 
-    const elClass = customElements.get(`ha-automation-condition-${type}`);
+    const elClass = customElements.get(`op-automation-condition-${type}`);
 
     if (type !== this.condition.condition) {
       fireEvent(this, "value-changed", {
@@ -141,6 +141,6 @@ export default class HaAutomationConditionEditor extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-editor": HaAutomationConditionEditor;
+    "op-automation-condition-editor": HaAutomationConditionEditor;
   }
 }

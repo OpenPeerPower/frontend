@@ -7,7 +7,7 @@ import type { LogbookEntry } from "../../data/logbook";
 import type { TraceExtended } from "../../data/trace";
 import type { OpenPeerPower } from "../../types";
 
-@customElement("ha-trace-timeline")
+@customElement("op-trace-timeline")
 export class HaTraceTimeline extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -45,6 +45,6 @@ export class HaTraceTimeline extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-trace-timeline": HaTraceTimeline;
+    "op-trace-timeline": HaTraceTimeline;
   }
 }

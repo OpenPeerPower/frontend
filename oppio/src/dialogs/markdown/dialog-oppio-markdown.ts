@@ -1,6 +1,6 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
-import { createCloseHeading } from "../../../../src/components/ha-dialog";
+import { createCloseHeading } from "../../../../src/components/op-dialog";
 import "../../../../src/components/ha-markdown";
 import { haStyleDialog } from "../../../../src/resources/styles";
 import { OpenPeerPower } from "../../../../src/types";
@@ -47,7 +47,7 @@ class OppioMarkdownDialog extends LitElement {
       haStyleDialog,
       oppioStyle,
       css`
-        ha-paper-dialog {
+        op-paper-dialog {
           min-width: 350px;
           font-size: 14px;
           border-radius: 2px;
@@ -62,10 +62,10 @@ class OppioMarkdownDialog extends LitElement {
           margin-left: 16px;
         }
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-paper-dialog {
+          op-paper-dialog {
             max-height: 100%;
           }
-          ha-paper-dialog::before {
+          op-paper-dialog::before {
             content: "";
             position: fixed;
             z-index: -1;

@@ -1,7 +1,7 @@
 import { dump } from "js-yaml";
 import { html, css, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import { describeAction } from "../../../src/data/script_i18n";
 import { provideOpp } from "../../../src/fake_data/provide_opp";
 import { OpenPeerPower } from "../../../src/types";
@@ -72,7 +72,7 @@ export class DemoAutomationDescribeAction extends LitElement {
 
   static get styles() {
     return css`
-      ha-card {
+      op-card {
         max-width: 600px;
         margin: 24px auto;
       }

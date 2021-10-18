@@ -25,9 +25,9 @@ import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import "../ha-config-section";
-import "./action/ha-automation-action";
-import "./condition/ha-automation-condition";
-import "./trigger/ha-automation-trigger";
+import "./action/op-automation-action";
+import "./condition/op-automation-condition";
+import "./trigger/op-automation-trigger";
 
 @customElement("manual-automation-editor")
 export class HaManualAutomationEditor extends LitElement {

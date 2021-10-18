@@ -10,9 +10,9 @@ import type { OpenPeerPower } from "../../../../../types";
 import {
   ConditionElement,
   handleChangeEvent,
-} from "../ha-automation-condition-row";
+} from "../op-automation-condition-row";
 
-@customElement("ha-automation-condition-sun")
+@customElement("op-automation-condition-sun")
 export class HaSunCondition extends LitElement implements ConditionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

@@ -14,7 +14,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { computeRTL } from "../../../../common/util/compute_rtl";
-import type { DataTableRowData } from "../../../../components/data-table/ha-data-table";
+import type { DataTableRowData } from "../../../../components/data-table/op-data-table";
 import "../../../../components/op-fab";
 import "../../../../components/op-svg-icon";
 import type { LovelaceConfig } from "../../../../data/lovelace";

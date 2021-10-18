@@ -7,9 +7,9 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   ConditionElement,
   handleChangeEvent,
-} from "../ha-automation-condition-row";
+} from "../op-automation-condition-row";
 
-@customElement("ha-automation-condition-state")
+@customElement("op-automation-condition-state")
 export class HaStateCondition extends LitElement implements ConditionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -84,6 +84,6 @@ export class HaStateCondition extends LitElement implements ConditionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-state": HaStateCondition;
+    "op-automation-condition-state": HaStateCondition;
   }
 }

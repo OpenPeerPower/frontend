@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeDomain } from "../../../common/entity/compute_domain";
-import "../../../components/ha-area-picker";
+import "../../../components/op-area-picker";
 import "../../../components/op-switch";
 import type { HaSwitch } from "../../../components/op-switch";
 import {
@@ -28,7 +28,7 @@ import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import type { PolymerChangedEvent } from "../../../polymer-types";
 import type { OpenPeerPower } from "../../../types";
 
-@customElement("ha-registry-basic-editor")
+@customElement("op-registry-basic-editor")
 export class HaEntityRegistryBasicEditor extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

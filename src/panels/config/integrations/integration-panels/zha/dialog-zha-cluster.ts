@@ -10,7 +10,7 @@ import {
 } from "lit-element";
 import { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/ha-code-editor";
-import { createCloseHeading } from "../../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../../components/op-dialog";
 import {
   Cluster,
   fetchBindableDevices,
@@ -21,12 +21,12 @@ import {
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { sortZHADevices, sortZHAGroups } from "./functions";
-import { ZHADeviceZigbeeInfoDialogParams } from "./show-dialog-zha-device-zigbee-info";
+import { ZHADeviceZigbeeInfoDialogParams } from "./show-dialog-zop-device-zigbee-info";
 import { ZHAClusterSelectedParams } from "./types";
 import "./zha-cluster-attributes";
 import "./zha-cluster-commands";
 import "./zha-clusters";
-import "./zha-device-binding";
+import "./zop-device-binding";
 import "./zha-group-binding";
 
 @customElement("dialog-zha-cluster")
@@ -90,11 +90,11 @@ class DialogZHACluster extends LitElement {
           : ""}
         ${this._bindableDevices.length > 0
           ? html`
-              <zha-device-binding-control
+              <zop-device-binding-control
                 .opp=${this.opp}
                 .selectedDevice="${this._device}"
                 .bindableDevices="${this._bindableDevices}"
-              ></zha-device-binding-control>
+              ></zop-device-binding-control>
             `
           : ""}
         ${this._device && this._groups.length > 0

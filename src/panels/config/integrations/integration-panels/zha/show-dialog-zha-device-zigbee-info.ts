@@ -6,14 +6,14 @@ export interface ZHADeviceZigbeeInfoDialogParams {
 }
 
 export const loadZHADeviceZigbeeInfoDialog = () =>
-  import("./dialog-zha-device-zigbee-info");
+  import("./dialog-zop-device-zigbee-info");
 
 export const showZHADeviceZigbeeInfoDialog = (
   element: HTMLElement,
   zhaDeviceZigbeeInfoParams: ZHADeviceZigbeeInfoDialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "dialog-zha-device-zigbee-info",
+    dialogTag: "dialog-zop-device-zigbee-info",
     dialogImport: loadZHADeviceZigbeeInfoDialog,
     dialogParams: zhaDeviceZigbeeInfoParams,
   });

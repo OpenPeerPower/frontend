@@ -11,7 +11,7 @@ import {
 import "../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import "./error-log-card";
 import "./system-log-card";
 import type { SystemLogCard } from "./system-log-card";

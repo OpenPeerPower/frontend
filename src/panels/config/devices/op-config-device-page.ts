@@ -16,7 +16,7 @@ import { computeStateDomain } from "../../../common/entity/compute_state_domain"
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { compare } from "../../../common/string/compare";
 import { slugify } from "../../../common/string/slugify";
-import "../../../components/entity/ha-battery-icon";
+import "../../../components/entity/op-battery-icon";
 import "../../../components/op-icon-next";
 import { AreaRegistryEntry } from "../../../data/area_registry";
 import { ConfigEntry, disableConfigEntry } from "../../../data/config_entries";
@@ -40,9 +40,9 @@ import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { brandsUrl } from "../../../util/brands-url";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
-import "./device-detail/ha-device-entities-card";
-import "./device-detail/ha-device-info-card";
+import { configSections } from "../op-panel-config";
+import "./device-detail/op-device-entities-card";
+import "./device-detail/op-device-info-card";
 import { showDeviceAutomationDialog } from "./device-detail/show-dialog-device-automation";
 import {
   loadDeviceRegistryDetailDialog,
@@ -563,7 +563,7 @@ export class HaConfigDevicePage extends LitElement {
     const templates: TemplateResult[] = [];
     if (integrations.includes("mqtt")) {
       import(
-        "./device-detail/integration-elements/mqtt/ha-device-actions-mqtt"
+        "./device-detail/integration-elements/mqtt/op-device-actions-mqtt"
       );
       templates.push(html`
         <div class="card-actions" slot="actions">
@@ -575,8 +575,8 @@ export class HaConfigDevicePage extends LitElement {
       `);
     }
     if (integrations.includes("ozw")) {
-      import("./device-detail/integration-elements/ozw/ha-device-actions-ozw");
-      import("./device-detail/integration-elements/ozw/ha-device-info-ozw");
+      import("./device-detail/integration-elements/ozw/op-device-actions-ozw");
+      import("./device-detail/integration-elements/ozw/op-device-info-ozw");
       templates.push(html`
         <op-device-info-ozw
           .opp=${this.opp}
@@ -592,7 +592,7 @@ export class HaConfigDevicePage extends LitElement {
     }
     if (integrations.includes("tasmota")) {
       import(
-        "./device-detail/integration-elements/tasmota/ha-device-actions-tasmota"
+        "./device-detail/integration-elements/tasmota/op-device-actions-tasmota"
       );
       templates.push(html`
         <div class="card-actions" slot="actions">
@@ -604,8 +604,8 @@ export class HaConfigDevicePage extends LitElement {
       `);
     }
     if (integrations.includes("zha")) {
-      import("./device-detail/integration-elements/zha/ha-device-actions-zha");
-      import("./device-detail/integration-elements/zha/ha-device-info-zha");
+      import("./device-detail/integration-elements/zha/op-device-actions-zha");
+      import("./device-detail/integration-elements/zha/op-device-info-zha");
       templates.push(html`
         <op-device-info-zha
           .opp=${this.opp}
@@ -621,10 +621,10 @@ export class HaConfigDevicePage extends LitElement {
     }
     if (integrations.includes("zwave_js")) {
       import(
-        "./device-detail/integration-elements/zwave_js/ha-device-info-zwave_js"
+        "./device-detail/integration-elements/zwave_js/op-device-info-zwave_js"
       );
       import(
-        "./device-detail/integration-elements/zwave_js/ha-device-actions-zwave_js"
+        "./device-detail/integration-elements/zwave_js/op-device-actions-zwave_js"
       );
       templates.push(html`
         <op-device-info-zwave_js

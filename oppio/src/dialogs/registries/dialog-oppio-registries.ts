@@ -6,7 +6,7 @@ import { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "../../../../src/components/op-circular-progress";
-import { createCloseHeading } from "../../../../src/components/ha-dialog";
+import { createCloseHeading } from "../../../../src/components/op-dialog";
 import "../../../../src/components/op-svg-icon";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import {
@@ -217,7 +217,7 @@ class OppioRegistriesDialog extends LitElement {
       haStyle,
       haStyleDialog,
       css`
-        ha-dialog.button-left {
+        op-dialog.button-left {
           --justify-action-buttons: flex-start;
         }
         paper-icon-item {

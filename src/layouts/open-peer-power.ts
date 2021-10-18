@@ -12,7 +12,7 @@ import {
   registerServiceWorker,
   supportsServiceWorker,
 } from "../util/register-service-worker";
-import "./ha-init-page";
+import "./op-init-page";
 import "./openpeerpower-main";
 
 const useHash = __DEMO__;

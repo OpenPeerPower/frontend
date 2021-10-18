@@ -1,7 +1,7 @@
 import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/op-card";
 import {
   fetchOppioAddonLogs,
   OppioAddonDetails,
@@ -57,7 +57,7 @@ class OppioAddonLogs extends LitElement {
       oppioStyle,
       css`
         :host,
-        ha-card {
+        op-card {
           display: block;
         }
         .errors {

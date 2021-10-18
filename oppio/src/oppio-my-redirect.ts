@@ -12,7 +12,7 @@ import {
   ParamType,
   Redirect,
   Redirects,
-} from "../../src/panels/my/ha-panel-my";
+} from "../../src/panels/my/op-panel-my";
 import { OpenPeerPower, Route } from "../../src/types";
 
 const REDIRECTS: Redirects = {

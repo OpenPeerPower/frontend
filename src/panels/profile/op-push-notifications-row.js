@@ -4,7 +4,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
-import { pushSupported } from "../../components/ha-push-notifications-toggle";
+import { pushSupported } from "../../components/op-push-notifications-toggle";
 import "../../components/op-settings-row";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import { documentationUrl } from "../../util/documentation-url";
@@ -89,4 +89,4 @@ class HaPushNotificationsRow extends LocalizeMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-push-notifications-row", HaPushNotificationsRow);
+customElements.define("op-push-notifications-row", HaPushNotificationsRow);

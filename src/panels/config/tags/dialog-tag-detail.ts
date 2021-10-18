@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import { createCloseHeading } from "../../../components/ha-dialog";
+import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/op-switch";
 import "../../../components/map/ha-location-editor";

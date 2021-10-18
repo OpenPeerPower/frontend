@@ -37,15 +37,15 @@ import {
 } from "../data/entity_registry";
 import { SubscribeMixin } from "../mixins/subscribe-mixin";
 import { OpenPeerPower } from "../types";
-import "./device/ha-device-picker";
-import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
+import "./device/op-device-picker";
+import type { HaDevicePickerDeviceFilterFunc } from "./device/op-device-picker";
 import "./entity/op-entity-picker";
 import type { HaEntityPickerEntityFilterFunc } from "./entity/op-entity-picker";
-import "./ha-area-picker";
+import "./op-area-picker";
 import "./op-icon";
 import "./op-svg-icon";
 
-@customElement("ha-target-picker")
+@customElement("op-target-picker")
 export class HaTargetPicker extends SubscribeMixin(LitElement) {
   @property() public opp!: OpenPeerPower;
 
@@ -611,6 +611,6 @@ export class HaTargetPicker extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-target-picker": HaTargetPicker;
+    "op-target-picker": HaTargetPicker;
   }
 }

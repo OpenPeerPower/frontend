@@ -23,9 +23,9 @@ import {
 } from "../../../data/blueprint";
 import { haStyleDialog } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
-import { createCloseHeading } from "../../../components/ha-dialog";
+import { createCloseHeading } from "../../../components/op-dialog";
 
-@customElement("ha-dialog-import-blueprint")
+@customElement("op-dialog-import-blueprint")
 class DialogImportBlueprint extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -228,6 +228,6 @@ class DialogImportBlueprint extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-dialog-import-blueprint": DialogImportBlueprint;
+    "op-dialog-import-blueprint": DialogImportBlueprint;
   }
 }

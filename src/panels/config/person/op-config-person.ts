@@ -14,7 +14,7 @@ import { compare } from "../../../common/string/compare";
 import "../../../components/op-card";
 import "../../../components/op-fab";
 import "../../../components/op-svg-icon";
-import "../../../components/user/ha-person-badge";
+import "../../../components/user/op-person-badge";
 import {
   createPerson,
   deletePerson,
@@ -32,7 +32,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import {
   loadPersonDetailDialog,
   showPersonDetailDialog,

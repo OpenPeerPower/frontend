@@ -6,7 +6,7 @@ export interface DeviceAutomationDialogParams {
 }
 
 export const loadDeviceAutomationDialog = () =>
-  import("./ha-device-automation-dialog");
+  import("./op-device-automation-dialog");
 
 export const showDeviceAutomationDialog = (
   element: HTMLElement,

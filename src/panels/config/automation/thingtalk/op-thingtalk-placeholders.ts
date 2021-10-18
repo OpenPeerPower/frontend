@@ -13,7 +13,7 @@ import {
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { applyPatch, getPath } from "../../../../common/util/patch";
-import "../../../../components/device/ha-area-devices-picker";
+import "../../../../components/device/op-area-devices-picker";
 import "../../../../components/entity/op-entity-picker";
 import {
   AreaRegistryEntry,
@@ -62,7 +62,7 @@ interface DeviceEntitiesLookup {
   [deviceId: string]: string[];
 }
 
-@customElement("ha-thingtalk-placeholders")
+@customElement("op-thingtalk-placeholders")
 export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -443,7 +443,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
     });
 
     fireEvent(
-      this.shadowRoot!.querySelector("ha-paper-dialog")! as HTMLElement,
+      this.shadowRoot!.querySelector("op-paper-dialog")! as HTMLElement,
       "iron-resize"
     );
   }
@@ -475,7 +475,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
     return [
       haStyleDialog,
       css`
-        ha-paper-dialog {
+        op-paper-dialog {
           max-width: 500px;
         }
         mwc-button.left {
@@ -498,6 +498,6 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-thingtalk-placeholders": ThingTalkPlaceholders;
+    "op-thingtalk-placeholders": ThingTalkPlaceholders;
   }
 }

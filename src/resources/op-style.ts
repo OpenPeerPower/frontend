@@ -64,7 +64,7 @@ documentContainer.innerHTML = `<custom-style>
       */
 
       --paper-grey-50: #fafafa; /* default for: --mwc-switch-unchecked-button-color */
-      --paper-grey-200: #eeeeee;  /* for ha-date-picker-style */
+      --paper-grey-200: #eeeeee;  /* for op-date-picker-style */
       --paper-grey-500: #9e9e9e;  /* --label-badge-grey */
 
       /* for paper-slider */

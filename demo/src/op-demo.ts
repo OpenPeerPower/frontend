@@ -76,4 +76,4 @@ class HaDemo extends OpenPeerPowerAppEl {
   }
 }
 
-customElements.define("ha-demo", HaDemo);
+customElements.define("op-demo", HaDemo);

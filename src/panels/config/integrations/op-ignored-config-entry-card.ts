@@ -14,7 +14,7 @@ import type { OpenPeerPower } from "../../../types";
 import type { ConfigEntryExtended } from "./ha-config-integrations";
 import "./op-integration-action-card";
 
-@customElement("ha-ignored-config-entry-card")
+@customElement("op-ignored-config-entry-card")
 export class HaIgnoredConfigEntryCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -90,6 +90,6 @@ export class HaIgnoredConfigEntryCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-ignored-config-entry-card": HaIgnoredConfigEntryCard;
+    "op-ignored-config-entry-card": HaIgnoredConfigEntryCard;
   }
 }

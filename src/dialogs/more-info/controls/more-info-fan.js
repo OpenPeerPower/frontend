@@ -6,10 +6,10 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { attributeClassNames } from "../../../common/entity/attribute_class_names";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-attributes";
+import "../../../components/op-attributes";
 import "../../../components/op-icon-button";
 import "../../../components/op-labeled-slider";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import "../../../components/op-switch";
 import { SUPPORT_SET_SPEED } from "../../../data/fan";
 import { EventsMixin } from "../../../mixins/events-mixin";
@@ -37,7 +37,7 @@ class MoreInfoFan extends LocalizeMixin(EventsMixin(PolymerElement)) {
           display: block;
         }
 
-        ha-paper-dropdown-menu {
+        op-paper-dropdown-menu {
           width: 100%;
         }
 

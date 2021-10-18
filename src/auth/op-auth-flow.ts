@@ -7,7 +7,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit";
-import "./ha-password-manager-polyfill";
+import "./op-password-manager-polyfill";
 import { property, state } from "lit/decorators";
 import "../components/ha-form/ha-form";
 import "../components/ha-markdown";
@@ -248,7 +248,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
 
     setTimeout(() => {
       this.renderRoot.querySelector(
-        "ha-password-manager-polyfill"
+        "op-password-manager-polyfill"
       )!.boundingRect = this.getBoundingClientRect();
     }, 500);
   }
@@ -343,10 +343,10 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
     `;
   }
 }
-customElements.define("ha-auth-flow", HaAuthFlow);
+customElements.define("op-auth-flow", HaAuthFlow);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-auth-flow": HaAuthFlow;
+    "op-auth-flow": HaAuthFlow;
   }
 }

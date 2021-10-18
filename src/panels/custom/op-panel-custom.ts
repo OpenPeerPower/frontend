@@ -152,4 +152,4 @@ export class HaPanelCustom extends UpdatingElement {
   }
 }
 
-customElements.define("ha-panel-custom", HaPanelCustom);
+customElements.define("op-panel-custom", HaPanelCustom);

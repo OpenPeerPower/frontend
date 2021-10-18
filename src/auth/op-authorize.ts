@@ -14,9 +14,9 @@ import {
 } from "../data/discovery";
 import { litLocalizeLiteMixin } from "../mixins/lit-localize-lite-mixin";
 import { registerServiceWorker } from "../util/register-service-worker";
-import "./ha-auth-flow";
+import "./op-auth-flow";
 
-import("./ha-pick-auth-provider");
+import("./op-pick-auth-provider");
 
 class HaAuthorize extends litLocalizeLiteMixin(LitElement) {
   @property() public clientId?: string;
@@ -184,11 +184,11 @@ class HaAuthorize extends litLocalizeLiteMixin(LitElement) {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-pick-auth-provider {
+      op-pick-auth-provider {
         display: block;
         margin-top: 48px;
       }
     `;
   }
 }
-customElements.define("ha-authorize", HaAuthorize);
+customElements.define("op-authorize", HaAuthorize);

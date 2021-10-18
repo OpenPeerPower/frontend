@@ -1,7 +1,7 @@
 import "../../src/resources/op-style";
 import "../../src/resources/roboto";
 import "../../src/resources/safari-14-attachshadow-patch";
-import "./ha-demo";
+import "./op-demo";
 
 /* polyfill for paper-dropdown */
 setTimeout(() => {

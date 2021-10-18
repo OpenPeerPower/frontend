@@ -8,7 +8,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/ha-dialog";
+import "../../../../components/op-dialog";
 import {
   DeviceAction,
   DeviceCondition,
@@ -19,9 +19,9 @@ import {
 } from "../../../../data/device_automation";
 import { haStyleDialog } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
-import "./ha-device-actions-card";
-import "./ha-device-conditions-card";
-import "./ha-device-triggers-card";
+import "./op-device-actions-card";
+import "./op-device-conditions-card";
+import "./op-device-triggers-card";
 import { DeviceAutomationDialogParams } from "./show-dialog-device-automation";
 import "@material/mwc-button/mwc-button";
 

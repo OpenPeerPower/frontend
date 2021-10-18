@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import "../../../../../components/op-circular-progress";
 import "../../../../../components/ha-code-editor";
-import { createCloseHeading } from "../../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../../components/op-dialog";
 import {
   fetchOZWNodeMetadata,
   nodeQueryStages,

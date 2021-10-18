@@ -13,7 +13,7 @@ import {
 import { html } from "lit-html";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/entity/op-entity-toggle";
-import "../../../components/ha-blueprint-picker";
+import "../../../components/op-blueprint-picker";
 import "../../../components/op-card";
 import "../../../components/op-circular-progress";
 import "../../../components/ha-markdown";

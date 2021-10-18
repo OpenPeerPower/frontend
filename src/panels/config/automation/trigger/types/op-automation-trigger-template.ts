@@ -3,9 +3,9 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { TemplateTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-trigger-row";
+import { handleChangeEvent } from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-template")
+@customElement("op-automation-trigger-template")
 export class HaTemplateTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

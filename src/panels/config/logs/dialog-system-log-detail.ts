@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import "../../../components/ha-header-bar";
 import "../../../components/op-svg-icon";
 import {
@@ -201,7 +201,7 @@ class DialogSystemLogDetail extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --dialog-content-padding: 0px;
         }
 
@@ -238,7 +238,7 @@ class DialogSystemLogDetail extends LitElement {
         }
 
         @media all and (min-width: 451px) and (min-height: 501px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 90vw;
           }
         }

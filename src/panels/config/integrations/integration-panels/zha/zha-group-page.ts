@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
-import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import { SelectionChangedEvent } from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-circular-progress";
 import "../../../../../components/op-icon-button";
 import {
@@ -29,8 +29,8 @@ import "../../../../../layouts/opp-subpage";
 import { OpenPeerPower } from "../../../../../types";
 import "../../../ha-config-section";
 import { formatAsPaddedHex } from "./functions";
-import "./zha-device-endpoint-data-table";
-import type { ZHADeviceEndpointDataTable } from "./zha-device-endpoint-data-table";
+import "./zop-device-endpoint-data-table";
+import type { ZHADeviceEndpointDataTable } from "./zop-device-endpoint-data-table";
 
 @customElement("zha-group-page")
 export class ZHAGroupPage extends LitElement {
@@ -152,7 +152,7 @@ export class ZHAGroupPage extends LitElement {
                   )}
                 </div>
 
-                <zha-device-endpoint-data-table
+                <zop-device-endpoint-data-table
                   id="removeMembers"
                   .opp=${this.opp}
                   .deviceEndpoints=${this.group.members}
@@ -160,7 +160,7 @@ export class ZHAGroupPage extends LitElement {
                   selectable
                   @selection-changed=${this._handleRemoveSelectionChanged}
                 >
-                </zha-device-endpoint-data-table>
+                </zop-device-endpoint-data-table>
 
                 <div class="paper-dialog-buttons">
                   <mwc-button
@@ -187,7 +187,7 @@ export class ZHAGroupPage extends LitElement {
             ${this.opp.localize("ui.panel.config.zha.groups.add_members")}
           </div>
 
-          <zha-device-endpoint-data-table
+          <zop-device-endpoint-data-table
             id="addMembers"
             .opp=${this.opp}
             .deviceEndpoints=${this._filteredDeviceEndpoints}
@@ -195,7 +195,7 @@ export class ZHAGroupPage extends LitElement {
             selectable
             @selection-changed=${this._handleAddSelectionChanged}
           >
-          </zha-device-endpoint-data-table>
+          </zop-device-endpoint-data-table>
 
           <div class="paper-dialog-buttons">
             <mwc-button

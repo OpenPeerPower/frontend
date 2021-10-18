@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import { CastManager } from "../../../src/cast/cast_manager";
 import { castSendShowDemo } from "../../../src/cast/receiver_messages";
-import "../../../src/components/ha-icon";
+import "../../../src/components/op-icon";
 import {
   CastConfig,
   LovelaceRow,
@@ -79,7 +79,7 @@ class CastDemoRow extends LitElement implements LovelaceRow {
         display: flex;
         align-items: center;
       }
-      ha-icon {
+      op-icon {
         padding: 8px;
         color: var(--paper-item-icon-color);
       }

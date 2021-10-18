@@ -2,10 +2,10 @@ import { customElement, html, LitElement, property } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { LogicalCondition } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import "../ha-automation-condition";
-import { ConditionElement } from "../ha-automation-condition-row";
+import "../op-automation-condition";
+import { ConditionElement } from "../op-automation-condition-row";
 
-@customElement("ha-automation-condition-logical")
+@customElement("op-automation-condition-logical")
 export class HaLogicalCondition extends LitElement implements ConditionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -35,6 +35,6 @@ export class HaLogicalCondition extends LitElement implements ConditionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-logical": HaLogicalCondition;
+    "op-automation-condition-logical": HaLogicalCondition;
   }
 }

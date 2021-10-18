@@ -7,7 +7,7 @@ import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
 import { showMQTTDeviceDebugInfoDialog } from "./show-dialog-mqtt-device-debug-info";
 
-@customElement("ha-device-actions-mqtt")
+@customElement("op-device-actions-mqtt")
 export class HaDeviceActionsMqtt extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

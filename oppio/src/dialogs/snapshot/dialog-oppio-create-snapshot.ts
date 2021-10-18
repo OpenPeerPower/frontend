@@ -2,8 +2,8 @@ import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/buttons/ha-progress-button";
-import { createCloseHeading } from "../../../../src/components/ha-dialog";
+import "../../../../src/components/buttons/op-progress-button";
+import { createCloseHeading } from "../../../../src/components/op-dialog";
 import { extractApiErrorMessage } from "../../../../src/data/oppio/common";
 import {
   createOppioFullSnapshot,

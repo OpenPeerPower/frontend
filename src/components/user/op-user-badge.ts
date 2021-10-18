@@ -29,7 +29,7 @@ export const computeInitials = (name: string) => {
   );
 };
 
-@customElement("ha-user-badge")
+@customElement("op-user-badge")
 class UserBadge extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -133,6 +133,6 @@ class UserBadge extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-user-badge": UserBadge;
+    "op-user-badge": UserBadge;
   }
 }

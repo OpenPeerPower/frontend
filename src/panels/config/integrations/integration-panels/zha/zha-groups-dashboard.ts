@@ -16,7 +16,7 @@ import { navigate } from "../../../../../common/navigate";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
-} from "../../../../../components/data-table/ha-data-table";
+} from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-fab";
 import "../../../../../components/op-icon-button";
 import { fetchGroups, ZHADevice, ZHAGroup } from "../../../../../data/zha";

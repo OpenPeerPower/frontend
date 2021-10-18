@@ -17,14 +17,14 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { convertTextToSpeech } from "../../../../data/tts";
 import { showAlertDialog } from "../../../../dialogs/generic/show-dialog-box";
 import "@polymer/paper-input/paper-textarea";
-import "../../../../components/ha-paper-dropdown-menu";
+import "../../../../components/op-paper-dropdown-menu";
 import { computeStateDomain } from "../../../../common/entity/compute_state_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-listbox/paper-listbox";
 import { supportsFeature } from "../../../../common/entity/supports-feature";
 import { SUPPORT_PLAY_MEDIA } from "../../../../data/media-player";
-import { createCloseHeading } from "../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../components/op-dialog";
 import { mdiPlayCircleOutline } from "@mdi/js";
 import type { PaperListboxElement } from "@polymer/paper-listbox/paper-listbox";
 import type { PaperTextareaElement } from "@polymer/paper-input/paper-textarea";
@@ -193,7 +193,7 @@ export class DialogTryTts extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 500px;
         }
       `,

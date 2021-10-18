@@ -1,6 +1,6 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
-import "../ha-time-input";
+import "../op-time-input";
 import { HaFormElement, HaFormTimeData, HaFormTimeSchema } from "./ha-form";
 
 @customElement("ha-form-positive_time_period_dict")
@@ -13,7 +13,7 @@ export class HaFormTimePeriod extends LitElement implements HaFormElement {
 
   @property() public suffix!: string;
 
-  @query("ha-time-input", true) private _input?: HTMLElement;
+  @query("op-time-input", true) private _input?: HTMLElement;
 
   public focus() {
     if (this._input) {

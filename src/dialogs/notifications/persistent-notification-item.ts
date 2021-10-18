@@ -4,7 +4,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { formatDateTime } from "../../common/datetime/format_date_time";
 import "../../components/ha-markdown";
-import "../../components/ha-relative-time";
+import "../../components/op-relative-time";
 import { PersistentNotification } from "../../data/persistent_notification";
 import { OpenPeerPower } from "../../types";
 import "./notification-item-template";
@@ -57,7 +57,7 @@ export class HuiPersistentNotificationItem extends LitElement {
         justify-content: flex-end;
         margin-top: 6px;
       }
-      ha-relative-time {
+      op-relative-time {
         color: var(--secondary-text-color);
       }
       a {

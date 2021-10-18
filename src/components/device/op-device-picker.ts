@@ -58,7 +58,7 @@ const rowRenderer: ComboBoxLitRenderer<Device> = (item) => html`<style>
     </paper-item-body>
   </paper-item>`;
 
-@customElement("ha-device-picker")
+@customElement("op-device-picker")
 export class HaDevicePicker extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -331,6 +331,6 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-picker": HaDevicePicker;
+    "op-device-picker": HaDevicePicker;
   }
 }

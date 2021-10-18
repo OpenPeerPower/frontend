@@ -14,7 +14,7 @@ import {
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/op-svg-icon";
 import "../../../components/op-switch";
@@ -192,17 +192,17 @@ export class HuiSaveConfig extends LitElement implements OppDialog {
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-paper-dialog {
+          op-paper-dialog {
             max-height: 100%;
             height: 100%;
           }
         }
         @media all and (min-width: 660px) {
-          ha-paper-dialog {
+          op-paper-dialog {
             width: 650px;
           }
         }
-        ha-paper-dialog {
+        op-paper-dialog {
           max-width: 650px;
         }
         op-switch {

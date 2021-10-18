@@ -406,7 +406,7 @@ class CloudAlexa extends LitElement {
     await updateCloudPref(this.opp!, {
       alexa_default_expose: defaultExpose,
     });
-    fireEvent(this, "ha-refresh-cloud-status");
+    fireEvent(this, "op-refresh-cloud-status");
   }
 
   private _ensureStatusReload() {
@@ -419,7 +419,7 @@ class CloudAlexa extends LitElement {
     const parent = this.parentElement!;
     window.addEventListener(
       "popstate",
-      () => fireEvent(parent, "ha-refresh-cloud-status"),
+      () => fireEvent(parent, "op-refresh-cloud-status"),
       { once: true }
     );
   }

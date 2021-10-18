@@ -16,8 +16,8 @@ import memoize from "memoize-one";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
-import { DataTableRowData } from "../../../../components/data-table/ha-data-table";
-import "../../../../components/ha-dialog";
+import { DataTableRowData } from "../../../../components/data-table/op-data-table";
+import "../../../../components/op-dialog";
 import "../../../../components/ha-header-bar";
 import type { LovelaceViewConfig } from "../../../../data/lovelace";
 import type { OppDialog } from "../../../../dialogs/make-dialog-manager";
@@ -158,25 +158,25 @@ export class HuiCreateDialogCard
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-height: 100%;
             height: 100%;
           }
         }
 
         @media all and (min-width: 850px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-min-width: 845px;
           }
         }
 
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 845px;
           --dialog-content-padding: 2px 24px 20px 24px;
           --dialog-z-index: 5;
         }
 
-        ha-dialog.table {
+        op-dialog.table {
           --dialog-content-padding: 0;
         }
 
@@ -189,7 +189,7 @@ export class HuiCreateDialogCard
         }
 
         @media (min-width: 1200px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: calc(100% - 32px);
             --mdc-dialog-min-width: 1000px;
           }

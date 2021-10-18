@@ -21,7 +21,7 @@ import { updateDeviceRegistryEntry } from "../../../../../data/device_registry";
 import { ZHADevice } from "../../../../../data/zha";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import "../../../../../components/ha-area-picker";
+import "../../../../../components/op-area-picker";
 import { showAlertDialog } from "../../../../../dialogs/generic/show-dialog-box";
 import { SubscribeMixin } from "../../../../../mixins/subscribe-mixin";
 import {
@@ -35,7 +35,7 @@ import { compare } from "../../../../../common/string/compare";
 import { getIeeeTail } from "./functions";
 import { slugify } from "../../../../../common/string/slugify";
 
-@customElement("zha-device-card")
+@customElement("zop-device-card")
 class ZHADeviceCard extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -239,6 +239,6 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-device-card": ZHADeviceCard;
+    "zop-device-card": ZHADeviceCard;
   }
 }

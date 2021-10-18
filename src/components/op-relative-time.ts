@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators";
 import relativeTime from "../common/datetime/relative_time";
 import type { OpenPeerPower } from "../types";
 
-@customElement("ha-relative-time")
+@customElement("op-relative-time")
 class HaRelativeTime extends ReactiveElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -65,6 +65,6 @@ class HaRelativeTime extends ReactiveElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-relative-time": HaRelativeTime;
+    "op-relative-time": HaRelativeTime;
   }
 }

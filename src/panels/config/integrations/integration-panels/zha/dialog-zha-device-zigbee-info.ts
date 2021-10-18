@@ -8,12 +8,12 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/ha-code-editor";
-import { createCloseHeading } from "../../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import { ZHADeviceZigbeeInfoDialogParams } from "./show-dialog-zha-device-zigbee-info";
+import { ZHADeviceZigbeeInfoDialogParams } from "./show-dialog-zop-device-zigbee-info";
 
-@customElement("dialog-zha-device-zigbee-info")
+@customElement("dialog-zop-device-zigbee-info")
 class DialogZHADeviceZigbeeInfo extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -66,6 +66,6 @@ class DialogZHADeviceZigbeeInfo extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "dialog-zha-device-zigbee-info": DialogZHADeviceZigbeeInfo;
+    "dialog-zop-device-zigbee-info": DialogZHADeviceZigbeeInfo;
   }
 }

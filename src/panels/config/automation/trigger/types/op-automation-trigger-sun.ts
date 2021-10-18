@@ -10,9 +10,9 @@ import type { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-sun")
+@customElement("op-automation-trigger-sun")
 export class HaSunTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

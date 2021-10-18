@@ -9,8 +9,8 @@ import {
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/buttons/ha-progress-button";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/buttons/op-progress-button";
+import "../../../../src/components/op-card";
 import {
   OppioAddonDetails,
   OppioAddonSetOptionParams,
@@ -222,7 +222,7 @@ class OppioAddonNetwork extends LitElement {
         :host {
           display: block;
         }
-        ha-card {
+        op-card {
           display: block;
         }
         .errors {

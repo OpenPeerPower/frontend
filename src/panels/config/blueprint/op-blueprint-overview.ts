@@ -20,7 +20,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { navigate } from "../../../common/navigate";
 import { extractSearchParam } from "../../../common/url/search-params";
-import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
+import { DataTableColumnContainer } from "../../../components/data-table/op-data-table";
 import "../../../components/entity/op-entity-toggle";
 import "../../../components/op-fab";
 import "../../../components/op-svg-icon";
@@ -38,7 +38,7 @@ import "../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { showAddBlueprintDialog } from "./show-dialog-import-blueprint";
 
 interface BlueprintMetaDataPath extends BlueprintMetaData {
@@ -58,7 +58,7 @@ const createNewFunctions = {
   },
 };
 
-@customElement("ha-blueprint-overview")
+@customElement("op-blueprint-overview")
 class HaBlueprintOverview extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -319,6 +319,6 @@ class HaBlueprintOverview extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-blueprint-overview": HaBlueprintOverview;
+    "op-blueprint-overview": HaBlueprintOverview;
   }
 }

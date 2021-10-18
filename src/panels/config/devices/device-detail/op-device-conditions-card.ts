@@ -4,9 +4,9 @@ import {
   DeviceCondition,
   localizeDeviceAutomationCondition,
 } from "../../../../data/device_automation";
-import { HaDeviceAutomationCard } from "./ha-device-automation-card";
+import { HaDeviceAutomationCard } from "./op-device-automation-card";
 
-@customElement("ha-device-conditions-card")
+@customElement("op-device-conditions-card")
 export class HaDeviceConditionsCard extends HaDeviceAutomationCard<
   DeviceCondition
 > {
@@ -21,6 +21,6 @@ export class HaDeviceConditionsCard extends HaDeviceAutomationCard<
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-conditions-card": HaDeviceConditionsCard;
+    "op-device-conditions-card": HaDeviceConditionsCard;
   }
 }

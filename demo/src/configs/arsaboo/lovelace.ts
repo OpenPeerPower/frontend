@@ -8,7 +8,7 @@ export const demoLovelaceArsaboo: DemoConfig["lovelace"] = (localize) => ({
       id: "home",
       title: "Home",
       cards: [
-        { type: "custom:ha-demo-card" },
+        { type: "custom:op-demo-card" },
         {
           type: "entities",
           title: localize("ui.panel.page-demo.config.arsaboo.labels.lights"),

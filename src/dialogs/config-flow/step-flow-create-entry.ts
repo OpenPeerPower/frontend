@@ -5,7 +5,7 @@ import "@polymer/paper-listbox/paper-listbox";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import "../../components/ha-area-picker";
+import "../../components/op-area-picker";
 import { DataEntryFlowStepCreateEntry } from "../../data/data_entry_flow";
 import {
   DeviceRegistryEntry,

@@ -9,7 +9,7 @@ import { IntegrationManifest } from "../../../src/data/integration";
 import { provideOpp } from "../../../src/fake_data/provide_opp";
 import { OpenPeerPower } from "../../../src/types";
 import "../../../src/panels/config/integrations/op-integration-card";
-import "../../../src/panels/config/integrations/ha-ignored-config-entry-card";
+import "../../../src/panels/config/integrations/op-ignored-config-entry-card";
 import "../../../src/panels/config/integrations/ha-config-flow-card";
 import type {
   ConfigEntryExtended,

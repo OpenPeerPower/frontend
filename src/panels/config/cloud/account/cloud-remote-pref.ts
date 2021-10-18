@@ -124,7 +124,7 @@ export class CloudRemotePref extends LitElement {
       } else {
         await disconnectCloudRemote(this.opp!);
       }
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       alert(err.message);
       toggle.checked = !toggle.checked;

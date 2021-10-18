@@ -18,7 +18,7 @@ import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
 import { showOZWRefreshNodeDialog } from "../../../../integrations/integration-panels/ozw/show-dialog-ozw-refresh-node";
 
-@customElement("ha-device-actions-ozw")
+@customElement("op-device-actions-ozw")
 export class HaDeviceActionsOzw extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

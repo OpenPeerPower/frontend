@@ -4,7 +4,7 @@ import { customElement, property, state } from "lit/decorators";
 import { buttonLinkStyle } from "../../resources/styles";
 import "../op-svg-icon";
 
-@customElement("ha-timeline")
+@customElement("op-timeline")
 export class HaTimeline extends LitElement {
   @property({ type: Boolean, reflect: true }) public label = false;
 
@@ -113,6 +113,6 @@ export class HaTimeline extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-timeline": HaTimeline;
+    "op-timeline": HaTimeline;
   }
 }

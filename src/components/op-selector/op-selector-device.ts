@@ -4,7 +4,7 @@ import { ConfigEntry, getConfigEntries } from "../../data/config_entries";
 import { DeviceRegistryEntry } from "../../data/device_registry";
 import { DeviceSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "../device/ha-device-picker";
+import "../device/op-device-picker";
 
 @customElement("op-selector-device")
 export class HaDeviceSelector extends LitElement {

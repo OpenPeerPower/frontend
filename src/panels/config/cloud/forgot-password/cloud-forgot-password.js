@@ -2,7 +2,7 @@ import "@polymer/paper-input/paper-input";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../../components/buttons/ha-progress-button";
+import "../../../../components/buttons/op-progress-button";
 import "../../../../components/op-card";
 import "../../../../layouts/opp-subpage";
 import { EventsMixin } from "../../../../mixins/events-mixin";

@@ -13,7 +13,7 @@ import { ifDefined } from "lit/directives/if-defined";
 import "./op-icon";
 import "./op-svg-icon";
 
-@customElement("ha-tab")
+@customElement("op-tab")
 export class HaTab extends LitElement {
   @property({ type: Boolean, reflect: true }) public active = false;
 
@@ -127,6 +127,6 @@ export class HaTab extends LitElement {
 }
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-tab": HaTab;
+    "op-tab": HaTab;
   }
 }

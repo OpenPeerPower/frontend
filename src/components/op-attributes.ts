@@ -9,7 +9,7 @@ import oppAttributeUtil, {
 } from "../util/opp-attributes-util";
 import "./ha-expansion-panel";
 
-@customElement("ha-attributes")
+@customElement("op-attributes")
 class HaAttributes extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -133,6 +133,6 @@ class HaAttributes extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-attributes": HaAttributes;
+    "op-attributes": HaAttributes;
   }
 }

@@ -13,7 +13,7 @@ import {
   css,
 } from "lit-element";
 import "../../../../../components/op-circular-progress";
-import { createCloseHeading } from "../../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { ZWaveJSAddNodeDialogParams } from "./show-dialog-zwave_js-add-node";

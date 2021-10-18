@@ -21,7 +21,7 @@ import "../../../../../layouts/opp-subpage";
 import type { OpenPeerPower } from "../../../../../types";
 import { Network, Edge, Node, EdgeOptions } from "vis-network";
 import "../../../../../common/search/search-input";
-import "../../../../../components/device/ha-device-picker";
+import "../../../../../components/device/op-device-picker";
 import "../../../../../components/op-button-menu";
 import "../../../../../components/op-svg-icon";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
@@ -402,11 +402,11 @@ export class ZHANetworkVisualizationPage extends LitElement {
           left: -8px;
         }
 
-        ha-device-picker {
+        op-device-picker {
           flex: 1;
         }
 
-        :host(:not([narrow])) ha-device-picker {
+        :host(:not([narrow])) op-device-picker {
           margin: 5px;
         }
 

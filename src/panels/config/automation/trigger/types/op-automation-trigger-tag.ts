@@ -11,9 +11,9 @@ import { fireEvent } from "../../../../../common/dom/fire_event";
 import { TagTrigger } from "../../../../../data/automation";
 import { fetchTags, Tag } from "../../../../../data/tag";
 import { OpenPeerPower } from "../../../../../types";
-import { TriggerElement } from "../ha-automation-trigger-row";
+import { TriggerElement } from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-tag")
+@customElement("op-automation-trigger-tag")
 export class HaTagTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

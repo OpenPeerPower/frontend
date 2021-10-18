@@ -14,7 +14,7 @@ import {
 } from "lit-element";
 import type { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
-import type { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import type { SelectionChangedEvent } from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-circular-progress";
 import {
   addGroup,
@@ -27,10 +27,10 @@ import "../../../../../layouts/opp-subpage";
 import type { PolymerChangedEvent } from "../../../../../polymer-types";
 import type { OpenPeerPower } from "../../../../../types";
 import "../../../ha-config-section";
-import "./zha-device-endpoint-data-table";
-import type { ZHADeviceEndpointDataTable } from "./zha-device-endpoint-data-table";
+import "./zop-device-endpoint-data-table";
+import type { ZHADeviceEndpointDataTable } from "./zop-device-endpoint-data-table";
 
-@customElement("zha-add-group-page")
+@customElement("zop-add-group-page")
 export class ZHAAddGroupPage extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -42,7 +42,7 @@ export class ZHAAddGroupPage extends LitElement {
 
   @internalProperty() private _groupName = "";
 
-  @query("zha-device-endpoint-data-table", true)
+  @query("zop-device-endpoint-data-table", true)
   private _zhaDevicesDataTable!: ZHADeviceEndpointDataTable;
 
   private _firstUpdatedCalled = false;
@@ -90,14 +90,14 @@ export class ZHAAddGroupPage extends LitElement {
             ${this.opp.localize("ui.panel.config.zha.groups.add_members")}
           </div>
 
-          <zha-device-endpoint-data-table
+          <zop-device-endpoint-data-table
             .opp=${this.opp}
             .deviceEndpoints=${this.deviceEndpoints}
             .narrow=${this.narrow}
             selectable
             @selection-changed=${this._handleAddSelectionChanged}
           >
-          </zha-device-endpoint-data-table>
+          </zop-device-endpoint-data-table>
 
           <div class="paper-dialog-buttons">
             <mwc-button

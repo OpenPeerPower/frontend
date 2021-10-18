@@ -18,7 +18,7 @@ import "../../panels/logbook/op-logbook";
 import { traceTabStyles } from "./trace-tab-styles";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-trace-path-details")
+@customElement("op-trace-path-details")
 export class HaTracePathDetails extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -261,6 +261,6 @@ export class HaTracePathDetails extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-trace-path-details": HaTracePathDetails;
+    "op-trace-path-details": HaTracePathDetails;
   }
 }

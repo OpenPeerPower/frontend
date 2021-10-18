@@ -11,10 +11,10 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/op-card";
 import { Action } from "../../../../data/script";
 import { OpenPeerPower } from "../../../../types";
-import "./ha-automation-action-row";
-import { HaDeviceAction } from "./types/ha-automation-action-device_id";
+import "./op-automation-action-row";
+import { HaDeviceAction } from "./types/op-automation-action-device_id";
 
-@customElement("ha-automation-action")
+@customElement("op-automation-action")
 export default class HaAutomationAction extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -92,7 +92,7 @@ export default class HaAutomationAction extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-automation-action-row,
+      op-automation-action-row,
       op-card {
         display: block;
         margin-top: 16px;
@@ -107,6 +107,6 @@ export default class HaAutomationAction extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action": HaAutomationAction;
+    "op-automation-action": HaAutomationAction;
   }
 }

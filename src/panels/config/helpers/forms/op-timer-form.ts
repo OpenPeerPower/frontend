@@ -14,7 +14,7 @@ import { DurationDict, Timer } from "../../../../data/timer";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-timer-form")
+@customElement("op-timer-form")
 class HaTimerForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -125,6 +125,6 @@ class HaTimerForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-timer-form": HaTimerForm;
+    "op-timer-form": HaTimerForm;
   }
 }

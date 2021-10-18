@@ -38,7 +38,7 @@ import "../../components/op-header-bar";
 import { domainToName } from "../../data/integration";
 import { getPanelNameTranslationKey } from "../../data/panel";
 import { PageNavigation } from "../../layouts/opp-tabs-subpage";
-import { configSections } from "../../panels/config/ha-panel-config";
+import { configSections } from "../../panels/config/op-panel-config";
 import { haStyleDialog } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 import {
@@ -76,7 +76,7 @@ type BaseNavigationCommand = Pick<
   QuickBarNavigationItem,
   "primaryText" | "path"
 >;
-@customElement("ha-quick-bar")
+@customElement("op-quick-bar")
 export class QuickBar extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -652,6 +652,6 @@ export class QuickBar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-quick-bar": QuickBar;
+    "op-quick-bar": QuickBar;
   }
 }

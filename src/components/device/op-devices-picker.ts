@@ -3,9 +3,9 @@ import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
-import "./ha-device-picker";
+import "./op-device-picker";
 
-@customElement("ha-devices-picker")
+@customElement("op-devices-picker")
 class HaDevicesPicker extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -120,6 +120,6 @@ class HaDevicesPicker extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-devices-picker": HaDevicesPicker;
+    "op-devices-picker": HaDevicesPicker;
   }
 }

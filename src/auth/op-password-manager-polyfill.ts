@@ -6,7 +6,7 @@ import { DataEntryFlowStep } from "../data/data_entry_flow";
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-password-manager-polyfill": HaPasswordManagerPolyfill;
+    "op-password-manager-polyfill": HaPasswordManagerPolyfill;
   }
   interface OPPDomEvents {
     "form-submitted": undefined;
@@ -19,7 +19,7 @@ const ENABLED_HANDLERS = [
   "command_line",
 ];
 
-@customElement("ha-password-manager-polyfill")
+@customElement("op-password-manager-polyfill")
 export class HaPasswordManagerPolyfill extends LitElement {
   @property({ attribute: false }) public step?: DataEntryFlowStep;
 

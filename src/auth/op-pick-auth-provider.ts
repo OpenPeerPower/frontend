@@ -42,4 +42,4 @@ class HaPickAuthProvider extends litLocalizeLiteMixin(LitElement) {
     fireEvent(this, "pick-auth-provider", ev.currentTarget.auth_provider);
   }
 }
-customElements.define("ha-pick-auth-provider", HaPickAuthProvider);
+customElements.define("op-pick-auth-provider", HaPickAuthProvider);

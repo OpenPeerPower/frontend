@@ -11,7 +11,7 @@ import {
 } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
 
-@customElement("ha-automation-condition-trigger")
+@customElement("op-automation-condition-trigger")
 export class HaTriggerCondition extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -94,6 +94,6 @@ export class HaTriggerCondition extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-trigger": HaTriggerCondition;
+    "op-automation-condition-trigger": HaTriggerCondition;
   }
 }

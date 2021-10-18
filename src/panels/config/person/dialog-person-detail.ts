@@ -12,10 +12,10 @@ import {
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/entity/op-entities-picker";
-import { createCloseHeading } from "../../../components/ha-dialog";
+import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
-import "../../../components/ha-picture-upload";
-import type { HaPictureUpload } from "../../../components/ha-picture-upload";
+import "../../../components/op-picture-upload";
+import type { HaPictureUpload } from "../../../components/op-picture-upload";
 import { adminChangePassword } from "../../../data/auth";
 import { PersonMutableParams } from "../../../data/person";
 import {
@@ -443,7 +443,7 @@ class DialogPersonDetail extends LitElement {
         .form {
           padding-bottom: 24px;
         }
-        ha-picture-upload {
+        op-picture-upload {
           display: block;
         }
         op-formfield {

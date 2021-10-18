@@ -14,11 +14,11 @@ import { OpenPeerPower } from "../../../../../types";
 import {
   handleChangeEvent,
   TriggerElement,
-} from "../ha-automation-trigger-row";
+} from "../op-automation-trigger-row";
 
 const includeDomains = ["input_datetime"];
 
-@customElement("ha-automation-trigger-time")
+@customElement("op-automation-trigger-time")
 export class HaTimeTrigger extends LitElement implements TriggerElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -92,6 +92,6 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-time": HaTimeTrigger;
+    "op-automation-trigger-time": HaTimeTrigger;
   }
 }

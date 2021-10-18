@@ -11,7 +11,7 @@ import {
   query,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
 import "../../../../components/op-yaml-editor";
 import type { HaYamlEditor } from "../../../../components/op-yaml-editor";
 import { LovelaceCardConfig } from "../../../../data/lovelace";
@@ -129,17 +129,17 @@ export class HuiDialogSuggestCard extends LitElement {
       css`
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-paper-dialog {
+          op-paper-dialog {
             max-height: 100%;
             height: 100%;
           }
         }
         @media all and (min-width: 850px) {
-          ha-paper-dialog {
+          op-paper-dialog {
             width: 845px;
           }
         }
-        ha-paper-dialog {
+        op-paper-dialog {
           max-width: 845px;
           --dialog-z-index: 5;
         }

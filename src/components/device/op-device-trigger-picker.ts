@@ -4,9 +4,9 @@ import {
   fetchDeviceTriggers,
   localizeDeviceAutomationTrigger,
 } from "../../data/device_automation";
-import { HaDeviceAutomationPicker } from "./ha-device-automation-picker";
+import { HaDeviceAutomationPicker } from "./op-device-automation-picker";
 
-@customElement("ha-device-trigger-picker")
+@customElement("op-device-trigger-picker")
 class HaDeviceTriggerPicker extends HaDeviceAutomationPicker<DeviceTrigger> {
   protected get NO_AUTOMATION_TEXT() {
     return this.opp.localize(
@@ -36,6 +36,6 @@ class HaDeviceTriggerPicker extends HaDeviceAutomationPicker<DeviceTrigger> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-trigger-picker": HaDeviceTriggerPicker;
+    "op-device-trigger-picker": HaDeviceTriggerPicker;
   }
 }

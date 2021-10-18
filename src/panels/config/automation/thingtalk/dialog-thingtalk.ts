@@ -13,15 +13,15 @@ import {
   query,
   TemplateResult,
 } from "lit-element";
-import "../../../../components/dialog/ha-paper-dialog";
+import "../../../../components/dialog/op-paper-dialog";
 import "../../../../components/op-circular-progress";
 import type { AutomationConfig } from "../../../../data/automation";
 import { convertThingTalk } from "../../../../data/cloud";
 import type { PolymerChangedEvent } from "../../../../polymer-types";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
-import "./ha-thingtalk-placeholders";
-import type { PlaceholderValues } from "./ha-thingtalk-placeholders";
+import "./op-thingtalk-placeholders";
+import type { PlaceholderValues } from "./op-thingtalk-placeholders";
 import type { ThingtalkDialogParams } from "./show-dialog-thingtalk";
 
 export interface Placeholder {
@@ -36,7 +36,7 @@ export interface PlaceholderContainer {
   [key: string]: Placeholder[];
 }
 
-@customElement("ha-dialog-thinktalk")
+@customElement("op-dialog-thinktalk")
 class DialogThingtalk extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -262,7 +262,7 @@ class DialogThingtalk extends LitElement {
       haStyle,
       haStyleDialog,
       css`
-        ha-paper-dialog {
+        op-paper-dialog {
           max-width: 500px;
         }
         mwc-button.left {
@@ -281,6 +281,6 @@ class DialogThingtalk extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-dialog-thinktalk": DialogThingtalk;
+    "op-dialog-thinktalk": DialogThingtalk;
   }
 }

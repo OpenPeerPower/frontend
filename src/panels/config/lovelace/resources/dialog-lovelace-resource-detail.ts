@@ -12,8 +12,8 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import { createCloseHeading } from "../../../../components/ha-dialog";
-import "../../../../components/ha-paper-dropdown-menu";
+import { createCloseHeading } from "../../../../components/op-dialog";
+import "../../../../components/op-paper-dropdown-menu";
 import {
   LovelaceResource,
   LovelaceResourcesMutableParams,

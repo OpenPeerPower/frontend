@@ -8,8 +8,8 @@
       // Sync changes here to other tasks until issue resolved
       // https://github.com/Microsoft/vscode/issues/61497
       "problemMatcher": {
-        "owner": "ha-build",
-        "source": "ha-build",
+        "owner": "op-build",
+        "source": "op-build",
         "fileLocation": "absolute",
         "severity": "error",
         "pattern": [
@@ -42,8 +42,8 @@
       "type": "gulp",
       "task": "develop-oppio",
       "problemMatcher": {
-        "owner": "ha-build",
-        "source": "ha-build",
+        "owner": "op-build",
+        "source": "op-build",
         "fileLocation": "absolute",
         "severity": "error",
         "pattern": [
@@ -73,8 +73,8 @@
       "type": "gulp",
       "task": "develop-gallery",
       "problemMatcher": {
-        "owner": "ha-build",
-        "source": "ha-build",
+        "owner": "op-build",
+        "source": "op-build",
         "fileLocation": "absolute",
         "severity": "error",
         "pattern": [
@@ -105,8 +105,8 @@
       "type": "gulp",
       "task": "develop-demo",
       "problemMatcher": {
-        "owner": "ha-build",
-        "source": "ha-build",
+        "owner": "op-build",
+        "source": "op-build",
         "fileLocation": "absolute",
         "severity": "error",
         "pattern": [
@@ -137,8 +137,8 @@
       "type": "gulp",
       "task": "develop-cast",
       "problemMatcher": {
-        "owner": "ha-build",
-        "source": "ha-build",
+        "owner": "op-build",
+        "source": "op-build",
         "fileLocation": "absolute",
         "severity": "error",
         "pattern": [

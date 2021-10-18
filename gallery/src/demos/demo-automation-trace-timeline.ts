@@ -1,6 +1,6 @@
 import { html, css, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import "../../../src/components/trace/hat-script-graph";
 import "../../../src/components/trace/hat-trace-timeline";
 import { provideOpp } from "../../../src/fake_data/provide_opp";
@@ -58,7 +58,7 @@ export class DemoAutomationTraceTimeline extends LitElement {
 
   static get styles() {
     return css`
-      ha-card {
+      op-card {
         max-width: 600px;
         margin: 24px;
       }

@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import { createCloseHeading } from "../../../components/ha-dialog";
+import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/ha-help-tooltip";
 import "../../../components/op-switch";
@@ -295,7 +295,7 @@ class DialogUserDetail extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 500px;
         }
         .form {

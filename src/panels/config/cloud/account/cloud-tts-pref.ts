@@ -195,7 +195,7 @@ export class CloudTTSPref extends LitElement {
       await updateCloudPref(this.opp, {
         tts_default_voice: [language, newGender],
       });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       this.savingPreferences = false;
       // eslint-disable-next-line no-console
@@ -219,7 +219,7 @@ export class CloudTTSPref extends LitElement {
       await updateCloudPref(this.opp, {
         tts_default_voice: [language, gender],
       });
-      fireEvent(this, "ha-refresh-cloud-status");
+      fireEvent(this, "op-refresh-cloud-status");
     } catch (err) {
       this.savingPreferences = false;
       // eslint-disable-next-line no-console

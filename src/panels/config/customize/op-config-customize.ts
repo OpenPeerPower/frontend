@@ -13,7 +13,7 @@ import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import "../ha-config-section";
 import "../op-entity-config";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import "./ha-form-customize";
 
 class HaConfigCustomize extends LitElement {

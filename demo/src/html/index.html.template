@@ -72,7 +72,7 @@
         margin: 0;
         padding: 0;
       }
-      #ha-init-skeleton::before {
+      #op-init-skeleton::before {
         display: block;
         content: "";
         height: 64px;
@@ -81,7 +81,7 @@
     </style>
   </head>
   <body>
-    <div id="ha-init-skeleton"></div>
+    <div id="op-init-skeleton"></div>
     <op-demo></op-demo>
     <%= renderTemplate('_js_base') %>
     <%= renderTemplate('_preload_roboto') %>

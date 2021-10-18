@@ -57,12 +57,12 @@ import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../../types";
 import type { Helper } from "../../../helpers/const";
 import "../../../helpers/forms/ha-counter-form";
-import "../../../helpers/forms/ha-input_boolean-form";
-import "../../../helpers/forms/ha-input_datetime-form";
-import "../../../helpers/forms/ha-input_number-form";
-import "../../../helpers/forms/ha-input_select-form";
-import "../../../helpers/forms/ha-input_text-form";
-import "../../../helpers/forms/ha-timer-form";
+import "../../../helpers/forms/op-input_boolean-form";
+import "../../../helpers/forms/op-input_datetime-form";
+import "../../../helpers/forms/op-input_number-form";
+import "../../../helpers/forms/op-input_select-form";
+import "../../../helpers/forms/op-input_text-form";
+import "../../../helpers/forms/op-timer-form";
 import "../../entity-registry-basic-editor";
 import type { HaEntityRegistryBasicEditor } from "../../entity-registry-basic-editor";
 
@@ -118,7 +118,7 @@ export class EntityRegistrySettingsHelper extends LitElement {
 
   @internalProperty() private _componentLoaded?: boolean;
 
-  @query("ha-registry-basic-editor")
+  @query("op-registry-basic-editor")
   private _registryEditor?: HaEntityRegistryBasicEditor;
 
   protected firstUpdated(changedProperties: PropertyValues) {

@@ -4,7 +4,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import "../op-circular-progress";
 
-@customElement("ha-progress-button")
+@customElement("op-progress-button")
 class HaProgressButton extends LitElement {
   @property({ type: Boolean }) public disabled = false;
 
@@ -100,6 +100,6 @@ class HaProgressButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-progress-button": HaProgressButton;
+    "op-progress-button": HaProgressButton;
   }
 }

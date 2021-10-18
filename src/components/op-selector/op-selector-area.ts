@@ -5,7 +5,7 @@ import { DeviceRegistryEntry } from "../../data/device_registry";
 import { EntityRegistryEntry } from "../../data/entity_registry";
 import { AreaSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "../ha-area-picker";
+import "../op-area-picker";
 
 @customElement("op-selector-area")
 export class HaAreaSelector extends LitElement {

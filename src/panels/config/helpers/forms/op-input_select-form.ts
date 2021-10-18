@@ -22,7 +22,7 @@ import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-input_select-form")
+@customElement("op-input_select-form")
 class HaInputSelectForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -205,7 +205,7 @@ class HaInputSelectForm extends LitElement {
         mwc-button {
           margin-left: 8px;
         }
-        ha-paper-dropdown-menu {
+        op-paper-dropdown-menu {
           display: block;
         }
       `,
@@ -215,6 +215,6 @@ class HaInputSelectForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-input_select-form": HaInputSelectForm;
+    "op-input_select-form": HaInputSelectForm;
   }
 }

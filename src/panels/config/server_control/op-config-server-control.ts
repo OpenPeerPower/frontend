@@ -21,7 +21,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 @customElement("ha-config-server-control")
 export class HaConfigServerControl extends LitElement {

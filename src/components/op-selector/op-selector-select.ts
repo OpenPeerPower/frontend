@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { SelectSelector } from "../../data/selector";
 import { OpenPeerPower } from "../../types";
-import "../ha-paper-dropdown-menu";
+import "../op-paper-dropdown-menu";
 
 @customElement("op-selector-select")
 export class HaSelectSelector extends LitElement {
@@ -48,7 +48,7 @@ export class HaSelectSelector extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-paper-dropdown-menu {
+      op-paper-dropdown-menu {
         width: 100%;
         min-width: 200px;
         display: block;

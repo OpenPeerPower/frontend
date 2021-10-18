@@ -40,7 +40,7 @@ import type {
   DataTableColumnContainer,
   RowClickedEvent,
   SelectionChangedEvent,
-} from "../../../components/data-table/ha-data-table";
+} from "../../../components/data-table/op-data-table";
 import "../../../components/op-button-menu";
 import "../../../components/op-svg-icon";
 import {
@@ -71,7 +71,7 @@ import type { HaTabsSubpageDataTable } from "../../../layouts/opp-tabs-subpage-d
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { DialogEntityEditor } from "./dialog-entity-editor";
 import {
   loadEntityEditorDialog,

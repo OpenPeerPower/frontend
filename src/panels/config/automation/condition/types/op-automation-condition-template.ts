@@ -3,9 +3,9 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { TemplateCondition } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-condition-row";
+import { handleChangeEvent } from "../op-automation-condition-row";
 
-@customElement("ha-automation-condition-template")
+@customElement("op-automation-condition-template")
 export class HaTemplateCondition extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

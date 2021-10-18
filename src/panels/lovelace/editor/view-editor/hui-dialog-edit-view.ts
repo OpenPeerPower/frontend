@@ -14,7 +14,7 @@ import {
 import { fireEvent, OPPDomEvent } from "../../../../common/dom/fire_event";
 import { navigate } from "../../../../common/navigate";
 import "../../../../components/op-circular-progress";
-import "../../../../components/ha-dialog";
+import "../../../../components/op-dialog";
 import "../../../../components/op-icon-button";
 import type {
   LovelaceBadgeConfig,
@@ -422,7 +422,7 @@ export class HuiDialogEditView extends LitElement {
         }
 
         @media all and (min-width: 600px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-min-width: 600px;
           }
         }

@@ -4,9 +4,9 @@ import {
   DeviceAction,
   localizeDeviceAutomationAction,
 } from "../../../../data/device_automation";
-import { HaDeviceAutomationCard } from "./ha-device-automation-card";
+import { HaDeviceAutomationCard } from "./op-device-automation-card";
 
-@customElement("ha-device-actions-card")
+@customElement("op-device-actions-card")
 export class HaDeviceActionsCard extends HaDeviceAutomationCard<DeviceAction> {
   protected type = "action";
 
@@ -19,6 +19,6 @@ export class HaDeviceActionsCard extends HaDeviceAutomationCard<DeviceAction> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-actions-card": HaDeviceActionsCard;
+    "op-device-actions-card": HaDeviceActionsCard;
   }
 }

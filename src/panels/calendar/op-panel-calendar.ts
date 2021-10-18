@@ -21,7 +21,7 @@ import {
   fetchCalendarEvents,
   getCalendars,
 } from "../../data/calendar";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import type {
   CalendarEvent,
@@ -30,7 +30,7 @@ import type {
 } from "../../types";
 import "./ha-full-calendar";
 
-@customElement("ha-panel-calendar")
+@customElement("op-panel-calendar")
 class PanelCalendar extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -233,6 +233,6 @@ class PanelCalendar extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-calendar": PanelCalendar;
+    "op-panel-calendar": PanelCalendar;
   }
 }

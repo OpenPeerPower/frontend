@@ -15,7 +15,7 @@ import { InputBoolean } from "../../../../data/input_boolean";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-input_boolean-form")
+@customElement("op-input_boolean-form")
 class HaInputBooleanForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -117,6 +117,6 @@ class HaInputBooleanForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-input_boolean-form": HaInputBooleanForm;
+    "op-input_boolean-form": HaInputBooleanForm;
   }
 }

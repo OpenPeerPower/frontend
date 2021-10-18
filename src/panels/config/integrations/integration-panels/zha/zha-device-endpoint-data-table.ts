@@ -10,12 +10,12 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../../../common/util/compute_rtl";
-import "../../../../../components/data-table/ha-data-table";
+import "../../../../../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
   DataTableRowData,
   HaDataTable,
-} from "../../../../../components/data-table/ha-data-table";
+} from "../../../../../components/data-table/op-data-table";
 import type {
   ZHADeviceEndpoint,
   ZHAEntityReference,
@@ -31,7 +31,7 @@ export interface DeviceEndpointRowData extends DataTableRowData {
   entities: ZHAEntityReference[];
 }
 
-@customElement("zha-device-endpoint-data-table")
+@customElement("zop-device-endpoint-data-table")
 export class ZHADeviceEndpointDataTable extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -41,7 +41,7 @@ export class ZHADeviceEndpointDataTable extends LitElement {
 
   @property({ type: Array }) public deviceEndpoints: ZHADeviceEndpoint[] = [];
 
-  @query("ha-data-table", true) private _dataTable!: HaDataTable;
+  @query("op-data-table", true) private _dataTable!: HaDataTable;
 
   private _deviceEndpoints = memoizeOne(
     (deviceEndpoints: ZHADeviceEndpoint[]) => {
@@ -169,6 +169,6 @@ export class ZHADeviceEndpointDataTable extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-device-endpoint-data-table": ZHADeviceEndpointDataTable;
+    "zop-device-endpoint-data-table": ZHADeviceEndpointDataTable;
   }
 }

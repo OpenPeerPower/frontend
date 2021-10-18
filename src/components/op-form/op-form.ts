@@ -2,7 +2,7 @@ import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { dynamicElement } from "../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../common/dom/fire_event";
-import { HaTimeData } from "../ha-time-input";
+import { HaTimeData } from "../op-time-input";
 import "./ha-form-boolean";
 import "./ha-form-constant";
 import "./ha-form-float";

@@ -4,9 +4,9 @@ import { customElement, html, LitElement, property } from "lit-element";
 import "../../../../../components/entity/op-entity-picker";
 import { NumericStateCondition } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-condition-row";
+import { handleChangeEvent } from "../op-automation-condition-row";
 
-@customElement("ha-automation-condition-numeric_state")
+@customElement("op-automation-condition-numeric_state")
 export default class HaNumericStateCondition extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -76,6 +76,6 @@ export default class HaNumericStateCondition extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-condition-numeric_state": HaNumericStateCondition;
+    "op-automation-condition-numeric_state": HaNumericStateCondition;
   }
 }

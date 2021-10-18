@@ -21,7 +21,7 @@ import "../../../common/search/search-input";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
-} from "../../../components/data-table/ha-data-table";
+} from "../../../components/data-table/op-data-table";
 import "../../../components/op-fab";
 import "../../../components/op-icon";
 import "../../../components/op-svg-icon";
@@ -29,7 +29,7 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../types";
 import { showEntityEditorDialog } from "../entities/show-dialog-entity-editor";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 import { HELPER_DOMAINS } from "./const";
 import { showHelperDetailDialog } from "./show-dialog-helper-detail";
 

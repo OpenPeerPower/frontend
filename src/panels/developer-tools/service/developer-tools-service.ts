@@ -14,7 +14,7 @@ import { computeDomain } from "../../../common/entity/compute_domain";
 import { computeObjectId } from "../../../common/entity/compute_object_id";
 import { hasTemplate } from "../../../common/string/has-template";
 import { extractSearchParam } from "../../../common/url/search-params";
-import "../../../components/buttons/ha-progress-button";
+import "../../../components/buttons/op-progress-button";
 import "../../../components/entity/op-entity-picker";
 import "../../../components/op-card";
 import "../../../components/ha-expansion-panel";

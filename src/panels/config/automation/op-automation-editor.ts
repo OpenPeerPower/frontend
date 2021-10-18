@@ -45,25 +45,25 @@ import {
   showAlertDialog,
   showConfirmationDialog,
 } from "../../../dialogs/generic/show-dialog-box";
-import "../../../layouts/ha-app-layout";
+import "../../../layouts/op-app-layout";
 import "../../../layouts/opp-tabs-subpage";
 import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
 import "../ha-config-section";
-import { configSections } from "../ha-panel-config";
-import "./action/ha-automation-action";
-import { HaDeviceAction } from "./action/types/ha-automation-action-device_id";
+import { configSections } from "../op-panel-config";
+import "./action/op-automation-action";
+import { HaDeviceAction } from "./action/types/op-automation-action-device_id";
 import "./blueprint-automation-editor";
-import "./condition/ha-automation-condition";
+import "./condition/op-automation-condition";
 import "./manual-automation-editor";
-import "./trigger/ha-automation-trigger";
-import { HaDeviceTrigger } from "./trigger/types/ha-automation-trigger-device";
+import "./trigger/op-automation-trigger";
+import { HaDeviceTrigger } from "./trigger/types/op-automation-trigger-device";
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-editor": HaAutomationEditor;
+    "op-automation-editor": HaAutomationEditor;
   }
   // for fire event
   interface OPPDomEvents {
@@ -575,4 +575,4 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
   }
 }
 
-customElements.define("ha-automation-editor", HaAutomationEditor);
+customElements.define("op-automation-editor", HaAutomationEditor);

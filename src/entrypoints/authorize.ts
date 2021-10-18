@@ -1,6 +1,6 @@
 // Compat needs to be first import
 import "../resources/compatibility";
-import "../auth/ha-authorize";
+import "../auth/op-authorize";
 import "../resources/op-style";
 import "../resources/roboto";
 import "../resources/safari-14-attachshadow-patch";

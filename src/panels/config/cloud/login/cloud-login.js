@@ -7,7 +7,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeRTL } from "../../../../common/util/compute_rtl";
-import "../../../../components/buttons/ha-progress-button";
+import "../../../../components/buttons/op-progress-button";
 import "../../../../components/op-card";
 import "../../../../components/op-icon-button";
 import "../../../../components/op-icon-next";
@@ -269,7 +269,7 @@ class CloudLogin extends LocalizeMixin(
       })
       .then(
         () => {
-          this.fire("ha-refresh-cloud-status");
+          this.fire("op-refresh-cloud-status");
           this.setProperties({
             email: "",
             _password: "",

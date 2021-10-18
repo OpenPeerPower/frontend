@@ -8,8 +8,8 @@ import {
   query,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-date-input";
-import type { HaDateInput } from "../../../components/ha-date-input";
+import "../../../components/op-date-input";
+import type { HaDateInput } from "../../../components/op-date-input";
 import "../../../components/paper-time-input";
 import type { PaperTimeInput } from "../../../components/paper-time-input";
 import { UNAVAILABLE_STATES, UNKNOWN } from "../../../data/entity";
@@ -28,7 +28,7 @@ class HuiInputDatetimeEntityRow extends LitElement implements LovelaceRow {
 
   @query("paper-time-input") private _timeInputEl?: PaperTimeInput;
 
-  @query("ha-date-input") private _dateInputEl?: HaDateInput;
+  @query("op-date-input") private _dateInputEl?: HaDateInput;
 
   public setConfig(config: EntityConfig): void {
     if (!config) {

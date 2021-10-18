@@ -36,7 +36,7 @@ const compareTokenLastUsedAt = (tokenA: RefreshToken, tokenB: RefreshToken) => {
   return 0;
 };
 
-@customElement("ha-refresh-tokens-card")
+@customElement("op-refresh-tokens-card")
 class HaRefreshTokens extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -159,6 +159,6 @@ class HaRefreshTokens extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-refresh-tokens-card": HaRefreshTokens;
+    "op-refresh-tokens-card": HaRefreshTokens;
   }
 }

@@ -4,9 +4,9 @@ import {
   fetchDeviceActions,
   localizeDeviceAutomationAction,
 } from "../../data/device_automation";
-import { HaDeviceAutomationPicker } from "./ha-device-automation-picker";
+import { HaDeviceAutomationPicker } from "./op-device-automation-picker";
 
-@customElement("ha-device-action-picker")
+@customElement("op-device-action-picker")
 class HaDeviceActionPicker extends HaDeviceAutomationPicker<DeviceAction> {
   protected get NO_AUTOMATION_TEXT() {
     return this.opp.localize(
@@ -35,6 +35,6 @@ class HaDeviceActionPicker extends HaDeviceAutomationPicker<DeviceAction> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-action-picker": HaDeviceActionPicker;
+    "op-device-action-picker": HaDeviceActionPicker;
   }
 }

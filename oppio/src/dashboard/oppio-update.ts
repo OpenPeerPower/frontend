@@ -5,8 +5,8 @@ import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
-import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-card";
+import "../../../src/components/buttons/op-progress-button";
+import "../../../src/components/op-card";
 import "../../../src/components/op-settings-row";
 import "../../../src/components/op-svg-icon";
 import {

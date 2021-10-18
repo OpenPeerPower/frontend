@@ -15,7 +15,7 @@ import { haStyle } from "../../../../../../resources/styles";
 
 import { OpenPeerPower } from "../../../../../../types";
 
-@customElement("ha-device-actions-zwave_js")
+@customElement("op-device-actions-zwave_js")
 export class HaDeviceActionsZWaveJS extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

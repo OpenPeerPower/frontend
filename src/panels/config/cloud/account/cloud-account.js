@@ -206,14 +206,14 @@ class CloudAccount extends EventsMixin(LocalizeMixin(PolymerElement)) {
       this.cloudStatus &&
       this.cloudStatus.cloud !== "connected"
     ) {
-      this.fire("ha-refresh-cloud-status");
+      this.fire("op-refresh-cloud-status");
     }
   }
 
   handleLogout() {
     this.opp
       .callApi("post", "cloud/logout")
-      .then(() => this.fire("ha-refresh-cloud-status"));
+      .then(() => this.fire("op-refresh-cloud-status"));
   }
 
   _formatSubscription(subInfo) {

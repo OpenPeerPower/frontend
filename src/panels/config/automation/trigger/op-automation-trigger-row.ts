@@ -23,20 +23,20 @@ import type { Trigger } from "../../../../data/automation";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../types";
-import "./types/ha-automation-trigger-device";
-import "./types/ha-automation-trigger-event";
-import "./types/ha-automation-trigger-geo_location";
-import "./types/ha-automation-trigger-openpeerpower";
-import "./types/ha-automation-trigger-mqtt";
-import "./types/ha-automation-trigger-numeric_state";
-import "./types/ha-automation-trigger-state";
-import "./types/ha-automation-trigger-sun";
-import "./types/ha-automation-trigger-tag";
-import "./types/ha-automation-trigger-template";
-import "./types/ha-automation-trigger-time";
-import "./types/ha-automation-trigger-time_pattern";
-import "./types/ha-automation-trigger-webhook";
-import "./types/ha-automation-trigger-zone";
+import "./types/op-automation-trigger-device";
+import "./types/op-automation-trigger-event";
+import "./types/op-automation-trigger-geo_location";
+import "./types/op-automation-trigger-openpeerpower";
+import "./types/op-automation-trigger-mqtt";
+import "./types/op-automation-trigger-numeric_state";
+import "./types/op-automation-trigger-state";
+import "./types/op-automation-trigger-sun";
+import "./types/op-automation-trigger-tag";
+import "./types/op-automation-trigger-template";
+import "./types/op-automation-trigger-time";
+import "./types/op-automation-trigger-time_pattern";
+import "./types/op-automation-trigger-webhook";
+import "./types/op-automation-trigger-zone";
 
 const OPTIONS = [
   "device",
@@ -81,7 +81,7 @@ export const handleChangeEvent = (element: TriggerElement, ev: CustomEvent) => {
   fireEvent(element, "value-changed", { value: newTrigger });
 };
 
-@customElement("ha-automation-trigger-row")
+@customElement("op-automation-trigger-row")
 export default class HaAutomationTriggerRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -171,7 +171,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                 </paper-dropdown-menu-light>
                 <div>
                   ${dynamicElement(
-                    `ha-automation-trigger-${this.trigger.platform}`,
+                    `op-automation-trigger-${this.trigger.platform}`,
                     { opp: this.opp, trigger: this.trigger }
                   )}
                 </div>
@@ -216,7 +216,7 @@ export default class HaAutomationTriggerRow extends LitElement {
       return;
     }
 
-    const elClass = customElements.get(`ha-automation-trigger-${type}`);
+    const elClass = customElements.get(`op-automation-trigger-${type}`);
 
     if (type !== this.trigger.platform) {
       fireEvent(this, "value-changed", {
@@ -262,6 +262,6 @@ export default class HaAutomationTriggerRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-row": HaAutomationTriggerRow;
+    "op-automation-trigger-row": HaAutomationTriggerRow;
   }
 }

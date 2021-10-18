@@ -12,7 +12,7 @@ import {
 import { fireEvent } from "../../../common/dom/fire_event";
 import { addDistanceToCoord } from "../../../common/location/add_distance_to_coord";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
-import { createCloseHeading } from "../../../components/ha-dialog";
+import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/op-switch";
 import "../../../components/map/ha-location-editor";

@@ -9,7 +9,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { until } from "lit-html/directives/until";
-import "../../../src/components/ha-card";
+import "../../../src/components/op-card";
 import "../../../src/components/op-circular-progress";
 import { LovelaceCardConfig } from "../../../src/data/lovelace";
 import { MockOpenPeerPower } from "../../../src/fake_data/provide_opp";
@@ -158,8 +158,8 @@ export class HADemoCard extends LitElement implements LovelaceCard {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-demo-card": HADemoCard;
+    "op-demo-card": HADemoCard;
   }
 }
 
-customElements.define("ha-demo-card", HADemoCard);
+customElements.define("op-demo-card", HADemoCard);

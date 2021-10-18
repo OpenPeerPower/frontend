@@ -11,10 +11,10 @@ import {
 } from "lit-element";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-blueprint-picker";
+import "../../../components/op-blueprint-picker";
 import "../../../components/op-card";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-dialog";
+import "../../../components/op-dialog";
 import {
   AutomationConfig,
   showAutomationEditor,
@@ -23,7 +23,7 @@ import { haStyle, haStyleDialog } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
 import { showThingtalkDialog } from "./thingtalk/show-dialog-thingtalk";
 
-@customElement("ha-dialog-new-automation")
+@customElement("op-dialog-new-automation")
 class DialogNewAutomation extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -147,7 +147,7 @@ class DialogNewAutomation extends LitElement {
           box-sizing: border-box;
           padding: 8px;
         }
-        ha-blueprint-picker {
+        op-blueprint-picker {
           width: 100%;
         }
         .side-by-side {
@@ -170,6 +170,6 @@ class DialogNewAutomation extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-dialog-new-automation": DialogNewAutomation;
+    "op-dialog-new-automation": DialogNewAutomation;
   }
 }

@@ -15,7 +15,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { compare } from "../../../../common/string/compare";
 import { HaSwitch } from "../../../../components/op-switch";
-import "../../../../components/user/ha-user-badge";
+import "../../../../components/user/op-user-badge";
 import { LovelaceViewConfig, ShowViewConfig } from "../../../../data/lovelace";
 import { fetchUsers, User } from "../../../../data/user";
 import { OpenPeerPower } from "../../../../types";

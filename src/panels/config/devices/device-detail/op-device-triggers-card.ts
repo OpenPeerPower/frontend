@@ -3,9 +3,9 @@ import {
   DeviceTrigger,
   localizeDeviceAutomationTrigger,
 } from "../../../../data/device_automation";
-import { HaDeviceAutomationCard } from "./ha-device-automation-card";
+import { HaDeviceAutomationCard } from "./op-device-automation-card";
 
-@customElement("ha-device-triggers-card")
+@customElement("op-device-triggers-card")
 export class HaDeviceTriggersCard extends HaDeviceAutomationCard<
   DeviceTrigger
 > {
@@ -20,6 +20,6 @@ export class HaDeviceTriggersCard extends HaDeviceAutomationCard<
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-device-triggers-card": HaDeviceTriggersCard;
+    "op-device-triggers-card": HaDeviceTriggersCard;
   }
 }

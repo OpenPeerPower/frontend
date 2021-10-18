@@ -11,8 +11,8 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { formatDateTime } from "../../common/datetime/format_date_time";
 import "../../components/op-card";
 import "../../components/ha-menu-button";
-import "../../components/ha-tabs";
-import "../../layouts/ha-app-layout";
+import "../../components/op-tabs";
+import "../../layouts/op-app-layout";
 import { EventsMixin } from "../../mixins/events-mixin";
 import LocalizeMixin from "../../mixins/localize-mixin";
 import "../../styles/polymer-op-style";
@@ -46,7 +46,7 @@ class HaPanelMailbox extends EventsMixin(LocalizeMixin(PolymerElement)) {
           cursor: pointer;
         }
 
-        ha-tabs {
+        op-tabs {
           margin-left: max(env(safe-area-inset-left), 24px);
           margin-right: max(env(safe-area-inset-right), 24px);
           --paper-tabs-selection-bar-color: #fff;
@@ -158,8 +158,8 @@ class HaPanelMailbox extends EventsMixin(LocalizeMixin(PolymerElement)) {
       registeredDialog = true;
       this.fire("register-dialog", {
         dialogShowEvent: "show-audio-message-dialog",
-        dialogTag: "ha-dialog-show-audio-message",
-        dialogImport: () => import("./ha-dialog-show-audio-message"),
+        dialogTag: "op-dialog-show-audio-message",
+        dialogImport: () => import("./op-dialog-show-audio-message"),
       });
     }
     this.oppChanged = this.oppChanged.bind(this);
@@ -251,4 +251,4 @@ class HaPanelMailbox extends EventsMixin(LocalizeMixin(PolymerElement)) {
   }
 }
 
-customElements.define("ha-panel-mailbox", HaPanelMailbox);
+customElements.define("op-panel-mailbox", HaPanelMailbox);

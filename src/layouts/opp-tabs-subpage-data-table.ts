@@ -6,12 +6,12 @@ import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
 import { computeRTLDirection } from "../common/util/compute_rtl";
-import "../components/data-table/ha-data-table";
+import "../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
   DataTableRowData,
   HaDataTable,
-} from "../components/data-table/ha-data-table";
+} from "../components/data-table/op-data-table";
 import type { OpenPeerPower, Route } from "../types";
 import "./opp-tabs-subpage";
 import type { PageNavigation } from "./opp-tabs-subpage";
@@ -133,7 +133,7 @@ export class HaTabsSubpageDataTable extends LitElement {
    */
   @property() public tabs!: PageNavigation[];
 
-  @query("ha-data-table", true) private _dataTable!: HaDataTable;
+  @query("op-data-table", true) private _dataTable!: HaDataTable;
 
   public clearSelection() {
     this._dataTable.clearSelection();
@@ -242,12 +242,12 @@ export class HaTabsSubpageDataTable extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      ha-data-table {
+      op-data-table {
         width: 100%;
         height: 100%;
         --data-table-border-width: 0;
       }
-      :host(:not([narrow])) ha-data-table {
+      :host(:not([narrow])) op-data-table {
         height: calc(100vh - 1px - var(--header-height));
         display: block;
       }

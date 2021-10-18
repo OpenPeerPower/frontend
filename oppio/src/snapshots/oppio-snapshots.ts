@@ -20,7 +20,7 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
   SelectionChangedEvent,
-} from "../../../src/components/data-table/ha-data-table";
+} from "../../../src/components/data-table/op-data-table";
 import "../../../src/components/op-button-menu";
 import "../../../src/components/op-fab";
 import { extractApiErrorMessage } from "../../../src/data/oppio/common";

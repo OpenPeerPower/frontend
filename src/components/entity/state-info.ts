@@ -5,7 +5,7 @@ import { customElement, property } from "lit/decorators";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { computeRTL } from "../../common/util/compute_rtl";
 import type { OpenPeerPower } from "../../types";
-import "../ha-relative-time";
+import "../op-relative-time";
 import "./state-badge";
 
 @customElement("state-info")

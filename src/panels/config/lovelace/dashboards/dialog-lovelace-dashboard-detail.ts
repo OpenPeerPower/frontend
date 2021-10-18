@@ -11,7 +11,7 @@ import {
 } from "lit-element";
 import { slugify } from "../../../../common/string/slugify";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
-import { createCloseHeading } from "../../../../components/ha-dialog";
+import { createCloseHeading } from "../../../../components/op-dialog";
 import "../../../../components/op-formfield";
 import "../../../../components/op-icon-input";
 import "../../../../components/op-switch";

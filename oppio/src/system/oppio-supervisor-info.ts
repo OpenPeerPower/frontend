@@ -2,8 +2,8 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
-import "../../../src/components/buttons/ha-progress-button";
-import "../../../src/components/ha-card";
+import "../../../src/components/buttons/op-progress-button";
+import "../../../src/components/op-card";
 import "../../../src/components/op-settings-row";
 import "../../../src/components/op-switch";
 import {
@@ -501,7 +501,7 @@ class OppioSupervisorInfo extends LitElement {
       haStyle,
       oppioStyle,
       css`
-        ha-card {
+        op-card {
           height: 100%;
           justify-content: space-between;
           flex-direction: column;

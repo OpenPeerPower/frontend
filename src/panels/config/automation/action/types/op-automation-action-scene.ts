@@ -4,11 +4,11 @@ import "../../../../../components/entity/op-entity-picker";
 import { SceneAction } from "../../../../../data/script";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
 import { OpenPeerPower } from "../../../../../types";
-import { ActionElement } from "../ha-automation-action-row";
+import { ActionElement } from "../op-automation-action-row";
 
 const includeDomains = ["scene"];
 
-@customElement("ha-automation-action-scene")
+@customElement("op-automation-action-scene")
 export class HaSceneAction extends LitElement implements ActionElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -42,6 +42,6 @@ export class HaSceneAction extends LitElement implements ActionElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-scene": HaSceneAction;
+    "op-automation-action-scene": HaSceneAction;
   }
 }

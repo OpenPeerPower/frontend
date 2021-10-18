@@ -14,9 +14,9 @@ import {
 import { customElement, property, query, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
-import "../../../../src/components/buttons/ha-progress-button";
+import "../../../../src/components/buttons/op-progress-button";
 import "../../../../src/components/op-button-menu";
-import "../../../../src/components/ha-card";
+import "../../../../src/components/op-card";
 import "../../../../src/components/ha-form/ha-form";
 import type { HaFormSchema } from "../../../../src/components/ha-form/ha-form";
 import "../../../../src/components/op-formfield";
@@ -317,7 +317,7 @@ class OppioAddonConfig extends LitElement {
         :host {
           display: block;
         }
-        ha-card {
+        op-card {
           display: block;
         }
         .card-actions {

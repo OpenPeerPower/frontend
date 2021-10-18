@@ -24,15 +24,15 @@ import {
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
-import "../../../components/trace/ha-trace-blueprint-config";
-import "../../../components/trace/ha-trace-config";
-import "../../../components/trace/ha-trace-logbook";
-import "../../../components/trace/ha-trace-path-details";
-import "../../../components/trace/ha-trace-timeline";
+import { configSections } from "../op-panel-config";
+import "../../../components/trace/op-trace-blueprint-config";
+import "../../../components/trace/op-trace-config";
+import "../../../components/trace/op-trace-logbook";
+import "../../../components/trace/op-trace-path-details";
+import "../../../components/trace/op-trace-timeline";
 import { traceTabStyles } from "../../../components/trace/trace-tab-styles";
 
-@customElement("ha-automation-trace")
+@customElement("op-automation-trace")
 export class HaAutomationTrace extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -507,6 +507,6 @@ export class HaAutomationTrace extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trace": HaAutomationTrace;
+    "op-automation-trace": HaAutomationTrace;
   }
 }

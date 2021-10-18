@@ -22,8 +22,8 @@ import {
   DataTableColumnContainer,
   DataTableRowData,
   RowClickedEvent,
-} from "../../../components/data-table/ha-data-table";
-import "../../../components/entity/ha-battery-icon";
+} from "../../../components/data-table/op-data-table";
+import "../../../components/entity/op-battery-icon";
 import "../../../components/op-button-menu";
 import { AreaRegistryEntry } from "../../../data/area_registry";
 import { ConfigEntry } from "../../../data/config_entries";
@@ -41,7 +41,7 @@ import { domainToName } from "../../../data/integration";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
-import { configSections } from "../ha-panel-config";
+import { configSections } from "../op-panel-config";
 
 interface DeviceRowData extends DeviceRegistryEntry {
   device?: DeviceRowData;

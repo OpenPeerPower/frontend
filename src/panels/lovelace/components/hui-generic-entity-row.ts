@@ -16,7 +16,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import "../../../components/entity/state-badge";
 import "../../../components/op-icon";
-import "../../../components/ha-relative-time";
+import "../../../components/op-relative-time";
 import { ActionHandlerEvent } from "../../../data/lovelace";
 import { OpenPeerPower } from "../../../types";
 import { EntitiesCardEntityConfig } from "../cards/types";
@@ -182,7 +182,7 @@ class HuiGenericEntityRow extends LitElement {
         margin-left: 0;
       }
       .secondary,
-      ha-relative-time {
+      op-relative-time {
         color: var(--secondary-text-color);
       }
       state-badge {

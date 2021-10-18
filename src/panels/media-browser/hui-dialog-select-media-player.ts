@@ -14,7 +14,7 @@ import {
 import { fireEvent } from "../../common/dom/fire_event";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { compare } from "../../common/string/compare";
-import { createCloseHeading } from "../../components/ha-dialog";
+import { createCloseHeading } from "../../components/op-dialog";
 import { UNAVAILABLE_STATES } from "../../data/entity";
 import { BROWSER_PLAYER } from "../../data/media-player";
 import { haStyleDialog } from "../../resources/styles";
@@ -85,7 +85,7 @@ export class HuiDialogSelectMediaPlayer extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-dialog {
+        op-dialog {
           --dialog-content-padding: 0 24px 20px;
         }
         mwc-list-item[disabled] {

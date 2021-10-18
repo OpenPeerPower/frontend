@@ -7,9 +7,9 @@ import { fireEvent } from "../../common/dom/fire_event";
 import { fetchUsers, User } from "../../data/user";
 import type { PolymerChangedEvent } from "../../polymer-types";
 import type { OpenPeerPower } from "../../types";
-import "./ha-user-picker";
+import "./op-user-picker";
 
-@customElement("ha-users-picker")
+@customElement("op-users-picker")
 class HaUsersPickerLight extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -157,6 +157,6 @@ class HaUsersPickerLight extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-users-picker": HaUsersPickerLight;
+    "op-users-picker": HaUsersPickerLight;
   }
 }

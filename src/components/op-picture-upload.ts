@@ -15,7 +15,7 @@ import "./op-circular-progress";
 import "./ha-file-upload";
 import "./op-svg-icon";
 
-@customElement("ha-picture-upload")
+@customElement("op-picture-upload")
 export class HaPictureUpload extends LitElement {
   public opp!: OpenPeerPower;
 
@@ -101,6 +101,6 @@ export class HaPictureUpload extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-picture-upload": HaPictureUpload;
+    "op-picture-upload": HaPictureUpload;
   }
 }

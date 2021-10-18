@@ -10,7 +10,7 @@ export interface HaTimeData {
   milliseconds?: number;
 }
 
-@customElement("ha-time-input")
+@customElement("op-time-input")
 class HaTimeInput extends LitElement {
   @property() public data!: HaTimeData;
 
@@ -135,6 +135,6 @@ class HaTimeInput extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-time-input": HaTimeInput;
+    "op-time-input": HaTimeInput;
   }
 }

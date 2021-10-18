@@ -16,7 +16,7 @@ import type { OPPDomEvent } from "../../../../common/dom/fire_event";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/op-circular-progress";
-import "../../../../components/ha-dialog";
+import "../../../../components/op-dialog";
 import "../../../../components/ha-header-bar";
 import type {
   LovelaceCardConfig,
@@ -362,26 +362,26 @@ export class HuiDialogEditCard
 
         @media all and (max-width: 450px), all and (max-height: 500px) {
           /* overrule the op-style-dialog max-height on small screens */
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-height: 100%;
             height: 100%;
           }
         }
 
         @media all and (min-width: 850px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-min-width: 845px;
             --mdc-dialog-max-height: calc(100% - 72px);
           }
         }
 
-        ha-dialog {
+        op-dialog {
           --mdc-dialog-max-width: 845px;
           --dialog-z-index: 5;
         }
 
         @media all and (min-width: 451px) and (min-height: 501px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: 90vw;
           }
           :host([large]) .content {
@@ -416,7 +416,7 @@ export class HuiDialogEditCard
         }
 
         @media (min-width: 1200px) {
-          ha-dialog {
+          op-dialog {
             --mdc-dialog-max-width: calc(100% - 32px);
             --mdc-dialog-min-width: 1000px;
             --dialog-surface-position: fixed;

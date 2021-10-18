@@ -6,10 +6,10 @@ import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/op-formfield";
 import { WaitForTriggerAction } from "../../../../../data/script";
 import { OpenPeerPower } from "../../../../../types";
-import "../../trigger/ha-automation-trigger";
-import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
+import "../../trigger/op-automation-trigger";
+import { ActionElement, handleChangeEvent } from "../op-automation-action-row";
 
-@customElement("ha-automation-action-wait_for_trigger")
+@customElement("op-automation-action-wait_for_trigger")
 export class HaWaitForTriggerAction
   extends LitElement
   implements ActionElement
@@ -67,6 +67,6 @@ export class HaWaitForTriggerAction
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-action-wait_for_trigger": HaWaitForTriggerAction;
+    "op-automation-action-wait_for_trigger": HaWaitForTriggerAction;
   }
 }

@@ -3,9 +3,9 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { WebhookTrigger } from "../../../../../data/automation";
 import { OpenPeerPower } from "../../../../../types";
-import { handleChangeEvent } from "../ha-automation-trigger-row";
+import { handleChangeEvent } from "../op-automation-trigger-row";
 
-@customElement("ha-automation-trigger-webhook")
+@customElement("op-automation-trigger-webhook")
 export class HaWebhookTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -38,6 +38,6 @@ export class HaWebhookTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger-webhook": HaWebhookTrigger;
+    "op-automation-trigger-webhook": HaWebhookTrigger;
   }
 }

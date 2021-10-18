@@ -67,4 +67,4 @@ class HaInitPage extends LitElement {
   }
 }
 
-customElements.define("ha-init-page", HaInitPage);
+customElements.define("op-init-page", HaInitPage);

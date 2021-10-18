@@ -11,7 +11,7 @@ import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import "../../../components/op-icon";
 import "../../../components/op-icon-button";
-import "../../../components/ha-paper-dropdown-menu";
+import "../../../components/op-paper-dropdown-menu";
 import "../../../components/op-slider";
 import "../../../components/op-svg-icon";
 import { showMediaBrowserDialog } from "../../../components/media-player/show-media-browser-dialog";
@@ -228,8 +228,8 @@ class MoreInfoMediaPlayer extends LitElement {
         margin-top: 24px;
       }
 
-      .source-input ha-paper-dropdown-menu,
-      .sound-input ha-paper-dropdown-menu {
+      .source-input op-paper-dropdown-menu,
+      .sound-input op-paper-dropdown-menu {
         margin-left: 10px;
         flex-grow: 1;
       }

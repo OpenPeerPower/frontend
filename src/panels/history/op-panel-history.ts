@@ -11,12 +11,12 @@ import { html } from "lit-html";
 import { computeRTL } from "../../common/util/compute_rtl";
 import "../../components/entity/op-entity-picker";
 import "../../components/op-circular-progress";
-import "../../components/ha-date-range-picker";
-import type { DateRangePickerRanges } from "../../components/ha-date-range-picker";
+import "../../components/op-date-range-picker";
+import type { DateRangePickerRanges } from "../../components/op-date-range-picker";
 import "../../components/ha-menu-button";
 import "../../components/state-history-charts";
 import { computeHistory, fetchDate } from "../../data/history";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 
@@ -220,12 +220,12 @@ class HaPanelHistory extends LitElement {
           position: relative;
         }
 
-        ha-date-range-picker {
+        op-date-range-picker {
           margin-right: 16px;
           max-width: 100%;
         }
 
-        :host([narrow]) ha-date-range-picker {
+        :host([narrow]) op-date-range-picker {
           margin-right: 0;
         }
 
@@ -251,4 +251,4 @@ class HaPanelHistory extends LitElement {
   }
 }
 
-customElements.define("ha-panel-history", HaPanelHistory);
+customElements.define("op-panel-history", HaPanelHistory);

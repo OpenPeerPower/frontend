@@ -13,7 +13,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import "../../../../../components/buttons/ha-call-service-button";
 import "../../../../../components/entity/state-badge";
-import "../../../../../components/ha-area-picker";
+import "../../../../../components/op-area-picker";
 import "../../../../../components/op-card";
 import "../../../../../components/op-service-description";
 import {
@@ -26,9 +26,9 @@ import {
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { formatAsPaddedHex } from "./functions";
-import "./zha-device-card";
+import "./zop-device-card";
 
-@customElement("zha-device-pairing-status-card")
+@customElement("zop-device-pairing-status-card")
 class ZHADevicePairingStatusCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -88,13 +88,13 @@ class ZHADevicePairingStatusCard extends LitElement {
           </div>
           ${this.device.pairing_status === INITIALIZED
             ? html`
-                <zha-device-card
+                <zop-device-card
                   class="card"
                   .opp=${this.opp}
                   .device=${this.device}
                   .narrow=${this.narrow}
                   .showHelp=${this._showHelp}
-                ></zha-device-card>
+                ></zop-device-card>
               `
             : html``}
         </div>
@@ -140,6 +140,6 @@ class ZHADevicePairingStatusCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-device-pairing-status-card": ZHADevicePairingStatusCard;
+    "zop-device-pairing-status-card": ZHADevicePairingStatusCard;
   }
 }

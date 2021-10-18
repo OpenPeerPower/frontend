@@ -3,7 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/op-circular-progress";
-import "../../../../src/components/ha-dialog";
+import "../../../../src/components/op-dialog";
 import "../../../../src/components/op-settings-row";
 import "../../../../src/components/op-svg-icon";
 import "../../../../src/components/op-switch";

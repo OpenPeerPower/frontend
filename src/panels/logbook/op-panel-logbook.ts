@@ -13,8 +13,8 @@ import {
 import { computeRTL } from "../../common/util/compute_rtl";
 import "../../components/entity/op-entity-picker";
 import "../../components/op-circular-progress";
-import "../../components/ha-date-range-picker";
-import type { DateRangePickerRanges } from "../../components/ha-date-range-picker";
+import "../../components/op-date-range-picker";
+import type { DateRangePickerRanges } from "../../components/op-date-range-picker";
 import "../../components/op-icon-button";
 import "../../components/ha-menu-button";
 import { TraceContexts, loadTraceContexts } from "../../data/trace";
@@ -25,13 +25,13 @@ import {
 } from "../../data/logbook";
 import { fetchPersons } from "../../data/person";
 import { fetchUsers } from "../../data/user";
-import "../../layouts/ha-app-layout";
+import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 import "./ha-logbook";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
 
-@customElement("ha-panel-logbook")
+@customElement("op-panel-logbook")
 export class HaPanelLogbook extends LitElement {
   @property() opp!: OpenPeerPower;
 
@@ -291,12 +291,12 @@ export class HaPanelLogbook extends LitElement {
           height: calc(100vh - 198px);
         }
 
-        ha-date-range-picker {
+        op-date-range-picker {
           margin-right: 16px;
           max-width: 100%;
         }
 
-        :host([narrow]) ha-date-range-picker {
+        :host([narrow]) op-date-range-picker {
           margin-right: 0;
         }
 

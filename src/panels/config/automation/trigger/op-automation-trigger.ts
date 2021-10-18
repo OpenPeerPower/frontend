@@ -11,10 +11,10 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/op-card";
 import { Trigger } from "../../../../data/automation";
 import { OpenPeerPower } from "../../../../types";
-import "./ha-automation-trigger-row";
-import { HaDeviceTrigger } from "./types/ha-automation-trigger-device";
+import "./op-automation-trigger-row";
+import { HaDeviceTrigger } from "./types/op-automation-trigger-device";
 
-@customElement("ha-automation-trigger")
+@customElement("op-automation-trigger")
 export default class HaAutomationTrigger extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -79,7 +79,7 @@ export default class HaAutomationTrigger extends LitElement {
 
   static get styles(): CSSResult {
     return css`
-      ha-automation-trigger-row,
+      op-automation-trigger-row,
       op-card {
         display: block;
         margin-top: 16px;
@@ -94,6 +94,6 @@ export default class HaAutomationTrigger extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-automation-trigger": HaAutomationTrigger;
+    "op-automation-trigger": HaAutomationTrigger;
   }
 }

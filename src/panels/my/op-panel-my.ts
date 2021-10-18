@@ -161,7 +161,7 @@ export interface Redirect {
   };
 }
 
-@customElement("ha-panel-my")
+@customElement("op-panel-my")
 class HaPanelMy extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -293,6 +293,6 @@ class HaPanelMy extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-panel-my": HaPanelMy;
+    "op-panel-my": HaPanelMy;
   }
 }

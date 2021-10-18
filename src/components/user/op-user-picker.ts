@@ -11,7 +11,7 @@ import { compare } from "../../common/string/compare";
 import { fetchUsers, User } from "../../data/user";
 import { OpenPeerPower } from "../../types";
 import "../op-icon-button";
-import "./ha-user-badge";
+import "./op-user-badge";
 
 class HaUserPicker extends LitElement {
   public opp?: OpenPeerPower;
@@ -108,10 +108,10 @@ class HaUserPicker extends LitElement {
   }
 }
 
-customElements.define("ha-user-picker", HaUserPicker);
+customElements.define("op-user-picker", HaUserPicker);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-user-picker": HaUserPicker;
+    "op-user-picker": HaUserPicker;
   }
 }

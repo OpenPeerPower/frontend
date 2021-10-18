@@ -41,7 +41,7 @@ import {
 import { SubscribeMixin } from "../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
-import type { HaDevicePickerDeviceFilterFunc } from "./device/ha-device-picker";
+import type { HaDevicePickerDeviceFilterFunc } from "./device/op-device-picker";
 import "./op-svg-icon";
 
 const rowRenderer: ComboBoxLitRenderer<AreaRegistryEntry> = (
@@ -59,7 +59,7 @@ const rowRenderer: ComboBoxLitRenderer<AreaRegistryEntry> = (
     <paper-item-body two-line>${item.name}</paper-item-body>
   </paper-item>`;
 
-@customElement("ha-area-picker")
+@customElement("op-area-picker")
 export class HaAreaPicker extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -456,6 +456,6 @@ export class HaAreaPicker extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-area-picker": HaAreaPicker;
+    "op-area-picker": HaAreaPicker;
   }
 }
