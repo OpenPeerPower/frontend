@@ -1,7 +1,7 @@
 import "../../../../src/components/op-card";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import "../../../../src/components/op-circular-progress";
-import "../../../../src/components/ha-markdown";
+import "../../../../src/components/op-markdown";
 import { customElement, property, state } from "lit/decorators";
 import {
   fetchOppioAddonDocumentation,
@@ -62,7 +62,7 @@ class OppioAddonDocumentationDashboard extends LitElement {
           padding: 8px;
           max-width: 1024px;
         }
-        ha-markdown {
+        op-markdown {
           padding: 16px;
         }
       `,

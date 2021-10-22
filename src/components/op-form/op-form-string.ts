@@ -10,9 +10,9 @@ import type {
   HaFormElement,
   HaFormStringData,
   HaFormStringSchema,
-} from "./ha-form";
+} from "./op-form";
 
-@customElement("ha-form-string")
+@customElement("op-form-string")
 export class HaFormString extends LitElement implements HaFormElement {
   @property() public schema!: HaFormStringSchema;
 
@@ -107,6 +107,6 @@ export class HaFormString extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-string": HaFormString;
+    "op-form-string": HaFormString;
   }
 }

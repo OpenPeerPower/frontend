@@ -50,7 +50,7 @@ interface DeviceRowData extends DeviceRegistryEntry {
   battery_entity?: [string | undefined, string | undefined];
 }
 
-@customElement("ha-config-devices-dashboard")
+@customElement("op-config-devices-dashboard")
 export class HaConfigDeviceDashboard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -486,6 +486,6 @@ export class HaConfigDeviceDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-devices-dashboard": HaConfigDeviceDashboard;
+    "op-config-devices-dashboard": HaConfigDeviceDashboard;
   }
 }

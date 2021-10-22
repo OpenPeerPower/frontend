@@ -18,7 +18,7 @@ type HlsLite = Omit<
   "subtitleTrackController" | "audioTrackController" | "emeController"
 >;
 
-@customElement("ha-hls-player")
+@customElement("op-hls-player")
 class HaHLSPlayer extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -232,6 +232,6 @@ class HaHLSPlayer extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-hls-player": HaHLSPlayer;
+    "op-hls-player": HaHLSPlayer;
   }
 }

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Open Peer Power Cast - FAQ</title>
-    <link rel="icon" href="/images/ha-cast-icon.png" type="image/png" />
+    <link rel="icon" href="/images/op-cast-icon.png" type="image/png" />
     <%= renderTemplate('_style_base') %>
     <style>
       body {

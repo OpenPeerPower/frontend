@@ -17,7 +17,7 @@ import "../../components/op-circular-progress";
 import { haStyle } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 
-@customElement("ha-change-password-card")
+@customElement("op-change-password-card")
 class HaChangePasswordCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -190,6 +190,6 @@ class HaChangePasswordCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-change-password-card": HaChangePasswordCard;
+    "op-change-password-card": HaChangePasswordCard;
   }
 }

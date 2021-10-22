@@ -59,12 +59,12 @@ const oppAttributeUtil = {
   UNKNOWN_TYPE: "json",
   ADD_TYPE: "key-value",
   TYPE_TO_TAG: {
-    string: "ha-customize-string",
-    json: "ha-customize-string",
-    icon: "ha-customize-icon",
-    boolean: "ha-customize-boolean",
-    array: "ha-customize-array",
-    "key-value": "ha-customize-key-value",
+    string: "op-customize-string",
+    json: "op-customize-string",
+    icon: "op-customize-icon",
+    boolean: "op-customize-boolean",
+    array: "op-customize-array",
+    "key-value": "op-customize-key-value",
   },
   LOGIC_STATE_ATTRIBUTES: {},
 };

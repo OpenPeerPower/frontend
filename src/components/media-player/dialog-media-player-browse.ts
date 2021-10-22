@@ -8,7 +8,7 @@ import type {
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import "../op-dialog";
-import "./ha-media-player-browse";
+import "./op-media-player-browse";
 import { MediaPlayerBrowseDialogParams } from "./show-media-browser-dialog";
 
 @customElement("dialog-media-player-browse")
@@ -82,7 +82,7 @@ class DialogMediaPlayerBrowse extends LitElement {
           --dialog-content-padding: 0;
         }
 
-        ha-media-player-browse {
+        op-media-player-browse {
           --media-browser-max-height: 100vh;
         }
 
@@ -93,7 +93,7 @@ class DialogMediaPlayerBrowse extends LitElement {
             --dialog-surface-top: 40px;
             --mdc-dialog-max-height: calc(100vh - 72px);
           }
-          ha-media-player-browse {
+          op-media-player-browse {
             position: initial;
             --media-browser-max-height: 100vh - 72px;
             width: 700px;

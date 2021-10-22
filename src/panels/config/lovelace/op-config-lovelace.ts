@@ -21,7 +21,7 @@ export const lovelaceTabs = [
   },
 ];
 
-@customElement("ha-config-lovelace")
+@customElement("op-config-lovelace")
 class HaConfigLovelace extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -33,13 +33,13 @@ class HaConfigLovelace extends OppRouterPage {
     defaultPage: "dashboards",
     routes: {
       dashboards: {
-        tag: "ha-config-lovelace-dashboards",
-        load: () => import("./dashboards/ha-config-lovelace-dashboards"),
+        tag: "op-config-lovelace-dashboards",
+        load: () => import("./dashboards/op-config-lovelace-dashboards"),
         cache: true,
       },
       resources: {
-        tag: "ha-config-lovelace-resources",
-        load: () => import("./resources/ha-config-lovelace-resources"),
+        tag: "op-config-lovelace-resources",
+        load: () => import("./resources/op-config-lovelace-resources"),
       },
     },
   };
@@ -54,6 +54,6 @@ class HaConfigLovelace extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-lovelace": HaConfigLovelace;
+    "op-config-lovelace": HaConfigLovelace;
   }
 }

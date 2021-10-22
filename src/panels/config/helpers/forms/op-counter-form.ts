@@ -9,7 +9,7 @@ import { Counter } from "../../../../data/counter";
 import { haStyle } from "../../../../resources/styles";
 import { OpenPeerPower } from "../../../../types";
 
-@customElement("ha-counter-form")
+@customElement("op-counter-form")
 class HaCounterForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -199,6 +199,6 @@ class HaCounterForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-counter-form": HaCounterForm;
+    "op-counter-form": HaCounterForm;
   }
 }

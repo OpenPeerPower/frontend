@@ -28,7 +28,7 @@ import {
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { configTabs } from "./zwave_js-config-router";
 import {
   DeviceRegistryEntry,

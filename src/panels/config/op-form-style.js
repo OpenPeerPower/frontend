@@ -1,7 +1,7 @@
 const documentContainer = document.createElement("template");
 documentContainer.setAttribute("style", "display: none;");
 
-documentContainer.innerHTML = `<dom-module id="ha-form-style">
+documentContainer.innerHTML = `<dom-module id="op-form-style">
   <template>
     <style>
       .form-group {

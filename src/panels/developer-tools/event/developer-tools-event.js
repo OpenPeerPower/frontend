@@ -5,7 +5,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { safeLoad } from "js-yaml";
-import "../../../components/ha-code-editor";
+import "../../../components/op-code-editor";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import { EventsMixin } from "../../../mixins/events-mixin";
 import LocalizeMixin from "../../../mixins/localize-mixin";
@@ -33,7 +33,7 @@ class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
           display: block;
         }
 
-        .ha-form {
+        .op-form {
           margin-right: 16px;
           max-width: 400px;
         }
@@ -70,7 +70,7 @@ class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
               )]]
             </a>
           </p>
-          <div class="ha-form">
+          <div class="op-form">
             <paper-input
               label="[[localize(
                 'ui.panel.developer-tools.tabs.events.type'

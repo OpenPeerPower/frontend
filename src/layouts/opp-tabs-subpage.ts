@@ -16,7 +16,7 @@ import { LocalizeFunc } from "../common/translations/localize";
 import { computeRTL } from "../common/util/compute_rtl";
 import "../components/op-icon";
 import "../components/op-icon-button-arrow-prev";
-import "../components/ha-menu-button";
+import "../components/op-menu-button";
 import "../components/op-svg-icon";
 import "../components/op-tab";
 import { OpenPeerPower, Route } from "../types";
@@ -208,7 +208,7 @@ class OppTabsSubpage extends LitElement {
         position: fixed;
       }
 
-      ha-menu-button {
+      op-menu-button {
         margin-right: 24px;
       }
 
@@ -260,7 +260,7 @@ class OppTabsSubpage extends LitElement {
         min-width: 40px;
       }
 
-      ha-menu-button,
+      op-menu-button,
       op-icon-button-arrow-prev,
       ::slotted([slot="toolbar-icon"]) {
         flex-shrink: 0;

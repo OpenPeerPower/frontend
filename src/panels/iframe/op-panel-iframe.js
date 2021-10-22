@@ -2,7 +2,7 @@ import "@polymer/app-layout/app-toolbar/app-toolbar";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import "../../styles/polymer-op-style";
 
 class HaPanelIframe extends PolymerElement {

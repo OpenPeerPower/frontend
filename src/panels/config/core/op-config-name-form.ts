@@ -17,7 +17,7 @@ import { ConfigUpdateValues, saveCoreConfig } from "../../../data/core";
 import type { PolymerChangedEvent } from "../../../polymer-types";
 import type { OpenPeerPower } from "../../../types";
 
-@customElement("ha-config-name-form")
+@customElement("op-config-name-form")
 class ConfigNameForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -100,6 +100,6 @@ class ConfigNameForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-name-form": ConfigNameForm;
+    "op-config-name-form": ConfigNameForm;
   }
 }

@@ -21,4 +21,4 @@ class HaCustomizeBoolean extends PolymerElement {
     };
   }
 }
-customElements.define("ha-customize-boolean", HaCustomizeBoolean);
+customElements.define("op-customize-boolean", HaCustomizeBoolean);

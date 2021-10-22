@@ -28,7 +28,7 @@ import "../../../../../layouts/opp-tabs-subpage";
 import type { PageNavigation } from "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 
 export const ozwTabs: PageNavigation[] = [];
 
@@ -166,10 +166,10 @@ class OZWConfigDashboard extends LitElement {
         op-card:last-child {
           margin-bottom: 24px;
         }
-        ha-config-section {
+        op-config-section {
           margin-top: -12px;
         }
-        :host([narrow]) ha-config-section {
+        :host([narrow]) op-config-section {
           margin-top: -20px;
         }
         op-card {

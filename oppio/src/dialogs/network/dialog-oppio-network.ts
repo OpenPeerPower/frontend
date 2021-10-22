@@ -12,9 +12,9 @@ import { cache } from "lit/directives/cache";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/op-circular-progress";
 import "../../../../src/components/op-dialog";
-import "../../../../src/components/ha-expansion-panel";
+import "../../../../src/components/op-expansion-panel";
 import "../../../../src/components/op-formfield";
-import "../../../../src/components/ha-header-bar";
+import "../../../../src/components/op-header-bar";
 import "../../../../src/components/op-radio";
 import "../../../../src/components/op-related-items";
 import "../../../../src/components/op-svg-icon";
@@ -540,7 +540,7 @@ export class DialogOppioNetwork
     return [
       haStyleDialog,
       css`
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;
@@ -570,7 +570,7 @@ export class DialogOppioNetwork
 
         /* overrule the op-style-dialog max-height on small screens */
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-header-bar {
+          op-header-bar {
             --mdc-theme-primary: var(--app-header-background-color);
             --mdc-theme-on-primary: var(--app-header-text-color, white);
           }
@@ -615,7 +615,7 @@ export class DialogOppioNetwork
           margin: 12px 4px -12px;
         }
 
-        ha-expansion-panel {
+        op-expansion-panel {
           --expansion-panel-summary-padding: 0 16px;
           margin: 4px 0;
         }

@@ -17,8 +17,8 @@ import {
 import { fireEvent } from "../common/dom/fire_event";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
-import "./ha-checkbox";
-import type { HaCheckbox } from "./ha-checkbox";
+import "./op-checkbox";
+import type { HaCheckbox } from "./op-checkbox";
 import "./op-settings-row";
 import "./op-icon";
 

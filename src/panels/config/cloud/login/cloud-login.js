@@ -16,7 +16,7 @@ import { EventsMixin } from "../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../mixins/localize-mixin";
 import NavigateMixin from "../../../../mixins/navigate-mixin";
 import "../../../../styles/polymer-op-style";
-import "../../ha-config-section";
+import "../../op-config-section";
 
 /*
  * @appliesMixin NavigateMixin

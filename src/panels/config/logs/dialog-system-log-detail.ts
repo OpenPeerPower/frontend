@@ -13,7 +13,7 @@ import {
 import { fireEvent } from "../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import "../../../components/op-dialog";
-import "../../../components/ha-header-bar";
+import "../../../components/op-header-bar";
 import "../../../components/op-svg-icon";
 import {
   domainToName,
@@ -229,7 +229,7 @@ class DialogSystemLogDetail extends LitElement {
           color: var(--warning-color);
         }
 
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;

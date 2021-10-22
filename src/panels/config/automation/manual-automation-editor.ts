@@ -24,7 +24,7 @@ import { Action, MODES, MODES_MAX } from "../../../data/script";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import "../ha-config-section";
+import "../op-config-section";
 import "./action/op-automation-action";
 import "./condition/op-automation-condition";
 import "./trigger/op-automation-trigger";

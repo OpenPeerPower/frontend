@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
 import { navigate } from "../../../../../common/navigate";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import {
@@ -27,7 +27,7 @@ import {
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { ozwNetworkTabs } from "./ozw-network-router";
 
 @customElement("ozw-network-dashboard")
@@ -220,7 +220,7 @@ class OZWNetworkDashboard extends LitElement {
           max-width: 600px;
         }
 
-        .card-actions.warning ha-call-service-button {
+        .card-actions.warning op-call-service-button {
           color: var(--error-color);
         }
 

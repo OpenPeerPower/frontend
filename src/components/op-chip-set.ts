@@ -10,7 +10,7 @@ import {
 } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import "./ha-chip";
+import "./op-chip";
 
 declare global {
   // for fire event
@@ -19,7 +19,7 @@ declare global {
   }
 }
 
-@customElement("ha-chip-set")
+@customElement("op-chip-set")
 export class HaChipSet extends LitElement {
   @property() public items = [];
 
@@ -51,7 +51,7 @@ export class HaChipSet extends LitElement {
     return css`
       ${unsafeCSS(chipStyles)}
 
-      ha-chip {
+      op-chip {
         margin: 4px;
       }
     `;
@@ -60,6 +60,6 @@ export class HaChipSet extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-chip-set": HaChipSet;
+    "op-chip-set": HaChipSet;
   }
 }

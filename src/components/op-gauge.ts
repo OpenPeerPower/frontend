@@ -13,7 +13,7 @@ const getAngle = (value: number, min: number, max: number) => {
   return (percentage * 180) / 100;
 };
 
-@customElement("ha-gauge")
+@customElement("op-gauge")
 export class Gauge extends LitElement {
   @property({ type: Number }) public min = 0;
 

@@ -14,7 +14,7 @@ export const showMfaModuleSetupFlowDialog = (
   dialogParams: MfaModuleSetupFlowDialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "ha-mfa-module-setup-flow",
+    dialogTag: "op-mfa-module-setup-flow",
     dialogImport: loadMfaModuleSetupFlowDialog,
     dialogParams,
   });

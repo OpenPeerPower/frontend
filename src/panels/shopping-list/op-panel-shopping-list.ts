@@ -14,7 +14,7 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import { showVoiceCommandDialog } from "../../dialogs/voice-command-dialog/show-op-voice-command-dialog";
 import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";

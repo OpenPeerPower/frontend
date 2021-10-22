@@ -91,7 +91,7 @@ export interface EntityRow extends StateEntity {
   area?: string;
 }
 
-@customElement("ha-config-entities")
+@customElement("op-config-entities")
 export class HaConfigEntities extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

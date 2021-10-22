@@ -25,11 +25,11 @@ import { navigate } from "../../../common/navigate";
 import { compare } from "../../../common/string/compare";
 import "../../../components/op-card";
 import "../../../components/op-svg-icon";
-import "../../../components/map/ha-locations-editor";
+import "../../../components/map/op-locations-editor";
 import type {
   HaLocationsEditor,
   MarkerLocation,
-} from "../../../components/map/ha-locations-editor";
+} from "../../../components/map/op-locations-editor";
 import { saveCoreConfig } from "../../../data/core";
 import { subscribeEntityRegistry } from "../../../data/entity_registry";
 import {
@@ -48,11 +48,11 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import type { OpenPeerPower, Route } from "../../../types";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 import { showZoneDetailDialog } from "./show-dialog-zone-detail";
 
-@customElement("ha-config-zone")
+@customElement("op-config-zone")
 export class HaConfigZone extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -70,7 +70,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
 
   @internalProperty() private _canEditCore = false;
 
-  @query("ha-locations-editor") private _map?: HaLocationsEditor;
+  @query("op-locations-editor") private _map?: HaLocationsEditor;
 
   private _regEntities: string[] = [];
 
@@ -500,7 +500,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
         height: 100%;
         overflow: auto;
       }
-      ha-locations-editor {
+      op-locations-editor {
         flex-grow: 1;
         height: 100%;
       }

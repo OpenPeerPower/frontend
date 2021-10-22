@@ -15,13 +15,13 @@ import {
 } from "lit-element";
 import { UNIT_C } from "../../../common/const";
 import "../../../components/op-card";
-import "../../../components/map/ha-location-editor";
+import "../../../components/map/op-location-editor";
 import { createTimezoneListEl } from "../../../components/timezone-datalist";
 import { ConfigUpdateValues, saveCoreConfig } from "../../../data/core";
 import type { PolymerChangedEvent } from "../../../polymer-types";
 import type { OpenPeerPower } from "../../../types";
 
-@customElement("ha-config-core-form")
+@customElement("op-config-core-form")
 class ConfigCoreForm extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -254,6 +254,6 @@ class ConfigCoreForm extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-core-form": ConfigCoreForm;
+    "op-config-core-form": ConfigCoreForm;
   }
 }

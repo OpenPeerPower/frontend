@@ -6,7 +6,7 @@ import { fireEvent } from "../common/dom/fire_event";
 import { nextRender } from "../common/util/render-status";
 import "./op-svg-icon";
 
-@customElement("ha-expansion-panel")
+@customElement("op-expansion-panel")
 class HaExpansionPanel extends LitElement {
   @property({ type: Boolean, reflect: true }) expanded = false;
 
@@ -127,7 +127,7 @@ class HaExpansionPanel extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-expansion-panel": HaExpansionPanel;
+    "op-expansion-panel": HaExpansionPanel;
   }
 
   // for fire event

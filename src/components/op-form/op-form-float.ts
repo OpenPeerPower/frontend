@@ -3,9 +3,9 @@ import type { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import { HaFormElement, HaFormFloatData, HaFormFloatSchema } from "./ha-form";
+import { HaFormElement, HaFormFloatData, HaFormFloatSchema } from "./op-form";
 
-@customElement("ha-form-float")
+@customElement("op-form-float")
 export class HaFormFloat extends LitElement implements HaFormElement {
   @property() public schema!: HaFormFloatSchema;
 
@@ -54,6 +54,6 @@ export class HaFormFloat extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-float": HaFormFloat;
+    "op-form-float": HaFormFloat;
   }
 }

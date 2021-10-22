@@ -8,7 +8,7 @@ import { computeDomain } from "../../common/entity/compute_domain";
 import { computeRTL } from "../../common/util/compute_rtl";
 import { TimelineEntity } from "../../data/history";
 import { OpenPeerPower } from "../../types";
-import "./ha-chart-base";
+import "./op-chart-base";
 import type { TimeLineData } from "./timeline-chart/const";
 
 /** Binary sensor device classes for which the static colors for on/off need to be inverted.

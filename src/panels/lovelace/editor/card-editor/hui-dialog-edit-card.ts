@@ -17,7 +17,7 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/op-circular-progress";
 import "../../../../components/op-dialog";
-import "../../../../components/ha-header-bar";
+import "../../../../components/op-header-bar";
 import type {
   LovelaceCardConfig,
   LovelaceViewConfig,
@@ -389,7 +389,7 @@ export class HuiDialogEditCard
           }
         }
 
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;

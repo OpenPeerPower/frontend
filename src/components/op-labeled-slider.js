@@ -78,4 +78,4 @@ class HaLabeledSlider extends PolymerElement {
   }
 }
 
-customElements.define("ha-labeled-slider", HaLabeledSlider);
+customElements.define("op-labeled-slider", HaLabeledSlider);

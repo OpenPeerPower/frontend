@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
 import { createCloseHeading } from "../../components/op-dialog";
-import "../../components/ha-hls-player";
+import "../../components/op-hls-player";
 import { haStyleDialog } from "../../resources/styles";
 import type { OpenPeerPower } from "../../types";
 import { WebBrowserPlayMediaDialogParams } from "./show-media-player-dialog";

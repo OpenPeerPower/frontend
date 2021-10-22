@@ -9,9 +9,9 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../op-svg-icon";
-import { HaFormElement, HaFormSelectData, HaFormSelectSchema } from "./ha-form";
+import { HaFormElement, HaFormSelectData, HaFormSelectSchema } from "./op-form";
 
-@customElement("ha-form-select")
+@customElement("op-form-select")
 export class HaFormSelect extends LitElement implements HaFormElement {
   @property({ attribute: false }) public schema!: HaFormSelectSchema;
 
@@ -121,6 +121,6 @@ export class HaFormSelect extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-select": HaFormSelect;
+    "op-form-select": HaFormSelect;
   }
 }

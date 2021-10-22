@@ -1,7 +1,7 @@
 import { Checkbox } from "@material/mwc-checkbox";
 import { customElement } from "lit/decorators";
 
-@customElement("ha-checkbox")
+@customElement("op-checkbox")
 export class HaCheckbox extends Checkbox {
   public firstUpdated() {
     super.firstUpdated();
@@ -11,6 +11,6 @@ export class HaCheckbox extends Checkbox {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-checkbox": HaCheckbox;
+    "op-checkbox": HaCheckbox;
   }
 }

@@ -10,18 +10,18 @@ import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeStateDomain } from "../../../../../common/entity/compute_state_domain";
 import { computeStateName } from "../../../../../common/entity/compute_state_name";
 import { sortStatesByName } from "../../../../../common/entity/states_sort_by_name";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-icon-button-arrow-prev";
-import "../../../../../components/ha-menu-button";
+import "../../../../../components/op-menu-button";
 import "../../../../../components/op-service-description";
 import "../../../../../layouts/op-app-layout";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";
-import "../../../ha-config-section";
-import "../../../ha-form-style";
+import "../../../op-config-section";
+import "../../../op-form-style";
 import "./zwave-groups";
 import "./zwave-log";
 import "./zwave-network";
@@ -37,7 +37,7 @@ import "./zwave-values";
 class HaConfigZwave extends LocalizeMixin(EventsMixin(PolymerElement)) {
   static get template() {
     return html`
-      <style include="iron-flex op-style ha-form-style">
+      <style include="iron-flex op-style op-form-style">
         app-toolbar {
           border-bottom: 1px solid var(--divider-color);
         }
@@ -710,4 +710,4 @@ class HaConfigZwave extends LocalizeMixin(EventsMixin(PolymerElement)) {
   }
 }
 
-customElements.define("ha-config-zwave", HaConfigZwave);
+customElements.define("op-config-zwave", HaConfigZwave);

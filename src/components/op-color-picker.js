@@ -36,18 +36,18 @@ class HaColorPicker extends EventsMixin(PolymerElement) {
         #backgroundLayer {
           width: 100%;
           overflow: visible;
-          --wheel-bordercolor: var(--ha-color-picker-wheel-bordercolor, white);
-          --wheel-borderwidth: var(--ha-color-picker-wheel-borderwidth, 3);
+          --wheel-bordercolor: var(--op-color-picker-wheel-bordercolor, white);
+          --wheel-borderwidth: var(--op-color-picker-wheel-borderwidth, 3);
           --wheel-shadow: var(
-            --ha-color-picker-wheel-shadow,
+            --op-color-picker-wheel-shadow,
             rgb(15, 15, 15) 10px 5px 5px 0px
           );
         }
 
         #marker {
           fill: currentColor;
-          stroke: var(--ha-color-picker-marker-bordercolor, white);
-          stroke-width: var(--ha-color-picker-marker-borderwidth, 3);
+          stroke: var(--op-color-picker-marker-bordercolor, white);
+          stroke-width: var(--op-color-picker-marker-borderwidth, 3);
           filter: url(#marker-shadow);
         }
         .dragging #marker {
@@ -56,8 +56,8 @@ class HaColorPicker extends EventsMixin(PolymerElement) {
         #colorTooltip {
           display: none;
           fill: currentColor;
-          stroke: var(--ha-color-picker-tooltip-bordercolor, white);
-          stroke-width: var(--ha-color-picker-tooltip-borderwidth, 3);
+          stroke: var(--op-color-picker-tooltip-bordercolor, white);
+          stroke-width: var(--op-color-picker-tooltip-borderwidth, 3);
         }
 
         .touch.dragging #colorTooltip {
@@ -641,4 +641,4 @@ class HaColorPicker extends EventsMixin(PolymerElement) {
     }
   }
 }
-customElements.define("ha-color-picker", HaColorPicker);
+customElements.define("op-color-picker", HaColorPicker);

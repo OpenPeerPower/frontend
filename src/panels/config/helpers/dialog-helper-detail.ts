@@ -27,7 +27,7 @@ import { createTimer } from "../../../data/timer";
 import { haStyleDialog } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
 import { Helper } from "./const";
-import "./forms/ha-counter-form";
+import "./forms/op-counter-form";
 import "./forms/op-input_boolean-form";
 import "./forms/op-input_datetime-form";
 import "./forms/op-input_number-form";

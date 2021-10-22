@@ -16,7 +16,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import { isValidEntityId } from "../../../common/entity/valid_entity_id";
 import "../../../components/op-card";
-import "../../../components/ha-gauge";
+import "../../../components/op-gauge";
 import { UNAVAILABLE } from "../../../data/entity";
 import type { OpenPeerPower } from "../../../types";
 import { findEntities } from "../common/find-entities";
@@ -226,7 +226,7 @@ class HuiGaugeCard extends LitElement implements LovelaceCard {
         background: var(--divider-color);
       }
 
-      ha-gauge {
+      op-gauge {
         --gauge-color: var(--label-badge-blue);
         width: 100%;
         max-width: 250px;

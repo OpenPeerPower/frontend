@@ -1,6 +1,6 @@
 import { TemplateResult } from "lit";
 import { fireEvent } from "../../common/dom/fire_event";
-import { HaFormSchema } from "../../components/ha-form/ha-form";
+import { HaFormSchema } from "../../components/op-form/op-form";
 import {
   DataEntryFlowStep,
   DataEntryFlowStepAbort,

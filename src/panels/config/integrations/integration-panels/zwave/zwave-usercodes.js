@@ -5,7 +5,7 @@ import "@polymer/paper-listbox/paper-listbox";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../styles/polymer-op-style";
 

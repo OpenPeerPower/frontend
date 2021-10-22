@@ -10,7 +10,7 @@ import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { navigate } from "../../common/navigate";
 import "../../components/op-icon";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import { defaultRadiusColor } from "../../data/zone";
 import "../../layouts/op-app-layout";
 import LocalizeMixin from "../../mixins/localize-mixin";

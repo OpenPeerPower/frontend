@@ -12,7 +12,7 @@ import {
 import { classMap } from "lit-html/directives/class-map";
 import { debounce } from "../../../common/util/debounce";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-code-editor";
+import "../../../components/op-code-editor";
 import {
   RenderTemplateResult,
   subscribeRenderTemplate,

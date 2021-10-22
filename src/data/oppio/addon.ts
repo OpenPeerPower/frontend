@@ -1,5 +1,5 @@
 import { atLeastVersion } from "../../common/config/version";
-import { HaFormSchema } from "../../components/ha-form/ha-form";
+import { HaFormSchema } from "../../components/op-form/op-form";
 import { OpenPeerPower } from "../../types";
 import { SupervisorArch } from "../supervisor/supervisor";
 import {

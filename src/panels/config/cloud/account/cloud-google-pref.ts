@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../common/dom/fire_event";
-import "../../../../components/buttons/ha-call-api-button";
+import "../../../../components/buttons/op-call-api-button";
 import "../../../../components/op-card";
 import type { HaSwitch } from "../../../../components/op-switch";
 import { CloudStatusLoggedIn, updateCloudPref } from "../../../../data/cloud";
@@ -231,7 +231,7 @@ export class CloudGooglePref extends LitElement {
         right: auto;
         left: 24px;
       }
-      ha-call-api-button {
+      op-call-api-button {
         color: var(--primary-color);
         font-weight: 500;
       }

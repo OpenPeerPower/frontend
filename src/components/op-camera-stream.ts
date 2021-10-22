@@ -18,9 +18,9 @@ import {
   fetchStreamUrl,
 } from "../data/camera";
 import { OpenPeerPower } from "../types";
-import "./ha-hls-player";
+import "./op-hls-player";
 
-@customElement("ha-camera-stream")
+@customElement("op-camera-stream")
 class HaCameraStream extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -127,6 +127,6 @@ class HaCameraStream extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-camera-stream": HaCameraStream;
+    "op-camera-stream": HaCameraStream;
   }
 }

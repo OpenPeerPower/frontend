@@ -6,7 +6,7 @@ import { atLeastVersion } from "../../../src/common/config/version";
 import { formatDate } from "../../../src/common/datetime/format_date";
 import { formatDateTime } from "../../../src/common/datetime/format_date_time";
 import { LocalizeFunc } from "../../../src/common/translations/localize";
-import "../../../src/components/ha-checkbox";
+import "../../../src/components/op-checkbox";
 import "../../../src/components/op-formfield";
 import "../../../src/components/op-radio";
 import type { HaRadio } from "../../../src/components/op-radio";
@@ -279,7 +279,7 @@ export class SupervisorSnapshotContent extends LitElement {
       .partial-picker op-formfield {
         display: block;
       }
-      .partial-picker ha-checkbox {
+      .partial-picker op-checkbox {
         --mdc-checkbox-touch-target-size: 32px;
       }
       .partial-picker {

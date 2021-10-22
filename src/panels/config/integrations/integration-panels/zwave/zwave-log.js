@@ -9,7 +9,7 @@ import "../../../../../components/op-card";
 import { EventsMixin } from "../../../../../mixins/events-mixin";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 
 let registeredDialog = false;
 

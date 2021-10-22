@@ -23,9 +23,9 @@ class ZWaveConfigRouter extends OppRouterPage {
     showLoading: true,
     routes: {
       dashboard: {
-        tag: "ha-config-zwave",
+        tag: "op-config-zwave",
         load: () =>
-          import(/* webpackChunkName: "ha-config-zwave" */ "./ha-config-zwave"),
+          import(/* webpackChunkName: "op-config-zwave" */ "./op-config-zwave"),
       },
       migration: {
         tag: "zwave-migration",

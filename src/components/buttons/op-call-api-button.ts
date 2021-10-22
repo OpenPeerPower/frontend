@@ -69,10 +69,10 @@ class HaCallApiButton extends LitElement {
   }
 }
 
-customElements.define("ha-call-api-button", HaCallApiButton);
+customElements.define("op-call-api-button", HaCallApiButton);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-call-api-button": HaCallApiButton;
+    "op-call-api-button": HaCallApiButton;
   }
 }

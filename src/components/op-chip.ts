@@ -18,7 +18,7 @@ declare global {
   }
 }
 
-@customElement("ha-chip")
+@customElement("op-chip")
 export class HaChip extends LitElement {
   @property() public index = 0;
 
@@ -47,19 +47,19 @@ export class HaChip extends LitElement {
       ${unsafeCSS(chipStyles)}
       .mdc-chip {
         background-color: var(
-          --ha-chip-background-color,
+          --op-chip-background-color,
           rgba(var(--rgb-primary-text-color), 0.15)
         );
-        color: var(--ha-chip-text-color, var(--primary-text-color));
+        color: var(--op-chip-text-color, var(--primary-text-color));
       }
 
       .mdc-chip:hover {
-        color: var(--ha-chip-text-color, var(--primary-text-color));
+        color: var(--op-chip-text-color, var(--primary-text-color));
       }
 
       .mdc-chip__icon--leading {
         --mdc-icon-size: 20px;
-        color: var(--ha-chip-icon-color, var(--ha-chip-text-color));
+        color: var(--op-chip-icon-color, var(--op-chip-text-color));
       }
     `;
   }
@@ -67,6 +67,6 @@ export class HaChip extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-chip": HaChip;
+    "op-chip": HaChip;
   }
 }

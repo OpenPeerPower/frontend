@@ -32,8 +32,8 @@ import {
 import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { OpenPeerPower } from "../../types";
-import "../ha-combo-box";
-import type { HaComboBox } from "../ha-combo-box";
+import "../op-combo-box";
+import type { HaComboBox } from "../op-combo-box";
 
 interface Device {
   name: string;
@@ -102,7 +102,7 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
 
   @state() private _opened?: boolean;
 
-  @query("ha-combo-box", true) public comboBox!: HaComboBox;
+  @query("op-combo-box", true) public comboBox!: HaComboBox;
 
   private _init = false;
 

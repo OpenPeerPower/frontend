@@ -4,7 +4,7 @@ import { property, state } from "lit/decorators";
 import { getColorByIndex } from "../../common/color/colors";
 import { LineChartEntity, LineChartState } from "../../data/history";
 import { OpenPeerPower } from "../../types";
-import "./ha-chart-base";
+import "./op-chart-base";
 
 const safeParseFloat = (value) => {
   const parsed = parseFloat(value);

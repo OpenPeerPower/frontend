@@ -9,8 +9,8 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/buttons/ha-call-api-button";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-api-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-circular-progress";
 import "../../../../../components/op-icon";
@@ -27,7 +27,7 @@ import {
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { documentationUrl } from "../../../../../util/documentation-url";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 
 @customElement("zwave-network")
 export class ZwaveNetwork extends LitElement {
@@ -277,7 +277,7 @@ export class ZwaveNetwork extends LitElement {
           max-width: 600px;
         }
 
-        .card-actions.warning ha-call-service-button {
+        .card-actions.warning op-call-service-button {
           color: var(--error-color);
         }
 

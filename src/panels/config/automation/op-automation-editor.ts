@@ -51,7 +51,7 @@ import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 import "./action/op-automation-action";
 import { HaDeviceAction } from "./action/types/op-automation-action-device_id";

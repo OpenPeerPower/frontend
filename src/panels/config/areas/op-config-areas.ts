@@ -20,10 +20,10 @@ import {
   RouterOptions,
 } from "../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../types";
-import "./ha-config-area-page";
-import "./ha-config-areas-dashboard";
+import "./op-config-area-page";
+import "./op-config-areas-dashboard";
 
-@customElement("ha-config-areas")
+@customElement("op-config-areas")
 class HaConfigAreas extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -37,11 +37,11 @@ class HaConfigAreas extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       dashboard: {
-        tag: "ha-config-areas-dashboard",
+        tag: "op-config-areas-dashboard",
         cache: true,
       },
       area: {
-        tag: "ha-config-area-page",
+        tag: "op-config-area-page",
       },
     },
   };
@@ -126,6 +126,6 @@ class HaConfigAreas extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-areas": HaConfigAreas;
+    "op-config-areas": HaConfigAreas;
   }
 }

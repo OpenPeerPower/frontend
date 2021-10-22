@@ -14,7 +14,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { styleMap } from "lit-html/directives/style-map";
 import { STATES_OFF } from "../../../common/const";
 import parseAspectRatio from "../../../common/util/parse-aspect-ratio";
-import "../../../components/ha-camera-stream";
+import "../../../components/op-camera-stream";
 import { CameraEntity, fetchThumbnailUrlWithCache } from "../../../data/camera";
 import { UNAVAILABLE } from "../../../data/entity";
 import { OpenPeerPower } from "../../../types";

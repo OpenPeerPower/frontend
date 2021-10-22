@@ -14,8 +14,8 @@ import {
   internalProperty,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/buttons/ha-call-api-button";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-api-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon";
 import {
@@ -28,7 +28,7 @@ import {
 } from "../../../../../data/zwave";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import "../../../../../layouts/opp-subpage";
 import { showConfigFlowDialog } from "../../../../../dialogs/config-flow/show-dialog-config-flow";
 import { migrateZwave, OZWMigrationData } from "../../../../../data/ozw";

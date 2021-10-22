@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/entity/state-badge";
 import "../../../../../components/op-area-picker";
 import "../../../../../components/op-card";

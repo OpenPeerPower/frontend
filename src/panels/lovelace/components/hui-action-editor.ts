@@ -14,7 +14,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
-import "../../../components/ha-help-tooltip";
+import "../../../components/op-help-tooltip";
 import {
   ActionConfig,
   CallServiceActionConfig,

@@ -11,7 +11,7 @@ import {
 import { property, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { supportsFeature } from "../../../common/entity/supports-feature";
-import "../../../components/ha-camera-stream";
+import "../../../components/op-camera-stream";
 import {
   CameraEntity,
   CameraPreferences,

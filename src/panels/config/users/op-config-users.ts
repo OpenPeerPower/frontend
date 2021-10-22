@@ -22,7 +22,7 @@ import { configSections } from "../op-panel-config";
 import { showAddUserDialog } from "./show-dialog-add-user";
 import { showUserDetailDialog } from "./show-dialog-user-detail";
 
-@customElement("ha-config-users")
+@customElement("op-config-users")
 export class HaConfigUsers extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

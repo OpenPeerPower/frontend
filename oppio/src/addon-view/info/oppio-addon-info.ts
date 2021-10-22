@@ -21,11 +21,11 @@ import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../../src/common/config/version";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import { navigate } from "../../../../src/common/navigate";
-import "../../../../src/components/buttons/ha-call-api-button";
+import "../../../../src/components/buttons/op-call-api-button";
 import "../../../../src/components/buttons/op-progress-button";
 import "../../../../src/components/op-card";
 import "../../../../src/components/op-label-badge";
-import "../../../../src/components/ha-markdown";
+import "../../../../src/components/op-markdown";
 import "../../../../src/components/op-settings-row";
 import "../../../../src/components/op-svg-icon";
 import "../../../../src/components/op-switch";
@@ -1163,7 +1163,7 @@ class OppioAddonInfo extends LitElement {
         op-svg-icon.stopped {
           color: var(--google-red-300);
         }
-        ha-call-api-button {
+        op-call-api-button {
           font-weight: 500;
           color: var(--primary-color);
         }
@@ -1209,7 +1209,7 @@ class OppioAddonInfo extends LitElement {
           text-decoration: underline;
           cursor: pointer;
         }
-        ha-markdown {
+        op-markdown {
           padding: 16px;
         }
         op-settings-row {

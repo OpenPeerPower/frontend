@@ -18,7 +18,7 @@ import { computeDomain } from "../../../../common/entity/compute_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { DataTableRowData } from "../../../../components/data-table/op-data-table";
 import "../../../../components/op-dialog";
-import "../../../../components/ha-header-bar";
+import "../../../../components/op-header-bar";
 import type { LovelaceViewConfig } from "../../../../data/lovelace";
 import type { OppDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../../resources/styles";
@@ -180,7 +180,7 @@ export class HuiCreateDialogCard
           --dialog-content-padding: 0;
         }
 
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;

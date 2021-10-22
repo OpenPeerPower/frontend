@@ -13,7 +13,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-service-description";
@@ -27,7 +27,7 @@ import {
 } from "../../../../../data/zha";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { formatAsPaddedHex } from "./functions";
 import {
   ChangeEvent,
@@ -291,7 +291,7 @@ export class ZHAClusterAttributes extends LitElement {
           max-width: 680px;
         }
 
-        .card-actions.warning ha-call-service-button {
+        .card-actions.warning op-call-service-button {
           color: var(--error-color);
         }
 
@@ -345,8 +345,8 @@ export class ZHAClusterAttributes extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-cluster-attributes": ZHAClusterAttributes;
+    "zop-cluster-attributes": ZHAClusterAttributes;
   }
 }
 
-customElements.define("zha-cluster-attributes", ZHAClusterAttributes);
+customElements.define("zop-cluster-attributes", ZHAClusterAttributes);

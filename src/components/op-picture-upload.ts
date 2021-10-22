@@ -12,7 +12,7 @@ import {
 } from "../dialogs/image-cropper-dialog/show-image-cropper-dialog";
 import { OpenPeerPower } from "../types";
 import "./op-circular-progress";
-import "./ha-file-upload";
+import "./op-file-upload";
 import "./op-svg-icon";
 
 @customElement("op-picture-upload")

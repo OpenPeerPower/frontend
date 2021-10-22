@@ -203,8 +203,8 @@ class HaConfigInfo extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-info": HaConfigInfo;
+    "op-config-info": HaConfigInfo;
   }
 }
 
-customElements.define("ha-config-info", HaConfigInfo);
+customElements.define("op-config-info", HaConfigInfo);

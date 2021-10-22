@@ -13,14 +13,14 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-service-description";
 import { bindDevices, unbindDevices, ZHADevice } from "../../../../../data/zha";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { ItemSelectedEvent } from "./types";
 
 @customElement("zop-device-binding-control")
@@ -158,7 +158,7 @@ export class ZHADeviceBindingControl extends LitElement {
           max-width: 680px;
         }
 
-        .card-actions.warning ha-call-service-button {
+        .card-actions.warning op-call-service-button {
           color: var(--error-color);
         }
 

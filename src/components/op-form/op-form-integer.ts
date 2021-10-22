@@ -3,16 +3,16 @@ import type { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import { HaCheckbox } from "../ha-checkbox";
+import { HaCheckbox } from "../op-checkbox";
 import "../op-slider";
 import type { HaSlider } from "../op-slider";
 import {
   HaFormElement,
   HaFormIntegerData,
   HaFormIntegerSchema,
-} from "./ha-form";
+} from "./op-form";
 
-@customElement("ha-form-integer")
+@customElement("op-form-integer")
 export class HaFormInteger extends LitElement implements HaFormElement {
   @property() public schema!: HaFormIntegerSchema;
 
@@ -111,6 +111,6 @@ export class HaFormInteger extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-integer": HaFormInteger;
+    "op-form-integer": HaFormInteger;
   }
 }

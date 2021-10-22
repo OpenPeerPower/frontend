@@ -1,5 +1,5 @@
 import { OppEntity } from "openpeerpower-js-websocket";
-import { HaFormSchema } from "../components/ha-form/ha-form";
+import { HaFormSchema } from "../components/op-form/op-form";
 import { OpenPeerPower } from "../types";
 
 export interface ZHAEntityReference extends OppEntity {

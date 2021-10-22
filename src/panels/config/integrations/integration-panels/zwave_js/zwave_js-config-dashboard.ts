@@ -30,7 +30,7 @@ import {
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { showZWaveJSAddNodeDialog } from "./show-dialog-zwave_js-add-node";
 import { showZWaveJSRemoveNodeDialog } from "./show-dialog-zwave_js-remove-node";
 import { configTabs } from "./zwave_js-config-router";

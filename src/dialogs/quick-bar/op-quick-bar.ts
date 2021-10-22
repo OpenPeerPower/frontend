@@ -31,7 +31,7 @@ import {
   ScorableTextItem,
 } from "../../common/string/filter/sequence-matching";
 import { debounce } from "../../common/util/debounce";
-import "../../components/ha-chip";
+import "../../components/op-chip";
 import "../../components/op-circular-progress";
 import "../../components/op-dialog";
 import "../../components/op-header-bar";
@@ -618,20 +618,20 @@ export class QuickBar extends LitElement {
         }
 
         .command-category {
-          --ha-chip-icon-color: #585858;
-          --ha-chip-text-color: #212121;
+          --op-chip-icon-color: #585858;
+          --op-chip-text-color: #212121;
         }
 
         .command-category.reload {
-          --ha-chip-background-color: #cddc39;
+          --op-chip-background-color: #cddc39;
         }
 
         .command-category.navigation {
-          --ha-chip-background-color: var(--light-primary-color);
+          --op-chip-background-color: var(--light-primary-color);
         }
 
         .command-category.server_control {
-          --ha-chip-background-color: var(--warning-color);
+          --op-chip-background-color: var(--warning-color);
         }
 
         span.command-text {

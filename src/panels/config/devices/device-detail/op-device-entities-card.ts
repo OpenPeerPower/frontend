@@ -22,7 +22,7 @@ import { createRowElement } from "../../../lovelace/create-element/create-row-el
 import { addEntitiesToLovelaceView } from "../../../lovelace/editor/add-entities-to-view";
 import { LovelaceRow } from "../../../lovelace/entity-rows/types";
 import { showEntityEditorDialog } from "../../entities/show-dialog-entity-editor";
-import { EntityRegistryStateEntry } from "../ha-config-device-page";
+import { EntityRegistryStateEntry } from "../op-config-device-page";
 
 @customElement("op-device-entities-card")
 export class HaDeviceEntitiesCard extends LitElement {

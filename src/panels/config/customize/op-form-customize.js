@@ -9,13 +9,13 @@ import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";
 import { documentationUrl } from "../../../util/documentation-url";
 import oppAttributeUtil from "../../../util/opp-attributes-util";
-import "../ha-form-style";
-import "./ha-form-customize-attributes";
+import "../op-form-style";
+import "./op-form-customize-attributes";
 
 export class HaFormCustomize extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
-      <style include="iron-flex op-style ha-form-style">
+      <style include="iron-flex op-style op-form-style">
         .warning {
           color: red;
         }
@@ -353,4 +353,4 @@ export class HaFormCustomize extends LocalizeMixin(PolymerElement) {
     );
   }
 }
-customElements.define("ha-form-customize", HaFormCustomize);
+customElements.define("op-form-customize", HaFormCustomize);

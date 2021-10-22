@@ -33,13 +33,13 @@ export const configFlowContentStyles = css`
     justify-content: flex-end;
   }
 
-  ha-markdown {
+  op-markdown {
     overflow-wrap: break-word;
   }
-  ha-markdown a {
+  op-markdown a {
     color: var(--primary-color);
   }
-  ha-markdown img:first-child:last-child {
+  op-markdown img:first-child:last-child {
     display: block;
     margin: 0 auto;
   }

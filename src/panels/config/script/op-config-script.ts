@@ -19,7 +19,7 @@ const equal = (a: ScriptEntity[], b: ScriptEntity[]): boolean => {
   return a.every((enityA, index) => enityA === b[index]);
 };
 
-@customElement("ha-config-script")
+@customElement("op-config-script")
 class HaConfigScript extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -90,6 +90,6 @@ class HaConfigScript extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-script": HaConfigScript;
+    "op-config-script": HaConfigScript;
   }
 }

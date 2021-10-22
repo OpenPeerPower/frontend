@@ -15,8 +15,8 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { deepEqual } from "../../../common/util/deep-equal";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-code-editor";
-import type { HaCodeEditor } from "../../../components/ha-code-editor";
+import "../../../components/op-code-editor";
+import type { HaCodeEditor } from "../../../components/op-code-editor";
 import type {
   LovelaceCardConfig,
   LovelaceConfig,
@@ -75,7 +75,7 @@ export abstract class HuiElementEditor<T> extends LitElement {
 
   @internalProperty() private _loading = false;
 
-  @query("ha-code-editor") _yamlEditor?: HaCodeEditor;
+  @query("op-code-editor") _yamlEditor?: HaCodeEditor;
 
   public get yaml(): string {
     if (!this._yaml) {
@@ -363,7 +363,7 @@ export abstract class HuiElementEditor<T> extends LitElement {
       .yaml-editor {
         padding: 8px 0px;
       }
-      ha-code-editor {
+      op-code-editor {
         --code-mirror-max-height: calc(100vh - 245px);
       }
       .error,

@@ -36,7 +36,7 @@ export interface HaMapEntity {
   color: string;
 }
 
-@customElement("ha-map")
+@customElement("op-map")
 export class HaMap extends ReactiveElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -491,6 +491,6 @@ export class HaMap extends ReactiveElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-map": HaMap;
+    "op-map": HaMap;
   }
 }

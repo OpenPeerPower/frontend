@@ -4,7 +4,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/device/op-device-picker";
 import "../../../../../components/device/op-device-trigger-picker";
-import "../../../../../components/ha-form/ha-form";
+import "../../../../../components/op-form/op-form";
 import {
   deviceAutomationsEqual,
   DeviceCapabilities,
@@ -139,7 +139,7 @@ export class HaDeviceTrigger extends LitElement {
   }
 
   private _extraFieldsComputeLabelCallback(localize) {
-    // Returns a callback for ha-form to calculate labels per schema object
+    // Returns a callback for op-form to calculate labels per schema object
     return (schema) =>
       localize(
         `ui.panel.config.automation.editor.triggers.type.device.extra_fields.${schema.name}`

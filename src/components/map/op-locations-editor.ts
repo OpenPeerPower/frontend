@@ -19,8 +19,8 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../common/dom/fire_event";
 import type { LeafletModuleType } from "../../common/dom/setup-leaflet-map";
 import type { OpenPeerPower } from "../../types";
-import "./ha-map";
-import type { HaMap } from "./ha-map";
+import "./op-map";
+import type { HaMap } from "./op-map";
 
 declare global {
   // for fire event
@@ -59,7 +59,7 @@ export class HaLocationsEditor extends LitElement {
 
   @state() private _circles: Record<string, Circle> = {};
 
-  @query("ha-map", true) private map!: HaMap;
+  @query("op-map", true) private map!: HaMap;
 
   private Leaflet?: LeafletModuleType;
 
@@ -289,7 +289,7 @@ export class HaLocationsEditor extends LitElement {
         display: block;
         height: 300px;
       }
-      ha-map {
+      op-map {
         height: 100%;
       }
     `;

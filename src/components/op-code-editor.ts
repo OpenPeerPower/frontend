@@ -18,7 +18,7 @@ const saveKeyBinding: KeyBinding = {
   },
 };
 
-@customElement("ha-code-editor")
+@customElement("op-code-editor")
 export class HaCodeEditor extends ReactiveElement {
   public codemirror?: EditorView;
 
@@ -175,6 +175,6 @@ export class HaCodeEditor extends ReactiveElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-code-editor": HaCodeEditor;
+    "op-code-editor": HaCodeEditor;
   }
 }

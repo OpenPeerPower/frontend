@@ -1,7 +1,7 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { createCloseHeading } from "../../../../src/components/op-dialog";
-import "../../../../src/components/ha-markdown";
+import "../../../../src/components/op-markdown";
 import { haStyleDialog } from "../../../../src/resources/styles";
 import { OpenPeerPower } from "../../../../src/types";
 import { oppioStyle } from "../../resources/oppio-style";
@@ -79,7 +79,7 @@ class OppioMarkdownDialog extends LitElement {
             color: var(--text-primary-color);
             background-color: var(--primary-color);
           }
-          ha-markdown {
+          op-markdown {
             padding: 16px;
           }
         }

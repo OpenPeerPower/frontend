@@ -5,8 +5,8 @@ import { fireEvent } from "../common/dom/fire_event";
 import { Analytics, AnalyticsPreferences } from "../data/analytics";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
-import "./ha-checkbox";
-import type { HaCheckbox } from "./ha-checkbox";
+import "./op-checkbox";
+import type { HaCheckbox } from "./op-checkbox";
 import "./op-settings-row";
 
 const ADDITIONAL_PREFERENCES = [

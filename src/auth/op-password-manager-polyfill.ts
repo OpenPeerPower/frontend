@@ -1,7 +1,7 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import { HaFormSchema } from "../components/ha-form/ha-form";
+import { HaFormSchema } from "../components/op-form/op-form";
 import { DataEntryFlowStep } from "../data/data_entry_flow";
 
 declare global {

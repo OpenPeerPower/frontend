@@ -15,7 +15,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import type { OPPDomEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import { SelectionChangedEvent } from "../../../../../components/data-table/op-data-table";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
@@ -30,12 +30,12 @@ import {
 } from "../../../../../data/zha";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { ItemSelectedEvent } from "./types";
-import "./zha-clusters-data-table";
-import type { ZHAClustersDataTable } from "./zha-clusters-data-table";
+import "./zop-clusters-data-table";
+import type { ZHAClustersDataTable } from "./zop-clusters-data-table";
 
-@customElement("zha-group-binding-control")
+@customElement("zop-group-binding-control")
 export class ZHAGroupBindingControl extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -59,7 +59,7 @@ export class ZHAGroupBindingControl extends LitElement {
 
   private _clustersToBind?: Cluster[];
 
-  @query("zha-clusters-data-table", true)
+  @query("zop-clusters-data-table", true)
   private _zhaClustersDataTable!: ZHAClustersDataTable;
 
   protected updated(changedProperties: PropertyValues): void {
@@ -123,13 +123,13 @@ export class ZHAGroupBindingControl extends LitElement {
               `
             : ""}
           <div class="command-picker">
-            <zha-clusters-data-table
+            <zop-clusters-data-table
               .opp=${this.opp}
               .narrow=${this.narrow}
               .clusters=${this._clusters}
               @selection-changed=${this._handleClusterSelectionChanged}
               class="menu"
-            ></zha-clusters-data-table>
+            ></zop-clusters-data-table>
           </div>
           ${this._showHelp
             ? html`
@@ -270,7 +270,7 @@ export class ZHAGroupBindingControl extends LitElement {
           max-width: 680px;
         }
 
-        .card-actions.warning ha-call-service-button {
+        .card-actions.warning op-call-service-button {
           color: var(--error-color);
         }
 
@@ -321,6 +321,6 @@ export class ZHAGroupBindingControl extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-group-binding-control": ZHAGroupBindingControl;
+    "zop-group-binding-control": ZHAGroupBindingControl;
   }
 }

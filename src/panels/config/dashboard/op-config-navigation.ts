@@ -16,7 +16,7 @@ import { CloudStatus, CloudStatusLoggedIn } from "../../../data/cloud";
 import { PageNavigation } from "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower } from "../../../types";
 
-@customElement("ha-config-navigation")
+@customElement("op-config-navigation")
 class HaConfigNavigation extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -115,6 +115,6 @@ class HaConfigNavigation extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-navigation": HaConfigNavigation;
+    "op-config-navigation": HaConfigNavigation;
   }
 }

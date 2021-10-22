@@ -31,7 +31,7 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 import {
   loadPersonDetailDialog,
@@ -290,4 +290,4 @@ class HaConfigPerson extends LitElement {
   }
 }
 
-customElements.define("ha-config-person", HaConfigPerson);
+customElements.define("op-config-person", HaConfigPerson);

@@ -23,7 +23,7 @@ import {
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../../../types";
-import { zhaTabs } from "./zha-config-dashboard";
+import { zhaTabs } from "./zop-config-dashboard";
 import "./zop-device-pairing-status-card";
 
 @customElement("zop-add-devices-page")

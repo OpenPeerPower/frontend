@@ -44,7 +44,7 @@ export const oppioStyle = css`
       grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
     }
   }
-  ha-call-api-button {
+  op-call-api-button {
     font-weight: 500;
     color: var(--primary-color);
   }

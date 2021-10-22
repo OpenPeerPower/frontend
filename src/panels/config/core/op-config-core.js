@@ -8,7 +8,7 @@ import "../../../layouts/opp-tabs-subpage";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";
 import { configSections } from "../op-panel-config";
-import "./ha-config-section-core";
+import "./op-config-section-core";
 
 /*
  * @appliesMixin LocalizeMixin
@@ -70,4 +70,4 @@ class HaConfigCore extends LocalizeMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-config-core", HaConfigCore);
+customElements.define("op-config-core", HaConfigCore);

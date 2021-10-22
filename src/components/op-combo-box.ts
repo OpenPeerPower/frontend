@@ -21,7 +21,7 @@ const defaultRowRenderer: ComboBoxLitRenderer<string> = (item) => html`<style>
   </style>
   <paper-item>${item}</paper-item>`;
 
-@customElement("ha-combo-box")
+@customElement("op-combo-box")
 export class HaComboBox extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -156,6 +156,6 @@ export class HaComboBox extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-combo-box": HaComboBox;
+    "op-combo-box": HaComboBox;
   }
 }

@@ -16,7 +16,7 @@ interface Tooltip extends TooltipModel<any> {
   left: string;
 }
 
-@customElement("ha-chart-base")
+@customElement("op-chart-base")
 export default class HaChartBase extends LitElement {
   public chart?: Chart;
 
@@ -313,6 +313,6 @@ export default class HaChartBase extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-chart-base": HaChartBase;
+    "op-chart-base": HaChartBase;
   }
 }

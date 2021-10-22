@@ -23,8 +23,8 @@ import type {
   FullCalendarView,
   OpenPeerPower,
 } from "../../../types";
-import "../../calendar/ha-full-calendar";
-import type { HAFullCalendar } from "../../calendar/ha-full-calendar";
+import "../../calendar/op-full-calendar";
+import type { HAFullCalendar } from "../../calendar/op-full-calendar";
 import { findEntities } from "../common/find-entities";
 import { installResizeObserver } from "../common/install-resize-observer";
 import "../components/hui-warning";
@@ -70,7 +70,7 @@ export class HuiCalendarCard extends LitElement implements LovelaceCard {
 
   @internalProperty() private _veryNarrow = false;
 
-  @query("ha-full-calendar", true) private _calendar?: HAFullCalendar;
+  @query("op-full-calendar", true) private _calendar?: HAFullCalendar;
 
   private _startDate?: Date;
 

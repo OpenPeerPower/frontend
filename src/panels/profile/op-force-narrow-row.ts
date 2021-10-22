@@ -11,7 +11,7 @@ import "../../components/op-switch";
 import type { HaSwitch } from "../../components/op-switch";
 import type { OpenPeerPower } from "../../types";
 
-@customElement("ha-force-narrow-row")
+@customElement("op-force-narrow-row")
 class HaForcedNarrowRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -47,6 +47,6 @@ class HaForcedNarrowRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-force-narrow-row": HaForcedNarrowRow;
+    "op-force-narrow-row": HaForcedNarrowRow;
   }
 }

@@ -14,7 +14,7 @@ import { Selector } from "../data/selector";
 import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
 import { documentationUrl } from "../util/documentation-url";
-import "./ha-checkbox";
+import "./op-checkbox";
 import "./op-selector/op-selector";
 import "./op-service-picker";
 import "./op-settings-row";
@@ -421,7 +421,7 @@ export class HaServiceControl extends LitElement {
       .checkbox-spacer {
         width: 32px;
       }
-      ha-checkbox {
+      op-checkbox {
         margin-left: -16px;
       }
       .help-icon {

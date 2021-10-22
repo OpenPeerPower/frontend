@@ -6,7 +6,7 @@ import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/common/search/search-input";
 import { compare } from "../../../../src/common/string/compare";
 import "../../../../src/components/op-dialog";
-import "../../../../src/components/ha-expansion-panel";
+import "../../../../src/components/op-expansion-panel";
 import { OppioHardwareInfo } from "../../../../src/data/oppio/hardware";
 import { dump } from "../../../../src/resources/js-yaml-dump";
 import { haStyle, haStyleDialog } from "../../../../src/resources/styles";
@@ -153,7 +153,7 @@ class OppioHardwareDialog extends LitElement {
           color: var(--primary-text-color);
         }
 
-        ha-expansion-panel {
+        op-expansion-panel {
           margin: 4px 0;
         }
         pre,

@@ -3,7 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { formatDateTimeWithSeconds } from "../../common/datetime/format_date_time";
-import "../ha-code-editor";
+import "../op-code-editor";
 import "../op-icon-button";
 import type { NodeInfo } from "./hat-graph";
 import "./hat-logbook-note";

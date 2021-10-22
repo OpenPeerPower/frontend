@@ -32,14 +32,14 @@ import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../types";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 import {
   loadAreaRegistryDetailDialog,
   showAreaRegistryDetailDialog,
 } from "./show-dialog-area-registry-detail";
 
-@customElement("ha-config-areas-dashboard")
+@customElement("op-config-areas-dashboard")
 export class HaConfigAreasDashboard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

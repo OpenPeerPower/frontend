@@ -16,7 +16,7 @@ import "./error-log-card";
 import "./system-log-card";
 import type { SystemLogCard } from "./system-log-card";
 
-@customElement("ha-config-logs")
+@customElement("op-config-logs")
 export class HaConfigLogs extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -74,6 +74,6 @@ export class HaConfigLogs extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-logs": HaConfigLogs;
+    "op-config-logs": HaConfigLogs;
   }
 }

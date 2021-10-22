@@ -10,7 +10,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { navigate } from "../../../../../common/navigate";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-next";
 import {
@@ -25,7 +25,7 @@ import { ERR_NOT_FOUND } from "../../../../../data/websocket_api";
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { ozwNodeTabs } from "./ozw-node-router";
 import { showOZWRefreshNodeDialog } from "./show-dialog-ozw-refresh-node";
 

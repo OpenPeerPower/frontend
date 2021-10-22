@@ -201,94 +201,94 @@ class HaPanelConfig extends OppRouterPage {
     defaultPage: "dashboard",
     routes: {
       areas: {
-        tag: "ha-config-areas",
-        load: () => import("./areas/ha-config-areas"),
+        tag: "op-config-areas",
+        load: () => import("./areas/op-config-areas"),
       },
       automation: {
-        tag: "ha-config-automation",
-        load: () => import("./automation/ha-config-automation"),
+        tag: "op-config-automation",
+        load: () => import("./automation/op-config-automation"),
       },
       blueprint: {
-        tag: "ha-config-blueprint",
-        load: () => import("./blueprint/ha-config-blueprint"),
+        tag: "op-config-blueprint",
+        load: () => import("./blueprint/op-config-blueprint"),
       },
       tags: {
-        tag: "ha-config-tags",
-        load: () => import("./tags/ha-config-tags"),
+        tag: "op-config-tags",
+        load: () => import("./tags/op-config-tags"),
       },
       cloud: {
-        tag: "ha-config-cloud",
-        load: () => import("./cloud/ha-config-cloud"),
+        tag: "op-config-cloud",
+        load: () => import("./cloud/op-config-cloud"),
       },
       core: {
-        tag: "ha-config-core",
-        load: () => import("./core/ha-config-core"),
+        tag: "op-config-core",
+        load: () => import("./core/op-config-core"),
       },
       devices: {
-        tag: "ha-config-devices",
-        load: () => import("./devices/ha-config-devices"),
+        tag: "op-config-devices",
+        load: () => import("./devices/op-config-devices"),
       },
       server_control: {
-        tag: "ha-config-server-control",
-        load: () => import("./server_control/ha-config-server-control"),
+        tag: "op-config-server-control",
+        load: () => import("./server_control/op-config-server-control"),
       },
       logs: {
-        tag: "ha-config-logs",
-        load: () => import("./logs/ha-config-logs"),
+        tag: "op-config-logs",
+        load: () => import("./logs/op-config-logs"),
       },
       info: {
-        tag: "ha-config-info",
-        load: () => import("./info/ha-config-info"),
+        tag: "op-config-info",
+        load: () => import("./info/op-config-info"),
       },
       customize: {
-        tag: "ha-config-customize",
-        load: () => import("./customize/ha-config-customize"),
+        tag: "op-config-customize",
+        load: () => import("./customize/op-config-customize"),
       },
       dashboard: {
-        tag: "ha-config-dashboard",
-        load: () => import("./dashboard/ha-config-dashboard"),
+        tag: "op-config-dashboard",
+        load: () => import("./dashboard/op-config-dashboard"),
       },
       entities: {
-        tag: "ha-config-entities",
-        load: () => import("./entities/ha-config-entities"),
+        tag: "op-config-entities",
+        load: () => import("./entities/op-config-entities"),
       },
       integrations: {
-        tag: "ha-config-integrations",
-        load: () => import("./integrations/ha-config-integrations"),
+        tag: "op-config-integrations",
+        load: () => import("./integrations/op-config-integrations"),
       },
       lovelace: {
-        tag: "ha-config-lovelace",
-        load: () => import("./lovelace/ha-config-lovelace"),
+        tag: "op-config-lovelace",
+        load: () => import("./lovelace/op-config-lovelace"),
       },
       person: {
-        tag: "ha-config-person",
-        load: () => import("./person/ha-config-person"),
+        tag: "op-config-person",
+        load: () => import("./person/op-config-person"),
       },
       script: {
-        tag: "ha-config-script",
-        load: () => import("./script/ha-config-script"),
+        tag: "op-config-script",
+        load: () => import("./script/op-config-script"),
       },
       scene: {
-        tag: "ha-config-scene",
-        load: () => import("./scene/ha-config-scene"),
+        tag: "op-config-scene",
+        load: () => import("./scene/op-config-scene"),
       },
       helpers: {
-        tag: "ha-config-helpers",
-        load: () => import("./helpers/ha-config-helpers"),
+        tag: "op-config-helpers",
+        load: () => import("./helpers/op-config-helpers"),
       },
       users: {
-        tag: "ha-config-users",
-        load: () => import("./users/ha-config-users"),
+        tag: "op-config-users",
+        load: () => import("./users/op-config-users"),
       },
       zone: {
-        tag: "ha-config-zone",
-        load: () => import("./zone/ha-config-zone"),
+        tag: "op-config-zone",
+        load: () => import("./zone/op-config-zone"),
       },
       zha: {
-        tag: "zha-config-dashboard-router",
+        tag: "zop-config-dashboard-router",
         load: () =>
           import(
-            "./integrations/integration-panels/zha/zha-config-dashboard-router"
+            "./integrations/integration-panels/zha/zop-config-dashboard-router"
           ),
       },
       zwave: {

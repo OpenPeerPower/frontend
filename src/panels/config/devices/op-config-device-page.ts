@@ -39,7 +39,7 @@ import "../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { brandsUrl } from "../../../util/brands-url";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 import "./device-detail/op-device-entities-card";
 import "./device-detail/op-device-info-card";
@@ -53,7 +53,7 @@ export interface EntityRegistryStateEntry extends EntityRegistryEntry {
   stateName?: string | null;
 }
 
-@customElement("ha-config-device-page")
+@customElement("op-config-device-page")
 export class HaConfigDevicePage extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

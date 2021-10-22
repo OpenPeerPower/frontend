@@ -3,15 +3,15 @@ import "@polymer/paper-input/paper-input";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
-import "../../../components/buttons/ha-call-service-button";
+import "../../../components/buttons/op-call-service-button";
 import "../../../components/op-card";
 import LocalizeMixin from "../../../mixins/localize-mixin";
 import "../../../styles/polymer-op-style";
-import "../ha-config-section";
-import "./ha-config-analytics";
-import "./ha-config-core-form";
-import "./ha-config-name-form";
-import "./ha-config-url-form";
+import "../op-config-section";
+import "./op-config-analytics";
+import "./op-config-core-form";
+import "./op-config-name-form";
+import "./op-config-url-form";
 
 /*
  * @appliesMixin LocalizeMixin
@@ -66,4 +66,4 @@ class HaConfigSectionCore extends LocalizeMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-config-section-core", HaConfigSectionCore);
+customElements.define("op-config-section-core", HaConfigSectionCore);

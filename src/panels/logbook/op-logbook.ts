@@ -27,7 +27,7 @@ import { LogbookEntry } from "../../data/logbook";
 import { haStyle, haStyleScrollbar } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-logbook")
+@customElement("op-logbook")
 class HaLogbook extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -376,6 +376,6 @@ class HaLogbook extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-logbook": HaLogbook;
+    "op-logbook": HaLogbook;
   }
 }

@@ -11,7 +11,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../../components/op-card";
-import "../../../../../components/ha-code-editor";
+import "../../../../../components/op-code-editor";
 import { getConfigEntries } from "../../../../../data/config_entries";
 import { showOptionsFlowDialog } from "../../../../../dialogs/config-flow/show-dialog-options-flow";
 import "../../../../../layouts/opp-subpage";

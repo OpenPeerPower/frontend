@@ -53,7 +53,7 @@ declare global {
   }
 }
 
-@customElement("ha-media-player-browse")
+@customElement("op-media-player-browse")
 export class HaMediaPlayerBrowse extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -1014,6 +1014,6 @@ export class HaMediaPlayerBrowse extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-media-player-browse": HaMediaPlayerBrowse;
+    "op-media-player-browse": HaMediaPlayerBrowse;
   }
 }

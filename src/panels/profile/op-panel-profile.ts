@@ -15,7 +15,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/op-card";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import { isExternal } from "../../data/external";
 import {
   CoreFrontendUserData,
@@ -27,11 +27,11 @@ import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
 import "./op-advanced-mode-row";
-import "./ha-change-password-card";
-import "./ha-enable-shortcuts-row";
-import "./ha-force-narrow-row";
-import "./ha-long-lived-access-tokens-card";
-import "./ha-mfa-modules-card";
+import "./op-change-password-card";
+import "./op-enable-shortcuts-row";
+import "./op-force-narrow-row";
+import "./op-long-lived-access-tokens-card";
+import "./op-mfa-modules-card";
 import "./op-pick-dashboard-row";
 import "./op-pick-language-row";
 import "./op-pick-number-format-row";

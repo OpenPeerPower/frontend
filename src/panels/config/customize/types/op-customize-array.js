@@ -60,4 +60,4 @@ class HaCustomizeArray extends EventsMixin(PolymerElement) {
     return options.indexOf(item.value);
   }
 }
-customElements.define("ha-customize-array", HaCustomizeArray);
+customElements.define("op-customize-array", HaCustomizeArray);

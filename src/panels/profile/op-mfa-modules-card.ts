@@ -16,7 +16,7 @@ import { showConfirmationDialog } from "../../dialogs/generic/show-dialog-box";
 import { OpenPeerPower, MFAModule } from "../../types";
 import { showMfaModuleSetupFlowDialog } from "./show-op-mfa-module-setup-flow-dialog";
 
-@customElement("ha-mfa-modules-card")
+@customElement("op-mfa-modules-card")
 class HaMfaModulesCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -96,6 +96,6 @@ class HaMfaModulesCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-mfa-modules-card": HaMfaModulesCard;
+    "op-mfa-modules-card": HaMfaModulesCard;
   }
 }

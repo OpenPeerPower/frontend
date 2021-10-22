@@ -16,7 +16,7 @@ import { classMap } from "lit-html/directives/class-map";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/op-card";
-import "../../../components/ha-label-badge";
+import "../../../components/op-label-badge";
 import {
   callAlarmAction,
   FORMAT_NUMBER,
@@ -282,7 +282,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
         --alarm-state-color: var(--alarm-color-armed);
       }
 
-      ha-label-badge {
+      op-label-badge {
         --op-label-badge-color: var(--alarm-state-color);
         --label-badge-text-color: var(--alarm-state-color);
         --label-badge-background-color: var(--card-background-color);

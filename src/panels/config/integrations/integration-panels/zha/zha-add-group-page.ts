@@ -26,7 +26,7 @@ import "../../../../../layouts/opp-error-screen";
 import "../../../../../layouts/opp-subpage";
 import type { PolymerChangedEvent } from "../../../../../polymer-types";
 import type { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import "./zop-device-endpoint-data-table";
 import type { ZHADeviceEndpointDataTable } from "./zop-device-endpoint-data-table";
 
@@ -174,7 +174,7 @@ export class ZHAAddGroupPage extends LitElement {
           float: right;
         }
 
-        ha-config-section *:last-child {
+        op-config-section *:last-child {
           padding-bottom: 24px;
         }
         .paper-dialog-buttons {

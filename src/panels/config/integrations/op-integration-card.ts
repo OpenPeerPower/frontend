@@ -41,7 +41,7 @@ import {
 } from "../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
-import type { ConfigEntryExtended } from "./ha-config-integrations";
+import type { ConfigEntryExtended } from "./op-config-integrations";
 import "./op-integration-header";
 
 const ERROR_STATES: ConfigEntry["state"][] = [

@@ -16,7 +16,7 @@ import "../../components/op-circular-progress";
 import "../../components/op-date-range-picker";
 import type { DateRangePickerRanges } from "../../components/op-date-range-picker";
 import "../../components/op-icon-button";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import { TraceContexts, loadTraceContexts } from "../../data/trace";
 import {
   clearLogbookCache,
@@ -28,7 +28,7 @@ import { fetchUsers } from "../../data/user";
 import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";
 import { OpenPeerPower } from "../../types";
-import "./ha-logbook";
+import "./op-logbook";
 import { isComponentLoaded } from "../../common/config/is_component_loaded";
 
 @customElement("op-panel-logbook")
@@ -281,12 +281,12 @@ export class HaPanelLogbook extends LitElement {
     return [
       haStyle,
       css`
-        ha-logbook,
+        op-logbook,
         .progress-wrapper {
           height: calc(100vh - 136px);
         }
 
-        :host([narrow]) ha-logbook,
+        :host([narrow]) op-logbook,
         :host([narrow]) .progress-wrapper {
           height: calc(100vh - 198px);
         }

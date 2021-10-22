@@ -3,17 +3,17 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../components/op-icon-button";
 import oppAttributeUtil from "../../../util/opp-attributes-util";
-import "../ha-form-style";
-import "./types/ha-customize-array";
-import "./types/ha-customize-boolean";
-import "./types/ha-customize-icon";
-import "./types/ha-customize-key-value";
-import "./types/ha-customize-string";
+import "../op-form-style";
+import "./types/op-customize-array";
+import "./types/op-customize-boolean";
+import "./types/op-customize-icon";
+import "./types/op-customize-key-value";
+import "./types/op-customize-string";
 
 class HaCustomizeAttribute extends PolymerElement {
   static get template() {
     return html`
-      <style include="ha-form-style">
+      <style include="op-form-style">
         :host {
           display: block;
           position: relative;
@@ -82,4 +82,4 @@ class HaCustomizeAttribute extends PolymerElement {
     }
   }
 }
-customElements.define("ha-customize-attribute", HaCustomizeAttribute);
+customElements.define("op-customize-attribute", HaCustomizeAttribute);

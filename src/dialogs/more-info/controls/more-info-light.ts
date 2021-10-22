@@ -13,7 +13,7 @@ import memoizeOne from "memoize-one";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import "../../../components/op-attributes";
 import "../../../components/op-button-toggle-group";
-import "../../../components/ha-color-picker";
+import "../../../components/op-color-picker";
 import "../../../components/op-icon-button";
 import "../../../components/op-labeled-slider";
 import "../../../components/op-paper-dropdown-menu";
@@ -600,12 +600,12 @@ class MoreInfoLight extends LitElement {
         margin-bottom: 8px;
       }
 
-      ha-color-picker {
-        --ha-color-picker-wheel-borderwidth: 5;
-        --ha-color-picker-wheel-bordercolor: white;
-        --ha-color-picker-wheel-shadow: none;
-        --ha-color-picker-marker-borderwidth: 2;
-        --ha-color-picker-marker-bordercolor: white;
+      op-color-picker {
+        --op-color-picker-wheel-borderwidth: 5;
+        --op-color-picker-wheel-bordercolor: white;
+        --op-color-picker-wheel-shadow: none;
+        --op-color-picker-marker-borderwidth: 2;
+        --op-color-picker-marker-bordercolor: white;
       }
 
       .segmentationButton {

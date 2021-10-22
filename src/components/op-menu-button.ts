@@ -9,7 +9,7 @@ import { subscribeNotifications } from "../data/persistent_notification";
 import { OpenPeerPower } from "../types";
 import "./op-svg-icon";
 
-@customElement("ha-menu-button")
+@customElement("op-menu-button")
 class HaMenuButton extends LitElement {
   @property({ type: Boolean }) public oppio = false;
 
@@ -138,6 +138,6 @@ class HaMenuButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-menu-button": HaMenuButton;
+    "op-menu-button": HaMenuButton;
   }
 }

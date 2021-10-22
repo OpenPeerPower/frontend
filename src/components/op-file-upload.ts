@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-@customElement("ha-file-upload")
+@customElement("op-file-upload")
 export class HaFileUpload extends LitElement {
   @property() public accept!: string;
 
@@ -168,6 +168,6 @@ export class HaFileUpload extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-file-upload": HaFileUpload;
+    "op-file-upload": HaFileUpload;
   }
 }

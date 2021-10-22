@@ -5,7 +5,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-markdown";
+import "../../../components/op-markdown";
 
 class MoreInfoConfigurator extends PolymerElement {
   static get template() {

@@ -5,7 +5,7 @@ import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/op-attributes";
-import "../../../components/map/ha-map";
+import "../../../components/map/op-map";
 import { showZoneEditor } from "../../../data/zone";
 import { OpenPeerPower } from "../../../types";
 
@@ -73,7 +73,7 @@ class MoreInfoPerson extends LitElement {
         margin: 8px 0;
         text-align: right;
       }
-      ha-map {
+      op-map {
         margin-top: 16px;
       }
     `;

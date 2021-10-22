@@ -37,4 +37,4 @@ class HaCustomizeIcon extends PolymerElement {
     };
   }
 }
-customElements.define("ha-customize-icon", HaCustomizeIcon);
+customElements.define("op-customize-icon", HaCustomizeIcon);

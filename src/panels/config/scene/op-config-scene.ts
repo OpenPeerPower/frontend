@@ -19,7 +19,7 @@ const equal = (a: SceneEntity[], b: SceneEntity[]): boolean => {
   return a.every((scene, index) => scene === b[index]);
 };
 
-@customElement("ha-config-scene")
+@customElement("op-config-scene")
 class HaConfigScene extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -85,6 +85,6 @@ class HaConfigScene extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-scene": HaConfigScene;
+    "op-config-scene": HaConfigScene;
   }
 }

@@ -9,7 +9,7 @@ import { fetchOppioSupervisorInfo } from "../data/oppio/supervisor";
 import { showAlertDialog } from "../dialogs/generic/show-dialog-box";
 import { PolymerChangedEvent } from "../polymer-types";
 import { OpenPeerPower } from "../types";
-import { HaComboBox } from "./ha-combo-box";
+import { HaComboBox } from "./op-combo-box";
 
 const rowRenderer: ComboBoxLitRenderer<OppioAddonInfo> = (item) => html`<style>
     paper-item {
@@ -36,7 +36,7 @@ class HaAddonPicker extends LitElement {
 
   @property({ type: Boolean }) public disabled = false;
 
-  @query("ha-combo-box") private _comboBox!: HaComboBox;
+  @query("op-combo-box") private _comboBox!: HaComboBox;
 
   public open() {
     this._comboBox?.open();

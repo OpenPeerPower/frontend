@@ -26,7 +26,7 @@ import { haStyle } from "../../resources/styles";
 import "../../styles/polymer-op-style";
 import { OpenPeerPower } from "../../types";
 
-@customElement("ha-long-lived-access-tokens-card")
+@customElement("op-long-lived-access-tokens-card")
 class HaLongLivedTokens extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -196,6 +196,6 @@ class HaLongLivedTokens extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-long-lived-access-tokens-card": HaLongLivedTokens;
+    "op-long-lived-access-tokens-card": HaLongLivedTokens;
   }
 }

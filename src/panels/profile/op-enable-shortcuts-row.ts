@@ -11,7 +11,7 @@ import "../../components/op-switch";
 import type { HaSwitch } from "../../components/op-switch";
 import type { OpenPeerPower } from "../../types";
 
-@customElement("ha-enable-shortcuts-row")
+@customElement("op-enable-shortcuts-row")
 class HaEnableShortcutsRow extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -46,6 +46,6 @@ class HaEnableShortcutsRow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-enable-shortcuts-row": HaEnableShortcutsRow;
+    "op-enable-shortcuts-row": HaEnableShortcutsRow;
   }
 }

@@ -3,7 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../components/op-circular-progress";
 import "../components/op-icon-button-arrow-prev";
-import "../components/ha-menu-button";
+import "../components/op-menu-button";
 import { haStyle } from "../resources/styles";
 import { OpenPeerPower } from "../types";
 
@@ -69,7 +69,7 @@ class OppLoadingScreen extends LitElement {
           border-bottom: var(--app-header-border-bottom, none);
           box-sizing: border-box;
         }
-        ha-menu-button,
+        op-menu-button,
         op-icon-button-arrow-prev {
           pointer-events: auto;
         }

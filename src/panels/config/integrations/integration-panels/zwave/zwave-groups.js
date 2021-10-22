@@ -5,7 +5,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeStateName } from "../../../../../common/entity/compute_state_name";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import LocalizeMixin from "../../../../../mixins/localize-mixin";
 import "../../../../../styles/polymer-op-style";

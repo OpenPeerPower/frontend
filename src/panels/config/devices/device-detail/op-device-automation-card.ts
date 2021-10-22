@@ -7,7 +7,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import "../../../../components/op-card";
-import "../../../../components/ha-chip-set";
+import "../../../../components/op-chip-set";
 import { showAutomationEditor } from "../../../../data/automation";
 import {
   DeviceAction,

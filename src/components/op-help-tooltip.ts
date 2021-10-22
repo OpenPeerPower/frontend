@@ -4,7 +4,7 @@ import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "./op-svg-icon";
 
-@customElement("ha-help-tooltip")
+@customElement("op-help-tooltip")
 export class HaHelpTooltip extends LitElement {
   @property() public label!: string;
 
@@ -25,8 +25,8 @@ export class HaHelpTooltip extends LitElement {
   static get styles() {
     return css`
       op-svg-icon {
-        --mdc-icon-size: var(--ha-help-tooltip-size, 14px);
-        color: var(--ha-help-tooltip-color, var(--disabled-text-color));
+        --mdc-icon-size: var(--op-help-tooltip-size, 14px);
+        color: var(--op-help-tooltip-color, var(--disabled-text-color));
       }
     `;
   }
@@ -34,6 +34,6 @@ export class HaHelpTooltip extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-help-tooltip": HaHelpTooltip;
+    "op-help-tooltip": HaHelpTooltip;
   }
 }

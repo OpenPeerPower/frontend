@@ -34,7 +34,7 @@ import {
   showAreaRegistryDetailDialog,
 } from "./show-dialog-area-registry-detail";
 
-@customElement("ha-config-area-page")
+@customElement("op-config-area-page")
 class HaConfigAreaPage extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -395,6 +395,6 @@ class HaConfigAreaPage extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-area-page": HaConfigAreaPage;
+    "op-config-area-page": HaConfigAreaPage;
   }
 }

@@ -1,5 +1,5 @@
 import { computeStateName } from "../common/entity/compute_state_name";
-import { HaFormSchema } from "../components/ha-form/ha-form";
+import { HaFormSchema } from "../components/op-form/op-form";
 import { OpenPeerPower } from "../types";
 import { BaseTrigger } from "./automation";
 

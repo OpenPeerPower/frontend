@@ -47,7 +47,7 @@ export interface TagRowData extends Tag {
   last_scanned_datetime: Date | null;
 }
 
-@customElement("ha-config-tags")
+@customElement("op-config-tags")
 export class HaConfigTags extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -334,6 +334,6 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-tags": HaConfigTags;
+    "op-config-tags": HaConfigTags;
   }
 }

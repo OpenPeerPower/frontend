@@ -53,7 +53,7 @@ import "../../components/op-button-menu";
 import "../../components/op-icon";
 import "../../components/op-icon-button-arrow-next";
 import "../../components/op-icon-button-arrow-prev";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import "../../components/op-svg-icon";
 import "../../components/op-tabs";
 import type {

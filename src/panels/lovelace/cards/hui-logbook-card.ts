@@ -18,7 +18,7 @@ import "../../../components/op-card";
 import "../../../components/op-circular-progress";
 import { getLogbookData, LogbookEntry } from "../../../data/logbook";
 import type { OpenPeerPower } from "../../../types";
-import "../../logbook/ha-logbook";
+import "../../logbook/op-logbook";
 import { findEntities } from "../common/find-entities";
 import { processConfigEntities } from "../common/process-config-entities";
 import "../components/hui-warning";
@@ -286,7 +286,7 @@ export class HuiLogbookCard extends LitElement implements LovelaceCard {
           color: var(--secondary-text-color);
         }
 
-        ha-logbook {
+        op-logbook {
           height: 385px;
           overflow: auto;
           display: block;

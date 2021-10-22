@@ -1,9 +1,9 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import "../op-time-input";
-import { HaFormElement, HaFormTimeData, HaFormTimeSchema } from "./ha-form";
+import { HaFormElement, HaFormTimeData, HaFormTimeSchema } from "./op-form";
 
-@customElement("ha-form-positive_time_period_dict")
+@customElement("op-form-positive_time_period_dict")
 export class HaFormTimePeriod extends LitElement implements HaFormElement {
   @property() public schema!: HaFormTimeSchema;
 
@@ -34,6 +34,6 @@ export class HaFormTimePeriod extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-positive_time_period_dict": HaFormTimePeriod;
+    "op-form-positive_time_period_dict": HaFormTimePeriod;
   }
 }

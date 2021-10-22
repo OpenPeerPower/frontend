@@ -56,7 +56,7 @@ import { showConfirmationDialog } from "../../../../../dialogs/generic/show-dial
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../../types";
 import type { Helper } from "../../../helpers/const";
-import "../../../helpers/forms/ha-counter-form";
+import "../../../helpers/forms/op-counter-form";
 import "../../../helpers/forms/op-input_boolean-form";
 import "../../../helpers/forms/op-input_datetime-form";
 import "../../../helpers/forms/op-input_number-form";

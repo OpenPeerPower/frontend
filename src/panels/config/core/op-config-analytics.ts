@@ -14,7 +14,7 @@ import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/op-analytics";
 import { analyticsLearnMore } from "../../../components/op-analytics-learn-more";
 import "../../../components/op-card";
-import "../../../components/ha-checkbox";
+import "../../../components/op-checkbox";
 import "../../../components/op-settings-row";
 import {
   Analytics,
@@ -24,7 +24,7 @@ import {
 import { haStyle } from "../../../resources/styles";
 import type { OpenPeerPower } from "../../../types";
 
-@customElement("ha-config-analytics")
+@customElement("op-config-analytics")
 class ConfigAnalytics extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -134,6 +134,6 @@ class ConfigAnalytics extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-analytics": ConfigAnalytics;
+    "op-config-analytics": ConfigAnalytics;
   }
 }

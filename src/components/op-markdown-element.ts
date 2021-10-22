@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { renderMarkdown } from "../resources/render-markdown";
 
-@customElement("ha-markdown-element")
+@customElement("op-markdown-element")
 class HaMarkdownElement extends ReactiveElement {
   @property() public content?;
 
@@ -69,6 +69,6 @@ class HaMarkdownElement extends ReactiveElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-markdown-element": HaMarkdownElement;
+    "op-markdown-element": HaMarkdownElement;
   }
 }

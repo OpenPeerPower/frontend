@@ -12,7 +12,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import "../../../../../components/op-icon-button";
 import "../../../../../components/op-service-description";
@@ -23,14 +23,14 @@ import {
 } from "../../../../../data/zha";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { computeClusterKey } from "./functions";
 import { ItemSelectedEvent } from "./types";
 
 declare global {
   // for fire event
   interface OPPDomEvents {
-    "zha-cluster-selected": {
+    "zop-cluster-selected": {
       cluster?: Cluster;
     };
   }
@@ -53,7 +53,7 @@ export class ZHAClusters extends LitElement {
     if (changedProperties.has("selectedDevice")) {
       this._clusters = [];
       this._selectedClusterIndex = -1;
-      fireEvent(this, "zha-cluster-selected", {
+      fireEvent(this, "zop-cluster-selected", {
         cluster: undefined,
       });
       this._fetchClustersForZhaNode();
@@ -125,7 +125,7 @@ export class ZHAClusters extends LitElement {
 
   private _selectedClusterChanged(event: ItemSelectedEvent): void {
     this._selectedClusterIndex = event.target!.selected;
-    fireEvent(this, "zha-cluster-selected", {
+    fireEvent(this, "zop-cluster-selected", {
       cluster: this._clusters[this._selectedClusterIndex],
     });
   }
@@ -186,8 +186,8 @@ export class ZHAClusters extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-cluster": ZHAClusters;
+    "zop-cluster": ZHAClusters;
   }
 }
 
-customElements.define("zha-clusters", ZHAClusters);
+customElements.define("zop-clusters", ZHAClusters);

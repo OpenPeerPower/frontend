@@ -2,7 +2,7 @@ import { DEFAULT_SCHEMA, dump, load, Schema } from "js-yaml";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
-import "./ha-code-editor";
+import "./op-code-editor";
 
 const isEmpty = (obj: Record<string, unknown>): boolean => {
   if (typeof obj !== "object") {

@@ -1,4 +1,4 @@
-import "../../../components/ha-markdown";
+import "../../../components/op-markdown";
 import "@material/mwc-button";
 import "@polymer/paper-dialog-scrollable/paper-dialog-scrollable";
 import "@polymer/paper-input/paper-input";
@@ -15,7 +15,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-expansion-panel";
+import "../../../components/op-expansion-panel";
 import {
   BlueprintImportResult,
   importBlueprint,

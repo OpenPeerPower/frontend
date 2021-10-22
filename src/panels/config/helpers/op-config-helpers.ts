@@ -33,7 +33,7 @@ import { configSections } from "../op-panel-config";
 import { HELPER_DOMAINS } from "./const";
 import { showHelperDetailDialog } from "./show-dialog-helper-detail";
 
-@customElement("ha-config-helpers")
+@customElement("op-config-helpers")
 export class HaConfigHelpers extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

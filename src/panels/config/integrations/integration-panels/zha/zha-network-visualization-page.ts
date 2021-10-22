@@ -27,8 +27,8 @@ import "../../../../../components/op-svg-icon";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
 import { formatAsPaddedHex } from "./functions";
 import { DeviceRegistryEntry } from "../../../../../data/device_registry";
-import "../../../../../components/ha-checkbox";
-import type { HaCheckbox } from "../../../../../components/ha-checkbox";
+import "../../../../../components/op-checkbox";
+import type { HaCheckbox } from "../../../../../components/op-checkbox";
 
 @customElement("zha-network-visualization-page")
 export class ZHANetworkVisualizationPage extends LitElement {

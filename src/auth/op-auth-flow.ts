@@ -9,8 +9,8 @@ import {
 } from "lit";
 import "./op-password-manager-polyfill";
 import { property, state } from "lit/decorators";
-import "../components/ha-form/ha-form";
-import "../components/ha-markdown";
+import "../components/op-form/op-form";
+import "../components/op-markdown";
 import { AuthProvider } from "../data/auth";
 import {
   DataEntryFlowStep,
@@ -240,7 +240,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
     await this.updateComplete;
     // 100ms to give all the form elements time to initialize.
     setTimeout(() => {
-      const form = this.renderRoot.querySelector("ha-form");
+      const form = this.renderRoot.querySelector("op-form");
       if (form) {
         (form as any).focus();
       }
@@ -269,7 +269,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
   }
 
   private _computeLabelCallback(step: DataEntryFlowStepForm) {
-    // Returns a callback for ha-form to calculate labels per schema object
+    // Returns a callback for op-form to calculate labels per schema object
     return (schema) =>
       this.localize(
         `ui.panel.page-authorize.form.providers.${step.handler[0]}.step.${step.step_id}.data.${schema.name}`
@@ -277,7 +277,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
   }
 
   private _computeErrorCallback(step: DataEntryFlowStepForm) {
-    // Returns a callback for ha-form to calculate error messages
+    // Returns a callback for op-form to calculate error messages
     return (error) =>
       this.localize(
         `ui.panel.page-authorize.form.providers.${step.handler[0]}.error.${error}`

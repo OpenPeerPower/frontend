@@ -12,7 +12,7 @@ import {
 } from "lit-element";
 import { navigate } from "../../common/navigate";
 import "../../components/op-icon-button";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import "../../components/op-tabs";
 import "../../layouts/op-app-layout";
 import { haStyle } from "../../resources/styles";

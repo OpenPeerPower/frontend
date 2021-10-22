@@ -37,7 +37,7 @@ import type {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-full-calendar": HAFullCalendar;
+    "op-full-calendar": HAFullCalendar;
   }
   interface OPPDomEvents {
     "view-changed": CalendarViewChanged;
@@ -542,4 +542,4 @@ export class HAFullCalendar extends LitElement {
   }
 }
 
-window.customElements.define("ha-full-calendar", HAFullCalendar);
+window.customElements.define("op-full-calendar", HAFullCalendar);

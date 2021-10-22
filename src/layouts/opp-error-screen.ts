@@ -2,7 +2,7 @@ import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../components/op-icon-button-arrow-prev";
-import "../components/ha-menu-button";
+import "../components/op-menu-button";
 import { OpenPeerPower } from "../types";
 
 @customElement("opp-error-screen")

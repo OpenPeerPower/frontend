@@ -16,7 +16,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { domainIcon } from "../../../common/entity/domain_icon";
 import "../../../components/op-area-picker";
-import "../../../components/ha-expansion-panel";
+import "../../../components/op-expansion-panel";
 import "../../../components/op-icon-input";
 import "../../../components/op-switch";
 import type { HaSwitch } from "../../../components/op-switch";

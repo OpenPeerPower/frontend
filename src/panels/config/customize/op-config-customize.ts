@@ -11,10 +11,10 @@ import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import { OpenPeerPower, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
-import "../ha-config-section";
+import "../op-config-section";
 import "../op-entity-config";
 import { configSections } from "../op-panel-config";
-import "./ha-form-customize";
+import "./op-form-customize";
 
 class HaConfigCustomize extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
@@ -88,4 +88,4 @@ class HaConfigCustomize extends LitElement {
     `;
   }
 }
-customElements.define("ha-config-customize", HaConfigCustomize);
+customElements.define("op-config-customize", HaConfigCustomize);

@@ -32,4 +32,4 @@ class HaCustomizeString extends PolymerElement {
     );
   }
 }
-customElements.define("ha-customize-string", HaCustomizeString);
+customElements.define("op-customize-string", HaCustomizeString);

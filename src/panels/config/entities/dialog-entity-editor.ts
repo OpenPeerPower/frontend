@@ -18,7 +18,7 @@ import { dynamicElement } from "../../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/op-dialog";
-import "../../../components/ha-header-bar";
+import "../../../components/op-header-bar";
 import "../../../components/op-related-items";
 import "../../../components/op-svg-icon";
 import {
@@ -258,7 +258,7 @@ export class DialogEntityEditor extends LitElement {
     return [
       haStyleDialog,
       css`
-        ha-header-bar {
+        op-header-bar {
           --mdc-theme-on-primary: var(--primary-text-color);
           --mdc-theme-primary: var(--mdc-theme-surface);
           flex-shrink: 0;
@@ -288,7 +288,7 @@ export class DialogEntityEditor extends LitElement {
 
         /* overrule the op-style-dialog max-height on small screens */
         @media all and (max-width: 450px), all and (max-height: 500px) {
-          ha-header-bar {
+          op-header-bar {
             --mdc-theme-primary: var(--app-header-background-color);
             --mdc-theme-on-primary: var(--app-header-text-color, white);
           }

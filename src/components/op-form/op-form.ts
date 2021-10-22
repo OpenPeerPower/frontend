@@ -3,14 +3,14 @@ import { customElement, property } from "lit/decorators";
 import { dynamicElement } from "../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../common/dom/fire_event";
 import { HaTimeData } from "../op-time-input";
-import "./ha-form-boolean";
-import "./ha-form-constant";
-import "./ha-form-float";
-import "./ha-form-integer";
-import "./ha-form-multi_select";
-import "./ha-form-positive_time_period_dict";
-import "./ha-form-select";
-import "./ha-form-string";
+import "./op-form-boolean";
+import "./op-form-constant";
+import "./op-form-float";
+import "./op-form-integer";
+import "./op-form-multi_select";
+import "./op-form-positive_time_period_dict";
+import "./op-form-select";
+import "./op-form-string";
 
 export type HaFormSchema =
   | HaFormConstantSchema
@@ -97,7 +97,7 @@ export interface HaFormElement extends LitElement {
   suffix?: string;
 }
 
-@customElement("ha-form")
+@customElement("op-form")
 export class HaForm extends LitElement implements HaFormElement {
   @property() public data!: HaFormDataContainer | HaFormData;
 
@@ -114,7 +114,7 @@ export class HaForm extends LitElement implements HaFormElement {
   public focus() {
     const input =
       this.shadowRoot!.getElementById("child-form") ||
-      this.shadowRoot!.querySelector("ha-form");
+      this.shadowRoot!.querySelector("op-form");
     if (!input) {
       return;
     }
@@ -155,7 +155,7 @@ export class HaForm extends LitElement implements HaFormElement {
             </div>
           `
         : ""}
-      ${dynamicElement(`ha-form-${this.schema.type}`, {
+      ${dynamicElement(`op-form-${this.schema.type}`, {
         schema: this.schema,
         data: this.data,
         label: this._computeLabel(this.schema),
@@ -212,6 +212,6 @@ export class HaForm extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form": HaForm;
+    "op-form": HaForm;
   }
 }

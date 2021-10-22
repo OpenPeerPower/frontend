@@ -33,10 +33,10 @@ import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-
 import "../../../../layouts/opp-loading-screen";
 import "../../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../../types";
-import { lovelaceTabs } from "../ha-config-lovelace";
+import { lovelaceTabs } from "../op-config-lovelace";
 import { showDashboardDetailDialog } from "./show-dialog-lovelace-dashboard-detail";
 
-@customElement("ha-config-lovelace-dashboards")
+@customElement("op-config-lovelace-dashboards")
 export class HaConfigLovelaceDashboards extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

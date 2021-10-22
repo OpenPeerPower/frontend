@@ -17,7 +17,7 @@ import "../../components/op-circular-progress";
 import { haStyle } from "../../resources/styles";
 import "../../styles/polymer-op-style";
 import type { OpenPeerPower } from "../../types";
-import { HaFormCustomize } from "./customize/ha-form-customize";
+import { HaFormCustomize } from "./customize/op-form-customize";
 
 @customElement("op-entity-config")
 export class HaEntityConfig extends LitElement {

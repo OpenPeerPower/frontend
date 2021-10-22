@@ -22,7 +22,7 @@ import {
   StatisticType,
 } from "../../data/history";
 import type { OpenPeerPower } from "../../types";
-import "./ha-chart-base";
+import "./op-chart-base";
 
 @customElement("statistics-chart")
 class StatisticsChart extends LitElement {

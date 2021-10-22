@@ -20,7 +20,7 @@ const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   return a.every((automation, index) => automation === b[index]);
 };
 
-@customElement("ha-config-automation")
+@customElement("op-config-automation")
 class HaConfigAutomation extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -95,6 +95,6 @@ class HaConfigAutomation extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-automation": HaConfigAutomation;
+    "op-config-automation": HaConfigAutomation;
   }
 }

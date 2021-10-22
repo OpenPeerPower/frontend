@@ -12,7 +12,7 @@ import { safeDump, safeLoad } from "js-yaml";
 import { formatDateTimeWithSeconds } from "../../../common/datetime/format_date_time";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import "../../../components/entity/op-entity-picker";
-import "../../../components/ha-code-editor";
+import "../../../components/op-code-editor";
 import "../../../components/op-svg-icon";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
 import { EventsMixin } from "../../../mixins/events-mixin";

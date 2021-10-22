@@ -7,7 +7,7 @@ import {
   LitElement,
   TemplateResult,
 } from "lit-element";
-import "../../../components/ha-label-badge";
+import "../../../components/op-label-badge";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceBadge } from "../types";
 import { ErrorBadgeConfig } from "./types";

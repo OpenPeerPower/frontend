@@ -8,7 +8,7 @@ import {
   property,
 } from "lit-element";
 import "../../../components/op-svg-icon";
-import { TagRowData } from "./ha-config-tags";
+import { TagRowData } from "./op-config-tags";
 
 @customElement("tag-image")
 export class HaTagImage extends LitElement {

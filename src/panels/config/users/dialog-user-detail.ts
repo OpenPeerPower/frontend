@@ -14,7 +14,7 @@ import {
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
-import "../../../components/ha-help-tooltip";
+import "../../../components/op-help-tooltip";
 import "../../../components/op-switch";
 import { adminChangePassword } from "../../../data/auth";
 import {
@@ -318,7 +318,7 @@ class DialogUserDetail extends LitElement {
           display: flex;
           padding: 8px 0;
         }
-        ha-help-tooltip {
+        op-help-tooltip {
           margin-left: 4px;
           position: relative;
         }

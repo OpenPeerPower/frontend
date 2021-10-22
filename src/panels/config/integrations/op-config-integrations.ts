@@ -55,12 +55,12 @@ import type { HaIntegrationCard } from "./op-integration-card";
 import "../../../common/search/search-input";
 import "../../../components/op-button-menu";
 import "../../../components/op-fab";
-import "../../../components/ha-checkbox";
+import "../../../components/op-checkbox";
 import "../../../components/op-svg-icon";
 import "../../../layouts/opp-loading-screen";
 import "../../../layouts/opp-tabs-subpage";
 import "./op-integration-card";
-import "./ha-config-flow-card";
+import "./op-config-flow-card";
 import "./op-ignored-config-entry-card";
 
 export interface ConfigEntryUpdatedEvent {
@@ -101,7 +101,7 @@ const groupByIntegration = (
   return result;
 };
 
-@customElement("ha-config-integrations")
+@customElement("op-config-integrations")
 class HaConfigIntegrations extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -674,6 +674,6 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-integrations": HaConfigIntegrations;
+    "op-config-integrations": HaConfigIntegrations;
   }
 }

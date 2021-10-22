@@ -1,5 +1,5 @@
 import { Connection } from "openpeerpower-js-websocket";
-import { HaFormSchema } from "../components/ha-form/ha-form";
+import { HaFormSchema } from "../components/op-form/op-form";
 import { ConfigEntry } from "./config_entries";
 
 export interface DataEntryFlowProgressedEvent {

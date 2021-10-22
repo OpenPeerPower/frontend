@@ -10,7 +10,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../components/buttons/ha-call-service-button";
+import "../../../components/buttons/op-call-service-button";
 import "../../../components/buttons/op-progress-button";
 import "../../../components/op-card";
 import "../../../components/op-circular-progress";

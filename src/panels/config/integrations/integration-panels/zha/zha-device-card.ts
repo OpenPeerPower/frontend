@@ -13,7 +13,7 @@ import {
 } from "lit-element";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { computeStateName } from "../../../../../common/entity/compute_state_name";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/entity/state-badge";
 import "../../../../../components/op-card";
 import "../../../../../components/op-service-description";
@@ -30,7 +30,7 @@ import {
   updateEntityRegistryEntry,
 } from "../../../../../data/entity_registry";
 import memoizeOne from "memoize-one";
-import { EntityRegistryStateEntry } from "../../../devices/ha-config-device-page";
+import { EntityRegistryStateEntry } from "../../../devices/op-config-device-page";
 import { compare } from "../../../../../common/string/compare";
 import { getIeeeTail } from "./functions";
 import { slugify } from "../../../../../common/string/slugify";

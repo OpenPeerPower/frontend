@@ -58,7 +58,7 @@ import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 
 interface DeviceEntities {
@@ -748,7 +748,7 @@ export class HaSceneEditor extends SubscribeMixin(
           font-weight: bold;
           color: var(--error-color);
         }
-        ha-config-section:last-child {
+        op-config-section:last-child {
           padding-bottom: 20px;
         }
         .triggers,

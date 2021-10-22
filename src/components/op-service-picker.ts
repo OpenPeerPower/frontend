@@ -6,7 +6,7 @@ import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
 import { domainToName } from "../data/integration";
 import { OpenPeerPower } from "../types";
-import "./ha-combo-box";
+import "./op-combo-box";
 
 const rowRenderer: ComboBoxLitRenderer<{ service: string; name: string }> = (
   item

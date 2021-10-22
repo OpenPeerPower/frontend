@@ -11,7 +11,7 @@ import "./login/cloud-login";
 const LOGGED_IN_URLS = ["account", "google-assistant", "alexa"];
 const NOT_LOGGED_IN_URLS = ["login", "register", "forgot-password"];
 
-@customElement("ha-config-cloud")
+@customElement("op-config-cloud")
 class HaConfigCloud extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -142,6 +142,6 @@ class HaConfigCloud extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-cloud": HaConfigCloud;
+    "op-config-cloud": HaConfigCloud;
   }
 }

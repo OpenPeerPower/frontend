@@ -10,11 +10,11 @@ import { provideOpp } from "../../../src/fake_data/provide_opp";
 import { OpenPeerPower } from "../../../src/types";
 import "../../../src/panels/config/integrations/op-integration-card";
 import "../../../src/panels/config/integrations/op-ignored-config-entry-card";
-import "../../../src/panels/config/integrations/ha-config-flow-card";
+import "../../../src/panels/config/integrations/op-config-flow-card";
 import type {
   ConfigEntryExtended,
   DataEntryFlowProgressExtended,
-} from "../../../src/panels/config/integrations/ha-config-integrations";
+} from "../../../src/panels/config/integrations/op-config-integrations";
 import { DeviceRegistryEntry } from "../../../src/data/device_registry";
 import { EntityRegistryEntry } from "../../../src/data/entity_registry";
 

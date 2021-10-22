@@ -15,7 +15,7 @@ import { styleMap } from "lit/directives/style-map";
 import { LocalStorage } from "../../common/decorators/local-storage";
 import { OPPDomEvent } from "../../common/dom/fire_event";
 import "../../components/op-card";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import {
   Calendar,
   fetchCalendarEvents,
@@ -28,7 +28,7 @@ import type {
   CalendarViewChanged,
   OpenPeerPower,
 } from "../../types";
-import "./ha-full-calendar";
+import "./op-full-calendar";
 
 @customElement("op-panel-calendar")
 class PanelCalendar extends LitElement {
@@ -208,11 +208,11 @@ class PanelCalendar extends LitElement {
           padding: 16px 16px 8px 8px;
         }
 
-        ha-full-calendar {
+        op-full-calendar {
           flex-grow: 1;
         }
 
-        :host([narrow]) ha-full-calendar {
+        :host([narrow]) op-full-calendar {
           height: calc(100vh - 72px);
         }
 

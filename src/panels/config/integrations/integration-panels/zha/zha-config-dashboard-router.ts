@@ -6,7 +6,7 @@ import {
 } from "../../../../../layouts/opp-router-page";
 import { OpenPeerPower } from "../../../../../types";
 
-@customElement("zha-config-dashboard-router")
+@customElement("zop-config-dashboard-router")
 class ZHAConfigDashboardRouter extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -23,20 +23,20 @@ class ZHAConfigDashboardRouter extends OppRouterPage {
     showLoading: true,
     routes: {
       dashboard: {
-        tag: "zha-config-dashboard",
-        load: () => import("./zha-config-dashboard"),
+        tag: "zop-config-dashboard",
+        load: () => import("./zop-config-dashboard"),
       },
       add: {
         tag: "zop-add-devices-page",
         load: () => import("./zop-add-devices-page"),
       },
       groups: {
-        tag: "zha-groups-dashboard",
-        load: () => import("./zha-groups-dashboard"),
+        tag: "zop-groups-dashboard",
+        load: () => import("./zop-groups-dashboard"),
       },
       group: {
-        tag: "zha-group-page",
-        load: () => import("./zha-group-page"),
+        tag: "zop-group-page",
+        load: () => import("./zop-group-page"),
       },
       "group-add": {
         tag: "zop-add-group-page",
@@ -79,6 +79,6 @@ class ZHAConfigDashboardRouter extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-config-dashboard-router": ZHAConfigDashboardRouter;
+    "zop-config-dashboard-router": ZHAConfigDashboardRouter;
   }
 }

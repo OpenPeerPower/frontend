@@ -7,7 +7,7 @@ import oppAttributeUtil, {
   formatAttributeName,
   formatAttributeValue,
 } from "../util/opp-attributes-util";
-import "./ha-expansion-panel";
+import "./op-expansion-panel";
 
 @customElement("op-attributes")
 class HaAttributes extends LitElement {

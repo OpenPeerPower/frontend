@@ -42,4 +42,4 @@ class HaCustomizeKeyValue extends PolymerElement {
     };
   }
 }
-customElements.define("ha-customize-key-value", HaCustomizeKeyValue);
+customElements.define("op-customize-key-value", HaCustomizeKeyValue);

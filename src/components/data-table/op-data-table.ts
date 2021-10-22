@@ -25,8 +25,8 @@ import "../../common/search/search-input";
 import { debounce } from "../../common/util/debounce";
 import { nextRender } from "../../common/util/render-status";
 import { haStyleScrollbar } from "../../resources/styles";
-import "../ha-checkbox";
-import type { HaCheckbox } from "../ha-checkbox";
+import "../op-checkbox";
+import type { HaCheckbox } from "../op-checkbox";
 import "../op-icon";
 import { filterData, sortData } from "./sort-filter";
 

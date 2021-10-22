@@ -27,12 +27,12 @@ import {
 import "../../../../../layouts/opp-error-screen";
 import "../../../../../layouts/opp-subpage";
 import { OpenPeerPower } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { formatAsPaddedHex } from "./functions";
 import "./zop-device-endpoint-data-table";
 import type { ZHADeviceEndpointDataTable } from "./zop-device-endpoint-data-table";
 
-@customElement("zha-group-page")
+@customElement("zop-group-page")
 export class ZHAGroupPage extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 

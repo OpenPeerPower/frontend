@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-@customElement("ha-config-blueprint")
+@customElement("op-config-blueprint")
 class HaConfigBlueprint extends OppRouterPage {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -71,6 +71,6 @@ class HaConfigBlueprint extends OppRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-blueprint": HaConfigBlueprint;
+    "op-config-blueprint": HaConfigBlueprint;
   }
 }

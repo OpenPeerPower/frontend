@@ -92,4 +92,4 @@ class HaCallServiceButton extends EventsMixin(PolymerElement) {
   }
 }
 
-customElements.define("ha-call-service-button", HaCallServiceButton);
+customElements.define("op-call-service-button", HaCallServiceButton);

@@ -10,7 +10,7 @@ import { html } from "@polymer/polymer/lib/utils/html-tag";
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { formatDateTime } from "../../common/datetime/format_date_time";
 import "../../components/op-card";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import "../../components/op-tabs";
 import "../../layouts/op-app-layout";
 import { EventsMixin } from "../../mixins/events-mixin";

@@ -44,7 +44,7 @@ import { actionHandler } from "../panels/lovelace/common/directives/action-handl
 import { haStyleScrollbar } from "../resources/styles";
 import type { OpenPeerPower, PanelInfo } from "../types";
 import "./op-icon";
-import "./ha-menu-button";
+import "./op-menu-button";
 import "./op-svg-icon";
 import "./user/op-user-badge";
 

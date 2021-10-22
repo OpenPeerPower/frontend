@@ -19,7 +19,7 @@ import "../../../../../layouts/opp-tabs-subpage";
 import type { PageNavigation } from "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 
 export const zhaTabs: PageNavigation[] = [
   {
@@ -39,7 +39,7 @@ export const zhaTabs: PageNavigation[] = [
   },
 ];
 
-@customElement("zha-config-dashboard")
+@customElement("zop-config-dashboard")
 class ZHAConfigDashboard extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -116,6 +116,6 @@ class ZHAConfigDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zha-config-dashboard": ZHAConfigDashboard;
+    "zop-config-dashboard": ZHAConfigDashboard;
   }
 }

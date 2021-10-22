@@ -55,7 +55,7 @@ import { documentationUrl } from "../../../util/documentation-url";
 import { showToast } from "../../../util/toast";
 import "../automation/action/op-automation-action";
 import { HaDeviceAction } from "../automation/action/types/op-automation-action-device_id";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 
 export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {

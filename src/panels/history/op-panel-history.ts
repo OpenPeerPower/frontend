@@ -13,7 +13,7 @@ import "../../components/entity/op-entity-picker";
 import "../../components/op-circular-progress";
 import "../../components/op-date-range-picker";
 import type { DateRangePickerRanges } from "../../components/op-date-range-picker";
-import "../../components/ha-menu-button";
+import "../../components/op-menu-button";
 import "../../components/state-history-charts";
 import { computeHistory, fetchDate } from "../../data/history";
 import "../../layouts/op-app-layout";

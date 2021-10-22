@@ -13,17 +13,17 @@ import {
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/op-card";
 import "../../../components/op-icon-next";
-import "../../../components/ha-menu-button";
+import "../../../components/op-menu-button";
 import "../../../components/op-svg-icon";
 import { CloudStatus } from "../../../data/cloud";
 import "../../../layouts/op-app-layout";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
-import "./ha-config-navigation";
+import "./op-config-navigation";
 
-@customElement("ha-config-dashboard")
+@customElement("op-config-dashboard")
 class HaConfigDashboard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -121,10 +121,10 @@ class HaConfigDashboard extends LitElement {
         op-card:last-child {
           margin-bottom: 24px;
         }
-        ha-config-section {
+        op-config-section {
           margin-top: -12px;
         }
-        :host([narrow]) ha-config-section {
+        :host([narrow]) op-config-section {
           margin-top: -20px;
         }
         op-card {
@@ -149,6 +149,6 @@ class HaConfigDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-dashboard": HaConfigDashboard;
+    "op-config-dashboard": HaConfigDashboard;
   }
 }

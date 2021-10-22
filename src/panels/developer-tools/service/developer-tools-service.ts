@@ -17,7 +17,7 @@ import { extractSearchParam } from "../../../common/url/search-params";
 import "../../../components/buttons/op-progress-button";
 import "../../../components/entity/op-entity-picker";
 import "../../../components/op-card";
-import "../../../components/ha-expansion-panel";
+import "../../../components/op-expansion-panel";
 import "../../../components/op-service-control";
 import "../../../components/op-service-picker";
 import "../../../components/op-yaml-editor";

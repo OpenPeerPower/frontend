@@ -16,7 +16,7 @@ import "../../../components/entity/op-entity-toggle";
 import "../../../components/op-blueprint-picker";
 import "../../../components/op-card";
 import "../../../components/op-circular-progress";
-import "../../../components/ha-markdown";
+import "../../../components/op-markdown";
 import "../../../components/op-selector/op-selector";
 import "../../../components/op-settings-row";
 import {
@@ -30,7 +30,7 @@ import {
 } from "../../../data/blueprint";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower } from "../../../types";
-import "../ha-config-section";
+import "../op-config-section";
 
 @customElement("blueprint-automation-editor")
 export class HaBlueprintAutomationEditor extends LitElement {

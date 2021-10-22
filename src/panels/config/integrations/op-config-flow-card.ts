@@ -18,10 +18,10 @@ import type { IntegrationManifest } from "../../../data/integration";
 import { showConfigFlowDialog } from "../../../dialogs/config-flow/show-dialog-config-flow";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
 import type { OpenPeerPower } from "../../../types";
-import type { DataEntryFlowProgressExtended } from "./ha-config-integrations";
+import type { DataEntryFlowProgressExtended } from "./op-config-integrations";
 import "./op-integration-action-card";
 
-@customElement("ha-config-flow-card")
+@customElement("op-config-flow-card")
 export class HaConfigFlowCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -125,6 +125,6 @@ export class HaConfigFlowCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-flow-card": HaConfigFlowCard;
+    "op-config-flow-card": HaConfigFlowCard;
   }
 }

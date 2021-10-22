@@ -10,8 +10,8 @@ import {
 import { html, TemplateResult } from "lit-html";
 import { localizeKey } from "../../common/translations/localize";
 import "../../components/op-circular-progress";
-import "../../components/ha-form/ha-form";
-import "../../components/ha-markdown";
+import "../../components/op-form/op-form";
+import "../../components/op-markdown";
 import {
   DataEntryFlowStep,
   DataEntryFlowStepForm,
@@ -22,7 +22,7 @@ import "../../components/op-dialog";
 
 let instance = 0;
 
-@customElement("ha-mfa-module-setup-flow")
+@customElement("op-mfa-module-setup-flow")
 class HaMfaModuleSetupFlow extends LitElement {
   @property() public opp!: OpenPeerPower;
 
@@ -161,13 +161,13 @@ class HaMfaModuleSetupFlow extends LitElement {
         op-dialog {
           max-width: 500px;
         }
-        ha-markdown {
+        op-markdown {
           --markdown-svg-background-color: white;
           --markdown-svg-color: black;
           display: block;
           margin: 0 auto;
         }
-        ha-markdown a {
+        op-markdown a {
           color: var(--primary-color);
         }
         .init-spinner {
@@ -276,6 +276,6 @@ class HaMfaModuleSetupFlow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-mfa-module-setup-flow": HaMfaModuleSetupFlow;
+    "op-mfa-module-setup-flow": HaMfaModuleSetupFlow;
   }
 }

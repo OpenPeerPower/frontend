@@ -12,7 +12,7 @@ import {
 import memoizeOne from "memoize-one";
 import { OPPDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import {
   DataTableColumnContainer,
   RowClickedEvent,
@@ -24,7 +24,7 @@ import "../../../../../layouts/opp-tabs-subpage";
 import "../../../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower, Route } from "../../../../../types";
-import "../../../ha-config-section";
+import "../../../op-config-section";
 import { ozwNetworkTabs } from "./ozw-network-router";
 
 export interface NodeRowData extends OZWDevice {

@@ -8,9 +8,9 @@ import {
 } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
-import { HaFormConstantSchema, HaFormElement } from "./ha-form";
+import { HaFormConstantSchema, HaFormElement } from "./op-form";
 
-@customElement("ha-form-constant")
+@customElement("op-form-constant")
 export class HaFormConstant extends LitElement implements HaFormElement {
   @property({ attribute: false }) public schema!: HaFormConstantSchema;
 
@@ -41,6 +41,6 @@ export class HaFormConstant extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-constant": HaFormConstant;
+    "op-form-constant": HaFormConstant;
   }
 }

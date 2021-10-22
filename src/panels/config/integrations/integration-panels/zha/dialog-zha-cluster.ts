@@ -9,7 +9,7 @@ import {
   TemplateResult,
 } from "lit-element";
 import { OPPDomEvent } from "../../../../../common/dom/fire_event";
-import "../../../../../components/ha-code-editor";
+import "../../../../../components/op-code-editor";
 import { createCloseHeading } from "../../../../../components/op-dialog";
 import {
   Cluster,
@@ -23,13 +23,13 @@ import { OpenPeerPower } from "../../../../../types";
 import { sortZHADevices, sortZHAGroups } from "./functions";
 import { ZHADeviceZigbeeInfoDialogParams } from "./show-dialog-zop-device-zigbee-info";
 import { ZHAClusterSelectedParams } from "./types";
-import "./zha-cluster-attributes";
-import "./zha-cluster-commands";
-import "./zha-clusters";
+import "./zop-cluster-attributes";
+import "./zop-cluster-commands";
+import "./zop-clusters";
 import "./zop-device-binding";
-import "./zha-group-binding";
+import "./zop-group-binding";
 
-@customElement("dialog-zha-cluster")
+@customElement("dialog-zop-cluster")
 class DialogZHACluster extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -69,23 +69,23 @@ class DialogZHACluster extends LitElement {
           this.opp.localize("ui.panel.config.zha.clusters.header")
         )}
       >
-        <zha-clusters
+        <zop-clusters
           .opp=${this.opp}
           .selectedDevice="${this._device}"
-          @zha-cluster-selected="${this._onClusterSelected}"
-        ></zha-clusters>
+          @zop-cluster-selected="${this._onClusterSelected}"
+        ></zop-clusters>
         ${this._selectedCluster
           ? html`
-              <zha-cluster-attributes
+              <zop-cluster-attributes
                 .opp=${this.opp}
                 .selectedNode="${this._device}"
                 .selectedCluster="${this._selectedCluster}"
-              ></zha-cluster-attributes>
-              <zha-cluster-commands
+              ></zop-cluster-attributes>
+              <zop-cluster-commands
                 .opp=${this.opp}
                 .selectedNode="${this._device}"
                 .selectedCluster="${this._selectedCluster}"
-              ></zha-cluster-commands>
+              ></zop-cluster-commands>
             `
           : ""}
         ${this._bindableDevices.length > 0
@@ -99,11 +99,11 @@ class DialogZHACluster extends LitElement {
           : ""}
         ${this._device && this._groups.length > 0
           ? html`
-              <zha-group-binding-control
+              <zop-group-binding-control
                 .opp=${this.opp}
                 .selectedDevice="${this._device}"
                 .groups="${this._groups}"
-              ></zha-group-binding-control>
+              ></zop-group-binding-control>
             `
           : ""}
       </op-dialog>
@@ -139,6 +139,6 @@ class DialogZHACluster extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "dialog-zha-cluster": DialogZHACluster;
+    "dialog-zop-cluster": DialogZHACluster;
   }
 }

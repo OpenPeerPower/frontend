@@ -14,8 +14,8 @@ import { LocalStorage } from "../../common/decorators/local-storage";
 import { OPPDomEvent } from "../../common/dom/fire_event";
 import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { supportsFeature } from "../../common/entity/supports-feature";
-import "../../components/ha-menu-button";
-import "../../components/media-player/ha-media-player-browse";
+import "../../components/op-menu-button";
+import "../../components/media-player/op-media-player-browse";
 import {
   BROWSER_PLAYER,
   MediaPickedEvent,
@@ -134,7 +134,7 @@ class PanelMediaBrowser extends LitElement {
         :host {
           --mdc-theme-primary: var(--app-header-text-color);
         }
-        ha-media-player-browse {
+        op-media-player-browse {
           height: calc(100vh - var(--header-height));
         }
         :host([narrow]) app-toolbar mwc-button {

@@ -13,17 +13,17 @@ import {
   TemplateResult,
 } from "lit-element";
 import { componentsWithService } from "../../../common/config/components_with_service";
-import "../../../components/buttons/ha-call-service-button";
+import "../../../components/buttons/op-call-service-button";
 import "../../../components/op-card";
 import { checkCoreConfig } from "../../../data/core";
 import { domainToName } from "../../../data/integration";
 import "../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../types";
-import "../ha-config-section";
+import "../op-config-section";
 import { configSections } from "../op-panel-config";
 
-@customElement("ha-config-server-control")
+@customElement("op-config-server-control")
 export class HaConfigServerControl extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -274,7 +274,7 @@ export class HaConfigServerControl extends LitElement {
           direction: ltr;
         }
 
-        ha-config-section {
+        op-config-section {
           padding-bottom: 24px;
         }
       `,

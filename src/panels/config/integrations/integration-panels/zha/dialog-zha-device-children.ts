@@ -9,7 +9,7 @@ import {
 } from "lit-element";
 import memoizeOne from "memoize-one";
 import { computeRTLDirection } from "../../../../../common/util/compute_rtl";
-import "../../../../../components/ha-code-editor";
+import "../../../../../components/op-code-editor";
 import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";

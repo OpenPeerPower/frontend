@@ -11,7 +11,7 @@ import {
   property,
   TemplateResult,
 } from "lit-element";
-import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/buttons/op-call-service-button";
 import "../../../../../components/op-card";
 import { ZWaveValue } from "../../../../../data/zwave";
 import { haStyle } from "../../../../../resources/styles";

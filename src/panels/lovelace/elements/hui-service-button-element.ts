@@ -7,7 +7,7 @@ import {
   LitElement,
   TemplateResult,
 } from "lit-element";
-import "../../../components/buttons/ha-call-service-button";
+import "../../../components/buttons/op-call-service-button";
 import { OpenPeerPower } from "../../../types";
 import { LovelaceElement, ServiceButtonElementConfig } from "./types";
 
@@ -60,7 +60,7 @@ export class HuiServiceButtonElement
 
   static get styles(): CSSResult {
     return css`
-      ha-call-service-button {
+      op-call-service-button {
         color: var(--primary-color);
         white-space: nowrap;
       }

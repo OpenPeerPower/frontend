@@ -51,9 +51,9 @@ class HaEntityMarker extends LitElement {
         overflow: hidden;
         width: 48px;
         height: 48px;
-        font-size: var(--ha-marker-font-size, 1.5em);
+        font-size: var(--op-marker-font-size, 1.5em);
         border-radius: 50%;
-        border: 1px solid var(--ha-marker-color, var(--primary-color));
+        border: 1px solid var(--op-marker-color, var(--primary-color));
         color: var(--primary-text-color);
         background-color: var(--card-background-color);
       }

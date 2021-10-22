@@ -7,9 +7,9 @@ import type {
   HaFormBooleanData,
   HaFormBooleanSchema,
   HaFormElement,
-} from "./ha-form";
+} from "./op-form";
 
-@customElement("ha-form-boolean")
+@customElement("op-form-boolean")
 export class HaFormBoolean extends LitElement implements HaFormElement {
   @property() public schema!: HaFormBooleanSchema;
 
@@ -53,6 +53,6 @@ export class HaFormBoolean extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-boolean": HaFormBoolean;
+    "op-form-boolean": HaFormBoolean;
   }
 }

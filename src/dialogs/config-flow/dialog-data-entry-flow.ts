@@ -14,9 +14,9 @@ import { fireEvent, OPPDomEvent } from "../../common/dom/fire_event";
 import { computeRTL } from "../../common/util/compute_rtl";
 import "../../components/op-circular-progress";
 import "../../components/op-dialog";
-import "../../components/ha-form/ha-form";
+import "../../components/op-form/op-form";
 import "../../components/op-icon-button";
-import "../../components/ha-markdown";
+import "../../components/op-markdown";
 import {
   AreaRegistryEntry,
   subscribeAreaRegistry,

@@ -36,10 +36,10 @@ import "../../../../layouts/opp-loading-screen";
 import "../../../../layouts/opp-tabs-subpage-data-table";
 import { OpenPeerPower, Route } from "../../../../types";
 import { loadLovelaceResources } from "../../../lovelace/common/load-resources";
-import { lovelaceTabs } from "../ha-config-lovelace";
+import { lovelaceTabs } from "../op-config-lovelace";
 import { showResourceDetailDialog } from "./show-dialog-lovelace-resource-detail";
 
-@customElement("ha-config-lovelace-resources")
+@customElement("op-config-lovelace-resources")
 export class HaConfigLovelaceRescources extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 

@@ -1,7 +1,7 @@
 import { css, customElement, html, LitElement, property } from "lit-element";
 import { classMap } from "lit-html/directives/class-map";
 
-@customElement("ha-config-section")
+@customElement("op-config-section")
 export class HaConfigSection extends LitElement {
   @property() public isWide = false;
 

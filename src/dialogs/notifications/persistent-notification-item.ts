@@ -3,7 +3,7 @@ import "@polymer/paper-tooltip/paper-tooltip";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { formatDateTime } from "../../common/datetime/format_date_time";
-import "../../components/ha-markdown";
+import "../../components/op-markdown";
 import "../../components/op-relative-time";
 import { PersistentNotification } from "../../data/persistent_notification";
 import { OpenPeerPower } from "../../types";
@@ -63,7 +63,7 @@ export class HuiPersistentNotificationItem extends LitElement {
       a {
         color: var(--primary-color);
       }
-      ha-markdown {
+      op-markdown {
         overflow-wrap: break-word;
       }
     `;

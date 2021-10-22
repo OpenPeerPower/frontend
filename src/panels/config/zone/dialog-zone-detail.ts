@@ -15,7 +15,7 @@ import { computeRTLDirection } from "../../../common/util/compute_rtl";
 import { createCloseHeading } from "../../../components/op-dialog";
 import "../../../components/op-formfield";
 import "../../../components/op-switch";
-import "../../../components/map/ha-location-editor";
+import "../../../components/map/op-location-editor";
 import {
   defaultRadiusColor,
   getZoneEditorInitData,
@@ -296,7 +296,7 @@ class DialogZoneDetail extends LitElement {
         .location > *:last-child {
           margin-left: 4px;
         }
-        ha-location-editor {
+        op-location-editor {
           margin-top: 16px;
         }
         a {

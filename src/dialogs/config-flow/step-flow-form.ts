@@ -11,9 +11,9 @@ import {
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/op-circular-progress";
-import "../../components/ha-form/ha-form";
-import type { HaFormSchema } from "../../components/ha-form/ha-form";
-import "../../components/ha-markdown";
+import "../../components/op-form/op-form";
+import type { HaFormSchema } from "../../components/op-form/op-form";
+import "../../components/op-markdown";
 import type { DataEntryFlowStepForm } from "../../data/data_entry_flow";
 import type { OpenPeerPower } from "../../types";
 import type { FlowConfig } from "./show-dialog-data-entry-flow";
@@ -100,7 +100,7 @@ class StepFlowForm extends LitElement {
 
   protected firstUpdated(changedProps: PropertyValues) {
     super.firstUpdated(changedProps);
-    setTimeout(() => this.shadowRoot!.querySelector("ha-form")!.focus(), 0);
+    setTimeout(() => this.shadowRoot!.querySelector("op-form")!.focus(), 0);
     this.addEventListener("keypress", (ev) => {
       if (ev.keyCode === 13) {
         this._submitStep();

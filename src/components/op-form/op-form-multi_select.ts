@@ -12,9 +12,9 @@ import {
   HaFormElement,
   HaFormMultiSelectData,
   HaFormMultiSelectSchema,
-} from "./ha-form";
+} from "./op-form";
 
-@customElement("ha-form-multi_select")
+@customElement("op-form-multi_select")
 export class HaFormMultiSelect extends LitElement implements HaFormElement {
   @property() public schema!: HaFormMultiSelectSchema;
 
@@ -154,6 +154,6 @@ export class HaFormMultiSelect extends LitElement implements HaFormElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-form-multi_select": HaFormMultiSelect;
+    "op-form-multi_select": HaFormMultiSelect;
   }
 }
