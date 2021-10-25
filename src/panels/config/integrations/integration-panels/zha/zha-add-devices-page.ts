@@ -23,10 +23,10 @@ import {
 import "../../../../../layouts/opp-tabs-subpage";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../../../types";
-import { zhaTabs } from "./zop-config-dashboard";
-import "./zop-device-pairing-status-card";
+import { zhaTabs } from "./zha-config-dashboard";
+import "./zha-device-pairing-status-card";
 
-@customElement("zop-add-devices-page")
+@customElement("zha-add-devices-page")
 class ZHAAddDevicesPage extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -136,13 +136,13 @@ class ZHAAddDevicesPage extends LitElement {
             : html`
                 ${Object.values(this._discoveredDevices).map(
                   (device) => html`
-                    <zop-device-pairing-status-card
+                    <zha-device-pairing-status-card
                       class="card"
                       .opp=${this.opp}
                       .device=${device}
                       .narrow=${this.narrow}
                       .showHelp=${this._showHelp}
-                    ></zop-device-pairing-status-card>
+                    ></zha-device-pairing-status-card>
                   `
                 )}
               `}
@@ -276,6 +276,6 @@ class ZHAAddDevicesPage extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-add-devices-page": ZHAAddDevicesPage;
+    "zha-add-devices-page": ZHAAddDevicesPage;
   }
 }

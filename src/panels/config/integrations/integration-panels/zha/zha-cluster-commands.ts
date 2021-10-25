@@ -279,8 +279,8 @@ export class ZHAClusterCommands extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-cluster-commands": ZHAClusterCommands;
+    "zha-cluster-commands": ZHAClusterCommands;
   }
 }
 
-customElements.define("zop-cluster-commands", ZHAClusterCommands);
+customElements.define("zha-cluster-commands", ZHAClusterCommands);

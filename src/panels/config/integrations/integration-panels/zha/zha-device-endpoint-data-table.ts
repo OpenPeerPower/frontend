@@ -31,7 +31,7 @@ export interface DeviceEndpointRowData extends DataTableRowData {
   entities: ZHAEntityReference[];
 }
 
-@customElement("zop-device-endpoint-data-table")
+@customElement("zha-device-endpoint-data-table")
 export class ZHADeviceEndpointDataTable extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -169,6 +169,6 @@ export class ZHADeviceEndpointDataTable extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-device-endpoint-data-table": ZHADeviceEndpointDataTable;
+    "zha-device-endpoint-data-table": ZHADeviceEndpointDataTable;
   }
 }

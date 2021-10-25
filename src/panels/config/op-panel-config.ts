@@ -285,10 +285,10 @@ class HaPanelConfig extends OppRouterPage {
         load: () => import("./zone/op-config-zone"),
       },
       zha: {
-        tag: "zop-config-dashboard-router",
+        tag: "zha-config-dashboard-router",
         load: () =>
           import(
-            "./integrations/integration-panels/zha/zop-config-dashboard-router"
+            "./integrations/integration-panels/zha/zha-config-dashboard-router"
           ),
       },
       zwave: {

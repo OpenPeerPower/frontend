@@ -24,14 +24,14 @@ import "../../../../../layouts/opp-tabs-subpage-data-table";
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower, Route } from "../../../../../types";
 import { formatAsPaddedHex, sortZHAGroups } from "./functions";
-import { zhaTabs } from "./zop-config-dashboard";
+import { zhaTabs } from "./zha-config-dashboard";
 
 export interface GroupRowData extends ZHAGroup {
   group?: GroupRowData;
   id?: string;
 }
 
-@customElement("zop-groups-dashboard")
+@customElement("zha-groups-dashboard")
 export class ZHAGroupsDashboard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -161,6 +161,6 @@ export class ZHAGroupsDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-groups-dashboard": ZHAGroupsDashboard;
+    "zha-groups-dashboard": ZHAGroupsDashboard;
   }
 }

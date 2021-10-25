@@ -13,7 +13,7 @@ import "../../../../../components/op-code-editor";
 import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import { ZHADeviceChildrenDialogParams } from "./show-dialog-zop-device-children";
+import { ZHADeviceChildrenDialogParams } from "./show-dialog-zha-device-children";
 import "../../../../../components/data-table/op-data-table";
 import type {
   DataTableColumnContainer,
@@ -29,7 +29,7 @@ export interface DeviceRowData extends DataTableRowData {
   lqi: number;
 }
 
-@customElement("dialog-zop-device-children")
+@customElement("dialog-zha-device-children")
 class DialogZHADeviceChildren extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -139,6 +139,6 @@ class DialogZHADeviceChildren extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "dialog-zop-device-children": DialogZHADeviceChildren;
+    "dialog-zha-device-children": DialogZHADeviceChildren;
   }
 }

@@ -6,14 +6,14 @@ export interface ZHADeviceChildrenDialogParams {
 }
 
 export const loadZHADeviceChildrenDialog = () =>
-  import("./dialog-zop-device-children");
+  import("./dialog-zha-device-children");
 
 export const showZHADeviceChildrenDialog = (
   element: HTMLElement,
   zhaDeviceChildrenParams: ZHADeviceChildrenDialogParams
 ): void => {
   fireEvent(element, "show-dialog", {
-    dialogTag: "dialog-zop-device-children",
+    dialogTag: "dialog-zha-device-children",
     dialogImport: loadZHADeviceChildrenDialog,
     dialogParams: zhaDeviceChildrenParams,
   });

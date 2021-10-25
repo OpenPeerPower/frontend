@@ -23,7 +23,7 @@ import { OpenPeerPower } from "../../../../../types";
 import "../../../op-config-section";
 import { ItemSelectedEvent } from "./types";
 
-@customElement("zop-device-binding-control")
+@customElement("zha-device-binding-control")
 export class ZHADeviceBindingControl extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -203,6 +203,6 @@ export class ZHADeviceBindingControl extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-device-binding-control": ZHADeviceBindingControl;
+    "zha-device-binding-control": ZHADeviceBindingControl;
   }
 }

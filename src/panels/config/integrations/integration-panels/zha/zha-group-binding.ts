@@ -32,10 +32,10 @@ import { haStyle } from "../../../../../resources/styles";
 import type { OpenPeerPower } from "../../../../../types";
 import "../../../op-config-section";
 import { ItemSelectedEvent } from "./types";
-import "./zop-clusters-data-table";
-import type { ZHAClustersDataTable } from "./zop-clusters-data-table";
+import "./zha-clusters-data-table";
+import type { ZHAClustersDataTable } from "./zha-clusters-data-table";
 
-@customElement("zop-group-binding-control")
+@customElement("zha-group-binding-control")
 export class ZHAGroupBindingControl extends LitElement {
   @property({ attribute: false }) public opp?: OpenPeerPower;
 
@@ -59,7 +59,7 @@ export class ZHAGroupBindingControl extends LitElement {
 
   private _clustersToBind?: Cluster[];
 
-  @query("zop-clusters-data-table", true)
+  @query("zha-clusters-data-table", true)
   private _zhaClustersDataTable!: ZHAClustersDataTable;
 
   protected updated(changedProperties: PropertyValues): void {
@@ -123,13 +123,13 @@ export class ZHAGroupBindingControl extends LitElement {
               `
             : ""}
           <div class="command-picker">
-            <zop-clusters-data-table
+            <zha-clusters-data-table
               .opp=${this.opp}
               .narrow=${this.narrow}
               .clusters=${this._clusters}
               @selection-changed=${this._handleClusterSelectionChanged}
               class="menu"
-            ></zop-clusters-data-table>
+            ></zha-clusters-data-table>
           </div>
           ${this._showHelp
             ? html`
@@ -321,6 +321,6 @@ export class ZHAGroupBindingControl extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-group-binding-control": ZHAGroupBindingControl;
+    "zha-group-binding-control": ZHAGroupBindingControl;
   }
 }

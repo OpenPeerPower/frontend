@@ -22,7 +22,7 @@ export interface ClusterRowData extends Cluster {
   cluster_id?: string;
 }
 
-@customElement("zop-clusters-data-table")
+@customElement("zha-clusters-data-table")
 export class ZHAClustersDataTable extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -101,6 +101,6 @@ export class ZHAClustersDataTable extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-clusters-data-table": ZHAClustersDataTable;
+    "zha-clusters-data-table": ZHAClustersDataTable;
   }
 }

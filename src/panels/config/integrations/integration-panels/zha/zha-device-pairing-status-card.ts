@@ -26,9 +26,9 @@ import {
 import { haStyle } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
 import { formatAsPaddedHex } from "./functions";
-import "./zop-device-card";
+import "./zha-device-card";
 
-@customElement("zop-device-pairing-status-card")
+@customElement("zha-device-pairing-status-card")
 class ZHADevicePairingStatusCard extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -88,13 +88,13 @@ class ZHADevicePairingStatusCard extends LitElement {
           </div>
           ${this.device.pairing_status === INITIALIZED
             ? html`
-                <zop-device-card
+                <zha-device-card
                   class="card"
                   .opp=${this.opp}
                   .device=${this.device}
                   .narrow=${this.narrow}
                   .showHelp=${this._showHelp}
-                ></zop-device-card>
+                ></zha-device-card>
               `
             : html``}
         </div>
@@ -140,6 +140,6 @@ class ZHADevicePairingStatusCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-device-pairing-status-card": ZHADevicePairingStatusCard;
+    "zha-device-pairing-status-card": ZHADevicePairingStatusCard;
   }
 }

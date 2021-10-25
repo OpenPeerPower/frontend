@@ -29,10 +29,10 @@ import "../../../../../layouts/opp-subpage";
 import { OpenPeerPower } from "../../../../../types";
 import "../../../op-config-section";
 import { formatAsPaddedHex } from "./functions";
-import "./zop-device-endpoint-data-table";
-import type { ZHADeviceEndpointDataTable } from "./zop-device-endpoint-data-table";
+import "./zha-device-endpoint-data-table";
+import type { ZHADeviceEndpointDataTable } from "./zha-device-endpoint-data-table";
 
-@customElement("zop-group-page")
+@customElement("zha-group-page")
 export class ZHAGroupPage extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -152,7 +152,7 @@ export class ZHAGroupPage extends LitElement {
                   )}
                 </div>
 
-                <zop-device-endpoint-data-table
+                <zha-device-endpoint-data-table
                   id="removeMembers"
                   .opp=${this.opp}
                   .deviceEndpoints=${this.group.members}
@@ -160,7 +160,7 @@ export class ZHAGroupPage extends LitElement {
                   selectable
                   @selection-changed=${this._handleRemoveSelectionChanged}
                 >
-                </zop-device-endpoint-data-table>
+                </zha-device-endpoint-data-table>
 
                 <div class="paper-dialog-buttons">
                   <mwc-button
@@ -187,7 +187,7 @@ export class ZHAGroupPage extends LitElement {
             ${this.opp.localize("ui.panel.config.zha.groups.add_members")}
           </div>
 
-          <zop-device-endpoint-data-table
+          <zha-device-endpoint-data-table
             id="addMembers"
             .opp=${this.opp}
             .deviceEndpoints=${this._filteredDeviceEndpoints}
@@ -195,7 +195,7 @@ export class ZHAGroupPage extends LitElement {
             selectable
             @selection-changed=${this._handleAddSelectionChanged}
           >
-          </zop-device-endpoint-data-table>
+          </zha-device-endpoint-data-table>
 
           <div class="paper-dialog-buttons">
             <mwc-button

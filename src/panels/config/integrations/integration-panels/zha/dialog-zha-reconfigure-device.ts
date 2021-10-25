@@ -11,14 +11,14 @@ import {
 import { createCloseHeading } from "../../../../../components/op-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../types";
-import { ZHAReconfigureDeviceDialogParams } from "./show-dialog-zop-reconfigure-device";
+import { ZHAReconfigureDeviceDialogParams } from "./show-dialog-zha-reconfigure-device";
 import { IronAutogrowTextareaElement } from "@polymer/iron-autogrow-textarea";
 import "@polymer/paper-input/paper-textarea";
 import "../../../../../components/op-circular-progress";
 import { LOG_OUTPUT, reconfigureNode } from "../../../../../data/zha";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 
-@customElement("dialog-zop-reconfigure-device")
+@customElement("dialog-zha-reconfigure-device")
 class DialogZHAReconfigureDevice extends LitElement {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -149,6 +149,6 @@ class DialogZHAReconfigureDevice extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "dialog-zop-reconfigure-device": DialogZHAReconfigureDevice;
+    "dialog-zha-reconfigure-device": DialogZHAReconfigureDevice;
   }
 }

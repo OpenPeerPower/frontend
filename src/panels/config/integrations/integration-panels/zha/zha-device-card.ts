@@ -35,7 +35,7 @@ import { compare } from "../../../../../common/string/compare";
 import { getIeeeTail } from "./functions";
 import { slugify } from "../../../../../common/string/slugify";
 
-@customElement("zop-device-card")
+@customElement("zha-device-card")
 class ZHADeviceCard extends SubscribeMixin(LitElement) {
   @property({ attribute: false }) public opp!: OpenPeerPower;
 
@@ -239,6 +239,6 @@ class ZHADeviceCard extends SubscribeMixin(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-device-card": ZHADeviceCard;
+    "zha-device-card": ZHADeviceCard;
   }
 }

@@ -15,10 +15,10 @@ import { fetchZHADevice, ZHADevice } from "../../../../../../data/zha";
 import { showConfirmationDialog } from "../../../../../../dialogs/generic/show-dialog-box";
 import { haStyle } from "../../../../../../resources/styles";
 import { OpenPeerPower } from "../../../../../../types";
-import { showZHAClusterDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zop-cluster";
-import { showZHADeviceZigbeeInfoDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zop-device-zigbee-info";
-import { showZHAReconfigureDeviceDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zop-reconfigure-device";
-import { showZHADeviceChildrenDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zop-device-children";
+import { showZHAClusterDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zha-cluster";
+import { showZHADeviceZigbeeInfoDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zha-device-zigbee-info";
+import { showZHAReconfigureDeviceDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zha-reconfigure-device";
+import { showZHADeviceChildrenDialog } from "../../../../integrations/integration-panels/zha/show-dialog-zha-device-children";
 
 @customElement("op-device-actions-zha")
 export class HaDeviceActionsZha extends LitElement {

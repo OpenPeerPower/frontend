@@ -39,7 +39,7 @@ export const zhaTabs: PageNavigation[] = [
   },
 ];
 
-@customElement("zop-config-dashboard")
+@customElement("zha-config-dashboard")
 class ZHAConfigDashboard extends LitElement {
   @property({ type: Object }) public opp!: OpenPeerPower;
 
@@ -116,6 +116,6 @@ class ZHAConfigDashboard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "zop-config-dashboard": ZHAConfigDashboard;
+    "zha-config-dashboard": ZHAConfigDashboard;
   }
 }
